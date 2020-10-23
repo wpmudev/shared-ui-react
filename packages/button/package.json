@@ -1,0 +1,23 @@
+{
+	"name": "@wpmudev/react-button",
+	"version": "0.1.0",
+	"description": "Material Components React Button",
+	"license": "MIT",
+	"main": "dist/index.js",
+	"scripts": {
+		"prepare": "babel src -d dist --root-mode upward",
+		"watch": "babel src -d dist --watch --root-mode upward"
+	},
+	"repository": {
+		"type": "git",
+		"url": "wpmudev/shared-ui-react",
+		"directory": "packages/button"
+	},
+	"peerDependencies": {
+		"react": "^16.8.6"
+	},
+	"dependencies": {},
+	"publishConfig": {
+		"access": "public"
+	}
+}
