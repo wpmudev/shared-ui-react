@@ -1,0 +1,7 @@
+node_modules
+dist
+build
+.next
+artifacts
+.cache
+public
