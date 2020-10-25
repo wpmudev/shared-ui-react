@@ -17,8 +17,7 @@ module.exports = {
 		styled: {
 			plugins: [
 				[
-					'transform-rename-import',
-					{
+					'transform-rename-import', {
 						original: '^reflexbox$',
 						replacement: 'reflexbox/styled-components',
 					}
