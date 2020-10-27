@@ -1,0 +1,18 @@
+{
+	"name": "@wpmudev/sui-react-bundler",
+	"version": "0.1.0",
+	"bin": {
+		"sui-bundler": "./index.js"
+	},
+	"main": "index.js",
+	"license": "MIT",
+	"dependencies": {
+		"@babel/cli": "^7.5.5",
+		"@babel/core": "^7.5.5",
+		"@babel/preset-env": "^7.5.5",
+		"@babel/preset-react": "^7.0.0"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}
