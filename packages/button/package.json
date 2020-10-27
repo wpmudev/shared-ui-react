@@ -1,12 +1,12 @@
 {
 	"name": "@wpmudev/react-button",
 	"version": "0.1.0",
-	"description": "Material Components React Button",
+	"description": "Shared UI Components React Button",
 	"license": "MIT",
 	"main": "dist/index.js",
-	"scripts": {
-		"prepare": "babel src -d dist --root-mode upward",
-		"watch": "babel src -d dist --watch --root-mode upward"
+	"author": {
+		"name": "Leighton Sapir",
+		"email": "leigh@incsub.com"
 	},
 	"repository": {
 		"type": "git",
@@ -14,10 +14,12 @@
 		"directory": "packages/button"
 	},
 	"peerDependencies": {
-		"react": "^16.8.6"
+		"react": "^16.8.6",
+		"@wpmudev/shared-ui": "2.9.6"
 	},
 	"dependencies": {},
 	"publishConfig": {
 		"access": "public"
-	}
+	},
+	"scripts": {}
 }
