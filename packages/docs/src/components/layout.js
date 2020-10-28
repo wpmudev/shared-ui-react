@@ -1,12 +1,11 @@
 import React from 'react'
 
-export default (props) => {
-
-  return (
-    <div className="sui-2-9-6">
+export default ( props ) => {
+	return (
 		<div className="sui-wrap">
-			<p>Test</p>
+			<main id='content'>
+				{ props.children }
+			</main>
 		</div>
-    </div>
-  )
+	)
 }
