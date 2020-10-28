@@ -1,9 +1,22 @@
 import { Box, Flex, Button } from 'rebass'
+import { Tutorials } from '../../../tutorials/src/index.js'
 
 ## Get Started
 
-<Button as='a'
-  variant='big'
-  href='/getting-started'>
-  Read the docs
-</Button>
+<Tutorials
+	as="widget"
+	articles={[
+		{
+			title: 'How to Stop Hackers in Their Tracks with Defender',
+			content: 'Defender deters hackers with IP banning, login lockout, updating security keys, and more.'
+		},
+		{
+			title: "Find Out if You're Hacked: How to Find and Delete Suspicious Code with Defender",
+			content: "Detecting suspicious code within a site isn't always that simple and can easily go unnoticed."
+		},
+		{
+			title: 'How to Get the Most Out of Defender Security',
+			content: 'Keeping your WordPress site safe often requires no more than the click of a button with Defender.'
+		}
+	]}
+/>
