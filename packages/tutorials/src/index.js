@@ -33,8 +33,8 @@ export const Tutorials = ({
 				<div className="sui-tutorial--header">
 
 					{ ( post.image && '' !== post.image ) &&
-						<div className="sui-tutorial--image">
-							<img src={ post.image } aria-hidden="true" />
+						<div className={ styles.suiTutorialImage } aria-hidden="true">
+							<img src={ post.image } />
 						</div>
 					}
 
