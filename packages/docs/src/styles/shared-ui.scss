@@ -1,0 +1,211 @@
+@import '../../node_modules/@wpmudev/shared-ui/scss/shared-ui.scss';
+
+%line-clamp {
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+
+@include body-class(true) {
+
+	.sui-tutorials {
+		margin: 0;
+		padding: 0;
+		border: 0;
+
+		li.sui-tutorial {
+			display: block;
+			flex: 0 0 auto;
+			margin: 0;
+			padding: 0 10px 0 0;
+			border: 0;
+			background-color: $white;
+			list-style: none;
+
+			div[role="link"] {
+				cursor: pointer;
+				padding: 20px;
+				border-radius: 5px;
+
+				&:hover {
+					background-color: #FAFAFA;
+				}
+
+				&:focus {
+					outline: none;
+					background-color: #FAFAFA;
+					box-shadow: 0 2px 7px 0 rgba(0,0,0,0.05);
+				}
+			}
+
+			// Elements.
+			.sui-tutorial {
+
+				&--title {
+					@extend %line-clamp;
+					margin: 0;
+					padding: 0;
+					border: 0;
+					color: palette(gray, dark);
+					font: 500 13px/18px $font;
+					letter-spacing: -0.2px;
+				}
+
+				&--time {
+					overflow: hidden;
+					display: block;
+					margin: 0;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+				}
+
+				&--image {
+					overflow: hidden;
+					position: relative;
+
+					img {
+						width: auto;
+						max-height: 100%;
+						display: block;
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						margin: 0;
+						padding: 0;
+						border: 0;
+						transform: translate(-50%, -50%);
+					}
+				}
+
+				&--body {
+					margin-top: 16px;
+
+					.sui-description {
+						margin: 0 0 4px;
+
+						&.pseudo-link {
+							color: $blue;
+							font-weight: 500;
+						}
+
+						&:last-child {
+							margin: 0;
+						}
+					}
+				}
+			}
+
+			&:last-child {
+				padding: 0;
+			}
+
+			// STATE: Hover
+			&:hover {
+
+				div[role="link"] {
+					background-color: #FAFAFA;
+				}
+			}
+		}
+	}
+
+	// TYPE: Page.
+	.sui-tutorials--page {
+
+		.sui-tutorials {
+
+			li.sui-tutorial {
+
+				// Elements.
+				.sui-tutorial {
+
+					&--image {
+						width: 100%;
+						height: 140px;
+					}
+				}
+			}
+		}
+	}
+
+	// TYPE: Widget.
+	.sui-tutorials--widget {
+		position: relative;
+
+		.sui-tutorials--container {
+			padding: #{$sui-gutter-md / 2};
+
+			.sui-tutorials {
+				overflow: hidden;
+				display: flex;
+
+				li.sui-tutorial {
+					height: auto;
+					min-height: 100%;
+					display: flex;
+					flex-flow: column wrap;
+
+					div[role="link"] {
+						height: auto;
+						min-height: 100%;
+					}
+
+					// Elements.
+					.sui-tutorial {
+
+						&--header {
+							display: flex;
+							flex-flow: row wrap;
+							align-items: flex-start;
+						}
+
+						&--header-content {
+							display: block;
+							flex: 1;
+						}
+
+						&--image {
+							width: 66px;
+							height: 54px;
+							display: block;
+							flex: 0 0 auto;
+							margin-right: 10px;
+							border-radius: 6px;
+						}
+					}
+
+					@include media(min-width, md) {
+						width: 33.33%;
+					}
+
+					@include media(min-width, lg) {
+						width: 25%;
+					}
+				}
+			}
+		}
+
+		.sui-tutorials--navigation {
+
+			button[class*="sui-tutorials-"] {
+				position: absolute;
+				top: 50%;
+				margin: 0;
+				transform: translateY(-50%);
+			}
+
+			.sui-tutorials--back {
+				left: 0;
+			}
+
+			.sui-tutorials--next {
+				right: 0;
+			}
+		}
+
+		@include media(min-width, md) {
+			padding: #{$sui-gutter / 2};
+		}
+	}
+}
