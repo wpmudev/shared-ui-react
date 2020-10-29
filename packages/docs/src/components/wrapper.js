@@ -11,8 +11,6 @@ export const wrapper = ({
 }) => {
 	const children = React.Children.toArray( props.children )
 		.reduce( ( acc, child ) => {
-			const type = child.props.mdxType
-			if ( type !== 'h1' ) return [ ...acc, child ]
 			return [
 				...acc,
 				child,
@@ -21,11 +19,11 @@ export const wrapper = ({
 
 	return (
 		<React.Fragment>
-		{ title && (
-			<Helmet>
-			<title>{ title } | SUI React</title>
-			</Helmet>
-		)}
+		<Helmet
+			bodyAttributes={{
+				class: 'wp-admin wp-core-ui js auto-fold sui-2-9-6 auto-fold admin-bar admin-color-fresh sticky-menu svg'
+			}}
+		/>
 		{ children }
 		</React.Fragment>
 	)

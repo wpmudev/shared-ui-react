@@ -1,9 +1,9 @@
 import React from 'react'
 import Layout from './components/layout'
+import './styles/wordpress.scss'
+import './styles/shared-ui.scss'
 
 export const wrapPageElement = ({ element, props }) =>
-	<div className="sui-2-9-6">
-		<Layout { ...props }>
-			{ element }
-		</Layout>
-	</div>
+	<Layout { ...props }>
+		{ element }
+	</Layout>
