@@ -1,22 +1,65 @@
-import { Box, Flex, Button } from 'rebass'
+import { Box } from '../../../box/index.js'
 import { Tutorials } from '../../../tutorials/src/index.js'
 
-## Get Started
+<header class="sui-header">
+	<h1 class="sui-header-title">Dashboard</h1>
+</header>
 
-<Tutorials
-	as="widget"
-	articles={[
-		{
-			title: 'How to Stop Hackers in Their Tracks with Defender',
-			content: 'Defender deters hackers with IP banning, login lockout, updating security keys, and more.'
-		},
-		{
-			title: "Find Out if You're Hacked: How to Find and Delete Suspicious Code with Defender",
-			content: "Detecting suspicious code within a site isn't always that simple and can easily go unnoticed."
-		},
-		{
-			title: 'How to Get the Most Out of Defender Security',
-			content: 'Keeping your WordPress site safe often requires no more than the click of a button with Defender.'
-		}
-	]}
-/>
+<Box
+	title="Dashboard"
+	close="Hide Tutorials"
+>
+	<Tutorials
+		as="widget"
+		posts={[
+			{
+				title: 'How to Stop Hackers in Their Tracks with Defender',
+				content: 'Defender deters hackers with IP banning, login lockout, updating security keys, and more.',
+				image: 'https://premium.wpmudev.org/blog/wp-content/uploads/2020/06/HowToStopHackersDefender.png',
+				link: 'https://premium.wpmudev.org/blog/stop-hackers-with-defender-wordpress-security-plugin/',
+				time: '5 min read',
+				readMore: 'Read article'
+			},
+			{
+				title: "Find Out if You're Hacked: How to Find and Delete Suspicious Code with Defender",
+				content: "Detecting suspicious code within a site isn't always that simple and can easily go unnoticed.",
+				image: 'https://premium.wpmudev.org/blog/wp-content/uploads/2020/07/A-SuspiciousCodeDefender.png',
+				link: 'https://premium.wpmudev.org/blog/delete-suspicious-code-defender/',
+				time: '6 min read',
+				readMore: 'Read article'
+			},
+			{
+				title: 'How to Get the Most Out of Defender Security',
+				content: 'Keeping your WordPress site safe often requires no more than the click of a button with Defender.',
+				image: 'https://premium.wpmudev.org/blog/wp-content/uploads/2020/07/A-Defender2.png',
+				link: 'https://premium.wpmudev.org/blog/how-to-get-the-most-out-of-defender-security/',
+				time: '7 min read',
+				readMore: 'Read article'
+			},
+			{
+				title: 'How to Stop Hackers in Their Tracks with Defender',
+				content: 'Defender deters hackers with IP banning, login lockout, updating security keys, and more.',
+				image: 'https://premium.wpmudev.org/blog/wp-content/uploads/2020/06/HowToStopHackersDefender.png',
+				link: 'https://premium.wpmudev.org/blog/stop-hackers-with-defender-wordpress-security-plugin/',
+				time: '5 min read',
+				readMore: 'Read article'
+			},
+			{
+				title: "Find Out if You're Hacked: How to Find and Delete Suspicious Code with Defender",
+				content: "Detecting suspicious code within a site isn't always that simple and can easily go unnoticed.",
+				image: 'https://premium.wpmudev.org/blog/wp-content/uploads/2020/07/A-SuspiciousCodeDefender.png',
+				link: 'https://premium.wpmudev.org/blog/delete-suspicious-code-defender/',
+				time: '6 min read',
+				readMore: 'Read article'
+			},
+			{
+				title: 'How to Get the Most Out of Defender Security',
+				content: 'Keeping your WordPress site safe often requires no more than the click of a button with Defender.',
+				image: 'https://premium.wpmudev.org/blog/wp-content/uploads/2020/07/A-Defender2.png',
+				link: 'https://premium.wpmudev.org/blog/how-to-get-the-most-out-of-defender-security/',
+				time: '7 min read',
+				readMore: 'Read article'
+			}
+		]}
+	/>
+</Box>
