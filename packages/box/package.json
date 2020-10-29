@@ -1,0 +1,25 @@
+{
+	"name": "@wpmudev/react-box",
+	"version": "0.1.0",
+	"description": "Shared UI Components React Box",
+	"license": "MIT",
+	"main": "dist/index.js",
+	"author": {
+		"name": "Leighton Sapir",
+		"email": "leigh@incsub.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "wpmudev/shared-ui-react",
+		"directory": "packages/box"
+	},
+	"peerDependencies": {
+		"react": "^16.8.6",
+		"@wpmudev/shared-ui": "2.9.6"
+	},
+	"dependencies": {},
+	"publishConfig": {
+		"access": "public"
+	},
+	"scripts": {}
+}
