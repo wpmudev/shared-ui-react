@@ -13,6 +13,7 @@ module.exports = {
     },
     'gatsby-plugin-catch-links',
     'gatsby-plugin-theme-ui',
-    'gatsby-plugin-react-helmet',
+	'gatsby-plugin-react-helmet',
+	'gatsby-plugin-sass'
   ],
 }
