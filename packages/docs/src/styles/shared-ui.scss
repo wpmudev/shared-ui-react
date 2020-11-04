@@ -18,7 +18,7 @@
 			display: block;
 			flex: 0 0 auto;
 			margin: 0;
-			padding: 0 10px 0 0;
+			padding: 0;
 			border: 0;
 			background-color: $white;
 			list-style: none;
@@ -27,6 +27,10 @@
 				cursor: pointer;
 				padding: 20px;
 				border-radius: 5px;
+
+				* {
+					pointer-events: none;
+				}
 
 				&:hover {
 					background-color: #FAFAFA;
@@ -77,23 +81,6 @@
 						transform: translate(-50%, -50%);
 					}
 				}
-
-				&--body {
-					margin-top: 16px;
-
-					.sui-description {
-						margin: 0 0 4px;
-
-						&.pseudo-link {
-							color: $blue;
-							font-weight: 500;
-						}
-
-						&:last-child {
-							margin: 0;
-						}
-					}
-				}
 			}
 
 			&:last-child {
@@ -139,12 +126,14 @@
 			.sui-tutorials {
 				overflow: hidden;
 				display: flex;
+				flex-flow: row nowrap;
 
 				li.sui-tutorial {
 					height: auto;
 					min-height: 100%;
 					display: flex;
 					flex-flow: column wrap;
+					padding: 0 10px;
 
 					div[role="link"] {
 						height: auto;
@@ -173,6 +162,27 @@
 							margin-right: 10px;
 							border-radius: 6px;
 						}
+
+						&--time {
+							margin-bottom: -4px;
+						}
+
+						&--body {
+							margin-top: 20px;
+
+							.sui-description {
+								margin: 0 0 4px;
+
+								&.pseudo-link {
+									color: $blue;
+									font-weight: 500;
+								}
+
+								&:last-child {
+									margin: 0;
+								}
+							}
+						}
 					}
 
 					@include media(min-width, md) {
@@ -196,16 +206,12 @@
 			}
 
 			.sui-tutorials--back {
-				left: 0;
+				left: 10px;
 			}
 
 			.sui-tutorials--next {
-				right: 0;
+				right: 10px;
 			}
-		}
-
-		@include media(min-width, md) {
-			padding: #{$sui-gutter / 2};
 		}
 	}
 }
