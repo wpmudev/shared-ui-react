@@ -1,6 +1,7 @@
 {
 	"name": "@wpmudev/react-box",
 	"version": "0.0.0",
+	"repository": "wpmudev/shared-ui-react",
 	"dependencies": {
 		"cross-env": "5.0.5"
 	}
