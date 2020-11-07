@@ -1,8 +1,27 @@
 {
-	"name": "@wpmudev/react-box",
-	"version": "0.0.0",
-	"repository": "wpmudev/shared-ui-react",
-	"dependencies": {
-		"cross-env": "5.0.5"
-	}
+  "name": "@wpmudev/react-box",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "keywords": [],
+  "author": "Leighton Sapir <2328848+iamleigh@users.noreply.github.com>",
+  "homepage": "https://github.com/wpmudev/shared-ui-react#readme",
+  "license": "MIT",
+  "main": "lib/box.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wpmudev/shared-ui-react.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/wpmudev/shared-ui-react/issues"
+  }
 }
