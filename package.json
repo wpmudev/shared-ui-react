@@ -3,5 +3,9 @@
 	"workspaces": [
 		"packages/*",
 		"examples/*"
-	]
+	],
+	"devDependencies": {
+		"lerna": "^3.22.1"
+	},
+	"name": "shared-ui-react"
 }

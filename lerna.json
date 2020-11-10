@@ -1,3 +1,7 @@
 {
-	"npmClient": "yarn"
+	"npmClient": "yarn",
+	"packages": [
+		"packages/*"
+	],
+	"version": "independent"
 }
