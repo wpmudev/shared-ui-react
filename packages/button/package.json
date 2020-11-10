@@ -22,5 +22,8 @@
   },
   "bugs": {
     "url": "https://github.com/wpmudev/shared-ui-react/issues"
+  },
+  "dependencies": {
+    "@wpmudev/shared-ui": "^2.10.0"
   }
 }
