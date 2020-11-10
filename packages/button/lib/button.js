@@ -2,6 +2,16 @@
 
 module.exports = button;
 
-function button() {
-    // TODO
+const button = ({
+	label,
+	...props
+}) => {
+    return (
+		<button
+			{ ...props }
+			className="sui-button"
+		>
+			{ label }
+		</button>
+	);
 }
