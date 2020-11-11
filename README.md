@@ -16,7 +16,7 @@ Run `yarn install` command.
 
 ## Publishing
 
-1. Build packages `npx lerna run build`.
+1. Build packages `yarn run build`.
 2. Review packages `README.md` files and make sure all changes are listed.
 3. Publish packages `npx lerna publish`.
 
