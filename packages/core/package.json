@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/shared-ui-react",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "description": "React components based on WPMU DEV Shared UI library.",
   "author": "Leighton Sapir <2328848+iamleigh@users.noreply.github.com>",
   "homepage": "https://wpmudev.github.io/shared-ui/",
