@@ -6,3 +6,5 @@ export default {
 }
 
 export const primary = () => <Button>Hello button</Button>
+
+export const secondary = () => <Button color="blue">Hello button</Button>
