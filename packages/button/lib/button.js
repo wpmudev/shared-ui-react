@@ -1,7 +1,5 @@
-'use strict';
+import React from 'react'
 
-module.exports = button;
+const Button = ({ children }) => <button className="sui-button">{ children }</button>
 
-function button() {
-    // TODO
-}
+export { Button };
