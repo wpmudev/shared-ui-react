@@ -10,7 +10,7 @@ const { src, name } = require( path.join( currentWorkingPath, 'package.json' ) )
 
 const inputPath = path.join( currentWorkingPath, src );
 
-// Little workaround to get package name without scope
+// Little workaround to get package name without scope.
 const fileName = name.replace( '@wpmudev/', '' );
 
 // see below for details on the options
@@ -19,12 +19,13 @@ const inputOptions = {
 	external: ['react'],
 	plugins: [
 		resolve(),
+		postcss({
+			modules: true,
+		}),
 		babel({
 			presets: ['@babel/preset-env', '@babel/preset-react'],
 			babelHelpers: 'bundled',
-		}),
-		postcss({
-			modules: true,
+			exclude: 'node_modules/**',
 		}),
 	],
 };
@@ -41,9 +42,9 @@ const outputOptions = [
 ];
 
 async function build() {
-	// create bundle
+	// Create bundle.
 	const bundle = await rollup.rollup( inputOptions );
-	// loop through the options and write individual bundles
+	// Loop through the options and write individual bundles.
 	outputOptions.forEach( async ( options ) => {
 		await bundle.write( options );
 	});
