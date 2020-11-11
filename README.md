@@ -21,3 +21,25 @@ Run `yarn install` command.
 3. Publish packages `npx lerna publish`.
 
 If you have a private package that you don't publish, you have to specify `"private": true` in `package.json`.
+
+***
+
+### Content to improve
+
+```
+# SAMPLE: Add button dependency into shared-ui-react
+npx lerna add @wpmudev/react-button --scope=@wpmudev/shared-ui-react
+
+# We are going to use React for the UI components, let's add it as dev dependency first for local testing
+npx lerna add react --dev --scope {component-name}
+
+# And as a peer dependency using major 16 version for consuming applications
+npx lerna add react --peer --scope {component-name}
+
+# We are also going to use an utility to toggle classes as needed on the components called "clsx"
+npx lerna add clsx --scope {component-name}
+
+- - -
+
+npx lerna run build
+```
