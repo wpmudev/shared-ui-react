@@ -26,7 +26,9 @@
     "react-test-renderer": "^17.0.1"
   },
   "scripts": {
+	"build": "npx lerna run build",
+	"test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006 --no-dll",
-    "build-storybook": "build-storybook --no-dll"
+	"build-storybook": "build-storybook --no-dll"
   }
 }
