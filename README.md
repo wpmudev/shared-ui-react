@@ -15,6 +15,9 @@ Run `yarn install` command.
 2. **When shared between multiple packages** simply run `yarn add -W --dev {package-name}`
 
 ## Publishing
-Run `npx lerna publish` or `npx lerna publish --conventional-commits`
+
+1. Build packages `npx lerna run build`.
+2. Review packages `README.md` files and make sure all changes are listed.
+3. Publish packages `npx lerna publish`.
 
 If you have a private package that you don't publish, you have to specify `"private": true` in `package.json`.
