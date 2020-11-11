@@ -5,13 +5,16 @@
   "author": "Leighton Sapir <2328848+iamleigh@users.noreply.github.com>",
   "homepage": "https://wpmudev.github.io/shared-ui/",
   "license": "MIT",
-  "main": "lib/core.js",
+  "main": "dist/core.cjs.js",
+  "module": "dist/core.esm.js",
+  "src": "lib/core.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
   },
   "files": [
-    "lib"
+	"lib",
+	"dist"
   ],
   "repository": {
     "type": "git",
