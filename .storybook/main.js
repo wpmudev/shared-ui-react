@@ -3,8 +3,9 @@ module.exports = {
 		'../packages/**/*.stories.js'
 	],
 	addons: [
+		"@storybook/addon-links",
 		"@storybook/addon-actions",
-		"@storybook/addon-links"
+		"@storybook/addon-essentials"
 	],
 	webpackFinal: async ( config ) => {
 		// Remove default css rule from storybook.
