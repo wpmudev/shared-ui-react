@@ -1,12 +1,12 @@
 {
   "private": true,
-  "name": "@wpmudev/wordpress-mask",
+  "name": "@wpmudev/wordpress",
   "version": "0.0.0",
   "description": "> TODO: description",
   "author": "Leighton Sapir <2328848+iamleigh@users.noreply.github.com>",
   "homepage": "https://github.com/wpmudev/shared-ui-react#readme",
   "license": "MIT",
-  "main": "lib/wordpress-mask.js",
+  "main": "lib/wordpress.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
