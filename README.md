@@ -3,7 +3,7 @@
 ## Collaborate
 
 ### Initialize
-1. Before you start using **Yarn**, you'll first need to install it on your system.
+1. To begin with the project make sure you have **Yarn** and **Lerna** installed on your system.
 2. Run `yarn install` to install all dependencies on the project.
 3. Run `yarn run storybook` to initialize Storybook (project showcase).
 
