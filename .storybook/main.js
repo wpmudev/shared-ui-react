@@ -5,7 +5,8 @@ module.exports = {
 	addons: [
 		"@storybook/addon-links",
 		"@storybook/addon-actions",
-		"@storybook/addon-essentials"
+		"@storybook/addon-essentials",
+		"@storybook/preset-scss"
 	],
 	webpackFinal: async ( config ) => {
 		// Remove default css rule from storybook.
