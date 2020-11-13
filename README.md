@@ -3,16 +3,35 @@
 ## Collaborate
 
 ### Initialize
-1. Run `yarn install` to install all dependencies on the project.
-2. Run `yarn run storybook` to initialize Storybook (project showcase).
+1. Before you start using **Yarn**, you'll first need to install it on your system.
+2. Run `yarn install` to install all dependencies on the project.
+3. Run `yarn run storybook` to initialize Storybook (project showcase).
 
-### Creating new workspace
-1. Run `npx lerna create {component-folder-name}`
+### Creating new package/component
+1. Run `npx lerna create {component-name}`.
 2. Follow lerna steps to configure your new package, but make sure to name it correctly: `@wpmudev/react-{component-name}`
+	- **Package name:** `@wpmudev/react-{component-name}`. Notice `@wpmudev/react-` prefix followed by folder name to name your package.
+	- **Version:** `0.0.0`
+	- **Description:** `WPMU DEV Shared UI React {Component Name} Component`.
+	- **Keywords:** Leave empty.
+	- **Homepage:** https://github.com/wpmudev/shared-ui-react#readme
+	- **License:** MIT
+	- **Entry Point:** Use default value.
+	- **Git Repository:** Use default value (https://github.com/wpmudev/shared-ui-react.git).
+	- Review and accept changes.
+3. Add React as dev dependency for local testing by running `npx lerna add react --dev --scope=@wpmudev/react-{component-name}`
+4. Add React 16+ as peer dependency for consuming apps by running `npx lerna add react@16.x --peer --scope=@wpmudev/react-{component-name}`
+5. Add **clsx** utility to toggle classes as needed on the components by running `npx lerna add clsx --scope=@wpmudev/react-{component-name}`
+6. Prepare your package for building. Edit your component `package.json` file with the following:
+	- Set `"main": "dist/{component-name}.cjs.js",`.
+	- Set `"module": "dist/{component-name}.esm.js",`.
+	- Set `"src": "lib/{component-name}.js",`.
+	- Add `dist` folder to `files` we are going to pubslih. Ex. `"files": [ "dist", "lib" ]`.
+	- Add builder script `"build": "sui-builder"`.
 
 ### Installing npm packages
 
-1. **When required for an specific workspace** simply run `yarn workspace {component-name} add {package-name}`
+1. **When required for an specific workspace** simply run `yarn workspace @wpmudev/react-{component-name} add {package-name}`
 2. **When shared between multiple packages** simply run `yarn add -W --dev {package-name}`
 
 ## Publishing
