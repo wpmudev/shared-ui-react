@@ -36,6 +36,8 @@
 
 ## Publishing
 
+**Important:** If you don't want to publish a package/component just include `"private": true` in its `package.json` file.
+
 1. Build packages `yarn run build`.
 2. Review packages `README.md` files and make sure all changes are listed.
 3. Publish packages `npx lerna publish`.
