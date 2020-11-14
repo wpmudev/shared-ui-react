@@ -5,6 +5,6 @@ export default {
 	title: 'Button'
 }
 
-export const primary = () => <Button>Hello button</Button>
+export const primary = () => <Button label="Hello button" />
 
-export const secondary = () => <Button color="blue">Hello button</Button>
+export const secondary = () => <Button label="Hello button" ghost={ true } />
