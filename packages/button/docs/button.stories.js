@@ -6,8 +6,17 @@ export default {
 	component: Button,
 }
 
-export const primary = () => <Button label="Hello button" />
-primary.storyName = 'Default';
+const Template = ( args ) => <Button { ...args } />
 
-export const secondary = () => <Button label="Hello button" ghost={ true } />
+export const primary = Template.bind({});
+primary.storyName = 'Default';
+primary.args = {
+	label: 'Hello button'
+};
+
+export const secondary = Template.bind({});
 secondary.storyName = 'Outlined';
+secondary.args = {
+	...primary.args,
+	ghost: true
+};
