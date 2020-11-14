@@ -38,6 +38,7 @@ const Button = ({
 		content = 'right' === iconPosition
 			? <React.Fragment>{ label } <span className={ 'sui-icon-' + icon } aria-hidden="true" /></React.Fragment>
 			: <React.Fragment><span className={ 'sui-icon-' + icon } aria-hidden="true" /> { label }</React.Fragment>
+		classes += 'right' === iconPosition ? ' sui-button-icon-right' : '';
 	}
 
 	return (
