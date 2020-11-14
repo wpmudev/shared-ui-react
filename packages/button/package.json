@@ -33,8 +33,5 @@
   },
   "peerDependencies": {
     "react": "16.x"
-  },
-  "dependencies": {
-    "clsx": "^1.1.1"
   }
 }
