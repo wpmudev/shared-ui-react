@@ -5,8 +5,7 @@ module.exports = {
 	addons: [
 		"@storybook/addon-links",
 		"@storybook/addon-actions",
-		"@storybook/addon-essentials",
-		"@storybook/preset-scss"
+		"@storybook/addon-essentials"
 	],
 	webpackFinal: async ( config ) => {
 		// Change the order of resolution of main fields.
