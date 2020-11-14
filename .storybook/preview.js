@@ -3,6 +3,12 @@ import '@wpmudev/shared-ui/dist/css/shared-ui.min.css'; // Get latest SUI styles
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
+  backgrounds: {
+	  default: 'wordpress',
+	  values: [
+		  { name: 'wordpress', value: '#f1f1f1' }
+	  ]
+  }
 }
 
 export const decorators = [
