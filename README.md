@@ -31,7 +31,7 @@
 
 ### Installing npm packages
 
-1. **When required for an specific workspace** simply run `yarn workspace @wpmudev/react-{component-name} add {package-name}`
+1. **When required for an specific workspace** simply run `npx lerna add {package-name} --scope=@wpmudev/react-{component-name}`
 2. **When shared between multiple packages** simply run `yarn add -W --dev {package-name}`
 
 ## Publishing
@@ -42,7 +42,7 @@
 2. Review packages `README.md` files and make sure all changes are listed.
 3. Publish packages `npx lerna publish`.
 
-If you have a private package that you don't publish, you have to specify `"private": true` in `package.json`.
+If you have a private package that you don't want to publish, you have to specify `"private": true` in `package.json`.
 
 ***
 
