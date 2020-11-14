@@ -12,12 +12,12 @@
 2. Follow lerna steps to configure your new package, but make sure to name it correctly: `@wpmudev/react-{component-name}`
 	- **Package name:** `@wpmudev/react-{component-name}`. Notice `@wpmudev/react-` prefix followed by folder name to name your package.
 	- **Version:** `0.0.0`
-	- **Description:** `WPMU DEV Shared UI React {Component Name} Component`.
+	- **Description:** `WPMU DEV Shared UI React {Component Name} Component`
 	- **Keywords:** Leave empty.
 	- **Homepage:** https://github.com/wpmudev/shared-ui-react#readme
 	- **License:** MIT
 	- **Entry Point:** Use default value.
-	- **Git Repository:** Use default value (https://github.com/wpmudev/shared-ui-react.git).
+	- **Git Repository:** Use default value (https://github.com/wpmudev/shared-ui-react.git)
 	- Review and accept changes.
 3. Add React as dev dependency for local testing by running `npx lerna add react --dev --scope=@wpmudev/react-{component-name}`
 4. Add React 16+ as peer dependency for consuming apps by running `npx lerna add react@16.x --peer --scope=@wpmudev/react-{component-name}`
