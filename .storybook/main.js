@@ -3,8 +3,8 @@ module.exports = {
 		'../packages/**/*.stories.js'
 	],
 	addons: [
-		"@storybook/addon-actions",
 		"@storybook/addon-links",
+		"@storybook/addon-actions",
 		"@storybook/addon-essentials"
 	],
 	webpackFinal: async ( config ) => {
