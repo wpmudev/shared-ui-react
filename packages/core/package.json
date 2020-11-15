@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/shared-ui-react",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "React components based on WPMU DEV Shared UI library.",
   "author": "Leighton Sapir <2328848+iamleigh@users.noreply.github.com>",
   "homepage": "https://wpmudev.github.io/shared-ui/",
@@ -28,10 +28,10 @@
     "url": "https://github.com/wpmudev/shared-ui-react/issues"
   },
   "dependencies": {
-    "@wpmudev/react-button": "^1.0.0"
+    "@wpmudev/react-button": "^0.0.0"
   },
   "devDependencies": {
-    "@wpmudev/react-builder": "^1.0.0"
+    "@wpmudev/react-builder": "^0.0.0"
   },
   "peerDependencies": {
     "react": "16.x"
