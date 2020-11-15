@@ -1,7 +1,7 @@
 {
   "name": "@wpmudev/shared-ui-react",
   "version": "0.0.0",
-  "description": "React components based on WPMU DEV Shared UI library.",
+  "description": "WPMU DEV Shared UI React Components",
   "author": "WPMU DEV",
   "homepage": "https://wpmudev.github.io/shared-ui/",
   "license": "MIT",
