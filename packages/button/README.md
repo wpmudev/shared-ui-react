@@ -1,11 +1,8 @@
-# `button`
-
-> TODO: description
+# @wpmudev/react-button
 
 ## Usage
 
 ```
-const button = require('button');
-
-// TODO: DEMONSTRATE API
+import React from 'react'
+import { Button } from '@wpmudev/react-button'
 ```
