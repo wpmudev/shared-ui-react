@@ -3,16 +3,16 @@ import React from 'react';
 const Button = ({
 	label,
 	icon,
-	iconPosition,
-	size,
+	iconRight,
+	large,
 	color,
-	ghost,
+	outlined,
 	...props
-}) => {
+} ) => {
 	let content = label;
 	let classes = 'sui-button';
 
-	if ( ghost ) {
+	if ( outlined ) {
 		classes += ' sui-button-ghost';
 	}
 
@@ -27,18 +27,15 @@ const Button = ({
 			break;
 	}
 
-	switch ( size ) {
-		case 'lg':
-		case 'large':
-			classes += ' sui-button-lg';
-			break;
+	if ( large ) {
+		classes += ' sui-button-lg';
 	}
 
 	if ( icon ) {
-		content = 'right' === iconPosition
-			? <React.Fragment>{ label } <span className={ 'sui-icon-' + icon } aria-hidden="true" /></React.Fragment>
-			: <React.Fragment><span className={ 'sui-icon-' + icon } aria-hidden="true" /> { label }</React.Fragment>
-		classes += 'right' === iconPosition ? ' sui-button-icon-right' : '';
+		content = ! iconRight
+			? <React.Fragment><span className={ 'sui-icon-' + icon } aria-hidden="true" /> { label }</React.Fragment>
+			: <React.Fragment>{ label } <span className={ 'sui-icon-' + icon } aria-hidden="true" /></React.Fragment>
+		classes += ! iconRight ? '' : ' sui-button-icon-right';
 	}
 
 	return (
