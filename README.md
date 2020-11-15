@@ -23,9 +23,9 @@
 4. Add React 16+ as peer dependency for consuming apps by running `npx lerna add react@16.x --peer --scope=@wpmudev/react-{component-name}`
 5. Add **clsx** utility to toggle classes as needed on the components by running `npx lerna add clsx --scope=@wpmudev/react-{component-name}`
 6. Prepare your package for building. Edit your component `package.json` file with the following:
-	- Set `"main": "dist/{component-name}.cjs.js",`.
-	- Set `"module": "dist/{component-name}.esm.js",`.
-	- Set `"src": "lib/{component-name}.js",`.
+	- Set `"main": "dist/{component-name}.cjs.js",`
+	- Set `"module": "dist/{component-name}.esm.js",`
+	- Set `"src": "lib/{component-name}.js",`
 	- Add `dist` folder to `files` we are going to pubslih. Ex. `"files": [ "dist", "lib" ]`.
 	- Add builder script `"build": "sui-builder"`.
 
