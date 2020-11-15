@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "@wpmudev/react-builder",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "> TODO: description",
   "author": "Leighton Sapir <2328848+iamleigh@users.noreply.github.com>",
   "homepage": "https://github.com/wpmudev/shared-ui-react#readme",
