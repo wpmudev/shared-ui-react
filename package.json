@@ -2,8 +2,7 @@
   "private": true,
   "name": "shared-ui-react",
   "workspaces": [
-    "packages/*",
-    "examples/*"
+    "packages/*"
   ],
   "dependencies": {
     "react": "^17.0.1",
