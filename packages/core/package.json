@@ -1,13 +1,13 @@
 {
-  "name": "@wpmudev/react-button",
+  "name": "@wpmudev/shared-ui-react",
   "version": "0.0.0",
-  "description": "WPMU DEV Shared UI React Button Component",
+  "description": "React components based on WPMU DEV Shared UI library.",
   "author": "Leighton Sapir <2328848+iamleigh@users.noreply.github.com>",
-  "homepage": "https://github.com/wpmudev/shared-ui-react#readme",
+  "homepage": "https://wpmudev.github.io/shared-ui/",
   "license": "MIT",
-  "main": "dist/button.cjs.js",
-  "module": "dist/button.esm.js",
-  "src": "lib/button.js",
+  "main": "dist/core.cjs.js",
+  "module": "dist/core.esm.js",
+  "src": "lib/core.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -27,9 +27,11 @@
   "bugs": {
     "url": "https://github.com/wpmudev/shared-ui-react/issues"
   },
+  "dependencies": {
+    "@wpmudev/react-button": "^0.0.0"
+  },
   "devDependencies": {
-    "@wpmudev/react-builder": "^0.0.0",
-    "react": "^17.0.1"
+    "@wpmudev/react-builder": "^0.0.0"
   },
   "peerDependencies": {
     "react": "16.x"
