@@ -4,7 +4,7 @@
   "description": "WPMU DEV Shared UI React Components",
   "author": "WPMU DEV",
   "homepage": "https://wpmudev.github.io/shared-ui/",
-  "license": "MIT",
+  "license": "GPL-2.0",
   "main": "dist/core.cjs.js",
   "module": "dist/core.esm.js",
   "src": "lib/core.js",

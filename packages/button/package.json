@@ -4,7 +4,7 @@
   "description": "WPMU DEV Shared UI React Button Component",
   "author": "WPMU DEV",
   "homepage": "https://github.com/wpmudev/shared-ui-react#readme",
-  "license": "MIT",
+  "license": "GPL-2.0",
   "main": "dist/button.cjs.js",
   "module": "dist/button.esm.js",
   "src": "lib/button.js",
