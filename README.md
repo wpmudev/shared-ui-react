@@ -15,7 +15,7 @@
 	- **Description:** `WPMU DEV Shared UI React {Component Name} Component`
 	- **Keywords:** Leave empty.
 	- **Homepage:** https://github.com/wpmudev/shared-ui-react#readme
-	- **License:** MIT
+	- **License:** GPL-2.0
 	- **Entry Point:** Use default value.
 	- **Git Repository:** Use default value (https://github.com/wpmudev/shared-ui-react.git)
 	- Review and accept changes.
