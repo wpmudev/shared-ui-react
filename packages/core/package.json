@@ -36,5 +36,8 @@
   },
   "peerDependencies": {
     "react": "16.x"
+  },
+  "publishConfig": {
+	  "access": "public"
   }
 }
