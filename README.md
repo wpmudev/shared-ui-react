@@ -13,8 +13,8 @@
 	- **Package name:** `@wpmudev/react-{component-name}`. Notice `@wpmudev/react-` prefix followed by folder name to name your package.
 	- **Version:** `0.0.0`
 	- **Description:** `WPMU DEV Shared UI React {Component Name} Component`
-	- **Keywords:** Leave empty.
-	- **Homepage:** https://github.com/wpmudev/shared-ui-react#readme
+	- **Keywords:**
+	- **Homepage:**
 	- **License:** GPL-2.0
 	- **Entry Point:** Use default value.
 	- **Git Repository:** Use default value (https://github.com/wpmudev/shared-ui-react.git)
