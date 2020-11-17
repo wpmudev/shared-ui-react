@@ -28,6 +28,7 @@
 	- Set `"src": "lib/{component-name}.js",`
 	- Add `dist` folder to `files` we are going to pubslih. Ex. `"files": [ "dist", "lib" ]`.
 	- Add builder script `"build": "sui-builder"`.
+	- Add `"publishConfig": { "access": "public" }` to make sure scoped package is going to be publicy viewable.
 
 ### Installing npm packages
 
