@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@wpmudev/shared-ui-react",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "description": "WPMU DEV Shared UI React Components",
   "author": "WPMU DEV",
   "homepage": "https://wpmudev.github.io/shared-ui/",
@@ -29,7 +29,7 @@
     "url": "https://github.com/wpmudev/shared-ui-react/issues"
   },
   "dependencies": {
-    "@wpmudev/react-button": "^0.1.0"
+    "@wpmudev/react-button": "^0.0.0"
   },
   "devDependencies": {
     "@wpmudev/react-builder": "^0.0.0"
