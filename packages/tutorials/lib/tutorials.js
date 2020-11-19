@@ -18,6 +18,51 @@ aria.KeyCode = {
 	DELETE: 46
 };
 
+export class TutorialsFeaturedImage extends Component {
+	constructor( props ) {
+		super( props );
+
+		this.state = {
+			media: []
+		};
+	}
+
+	componentDidMount() {
+		const API_URL = 'https://premium.wpmudev.org/blog/wp-json/wp/v2/media/';
+		const QUERY_ID = this.props.media;
+
+		// GET media using fetch.
+		fetch( API_URL + QUERY_ID )
+			.then( response => response.json() )
+			.then(
+				( data ) => {
+					this.setState({
+						isLoaded: true,
+						media: data.guid.rendered
+					});
+				},
+				( error ) => {
+					this.setState({
+						isLoaded: true,
+						error
+					});
+				},
+			);
+	}
+
+	render() {
+		const { media, error, isLoaded } = this.state;
+
+		if ( error ) {
+			return;
+		} else if ( ! isLoaded ) {
+			return <div>Loading...</div>
+		} else {
+			return <img src={ media } />
+		}
+	}
+}
+
 export class Tutorials extends Component {
 	constructor( props ) {
 		super( props );
@@ -50,11 +95,11 @@ export class Tutorials extends Component {
 	}
 
 	componentDidMount() {
-		const BASE = 'https://premium.wpmudev.org/blog/wp-json/wp/v2/posts?tutorials_categories=';
-		const CATEGORY = this.props.category;
+		const API_URL = 'https://premium.wpmudev.org/blog/wp-json/wp/v2/posts?tutorials_categories=';
+		const QUERY_ID = this.props.category;
 
-		// GET request using fetch.
-		fetch( BASE + CATEGORY )
+		// GET posts using fetch.
+		fetch( API_URL + QUERY_ID )
 			.then( response => response.json() )
 			.then(
 				( data ) => {
@@ -93,13 +138,18 @@ export class Tutorials extends Component {
 						style={ { pointerEvents: 'none' } }
 					>
 
+						<TutorialsFeaturedImage media={ post.featured_media } />
+
 						<div className="sui-tutorial--header-content">
 							<h3 className="sui-tutorial--title">{ post.title.rendered }</h3>
 						</div>
 
 					</div>
 
-					<div className="sui-tutorial--body" dangerouslySetInnerHTML={ { __html: post.excerpt.rendered } } />
+					<div className="sui-tutorial--body">
+						<div className="sui-tutorial--body-excerpt" dangerouslySetInnerHTML={ { __html: post.excerpt.rendered } } />
+						<p className="sui-description pseudo-link" aria-hidden="true">{ post.readMore }</p>
+					</div>
 
 				</div>
 			</li>
