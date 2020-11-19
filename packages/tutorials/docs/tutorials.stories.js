@@ -5,5 +5,11 @@ export default {
 	title: 'Tutorials'
 }
 
-export const primary = () =>
-	<Tutorials category='11234' />
+const smush = '11228';
+const hustle = '11235';
+const defender = '11231';
+const forminator = '11232';
+const smartcrawl = '11238';
+const hummingbird = '11234';
+
+export const primary = () => <Tutorials category={ defender } />
