@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 export class Notifications extends Component {
 	constructor( props ) {
