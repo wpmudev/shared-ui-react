@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Notifications } from '@wpmudev/react-notifications';
 import './Tutorials.css';
 
 let aria = aria || {};
@@ -179,39 +180,11 @@ export class Tutorials extends Component {
 
 		if ( error ) {
 			return (
-				<div className="sui-notice sui-notice-error">
-
-					<div className="sui-notice-content">
-
-						<div className="sui-notice-message">
-
-							<span className="sui-notice-icon sui-icon-info sui-md" aria-hidden="true"></span>
-
-								<p>{ error.message }</p>
-
-						</div>
-
-					</div>
-
-				</div>
+				<Notifications type="error" message={ error.message } />
 			);
 		} else if ( ! isLoaded ) {
 			return (
-				<div className="sui-notice">
-
-					<div className="sui-notice-content">
-
-						<div className="sui-notice-message">
-
-							<span className="sui-notice-icon sui-icon-loader sui-loading sui-md" aria-hidden="true"></span>
-
-							<p>Loading tutorials...</p>
-
-						</div>
-
-					</div>
-
-				</div>
+				<Notifications type="loading" message="Loading tutorials..." />
 			);
 		} else {
 			return (
