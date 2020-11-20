@@ -165,7 +165,26 @@ export class Tutorials extends Component {
 			);
 		} else {
 			return (
-				<ul className="sui-tutorials">{ listPosts }</ul>
+				<div className="sui-box">
+
+					<div className="sui-box-header">
+						<h3 className="sui-box-title">{ this.props.title }</h3>
+					</div>
+
+					<div
+						className="sui-box-body"
+						style={ {
+							backgroundColor: '#FAFAFA',
+							borderBottomRightRadius: '4px',
+							borderBottomLeftRadius: '4px',
+						} }
+					>
+
+						<ul className="sui-tutorials--page">{ listPosts }</ul>
+
+					</div>
+
+				</div>
 			);
 		}
 	}
