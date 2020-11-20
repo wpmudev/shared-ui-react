@@ -59,7 +59,16 @@ export class TutorialsFeaturedImage extends Component {
 		} else if ( ! isLoaded ) {
 			return <div>Loading...</div>
 		} else {
-			return <img src={ media } />
+			return (
+				<div
+					tabIndex="-1"
+					className="sui-tutorial--image"
+					aria-hidden="true"
+					style={ {
+						backgroundImage: 'url(' + media + ')'
+					} }
+				/>
+			);
 		}
 	}
 }
