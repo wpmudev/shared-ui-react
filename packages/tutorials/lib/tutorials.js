@@ -143,22 +143,34 @@ export class Tutorials extends Component {
 					onKeyPress={ ( e ) => this.openLinkKey( e ) }
 				>
 
-					<div
-						className="sui-tutorial--header"
-						style={ { pointerEvents: 'none' } }
-					>
+					<TutorialsFeaturedImage media={ post.featured_media } />
 
-						<TutorialsFeaturedImage media={ post.featured_media } />
+					<div className="sui-tutorial--body">
 
-						<div className="sui-tutorial--header-content">
-							<h3 className="sui-tutorial--title">{ post.title.rendered }</h3>
-						</div>
+						<h3 className="sui-tutorial--title">{ post.title.rendered }</h3>
+
+						<div className="sui-tutorial--excerpt" dangerouslySetInnerHTML={ { __html: post.excerpt.rendered } } />
+
+						<p className="sui-description pseudo-link" aria-hidden="true">{ post.readMore }</p>
 
 					</div>
 
-					<div className="sui-tutorial--body">
-						<div className="sui-tutorial--body-excerpt" dangerouslySetInnerHTML={ { __html: post.excerpt.rendered } } />
-						<p className="sui-description pseudo-link" aria-hidden="true">{ post.readMore }</p>
+					<div className="sui-tutorial--footer">
+
+						<p className="pseudo-link">Read article</p>
+
+						<p className="sui-description">
+							<span
+								className="sui-icon-clock sui-sm"
+								aria-hidden="true"
+								style={ {
+									verticalAlign: 'middle',
+									marginRight: 5,
+								} }
+							/>
+							5 min read
+						</p>
+
 					</div>
 
 				</div>
