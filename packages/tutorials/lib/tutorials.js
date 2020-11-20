@@ -183,7 +183,21 @@ export class Tutorials extends Component {
 			);
 		} else if ( ! isLoaded ) {
 			return (
-				<div>Loading content...</div>
+				<div className="sui-notice">
+
+					<div className="sui-notice-content">
+
+						<div className="sui-notice-message">
+
+							<span className="sui-notice-icon sui-icon-loader sui-loading sui-md" aria-hidden="true"></span>
+
+							<p>Loading tutorials...</p>
+
+						</div>
+
+					</div>
+
+				</div>
 			);
 		} else {
 			return (
