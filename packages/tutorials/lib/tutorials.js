@@ -179,7 +179,21 @@ export class Tutorials extends Component {
 
 		if ( error ) {
 			return (
-				<div>Error: { error.message }</div>
+				<div className="sui-notice sui-notice-error">
+
+					<div className="sui-notice-content">
+
+						<div className="sui-notice-message">
+
+							<span className="sui-notice-icon sui-icon-info sui-md" aria-hidden="true"></span>
+
+								<p>{ error.message }</p>
+
+						</div>
+
+					</div>
+
+				</div>
 			);
 		} else if ( ! isLoaded ) {
 			return (
