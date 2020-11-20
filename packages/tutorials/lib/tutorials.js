@@ -189,9 +189,11 @@ export class Tutorials extends Component {
 			return (
 				<div className="sui-box">
 
-					<div className="sui-box-header">
-						<h3 className="sui-box-title">{ this.props.title }</h3>
-					</div>
+					{ this.props.title &&
+						<div className="sui-box-header">
+							<h3 className="sui-box-title">{ this.props.title }</h3>
+						</div>
+					}
 
 					<div
 						className="sui-box-body"
