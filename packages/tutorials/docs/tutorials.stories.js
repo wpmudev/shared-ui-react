@@ -41,5 +41,6 @@ primary.args = {
 export const secondary = Template.bind({});
 secondary.storyName = 'Widget';
 secondary.args = {
-	category: defender
+	category: defender,
+	widget: true
 };
