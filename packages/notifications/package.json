@@ -1,0 +1,40 @@
+{
+  "name": "@wpmudev/react-notifications",
+  "version": "0.0.0",
+  "description": "WPMU DEV Shared UI React Notifications Component",
+  "author": "Leighton Sapir <2328848+iamleigh@users.noreply.github.com>",
+  "homepage": "https://github.com/wpmudev/shared-ui-react#readme",
+  "license": "GPL-2.0",
+  "main": "dist/notifications.cjs.js",
+  "module": "dist/notifications.esm.js",
+  "src": "lib/notifications.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist",
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wpmudev/shared-ui-react.git"
+  },
+  "scripts": {
+    "build": "sui-builder",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/wpmudev/shared-ui-react/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@wpmudev/react-builder": "^0.0.0",
+    "react": "^17.0.1"
+  },
+  "peerDependencies": {
+    "react": "16.x"
+  }
+}
