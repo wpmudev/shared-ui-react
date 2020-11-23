@@ -376,6 +376,8 @@ export class TutorialsWidget extends Component {
 }
 
 export class TutorialsPage extends Component {
+	_isMounted = false;
+
 	constructor( props ) {
 		super( props );
 
@@ -408,6 +410,8 @@ export class TutorialsPage extends Component {
 	}
 
 	componentDidMount() {
+		this._isMounted = true;
+
 		const API_URL = 'https://premium.wpmudev.org/blog/wp-json/wp/v2/posts?tutorials_categories=';
 		const QUERY_ID = this.props.category;
 
@@ -428,6 +432,10 @@ export class TutorialsPage extends Component {
 					});
 				},
 			);
+	}
+
+	componentWillUnmount() {
+		this._isMounted = false;
 	}
 
 	render() {
