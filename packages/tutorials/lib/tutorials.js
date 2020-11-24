@@ -388,7 +388,7 @@ export class TutorialsPage extends Component {
 		};
 
 		this.openLink = this.openLink.bind( this );
-		this.openLinkKey = this.openLinkKey.bind( this );
+		this.handleKeydown = this.handleKeydown.bind( this );
 	}
 
 	openLink = ( e ) => {
@@ -399,12 +399,43 @@ export class TutorialsPage extends Component {
 		}
 	}
 
-	openLinkKey = ( e ) => {
+	keyNavigate = ( direction ) => {
+		const focusedPost = document.activeElement.closest( '.sui-tutorial' );
+
+		// Abort if the focused element doesn't have a .sui-tutorial parent.
+		if ( ! focusedPost ) {
+			return;
+		}
+
+		let newFocusedPost;
+		if ( 'prev' === direction ) {
+			newFocusedPost = focusedPost.previousElementSibling;
+			// We reached the start of the list.
+			if ( ! newFocusedPost ) {
+				newFocusedPost = focusedPost.closest( '.sui-tutorials--page' ).lastElementChild;
+			}
+		} else {
+			newFocusedPost = focusedPost.nextElementSibling;
+			// We reached the end of the list.
+			if ( ! newFocusedPost ) {
+				newFocusedPost = focusedPost.closest( '.sui-tutorials--page' ).firstElementChild;
+			}
+		}
+		newFocusedPost.firstElementChild.focus();
+	}
+
+	handleKeydown = ( e ) => {
 		let key = e.which || e.keyCode;
 
 		switch ( key ) {
 			case aria.KeyCode.RETURN :
 				this.openLink( e )
+				break;
+			case aria.KeyCode.LEFT :
+				this.keyNavigate( 'prev' )
+				break;
+			case aria.KeyCode.RIGHT :
+				this.keyNavigate( 'next' )
 				break;
 		}
 	}
@@ -451,7 +482,7 @@ export class TutorialsPage extends Component {
 					role="link"
 					data-href={ post.link }
 					onClick={ ( e ) => this.openLink( e ) }
-					onKeyPress={ ( e ) => this.openLinkKey( e ) }
+					onKeyDown={ ( e ) => this.handleKeydown( e ) }
 				>
 
 					<TutorialsFeaturedImage media={ post.featured_media } banner />
