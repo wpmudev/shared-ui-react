@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { TutorialsPage } from './tutorial-page';
+import { TutorialsList } from './tutorials-list';
 import { TutorialsWidget } from './tutorial-widget';
-
-// import './Tutorials.css';
 
 export class Tutorials extends Component {
 	constructor( props ) {
@@ -14,6 +12,6 @@ export class Tutorials extends Component {
 			return <TutorialsWidget { ...this.props } />
 		}
 
-		return <TutorialsPage { ...this.props } />
+		return <TutorialsList { ...this.props } />
 	}
 }

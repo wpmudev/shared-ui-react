@@ -171,7 +171,7 @@ const ReadTime = styled.p`
 	}
 `;
 
-export class TutorialsPage extends Component {
+export class TutorialsList extends Component {
 	_isMounted = false;
 
 	constructor( props ) {
