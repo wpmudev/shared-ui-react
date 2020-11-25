@@ -4,7 +4,7 @@ import { device } from './style-helpers';
 
 const FeaturedImage = styled.div.attrs( () => ({
 	tabIndex: '-1',
-	ariaHidden: true
+	'aria-hidden': true
 }) )`
 	${ props => 'banner' == props.as ? '' : 'width: 66px;' }
 	height: ${ props => 'banner' == props.as ? '140px' : '54px' };
