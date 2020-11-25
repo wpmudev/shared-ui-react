@@ -32,15 +32,15 @@ const defender = '11231';
 const Template = ( args ) => <Tutorials { ...args } />
 
 export const primary = Template.bind({});
-primary.storyName = 'Page';
+primary.storyName = 'List';
 primary.args = {
 	title: 'Tutorials',
 	category: defender
 };
 
 export const secondary = Template.bind({});
-secondary.storyName = 'Widget';
+secondary.storyName = 'Slider';
 secondary.args = {
+	slider: true,
 	category: defender,
-	widget: true
 };

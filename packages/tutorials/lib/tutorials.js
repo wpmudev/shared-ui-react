@@ -8,7 +8,7 @@ export class Tutorials extends Component {
 	}
 
 	render() {
-		if ( this.props.widget ) {
+		if ( this.props.slider ) {
 			return <TutorialsSlider { ...this.props } />
 		}
 
