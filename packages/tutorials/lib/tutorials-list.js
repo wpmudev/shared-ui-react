@@ -66,7 +66,11 @@ const ListItem = styled.li`
 	}
 `;
 
-const Box = styled.div`
+const Box = styled.div.attrs( props => ({
+	tabIndex: 0,
+	role: 'link',
+	'data-href': props.link
+}) )`
 	overflow: hidden;
 	cursor: pointer;
 	padding: 20px 20px 30px;
@@ -274,9 +278,7 @@ export class TutorialsList extends Component {
 				className="sui-tutorial"
 			>
 				<Box
-					tabIndex="0"
-					role="link"
-					data-href={ post.link }
+					link={ post.link }
 					onClick={ ( e ) => this.openLink( e ) }
 					onKeyDown={ ( e ) => this.handleKeydown( e ) }
 				>
