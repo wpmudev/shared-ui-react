@@ -3,7 +3,7 @@ import '@wpmudev/shared-ui/dist/css/shared-ui.min.css'; // Get latest SUI styles
 
 const customViewports = {
 	xl: {
-		name: 'Larger',
+		name: 'Desktop',
 		styles: {
 			width: '1500px',
 			height: '938px'
@@ -11,7 +11,7 @@ const customViewports = {
 		type: 'desktop'
 	},
 	lg: {
-		name: 'Large',
+		name: 'Laptop',
 		styles: {
 			width: '1200px',
 			height: '750px'
@@ -19,7 +19,7 @@ const customViewports = {
 		type: 'desktop'
 	},
 	md: {
-		name: 'Medium',
+		name: 'Tablet',
 		styles: {
 			width: '783px',
 			height: '1253px'
@@ -27,7 +27,7 @@ const customViewports = {
 		type: 'tablet'
 	},
 	sm: {
-		name: 'Small',
+		name: 'Mobile',
 		styles: {
 			width: '480px',
 			height: '800px'
