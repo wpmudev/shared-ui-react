@@ -162,7 +162,7 @@ const ReadTime = styled.p`
 	letter-spacing: -0.2px;
 `;
 
-export class TutorialsWidget extends Component {
+export class TutorialsSlider extends Component {
 	constructor( props ) {
 		super( props );
 
