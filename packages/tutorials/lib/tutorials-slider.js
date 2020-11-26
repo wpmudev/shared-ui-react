@@ -29,6 +29,7 @@ aria.KeyCode = {
 };
 
 const Box = styled.div`
+	position: relative;
 	padding: 10px;
 
 	@media ${ device.tablet } {
@@ -130,6 +131,23 @@ const Header = styled.div`
 const Wrapper = styled.div`
 	min-width: 1px;
 	flex: 1;
+`;
+
+const Navigation = styled.div`
+	pointer-events: none;
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	justify-content: space-between;
+	position: absolute;
+	top: 50%;
+	right: 6px;
+	left: 6px;
+	transform: translateY(-50%);
+
+	button {
+		pointer-events: initial;
+	}
 `;
 
 export class TutorialsSlider extends Component {
@@ -278,9 +296,43 @@ export class TutorialsSlider extends Component {
 					</div>
 
 					<Box>
+
 						<ListWrapper>
 							{ listPosts }
 						</ListWrapper>
+
+						<Navigation>
+
+							<button
+								className="sui-button-icon prev"
+							>
+								<span
+									className="sui-icon-chevron-left sui-sm"
+									aria-hidden="true"
+								/>
+								<span
+									className="sui-screen-reader-text"
+								>
+									Previous post
+								</span>
+							</button>
+
+							<button
+								className="sui-button-icon next"
+							>
+								<span
+									className="sui-icon-chevron-right sui-sm"
+									aria-hidden="true"
+								/>
+								<span
+									className="sui-screen-reader-text"
+								>
+									Next post
+								</span>
+							</button>
+
+						</Navigation>
+
 					</Box>
 
 				</div>

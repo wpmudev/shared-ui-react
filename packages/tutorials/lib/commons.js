@@ -58,8 +58,8 @@ export const ReadTime = styled.p`
 	font-size: 13px !important;
 	line-height: 18px !important;
 	letter-spacing: -0.2px;
-	${ props => props.slider
-		? ''
-		: '* + & { margin-left: 5px !important; }'
+
+	* + & {
+		margin-left: ${ props => props.slider ? '0' : '5px !important' };
 	}
 `;
