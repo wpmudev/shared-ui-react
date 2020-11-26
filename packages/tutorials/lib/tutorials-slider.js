@@ -192,7 +192,9 @@ export class TutorialsSlider extends Component {
 
 							<Title slider>{ post.title.rendered }</Title>
 
-							<ReadTime slider>*5 min read</ReadTime>
+							{ '' !== post.meta.blog_reading_time &&
+								<ReadTime slider>*{ post.meta.blog_reading_time } min read</ReadTime>
+							}
 
 						</Wrapper>
 

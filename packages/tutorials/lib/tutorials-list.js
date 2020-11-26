@@ -239,17 +239,19 @@ export class TutorialsList extends Component {
 
 						<ReadMore>Read article</ReadMore>
 
-						<ReadTime>
-							<span
-								className="sui-icon-clock sui-sm"
-								aria-hidden="true"
-								style={ {
-									verticalAlign: 'middle',
-									marginRight: 5,
-								} }
-							/>
-							5 min read
-						</ReadTime>
+						{ '' !== post.meta.blog_reading_time &&
+							<ReadTime>
+								<span
+									className="sui-icon-clock sui-sm"
+									aria-hidden="true"
+									style={ {
+										verticalAlign: 'middle',
+										marginRight: 5,
+									} }
+								/>
+								{ post.meta.blog_reading_time } min read
+							</ReadTime>
+						}
 
 					</Footer>
 
