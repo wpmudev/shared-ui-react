@@ -35,12 +35,14 @@ export const primary = Template.bind({});
 primary.storyName = 'List';
 primary.args = {
 	title: 'Tutorials',
-	category: defender
+	category: defender,
 };
 
 export const secondary = Template.bind({});
 secondary.storyName = 'Slider';
 secondary.args = {
 	slider: true,
+	title: 'Tutorials',
 	category: defender,
+	viewAll: 'https://premium.wpmudev.org/',
 };

@@ -36,6 +36,25 @@ const Box = styled.div`
 	}
 `;
 
+const Link = styled.a.attrs( props => ({
+	href: props.viewAll,
+	target: '_blank',
+}) )`
+	margin-top: 1px;
+	margin-right: 23px;
+	font-size: 13px;
+	line-height: 22px;
+	letter-spacing: -0.2px;
+
+	[class*="sui-icon-"] {
+		margin-right: 5px;
+
+		&:before {
+			color: inherit;
+		}
+	}
+`;
+
 const ListWrapper = styled.ul`
 	margin: 0;
 	padding: 0;
@@ -224,9 +243,39 @@ export class TutorialsSlider extends Component {
 			return (
 				<div className="sui-box">
 
-					{ this.props.title &&
-						<div className="sui-box-header">{ this.props.title }</div>
-					}
+					<div className="sui-box-header">
+						{ this.props.title &&
+							<h3 className="sui-box-title">{ this.props.title }</h3>
+						}
+						<div className="sui-actions-right">
+
+							{ this.props.viewAll &&
+								<Link { ...this.props }>
+									<span
+										className="sui-icon-open-new-window sui-sm"
+										aria-hidden="true"
+									/>
+									View all
+								</Link>
+							}
+
+							<button
+								className="sui-button-icon"
+								style={ {
+									marginRight: '-9px'
+								} }
+							>
+								<span
+									className="sui-icon-close sui-md"
+									aria-hidden="true"
+								/>
+								<span
+									className="sui-screen-reader-text"
+								>Close tutorials</span>
+							</button>
+
+						</div>
+					</div>
 
 					<Box>
 						<ListWrapper>
