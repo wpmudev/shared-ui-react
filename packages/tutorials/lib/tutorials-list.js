@@ -284,8 +284,8 @@ export class TutorialsList extends Component {
 				>
 
 					<TutorialsFeaturedImage
-						as="banner"
 						media={ post.featured_media }
+						large
 					/>
 
 					<Title>{ post.title.rendered }</Title>

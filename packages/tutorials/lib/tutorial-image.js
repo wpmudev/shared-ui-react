@@ -6,10 +6,10 @@ const FeaturedImage = styled.div.attrs( () => ({
 	tabIndex: '-1',
 	'aria-hidden': true
 }) )`
-	${ props => 'banner' == props.as ? '' : 'width: 66px;' }
-	height: ${ props => 'banner' == props.as ? '140px' : '54px' };
-	margin: ${ props => 'banner' == props.as ? '-20px -20px 20px' : '0 10px 0 0' };
-	${ props => 'banner' == props.as ? '' : 'border-radius: 4px;' }
+	${ props => props.large ? '' : 'width: 66px;' }
+	height: ${ props => props.large ? '140px' : '54px' };
+	margin: ${ props => props.large ? '-20px -20px 20px' : '0 10px 0 0' };
+	${ props => props.large ? '' : 'border-radius: 4px;' }
 	display: block;
 	background-color: #FFF;
 	background-image: url(${ props => props.src || 'none' });
