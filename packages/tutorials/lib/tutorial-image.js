@@ -6,10 +6,10 @@ const FeaturedImage = styled.div.attrs( () => ({
 	tabIndex: '-1',
 	'aria-hidden': true
 }) )`
-	${ props => props.large ? '' : 'width: 66px;' }
-	height: ${ props => props.large ? '140px' : '54px' };
-	margin: ${ props => props.large ? '-20px -20px 20px' : '0 10px 0 0' };
-	${ props => props.large ? '' : 'border-radius: 4px;' }
+	${ props => props.slider ? 'width: 66px;' : '' }
+	height: ${ props => props.slider ? '54px' : '140px' };
+	margin: ${ props => props.slider ? '0 10px 0 0' : '-20px -20px 20px' };
+	${ props => props.slider ? 'border-radius: 4px;' : '' }
 	display: block;
 	background-color: #FFF;
 	background-image: url(${ props => props.src || 'none' });

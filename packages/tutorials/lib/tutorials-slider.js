@@ -183,6 +183,7 @@ export class TutorialsSlider extends Component {
 					<Header>
 
 						<TutorialsFeaturedImage
+							slider
 							media={ post.featured_media }
 							className="post-featured-image"
 						/>

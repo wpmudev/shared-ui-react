@@ -72,7 +72,7 @@ const ListItem = styled.li`
 	}
 `;
 
-const Box = styled.div.attrs( props => ({
+const Card = styled.div.attrs( props => ({
 	tabIndex: 0,
 	role: 'link',
 	'data-href': props.link
@@ -221,7 +221,7 @@ export class TutorialsList extends Component {
 				key={ post.id }
 				className="sui-tutorial"
 			>
-				<Box
+				<Card
 					link={ post.link }
 					onClick={ ( e ) => this.openLink( e ) }
 					onKeyDown={ ( e ) => this.handleKeydown( e ) }
@@ -229,7 +229,6 @@ export class TutorialsList extends Component {
 
 					<TutorialsFeaturedImage
 						media={ post.featured_media }
-						large
 					/>
 
 					<Title>{ post.title.rendered }</Title>
@@ -254,7 +253,7 @@ export class TutorialsList extends Component {
 
 					</Footer>
 
-				</Box>
+				</Card>
 			</ListItem>
 		) );
 
