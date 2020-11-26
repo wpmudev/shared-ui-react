@@ -161,7 +161,7 @@ export class TutorialsSlider extends Component {
 		};
 
 		this.openLink = this.openLink.bind( this );
-		this.openLinkKey = this.openLinkKey.bind( this );
+		this.handleKeydown = this.handleKeydown.bind( this );
 	}
 
 	openLink = ( e ) => {
@@ -172,12 +172,43 @@ export class TutorialsSlider extends Component {
 		}
 	}
 
-	openLinkKey = ( e ) => {
+	keyNavigate = ( direction ) => {
+		const focusedPost = document.activeElement.closest( '.sui-tutorial' );
+
+		// Abort if the focused element doesn't have a .sui-tutorial parent.
+		if ( ! focusedPost ) {
+			return;
+		}
+
+		let newFocusedPost;
+		if ( 'prev' === direction ) {
+			newFocusedPost = focusedPost.previousElementSibling;
+			// We reached the start of the list.
+			if ( ! newFocusedPost ) {
+				newFocusedPost = focusedPost.closest( 'ul' ).lastElementChild;
+			}
+		} else {
+			newFocusedPost = focusedPost.nextElementSibling;
+			// We reached the end of the list.
+			if ( ! newFocusedPost ) {
+				newFocusedPost = focusedPost.closest( 'ul' ).firstElementChild;
+			}
+		}
+		newFocusedPost.firstElementChild.focus();
+	}
+
+	handleKeydown = ( e ) => {
 		let key = e.which || e.keyCode;
 
 		switch ( key ) {
 			case aria.KeyCode.RETURN :
 				this.openLink( e )
+				break;
+			case aria.KeyCode.LEFT :
+				this.keyNavigate( 'prev' )
+				break;
+			case aria.KeyCode.RIGHT :
+				this.keyNavigate( 'next' )
 				break;
 		}
 	}
@@ -209,12 +240,15 @@ export class TutorialsSlider extends Component {
 		const { posts, error, isLoaded } = this.state;
 
 		const listPosts = posts.map( post => (
-			<ListItem key={ post.id }>
+			<ListItem
+				key={ post.id }
+				className="sui-tutorial"
+			>
 
 				<Card
 					link={ post.link }
 					onClick={ ( e ) => this.openLink( e ) }
-					onKeyPress={ ( e ) => this.openLinkKey( e ) }
+					onKeyDown={ ( e ) => this.handleKeydown( e ) }
 				>
 
 					<Header>
