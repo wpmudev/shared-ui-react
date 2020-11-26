@@ -3,6 +3,12 @@ import styled from 'styled-components';
 import { device } from './style-helpers';
 import { Notifications } from '@wpmudev/react-notifications';
 import { TutorialsFeaturedImage } from './tutorial-image';
+import {
+	Title,
+	Excerpt,
+	ReadMore,
+	ReadTime
+} from './commons';
 
 let aria = aria || {};
 
@@ -111,68 +117,6 @@ const Footer = styled.div`
 	flex-flow: row wrap;
 	align-items: center;
 	margin-top: 15px;
-`;
-
-const Title = styled.h3`
-	overflow: hidden;
-	display: -webkit-box !important;
-	-webkit-box-orient: vertical;
-	margin: 0 0 10px !important;
-	padding: 0 !important;
-	border: 0;
-	color: #333;
-	font-size: 13px !important;
-	line-height: 18px !important;
-	font-weight: 500 !important;
-	letter-spacing: -0.2px;
-
-	@media ${ device.tablet } {
-		-webkit-line-clamp: 2;
-	}
-`;
-
-const Excerpt = styled.div`
-	display: block;
-
-	p {
-		overflow: hidden;
-		display: -webkit-box;
-		-webkit-box-orient: vertical;
-		margin: 0 !important;
-		padding: 0 !important;
-		border: 0;
-		color: #888 !important;
-		font-size: 13px !important;
-		line-height: 22px !important;
-		letter-spacing: -0.2px;
-		-webkit-line-clamp: ${ props => props.slides ? '2' : '3' };
-	}
-`;
-
-const ReadMore = styled.p`
-	min-width: 1px;
-	flex: 1;
-	margin: 0;
-	color: #17A8E3 !important;
-	font-size: 13px !important;
-	line-height: 18px !important;
-	font-weight: 500 !important;
-	letter-spacing: -0.2px !important;
-`;
-
-const ReadTime = styled.p`
-	flex: 0 0 auto;
-	margin: 0 !important;
-	padding: 0 !important;
-	border: 0;
-	color: #888 !important;
-	font-size: 13px !important;
-	line-height: 18px !important;
-	letter-spacing: -0.2px;
-
-	* + & {
-		margin-left: 5px !important;
-	}
 `;
 
 export class TutorialsList extends Component {

@@ -3,6 +3,12 @@ import styled from 'styled-components';
 import { device } from './style-helpers';
 import { Notifications } from '@wpmudev/react-notifications';
 import { TutorialsFeaturedImage } from './tutorial-image';
+import {
+	Title,
+	Excerpt,
+	ReadMore,
+	ReadTime
+} from './commons';
 
 let aria = aria || {};
 
@@ -107,61 +113,6 @@ const Wrapper = styled.div`
 	flex: 1;
 `;
 
-const Title = styled.h3`
-	overflow: hidden;
-	display: -webkit-box !important;
-	-webkit-box-orient: vertical;
-	margin: 0 !important;
-	padding: 0 !important;
-	border: 0;
-	color: #333;
-	font-size: 13px !important;
-	line-height: 18px !important;
-	font-weight: 500 !important;
-	letter-spacing: -0.2px;
-	-webkit-line-clamp: 2;
-`;
-
-const Excerpt = styled.div`
-	display: block;
-
-	p {
-		overflow: hidden;
-		display: -webkit-box;
-		-webkit-box-orient: vertical;
-		margin: 0 !important;
-		padding: 0 !important;
-		border: 0;
-		color: #888 !important;
-		font-size: 13px !important;
-		line-height: 22px !important;
-		letter-spacing: -0.2px;
-		-webkit-line-clamp: 2;
-	}
-`;
-
-const ReadMore = styled.p`
-	min-width: 1px;
-	flex: 1;
-	margin: 4px 0 0;
-	color: #17A8E3 !important;
-	font-size: 13px !important;
-	line-height: 18px !important;
-	font-weight: 500 !important;
-	letter-spacing: -0.2px !important;
-`;
-
-const ReadTime = styled.p`
-	flex: 0 0 auto;
-	margin: 0 !important;
-	padding: 0 !important;
-	border: 0;
-	color: #888 !important;
-	font-size: 13px !important;
-	line-height: 18px !important;
-	letter-spacing: -0.2px;
-`;
-
 export class TutorialsSlider extends Component {
 	constructor( props ) {
 		super( props );
@@ -238,17 +189,20 @@ export class TutorialsSlider extends Component {
 
 						<Wrapper>
 
-							<Title>{ post.title.rendered }</Title>
+							<Title slider>{ post.title.rendered }</Title>
 
-							<ReadTime>*5 min read</ReadTime>
+							<ReadTime slider>*5 min read</ReadTime>
 
 						</Wrapper>
 
 					</Header>
 
-					<Excerpt dangerouslySetInnerHTML={ { __html: post.excerpt.rendered } } />
+					<Excerpt
+						slider
+						dangerouslySetInnerHTML={ { __html: post.excerpt.rendered } }
+					/>
 
-					<ReadMore>Read article</ReadMore>
+					<ReadMore slider>Read article</ReadMore>
 
 				</Card>
 
