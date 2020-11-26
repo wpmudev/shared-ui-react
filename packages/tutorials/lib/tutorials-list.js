@@ -156,13 +156,13 @@ export class TutorialsList extends Component {
 			newFocusedPost = focusedPost.previousElementSibling;
 			// We reached the start of the list.
 			if ( ! newFocusedPost ) {
-				newFocusedPost = focusedPost.closest( '.sui-tutorials--page' ).lastElementChild;
+				newFocusedPost = focusedPost.closest( 'ul' ).lastElementChild;
 			}
 		} else {
 			newFocusedPost = focusedPost.nextElementSibling;
 			// We reached the end of the list.
 			if ( ! newFocusedPost ) {
-				newFocusedPost = focusedPost.closest( '.sui-tutorials--page' ).firstElementChild;
+				newFocusedPost = focusedPost.closest( 'ul' ).firstElementChild;
 			}
 		}
 		newFocusedPost.firstElementChild.focus();
