@@ -22,5 +22,11 @@
   },
   "bugs": {
     "url": "https://github.com/wpmudev/shared-ui-react/issues"
+  },
+  "devDependencies": {
+    "react": "^17.0.1"
+  },
+  "peerDependencies": {
+    "react": "16.x"
   }
 }
