@@ -82,7 +82,7 @@ const ListItem = styled.li`
 	@media ${ device.tablet } {
 		width: 33.33%;
 		flex: 0 0 auto;
-		margin: 0;
+		margin: 0 1px 0 0;
 	}
 
 	@media ${ device.desktop } {
