@@ -158,10 +158,14 @@ export class TutorialsSlider extends Component {
 			posts: [],
 			error: null,
 			isLoaded: false,
+			isFirstSlide: true,
+			isLastSlide: false,
 		};
 
 		this.openLink = this.openLink.bind( this );
 		this.handleKeydown = this.handleKeydown.bind( this );
+		this.navigationButtonClicked = this.navigationButtonClicked.bind( this );
+		this.handleScroll = this.handleScroll.bind( this );
 	}
 
 	openLink = ( e ) => {
@@ -210,6 +214,41 @@ export class TutorialsSlider extends Component {
 			case aria.KeyCode.RIGHT :
 				this.keyNavigate( 'next' )
 				break;
+		}
+	}
+
+	// TODO: Check this on RTL.
+	handleScroll = ( e ) => {
+		const tutorialsContainer = e.currentTarget;
+
+		let isFirstSlide = false,
+			isLastSlide = false;
+
+		// We're at the first slide.
+		if ( 0 === tutorialsContainer.scrollLeft ) {
+			isFirstSlide = true;
+		}
+
+		// We're at the last slide.
+		if ( tutorialsContainer.scrollWidth === ( tutorialsContainer.scrollLeft + tutorialsContainer.offsetWidth ) ) {
+			isLastSlide = true;
+		}
+
+		this.setState({
+			isFirstSlide,
+			isLastSlide
+		});
+	}
+
+	// TODO: check this on RTL.
+	navigationButtonClicked = ( e ) => {
+		const tutorialsContainer = e.currentTarget.closest( '.sui-navigation-wrapper' ).previousElementSibling;
+
+		// Scroll to the next or previous "slide".
+		if ( e.currentTarget.classList.contains( 'next' ) ) {
+			tutorialsContainer.scrollLeft += tutorialsContainer.offsetWidth;
+		} else {
+			tutorialsContainer.scrollLeft -= tutorialsContainer.offsetWidth;
 		}
 	}
 
@@ -331,14 +370,16 @@ export class TutorialsSlider extends Component {
 
 					<Box>
 
-						<ListWrapper>
+						<ListWrapper onScroll={ this.handleScroll }>
 							{ listPosts }
 						</ListWrapper>
 
-						<Navigation>
+						<Navigation className="sui-navigation-wrapper">
 
 							<button
 								className="sui-button-icon prev"
+								onClick={ ( e ) => this.navigationButtonClicked( e ) }
+								style={ { visibility: this.state.isFirstSlide ? 'hidden' : 'visible' } }
 							>
 								<span
 									className="sui-icon-chevron-left sui-sm"
@@ -353,6 +394,8 @@ export class TutorialsSlider extends Component {
 
 							<button
 								className="sui-button-icon next"
+								onClick={ ( e ) => this.navigationButtonClicked( e ) }
+								style={ { visibility: this.state.isLastSlide ? 'hidden' : 'visible' } }
 							>
 								<span
 									className="sui-icon-chevron-right sui-sm"
