@@ -135,7 +135,7 @@ const Wrapper = styled.div`
 
 const Navigation = styled.div`
 	pointer-events: none;
-	display: flex;
+	display: none;
 	flex-flow: row wrap;
 	align-items: center;
 	justify-content: space-between;
@@ -147,6 +147,10 @@ const Navigation = styled.div`
 
 	button {
 		pointer-events: initial;
+	}
+
+	@media ${ device.tablet } {
+		display: flex;
 	}
 `;
 
