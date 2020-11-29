@@ -7,8 +7,15 @@ import {
 	BoxSection
 } from '../lib/box';
 
+// Import documentation.
+import DocsWrapper from './notes/docs-wrapper.md';
+import DocsHeader from './notes/docs-header.md';
+import DocsBody from './notes/docs-body.md';
+import DocsSection from './notes/docs-section.md';
+import DocsFooter from './notes/docs-footer.md';
+
 export default {
-	title: 'Containers',
+	title: 'Containers/Box',
 	component: Box,
 	subcomponents: {
 		BoxHeader,
@@ -30,8 +37,11 @@ export const wrapper = ( args ) => {
 			</BoxHeader>
 			<BoxBody>
 				<p>This is box body component. It can only be used inside <code>{ `<Box>` }</code> component.</p>
-				<BoxSection>
-					<p>Content goes here.</p>
+				<BoxSection
+					title="Section Title"
+					description="A brief description about this section goes here."
+				>
+					<p>Section content goes here.</p>
 				</BoxSection>
 			</BoxBody>
 			<BoxFooter>
@@ -40,7 +50,7 @@ export const wrapper = ( args ) => {
 		</Box>
 	);
 };
-wrapper.storyName = 'Box';
+wrapper.storyName = 'Box Wrapper';
 wrapper.args = {
 	title: 'Box Title',
 	titleIcon: 'hummingbird',
@@ -63,6 +73,9 @@ wrapper.argTypes = {
 		},
 	}
 };
+wrapper.parameters = {
+	notes: DocsWrapper
+};
 
 export const header = ( args ) => {
 	return (
@@ -80,6 +93,9 @@ header.args = {
 header.argTypes = {
 	...wrapper.argTypes
 };
+header.parameters = {
+	notes: DocsHeader
+};
 
 export const body = () => {
 	return (
@@ -95,6 +111,31 @@ body.parameters = {
 	controls: {
 		hideNoControlsWarning: true
 	},
+};
+body.parameters = {
+	notes: DocsBody
+};
+
+export const section = ( args ) => {
+	return (
+		<Box>
+			<BoxBody>
+				<BoxSection
+					{ ...args }
+				>
+					<p>Section content goes here.</p>
+				</BoxSection>
+			</BoxBody>
+		</Box>
+	);
+};
+section.storyName = 'Box Section';
+section.args = {
+	title: 'Section Title',
+	description: 'A brief description about this section goes here.'
+};
+section.parameters = {
+	notes: DocsSection
 };
 
 export const footer = () => {
@@ -112,22 +153,6 @@ footer.parameters = {
 		hideNoControlsWarning: true
 	},
 };
-
-export const other = ( args ) => {
-	return (
-		<Box>
-			<BoxBody>
-				<BoxSection
-					{ ...args }
-				>
-					<p>Content goes here.</p>
-				</BoxSection>
-			</BoxBody>
-		</Box>
-	);
-};
-other.storyName = 'Box Section';
-other.args = {
-	title: 'Settings Title',
-	description: 'Brief description for settings goes here.'
+footer.parameters = {
+	notes: DocsFooter
 };
