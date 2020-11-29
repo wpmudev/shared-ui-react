@@ -111,9 +111,7 @@ body.parameters = {
 	controls: {
 		hideNoControlsWarning: true
 	},
-};
-body.parameters = {
-	notes: DocsBody
+	notes: DocsBody,
 };
 
 export const section = ( args ) => {
@@ -152,7 +150,5 @@ footer.parameters = {
 	controls: {
 		hideNoControlsWarning: true
 	},
-};
-footer.parameters = {
-	notes: DocsFooter
+	notes: DocsFooter,
 };
