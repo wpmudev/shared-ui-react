@@ -96,3 +96,37 @@ export const BoxFooter = ({
 		</div>
 	);
 }
+
+export const BoxSection = ({
+	title,
+	description,
+	children,
+	...props
+}) => {
+	return (
+		<div
+			className="sui-box-settings-row"
+			{ ...props }
+		>
+			{ (
+				( title && '' !== title ) ||
+				( description && '' !== description )
+			) &&
+				<div className="sui-box-settings-col-1">
+
+					{ '' !== title &&
+						<h4 className="sui-settings-label">{ title }</h4>
+					}
+
+					{ '' !== description &&
+						<p className="sui-description">{ description }</p>
+					}
+
+				</div>
+			}
+			<div className="sui-box-settings-col-2">
+				{ children }
+			</div>
+		</div>
+	);
+}
