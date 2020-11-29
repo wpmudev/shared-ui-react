@@ -1,42 +1,20 @@
 import React from 'react';
-import { Box, BoxHeader, BoxBody, BoxFooter } from '../lib/box';
+import {
+	Box,
+	BoxHeader,
+	BoxBody,
+	BoxFooter,
+	BoxSection
+} from '../lib/box';
 
 export default {
-	title: 'Box',
+	title: 'Containers',
 	component: Box,
 	subcomponents: {
-		'Box.BoxHeader': BoxHeader,
-		'Box.BoxBody': BoxBody,
-		'Box.BoxFooter': BoxFooter
-	},
-	argTypes: {
-		title: {
-			type: 'string',
-			defaultValue: 'Box Title',
-		},
-		titleIcon: {
-			type: 'string',
-			defaultValue: 'hummingbird',
-		},
-		titleTag: {
-			type: 'string',
-			defaultValue: 'Tag',
-		},
-		titleTagColor: {
-			type: 'string',
-			defaultValue: '',
-			control: {
-				type: 'select',
-				options: [
-					'',
-					'red',
-					'yellow',
-					'green',
-					'blue',
-					'purple'
-				],
-			},
-		},
+		BoxHeader,
+		BoxBody,
+		BoxFooter,
+		BoxSection,
 	},
 };
 
@@ -52,6 +30,9 @@ export const wrapper = ( args ) => {
 			</BoxHeader>
 			<BoxBody>
 				<p>This is box body component. It can only be used inside <code>{ `<Box>` }</code> component.</p>
+				<BoxSection>
+					<p>Content goes here.</p>
+				</BoxSection>
 			</BoxBody>
 			<BoxFooter>
 				<button className="sui-button">Action</button>
@@ -60,7 +41,28 @@ export const wrapper = ( args ) => {
 	);
 };
 wrapper.storyName = 'Box';
-wrapper.args = {};
+wrapper.args = {
+	title: 'Box Title',
+	titleIcon: 'hummingbird',
+	titleTag: 'Tag',
+	titleTagColor: '',
+};
+wrapper.argTypes = {
+	titleTagColor: {
+		type: 'string',
+		control: {
+			type: 'select',
+			options: [
+				'',
+				'red',
+				'yellow',
+				'green',
+				'blue',
+				'purple'
+			]
+		},
+	}
+};
 
 export const header = ( args ) => {
 	return (
@@ -72,7 +74,12 @@ export const header = ( args ) => {
 	);
 };
 header.storyName = 'Box Header';
-header.args = {};
+header.args = {
+	...wrapper.args
+};
+header.argTypes = {
+	...wrapper.argTypes
+};
 
 export const body = () => {
 	return (
@@ -84,7 +91,11 @@ export const body = () => {
 	);
 };
 body.storyName = 'Box Body';
-body.args = {};
+body.parameters = {
+	controls: {
+		hideNoControlsWarning: true
+	},
+};
 
 export const footer = () => {
 	return (
@@ -96,4 +107,27 @@ export const footer = () => {
 	);
 };
 footer.storyName = 'Box Footer';
-footer.args = {};
+footer.parameters = {
+	controls: {
+		hideNoControlsWarning: true
+	},
+};
+
+export const other = ( args ) => {
+	return (
+		<Box>
+			<BoxBody>
+				<BoxSection
+					{ ...args }
+				>
+					<p>Content goes here.</p>
+				</BoxSection>
+			</BoxBody>
+		</Box>
+	);
+};
+other.storyName = 'Box Section';
+other.args = {
+	title: 'Settings Title',
+	description: 'Brief description for settings goes here.'
+};
