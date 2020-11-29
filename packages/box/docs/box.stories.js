@@ -1,42 +1,27 @@
 import React from 'react';
-import { Box, BoxHeader, BoxBody, BoxFooter } from '../lib/box';
+import {
+	Box,
+	BoxHeader,
+	BoxBody,
+	BoxFooter,
+	BoxSection
+} from '../lib/box';
+
+// Import documentation.
+import DocsWrapper from './notes/docs-wrapper.md';
+import DocsHeader from './notes/docs-header.md';
+import DocsBody from './notes/docs-body.md';
+import DocsSection from './notes/docs-section.md';
+import DocsFooter from './notes/docs-footer.md';
 
 export default {
-	title: 'Box',
+	title: 'Containers/Box',
 	component: Box,
 	subcomponents: {
-		'Box.BoxHeader': BoxHeader,
-		'Box.BoxBody': BoxBody,
-		'Box.BoxFooter': BoxFooter
-	},
-	argTypes: {
-		title: {
-			type: 'string',
-			defaultValue: 'Box Title',
-		},
-		titleIcon: {
-			type: 'string',
-			defaultValue: 'hummingbird',
-		},
-		titleTag: {
-			type: 'string',
-			defaultValue: 'Tag',
-		},
-		titleTagColor: {
-			type: 'string',
-			defaultValue: '',
-			control: {
-				type: 'select',
-				options: [
-					'',
-					'red',
-					'yellow',
-					'green',
-					'blue',
-					'purple'
-				],
-			},
-		},
+		BoxHeader,
+		BoxBody,
+		BoxFooter,
+		BoxSection,
 	},
 };
 
@@ -52,6 +37,12 @@ export const wrapper = ( args ) => {
 			</BoxHeader>
 			<BoxBody>
 				<p>This is box body component. It can only be used inside <code>{ `<Box>` }</code> component.</p>
+				<BoxSection
+					title="Section Title"
+					description="A brief description about this section goes here."
+				>
+					<p>Section content goes here.</p>
+				</BoxSection>
 			</BoxBody>
 			<BoxFooter>
 				<button className="sui-button">Action</button>
@@ -59,8 +50,32 @@ export const wrapper = ( args ) => {
 		</Box>
 	);
 };
-wrapper.storyName = 'Box';
-wrapper.args = {};
+wrapper.storyName = 'Box Wrapper';
+wrapper.args = {
+	title: 'Box Title',
+	titleIcon: 'hummingbird',
+	titleTag: 'Tag',
+	titleTagColor: '',
+};
+wrapper.argTypes = {
+	titleTagColor: {
+		type: 'string',
+		control: {
+			type: 'select',
+			options: [
+				'',
+				'red',
+				'yellow',
+				'green',
+				'blue',
+				'purple'
+			]
+		},
+	}
+};
+wrapper.parameters = {
+	notes: DocsWrapper
+};
 
 export const header = ( args ) => {
 	return (
@@ -72,7 +87,15 @@ export const header = ( args ) => {
 	);
 };
 header.storyName = 'Box Header';
-header.args = {};
+header.args = {
+	...wrapper.args
+};
+header.argTypes = {
+	...wrapper.argTypes
+};
+header.parameters = {
+	notes: DocsHeader
+};
 
 export const body = () => {
 	return (
@@ -84,7 +107,34 @@ export const body = () => {
 	);
 };
 body.storyName = 'Box Body';
-body.args = {};
+body.parameters = {
+	controls: {
+		hideNoControlsWarning: true
+	},
+	notes: DocsBody,
+};
+
+export const section = ( args ) => {
+	return (
+		<Box>
+			<BoxBody>
+				<BoxSection
+					{ ...args }
+				>
+					<p>Section content goes here.</p>
+				</BoxSection>
+			</BoxBody>
+		</Box>
+	);
+};
+section.storyName = 'Box Section';
+section.args = {
+	title: 'Section Title',
+	description: 'A brief description about this section goes here.'
+};
+section.parameters = {
+	notes: DocsSection
+};
 
 export const footer = () => {
 	return (
@@ -96,4 +146,9 @@ export const footer = () => {
 	);
 };
 footer.storyName = 'Box Footer';
-footer.args = {};
+footer.parameters = {
+	controls: {
+		hideNoControlsWarning: true
+	},
+	notes: DocsFooter,
+};
