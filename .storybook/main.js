@@ -6,7 +6,8 @@ module.exports = {
 		"@storybook/addon-links",
 		"@storybook/addon-actions",
 		"@storybook/addon-essentials",
-		"@storybook/addon-a11y"
+		"@storybook/addon-a11y",
+		"@storybook/addon-notes/register-panel"
 	],
 	webpackFinal: async ( config ) => {
 		// Change the order of resolution of main fields.
