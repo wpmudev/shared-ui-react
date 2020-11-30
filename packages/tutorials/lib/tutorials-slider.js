@@ -134,23 +134,95 @@ const Wrapper = styled.div`
 `;
 
 const Navigation = styled.div`
-	pointer-events: none;
-	display: none;
-	flex-flow: row wrap;
-	align-items: center;
-	justify-content: space-between;
-	position: absolute;
-	top: 50%;
-	right: 6px;
-	left: 6px;
-	transform: translateY(-50%);
+	display: block;
 
-	button {
-		pointer-events: initial;
+	button[class*="sui-button-"] {
+		display: none !important;
+
+		@media ${ device.tablet } {
+			display: block !important;
+			pointer-events: initial;
+		}
+	}
+
+	button:not([class*="sui-button-"]) {
+		width: 100%;
+		cursor: pointer;
+		display: flex;
+		flex-flow: row wrap;
+		align-items: center;
+		justify-content: center;
+		margin: 20px 0 10px !important;
+		padding: 10px !important;
+		border: 0;
+		border-radius: 4px;
+		background-color: #FFF;
+		color: #17A8E3 !important;
+		transition: 0.2s ease all;
+
+		* {
+			pointer-events: none;
+		}
+
+		strong {
+			min-width: 1px;
+			flex: 0 1 auto;
+			color: inherit;
+			font-size: 13px;
+			line-height: 22px;
+			font-weight: 500;
+		}
+
+		[class*="sui-icon-"] {
+			flex: 0 0 auto;
+			margin-left: 5px;
+			transition: 0.2s ease all;
+
+			&:before {
+				color: inherit;
+			}
+		}
+
+		&:hover,
+		&:focus {
+			outline: none;
+			box-shadow: none;
+		}
+
+		&:hover {
+			background-color: #FAFAFA;
+		}
+
+		&:focus {
+			background-color: #E1F6FF;
+		}
+
+		@media ${ device.tablet } {
+			display: none !important;
+		}
+	}
+
+	.open & {
+
+		button:not([class*="sui-button-"]) {
+
+			[class*="sui-icon-"] {
+				transform: rotate(180deg);
+			}
+		}
 	}
 
 	@media ${ device.tablet } {
+		pointer-events: none;
 		display: flex;
+		flex-flow: row wrap;
+		align-items: center;
+		justify-content: space-between;
+		position: absolute;
+		top: 50%;
+		right: 6px;
+		left: 6px;
+		transform: translateY(-50%);
 	}
 `;
 
@@ -170,6 +242,7 @@ export class TutorialsSlider extends Component {
 		this.handleKeydown = this.handleKeydown.bind( this );
 		this.navigationButtonClicked = this.navigationButtonClicked.bind( this );
 		this.handleScroll = this.handleScroll.bind( this );
+		this.showMore = this.showMore.bind( this );
 	}
 
 	openLink = ( e ) => {
@@ -253,6 +326,17 @@ export class TutorialsSlider extends Component {
 			tutorialsContainer.scrollLeft += tutorialsContainer.offsetWidth;
 		} else {
 			tutorialsContainer.scrollLeft -= tutorialsContainer.offsetWidth;
+		}
+	}
+
+	showMore = ( e ) => {
+		const nav = e.target.parentNode;
+		const box = nav.parentNode;
+
+		if ( box.classList.contains( 'open' ) ) {
+			box.classList.remove( 'open' );
+		} else {
+			box.classList.add( 'open' );
 		}
 	}
 
@@ -410,6 +494,19 @@ export class TutorialsSlider extends Component {
 								>
 									Next post
 								</span>
+							</button>
+
+							<button
+								className="sui-label"
+								onClick={ ( e ) => this.showMore( e ) }
+							>
+								<strong>
+									Show more
+								</strong>
+								<span
+									className="sui-icon-chevron-down sui-sm"
+									aria-hidden="true"
+								/>
 							</button>
 
 						</Navigation>
