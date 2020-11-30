@@ -319,7 +319,7 @@ export class TutorialsSlider extends Component {
 
 	// TODO: check this on RTL.
 	navigationButtonClicked = ( e ) => {
-		const tutorialsContainer = e.currentTarget.closest( '.sui-navigation-wrapper' ).previousElementSibling;
+		const tutorialsContainer = e.currentTarget.parentNode.previousElementSibling;
 
 		// Scroll to the next or previous "slide".
 		if ( e.currentTarget.classList.contains( 'next' ) ) {
@@ -462,7 +462,7 @@ export class TutorialsSlider extends Component {
 							{ listPosts }
 						</ListWrapper>
 
-						<Navigation className="sui-navigation-wrapper">
+						<Navigation>
 
 							<button
 								className="sui-button-icon prev"
