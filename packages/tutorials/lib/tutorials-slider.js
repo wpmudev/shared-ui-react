@@ -236,13 +236,14 @@ export class TutorialsSlider extends Component {
 			isLoaded: false,
 			isFirstSlide: true,
 			isLastSlide: false,
+			isShowingAll: false,
 		};
 
 		this.openLink = this.openLink.bind( this );
 		this.handleKeydown = this.handleKeydown.bind( this );
 		this.navigationButtonClicked = this.navigationButtonClicked.bind( this );
 		this.handleScroll = this.handleScroll.bind( this );
-		this.showMore = this.showMore.bind( this );
+		this.showMoreButtonClicked = this.showMoreButtonClicked.bind( this );
 	}
 
 	openLink = ( e ) => {
@@ -329,15 +330,10 @@ export class TutorialsSlider extends Component {
 		}
 	}
 
-	showMore = ( e ) => {
-		const nav = e.target.parentNode;
-		const box = nav.parentNode;
+	showMoreButtonClicked = ( e ) => {
+		console.log( e.target.parentNode.parentNode );
 
-		if ( box.classList.contains( 'open' ) ) {
-			box.classList.remove( 'open' );
-		} else {
-			box.classList.add( 'open' );
-		}
+		this.setState( { isShowingAll: ! this.state.isShowingAll } );
 	}
 
 	componentDidMount() {
@@ -366,10 +362,11 @@ export class TutorialsSlider extends Component {
 	render() {
 		const { posts, error, isLoaded } = this.state;
 
-		const listPosts = posts.map( post => (
+		const listPosts = posts.map( ( post, i ) => (
 			<ListItem
 				key={ post.id }
 				className="sui-tutorial"
+				className={ 1 < i && ! this.state.isShowingAll && 'sui-hidden' }
 			>
 
 				<Card
@@ -456,7 +453,7 @@ export class TutorialsSlider extends Component {
 						</div>
 					</div>
 
-					<Box>
+					<Box className={ this.state.isShowingAll && 'open' }>
 
 						<ListWrapper onScroll={ this.handleScroll }>
 							{ listPosts }
@@ -498,10 +495,10 @@ export class TutorialsSlider extends Component {
 
 							<button
 								className="sui-label"
-								onClick={ ( e ) => this.showMore( e ) }
+								onClick={ ( e ) => this.showMoreButtonClicked( e ) }
 							>
 								<strong>
-									Show more
+									{ this.state.isShowingAll ? 'Show less' : 'Show more' }
 								</strong>
 								<span
 									className="sui-icon-chevron-down sui-sm"
