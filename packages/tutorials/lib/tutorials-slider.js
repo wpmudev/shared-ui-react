@@ -1,6 +1,6 @@
 import React, { Component }  from 'react';
 import styled from 'styled-components';
-import { device } from './style-helpers';
+import { device, screen } from './style-helpers';
 import { Notifications } from '@wpmudev/react-notifications';
 import { TutorialsFeaturedImage } from './tutorial-image';
 import {
@@ -236,7 +236,7 @@ export class TutorialsSlider extends Component {
 			isLoaded: false,
 			isFirstSlide: true,
 			isLastSlide: false,
-			isShowingAll: false,
+			isShowingAll: window.innerWidth > screen.tablet,
 		};
 
 		this.openLink = this.openLink.bind( this );
