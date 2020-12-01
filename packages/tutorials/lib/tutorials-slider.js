@@ -230,6 +230,8 @@ export class TutorialsSlider extends Component {
 	constructor( props ) {
 		super( props );
 
+		this.secondTutorial = React.createRef();
+
 		this.state = {
 			posts: [],
 			error: null,
@@ -243,7 +245,6 @@ export class TutorialsSlider extends Component {
 		this.handleKeydown = this.handleKeydown.bind( this );
 		this.navigationButtonClicked = this.navigationButtonClicked.bind( this );
 		this.handleScroll = this.handleScroll.bind( this );
-		this.showMoreButtonClicked = this.showMoreButtonClicked.bind( this );
 	}
 
 	openLink = ( e ) => {
@@ -330,10 +331,20 @@ export class TutorialsSlider extends Component {
 		}
 	}
 
-	showMoreButtonClicked = ( e ) => {
-		console.log( e.target.parentNode.parentNode );
+	componentDidUpdate( prevProps, prevState ) {
+		// Handle the focused element when clicking on "show more"/"show lesss" on mobile.
+		if ( this.state.isShowingAll !== prevState.isShowingAll && window.innerWidth < screen.tablet ) {
+			if ( this.secondTutorial.current ) {
+				let tutorialToFocus;
 
-		this.setState( { isShowingAll: ! this.state.isShowingAll } );
+				if ( this.state.isShowingAll ) {
+					tutorialToFocus = this.secondTutorial.current.nextElementSibling;
+				} else {
+					tutorialToFocus = this.secondTutorial.current;
+				}
+				tutorialToFocus.firstElementChild.focus();
+			}
+		}
 	}
 
 	componentDidMount() {
@@ -367,6 +378,7 @@ export class TutorialsSlider extends Component {
 				key={ post.id }
 				className="sui-tutorial"
 				className={ 1 < i && ! this.state.isShowingAll && 'sui-hidden' }
+				ref={ 1 === i && this.secondTutorial }
 			>
 
 				<Card
@@ -495,7 +507,7 @@ export class TutorialsSlider extends Component {
 
 							<button
 								className="sui-label"
-								onClick={ ( e ) => this.showMoreButtonClicked( e ) }
+								onClick={ () => this.setState( { isShowingAll: ! this.state.isShowingAll } ) }
 							>
 								<strong>
 									{ this.state.isShowingAll ? 'Show less' : 'Show more' }
