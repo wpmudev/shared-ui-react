@@ -1,5 +1,5 @@
 name: 'Chromatic'
-on: push
+on: pull_request
 
 jobs:
   test:
@@ -7,9 +7,12 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - run: yarn
-      - uses: chromaui/action@v1
+      - name: build examples
+        run: |
+          yarn run build-storybook
+      - name: upload storybook to chromatic
+        uses: chromaui/action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          buildScriptName: yarn run build-storybook
           storybookBuildDir: storybook-static
