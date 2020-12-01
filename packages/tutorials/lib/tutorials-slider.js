@@ -428,6 +428,62 @@ export class TutorialsSlider extends Component {
 				<Notifications type="loading" message="Loading tutorials..." />
 			);
 		} else {
+			const navigation = (
+				<Navigation>
+
+					{ ( ( 3 < this.state.posts.length && window.innerWidth < screen.desktop ) || 4 < this.state.posts.length ) &&
+						[
+							<button
+								key="1"
+								className="sui-button-icon prev"
+								onClick={ ( e ) => this.navigationButtonClicked( e ) }
+								style={ { visibility: this.state.isFirstSlide ? 'hidden' : 'visible' } }
+								>
+								<span
+									className="sui-icon-chevron-left sui-sm"
+									aria-hidden="true"
+								/>
+								<span
+									className="sui-screen-reader-text"
+								>
+									Previous post
+								</span>
+							</button>,
+							<button
+								key="2"
+								className="sui-button-icon next"
+								onClick={ ( e ) => this.navigationButtonClicked( e ) }
+								style={ { visibility: this.state.isLastSlide ? 'hidden' : 'visible' } }
+							>
+								<span
+									className="sui-icon-chevron-right sui-sm"
+									aria-hidden="true"
+								/>
+								<span
+									className="sui-screen-reader-text"
+								>
+									Next post
+								</span>
+							</button>
+						]
+					}
+
+					<button
+						className="sui-label"
+						onClick={ () => this.setState( { isShowingAll: ! this.state.isShowingAll } ) }
+					>
+						<strong>
+							{ this.state.isShowingAll ? 'Show less' : 'Show more' }
+						</strong>
+						<span
+							className="sui-icon-chevron-down sui-sm"
+							aria-hidden="true"
+						/>
+					</button>
+
+				</Navigation>
+			);
+
 			return (
 				<div className="sui-box">
 
@@ -471,54 +527,9 @@ export class TutorialsSlider extends Component {
 							{ listPosts }
 						</ListWrapper>
 
-						<Navigation>
-
-							<button
-								className="sui-button-icon prev"
-								onClick={ ( e ) => this.navigationButtonClicked( e ) }
-								style={ { visibility: this.state.isFirstSlide ? 'hidden' : 'visible' } }
-							>
-								<span
-									className="sui-icon-chevron-left sui-sm"
-									aria-hidden="true"
-								/>
-								<span
-									className="sui-screen-reader-text"
-								>
-									Previous post
-								</span>
-							</button>
-
-							<button
-								className="sui-button-icon next"
-								onClick={ ( e ) => this.navigationButtonClicked( e ) }
-								style={ { visibility: this.state.isLastSlide ? 'hidden' : 'visible' } }
-							>
-								<span
-									className="sui-icon-chevron-right sui-sm"
-									aria-hidden="true"
-								/>
-								<span
-									className="sui-screen-reader-text"
-								>
-									Next post
-								</span>
-							</button>
-
-							<button
-								className="sui-label"
-								onClick={ () => this.setState( { isShowingAll: ! this.state.isShowingAll } ) }
-							>
-								<strong>
-									{ this.state.isShowingAll ? 'Show less' : 'Show more' }
-								</strong>
-								<span
-									className="sui-icon-chevron-down sui-sm"
-									aria-hidden="true"
-								/>
-							</button>
-
-						</Navigation>
+						{ 2 < this.state.posts.length &&
+							navigation
+						}
 
 					</Box>
 
