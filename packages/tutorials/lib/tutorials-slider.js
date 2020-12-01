@@ -371,7 +371,7 @@ export class TutorialsSlider extends Component {
 	}
 
 	render() {
-		const { posts, error, isLoaded } = this.state;
+		const { posts, error, isLoaded, isShowingAll } = this.state;
 
 		const listPosts = posts.map( ( post, i ) => (
 			<ListItem
@@ -431,7 +431,7 @@ export class TutorialsSlider extends Component {
 			const navigation = (
 				<Navigation>
 
-					{ ( ( 3 < this.state.posts.length && window.innerWidth < screen.desktop ) || 4 < this.state.posts.length ) &&
+					{ ( ( 3 < posts.length && window.innerWidth < screen.desktop ) || 4 < posts.length ) &&
 						[
 							<button
 								key="1"
@@ -470,10 +470,10 @@ export class TutorialsSlider extends Component {
 
 					<button
 						className="sui-label"
-						onClick={ () => this.setState( { isShowingAll: ! this.state.isShowingAll } ) }
+						onClick={ () => this.setState( { isShowingAll: ! isShowingAll } ) }
 					>
 						<strong>
-							{ this.state.isShowingAll ? 'Show less' : 'Show more' }
+							{ isShowingAll ? 'Show less' : 'Show more' }
 						</strong>
 						<span
 							className="sui-icon-chevron-down sui-sm"
@@ -521,13 +521,13 @@ export class TutorialsSlider extends Component {
 						</div>
 					</div>
 
-					<Box className={ this.state.isShowingAll && 'open' }>
+					<Box className={ isShowingAll && 'open' }>
 
 						<ListWrapper onScroll={ this.handleScroll }>
 							{ listPosts }
 						</ListWrapper>
 
-						{ 2 < this.state.posts.length &&
+						{ 2 < posts.length &&
 							navigation
 						}
 
