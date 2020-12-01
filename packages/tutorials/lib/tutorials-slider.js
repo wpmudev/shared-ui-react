@@ -241,10 +241,19 @@ export class TutorialsSlider extends Component {
 			isShowingAll: window.innerWidth > screen.tablet,
 		};
 
+		this.closeButtonClicked = this.closeButtonClicked.bind( this );
 		this.openLink = this.openLink.bind( this );
 		this.handleKeydown = this.handleKeydown.bind( this );
 		this.navigationButtonClicked = this.navigationButtonClicked.bind( this );
 		this.handleScroll = this.handleScroll.bind( this );
+	}
+
+	closeButtonClicked = ( e ) => {
+		const sliderBox = e.currentTarget.closest( '.sui-tutorials-slider-box' );
+		sliderBox.classList.add( 'sui-hidden' );
+
+		const event = new Event( 'sliderTutorialClosed' );
+		sliderBox.dispatchEvent( event );
 	}
 
 	openLink = ( e ) => {
@@ -485,7 +494,7 @@ export class TutorialsSlider extends Component {
 			);
 
 			return (
-				<div className="sui-box">
+				<div className="sui-box sui-tutorials-slider-box">
 
 					<div className="sui-box-header">
 						{ this.props.title &&
@@ -504,6 +513,7 @@ export class TutorialsSlider extends Component {
 							}
 
 							<button
+								onClick={ ( e ) => this.closeButtonClicked( e ) }
 								className="sui-button-icon"
 								style={ {
 									marginRight: '-9px'
