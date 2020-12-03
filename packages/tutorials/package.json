@@ -31,10 +31,11 @@
     "access": "public"
   },
   "resolutions": {
-	"styled-components": "^5"
+    "styled-components": "^5"
   },
   "dependencies": {
-	"styled-components": "^5.2.1"
+    "@wpmudev/react-post": "^0.0.0",
+    "styled-components": "^5.2.1"
   },
   "devDependencies": {
     "@wpmudev/react-builder": "^0.0.0",

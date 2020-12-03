@@ -2,13 +2,7 @@ import React, { Component }  from 'react';
 import styled from 'styled-components';
 import { device, screen } from './style-helpers';
 import { Notifications } from '@wpmudev/react-notifications';
-import { TutorialsFeaturedImage } from './tutorial-image';
-import {
-	Title,
-	Excerpt,
-	ReadMore,
-	ReadTime
-} from './commons';
+import { Post } from '@wpmudev/react-post';
 
 let aria = aria || {};
 
@@ -88,49 +82,6 @@ const ListItem = styled.li`
 	@media ${ device.desktop } {
 		width: 25%;
 	}
-`;
-
-const Card = styled.div.attrs( props => ({
-	tabIndex: 0,
-	role: 'link',
-	'data-href': props.link,
-}) )`
-	cursor: pointer;
-	padding: 10px;
-	border-radius: 4px;
-	background-color: #FFF;
-	transition: 0.2s ease all;
-
-	* {
-		pointer-events: none;
-	}
-
-	&:hover,
-	&:focus {
-		background-color: #FAFAFA;
-	}
-
-	&:focus {
-		outline: none;
-	}
-
-	@media ${ device.tablet } {
-		padding: 15px;
-	}
-`;
-
-const Header = styled.div`
-	display: flex;
-	flex-flow: row wrap;
-
-	+ div {
-		margin-top: 20px;
-	}
-`;
-
-const Wrapper = styled.div`
-	min-width: 1px;
-	flex: 1;
 `;
 
 const Navigation = styled.div`
@@ -390,40 +341,16 @@ export class TutorialsSlider extends Component {
 				ref={ 1 === i && this.secondTutorial }
 			>
 
-				<Card
-					link={ post.link }
+				<Post
+					role="link"
+					data-href={ post.link }
+					title={ post.title.rendered }
+					time={ post.meta.blog_reading_time }
+					excerpt={ post.excerpt.rendered }
+					media={ post.featured_media }
 					onClick={ ( e ) => this.openLink( e ) }
 					onKeyDown={ ( e ) => this.handleKeydown( e ) }
-				>
-
-					<Header>
-
-						<TutorialsFeaturedImage
-							slider
-							media={ post.featured_media }
-							className="post-featured-image"
-						/>
-
-						<Wrapper>
-
-							<Title slider>{ post.title.rendered }</Title>
-
-							{ '' !== post.meta.blog_reading_time &&
-								<ReadTime slider>*{ post.meta.blog_reading_time } min read</ReadTime>
-							}
-
-						</Wrapper>
-
-					</Header>
-
-					<Excerpt
-						slider
-						dangerouslySetInnerHTML={ { __html: post.excerpt.rendered } }
-					/>
-
-					<ReadMore slider>Read article</ReadMore>
-
-				</Card>
+				/>
 
 			</ListItem>
 		) );
