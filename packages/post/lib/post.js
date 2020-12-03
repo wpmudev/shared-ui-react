@@ -38,6 +38,8 @@ const PostWrapper = styled.div.attrs( props => ({
 }) )`
 	${ props => props.banner ? 'overflow: hidden;' : '' }
 	cursor: pointer;
+	${ props => props.banner ? 'display: flex;' : '' }
+	${ props => props.banner ? 'flex-flow: column nowrap;' : '' }
 	padding: ${ props => props.banner ? '20px 20px 30px' : '10px' };
 	border-radius: 4px;
 	background-color: #FFF;
@@ -52,23 +54,26 @@ const PostWrapper = styled.div.attrs( props => ({
 	&:focus {
 		${ props => props.banner ? 'transform: scale(1.02);' : 'background-color: #FAFAFA;' }
 
-		${ props => props.banner &&
-			`@media ${ device.tablet } {
+		${ props => props.banner
+			? `@media ${ device.tablet } {
 				transform: scale(1.05);
 			}`
+			: ''
 		}
 	}
 
-	${ props => props.banner &&
-		`@media ${ device.tablet } {
+	${ props => props.banner
+		? `@media ${ device.tablet } {
 			box-shadow: 0 2px 7px 0 rgba(0,0,0,0.05);
 		}`
+		: ''
 	}
 
 	&:focus {
 		outline: none;
-		${ props => props.banner &&
-			'box-shadow: 0 2px 7px 0 rgba(0,0,0,0.05), 0 0 2px 0 #17A8E3;'
+		${ props => props.banner
+			? 'box-shadow: 0 2px 7px 0 rgba(0,0,0,0.05), 0 0 2px 0 #17A8E3;'
+			: ''
 		}
 	}
 
@@ -88,6 +93,7 @@ const PostHeader = styled.div`
 
 const PostFooter = styled.div`
 	display: flex;
+	flex: 0 0 auto;
 	flex-flow: row wrap;
 	align-items: center;
 	margin-top: 15px;
@@ -102,6 +108,7 @@ const FeaturedImage = styled.div.attrs( () => ({
 	margin: ${ props => props.banner ? '-20px -20px 20px' : '0 10px 0 0' };
 	${ props => props.banner ? '' : 'border-radius: 4px;' }
 	display: block;
+	${ props => props.banner ? 'flex: 0 0 auto;' : '' }
 	background-color: #FFF;
 	background-image: url(${ props => props.src || 'none' });
 	background-size: cover;
@@ -113,25 +120,26 @@ const PostTitle = styled.h3`
 	overflow: hidden;
 	display: -webkit-box !important;
 	-webkit-box-orient: vertical;
+	${ props => props.banner ? 'flex: 1 1 auto;' : '' }
 	margin: ${ props => props.banner ? '0 0 10px' : '0' } !important;
 	padding: 0 !important;
 	border: 0;
-	color: #333;
 	font-size: 13px !important;
 	line-height: 18px !important;
 	font-weight: 500 !important;
 	letter-spacing: -0.2px;
 	${ props => props.banner ? '' : '-webkit-line-clamp: 2;' }
 
-	${ props => props.banner &&
-		`@media ${ device.tablet } {
+	${ props => props.banner
+		? `@media ${ device.tablet } {
 			-webkit-line-clamp: 2;
 		}`
+		: ''
 	}
 `;
 
 const PostTime = styled.p`
-	${ props => props.banner && 'flex: 0 0 auto;' }
+	${ props => props.banner ? 'flex: 0 0 auto;' : '' }
 	margin: 0 !important;
 	padding: 0 !important;
 	border: 0;
@@ -140,15 +148,17 @@ const PostTime = styled.p`
 	line-height: 18px !important;
 	letter-spacing: -0.2px;
 
-	${ props => props.banner &&
-		`* + & {
+	${ props => props.banner
+		? `* + & {
 			margin-left: 5px !important;
 		}`
+		: ''
 	}
 `;
 
 const Excerpt = styled.div`
 	display: block;
+	${ props => props.banner ? 'flex: 1 1 auto;' : '' }
 
 	p {
 		overflow: hidden;
@@ -255,24 +265,25 @@ export class Post extends Component {
 
 					{ PostImage }
 
-					{ this.props.title &&
-						<PostTitle>{ this.props.title }</PostTitle>
+					{ ( this.props.title && '' !== this.props.title ) &&
+						<PostTitle banner>{ this.props.title }</PostTitle>
 					}
 
 					{ ( this.props.excerpt && '' !== this.props.excerpt ) &&
 						<Excerpt
+							banner
 							dangerouslySetInnerHTML={ {
 								__html: this.props.excerpt
 							} }
 						/>
 					}
 
-					<PostFooter>
+					<PostFooter banner>
 
-						<ReadMore>Read article</ReadMore>
+						<ReadMore banner>Read article</ReadMore>
 
 						{ ( this.props.time && '' !== this.props.time ) &&
-							<PostTime>
+							<PostTime banner>
 								<span
 									className="sui-icon-clock sui-sm"
 									style={ {
