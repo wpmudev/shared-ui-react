@@ -292,7 +292,7 @@ export class Post extends Component {
 									} }
 									aria-hidden="true"
 								/>
-								{ this.props.time } min rea
+								{ this.props.time } min read
 							</PostTime>
 						}
 
