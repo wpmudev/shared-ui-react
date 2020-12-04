@@ -163,6 +163,20 @@ export class TutorialsList extends Component {
 	render() {
 		const { posts, error, isLoaded } = this.state;
 
+		const translate = this.props.translate;
+
+		const loading = translate && translate[0].loading
+			? translate[0].loading
+			: 'Loading tutorials...';
+
+		const read_article = translate && translate[0].read_article
+			? translate[0].read_article
+			: '';
+
+		const min_read = translate && translate[0].min_read
+			? translate[0].min_read
+			: '';
+
 		const listPosts = posts.map( post => (
 			<ListItem
 				key={ post.id }
@@ -176,6 +190,10 @@ export class TutorialsList extends Component {
 					time={ post.meta.blog_reading_time }
 					excerpt={ post.excerpt.rendered }
 					media={ post.featured_media }
+					translate={[ {
+						read_article: read_article,
+						min_read: min_read,
+					} ]}
 					onClick={ ( e ) => this.openLink( e ) }
 					onKeyDown={ ( e ) => this.handleKeydown( e ) }
 				/>
@@ -188,7 +206,7 @@ export class TutorialsList extends Component {
 			);
 		} else if ( ! isLoaded ) {
 			return (
-				<Notifications type="loading" message="Loading tutorials..." />
+				<Notifications type="loading" message={ loading } />
 			);
 		} else {
 			return (
