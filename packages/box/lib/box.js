@@ -14,51 +14,70 @@ export const Box = ({
 	);
 }
 
-export const BoxHeader = ({
-	title,
-	titleIcon = '',
-	titleTag = '',
-	titleTagColor = '',
+export const BoxTitle = ({
+	icon,
+	tag,
+	tagColor,
 	children,
 	...props
 }) => {
-	let titleTagClass = 'sui-tag';
+	let clazz = 'sui-tag';
 
-	switch( titleTagColor ) {
+	switch( tagColor ) {
 		case 'red':
 		case 'yellow':
 		case 'green':
 		case 'blue':
 		case 'purple':
-			titleTagClass += ' sui-tag-' + titleTagColor;
+			clazz += ' sui-tag-' + tagColor;
 			break;
 	}
 
+	return (
+		<h3
+			className="sui-box-title"
+			{ ...props }
+		>
+			{ ( icon && '' !== icon ) &&
+				<span
+					className={ `sui-icon-${ icon } sui-md` }
+					aria-hidden="true"
+				/>
+			}
+			{ children }
+			{ ( tag && '' !== tag ) &&
+				<span
+					className={ clazz }
+					style={ {
+						verticalAlign: 'top',
+						marginTop: 2,
+						marginLeft: 10,
+					} }
+				>{ tag }</span>
+			}
+		</h3>
+	);
+};
+
+export const BoxHeader = ({
+	title,
+	titleIcon,
+	titleTag,
+	titleTagColor,
+	children,
+	...props
+}) => {
 	return (
 		<div
 			className="sui-box-header"
 			{ ...props }
 		>
-			{ '' !== title &&
-				<h3 className="sui-box-title">
-					{ '' !== titleIcon &&
-						<span
-							className={ `sui-icon-${ titleIcon } sui-md` }
-							aria-hidden="true"
-						/>
-					}
-					{ title }
-					{ '' !== titleTag &&
-						<span
-							className={ titleTagClass }
-							style={ {
-								verticalAlign: 'top',
-								marginTop: 2,
-								marginLeft: 10,
-							} }
-						>{ titleTag }</span>
-					}
-				</h3>
+			{ ( title && '' !== title ) &&
+				<BoxTitle
+					icon={ titleIcon }
+					tag={ titleTag ? titleTag : '' }
+					tagColor={ titleTagColor ? titleTagColor : '' }
+				>{ title }</BoxTitle>
 			}
 
 			<div className="sui-actions-right">
@@ -93,6 +112,40 @@ export const BoxFooter = ({
 			{ ...props }
 		>
 			{ children }
+		</div>
+	);
+}
+
+export const BoxSection = ({
+	title,
+	description,
+	children,
+	...props
+}) => {
+	return (
+		<div
+			className="sui-box-settings-row"
+			{ ...props }
+		>
+			{ (
+				( title && '' !== title ) ||
+				( description && '' !== description )
+			) &&
+				<div className="sui-box-settings-col-1">
+
+					{ '' !== title &&
+						<h4 className="sui-settings-label">{ title }</h4>
+					}
+
+					{ '' !== description &&
+						<p className="sui-description">{ description }</p>
+					}
+
+				</div>
+			}
+			<div className="sui-box-settings-col-2">
+				{ children }
+			</div>
 		</div>
 	);
 }
