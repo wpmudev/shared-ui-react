@@ -244,6 +244,16 @@ export class Post extends Component {
 	render() {
 		const { media, error, isLoaded } = this.state;
 
+		const translate = this.props.translate;
+
+		const read_article = translate && translate[0].read_article
+			? translate[0].read_article
+			: 'Read article';
+
+		const min_read = translate && translate[0].min_read
+			? translate[0].min_read
+			: 'min read';
+
 		let PostImage = '';
 
 		if ( error ) {
@@ -280,7 +290,7 @@ export class Post extends Component {
 
 					<PostFooter banner>
 
-						<ReadMore banner>Read article</ReadMore>
+						<ReadMore banner>{ read_article }</ReadMore>
 
 						{ ( this.props.time && '' !== this.props.time ) &&
 							<PostTime banner>
@@ -292,7 +302,7 @@ export class Post extends Component {
 									} }
 									aria-hidden="true"
 								/>
-								{ this.props.time } min read
+								{ this.props.time } { min_read }
 							</PostTime>
 						}
 
@@ -319,7 +329,7 @@ export class Post extends Component {
 							<PostTitle>{ this.props.title }</PostTitle>
 						}
 						{ ( this.props.time && '' !== this.props.time ) &&
-							<PostTime>*{ this.props.time } min read</PostTime>
+							<PostTime>*{ this.props.time } { min_read }</PostTime>
 						}
 					</div>
 
@@ -333,7 +343,7 @@ export class Post extends Component {
 					/>
 				}
 
-				<ReadMore>Read article</ReadMore>
+				<ReadMore>{ read_article }</ReadMore>
 
 			</PostWrapper>
 		);
