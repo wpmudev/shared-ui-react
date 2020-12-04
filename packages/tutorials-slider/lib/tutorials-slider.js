@@ -1,6 +1,5 @@
 import React, { Component }  from 'react';
 import styled from 'styled-components';
-import { device, screen } from './style-helpers';
 import { Notifications } from '@wpmudev/react-notifications';
 import { Post } from '@wpmudev/react-post';
 
@@ -20,6 +19,20 @@ aria.KeyCode = {
 	RIGHT: 39,
 	DOWN: 40,
 	DELETE: 46
+};
+
+const screen = {
+	mobile: 480,
+	tablet: 783,
+	laptop: 1200,
+	desktop: 1500,
+};
+
+const device = {
+	mobile: `(min-width: ${screen.mobile}px)`,
+	tablet: `(min-width: ${screen.tablet}px)`,
+	laptop: `(min-width: ${screen.laptop}px)`,
+	desktop: `(min-width: ${screen.desktop}px)`,
 };
 
 const Box = styled.div`
@@ -333,6 +346,44 @@ export class TutorialsSlider extends Component {
 	render() {
 		const { posts, error, isLoaded, isShowingAll } = this.state;
 
+		const translate = this.props.translate;
+
+		const loading = translate && translate[0].loading
+			? translate[0].loading
+			: 'Loading tutorials...';
+
+		const read_article = translate && translate[0].read_article
+			? translate[0].read_article
+			: '';
+
+		const min_read = translate && translate[0].min_read
+			? translate[0].min_read
+			: '';
+
+		const prev_post = translate && translate[0].prev_post
+			? translate[0].prev_post
+			: 'Previous post';
+
+		const next_post = translate && translate[0].next_post
+			? translate[0].next_post
+			: 'Next post';
+
+		const view_all = translate && translate[0].view_all
+			? translate[0].view_all
+			: 'View all';
+
+		const close_tutorials = translate && translate[0].close_tutorials
+			? translate[0].close_tutorials
+			: 'Close tutorials';
+
+		const show_more = translate && translate[0].show_more
+			? translate[0].show_more
+			: 'Show more';
+
+		const show_less = translate && translate[0].show_less
+			? translate[0].show_less
+			: 'Show less';
+
 		const listPosts = posts.map( ( post, i ) => (
 			<ListItem
 				key={ post.id }
@@ -348,6 +399,10 @@ export class TutorialsSlider extends Component {
 					time={ post.meta.blog_reading_time }
 					excerpt={ post.excerpt.rendered }
 					media={ post.featured_media }
+					translate={[ {
+						min_read: min_read,
+						read_article: read_article,
+					} ]}
 					onClick={ ( e ) => this.openLink( e ) }
 					onKeyDown={ ( e ) => this.handleKeydown( e ) }
 				/>
@@ -361,7 +416,7 @@ export class TutorialsSlider extends Component {
 			);
 		} else if ( ! isLoaded ) {
 			return (
-				<Notifications type="loading" message="Loading tutorials..." />
+				<Notifications type="loading" message={ loading } />
 			);
 		} else {
 			const navigation = (
@@ -382,7 +437,7 @@ export class TutorialsSlider extends Component {
 								<span
 									className="sui-screen-reader-text"
 								>
-									Previous post
+									{ prev_post }
 								</span>
 							</button>,
 							<button
@@ -398,7 +453,7 @@ export class TutorialsSlider extends Component {
 								<span
 									className="sui-screen-reader-text"
 								>
-									Next post
+									{ next_post }
 								</span>
 							</button>
 						]
@@ -409,7 +464,7 @@ export class TutorialsSlider extends Component {
 						onClick={ () => this.setState( { isShowingAll: ! isShowingAll } ) }
 					>
 						<strong>
-							{ isShowingAll ? 'Show less' : 'Show more' }
+							{ isShowingAll ? show_less : show_more }
 						</strong>
 						<span
 							className="sui-icon-chevron-down sui-sm"
@@ -435,7 +490,7 @@ export class TutorialsSlider extends Component {
 										className="sui-icon-open-new-window sui-sm"
 										aria-hidden="true"
 									/>
-									View all
+									{ view_all }
 								</Link>
 							}
 
@@ -452,7 +507,7 @@ export class TutorialsSlider extends Component {
 								/>
 								<span
 									className="sui-screen-reader-text"
-								>Close tutorials</span>
+								>{ close_tutorials }</span>
 							</button>
 
 						</div>

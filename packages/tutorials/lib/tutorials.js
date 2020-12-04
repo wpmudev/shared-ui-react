@@ -1,17 +1,7 @@
-import React, { Component } from 'react';
-import { TutorialsList } from './tutorials-list';
-import { TutorialsSlider } from './tutorials-slider';
+import { TutorialsList } from '@wpmudev/react-tutorials-list';
+import { TutorialsSlider } from '@wpmudev/react-tutorials-slider';
 
-export class Tutorials extends Component {
-	constructor( props ) {
-		super( props );
-	}
-
-	render() {
-		if ( this.props.slider ) {
-			return <TutorialsSlider { ...this.props } />
-		}
-
-		return <TutorialsList { ...this.props } />
-	}
+export {
+	TutorialsList,
+	TutorialsSlider
 }

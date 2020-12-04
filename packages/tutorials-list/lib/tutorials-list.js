@@ -1,6 +1,5 @@
-import React, { Component }  from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
-import { device } from './style-helpers';
 import { Notifications } from '@wpmudev/react-notifications';
 import { Post } from '@wpmudev/react-post';
 
@@ -20,6 +19,20 @@ aria.KeyCode = {
 	RIGHT: 39,
 	DOWN: 40,
 	DELETE: 46
+};
+
+const screen = {
+	mobile: 480,
+	tablet: 783,
+	laptop: 1200,
+	desktop: 1500,
+};
+
+const device = {
+	mobile: `(min-width: ${screen.mobile}px)`,
+	tablet: `(min-width: ${screen.tablet}px)`,
+	laptop: `(min-width: ${screen.laptop}px)`,
+	desktop: `(min-width: ${screen.desktop}px)`,
 };
 
 const ListWrapper = styled.ul`
