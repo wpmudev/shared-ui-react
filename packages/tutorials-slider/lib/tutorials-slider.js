@@ -214,7 +214,7 @@ export class TutorialsSlider extends Component {
 
 	closeButtonClicked = ( e ) => {
 		const sliderBox = e.currentTarget.closest( '.sui-tutorials-slider-box' );
-		sliderBox.classList.add( 'sui-hidden' );
+		sliderBox.remove();
 
 		const event = new Event( 'sliderTutorialClosed' );
 		sliderBox.dispatchEvent( event );
