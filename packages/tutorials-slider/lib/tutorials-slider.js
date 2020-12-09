@@ -229,9 +229,9 @@ export class TutorialsSlider extends Component {
 	}
 
 	keyNavigate = ( direction ) => {
-		const focusedPost = document.activeElement.closest( '.sui-tutorial' );
+		const focusedPost = document.activeElement.closest( 'li' );
 
-		// Abort if the focused element doesn't have a .sui-tutorial parent.
+		// Abort if the focused element doesn't have a li parent.
 		if ( ! focusedPost ) {
 			return;
 		}
