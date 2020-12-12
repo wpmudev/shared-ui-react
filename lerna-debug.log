@@ -1,0 +1,13 @@
+0 silly argv {
+0 silly argv   _: [ 'add' ],
+0 silly argv   scope: '@wpmudev/react-tutorials',
+0 silly argv   globs: [],
+0 silly argv   lernaVersion: '3.22.1',
+0 silly argv   '$0': '/Users/leighton/Sites/github/shared-ui-react/node_modules/.bin/lerna',
+0 silly argv   pkg: '@wpmudev/react-tutorials-slider'
+0 silly argv }
+1 notice cli v3.22.1
+2 verbose rootPath /Users/leighton/Sites/github/shared-ui-react
+3 info versioning independent
+4 error Error: 404 Not Found - GET https://registry.npmjs.org/@wpmudev%2freact-tutorials-slider - Not found
+4 error     at /Users/leighton/Sites/github/shared-ui-react/node_modules/@evocateur/npm-registry-fetch/check-response.js:104:15

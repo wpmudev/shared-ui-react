@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Tutorials } from '../lib/tutorials';
+import React from 'react';
+import { TutorialsSlider } from '../lib/tutorials-slider';
 
 const plugins = {
 	smush: '11228',
@@ -11,8 +11,8 @@ const plugins = {
 };
 
 export default {
-	title: 'Tutorials',
-	component: Tutorials,
+	title: 'Tutorials/Slider',
+	component: TutorialsSlider,
 	argTypes: {
 		category: {
 			type: {
@@ -29,18 +29,9 @@ export default {
 
 const defender = '11231';
 
-const Template = ( args ) => <Tutorials { ...args } />
-
-export const primary = Template.bind({});
-primary.storyName = 'List';
+export const primary = ( args ) => <TutorialsSlider { ...args } />;
+primary.storyName = 'Slider';
 primary.args = {
-	title: 'Tutorials',
-	category: defender,
-};
-
-export const secondary = Template.bind({});
-secondary.storyName = 'Slider';
-secondary.args = {
 	slider: true,
 	title: 'Tutorials',
 	category: defender,

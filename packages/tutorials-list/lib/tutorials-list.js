@@ -1,14 +1,7 @@
-import React, { Component }  from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
-import { device } from './style-helpers';
 import { Notifications } from '@wpmudev/react-notifications';
-import { TutorialsFeaturedImage } from './tutorial-image';
-import {
-	Title,
-	Excerpt,
-	ReadMore,
-	ReadTime
-} from './commons';
+import { Post } from '@wpmudev/react-post';
 
 let aria = aria || {};
 
@@ -26,6 +19,20 @@ aria.KeyCode = {
 	RIGHT: 39,
 	DOWN: 40,
 	DELETE: 46
+};
+
+const screen = {
+	mobile: 480,
+	tablet: 783,
+	laptop: 1200,
+	desktop: 1500,
+};
+
+const device = {
+	mobile: `(min-width: ${screen.mobile}px)`,
+	tablet: `(min-width: ${screen.tablet}px)`,
+	laptop: `(min-width: ${screen.laptop}px)`,
+	desktop: `(min-width: ${screen.desktop}px)`,
 };
 
 const ListWrapper = styled.ul`
@@ -70,53 +77,6 @@ const ListItem = styled.li`
 			width: 20%;
 		}
 	}
-`;
-
-const Card = styled.div.attrs( props => ({
-	tabIndex: 0,
-	role: 'link',
-	'data-href': props.link
-}) )`
-	overflow: hidden;
-	cursor: pointer;
-	padding: 20px 20px 30px;
-	border-radius: 4px;
-	background-color: #FFF;
-	box-shadow: 0 0 0 1px #E6E6E6;
-	transition: 0.2s ease all;
-
-	* {
-		pointer-events: none;
-	}
-
-	&:hover,
-	&:focus {
-		transform: scale(1.02);
-
-		@media ${ device.tablet } {
-			transform: scale(1.05);
-		}
-	}
-
-	&:hover {
-		box-shadow: 0 2px 7px 0 rgba(0,0,0,0.05);
-	}
-
-	&:focus {
-		outline: none;
-		box-shadow: 0 2px 7px 0 rgba(0,0,0,0.05), 0 0 2px 0 #17A8E3;
-	}
-
-	@media ${ device.tablet } {
-		min-height: 100%;
-	}
-`;
-
-const Footer = styled.div`
-	display: flex;
-	flex-flow: row wrap;
-	align-items: center;
-	margin-top: 15px;
 `;
 
 export class TutorialsList extends Component {
@@ -216,46 +176,40 @@ export class TutorialsList extends Component {
 	render() {
 		const { posts, error, isLoaded } = this.state;
 
+		const translate = this.props.translate;
+
+		const loading = translate && translate[0].loading
+			? translate[0].loading
+			: 'Loading tutorials...';
+
+		const read_article = translate && translate[0].read_article
+			? translate[0].read_article
+			: '';
+
+		const min_read = translate && translate[0].min_read
+			? translate[0].min_read
+			: '';
+
 		const listPosts = posts.map( post => (
 			<ListItem
 				key={ post.id }
 				className="sui-tutorial"
 			>
-				<Card
-					link={ post.link }
+				<Post
+					banner
+					role="link"
+					data-href={ post.link }
+					title={ post.title.rendered }
+					time={ post.meta.blog_reading_time }
+					excerpt={ post.excerpt.rendered }
+					media={ post.featured_media }
+					translate={[ {
+						read_article: read_article,
+						min_read: min_read,
+					} ]}
 					onClick={ ( e ) => this.openLink( e ) }
 					onKeyDown={ ( e ) => this.handleKeydown( e ) }
-				>
-
-					<TutorialsFeaturedImage
-						media={ post.featured_media }
-					/>
-
-					<Title>{ post.title.rendered }</Title>
-
-					<Excerpt dangerouslySetInnerHTML={ { __html: post.excerpt.rendered } } />
-
-					<Footer>
-
-						<ReadMore>Read article</ReadMore>
-
-						{ '' !== post.meta.blog_reading_time &&
-							<ReadTime>
-								<span
-									className="sui-icon-clock sui-sm"
-									aria-hidden="true"
-									style={ {
-										verticalAlign: 'middle',
-										marginRight: 5,
-									} }
-								/>
-								{ post.meta.blog_reading_time } min read
-							</ReadTime>
-						}
-
-					</Footer>
-
-				</Card>
+				/>
 			</ListItem>
 		) );
 
@@ -265,7 +219,7 @@ export class TutorialsList extends Component {
 			);
 		} else if ( ! isLoaded ) {
 			return (
-				<Notifications type="loading" message="Loading tutorials..." />
+				<Notifications type="loading" message={ loading } />
 			);
 		} else {
 			return (
