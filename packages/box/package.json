@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/react-box",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "WPMU DEV Shared UI React Box Component",
   "author": "WPMU DEV",
   "contributors": [
@@ -20,7 +20,7 @@
     "test": "__tests__"
   },
   "files": [
-	"dist",
+    "dist",
     "lib"
   ],
   "repository": {
@@ -28,7 +28,7 @@
     "url": "git+https://github.com/wpmudev/shared-ui-react.git"
   },
   "scripts": {
-	"build": "sui-builder",
+    "build": "sui-builder",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {

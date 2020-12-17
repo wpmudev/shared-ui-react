@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/react-tutorials-slider",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "WPMU DEV Shared UI React Tutorials Slider Component",
   "author": "WPMU DEV",
   "contributors": [
@@ -8,11 +8,11 @@
       "name": "Leighton Sapir",
       "email": "2328848+iamleigh@users.noreply.github.com",
       "url": "https://iamleigh.com/"
-	},
-	{
-	  "name": "Danae Millán",
-	  "email": "41606954+a-danae@users.noreply.github.com"
-	}
+    },
+    {
+      "name": "Danae Millán",
+      "email": "41606954+a-danae@users.noreply.github.com"
+    }
   ],
   "homepage": "https://github.com/wpmudev/shared-ui-react#readme",
   "license": "GPL-2.0",
@@ -39,14 +39,14 @@
     "url": "https://github.com/wpmudev/shared-ui-react/issues"
   },
   "publishConfig": {
-	  "access": "public"
+    "access": "public"
   },
   "resolutions": {
     "styled-components": "^5"
   },
   "dependencies": {
-    "@wpmudev/react-notifications": "^0.0.0",
-    "@wpmudev/react-post": "^0.0.0"
+    "@wpmudev/react-notifications": "^0.1.0",
+    "@wpmudev/react-post": "^1.0.0"
   },
   "devDependencies": {
     "react": "^17.0.1",
