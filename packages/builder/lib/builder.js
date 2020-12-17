@@ -26,6 +26,10 @@ const inputOptions = {
 			presets: ['@babel/preset-env', '@babel/preset-react'],
 			babelHelpers: 'bundled',
 			exclude: 'node_modules/**',
+			plugins: [
+				'@babel/plugin-proposal-class-properties',
+				'@babel/plugin-proposal-private-methods'
+			],
 		}),
 	],
 };
