@@ -30,7 +30,9 @@
   },
   "dependencies": {
     "@wpmudev/react-box": "^0.0.0",
-    "@wpmudev/react-button": "^0.1.0"
+    "@wpmudev/react-button": "^0.1.0",
+    "@wpmudev/react-notifications": "^0.0.0",
+    "@wpmudev/react-post": "^0.0.0"
   },
   "devDependencies": {
     "@wpmudev/react-builder": "^0.0.0"
