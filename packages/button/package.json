@@ -4,6 +4,13 @@
   "version": "0.1.0",
   "description": "WPMU DEV Shared UI React Button Component",
   "author": "WPMU DEV",
+  "contributors": [
+    {
+      "name": "Leighton Sapir",
+      "email": "2328848+iamleigh@users.noreply.github.com",
+      "url": "https://iamleigh.com/"
+    }
+  ],
   "homepage": "https://github.com/wpmudev/shared-ui-react#readme",
   "license": "GPL-2.0",
   "main": "dist/button.cjs.js",
