@@ -2,7 +2,7 @@
   "name": "@wpmudev/react-post",
   "version": "0.0.0",
   "description": "WPMU DEV Shared UI React Post Component",
-  "author": "Leighton Sapir <2328848+iamleigh@users.noreply.github.com>",
+  "author": "WPMU DEV",
   "homepage": "https://github.com/wpmudev/shared-ui-react#readme",
   "license": "GPL-2.0",
   "main": "dist/post.cjs.js",
