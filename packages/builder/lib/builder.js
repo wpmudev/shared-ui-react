@@ -32,6 +32,7 @@ const inputOptions = {
 			],
 		}),
 	],
+	external: ['react', 'styled-components'],
 };
 
 const outputOptions = [
