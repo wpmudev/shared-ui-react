@@ -49,6 +49,7 @@
     "@wpmudev/react-post": "^1.0.0"
   },
   "devDependencies": {
+	"@wpmudev/react-builder": "^0.0.0",
     "react": "^17.0.1",
     "styled-components": "^5.2.1"
   },
