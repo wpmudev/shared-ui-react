@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/react-tutorials-slider",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "WPMU DEV Shared UI React Tutorials Slider Component",
   "author": "WPMU DEV",
   "contributors": [
@@ -45,7 +45,7 @@
     "styled-components": "^5"
   },
   "dependencies": {
-    "@wpmudev/react-notifications": "^0.1.0",
+    "@wpmudev/react-notifications": "^0.1.1",
     "@wpmudev/react-post": "^1.0.0"
   },
   "devDependencies": {

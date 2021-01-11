@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@wpmudev/react-button",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "WPMU DEV Shared UI React Button Component",
   "author": "WPMU DEV",
   "contributors": [
