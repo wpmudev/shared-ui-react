@@ -12,7 +12,7 @@
     }
   ],
   "homepage": "https://wpmudev.github.io/shared-ui/",
-  "license": "GPL-2.0",
+  "license": "MIT",
   "main": "dist/core.cjs.js",
   "module": "dist/core.esm.js",
   "src": "lib/core.js",

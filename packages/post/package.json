@@ -11,7 +11,7 @@
     }
   ],
   "homepage": "https://github.com/wpmudev/shared-ui-react#readme",
-  "license": "GPL-2.0",
+  "license": "MIT",
   "main": "dist/post.cjs.js",
   "module": "dist/post.esm.js",
   "src": "lib/post.js",

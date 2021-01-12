@@ -15,7 +15,7 @@
     }
   ],
   "homepage": "https://github.com/wpmudev/shared-ui-react#readme",
-  "license": "GPL-2.0",
+  "license": "MIT",
   "main": "dist/tutorials-list.cjs.js",
   "module": "dist/tutorials-list.esm.js",
   "src": "lib/tutorials-list.js",
