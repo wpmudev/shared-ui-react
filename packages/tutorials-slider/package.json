@@ -29,7 +29,8 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wpmudev/shared-ui-react.git"
+	"url": "git+https://github.com/wpmudev/shared-ui-react.git",
+	"directory": "packages/tutorials-slider"
   },
   "scripts": {
     "build": "sui-builder",
@@ -39,7 +40,8 @@
     "url": "https://github.com/wpmudev/shared-ui-react/issues"
   },
   "publishConfig": {
-    "access": "public"
+	"access": "public",
+	"registry": "https://npm.pkg.github.com/"
   },
   "resolutions": {
     "styled-components": "^5"

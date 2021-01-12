@@ -25,7 +25,8 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wpmudev/shared-ui-react.git"
+	"url": "git+https://github.com/wpmudev/shared-ui-react.git",
+	"directory": "packages/tutorials"
   },
   "scripts": {
     "build": "sui-builder",
@@ -35,7 +36,8 @@
     "url": "https://github.com/wpmudev/shared-ui-react/issues"
   },
   "publishConfig": {
-    "access": "public"
+	"access": "public",
+	"registry": "https://npm.pkg.github.com/"
   },
   "dependencies": {
     "@wpmudev/react-tutorials-list": "^1.0.5",
