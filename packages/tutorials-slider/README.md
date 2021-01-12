@@ -1,11 +1,6 @@
-# `tutorials-slider`
-
-> TODO: description
+# @wpmudev/react-tutorials-slider
 
 ## Usage
-
 ```
-const tutorialsSlider = require('tutorials-slider');
-
-// TODO: DEMONSTRATE API
+npm i @wpmudev/react-tutorials-slider --save-dev
 ```

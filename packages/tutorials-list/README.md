@@ -1,11 +1,6 @@
-# `tutorials-list`
-
-> TODO: description
+# @wpmudev/react-tutorials-list
 
 ## Usage
-
 ```
-const tutorialsList = require('tutorials-list');
-
-// TODO: DEMONSTRATE API
+npm i @wpmudev/react-tutorials-list --save-dev
 ```

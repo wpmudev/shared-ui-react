@@ -1,11 +1,9 @@
-# `tutorials`
-
-> TODO: description
+# @wpmudev/react-tutorials
+Includes all available types of tutorial components:
+- [List](https://www.npmjs.com/package/@wpmudev/react-tutorials-list)
+- [Slider](https://www.npmjs.com/package/@wpmudev/react-tutorials-slider)
 
 ## Usage
-
 ```
-const tutorials = require('tutorials');
-
-// TODO: DEMONSTRATE API
+npm i @wpmudev/react-tutorials --save-dev
 ```
