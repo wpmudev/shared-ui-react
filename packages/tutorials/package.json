@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/react-tutorials",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "WPMU DEV Shared UI React Tutorials Component",
   "author": "WPMU DEV",
   "contributors": [
@@ -25,8 +25,8 @@
   ],
   "repository": {
     "type": "git",
-	"url": "git+https://github.com/wpmudev/shared-ui-react.git",
-	"directory": "packages/tutorials"
+    "url": "git+https://github.com/wpmudev/shared-ui-react.git",
+    "directory": "packages/tutorials"
   },
   "scripts": {
     "build": "sui-builder",
@@ -36,12 +36,12 @@
     "url": "https://github.com/wpmudev/shared-ui-react/issues"
   },
   "publishConfig": {
-	"access": "public",
-	"registry": "https://npm.pkg.github.com/"
+    "access": "public",
+    "registry": "https://npm.pkg.github.com/"
   },
   "dependencies": {
-    "@wpmudev/react-tutorials-list": "^1.0.5",
-    "@wpmudev/react-tutorials-slider": "^1.0.5"
+    "@wpmudev/react-tutorials-list": "^1.0.6",
+    "@wpmudev/react-tutorials-slider": "^1.0.6"
   },
   "devDependencies": {
     "@wpmudev/react-builder": "^0.0.0",

@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/react-tutorials-slider",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "WPMU DEV Shared UI React Tutorials Slider Component",
   "author": "WPMU DEV",
   "contributors": [
@@ -29,8 +29,8 @@
   ],
   "repository": {
     "type": "git",
-	"url": "git+https://github.com/wpmudev/shared-ui-react.git",
-	"directory": "packages/tutorials-slider"
+    "url": "git+https://github.com/wpmudev/shared-ui-react.git",
+    "directory": "packages/tutorials-slider"
   },
   "scripts": {
     "build": "sui-builder",
@@ -40,8 +40,8 @@
     "url": "https://github.com/wpmudev/shared-ui-react/issues"
   },
   "publishConfig": {
-	"access": "public",
-	"registry": "https://npm.pkg.github.com/"
+    "access": "public",
+    "registry": "https://npm.pkg.github.com/"
   },
   "resolutions": {
     "styled-components": "^5"
