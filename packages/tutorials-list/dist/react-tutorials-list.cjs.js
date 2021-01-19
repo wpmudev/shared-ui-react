@@ -4,7 +4,6 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 var React = require('react');
 var styled = require('styled-components');
-var reactNotifications = require('@wpmudev/react-notifications');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -177,39 +176,6 @@ function _createClass$1(Constructor, protoProps, staticProps) {
   return Constructor;
 }
 
-function _defineProperty$1(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-
-function _extends() {
-  _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-
-  return _extends.apply(this, arguments);
-}
-
 function _inherits$1(subClass, superClass) {
   if (typeof superClass !== "function" && superClass !== null) {
     throw new TypeError("Super expression must either be null or a function");
@@ -286,6 +252,191 @@ function _createSuper$1(Derived) {
     }
 
     return _possibleConstructorReturn$1(this, result);
+  };
+}
+
+var Notifications = /*#__PURE__*/function (_Component) {
+  _inherits$1(Notifications, _Component);
+
+  var _super = _createSuper$1(Notifications);
+
+  function Notifications(props) {
+    _classCallCheck$1(this, Notifications);
+
+    return _super.call(this, props);
+  }
+
+  _createClass$1(Notifications, [{
+    key: "render",
+    value: function render() {
+      var classMain = 'sui-notice';
+      var classIcon = 'sui-notice-icon sui-md';
+
+      switch (this.props.type) {
+        case 'info':
+        case 'success':
+        case 'warning':
+        case 'error':
+        case 'upsell':
+          classMain += ' sui-notice-' + this.props.type;
+          break;
+
+        case 'loading':
+          classIcon += ' sui-icon-loader sui-loading';
+          break;
+
+        default:
+          classIcon += ' sui-icon-info';
+          break;
+      }
+
+      return /*#__PURE__*/React__default['default'].createElement("div", {
+        className: classMain
+      }, /*#__PURE__*/React__default['default'].createElement("div", {
+        className: "sui-notice-content"
+      }, /*#__PURE__*/React__default['default'].createElement("div", {
+        className: "sui-notice-message"
+      }, /*#__PURE__*/React__default['default'].createElement("span", {
+        className: classIcon,
+        "aria-hidden": "true"
+      }), /*#__PURE__*/React__default['default'].createElement("p", null, this.props.message))));
+    }
+  }]);
+
+  return Notifications;
+}(React.Component);
+
+function _classCallCheck$2(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _defineProperties$2(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass$2(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties$2(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties$2(Constructor, staticProps);
+  return Constructor;
+}
+
+function _defineProperty$1(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+function _inherits$2(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) _setPrototypeOf$2(subClass, superClass);
+}
+
+function _getPrototypeOf$2(o) {
+  _getPrototypeOf$2 = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  };
+  return _getPrototypeOf$2(o);
+}
+
+function _setPrototypeOf$2(o, p) {
+  _setPrototypeOf$2 = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  };
+
+  return _setPrototypeOf$2(o, p);
+}
+
+function _isNativeReflectConstruct$2() {
+  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+  if (Reflect.construct.sham) return false;
+  if (typeof Proxy === "function") return true;
+
+  try {
+    Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+function _assertThisInitialized$2(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return self;
+}
+
+function _possibleConstructorReturn$2(self, call) {
+  if (call && (_typeof(call) === "object" || typeof call === "function")) {
+    return call;
+  }
+
+  return _assertThisInitialized$2(self);
+}
+
+function _createSuper$2(Derived) {
+  var hasNativeReflectConstruct = _isNativeReflectConstruct$2();
+
+  return function _createSuperInternal() {
+    var Super = _getPrototypeOf$2(Derived),
+        result;
+
+    if (hasNativeReflectConstruct) {
+      var NewTarget = _getPrototypeOf$2(this).constructor;
+
+      result = Reflect.construct(Super, arguments, NewTarget);
+    } else {
+      result = Super.apply(this, arguments);
+    }
+
+    return _possibleConstructorReturn$2(this, result);
   };
 }
 
@@ -478,18 +629,18 @@ var ReadMore = styled__default['default'].p(_templateObject8(), function (props)
 });
 
 var Post = /*#__PURE__*/function (_Component) {
-  _inherits$1(Post, _Component);
+  _inherits$2(Post, _Component);
 
-  var _super = _createSuper$1(Post);
+  var _super = _createSuper$2(Post);
 
   function Post(props) {
     var _this;
 
-    _classCallCheck$1(this, Post);
+    _classCallCheck$2(this, Post);
 
     _this = _super.call(this, props);
 
-    _defineProperty$1(_assertThisInitialized$1(_this), "openLink", function (e) {
+    _defineProperty$1(_assertThisInitialized$2(_this), "openLink", function (e) {
       var ref = e.target !== null ? e.target : e.srcElement;
 
       if (ref) {
@@ -497,7 +648,7 @@ var Post = /*#__PURE__*/function (_Component) {
       }
     });
 
-    _defineProperty$1(_assertThisInitialized$1(_this), "handleKeydown", function (e) {
+    _defineProperty$1(_assertThisInitialized$2(_this), "handleKeydown", function (e) {
       var key = e.which || e.keyCode;
 
       switch (key) {
@@ -513,12 +664,12 @@ var Post = /*#__PURE__*/function (_Component) {
       error: null,
       isLoaded: false
     };
-    _this.openLink = _this.openLink.bind(_assertThisInitialized$1(_this));
-    _this.handleKeydown = _this.handleKeydown.bind(_assertThisInitialized$1(_this));
+    _this.openLink = _this.openLink.bind(_assertThisInitialized$2(_this));
+    _this.handleKeydown = _this.handleKeydown.bind(_assertThisInitialized$2(_this));
     return _this;
   }
 
-  _createClass$1(Post, [{
+  _createClass$2(Post, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       var _this2 = this;
@@ -797,12 +948,12 @@ var TutorialsList = /*#__PURE__*/function (_Component) {
       });
 
       if (error) {
-        return /*#__PURE__*/React__default['default'].createElement(reactNotifications.Notifications, {
+        return /*#__PURE__*/React__default['default'].createElement(Notifications, {
           type: "error",
           message: error.message
         });
       } else if (!isLoaded) {
-        return /*#__PURE__*/React__default['default'].createElement(reactNotifications.Notifications, {
+        return /*#__PURE__*/React__default['default'].createElement(Notifications, {
           type: "loading",
           message: loading
         });
