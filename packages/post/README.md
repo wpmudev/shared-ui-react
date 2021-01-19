@@ -1,11 +1,7 @@
-# `post`
+# Post
+Posts contain content and actions about tutorials posts.
 
-> TODO: description
-
-## Usage
-
+## Installtion
 ```
-const post = require('post');
-
-// TODO: DEMONSTRATE API
+npm i @wpmudev/react-post --save-dev
 ```
