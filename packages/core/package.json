@@ -13,8 +13,8 @@
   ],
   "homepage": "https://wpmudev.github.io/shared-ui/",
   "license": "MIT",
-  "main": "dist/core.cjs.js",
-  "module": "dist/core.esm.js",
+  "main": "dist/shared-ui-react.cjs.js",
+  "module": "dist/shared-ui-react.esm.js",
   "src": "lib/core.js",
   "directories": {
     "lib": "lib",
@@ -49,5 +49,6 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "gitHead": "373d3acb2bc8f3226c519b6174c007bec68500a6"
 }
