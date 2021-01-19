@@ -16,23 +16,9 @@ export const Box = ({
 
 export const BoxTitle = ({
 	icon,
-	tag,
-	tagColor,
 	children,
 	...props
 }) => {
-	let clazz = 'sui-tag';
-
-	switch( tagColor ) {
-		case 'red':
-		case 'yellow':
-		case 'green':
-		case 'blue':
-		case 'purple':
-			clazz += ' sui-tag-' + tagColor;
-			break;
-	}
-
 	return (
 		<h3
 			className="sui-box-title"
@@ -45,16 +31,6 @@ export const BoxTitle = ({
 				/>
 			}
 			{ children }
-			{ ( tag && '' !== tag ) &&
-				<span
-					className={ clazz }
-					style={ {
-						verticalAlign: 'top',
-						marginTop: 2,
-						marginLeft: 10,
-					} }
-				>{ tag }</span>
-			}
 		</h3>
 	);
 };
@@ -62,8 +38,6 @@ export const BoxTitle = ({
 export const BoxHeader = ({
 	title,
 	titleIcon,
-	titleTag,
-	titleTagColor,
 	children,
 	...props
 }) => {
@@ -75,8 +49,6 @@ export const BoxHeader = ({
 			{ ( title && '' !== title ) &&
 				<BoxTitle
 					icon={ titleIcon }
-					tag={ titleTag ? titleTag : '' }
-					tagColor={ titleTagColor ? titleTagColor : '' }
 				>{ title }</BoxTitle>
 			}
 
