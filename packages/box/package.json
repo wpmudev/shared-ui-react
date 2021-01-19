@@ -35,13 +35,14 @@
     "url": "https://github.com/wpmudev/shared-ui-react/issues"
   },
   "publishConfig": {
-    "access": "public"
+	"access": "public",
+	"registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
     "@wpmudev/react-builder": "^0.0.0",
     "react": "^17.0.1"
   },
   "peerDependencies": {
-    "react": "16.x"
+    "react": "^16.0.0"
   }
 }
