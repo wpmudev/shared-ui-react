@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/react-notifications",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "description": "WPMU DEV Shared UI React Notifications Component",
   "author": "WPMU DEV",
   "contributors": [
@@ -25,8 +25,8 @@
   ],
   "repository": {
     "type": "git",
-	"url": "git+https://github.com/wpmudev/shared-ui-react.git",
-	"directory": "packages/notifications"
+    "url": "git+https://github.com/wpmudev/shared-ui-react.git",
+    "directory": "packages/notifications"
   },
   "scripts": {
     "build": "sui-builder",
@@ -36,8 +36,8 @@
     "url": "https://github.com/wpmudev/shared-ui-react/issues"
   },
   "publishConfig": {
-	"access": "public",
-	"registry": "https://registry.npmjs.org/"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
     "@wpmudev/react-builder": "^0.0.0",

@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/react-post",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "WPMU DEV Shared UI React Post Component",
   "author": "WPMU DEV",
   "contributors": [
@@ -20,24 +20,24 @@
     "test": "__tests__"
   },
   "files": [
-	"dist",
+    "dist",
     "lib"
   ],
   "repository": {
     "type": "git",
-	"url": "git+https://github.com/wpmudev/shared-ui-react.git",
-	"directory": "packages/post"
+    "url": "git+https://github.com/wpmudev/shared-ui-react.git",
+    "directory": "packages/post"
   },
   "scripts": {
-	"build": "sui-builder",
+    "build": "sui-builder",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {
     "url": "https://github.com/wpmudev/shared-ui-react/issues"
   },
   "publishConfig": {
-	"access": "public",
-	"registry": "https://registry.npmjs.org/"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "resolutions": {
     "styled-components": "^5"
