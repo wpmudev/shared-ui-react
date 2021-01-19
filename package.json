@@ -1,6 +1,7 @@
 {
   "private": true,
   "name": "shared-ui-react",
+  "license": "GPLv3",
   "workspaces": [
     "packages/*"
   ],
