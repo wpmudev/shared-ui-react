@@ -1,11 +1,7 @@
-# `box`
+# Containers: Box
+Box container allows you to wrap content inside a white box.
 
-> TODO: description
-
-## Usage
-
+## Installtion
 ```
-const box = require('box');
-
-// TODO: DEMONSTRATE API
+npm i @wpmudev/react-box --save-dev
 ```
