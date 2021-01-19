@@ -1,6 +1,12 @@
-# @wpmudev/react-tutorials-list
+# Tutorials: List
+[Tutorials List](https://www.npmjs.com/package/@wpmudev/react-tutorials-list) allows you to list posts on a page.
+
+## Installtion
+```
+npm i @wpmudev/react-tutorials-list --save-dev
+```
 
 ## Usage
 ```
-npm i @wpmudev/react-tutorials-list --save-dev
+@import { TutorialsList } from '@wpmudev/react-tutorials-list'
 ```

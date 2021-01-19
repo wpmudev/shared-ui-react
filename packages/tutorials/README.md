@@ -1,9 +1,13 @@
-# @wpmudev/react-tutorials
-Includes all available types of tutorial components:
-- [List](https://www.npmjs.com/package/@wpmudev/react-tutorials-list)
-- [Slider](https://www.npmjs.com/package/@wpmudev/react-tutorials-slider)
+# Tutorials
+Tutorials allows you to insert posts in list or slider mode.
+
+## Installtion
+```
+npm i @wpmudev/react-tutorials --save-dev
+```
 
 ## Usage
 ```
-npm i @wpmudev/react-tutorials --save-dev
+@import { TutorialsList } from '@wpmudev/react-tutorials-list'
+@import { TutorialsSlider } from '@wpmudev/react-tutorials-slider'
 ```

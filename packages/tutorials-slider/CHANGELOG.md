@@ -1,8 +1,32 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [1.0.6](https://github.com/wpmudev/shared-ui-react/compare/@wpmudev/react-tutorials-slider@1.0.5...@wpmudev/react-tutorials-slider@1.0.6) (2021-01-12)
+v1.0.0
+- Initial release.
 
-**Note:** Version bump only for package @wpmudev/react-tutorials-slider
+v1.0.1
+- Fix: Problems when installing package.
+
+v1.0.2
+- Fix: Problems when installing package.
+
+v1.0.3
+- Fix: Problems when installing package.
+
+v1.0.4
+- Fix: Problems when installing package.
+
+v1.0.5
+- Fix: Problems when installing package.
+
+v1.0.6
+- Fix: Wrong version for React peer dependency.
+
+v1.0.7
+- Enhance: Add CHANGELOG file.
+- Enhance: Update license.
+- Enhance: Update README file.
+- Fix: Pointing to correct module file.
+- Fix: Pointing to correct main file.
+- Fix: Set correct registry for publishing configurations.

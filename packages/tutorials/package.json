@@ -11,9 +11,9 @@
     }
   ],
   "homepage": "https://github.com/wpmudev/shared-ui-react#readme",
-  "license": "MIT",
-  "main": "dist/tutorials.cjs.js",
-  "module": "dist/tutorials.esm.js",
+  "license": "GPL-3.0",
+  "main": "dist/react-tutorials.cjs.js",
+  "module": "dist/react-tutorials.esm.js",
   "src": "lib/tutorials.js",
   "directories": {
     "lib": "lib",
@@ -37,7 +37,7 @@
   },
   "publishConfig": {
     "access": "public",
-    "registry": "https://npm.pkg.github.com/"
+    "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
     "@wpmudev/react-tutorials-list": "^1.0.6",
