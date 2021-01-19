@@ -8,3 +8,7 @@ v1.0.0
 v1.0.1
 - Fix: Pointing to correct module file.
 - Fix: Pointing to correct main file.
+
+v1.0.2
+- Enhance: Update @wpmudev/react-post package version.
+- Enhance: Update @wpmudev/react-notifications package version.
