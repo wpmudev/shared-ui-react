@@ -12,8 +12,8 @@
   ],
   "homepage": "https://github.com/wpmudev/shared-ui-react#readme",
   "license": "GPL-3.0",
-  "main": "dist/notifications.cjs.js",
-  "module": "dist/notifications.esm.js",
+  "main": "dist/react-notifications.cjs.js",
+  "module": "dist/react-notifications.esm.js",
   "src": "lib/notifications.js",
   "directories": {
     "lib": "lib",
@@ -25,7 +25,8 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wpmudev/shared-ui-react.git"
+	"url": "git+https://github.com/wpmudev/shared-ui-react.git",
+	"directory": "packages/notifications"
   },
   "scripts": {
     "build": "sui-builder",
@@ -35,13 +36,14 @@
     "url": "https://github.com/wpmudev/shared-ui-react/issues"
   },
   "publishConfig": {
-    "access": "public"
+	"access": "public",
+	"registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
     "@wpmudev/react-builder": "^0.0.0",
     "react": "^17.0.1"
   },
   "peerDependencies": {
-    "react": "16.x"
+    "react": "^16.0.0"
   }
 }
