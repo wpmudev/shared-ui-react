@@ -4,13 +4,5 @@
 	"packages": [
 		"packages/*"
 	],
-	"version": "independent",
-	"command": {
-		"publish": {
-			"conventionalCommits": true,
-			"message": "chore(release): publish",
-			"registry": "https://registry.npmjs.org",
-			"allowBranch": "master"
-		}
-	}
+	"version": "independent"
 }
