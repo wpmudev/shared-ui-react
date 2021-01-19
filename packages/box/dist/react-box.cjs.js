@@ -72,51 +72,26 @@ var Box = function Box(_ref) {
 };
 var BoxTitle = function BoxTitle(_ref2) {
   var icon = _ref2.icon,
-      tag = _ref2.tag,
-      tagColor = _ref2.tagColor,
       children = _ref2.children,
-      props = _objectWithoutProperties(_ref2, ["icon", "tag", "tagColor", "children"]);
-
-  var clazz = 'sui-tag';
-
-  switch (tagColor) {
-    case 'red':
-    case 'yellow':
-    case 'green':
-    case 'blue':
-    case 'purple':
-      clazz += ' sui-tag-' + tagColor;
-      break;
-  }
+      props = _objectWithoutProperties(_ref2, ["icon", "children"]);
 
   return /*#__PURE__*/React__default['default'].createElement("h3", _extends({
     className: "sui-box-title"
   }, props), icon && '' !== icon && /*#__PURE__*/React__default['default'].createElement("span", {
     className: "sui-icon-".concat(icon, " sui-md"),
     "aria-hidden": "true"
-  }), children, tag && '' !== tag && /*#__PURE__*/React__default['default'].createElement("span", {
-    className: clazz,
-    style: {
-      verticalAlign: 'top',
-      marginTop: 2,
-      marginLeft: 10
-    }
-  }, tag));
+  }), children);
 };
 var BoxHeader = function BoxHeader(_ref3) {
   var title = _ref3.title,
       titleIcon = _ref3.titleIcon,
-      titleTag = _ref3.titleTag,
-      titleTagColor = _ref3.titleTagColor,
       children = _ref3.children,
-      props = _objectWithoutProperties(_ref3, ["title", "titleIcon", "titleTag", "titleTagColor", "children"]);
+      props = _objectWithoutProperties(_ref3, ["title", "titleIcon", "children"]);
 
   return /*#__PURE__*/React__default['default'].createElement("div", _extends({
     className: "sui-box-header"
   }, props), title && '' !== title && /*#__PURE__*/React__default['default'].createElement(BoxTitle, {
-    icon: titleIcon,
-    tag: titleTag ? titleTag : '',
-    tagColor: titleTagColor ? titleTagColor : ''
+    icon: titleIcon
   }, title), /*#__PURE__*/React__default['default'].createElement("div", {
     className: "sui-actions-right"
   }, children));
