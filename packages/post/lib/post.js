@@ -254,7 +254,7 @@ export class Post extends Component {
 			? translate[0].min_read
 			: 'min read';
 
-		let PostImage = '';
+		let PostImage = ''; // Empty.
 
 		if ( error ) {
 			PostImage = '';
