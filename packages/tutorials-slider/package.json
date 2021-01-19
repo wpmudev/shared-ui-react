@@ -15,9 +15,9 @@
     }
   ],
   "homepage": "https://github.com/wpmudev/shared-ui-react#readme",
-  "license": "MIT",
-  "main": "lib/tutorials-slider.cjs.js",
-  "module": "dist/tutorials-slider.esm.js",
+  "license": "GPL-3.0",
+  "main": "dist/react-tutorials-slider.cjs.js",
+  "module": "dist/react-tutorials-slider.esm.js",
   "src": "lib/tutorials-slider.js",
   "directories": {
     "lib": "lib",
@@ -41,7 +41,7 @@
   },
   "publishConfig": {
     "access": "public",
-    "registry": "https://npm.pkg.github.com/"
+    "registry": "https://registry.npmjs.org/"
   },
   "resolutions": {
     "styled-components": "^5"
