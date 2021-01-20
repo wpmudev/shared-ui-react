@@ -1,5 +1,5 @@
 # Tutorials: List
-[Tutorials List](https://wpmudev.github.io/shared-ui-react/?path=/story/tutorials-list--primary) allows you to list WPMU DEV posts tagged as tutorials and categorized by plugin name on a page.
+[Tutorials List](https://wpmudev.github.io/shared-ui-react/?path=/story/tutorials-list--primary) allows you to list [WPMU DEV](https://premium.wpmudev.org/blog/) posts categorized by plugin name and tagged as tutorials.
 
 ## Installation
 ```
