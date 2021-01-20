@@ -2,7 +2,7 @@ import React from 'react';
 import { TutorialsList } from '../lib/tutorials-list';
 
 // Import documentation.
-import DocsTutorials from '../README.md';
+import Documentation from '../README.md';
 
 const plugins = {
 	smush: '11228',
@@ -39,5 +39,5 @@ primary.args = {
 	category: defender,
 };
 primary.parameters = {
-	notes: DocsTutorials
+	notes: Documentation
 }
