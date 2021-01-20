@@ -1,7 +1,7 @@
 # Tutorials: List
-[Tutorials List](https://www.npmjs.com/package/@wpmudev/react-tutorials-list) allows you to list posts on a page.
+[Tutorials List](https://wpmudev.github.io/shared-ui-react/?path=/story/tutorials-list--primary) allows you to list WPMU DEV posts tagged as tutorials and categorized by plugin name on a page.
 
-## Installtion
+## Installation
 ```
 npm i @wpmudev/react-tutorials-list --save-dev
 ```
@@ -9,7 +9,7 @@ npm i @wpmudev/react-tutorials-list --save-dev
 ## Usage
 
 ### Javascript Instantiation
-```
+```js
 import React from 'react';
 import {
 	TutorialsList
@@ -18,6 +18,7 @@ import {
 const MyApp = () => {
 	return (
 		<TutorialsList
+			title="Tutorials"
 			category={ category_id }
 		/>
 	);
@@ -25,7 +26,7 @@ const MyApp = () => {
 ```
 
 #### Props
-| Prop Name | Required | Description |
-| --------- | -------- | ----------- |
-| title     | No       | Includes a title in the box that contains the list of posts. |
-| category  | Yes      | Category ID to retrieve posts tagged as "tutorial" from specific plugin category. |
+Prop Name | Type | Required | Description
+--- | --- | --- | ---
+title | string | No | Includes a title in the box that contains the list of posts.
+category | string | Yes | Category ID to retrieve posts tagged as "tutorial" from specific plugin category.
