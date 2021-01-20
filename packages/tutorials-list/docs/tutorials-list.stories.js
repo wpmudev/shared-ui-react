@@ -1,6 +1,9 @@
 import React from 'react';
 import { TutorialsList } from '../lib/tutorials-list';
 
+// Import documentation.
+import DocsTutorials from '../README.md';
+
 const plugins = {
 	smush: '11228',
 	hustle: '11235',
@@ -35,3 +38,6 @@ primary.args = {
 	title: 'Tutorials',
 	category: defender,
 };
+primary.parameters = {
+	notes: DocsTutorials
+}
