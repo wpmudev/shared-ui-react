@@ -30,5 +30,5 @@ const MyApp = () => {
 Prop Name | Type | Required | Description
 --- | --- | --- | ---
 title | string | No | Includes a title in the slideshow box.
-category | string | Yes | Retrieve posts tagged as "tutorial" from specific plugin category.
+category | string | Yes | Retrieve posts tagged as "tutorial" from plugin category ID.
 viewAll | string | No | When has content shows a "View All" text with link in it.
