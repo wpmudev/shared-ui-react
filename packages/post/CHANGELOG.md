@@ -20,3 +20,7 @@ v1.0.3
 - Fix: Pointing to correct main file.
 - Fix: Set correct registry for publishing configurations.
 - Fix: Wrong version for React peer dependency.
+
+v1.0.3
+- Enhance: Improve documentation.
+- Enhance: Add `styled-component` in dependencies list.
