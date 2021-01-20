@@ -32,7 +32,6 @@ const defender = '11231';
 export const primary = ( args ) => <TutorialsSlider { ...args } />;
 primary.storyName = 'Slider';
 primary.args = {
-	slider: true,
 	title: 'Tutorials',
 	category: defender,
 	viewAll: 'https://premium.wpmudev.org/',
