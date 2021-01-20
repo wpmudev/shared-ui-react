@@ -1,7 +1,9 @@
 # Tutorials
+
 Tutorials allows you to showcase [WPMU DEV](https://premium.wpmudev.org/blog/) posts tagged as `tutorials` in [Lists Mode](https://wpmudev.github.io/shared-ui-react/?path=/story/tutorials-list--primary) or [Slider Mode](https://wpmudev.github.io/shared-ui-react/?path=/story/tutorials-slider--primary).
 
 ## Installation
+
 ```
 npm i @wpmudev/react-tutorials --save-dev
 ```
@@ -37,6 +39,7 @@ const MyApp = () => {
 ```
 
 ## Components
+
 The following are **Tutorials** components. Other components outside of this package cannot be used with these components.
 
 ### List
@@ -60,6 +63,7 @@ const MyApp = () => {
 ```
 
 #### Props
+
 Prop Name | Type | Required | Description
 --- | --- | --- | ---
 title | string | No | Includes a title in the box that contains the list of posts.
@@ -87,6 +91,7 @@ const MyApp = () => {
 ```
 
 #### Props
+
 Prop Name | Type | Required | Description
 --- | --- | --- | ---
 title | string | No | Includes a title in the slideshow box.
