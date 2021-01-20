@@ -12,16 +12,16 @@ npm i @wpmudev/react-tutorials-list --save-dev
 ```js
 import React from 'react';
 import {
-	TutorialsList
+  TutorialsList
 } from '@wpmudev/react-tutorials-list';
 
 const MyApp = () => {
-	return (
-		<TutorialsList
-			title="Tutorials"
-			category={ category_id }
-		/>
-	);
+  return (
+    <TutorialsList
+      title="Tutorials"
+      category={ category_id }
+    />
+  );
 }
 ```
 
