@@ -29,4 +29,4 @@ const MyApp = () => {
 Prop Name | Type | Required | Description
 --- | --- | --- | ---
 title | string | No | Includes a title in the box that contains the list of posts.
-category | string | Yes | Category ID to retrieve posts tagged as "tutorial" from specific plugin category.
+category | string | Yes | Retrieve posts tagged as "tutorial" from plugin category ID.
