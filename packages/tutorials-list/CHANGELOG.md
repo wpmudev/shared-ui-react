@@ -30,3 +30,7 @@ v1.0.7
 - Fix: Pointing to correct module file.
 - Fix: Pointing to correct main file.
 - Fix: Set correct registry for publishing configurations.
+
+v1.0.8
+- Enhance: Improve documentation.
+- Enhance: Add `styled-component` in dependencies list.

@@ -1,6 +1,9 @@
 import React from 'react';
 import { TutorialsSlider } from '../lib/tutorials-slider';
 
+// Import documentation.
+import Documentation from '../README.md';
+
 const plugins = {
 	smush: '11228',
 	hustle: '11235',
@@ -32,8 +35,10 @@ const defender = '11231';
 export const primary = ( args ) => <TutorialsSlider { ...args } />;
 primary.storyName = 'Slider';
 primary.args = {
-	slider: true,
 	title: 'Tutorials',
 	category: defender,
 	viewAll: 'https://premium.wpmudev.org/',
 };
+primary.parameters = {
+	notes: Documentation
+}
