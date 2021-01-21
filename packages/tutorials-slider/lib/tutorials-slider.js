@@ -213,11 +213,11 @@ export class TutorialsSlider extends Component {
 	}
 
 	closeButtonClicked = ( e ) => {
-		const sliderBox = e.currentTarget.closest( '.sui-tutorials-slider-box' );
-		sliderBox.remove();
+		const sliderBox = e.currentTarget.closest( '.sui-tutorials-slider-box' ),
+			event = new Event( 'sliderTutorialClosed' );
 
-		const event = new Event( 'sliderTutorialClosed' );
 		sliderBox.dispatchEvent( event );
+		sliderBox.remove();
 	}
 
 	openLink = ( e ) => {
