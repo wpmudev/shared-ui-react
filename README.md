@@ -19,12 +19,18 @@ Go to the component you need, install it using node and start using it on your p
 
 ### Non-React Plugins
 
-1. Install the following packages:
+#### 1. Install Packages.
+
+Install dependencies for your project:
+
 ```
 npm i react react-dom @babel/core @babel/preset-react --save-dev
 ```
 
-2. Create or edit `.babelrc` file and include the following:
+#### 2. Babel settings.
+
+Create or edit `.babelrc` file and include the following:
+
 ```js
 {
   "presets": [
@@ -34,7 +40,10 @@ npm i react react-dom @babel/core @babel/preset-react --save-dev
 }
 ```
 
-3. Create or edit `webpack.config.js` file:
+#### 3. Webpack settings.
+
+Create or edit `webpack.config.js` file:
+
 ```js
 var path = require( 'path' );
 
@@ -76,7 +85,9 @@ var jsConfig = Object.assign( {}, {
 module.exports = [ jsConfig ];
 ```
 
-4. Create a new file, preferrably inside `/assets/js/` folder, and its name should match the file we are calling from webpack:
+#### 4. Import your component(s).
+
+Create a new file, preferrably inside `/assets/js/` folder, and its name should match the file we are calling from webpack:
 
 ```js
 import React from 'react';
@@ -92,7 +103,10 @@ ReactDOM.render(
 );
 ```
 
-5. Finally, go to the file where you going to include your component(s), for example: `dashboard.php` file, and add:
+#### 5. HTML Content.
+
+Go to the file where you going to include your component(s), for example: `dashboard.php` file, and add:
+
 ```html
 <div id="app"></div>
 <script src="./assets/js/index.min.js"></script><!-- Your react file must be called here -->
