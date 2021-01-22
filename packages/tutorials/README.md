@@ -20,20 +20,20 @@ import {
 
 const MyApp = () => {
   return (
-	<>
+    <>
 
-	  <TutorialsList
+      <TutorialsList
         title="Tutorials"
         category={ category_id }
-	  />
+      />
 
-	  <TutorialsSlider
+      <TutorialsSlider
         title="Tutorials"
-		category={ category_id }
-		viewAll="https://premium.wpmudev.org/blog/"
-	  />
+        category={ category_id }
+        viewAll="https://premium.wpmudev.org/blog/"
+      />
 
-	</>
+    </>
   );
 }
 ```
@@ -54,10 +54,10 @@ import {
 
 const MyApp = () => {
   return (
-	<TutorialsList
+    <TutorialsList
       title="Tutorials"
-	  category={ category_id }
-	/>
+      category={ category_id }
+    />
   );
 }
 ```
