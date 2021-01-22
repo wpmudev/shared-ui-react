@@ -1842,10 +1842,10 @@ var TutorialsSlider = /*#__PURE__*/function (_Component) {
     _this = _super.call(this, props);
 
     _defineProperty$2(_assertThisInitialized$3(_this), "closeButtonClicked", function (e) {
-      var sliderBox = e.currentTarget.closest('.sui-tutorials-slider-box');
-      sliderBox.remove();
-      var event = new Event('sliderTutorialClosed');
+      var sliderBox = e.currentTarget.closest('.sui-tutorials-slider-box'),
+          event = new Event('sliderTutorialClosed');
       sliderBox.dispatchEvent(event);
+      sliderBox.remove();
     });
 
     _defineProperty$2(_assertThisInitialized$3(_this), "openLink", function (e) {
