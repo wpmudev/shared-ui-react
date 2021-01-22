@@ -2,6 +2,8 @@
 
 # Shared UI Components for React
 
+This is the official implementation of [WPMU DEV Shared UI](https://github.com/wpmudev/shared-ui/) components for React.
+
 ## Components
 
 The following is a list of the components that are ready to be used with corresponding links to NPM package and the showcase design spec.
