@@ -96,6 +96,10 @@ const MyApp = () => {
 
 #### Props
 
+Grab your plugin category unique ID from [demo site](https://wpmudev.github.io/shared-ui-react/). Go to **Controls** that is located in Add-ons section, at the bottom of the screen, and select your plugin from the dropdown list.
+
+> Note: If you are not able to see **Controls** section, click on "A" letter and some options will show up at the bottom of the screen.
+
 Prop Name | Type | Required | Description
 --- | --- | --- | ---
 title | string | No | Includes a title in the slideshow box.
