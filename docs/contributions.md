@@ -25,12 +25,6 @@ Go ahead an open a pull request when:
 
 > Have in mind that anything larger to 20 lines of code or changes to an API will require an issue to be opened first.
 
-## Local Test
-
-1. To begin with the project make sure you have [Yarn](https://yarnpkg.com/getting-started/install) and [Lerna](https://lerna.js.org/) globally installed on your system.
-2. Exec `yarn install` to install all required dependencies.
-3. Exec `yarn run storybook` to initialize [Storybook](https://storybook.js.org/) on your local environment.
-
 ## Commit Message Format
 
 The final commit message to the @wpmudev/react-foo package, for GitHub issue 1234, should look like this:
@@ -58,14 +52,12 @@ Pull requests should meet the following criteria:
 
 ### Process
 
-Before opening a PR, it should be up to date with `master` branch.
+Before opening a PR, it should be up to date with targeted release (`rc<release_number>` ie. `rc0.7.0`, `rc0.8.0`, etc.). In most cases it will never be branched from `master`.
 
 #### Checklist:
 
-- [ ] All unit tests pass. Please read the [tests doc]() for further instructions.
-- [ ] Ensure you have appropriate test coverage.
 - [ ] Lint passes.
-- [ ] Screenshot tests pass.
+- [ ] Chromatic passes.
 - [ ] Descriptions about your changes.
 
 Once you have passed all checks, the process is as follows:
