@@ -62,11 +62,11 @@ Before opening a PR, it should be up to date with `master` branch.
 
 #### Checklist:
 
-[] All unit tests pass. Please read the [tests doc]() for further instructions.
-[] Ensure you have appropriate test coverage.
-[] Lint passes.
-[] Screenshot tests pass.
-[] Descriptions about your changes.
+- [ ] All unit tests pass. Please read the [tests doc]() for further instructions.
+- [ ] Ensure you have appropriate test coverage.
+- [ ] Lint passes.
+- [ ] Screenshot tests pass.
+- [ ] Descriptions about your changes.
 
 Once you have passed all checks, the process is as follows:
 
