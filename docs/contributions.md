@@ -70,6 +70,6 @@ Before opening a PR, it should be up to date with `master` branch.
 
 Once you have passed all checks, the process is as follows:
 
-1. Ping one of the admins (@iamleigh, @a-danae) in the PR when its ready for review.
+1. Ping one of the admins ([@iamleigh](https://github.com/iamleigh), [@a-danae](https://github.com/a-danae)) in the PR when its ready for review.
 2. We will either approve, request changes, or explain why we can't accept these changes. And we'll work from there.
 3. Assuming approval, one of the admins will merge your changes and remove the branch from the PR.
