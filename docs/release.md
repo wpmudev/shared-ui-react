@@ -14,7 +14,7 @@ chmod +x packages/builder/lib/builder.js
 
 ## Build library and showcase files.
 
-Once all PRs are merged into master, continue the process below.
+Once all pull requests are merged into master, continue the process below.
 
 #### Build packages.
 
