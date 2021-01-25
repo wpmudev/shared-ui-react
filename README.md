@@ -1,69 +1,115 @@
-# WPMU DEV Shared UI React Components
+[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
 
-## Collaborate
+# Shared UI Components for React
 
-### Initialize
-1. To begin with the project make sure you have **Yarn** and **Lerna** installed on your system.
-2. Run `yarn install` to install all dependencies on the project.
-3. Run `yarn run storybook` to initialize Storybook (project showcase).
+This is the official implementation of [WPMU DEV Shared UI](https://github.com/wpmudev/shared-ui/) components for React.
 
-### Creating new package/component
-1. Run `npx lerna create {component-name}`.
-2. Follow lerna steps to configure your new package, but make sure to name it correctly: `@wpmudev/react-{component-name}`
-	- **Package name:** `@wpmudev/react-{component-name}`. Notice `@wpmudev/react-` prefix followed by folder name to name your package.
-	- **Version:** `0.0.0`
-	- **Description:** `WPMU DEV Shared UI React {Component Name} Component`
-	- **Keywords:**
-	- **Homepage:**
-	- **License:** GPL-2.0
-	- **Entry Point:** Use default value.
-	- **Git Repository:** Use default value (https://github.com/wpmudev/shared-ui-react.git)
-	- Review and accept changes.
-3. Add React as dev dependency for local testing by running `npx lerna add react --dev --scope=@wpmudev/react-{component-name}`
-4. Add React 16+ as peer dependency for consuming apps by running `npx lerna add react@16.x --peer --scope=@wpmudev/react-{component-name}`
-5. Add **clsx** utility to toggle classes as needed on the components by running `npx lerna add clsx --scope=@wpmudev/react-{component-name}`
-6. Prepare your package for building. Edit your component `package.json` file with the following:
-	- Set `"main": "dist/{component-name}.cjs.js",`
-	- Set `"module": "dist/{component-name}.esm.js",`
-	- Set `"src": "lib/{component-name}.js",`
-	- Add `dist` folder to `files` we are going to pubslih. Ex. `"files": [ "dist", "lib" ]`.
-	- Add builder script `"build": "sui-builder"`.
-	- Add `"publishConfig": { "access": "public" }` to make sure scoped package is going to be publicy viewable.
+## Components
 
-### Installing npm packages
+The following is a list of the components that are ready to be used with corresponding links to NPM package and the showcase design spec.
 
-1. **When required for an specific workspace** simply run `npx lerna add {package-name} --scope=@wpmudev/react-{component-name}`
-2. **When shared between multiple packages** simply run `yarn add -W --dev {package-name}`
+Component | Version
+--- | ---
+[Tutorials List](https://wpmudev.github.io/shared-ui-react/?path=/story/tutorials-list--primary) | [![npm version](https://badge.fury.io/js/%40wpmudev%2Freact-tutorials-list.svg)](https://badge.fury.io/js/%40wpmudev%2Freact-tutorials-list)
+[Tutorials Slider](https://wpmudev.github.io/shared-ui-react/?path=/story/tutorials-slider--primary) | [![npm version](https://badge.fury.io/js/%40wpmudev%2Freact-tutorials-slider.svg)](https://badge.fury.io/js/%40wpmudev%2Freact-tutorials-slider)
 
-## Publishing
+## Getting Started
 
-**Important:** If you don't want to publish a package/component just include `"private": true` in its `package.json` file.
+### React Plugins
 
-1. Make builder JS file executable `chmod +x packages/builder/lib/builder.js`.
-2. Build packages `yarn run build`.
-3. Review packages `CHANGELOG.md` files and make sure all changes are listed.
-4. Publish packages `npx lerna publish --no-private`.
+Go to the component you need, install it using node and start using it on your project.
 
-If you have a private package that you don't want to publish, you have to specify `"private": true` in `package.json`.
+### Non-React Plugins
 
-***
+#### 1. Install Packages.
 
-### Content to improve
+Install dependencies for your project:
 
 ```
-# SAMPLE: Add button dependency into shared-ui-react
-npx lerna add @wpmudev/react-button --scope=@wpmudev/shared-ui-react
+npm i react react-dom @babel/core @babel/preset-react --save-dev
+```
 
-# We are going to use React for the UI components, let's add it as dev dependency first for local testing
-npx lerna add react --dev --scope={component-name}
+#### 2. Babel settings.
 
-# And as a peer dependency using major 16 version for consuming applications
-npx lerna add react --peer --scope={component-name}
+Create or edit `.babelrc` file and include the following:
 
-# We are also going to use an utility to toggle classes as needed on the components called "clsx"
-npx lerna add clsx --scope={component-name}
+```js
+{
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react"
+  ]
+}
+```
 
-- - -
+#### 3. Webpack settings.
 
-npx lerna run build
+Create or edit `webpack.config.js` file:
+
+```js
+var path = require( 'path' );
+
+var config = {
+  source: {},
+  output: {}
+};
+
+config.source.js          = './assets/js/index.js';
+config.output.jsDirectory = 'assets/js/';
+config.output.jsFileName  = 'index.min.js';
+
+var jsConfig = Object.assign( {}, {
+  entry: config.source.js,
+  module: {
+    rules: [{
+      test: /\.(js|jsx)$/,
+      exclude: /(node_modules|dist)/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/env']
+        }
+      }
+    }]
+  },
+  resolve: {
+    extensions: ['*', '.js', '.jsx'],
+  },
+  output: {
+    filename: config.output.jsFileName,
+    path: path.resolve( __dirname, config.output.jsDirectory )
+  },
+  devServer: {
+    contentBase: path.resolve( __dirname, '.' )
+  },
+});
+
+module.exports = [ jsConfig ];
+```
+
+#### 4. Import your component(s).
+
+Create a new file, preferrably inside `/assets/js/` folder, and its name should match the file we are calling from webpack:
+
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+import {
+  ComponentName
+} from '@wpmudev/react-component-name';
+
+ReactDOM.render(
+  <ComponentName />,
+  document.getElementById( 'app' )
+);
+```
+
+#### 5. HTML Content.
+
+Go to the file where you going to include your component(s), for example: `dashboard.php` file, and add:
+
+```html
+<div id="app"></div>
+<script src="./assets/js/index.min.js"></script><!-- Your react file must be called here -->
 ```
