@@ -12,6 +12,100 @@ Make sure builder file is executable by running the following command:
 chmod +x packages/builder/lib/builder.js
 ```
 
+## Prepare component.
+
+Prepare new component(s) `package.json` file before publishing to [NPM Registry](https://www.npmjs.com/) for the first time.
+
+### 1. Author and Contributors
+
+The author of all the packages is [WPMU DEV](https://premium.wpmudev.org/) while all the persons involved in the creation or improvement of the component must be added as contributors.
+
+```json
+"author": "WPMU DEV",
+"contributors": [
+  {
+    "name": "John Doe",
+    "email": "public@email.com",
+    "url": "https://yourwebsite.com/"
+  }
+]
+```
+
+### 2. License
+
+Make sure to include `LICENSE`from another component and declare it on the package as:
+
+```json
+"license": "GPLv3"
+```
+
+### 3. Declare Files
+
+To make sure the component works correctly when installed through NPM, it is necessary to call the correct file type:
+
+```json
+// Set main file.
+"main": "dist/foo.cjs.js"
+
+// Set module file.
+"module": "dist/foo.esm.js"
+
+// Set source file.
+"src": "lib/foo.js"
+```
+
+### 4. Include Files
+
+Include `dist` folder into declared files.
+
+```json
+"files": [
+  "dist",
+  "lib"
+]
+```
+
+### 5. Repository Dir
+
+Make sure to include repository directory:
+
+```json
+"repository": {
+  "directory": "packages/foo"
+}
+```
+
+### 6. Builder
+
+Don't forget to include builder script:
+
+```json
+"scripts": {
+  "build": "sui-builder"
+}
+```
+
+### 7. Publish Configurations
+
+Published package must have public access that way anyone can install it and point to NPM Registry.
+
+```json
+"publishConfig": {
+  "access": "public",
+  "registry": "https://registry.npmjs.org/"
+},
+```
+
+### 8. Required Dependencies
+
+```
+# Add React as dev dependency for local testing.
+npx lerna add react --dev --scope=@wpmudev/react-foo
+
+# Add React 16+ as peer dependency for consuming apps.
+npx lerna add react@16.x --peer --scope=@wpmudev/react-foo
+```
+
 ## Build library and showcase files.
 
 Once all pull requests are merged into master, continue the process below.
