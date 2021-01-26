@@ -14,10 +14,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v1
       - run: yarn
-
-      - name: Install Packages
-        uses: actions/checkout@v1
+      - name: build examples
         run: yarn install
 
       - name: Checkout Code
