@@ -24,7 +24,9 @@ module.exports = {
 			version: "detect" // Auto-detect the React version.
 		}
 	},
-	plugins: ["react"],
+	plugins: [
+		"react"
+	],
 	rules: {
 		"react/jsx-uses-react": "error",
 		"react/jsx-uses-vars": "error",
