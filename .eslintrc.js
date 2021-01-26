@@ -1,46 +1,52 @@
-/* eslint-disable no-undef */
 module.exports = {
 	env: {
 		browser: true,
 		es2021: true
 	},
 	extends: [
-		'eslint:recommended', // For catching common problems in JavaScript.
-		'plugin:react/recommended', // For fixing a lot of React problems.
-		'plugin:react-hooks/recommended', // For fixing problems with React hooks.
-		'plugin:jsx-a11y/recommended', // For fixing accessibility problems for HTML.
-		'plugin:prettier/recommended', // For formatting our code with common rules.
-		'prettier/react' // For telling Prettier that we are using React.
+		"eslint:recommended", // For catching common problems in JavaScript.
+		"plugin:react/recommended", // For fixing a lot of React problems.
+		"plugin:react-hooks/recommended", // For fixing problems with React hooks.
+		"plugin:jsx-a11y/recommended", // For fixing accessibility problems for HTML.
+		"plugin:prettier/recommended", // For formatting our code with common rules.
+		"prettier/react" // For telling Prettier that we are using React.
 	],
 	parserOptions: {
 		ecmaFeatures: {
 			jsx: true // Enable jsx for our parser.
 		},
 		ecmaVersion: 2021, // Last version of ECMAScript syntax.
-		sourceType: 'module' // Use import & export.
+		sourceType: "module" // Use import & export.
 	},
-	parser: '@babel/eslint-parser',
+	parser: "@babel/eslint-parser",
 	settings: {
 		react: {
-			version: 'detect' // Auto-detect the React version.
+			version: "detect" // Auto-detect the React version.
 		}
 	},
-	plugins: ['react'],
+	plugins: ["react"],
 	rules: {
-		'prettier/prettier': [
-			'error',
+		"react/jsx-uses-react": "error",
+		"react/jsx-uses-vars": "error",
+		"prettier/prettier": [
+			"error",
 			{
 				printWidth: 100,
 				useTabs: true,
 				semi: true,
 				singleQuote: true,
-				quoteProps: 'as-needed',
+				quoteProps: "as-needed",
 				jsxSingleQuote: true,
-				trailingComma: 'none',
+				trailingComma: "none",
 				bracketSpacing: true,
 				jsxBracketSameLine: true,
-				arrowParens: 'avoid'
+				arrowParens: "avoid"
 			}
 		]
-	}
-}
+	},
+	ignorePatterns: [
+		".*.js",
+		"*.cjs.js",
+		"*.esm.js"
+	]
+};
