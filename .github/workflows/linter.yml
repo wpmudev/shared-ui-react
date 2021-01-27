@@ -14,11 +14,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1
-      - run: yarn
-      - name: build examples
-        run: yarn install
-
       - name: Checkout Code
         uses: actions/checkout@v2
         with:
@@ -29,7 +24,6 @@ jobs:
         uses: github/super-linter@v3
         env:
           DEFAULT_WORKSPACE: /packages
-          JAVASCRIPT_ES_CONFIG_FILE: .eslintrc.json
           JAVASCRIPT_DEFAULT_STYLE: prettier
           VALIDATE_ALL_CODEBASE: false
           VALIDATE_JAVASCRIPT_ES: true
