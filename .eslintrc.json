@@ -25,28 +25,29 @@
 		}
 	},
 	"plugins": [
-		"react",
-		"react-hooks"
+		"react"
 	],
 	"rules": {
-		"react-hooks/rules-of-hooks": "error",
-		"react-hooks/exhaustive-deps": "warn",
-		"react/jsx-uses-react": "error",
-		"react/jsx-uses-vars": "error",
+		"react/prop-types": [
+			2,
+			{
+				"skipUndeclared": true
+			}
+		],
 		"prettier/prettier": [
 			"error",
 			{
-				"printWidth": 100,
+				"printWidth": 80,
 				"useTabs": true,
 				"semi": true,
-				"singleQuote": true,
+				"singleQuote": false,
 				"quoteProps": "as-needed",
-				"jsxSingleQuote": true,
 				"trailingComma": "none",
 				"bracketSpacing": true,
 				"jsxBracketSameLine": true,
 				"arrowParens": "avoid"
 			}
-		]
+		],
+		"react/jsx-uses-react": "error"
 	}
 }
