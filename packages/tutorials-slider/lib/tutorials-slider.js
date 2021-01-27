@@ -1,4 +1,5 @@
-import React, { Component }  from 'react';
+/* eslint-disable prettier/prettier */
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Notifications } from '@wpmudev/react-notifications';
 import { Post } from '@wpmudev/react-post';
@@ -25,29 +26,29 @@ const screen = {
 	mobile: 480,
 	tablet: 783,
 	laptop: 1200,
-	desktop: 1500,
+	desktop: 1500
 };
 
 const device = {
 	mobile: `(min-width: ${screen.mobile}px)`,
 	tablet: `(min-width: ${screen.tablet}px)`,
 	laptop: `(min-width: ${screen.laptop}px)`,
-	desktop: `(min-width: ${screen.desktop}px)`,
+	desktop: `(min-width: ${screen.desktop}px)`
 };
 
 const Box = styled.div`
 	position: relative;
 	padding: 10px;
 
-	@media ${ device.tablet } {
+	@media ${device.tablet} {
 		padding: 15px 25px;
 	}
 `;
 
-const Link = styled.a.attrs( props => ({
+const Link = styled.a.attrs(props => ({
 	href: props.viewAll,
-	target: '_blank',
-}) )`
+	target: '_blank'
+}))`
 	margin-top: 1px;
 	margin-right: 23px;
 	font-size: 13px;
@@ -68,7 +69,7 @@ const ListWrapper = styled.ul`
 	padding: 0;
 	border: 0;
 
-	@media ${ device.tablet } {
+	@media ${device.tablet} {
 		overflow: hidden;
 		display: flex;
 		flex-flow: row nowrap;
@@ -86,13 +87,13 @@ const ListItem = styled.li`
 		margin-bottom: 0;
 	}
 
-	@media ${ device.tablet } {
+	@media ${device.tablet} {
 		width: 33.33%;
 		flex: 0 0 auto;
 		margin: 0 1px 0 0;
 	}
 
-	@media ${ device.desktop } {
+	@media ${device.desktop} {
 		width: 25%;
 	}
 `;
@@ -103,7 +104,7 @@ const Navigation = styled.div`
 	button[class*="sui-button-"] {
 		display: none !important;
 
-		@media ${ device.tablet } {
+		@media ${device.tablet} {
 			display: block !important;
 			pointer-events: initial;
 		}
@@ -120,8 +121,8 @@ const Navigation = styled.div`
 		padding: 10px !important;
 		border: 0;
 		border-radius: 4px;
-		background-color: #FFF;
-		color: #17A8E3 !important;
+		background-color: #fff;
+		color: #17a8e3 !important;
 		transition: 0.2s ease all;
 
 		* {
@@ -154,29 +155,27 @@ const Navigation = styled.div`
 		}
 
 		&:hover {
-			background-color: #FAFAFA;
+			background-color: #fafafa;
 		}
 
 		&:focus {
-			background-color: #E1F6FF;
+			background-color: #e1f6ff;
 		}
 
-		@media ${ device.tablet } {
+		@media ${device.tablet} {
 			display: none !important;
 		}
 	}
 
 	.open & {
-
 		button:not([class*="sui-button-"]) {
-
 			[class*="sui-icon-"] {
 				transform: rotate(180deg);
 			}
 		}
 	}
 
-	@media ${ device.tablet } {
+	@media ${device.tablet} {
 		pointer-events: none;
 		display: flex;
 		flex-flow: row wrap;
@@ -191,8 +190,8 @@ const Navigation = styled.div`
 `;
 
 export class TutorialsSlider extends Component {
-	constructor( props ) {
-		super( props );
+	constructor(props) {
+		super(props);
 
 		this.secondTutorial = React.createRef();
 
@@ -202,87 +201,90 @@ export class TutorialsSlider extends Component {
 			isLoaded: false,
 			isFirstSlide: true,
 			isLastSlide: false,
-			isShowingAll: window.innerWidth > screen.tablet,
+			isShowingAll: window.innerWidth > screen.tablet
 		};
 
-		this.closeButtonClicked = this.closeButtonClicked.bind( this );
-		this.openLink = this.openLink.bind( this );
-		this.handleKeydown = this.handleKeydown.bind( this );
-		this.navigationButtonClicked = this.navigationButtonClicked.bind( this );
-		this.handleScroll = this.handleScroll.bind( this );
+		this.closeButtonClicked = this.closeButtonClicked.bind(this);
+		this.openLink = this.openLink.bind(this);
+		this.handleKeydown = this.handleKeydown.bind(this);
+		this.navigationButtonClicked = this.navigationButtonClicked.bind(this);
+		this.handleScroll = this.handleScroll.bind(this);
 	}
 
-	closeButtonClicked = ( e ) => {
-		const sliderBox = e.currentTarget.closest( '.sui-tutorials-slider-box' ),
-			event = new Event( 'sliderTutorialClosed' );
+	closeButtonClicked = e => {
+		const sliderBox = e.currentTarget.closest('.sui-tutorials-slider-box'),
+			event = new Event('sliderTutorialClosed');
 
-		sliderBox.dispatchEvent( event );
+		sliderBox.dispatchEvent(event);
 		sliderBox.remove();
-	}
+	};
 
-	openLink = ( e ) => {
+	openLink = e => {
 		let ref = e.target !== null ? e.target : e.srcElement;
 
-		if ( ref ) {
-			window.open( ref.getAttribute( 'data-href' ), '_blank' );
+		if (ref) {
+			window.open(ref.getAttribute('data-href'), '_blank');
 		}
-	}
+	};
 
-	keyNavigate = ( direction ) => {
-		const focusedPost = document.activeElement.closest( 'li' );
+	keyNavigate = direction => {
+		const focusedPost = document.activeElement.closest('li');
 
 		// Abort if the focused element doesn't have a li parent.
-		if ( ! focusedPost ) {
+		if (!focusedPost) {
 			return;
 		}
 
 		let newFocusedPost;
-		if ( 'prev' === direction ) {
+		if ('prev' === direction) {
 			newFocusedPost = focusedPost.previousElementSibling;
 			// We reached the start of the list.
-			if ( ! newFocusedPost ) {
-				newFocusedPost = focusedPost.closest( 'ul' ).lastElementChild;
+			if (!newFocusedPost) {
+				newFocusedPost = focusedPost.closest('ul').lastElementChild;
 			}
 		} else {
 			newFocusedPost = focusedPost.nextElementSibling;
 			// We reached the end of the list.
-			if ( ! newFocusedPost ) {
-				newFocusedPost = focusedPost.closest( 'ul' ).firstElementChild;
+			if (!newFocusedPost) {
+				newFocusedPost = focusedPost.closest('ul').firstElementChild;
 			}
 		}
 		newFocusedPost.firstElementChild.focus();
-	}
+	};
 
-	handleKeydown = ( e ) => {
+	handleKeydown = e => {
 		let key = e.which || e.keyCode;
 
-		switch ( key ) {
-			case aria.KeyCode.RETURN :
-				this.openLink( e )
+		switch (key) {
+			case aria.KeyCode.RETURN:
+				this.openLink(e);
 				break;
-			case aria.KeyCode.LEFT :
-				this.keyNavigate( 'prev' )
+			case aria.KeyCode.LEFT:
+				this.keyNavigate('prev');
 				break;
-			case aria.KeyCode.RIGHT :
-				this.keyNavigate( 'next' )
+			case aria.KeyCode.RIGHT:
+				this.keyNavigate('next');
 				break;
 		}
-	}
+	};
 
 	// TODO: Check this on RTL.
-	handleScroll = ( e ) => {
+	handleScroll = e => {
 		const tutorialsContainer = e.currentTarget;
 
 		let isFirstSlide = false,
 			isLastSlide = false;
 
 		// We're at the first slide.
-		if ( 0 === tutorialsContainer.scrollLeft ) {
+		if (0 === tutorialsContainer.scrollLeft) {
 			isFirstSlide = true;
 		}
 
 		// We're at the last slide.
-		if ( tutorialsContainer.scrollWidth === ( tutorialsContainer.scrollLeft + tutorialsContainer.offsetWidth ) ) {
+		if (
+			tutorialsContainer.scrollWidth ===
+			tutorialsContainer.scrollLeft + tutorialsContainer.offsetWidth
+		) {
 			isLastSlide = true;
 		}
 
@@ -290,27 +292,27 @@ export class TutorialsSlider extends Component {
 			isFirstSlide,
 			isLastSlide
 		});
-	}
+	};
 
 	// TODO: check this on RTL.
-	navigationButtonClicked = ( e ) => {
+	navigationButtonClicked = e => {
 		const tutorialsContainer = e.currentTarget.parentNode.previousElementSibling;
 
 		// Scroll to the next or previous "slide".
-		if ( e.currentTarget.classList.contains( 'next' ) ) {
+		if (e.currentTarget.classList.contains('next')) {
 			tutorialsContainer.scrollLeft += tutorialsContainer.offsetWidth;
 		} else {
 			tutorialsContainer.scrollLeft -= tutorialsContainer.offsetWidth;
 		}
-	}
+	};
 
-	componentDidUpdate( prevProps, prevState ) {
+	componentDidUpdate(prevProps, prevState) {
 		// Handle the focused element when clicking on "show more"/"show lesss" on mobile.
-		if ( this.state.isShowingAll !== prevState.isShowingAll && window.innerWidth < screen.tablet ) {
-			if ( this.secondTutorial.current ) {
+		if (this.state.isShowingAll !== prevState.isShowingAll && window.innerWidth < screen.tablet) {
+			if (this.secondTutorial.current) {
 				let tutorialToFocus;
 
-				if ( this.state.isShowingAll ) {
+				if (this.state.isShowingAll) {
 					tutorialToFocus = this.secondTutorial.current.nextElementSibling;
 				} else {
 					tutorialToFocus = this.secondTutorial.current;
@@ -325,21 +327,21 @@ export class TutorialsSlider extends Component {
 		const QUERY_ID = this.props.category;
 
 		// GET posts using fetch.
-		fetch( API_URL + QUERY_ID )
-			.then( response => response.json() )
+		fetch(API_URL + QUERY_ID)
+			.then(response => response.json())
 			.then(
-				( data ) => {
+				data => {
 					this.setState({
 						isLoaded: true,
 						posts: data
 					});
 				},
-				( error ) => {
+				error => {
 					this.setState({
 						isLoaded: true,
 						error
 					});
-				},
+				}
 			);
 	}
 
@@ -348,183 +350,115 @@ export class TutorialsSlider extends Component {
 
 		const translate = this.props.translate;
 
-		const loading = translate && translate[0].loading
-			? translate[0].loading
-			: 'Loading tutorials...';
+		const loading =
+			translate && translate[0].loading ? translate[0].loading : 'Loading tutorials...';
 
-		const read_article = translate && translate[0].read_article
-			? translate[0].read_article
-			: '';
+		const read_article = translate && translate[0].read_article ? translate[0].read_article : '';
 
-		const min_read = translate && translate[0].min_read
-			? translate[0].min_read
-			: '';
+		const min_read = translate && translate[0].min_read ? translate[0].min_read : '';
 
-		const prev_post = translate && translate[0].prev_post
-			? translate[0].prev_post
-			: 'Previous post';
+		const prev_post =
+			translate && translate[0].prev_post ? translate[0].prev_post : 'Previous post';
 
-		const next_post = translate && translate[0].next_post
-			? translate[0].next_post
-			: 'Next post';
+		const next_post = translate && translate[0].next_post ? translate[0].next_post : 'Next post';
 
-		const view_all = translate && translate[0].view_all
-			? translate[0].view_all
-			: 'View all';
+		const view_all = translate && translate[0].view_all ? translate[0].view_all : 'View all';
 
-		const close_tutorials = translate && translate[0].close_tutorials
-			? translate[0].close_tutorials
-			: 'Close tutorials';
+		const close_tutorials =
+			translate && translate[0].close_tutorials ? translate[0].close_tutorials : 'Close tutorials';
 
-		const show_more = translate && translate[0].show_more
-			? translate[0].show_more
-			: 'Show more';
+		const show_more = translate && translate[0].show_more ? translate[0].show_more : 'Show more';
 
-		const show_less = translate && translate[0].show_less
-			? translate[0].show_less
-			: 'Show less';
+		const show_less = translate && translate[0].show_less ? translate[0].show_less : 'Show less';
 
-		const listPosts = posts.map( ( post, i ) => (
+		const listPosts = posts.map((post, i) => (
 			<ListItem
-				key={ post.id }
-				className="sui-tutorial"
-				className={ 1 < i && ! this.state.isShowingAll && 'sui-hidden' }
-				ref={ 1 === i && this.secondTutorial }
-			>
-
+				key={post.id}
+				className={'sui-tutorial' + (1 < i && !this.state.isShowingAll) && ' sui-hidden'}
+				ref={1 === i && this.secondTutorial}>
 				<Post
-					role="link"
-					data-href={ post.link }
-					title={ post.title.rendered }
-					time={ post.meta.blog_reading_time }
-					excerpt={ post.excerpt.rendered }
-					media={ post.featured_media }
-					translate={[ {
-						min_read: min_read,
-						read_article: read_article,
-					} ]}
-					onClick={ ( e ) => this.openLink( e ) }
-					onKeyDown={ ( e ) => this.handleKeydown( e ) }
+					role='link'
+					data-href={post.link}
+					title={post.title.rendered}
+					time={post.meta.blog_reading_time}
+					excerpt={post.excerpt.rendered}
+					media={post.featured_media}
+					translate={[
+						{
+							min_read: min_read,
+							read_article: read_article
+						}
+					]}
+					onClick={e => this.openLink(e)}
+					onKeyDown={e => this.handleKeydown(e)}
 				/>
-
 			</ListItem>
-		) );
+		));
 
-		if ( error ) {
-			return (
-				<Notifications type="error" message={ error.message } />
-			);
-		} else if ( ! isLoaded ) {
-			return (
-				<Notifications type="loading" message={ loading } />
-			);
+		if (error) {
+			return <Notifications type='error' message={error.message} />;
+		} else if (!isLoaded) {
+			return <Notifications type='loading' message={loading} />;
 		} else {
 			const navigation = (
 				<Navigation>
-
-					{ ( ( 3 < posts.length && window.innerWidth < screen.desktop ) || 4 < posts.length ) &&
-						[
-							<button
-								key="1"
-								className="sui-button-icon prev"
-								onClick={ ( e ) => this.navigationButtonClicked( e ) }
-								style={ { visibility: this.state.isFirstSlide ? 'hidden' : 'visible' } }
-								>
-								<span
-									className="sui-icon-chevron-left sui-sm"
-									aria-hidden="true"
-								/>
-								<span
-									className="sui-screen-reader-text"
-								>
-									{ prev_post }
-								</span>
-							</button>,
-							<button
-								key="2"
-								className="sui-button-icon next"
-								onClick={ ( e ) => this.navigationButtonClicked( e ) }
-								style={ { visibility: this.state.isLastSlide ? 'hidden' : 'visible' } }
-							>
-								<span
-									className="sui-icon-chevron-right sui-sm"
-									aria-hidden="true"
-								/>
-								<span
-									className="sui-screen-reader-text"
-								>
-									{ next_post }
-								</span>
-							</button>
-						]
-					}
+					{((3 < posts.length && window.innerWidth < screen.desktop) || 4 < posts.length) && [
+						<button
+							key='1'
+							className='sui-button-icon prev'
+							onClick={e => this.navigationButtonClicked(e)}
+							style={{ visibility: this.state.isFirstSlide ? 'hidden' : 'visible' }}>
+							<span className='sui-icon-chevron-left sui-sm' aria-hidden='true' />
+							<span className='sui-screen-reader-text'>{prev_post}</span>
+						</button>,
+						<button
+							key='2'
+							className='sui-button-icon next'
+							onClick={e => this.navigationButtonClicked(e)}
+							style={{ visibility: this.state.isLastSlide ? 'hidden' : 'visible' }}>
+							<span className='sui-icon-chevron-right sui-sm' aria-hidden='true' />
+							<span className='sui-screen-reader-text'>{next_post}</span>
+						</button>
+					]}
 
 					<button
-						className="sui-label"
-						onClick={ () => this.setState( { isShowingAll: ! isShowingAll } ) }
-					>
-						<strong>
-							{ isShowingAll ? show_less : show_more }
-						</strong>
-						<span
-							className="sui-icon-chevron-down sui-sm"
-							aria-hidden="true"
-						/>
+						className='sui-label'
+						onClick={() => this.setState({ isShowingAll: !isShowingAll })}>
+						<strong>{isShowingAll ? show_less : show_more}</strong>
+						<span className='sui-icon-chevron-down sui-sm' aria-hidden='true' />
 					</button>
-
 				</Navigation>
 			);
 
 			return (
-				<div className="sui-box sui-tutorials-slider-box">
-
-					<div className="sui-box-header">
-						{ this.props.title &&
-							<h3 className="sui-box-title">{ this.props.title }</h3>
-						}
-						<div className="sui-actions-right">
-
-							{ this.props.viewAll &&
-								<Link { ...this.props }>
-									<span
-										className="sui-icon-open-new-window sui-sm"
-										aria-hidden="true"
-									/>
-									{ view_all }
+				<div className='sui-box sui-tutorials-slider-box'>
+					<div className='sui-box-header'>
+						{this.props.title && <h3 className='sui-box-title'>{this.props.title}</h3>}
+						<div className='sui-actions-right'>
+							{this.props.viewAll && (
+								<Link {...this.props}>
+									<span className='sui-icon-open-new-window sui-sm' aria-hidden='true' />
+									{view_all}
 								</Link>
-							}
+							)}
 
 							<button
-								onClick={ ( e ) => this.closeButtonClicked( e ) }
-								className="sui-button-icon"
-								style={ {
+								onClick={e => this.closeButtonClicked(e)}
+								className='sui-button-icon'
+								style={{
 									marginRight: '-9px'
-								} }
-							>
-								<span
-									className="sui-icon-close sui-md"
-									aria-hidden="true"
-								/>
-								<span
-									className="sui-screen-reader-text"
-								>{ close_tutorials }</span>
+								}}>
+								<span className='sui-icon-close sui-md' aria-hidden='true' />
+								<span className='sui-screen-reader-text'>{close_tutorials}</span>
 							</button>
-
 						</div>
 					</div>
 
-					<Box className={ isShowingAll && 'open' }>
+					<Box className={isShowingAll && 'open'}>
+						<ListWrapper onScroll={this.handleScroll}>{listPosts}</ListWrapper>
 
-						<ListWrapper onScroll={ this.handleScroll }>
-							{ listPosts }
-						</ListWrapper>
-
-						{ 2 < posts.length &&
-							navigation
-						}
-
+						{2 < posts.length && navigation}
 					</Box>
-
 				</div>
 			);
 		}
