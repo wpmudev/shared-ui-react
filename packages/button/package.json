@@ -1,5 +1,4 @@
 {
-  "private": false,
   "name": "@wpmudev/react-button",
   "version": "0.1.3",
   "description": "WPMU DEV Shared UI React Button Component",
@@ -21,12 +20,13 @@
     "test": "__tests__"
   },
   "files": [
-    "lib",
-    "dist"
+    "dist",
+    "lib"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wpmudev/shared-ui-react.git"
+	"url": "git+https://github.com/wpmudev/shared-ui-react.git",
+	"directory": "packages/button"
   },
   "scripts": {
     "build": "sui-builder",
@@ -35,14 +35,15 @@
   "bugs": {
     "url": "https://github.com/wpmudev/shared-ui-react/issues"
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "devDependencies": {
     "@wpmudev/react-builder": "^0.0.0",
     "react": "^17.0.1"
   },
   "peerDependencies": {
     "react": "16.x"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }
