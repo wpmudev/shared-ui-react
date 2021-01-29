@@ -1,76 +1,79 @@
-import React, { Component } from "react";
+import React from "react";
 
-export class Button extends Component {
-	constructor(props) {
-		super(props);
+const Button = ({ label, icon, design = "solid", color, ...props }) => {
+	const loader = (
+		<span
+			className="sui-icon-loader sui-loading"
+			style={{ position: "relative" }}
+			aria-hidden="true"
+		/>
+	);
+
+	let content = (
+		<React.Fragment>
+			{icon && "" !== icon && (
+				<span className={"sui-icon-" + icon} aria-hidden="true" />
+			)}
+			{label}
+		</React.Fragment>
+	);
+
+	let className = "sui-button";
+
+	// Set button color.
+	switch (color) {
+		case "blue":
+		case "green":
+		case "red":
+		case "orange":
+		case "purple":
+		case "yellow":
+		case "white":
+			className += " sui-button-" + color;
+			break;
+
+		case "gray":
+		default:
+			className += "";
 	}
 
-	render() {
-		const loader = (
-			<span className="sui-icon-loader sui-loading" aria-hidden="true" />
-		);
+	// Set button style.
+	switch (design) {
+		case "ghost":
+		case "outlined":
+			className += " sui-button-" + design;
+			break;
 
-		let label = (
-			<React.Fragment>
-				{this.props.icon && (
-					<span className={"sui-icon-" + this.props.icon} aria-hidden="true" />
-				)}
-				{this.props.label}
-			</React.Fragment>
-		);
+		case "solid":
+		default:
+			className += "";
+			break;
+	}
 
-		// @note Remove on SUI3.
-		if (this.props.loading) {
-			label = <span className="sui-loading-text">{label}</span>;
-		}
+	// Set loading class.
+	if (props.loading) {
+		className += " sui-button-onload";
+	}
 
-		let className = "sui-button";
-
-		// Set button color.
-		switch (this.props.color) {
-			case "blue":
-			case "green":
-			case "red":
-			case "orange":
-			case "purple":
-			case "yellow":
-			case "white":
-				className += " sui-button-" + this.props.color;
-				break;
-		}
-
-		// Set button style.
-		switch (this.props.design) {
-			case "ghost":
-			case "outlined":
-				className += " sui-button-" + this.props.design;
-				break;
-		}
-
-		// Set loading class.
-		if (this.props.loading) {
-			className += " sui-button-onload";
-		}
-
-		if (this.props.href) {
-			return (
-				<a
-					className={className}
-					disabled={this.props.disabled || this.props.loading}
-					{...this.props}>
-					{this.props.loading ? loader : label}
-				</a>
-			);
-		}
-
+	if (props.href) {
 		return (
-			<button
+			<a
 				className={className}
-				disabled={this.props.disabled || this.props.loading}
-				{...this.props}>
-				{this.props.loading && loader}
-				{label}
-			</button>
+				disabled={props.disabled || props.loading}
+				{...props}>
+				{props.loading ? loader : content}
+			</a>
 		);
 	}
-}
+
+	return (
+		<button
+			className={className}
+			disabled={props.disabled || props.loading}
+			{...props}>
+			{props.loading ? loader : content}
+		</button>
+	);
+};
+
+export { Button };
