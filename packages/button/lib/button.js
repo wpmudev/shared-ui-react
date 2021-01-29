@@ -1,52 +1,77 @@
 import React from "react";
 
-const Button = ({
-	label,
-	icon,
-	iconRight,
-	large,
-	color,
-	outlined,
-	...props
-}) => {
-	let content = label;
-	let classes = "sui-button";
+const Button = ({ label, icon, design = "solid", color, ...props }) => {
+	const loader = (
+		<span
+			className="sui-icon-loader sui-loading"
+			style={{ position: "relative" }}
+			aria-hidden="true"
+		/>
+	);
 
-	if (outlined) {
-		classes += " sui-button-ghost";
-	}
+	let content = (
+		<React.Fragment>
+			{icon && "" !== icon && (
+				<span className={"sui-icon-" + icon} aria-hidden="true" />
+			)}
+			{label}
+		</React.Fragment>
+	);
 
+	let className = "sui-button";
+
+	// Set button color.
 	switch (color) {
 		case "blue":
 		case "green":
 		case "red":
 		case "orange":
-		case "yellow":
 		case "purple":
-			classes += " sui-button-" + color;
+		case "yellow":
+		case "white":
+			className += " sui-button-" + color;
+			break;
+
+		case "gray":
+		default:
+			className += "";
+	}
+
+	// Set button style.
+	switch (design) {
+		case "ghost":
+		case "outlined":
+			className += " sui-button-" + design;
+			break;
+
+		case "solid":
+		default:
+			className += "";
 			break;
 	}
 
-	if (large) {
-		classes += " sui-button-lg";
+	// Set loading class.
+	if (props.loading) {
+		className += " sui-button-onload";
 	}
 
-	if (icon) {
-		content = !iconRight ? (
-			<React.Fragment>
-				<span className={"sui-icon-" + icon} aria-hidden="true" /> {label}
-			</React.Fragment>
-		) : (
-			<React.Fragment>
-				{label} <span className={"sui-icon-" + icon} aria-hidden="true" />
-			</React.Fragment>
+	if (props.href) {
+		return (
+			<a
+				className={className}
+				disabled={props.disabled || props.loading}
+				{...props}>
+				{props.loading ? loader : content}
+			</a>
 		);
-		classes += !iconRight ? "" : " sui-button-icon-right";
 	}
 
 	return (
-		<button className={classes} {...props}>
-			{content}
+		<button
+			className={className}
+			disabled={props.disabled || props.loading}
+			{...props}>
+			{props.loading ? loader : content}
 		</button>
 	);
 };
