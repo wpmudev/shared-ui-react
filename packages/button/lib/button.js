@@ -35,6 +35,7 @@ const Button = ({ label, icon, design = "solid", color, ...props }) => {
 		case "gray":
 		default:
 			className += "";
+			break;
 	}
 
 	// Set button style.
