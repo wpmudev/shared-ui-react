@@ -11,7 +11,7 @@ const { src, name } = require( path.join( currentWorkingPath, 'package.json' ) )
 const inputPath = path.join( currentWorkingPath, src );
 
 // Little workaround to get package name without scope.
-const fileName = name.replace( '@wpmudev/react-', '' );
+const fileName = name.replace( '@wpmudev/', '' );
 
 // see below for details on the options
 const inputOptions = {
