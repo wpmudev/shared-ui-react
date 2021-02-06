@@ -123,24 +123,24 @@ var Notifications = /*#__PURE__*/function (_Component) {
   _createClass(Notifications, [{
     key: "render",
     value: function render() {
-      var classMain = 'sui-notice';
-      var classIcon = 'sui-notice-icon sui-md';
+      var classMain = "sui-notice";
+      var classIcon = "sui-notice-icon sui-md";
 
       switch (this.props.type) {
-        case 'info':
-        case 'success':
-        case 'warning':
-        case 'error':
-        case 'upsell':
-          classMain += ' sui-notice-' + this.props.type;
+        case "info":
+        case "success":
+        case "warning":
+        case "error":
+        case "upsell":
+          classMain += " sui-notice-" + this.props.type;
           break;
 
-        case 'loading':
-          classIcon += ' sui-icon-loader sui-loading';
+        case "loading":
+          classIcon += " sui-icon-loader sui-loading";
           break;
 
         default:
-          classIcon += ' sui-icon-info';
+          classIcon += " sui-icon-info";
           break;
       }
 

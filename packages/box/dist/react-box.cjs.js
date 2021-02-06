@@ -77,7 +77,7 @@ var BoxTitle = function BoxTitle(_ref2) {
 
   return /*#__PURE__*/React__default['default'].createElement("h3", _extends({
     className: "sui-box-title"
-  }, props), icon && '' !== icon && /*#__PURE__*/React__default['default'].createElement("span", {
+  }, props), icon && "" !== icon && /*#__PURE__*/React__default['default'].createElement("span", {
     className: "sui-icon-".concat(icon, " sui-md"),
     "aria-hidden": "true"
   }), children);
@@ -90,7 +90,7 @@ var BoxHeader = function BoxHeader(_ref3) {
 
   return /*#__PURE__*/React__default['default'].createElement("div", _extends({
     className: "sui-box-header"
-  }, props), title && '' !== title && /*#__PURE__*/React__default['default'].createElement(BoxTitle, {
+  }, props), title && "" !== title && /*#__PURE__*/React__default['default'].createElement(BoxTitle, {
     icon: titleIcon
   }, title), /*#__PURE__*/React__default['default'].createElement("div", {
     className: "sui-actions-right"
@@ -120,11 +120,11 @@ var BoxSection = function BoxSection(_ref6) {
 
   return /*#__PURE__*/React__default['default'].createElement("div", _extends({
     className: "sui-box-settings-row"
-  }, props), (title && '' !== title || description && '' !== description) && /*#__PURE__*/React__default['default'].createElement("div", {
+  }, props), (title && "" !== title || description && "" !== description) && /*#__PURE__*/React__default['default'].createElement("div", {
     className: "sui-box-settings-col-1"
-  }, '' !== title && /*#__PURE__*/React__default['default'].createElement("h4", {
+  }, "" !== title && /*#__PURE__*/React__default['default'].createElement("h4", {
     className: "sui-settings-label"
-  }, title), '' !== description && /*#__PURE__*/React__default['default'].createElement("p", {
+  }, title), "" !== description && /*#__PURE__*/React__default['default'].createElement("p", {
     className: "sui-description"
   }, description)), /*#__PURE__*/React__default['default'].createElement("div", {
     className: "sui-box-settings-col-2"

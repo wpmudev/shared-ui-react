@@ -218,7 +218,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n\t", "\n\tcursor: pointer;\n\t", "\n\t", "\n\tpadding: ", ";\n\tborder-radius: 4px;\n\tbackground-color: #FFF;\n\t", "\n\ttransition: 0.2s ease all;\n\n\t* {\n\t\tpointer-events: none;\n\t}\n\n\t&:hover,\n\t&:focus {\n\t\t", "\n\n\t\t", "\n\t}\n\n\t", "\n\n\t&:focus {\n\t\toutline: none;\n\t\t", "\n\t}\n\n\t@media ", " {\n\t\t", "\n\t}\n"]);
+  var data = _taggedTemplateLiteral(["\n\t", "\n\tcursor: pointer;\n\t", "\n\t", "\n\tpadding: ", ";\n\tborder-radius: 4px;\n\tbackground-color: #fff;\n\t", "\n\ttransition: 0.2s ease all;\n\n\t* {\n\t\tpointer-events: none;\n\t}\n\n\t&:hover,\n\t&:focus {\n\t\t", "\n\n\t\t", "\n\t}\n\n\t", "\n\n\t&:focus {\n\t\toutline: none;\n\t\t", "\n\t}\n\n\t@media ", " {\n\t\t", "\n\t}\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -256,70 +256,71 @@ var device = {
 };
 var PostWrapper = styled.div.attrs(function (props) {
   return {
-    tabIndex: 0
+    tabIndex: 0,
+    props: props
   };
 })(_templateObject(), function (props) {
-  return props.banner ? 'overflow: hidden;' : '';
+  return props.banner ? "overflow: hidden;" : "";
 }, function (props) {
-  return props.banner ? 'display: flex;' : '';
+  return props.banner ? "display: flex;" : "";
 }, function (props) {
-  return props.banner ? 'flex-flow: column nowrap;' : '';
+  return props.banner ? "flex-flow: column nowrap;" : "";
 }, function (props) {
-  return props.banner ? '20px 20px 30px' : '10px';
+  return props.banner ? "20px 20px 30px" : "10px";
 }, function (props) {
-  return props.banner ? 'box-shadow: 0 0 0 1px #E6E6E6;' : '';
+  return props.banner ? "box-shadow: 0 0 0 1px #E6E6E6;" : "";
 }, function (props) {
-  return props.banner ? 'transform: scale(1.02);' : 'background-color: #FAFAFA;';
+  return props.banner ? "transform: scale(1.02);" : "background-color: #FAFAFA;";
 }, function (props) {
-  return props.banner ? "@media ".concat(device.tablet, " {\n\t\t\t\ttransform: scale(1.05);\n\t\t\t}") : '';
+  return props.banner ? "@media ".concat(device.tablet, " {\n\t\t\t\ttransform: scale(1.05);\n\t\t\t}") : "";
 }, function (props) {
-  return props.banner ? "@media ".concat(device.tablet, " {\n\t\t\tbox-shadow: 0 2px 7px 0 rgba(0,0,0,0.05);\n\t\t}") : '';
+  return props.banner ? "@media ".concat(device.tablet, " {\n\t\t\tbox-shadow: 0 2px 7px 0 rgba(0,0,0,0.05);\n\t\t}") : "";
 }, function (props) {
-  return props.banner ? 'box-shadow: 0 2px 7px 0 rgba(0,0,0,0.05), 0 0 2px 0 #17A8E3;' : '';
+  return props.banner ? "box-shadow: 0 2px 7px 0 rgba(0,0,0,0.05), 0 0 2px 0 #17A8E3;" : "";
 }, device.tablet, function (props) {
-  return props.banner ? 'min-height: 100%;' : 'padding: 15px;';
+  return props.banner ? "min-height: 100%;" : "padding: 15px;";
 });
 var PostHeader = styled.div(_templateObject2());
 var PostFooter = styled.div(_templateObject3());
 var FeaturedImage = styled.div.attrs(function () {
   return {
-    tabIndex: '-1',
-    'aria-hidden': true
+    tabIndex: "-1",
+    "aria-hidden": true
   };
 })(_templateObject4(), function (props) {
-  return props.banner ? '' : 'width: 66px;';
+  return props.banner ? "" : "width: 66px;";
 }, function (props) {
-  return props.banner ? '140px' : '54px';
+  return props.banner ? "140px" : "54px";
 }, function (props) {
-  return props.banner ? '-20px -20px 20px' : '0 10px 0 0';
+  return props.banner ? "-20px -20px 20px" : "0 10px 0 0";
 }, function (props) {
-  return props.banner ? '' : 'border-radius: 4px;';
+  return props.banner ? "" : "border-radius: 4px;";
 }, function (props) {
-  return props.banner ? 'flex: 0 0 auto;' : '';
+  return props.banner ? "flex: 0 0 auto;" : "";
 }, function (props) {
-  return props.src || 'none';
+  return props.src || "none";
 });
 var PostTitle = styled.h3(_templateObject5(), function (props) {
-  return props.banner ? 'flex: 1 1 auto;' : '';
+  return props.banner ? "flex: 1 1 auto;" : "";
 }, function (props) {
-  return props.banner ? '0 0 10px' : '0';
+  return props.banner ? "0 0 10px" : "0";
 }, function (props) {
-  return props.banner ? '' : '-webkit-line-clamp: 2;';
+  return props.banner ? "" : "-webkit-line-clamp: 2;";
 }, function (props) {
-  return props.banner ? "@media ".concat(device.tablet, " {\n\t\t\t-webkit-line-clamp: 2;\n\t\t}") : '';
+  return props.banner ? "@media ".concat(device.tablet, " {\n\t\t\t-webkit-line-clamp: 2;\n\t\t}") : "";
 });
 var PostTime = styled.p(_templateObject6(), function (props) {
-  return props.banner ? 'flex: 0 0 auto;' : '';
+  return props.banner ? "flex: 0 0 auto;" : "";
 }, function (props) {
-  return props.banner ? "* + & {\n\t\t\tmargin-left: 5px !important;\n\t\t}" : '';
+  return props.banner ? "* + & {\n\t\t\tmargin-left: 5px !important;\n\t\t}" : "";
 });
 var Excerpt = styled.div(_templateObject7(), function (props) {
-  return props.banner ? 'flex: 1 1 auto;' : '';
+  return props.banner ? "flex: 1 1 auto;" : "";
 }, function (props) {
-  return props.banner ? '3' : '2';
+  return props.banner ? "3" : "2";
 });
 var ReadMore = styled.p(_templateObject8(), function (props) {
-  return props.banner ? '' : 'margin: 4px 0 0;';
+  return props.banner ? "" : "margin: 4px 0 0;";
 });
 var Post = /*#__PURE__*/function (_Component) {
   _inherits(Post, _Component);
@@ -337,7 +338,7 @@ var Post = /*#__PURE__*/function (_Component) {
       var ref = e.target !== null ? e.target : e.srcElement;
 
       if (ref) {
-        window.open(ref.getAttribute('data-href'), '_blank');
+        window.open(ref.getAttribute("data-href"), "_blank");
       }
     });
 
@@ -367,7 +368,7 @@ var Post = /*#__PURE__*/function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      var API_URL = 'https://premium.wpmudev.org/blog/wp-json/wp/v2/media/';
+      var API_URL = "https://premium.wpmudev.org/blog/wp-json/wp/v2/media/";
       var QUERY_ID = this.props.media; // GET media using fetch.
 
       fetch(API_URL + QUERY_ID).then(function (response) {
@@ -392,14 +393,14 @@ var Post = /*#__PURE__*/function (_Component) {
           error = _this$state.error,
           isLoaded = _this$state.isLoaded;
       var translate = this.props.translate;
-      var read_article = translate && translate[0].read_article ? translate[0].read_article : 'Read article';
-      var min_read = translate && translate[0].min_read ? translate[0].min_read : 'min read';
-      var PostImage = ''; // Empty.
+      var read_article = translate && translate[0].read_article ? translate[0].read_article : "Read article";
+      var min_read = translate && translate[0].min_read ? translate[0].min_read : "min read";
+      var PostImage = ""; // Empty.
 
       if (error) {
-        PostImage = '';
+        PostImage = "";
       } else if (!isLoaded) {
-        PostImage = '';
+        PostImage = "";
       } else {
         PostImage = /*#__PURE__*/React.createElement(FeaturedImage, _extends({
           src: media
@@ -407,9 +408,9 @@ var Post = /*#__PURE__*/function (_Component) {
       }
 
       if (this.props.banner) {
-        return /*#__PURE__*/React.createElement(PostWrapper, this.props, PostImage, this.props.title && '' !== this.props.title && /*#__PURE__*/React.createElement(PostTitle, {
+        return /*#__PURE__*/React.createElement(PostWrapper, this.props, PostImage, this.props.title && "" !== this.props.title && /*#__PURE__*/React.createElement(PostTitle, {
           banner: true
-        }, this.props.title), this.props.excerpt && '' !== this.props.excerpt && /*#__PURE__*/React.createElement(Excerpt, {
+        }, this.props.title), this.props.excerpt && "" !== this.props.excerpt && /*#__PURE__*/React.createElement(Excerpt, {
           banner: true,
           dangerouslySetInnerHTML: {
             __html: this.props.excerpt
@@ -418,12 +419,12 @@ var Post = /*#__PURE__*/function (_Component) {
           banner: true
         }, /*#__PURE__*/React.createElement(ReadMore, {
           banner: true
-        }, read_article), this.props.time && '' !== this.props.time && /*#__PURE__*/React.createElement(PostTime, {
+        }, read_article), this.props.time && "" !== this.props.time && /*#__PURE__*/React.createElement(PostTime, {
           banner: true
         }, /*#__PURE__*/React.createElement("span", {
           className: "sui-icon-clock sui-sm",
           style: {
-            verticalAlign: 'middle',
+            verticalAlign: "middle",
             marginRight: 5
           },
           "aria-hidden": "true"
@@ -432,10 +433,10 @@ var Post = /*#__PURE__*/function (_Component) {
 
       return /*#__PURE__*/React.createElement(PostWrapper, this.props, /*#__PURE__*/React.createElement(PostHeader, null, PostImage, /*#__PURE__*/React.createElement("div", {
         style: {
-          minWidth: '1px',
+          minWidth: "1px",
           flex: 1
         }
-      }, this.props.title && '' !== this.props.title && /*#__PURE__*/React.createElement(PostTitle, null, this.props.title), this.props.time && '' !== this.props.time && /*#__PURE__*/React.createElement(PostTime, null, "*", this.props.time, " ", min_read))), this.props.excerpt && '' !== this.props.excerpt && /*#__PURE__*/React.createElement(Excerpt, {
+      }, this.props.title && "" !== this.props.title && /*#__PURE__*/React.createElement(PostTitle, null, this.props.title), this.props.time && "" !== this.props.time && /*#__PURE__*/React.createElement(PostTime, null, "*", this.props.time, " ", min_read))), this.props.excerpt && "" !== this.props.excerpt && /*#__PURE__*/React.createElement(Excerpt, {
         dangerouslySetInnerHTML: {
           __html: this.props.excerpt
         }

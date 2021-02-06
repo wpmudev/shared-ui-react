@@ -69,7 +69,7 @@ var BoxTitle = function BoxTitle(_ref2) {
 
   return /*#__PURE__*/React.createElement("h3", _extends({
     className: "sui-box-title"
-  }, props), icon && '' !== icon && /*#__PURE__*/React.createElement("span", {
+  }, props), icon && "" !== icon && /*#__PURE__*/React.createElement("span", {
     className: "sui-icon-".concat(icon, " sui-md"),
     "aria-hidden": "true"
   }), children);
@@ -82,7 +82,7 @@ var BoxHeader = function BoxHeader(_ref3) {
 
   return /*#__PURE__*/React.createElement("div", _extends({
     className: "sui-box-header"
-  }, props), title && '' !== title && /*#__PURE__*/React.createElement(BoxTitle, {
+  }, props), title && "" !== title && /*#__PURE__*/React.createElement(BoxTitle, {
     icon: titleIcon
   }, title), /*#__PURE__*/React.createElement("div", {
     className: "sui-actions-right"
@@ -112,11 +112,11 @@ var BoxSection = function BoxSection(_ref6) {
 
   return /*#__PURE__*/React.createElement("div", _extends({
     className: "sui-box-settings-row"
-  }, props), (title && '' !== title || description && '' !== description) && /*#__PURE__*/React.createElement("div", {
+  }, props), (title && "" !== title || description && "" !== description) && /*#__PURE__*/React.createElement("div", {
     className: "sui-box-settings-col-1"
-  }, '' !== title && /*#__PURE__*/React.createElement("h4", {
+  }, "" !== title && /*#__PURE__*/React.createElement("h4", {
     className: "sui-settings-label"
-  }, title), '' !== description && /*#__PURE__*/React.createElement("p", {
+  }, title), "" !== description && /*#__PURE__*/React.createElement("p", {
     className: "sui-description"
   }, description)), /*#__PURE__*/React.createElement("div", {
     className: "sui-box-settings-col-2"
