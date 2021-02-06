@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "shared-ui-react",
-  "license": "GPLv3",
+  "license": "GPL-3.0",
   "workspaces": [
     "packages/*"
   ],
@@ -11,22 +11,32 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
+    "@babel/eslint-parser": "^7.12.1",
+    "@babel/eslint-plugin": "^7.12.1",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-react": "^7.12.5",
-    "@storybook/addon-a11y": "^6.1.6",
-    "@storybook/addon-actions": "^6.1.6",
-    "@storybook/addon-essentials": "^6.1.6",
-    "@storybook/addon-links": "^6.1.6",
+    "@storybook/addon-a11y": "^6.1.15",
+    "@storybook/addon-actions": "^6.1.15",
+    "@storybook/addon-essentials": "^6.1.15",
+    "@storybook/addon-links": "^6.1.15",
     "@storybook/addon-notes": "^5.3.21",
-    "@storybook/react": "^6.1.6",
+    "@storybook/react": "^6.1.15",
     "@wpmudev/shared-ui": "2.10.0",
     "babel-jest": "^26.6.3",
     "babel-loader": "^8.2.1",
     "chromatic": "^5.4.0",
     "css-loader": "^5.0.1",
+    "eslint": "^7.18.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "gh-pages": "^3.1.0",
     "jest": "^26.6.3",
     "lerna": "^3.22.1",
+    "prettier": "2.2.1",
     "react-is": "^17.0.1",
     "react-test-renderer": "^17.0.1",
     "sass-loader": "^10.1.0",
@@ -38,6 +48,7 @@
     "storybook": "start-storybook -p 6006 --no-dll --no-manager-cache",
     "build-storybook": "build-storybook --no-dll",
     "deploy": "yarn run build-storybook && gh-pages -d storybook-static -b gh-pages -m \"🚀 Update showcase with latest changes.\"",
-	"chromatic": "yarn run build-storybook && npx chromatic --project-token=8qcmh09rb9f --storybook-build-dir storybook-static"
+    "chromatic": "yarn run build-storybook && npx chromatic --project-token=8qcmh09rb9f --storybook-build-dir storybook-static",
+    "lint": "yarn run eslint packages/**/lib/*.js"
   }
 }

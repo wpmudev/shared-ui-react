@@ -4,10 +4,10 @@ import {
 	BoxTitle,
 	BoxBody,
 	BoxFooter
-} from '@wpmudev/react-box'
-import { Button } from '@wpmudev/react-button'
-import { Post } from '@wpmudev/react-post'
-import { Notifications } from '@wpmudev/react-notifications'
+} from "@wpmudev/react-box";
+import { Button } from "@wpmudev/react-button";
+import { Post } from "@wpmudev/react-post";
+import { Notifications } from "@wpmudev/react-notifications";
 
 export {
 	Box,
@@ -18,4 +18,4 @@ export {
 	Button,
 	Post,
 	Notifications
-}
+};
