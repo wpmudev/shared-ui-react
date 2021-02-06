@@ -12,8 +12,8 @@
   ],
   "homepage": "https://github.com/wpmudev/shared-ui-react#readme",
   "license": "GPL-3.0",
-  "main": "dist/button.cjs.js",
-  "module": "dist/button.esm.js",
+  "main": "dist/react-button.cjs.js",
+  "module": "dist/react-button.esm.js",
   "src": "lib/button.js",
   "directories": {
     "lib": "lib",
