@@ -36,7 +36,7 @@ The author of all the packages is [WPMU DEV](https://premium.wpmudev.org/) while
 Make sure to include `LICENSE`from another component and declare it on the package as:
 
 ```json
-"license": "GPLv3"
+"license": "GPL-3.0"
 ```
 
 ### 3. Declare Files
@@ -45,10 +45,10 @@ To make sure the component works correctly when installed through NPM, it is nec
 
 ```json
 // Set main file.
-"main": "dist/foo.cjs.js"
+"main": "dist/react-foo.cjs.js"
 
 // Set module file.
-"module": "dist/foo.esm.js"
+"module": "dist/react-foo.esm.js"
 
 // Set source file.
 "src": "lib/foo.js"
