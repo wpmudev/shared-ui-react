@@ -38,6 +38,9 @@ The final commit message to the @wpmudev/react-foo package, for GitHub issue 123
 
 # For a doc update
 📝 docs/component-name: Short description of doc changes
+
+# For accessibility improvements
+♿️ aria/component-name: Short description of feature
 ```
 
 This commit message is pulled into our `CHANGELOG` when we release and is based on Angular's Git commit guidelines.
