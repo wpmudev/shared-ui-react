@@ -1,4 +1,5 @@
-[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
+[![SUI React](https://img.shields.io/npm/v/@wpmudev/shared-ui-react)](https://www.npmjs.com/package/@wpmudev/shared-ui-react)
+[![License: GPLv3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
 
 # Shared UI Components for React
 
