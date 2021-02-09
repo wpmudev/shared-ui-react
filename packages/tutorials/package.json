@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/react-tutorials",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "WPMU DEV Shared UI React Tutorials Component",
   "author": "WPMU DEV",
   "contributors": [
@@ -40,8 +40,8 @@
     "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
-    "@wpmudev/react-tutorials-list": "^1.0.8",
-    "@wpmudev/react-tutorials-slider": "^1.0.9",
+    "@wpmudev/react-tutorials-list": "^1.0.9",
+    "@wpmudev/react-tutorials-slider": "^1.0.10",
     "styled-components": "^5.2.1"
   },
   "devDependencies": {
