@@ -4,5 +4,10 @@
 	"packages": [
 		"packages/*"
 	],
-	"version": "independent"
+	"version": "independent",
+	"command": {
+		"publish": {
+			"message": "🚀 Publish"
+		}
+	}
 }
