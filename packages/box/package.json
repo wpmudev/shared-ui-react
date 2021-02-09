@@ -11,7 +11,7 @@
     }
   ],
   "homepage": "https://github.com/wpmudev/shared-ui-react#readme",
-  "license": "GPLv3",
+  "license": "GPL-3.0",
   "main": "dist/react-box.cjs.js",
   "module": "dist/react-box.esm.js",
   "src": "lib/box.js",
