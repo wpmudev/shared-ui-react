@@ -1,3 +1,4 @@
+[![License: GPLv3](https://img.shields.io/badge/License-GPL%20v3-blue.svg?color=green)](http://www.gnu.org/licenses/gpl-3.0)
 [![npm](https://img.shields.io/npm/v/@wpmudev/react-button)](https://www.npmjs.com/package/@wpmudev/react-button)
 ![npm peer dependency version](https://img.shields.io/npm/dependency-version/@wpmudev/react-button/peer/react)
 
