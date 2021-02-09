@@ -1,5 +1,7 @@
-[![SUI React](https://img.shields.io/npm/v/@wpmudev/shared-ui-react?label=SUI%20React)](https://www.npmjs.com/package/@wpmudev/shared-ui-react)
-[![License: GPLv3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
+[![npm version](https://img.shields.io/npm/v/@wpmudev/shared-ui-react?label=SUI%20React)](https://www.npmjs.com/package/@wpmudev/shared-ui-react)
+[![License: GPLv3](https://img.shields.io/badge/License-GPL%20v3-blue.svg?color=green)](http://www.gnu.org/licenses/gpl-3.0)
+[![GitHub issues](https://img.shields.io/github/issues/wpmudev/shared-ui-react)](https://github.com/wpmudev/shared-ui-react/issues)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/wpmudev/shared-ui-react)
 
 # Shared UI Components for React
 
@@ -11,8 +13,17 @@ The following is a list of the components that are ready to be used with corresp
 
 Component | Version
 --- | ---
-[Tutorials List](https://wpmudev.github.io/shared-ui-react/?path=/story/tutorials-list--primary) | [![npm version](https://badge.fury.io/js/%40wpmudev%2Freact-tutorials-list.svg)](https://badge.fury.io/js/%40wpmudev%2Freact-tutorials-list)
-[Tutorials Slider](https://wpmudev.github.io/shared-ui-react/?path=/story/tutorials-slider--primary) | [![npm version](https://badge.fury.io/js/%40wpmudev%2Freact-tutorials-slider.svg)](https://badge.fury.io/js/%40wpmudev%2Freact-tutorials-slider)
+[Box](https://wpmudev.github.io/shared-ui-react/?path=/story/box--wrapper) | [![npm version](https://badge.fury.io/js/%40wpmudev%2Freact-box.svg)](https://www.npmjs.com/package/@wpmudev/react-box)
+[Button](https://wpmudev.github.io/shared-ui-react/?path=/story/button--primary) | [![npm version](https://badge.fury.io/js/%40wpmudev%2Freact-button.svg)](https://www.npmjs.com/package/@wpmudev/react-button)
+
+## Shared Modules
+
+These are components that work outside SUI React (core package) but still depends on it. Below there is a list with its corresponding links to NPM package and the showcase design spec.
+
+Shared Module | Version
+--- | ---
+[Tutorials List](https://wpmudev.github.io/shared-ui-react/?path=/story/tutorials-list--primary) | [![npm version](https://badge.fury.io/js/%40wpmudev%2Freact-tutorials-list.svg)](https://www.npmjs.com/package/@wpmudev/react-tutorials-list)
+[Tutorials Slider](https://wpmudev.github.io/shared-ui-react/?path=/story/tutorials-slider--primary) | [![npm version](https://badge.fury.io/js/%40wpmudev%2Freact-tutorials-slider.svg)](https://www.npmjs.com/package/@wpmudev/react-tutorials-slider)
 
 ## Getting Started
 
