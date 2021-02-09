@@ -25,9 +25,9 @@ Go ahead an open a pull request when:
 
 > Have in mind that anything larger to 20 lines of code or changes to an API will require an issue to be opened first.
 
-## Commit Message Format
+## Pull Request Message Format
 
-The final commit message to the @wpmudev/react-foo package, for GitHub issue 1234, should look like this:
+The final pull request message to the @wpmudev/react-foo package, for GitHub issue 1234, should look like this:
 
 ```
 # For a fix to an issue
@@ -43,7 +43,7 @@ The final commit message to the @wpmudev/react-foo package, for GitHub issue 123
 ♿️ aria/component-name: Short description of feature
 ```
 
-This commit message is pulled into our `CHANGELOG` when we release and is based on Angular's Git commit guidelines.
+This commit message is pulled into our `CHANGELOG` when we release and is based on [conventional commits](https://www.conventionalcommits.org/) guidelines.
 
 ## Pull Requests.
 
