@@ -37,3 +37,6 @@ v1.0.8
 
 v1.0.9
 - Fix: Adjust `remove` event.
+
+v1.0.10
+- Fix: Wrong peer dependency.
