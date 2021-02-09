@@ -1,3 +1,7 @@
+[![npm](https://img.shields.io/npm/v/@wpmudev/react-tutorials?color=green&label=SUI%20Tutorials)](https://www.npmjs.com/package/@wpmudev/react-tutorials)
+![npm (prod) dependency version](https://img.shields.io/npm/dependency-version/@wpmudev/react-tutorials/@wpmudev/react-tutorials-list)
+![npm (prod) dependency version](https://img.shields.io/npm/dependency-version/@wpmudev/react-tutorials/@wpmudev/react-tutorials-slider)
+
 # Tutorials
 
 Tutorials allows you to showcase [WPMU DEV](https://premium.wpmudev.org/blog/) posts tagged as `tutorials` in [Lists Mode](https://wpmudev.github.io/shared-ui-react/?path=/story/tutorials-list--primary) or [Slider Mode](https://wpmudev.github.io/shared-ui-react/?path=/story/tutorials-slider--primary).
