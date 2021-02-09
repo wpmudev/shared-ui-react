@@ -43,7 +43,7 @@ The final pull request message to the @wpmudev/react-foo package, for GitHub iss
 ♿️ aria/component-name: Short description of feature
 ```
 
-This commit message is pulled into our `CHANGELOG` when we release and is based on [conventional commits](https://www.conventionalcommits.org/) guidelines.
+This commit message is pulled into our `CHANGELOG` when we release and is based on Angular's git commit guidelines.
 
 ## Pull Requests.
 
