@@ -34,3 +34,6 @@ v1.0.7
 v1.0.8
 - Enhance: Improve documentation.
 - Enhance: Add `styled-component` in dependencies list.
+
+v1.0.9
+- Fix: Wrong peer dependency.
