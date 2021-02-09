@@ -57,6 +57,6 @@
     "styled-components": "^5.2.1"
   },
   "peerDependencies": {
-    "react": "16.x"
+    "react": "^16.0.0"
   }
 }
