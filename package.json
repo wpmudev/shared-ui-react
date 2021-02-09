@@ -56,12 +56,11 @@
   "changelog": {
 	"repo": "wpmudev/shared-ui-react",
 	"labels": {
-		"bug": ":bug: Bug Fix",
-		"breaking": ":boom: Breaking Change",
-		"improvement": ":rocket: Enhancement",
-		"documentation": ":memo: Documentation",
-		"internal": ":house: Internal",
-		"core": ":earth_asia: Core"
+		"core": "🌏 Core",
+		"improvement": "✨ Enhancement",
+		"bug": "🐛 Bug Fix",
+		"accessibility": "♿️ Accessibility Changes",
+		"documentation": "📝 Documentation"
 	},
 	"cacheDir": ".changelog"
   }
