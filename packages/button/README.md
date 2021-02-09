@@ -1,3 +1,6 @@
+[![npm](https://img.shields.io/npm/v/@wpmudev/react-button)](https://www.npmjs.com/package/@wpmudev/react-button)
+![npm peer dependency version](https://img.shields.io/npm/dependency-version/@wpmudev/react-button/peer/react)
+
 # React Button
 [React Button](https://wpmudev.github.io/shared-ui-react/?path=/story/components-button--primary) allows you include a button on your project.
 
