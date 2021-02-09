@@ -14,6 +14,8 @@
   * [#12](https://github.com/wpmudev/shared-ui-react/pull/12) 🐛 fix/builder: Remove `react-` prefix from built file. ([@iamleigh](https://github.com/iamleigh))
 
 #### 📝 Documentation
+* `post`, `tutorials-list`, `tutorials-slider`
+  * [#30](https://github.com/wpmudev/shared-ui-react/pull/30) 📝 docs/post: Improve component documentation. ([@iamleigh](https://github.com/iamleigh))
 * `box`, `notifications`, `post`, `tutorials-list`, `tutorials-slider`
   * [#20](https://github.com/wpmudev/shared-ui-react/pull/20) 📝 docs: Automatic global changelogs based on PRs. ([@iamleigh](https://github.com/iamleigh))
 * `button`
