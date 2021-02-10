@@ -1,8 +1,7 @@
-/* eslint-disable prettier/prettier */
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import { Notifications } from '@wpmudev/react-notifications';
-import { Post } from '@wpmudev/react-post';
+import React, { Component } from "react";
+import styled from "styled-components";
+import { Notifications } from "@wpmudev/react-notifications";
+import { Post } from "@wpmudev/react-post";
 
 let aria = aria || {};
 
@@ -47,7 +46,7 @@ const Box = styled.div`
 
 const Link = styled.a.attrs(props => ({
 	href: props.viewAll,
-	target: '_blank'
+	target: "_blank"
 }))`
 	margin-top: 1px;
 	margin-right: 23px;
@@ -212,8 +211,8 @@ export class TutorialsSlider extends Component {
 	}
 
 	closeButtonClicked = e => {
-		const sliderBox = e.currentTarget.closest('.sui-tutorials-slider-box'),
-			event = new Event('sliderTutorialClosed');
+		const sliderBox = e.currentTarget.closest(".sui-tutorials-slider-box"),
+			event = new Event("sliderTutorialClosed");
 
 		sliderBox.dispatchEvent(event);
 		sliderBox.remove();
@@ -223,12 +222,12 @@ export class TutorialsSlider extends Component {
 		let ref = e.target !== null ? e.target : e.srcElement;
 
 		if (ref) {
-			window.open(ref.getAttribute('data-href'), '_blank');
+			window.open(ref.getAttribute("data-href"), "_blank");
 		}
 	};
 
 	keyNavigate = direction => {
-		const focusedPost = document.activeElement.closest('li');
+		const focusedPost = document.activeElement.closest("li");
 
 		// Abort if the focused element doesn't have a li parent.
 		if (!focusedPost) {
@@ -236,17 +235,17 @@ export class TutorialsSlider extends Component {
 		}
 
 		let newFocusedPost;
-		if ('prev' === direction) {
+		if ("prev" === direction) {
 			newFocusedPost = focusedPost.previousElementSibling;
 			// We reached the start of the list.
 			if (!newFocusedPost) {
-				newFocusedPost = focusedPost.closest('ul').lastElementChild;
+				newFocusedPost = focusedPost.closest("ul").lastElementChild;
 			}
 		} else {
 			newFocusedPost = focusedPost.nextElementSibling;
 			// We reached the end of the list.
 			if (!newFocusedPost) {
-				newFocusedPost = focusedPost.closest('ul').firstElementChild;
+				newFocusedPost = focusedPost.closest("ul").firstElementChild;
 			}
 		}
 		newFocusedPost.firstElementChild.focus();
@@ -260,10 +259,10 @@ export class TutorialsSlider extends Component {
 				this.openLink(e);
 				break;
 			case aria.KeyCode.LEFT:
-				this.keyNavigate('prev');
+				this.keyNavigate("prev");
 				break;
 			case aria.KeyCode.RIGHT:
-				this.keyNavigate('next');
+				this.keyNavigate("next");
 				break;
 		}
 	};
@@ -351,33 +350,53 @@ export class TutorialsSlider extends Component {
 		const translate = this.props.translate;
 
 		const loading =
-			translate && translate[0].loading ? translate[0].loading : 'Loading tutorials...';
+			translate && translate[0].loading
+				? translate[0].loading
+				: "Loading tutorials...";
 
-		const read_article = translate && translate[0].read_article ? translate[0].read_article : '';
+		const read_article =
+			translate && translate[0].read_article ? translate[0].read_article : "";
 
-		const min_read = translate && translate[0].min_read ? translate[0].min_read : '';
+		const min_read =
+			translate && translate[0].min_read ? translate[0].min_read : "";
 
 		const prev_post =
-			translate && translate[0].prev_post ? translate[0].prev_post : 'Previous post';
+			translate && translate[0].prev_post
+				? translate[0].prev_post
+				: "Previous post";
 
-		const next_post = translate && translate[0].next_post ? translate[0].next_post : 'Next post';
+		const next_post =
+			translate && translate[0].next_post
+				? translate[0].next_post
+				: "Next post";
 
-		const view_all = translate && translate[0].view_all ? translate[0].view_all : 'View all';
+		const view_all =
+			translate && translate[0].view_all ? translate[0].view_all : "View all";
 
 		const close_tutorials =
-			translate && translate[0].close_tutorials ? translate[0].close_tutorials : 'Close tutorials';
+			translate && translate[0].close_tutorials
+				? translate[0].close_tutorials
+				: "Close tutorials";
 
-		const show_more = translate && translate[0].show_more ? translate[0].show_more : 'Show more';
+		const show_more =
+			translate && translate[0].show_more
+				? translate[0].show_more
+				: "Show more";
 
-		const show_less = translate && translate[0].show_less ? translate[0].show_less : 'Show less';
+		const show_less =
+			translate && translate[0].show_less
+				? translate[0].show_less
+				: "Show less";
 
 		const listPosts = posts.map((post, i) => (
 			<ListItem
 				key={post.id}
-				className={'sui-tutorial' + (1 < i && !this.state.isShowingAll) && ' sui-hidden'}
+				className={
+					"sui-tutorial" + (1 < i && !this.state.isShowingAll && " sui-hidden")
+				}
 				ref={1 === i && this.secondTutorial}>
 				<Post
-					role='link'
+					role="link"
 					data-href={post.link}
 					title={post.title.rendered}
 					time={post.meta.blog_reading_time}
