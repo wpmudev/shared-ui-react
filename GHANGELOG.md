@@ -2,7 +2,7 @@
 
 ## Unreleased (2021-02-10)
 
-#### 🐛 Bug Fixes
+#### Bug Fixes
 * `tutorials-slider`, `tutorials`
   * [#32](https://github.com/wpmudev/shared-ui-react/pull/32) 🐛 fix/tutorials-slider: `Posts` not appearing after load. ([@iamleigh](https://github.com/iamleigh))
 * `tutorials-slider`
@@ -15,20 +15,20 @@
 
 ## [Core v1.0.4](https://www.npmjs.com/package/@wpmudev/shared-ui-react) (2021-02-09)
 
-#### ✨ New Features or Improvements
+#### New Features or Improvements
 * `button`
   * [#15](https://github.com/wpmudev/shared-ui-react/pull/15) Enhance/button ([@iamleigh](https://github.com/iamleigh))
 * Other
   * [#14](https://github.com/wpmudev/shared-ui-react/pull/14) ⬆️ Upgrade Storybook ([@iamleigh](https://github.com/iamleigh))
   * [#11](https://github.com/wpmudev/shared-ui-react/pull/11) New/lint action ([@iamleigh](https://github.com/iamleigh))
 
-#### 🐛 Bug Fixes
+#### Bug Fixes
 * `box`, `button`, `core`, `notifications`, `post`, `tutorials-list`, `tutorials-slider`, `tutorials`
   * [#13](https://github.com/wpmudev/shared-ui-react/pull/13) 🐛 fix/eslint: Work on files errors and warnings. ([@iamleigh](https://github.com/iamleigh))
 * `builder`
   * [#12](https://github.com/wpmudev/shared-ui-react/pull/12) 🐛 fix/builder: Remove `react-` prefix from built file. ([@iamleigh](https://github.com/iamleigh))
 
-#### 📝 Documentation
+#### Documentation
 * `post`, `tutorials-list`, `tutorials-slider`
   * [#30](https://github.com/wpmudev/shared-ui-react/pull/30) 📝 docs/post: Improve component documentation. ([@iamleigh](https://github.com/iamleigh))
 * `box`, `notifications`, `post`, `tutorials-list`, `tutorials-slider`
