@@ -1824,7 +1824,7 @@ var Box = styled__default['default'].div(_templateObject$1$1(), device$1$1.table
 var Link = styled__default['default'].a.attrs(function (props) {
   return {
     href: props.viewAll,
-    target: '_blank'
+    target: "_blank"
   };
 })(_templateObject2$1$1());
 var ListWrapper$1 = styled__default['default'].ul(_templateObject3$1$1(), device$1$1.tablet);
@@ -1844,8 +1844,8 @@ var TutorialsSlider = /*#__PURE__*/function (_Component) {
     _this = _super.call(this, props);
 
     _defineProperty$2(_assertThisInitialized$3(_this), "closeButtonClicked", function (e) {
-      var sliderBox = e.currentTarget.closest('.sui-tutorials-slider-box'),
-          event = new Event('sliderTutorialClosed');
+      var sliderBox = e.currentTarget.closest(".sui-tutorials-slider-box"),
+          event = new Event("sliderTutorialClosed");
       sliderBox.dispatchEvent(event);
       sliderBox.remove();
     });
@@ -1854,12 +1854,12 @@ var TutorialsSlider = /*#__PURE__*/function (_Component) {
       var ref = e.target !== null ? e.target : e.srcElement;
 
       if (ref) {
-        window.open(ref.getAttribute('data-href'), '_blank');
+        window.open(ref.getAttribute("data-href"), "_blank");
       }
     });
 
     _defineProperty$2(_assertThisInitialized$3(_this), "keyNavigate", function (direction) {
-      var focusedPost = document.activeElement.closest('li'); // Abort if the focused element doesn't have a li parent.
+      var focusedPost = document.activeElement.closest("li"); // Abort if the focused element doesn't have a li parent.
 
       if (!focusedPost) {
         return;
@@ -1867,17 +1867,17 @@ var TutorialsSlider = /*#__PURE__*/function (_Component) {
 
       var newFocusedPost;
 
-      if ('prev' === direction) {
+      if ("prev" === direction) {
         newFocusedPost = focusedPost.previousElementSibling; // We reached the start of the list.
 
         if (!newFocusedPost) {
-          newFocusedPost = focusedPost.closest('ul').lastElementChild;
+          newFocusedPost = focusedPost.closest("ul").lastElementChild;
         }
       } else {
         newFocusedPost = focusedPost.nextElementSibling; // We reached the end of the list.
 
         if (!newFocusedPost) {
-          newFocusedPost = focusedPost.closest('ul').firstElementChild;
+          newFocusedPost = focusedPost.closest("ul").firstElementChild;
         }
       }
 
@@ -1894,12 +1894,12 @@ var TutorialsSlider = /*#__PURE__*/function (_Component) {
           break;
 
         case aria$1$1.KeyCode.LEFT:
-          _this.keyNavigate('prev');
+          _this.keyNavigate("prev");
 
           break;
 
         case aria$1$1.KeyCode.RIGHT:
-          _this.keyNavigate('next');
+          _this.keyNavigate("next");
 
           break;
       }
@@ -1915,7 +1915,9 @@ var TutorialsSlider = /*#__PURE__*/function (_Component) {
       } // We're at the last slide.
 
 
-      if (tutorialsContainer.scrollWidth === tutorialsContainer.scrollLeft + tutorialsContainer.offsetWidth) {
+      var getSum = tutorialsContainer.scrollLeft + tutorialsContainer.offsetWidth;
+
+      if (tutorialsContainer.scrollWidth === getSum) {
         isLastSlide = true;
       }
 
@@ -1928,7 +1930,7 @@ var TutorialsSlider = /*#__PURE__*/function (_Component) {
     _defineProperty$2(_assertThisInitialized$3(_this), "navigationButtonClicked", function (e) {
       var tutorialsContainer = e.currentTarget.parentNode.previousElementSibling; // Scroll to the next or previous "slide".
 
-      if (e.currentTarget.classList.contains('next')) {
+      if (e.currentTarget.classList.contains("next")) {
         tutorialsContainer.scrollLeft += tutorialsContainer.offsetWidth;
       } else {
         tutorialsContainer.scrollLeft -= tutorialsContainer.offsetWidth;
@@ -1975,7 +1977,7 @@ var TutorialsSlider = /*#__PURE__*/function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      var API_URL = 'https://premium.wpmudev.org/blog/wp-json/wp/v2/posts?tutorials_categories=';
+      var API_URL = "https://premium.wpmudev.org/blog/wp-json/wp/v2/posts?tutorials_categories=";
       var QUERY_ID = this.props.category; // GET posts using fetch.
 
       fetch(API_URL + QUERY_ID).then(function (response) {
@@ -2003,19 +2005,19 @@ var TutorialsSlider = /*#__PURE__*/function (_Component) {
           isLoaded = _this$state.isLoaded,
           isShowingAll = _this$state.isShowingAll;
       var translate = this.props.translate;
-      var loading = translate && translate[0].loading ? translate[0].loading : 'Loading tutorials...';
-      var read_article = translate && translate[0].read_article ? translate[0].read_article : '';
-      var min_read = translate && translate[0].min_read ? translate[0].min_read : '';
-      var prev_post = translate && translate[0].prev_post ? translate[0].prev_post : 'Previous post';
-      var next_post = translate && translate[0].next_post ? translate[0].next_post : 'Next post';
-      var view_all = translate && translate[0].view_all ? translate[0].view_all : 'View all';
-      var close_tutorials = translate && translate[0].close_tutorials ? translate[0].close_tutorials : 'Close tutorials';
-      var show_more = translate && translate[0].show_more ? translate[0].show_more : 'Show more';
-      var show_less = translate && translate[0].show_less ? translate[0].show_less : 'Show less';
+      var loading = translate && translate[0].loading ? translate[0].loading : "Loading tutorials...";
+      var read_article = translate && translate[0].read_article ? translate[0].read_article : "";
+      var min_read = translate && translate[0].min_read ? translate[0].min_read : "";
+      var prev_post = translate && translate[0].prev_post ? translate[0].prev_post : "Previous post";
+      var next_post = translate && translate[0].next_post ? translate[0].next_post : "Next post";
+      var view_all = translate && translate[0].view_all ? translate[0].view_all : "View all";
+      var close_tutorials = translate && translate[0].close_tutorials ? translate[0].close_tutorials : "Close tutorials";
+      var show_more = translate && translate[0].show_more ? translate[0].show_more : "Show more";
+      var show_less = translate && translate[0].show_less ? translate[0].show_less : "Show less";
       var listPosts = posts.map(function (post, i) {
         return /*#__PURE__*/React__default['default'].createElement(ListItem$1, {
           key: post.id,
-          className: 'sui-tutorial' + (1 < i && !_this3.state.isShowingAll) && ' sui-hidden',
+          className: "sui-tutorial" + (1 < i && !_this3.state.isShowingAll && " sui-hidden"),
           ref: 1 === i && _this3.secondTutorial
         }, /*#__PURE__*/React__default['default'].createElement(Post$1, {
           role: "link",
@@ -2053,9 +2055,11 @@ var TutorialsSlider = /*#__PURE__*/function (_Component) {
           className: "sui-button-icon prev",
           onClick: function onClick(e) {
             return _this3.navigationButtonClicked(e);
-          },
+          } // eslint-disable-next-line prettier/prettier
+          ,
           style: {
-            visibility: this.state.isFirstSlide ? 'hidden' : 'visible'
+            visibility: this.state.isFirstSlide ? "hidden" : "visible" // eslint-disable-next-line prettier/prettier
+
           }
         }, /*#__PURE__*/React__default['default'].createElement("span", {
           className: "sui-icon-chevron-left sui-sm",
@@ -2067,9 +2071,11 @@ var TutorialsSlider = /*#__PURE__*/function (_Component) {
           className: "sui-button-icon next",
           onClick: function onClick(e) {
             return _this3.navigationButtonClicked(e);
-          },
+          } // eslint-disable-next-line prettier/prettier
+          ,
           style: {
-            visibility: this.state.isLastSlide ? 'hidden' : 'visible'
+            visibility: this.state.isLastSlide ? "hidden" : "visible" // eslint-disable-next-line prettier/prettier
+
           }
         }, /*#__PURE__*/React__default['default'].createElement("span", {
           className: "sui-icon-chevron-right sui-sm",
@@ -2102,9 +2108,10 @@ var TutorialsSlider = /*#__PURE__*/function (_Component) {
           onClick: function onClick(e) {
             return _this3.closeButtonClicked(e);
           },
-          className: "sui-button-icon",
+          className: "sui-button-icon" // eslint-disable-next-line prettier/prettier
+          ,
           style: {
-            marginRight: '-9px'
+            marginRight: "-9px"
           }
         }, /*#__PURE__*/React__default['default'].createElement("span", {
           className: "sui-icon-close sui-md",
@@ -2112,7 +2119,7 @@ var TutorialsSlider = /*#__PURE__*/function (_Component) {
         }), /*#__PURE__*/React__default['default'].createElement("span", {
           className: "sui-screen-reader-text"
         }, close_tutorials)))), /*#__PURE__*/React__default['default'].createElement(Box, {
-          className: isShowingAll && 'open'
+          className: isShowingAll && "open"
         }, /*#__PURE__*/React__default['default'].createElement(ListWrapper$1, {
           onScroll: this.handleScroll
         }, listPosts), 2 < posts.length && navigation));

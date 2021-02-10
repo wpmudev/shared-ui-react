@@ -1,8 +1,7 @@
-/* eslint-disable prettier/prettier */
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import { Notifications } from '@wpmudev/react-notifications';
-import { Post } from '@wpmudev/react-post';
+import React, { Component } from "react";
+import styled from "styled-components";
+import { Notifications } from "@wpmudev/react-notifications";
+import { Post } from "@wpmudev/react-post";
 
 let aria = aria || {};
 
@@ -47,7 +46,7 @@ const Box = styled.div`
 
 const Link = styled.a.attrs(props => ({
 	href: props.viewAll,
-	target: '_blank'
+	target: "_blank"
 }))`
 	margin-top: 1px;
 	margin-right: 23px;
@@ -212,8 +211,8 @@ export class TutorialsSlider extends Component {
 	}
 
 	closeButtonClicked = e => {
-		const sliderBox = e.currentTarget.closest('.sui-tutorials-slider-box'),
-			event = new Event('sliderTutorialClosed');
+		const sliderBox = e.currentTarget.closest(".sui-tutorials-slider-box"),
+			event = new Event("sliderTutorialClosed");
 
 		sliderBox.dispatchEvent(event);
 		sliderBox.remove();
@@ -223,12 +222,12 @@ export class TutorialsSlider extends Component {
 		let ref = e.target !== null ? e.target : e.srcElement;
 
 		if (ref) {
-			window.open(ref.getAttribute('data-href'), '_blank');
+			window.open(ref.getAttribute("data-href"), "_blank");
 		}
 	};
 
 	keyNavigate = direction => {
-		const focusedPost = document.activeElement.closest('li');
+		const focusedPost = document.activeElement.closest("li");
 
 		// Abort if the focused element doesn't have a li parent.
 		if (!focusedPost) {
@@ -236,17 +235,17 @@ export class TutorialsSlider extends Component {
 		}
 
 		let newFocusedPost;
-		if ('prev' === direction) {
+		if ("prev" === direction) {
 			newFocusedPost = focusedPost.previousElementSibling;
 			// We reached the start of the list.
 			if (!newFocusedPost) {
-				newFocusedPost = focusedPost.closest('ul').lastElementChild;
+				newFocusedPost = focusedPost.closest("ul").lastElementChild;
 			}
 		} else {
 			newFocusedPost = focusedPost.nextElementSibling;
 			// We reached the end of the list.
 			if (!newFocusedPost) {
-				newFocusedPost = focusedPost.closest('ul').firstElementChild;
+				newFocusedPost = focusedPost.closest("ul").firstElementChild;
 			}
 		}
 		newFocusedPost.firstElementChild.focus();
@@ -260,10 +259,10 @@ export class TutorialsSlider extends Component {
 				this.openLink(e);
 				break;
 			case aria.KeyCode.LEFT:
-				this.keyNavigate('prev');
+				this.keyNavigate("prev");
 				break;
 			case aria.KeyCode.RIGHT:
-				this.keyNavigate('next');
+				this.keyNavigate("next");
 				break;
 		}
 	};
@@ -281,10 +280,10 @@ export class TutorialsSlider extends Component {
 		}
 
 		// We're at the last slide.
-		if (
-			tutorialsContainer.scrollWidth ===
-			tutorialsContainer.scrollLeft + tutorialsContainer.offsetWidth
-		) {
+		const getSum =
+			tutorialsContainer.scrollLeft + tutorialsContainer.offsetWidth;
+
+		if (tutorialsContainer.scrollWidth === getSum) {
 			isLastSlide = true;
 		}
 
@@ -296,10 +295,11 @@ export class TutorialsSlider extends Component {
 
 	// TODO: check this on RTL.
 	navigationButtonClicked = e => {
-		const tutorialsContainer = e.currentTarget.parentNode.previousElementSibling;
+		const tutorialsContainer =
+			e.currentTarget.parentNode.previousElementSibling;
 
 		// Scroll to the next or previous "slide".
-		if (e.currentTarget.classList.contains('next')) {
+		if (e.currentTarget.classList.contains("next")) {
 			tutorialsContainer.scrollLeft += tutorialsContainer.offsetWidth;
 		} else {
 			tutorialsContainer.scrollLeft -= tutorialsContainer.offsetWidth;
@@ -308,7 +308,10 @@ export class TutorialsSlider extends Component {
 
 	componentDidUpdate(prevProps, prevState) {
 		// Handle the focused element when clicking on "show more"/"show lesss" on mobile.
-		if (this.state.isShowingAll !== prevState.isShowingAll && window.innerWidth < screen.tablet) {
+		if (
+			this.state.isShowingAll !== prevState.isShowingAll &&
+			window.innerWidth < screen.tablet
+		) {
 			if (this.secondTutorial.current) {
 				let tutorialToFocus;
 
@@ -323,7 +326,8 @@ export class TutorialsSlider extends Component {
 	}
 
 	componentDidMount() {
-		const API_URL = 'https://premium.wpmudev.org/blog/wp-json/wp/v2/posts?tutorials_categories=';
+		const API_URL =
+			"https://premium.wpmudev.org/blog/wp-json/wp/v2/posts?tutorials_categories=";
 		const QUERY_ID = this.props.category;
 
 		// GET posts using fetch.
@@ -351,33 +355,53 @@ export class TutorialsSlider extends Component {
 		const translate = this.props.translate;
 
 		const loading =
-			translate && translate[0].loading ? translate[0].loading : 'Loading tutorials...';
+			translate && translate[0].loading
+				? translate[0].loading
+				: "Loading tutorials...";
 
-		const read_article = translate && translate[0].read_article ? translate[0].read_article : '';
+		const read_article =
+			translate && translate[0].read_article ? translate[0].read_article : "";
 
-		const min_read = translate && translate[0].min_read ? translate[0].min_read : '';
+		const min_read =
+			translate && translate[0].min_read ? translate[0].min_read : "";
 
 		const prev_post =
-			translate && translate[0].prev_post ? translate[0].prev_post : 'Previous post';
+			translate && translate[0].prev_post
+				? translate[0].prev_post
+				: "Previous post";
 
-		const next_post = translate && translate[0].next_post ? translate[0].next_post : 'Next post';
+		const next_post =
+			translate && translate[0].next_post
+				? translate[0].next_post
+				: "Next post";
 
-		const view_all = translate && translate[0].view_all ? translate[0].view_all : 'View all';
+		const view_all =
+			translate && translate[0].view_all ? translate[0].view_all : "View all";
 
 		const close_tutorials =
-			translate && translate[0].close_tutorials ? translate[0].close_tutorials : 'Close tutorials';
+			translate && translate[0].close_tutorials
+				? translate[0].close_tutorials
+				: "Close tutorials";
 
-		const show_more = translate && translate[0].show_more ? translate[0].show_more : 'Show more';
+		const show_more =
+			translate && translate[0].show_more
+				? translate[0].show_more
+				: "Show more";
 
-		const show_less = translate && translate[0].show_less ? translate[0].show_less : 'Show less';
+		const show_less =
+			translate && translate[0].show_less
+				? translate[0].show_less
+				: "Show less";
 
 		const listPosts = posts.map((post, i) => (
 			<ListItem
 				key={post.id}
-				className={'sui-tutorial' + (1 < i && !this.state.isShowingAll) && ' sui-hidden'}
+				className={
+					"sui-tutorial" + (1 < i && !this.state.isShowingAll && " sui-hidden")
+				}
 				ref={1 === i && this.secondTutorial}>
 				<Post
-					role='link'
+					role="link"
 					data-href={post.link}
 					title={post.title.rendered}
 					time={post.meta.blog_reading_time}
@@ -396,67 +420,87 @@ export class TutorialsSlider extends Component {
 		));
 
 		if (error) {
-			return <Notifications type='error' message={error.message} />;
+			return <Notifications type="error" message={error.message} />;
 		} else if (!isLoaded) {
-			return <Notifications type='loading' message={loading} />;
+			return <Notifications type="loading" message={loading} />;
 		} else {
 			const navigation = (
 				<Navigation>
-					{((3 < posts.length && window.innerWidth < screen.desktop) || 4 < posts.length) && [
+					{((3 < posts.length && window.innerWidth < screen.desktop) ||
+						4 < posts.length) && [
 						<button
-							key='1'
-							className='sui-button-icon prev'
+							key="1"
+							className="sui-button-icon prev"
 							onClick={e => this.navigationButtonClicked(e)}
-							style={{ visibility: this.state.isFirstSlide ? 'hidden' : 'visible' }}>
-							<span className='sui-icon-chevron-left sui-sm' aria-hidden='true' />
-							<span className='sui-screen-reader-text'>{prev_post}</span>
+							// eslint-disable-next-line prettier/prettier
+							style={ {
+								visibility: this.state.isFirstSlide ? "hidden" : "visible"
+								// eslint-disable-next-line prettier/prettier
+							} }>
+							<span
+								className="sui-icon-chevron-left sui-sm"
+								aria-hidden="true"
+							/>
+							<span className="sui-screen-reader-text">{prev_post}</span>
 						</button>,
 						<button
-							key='2'
-							className='sui-button-icon next'
+							key="2"
+							className="sui-button-icon next"
 							onClick={e => this.navigationButtonClicked(e)}
-							style={{ visibility: this.state.isLastSlide ? 'hidden' : 'visible' }}>
-							<span className='sui-icon-chevron-right sui-sm' aria-hidden='true' />
-							<span className='sui-screen-reader-text'>{next_post}</span>
+							// eslint-disable-next-line prettier/prettier
+							style={ {
+								visibility: this.state.isLastSlide ? "hidden" : "visible"
+								// eslint-disable-next-line prettier/prettier
+							} }>
+							<span
+								className="sui-icon-chevron-right sui-sm"
+								aria-hidden="true"
+							/>
+							<span className="sui-screen-reader-text">{next_post}</span>
 						</button>
 					]}
 
 					<button
-						className='sui-label'
+						className="sui-label"
 						onClick={() => this.setState({ isShowingAll: !isShowingAll })}>
 						<strong>{isShowingAll ? show_less : show_more}</strong>
-						<span className='sui-icon-chevron-down sui-sm' aria-hidden='true' />
+						<span className="sui-icon-chevron-down sui-sm" aria-hidden="true" />
 					</button>
 				</Navigation>
 			);
 
 			return (
-				<div className='sui-box sui-tutorials-slider-box'>
-					<div className='sui-box-header'>
-						{this.props.title && <h3 className='sui-box-title'>{this.props.title}</h3>}
-						<div className='sui-actions-right'>
+				<div className="sui-box sui-tutorials-slider-box">
+					<div className="sui-box-header">
+						{this.props.title && (
+							<h3 className="sui-box-title">{this.props.title}</h3>
+						)}
+						<div className="sui-actions-right">
 							{this.props.viewAll && (
 								<Link {...this.props}>
-									<span className='sui-icon-open-new-window sui-sm' aria-hidden='true' />
+									<span
+										className="sui-icon-open-new-window sui-sm"
+										aria-hidden="true"
+									/>
 									{view_all}
 								</Link>
 							)}
 
 							<button
 								onClick={e => this.closeButtonClicked(e)}
-								className='sui-button-icon'
-								style={{
-									marginRight: '-9px'
-								}}>
-								<span className='sui-icon-close sui-md' aria-hidden='true' />
-								<span className='sui-screen-reader-text'>{close_tutorials}</span>
+								className="sui-button-icon"
+								// eslint-disable-next-line prettier/prettier
+								style={ { marginRight: "-9px" } }>
+								<span className="sui-icon-close sui-md" aria-hidden="true" />
+								<span className="sui-screen-reader-text">
+									{close_tutorials}
+								</span>
 							</button>
 						</div>
 					</div>
 
-					<Box className={isShowingAll && 'open'}>
+					<Box className={isShowingAll && "open"}>
 						<ListWrapper onScroll={this.handleScroll}>{listPosts}</ListWrapper>
-
 						{2 < posts.length && navigation}
 					</Box>
 				</div>
