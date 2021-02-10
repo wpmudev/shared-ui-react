@@ -280,10 +280,10 @@ export class TutorialsSlider extends Component {
 		}
 
 		// We're at the last slide.
-		if (
-			tutorialsContainer.scrollWidth ===
-			tutorialsContainer.scrollLeft + tutorialsContainer.offsetWidth
-		) {
+		const getSum =
+			tutorialsContainer.scrollLeft + tutorialsContainer.offsetWidth;
+
+		if (tutorialsContainer.scrollWidth === getSum) {
 			isLastSlide = true;
 		}
 
@@ -295,10 +295,11 @@ export class TutorialsSlider extends Component {
 
 	// TODO: check this on RTL.
 	navigationButtonClicked = e => {
-		const tutorialsContainer = e.currentTarget.parentNode.previousElementSibling;
+		const tutorialsContainer =
+			e.currentTarget.parentNode.previousElementSibling;
 
 		// Scroll to the next or previous "slide".
-		if (e.currentTarget.classList.contains('next')) {
+		if (e.currentTarget.classList.contains("next")) {
 			tutorialsContainer.scrollLeft += tutorialsContainer.offsetWidth;
 		} else {
 			tutorialsContainer.scrollLeft -= tutorialsContainer.offsetWidth;
@@ -307,7 +308,10 @@ export class TutorialsSlider extends Component {
 
 	componentDidUpdate(prevProps, prevState) {
 		// Handle the focused element when clicking on "show more"/"show lesss" on mobile.
-		if (this.state.isShowingAll !== prevState.isShowingAll && window.innerWidth < screen.tablet) {
+		if (
+			this.state.isShowingAll !== prevState.isShowingAll &&
+			window.innerWidth < screen.tablet
+		) {
 			if (this.secondTutorial.current) {
 				let tutorialToFocus;
 
@@ -322,7 +326,8 @@ export class TutorialsSlider extends Component {
 	}
 
 	componentDidMount() {
-		const API_URL = 'https://premium.wpmudev.org/blog/wp-json/wp/v2/posts?tutorials_categories=';
+		const API_URL =
+			"https://premium.wpmudev.org/blog/wp-json/wp/v2/posts?tutorials_categories=";
 		const QUERY_ID = this.props.category;
 
 		// GET posts using fetch.
@@ -415,67 +420,86 @@ export class TutorialsSlider extends Component {
 		));
 
 		if (error) {
-			return <Notifications type='error' message={error.message} />;
+			return <Notifications type="error" message={error.message} />;
 		} else if (!isLoaded) {
-			return <Notifications type='loading' message={loading} />;
+			return <Notifications type="loading" message={loading} />;
 		} else {
 			const navigation = (
 				<Navigation>
-					{((3 < posts.length && window.innerWidth < screen.desktop) || 4 < posts.length) && [
+					{((3 < posts.length && window.innerWidth < screen.desktop) ||
+						4 < posts.length) && [
 						<button
-							key='1'
-							className='sui-button-icon prev'
+							key="1"
+							className="sui-button-icon prev"
 							onClick={e => this.navigationButtonClicked(e)}
-							style={{ visibility: this.state.isFirstSlide ? 'hidden' : 'visible' }}>
-							<span className='sui-icon-chevron-left sui-sm' aria-hidden='true' />
-							<span className='sui-screen-reader-text'>{prev_post}</span>
+							// eslint-disable-next-line prettier/prettier
+							style={ {
+								visibility: this.state.isFirstSlide ? "hidden" : "visible"
+								// eslint-disable-next-line prettier/prettier
+							} }>
+							<span
+								className="sui-icon-chevron-left sui-sm"
+								aria-hidden="true"
+							/>
+							<span className="sui-screen-reader-text">{prev_post}</span>
 						</button>,
 						<button
-							key='2'
-							className='sui-button-icon next'
+							key="2"
+							className="sui-button-icon next"
 							onClick={e => this.navigationButtonClicked(e)}
-							style={{ visibility: this.state.isLastSlide ? 'hidden' : 'visible' }}>
-							<span className='sui-icon-chevron-right sui-sm' aria-hidden='true' />
-							<span className='sui-screen-reader-text'>{next_post}</span>
+							// eslint-disable-next-line prettier/prettier
+							style={ {
+								visibility: this.state.isLastSlide ? "hidden" : "visible"
+								// eslint-disable-next-line prettier/prettier
+							} }>
+							<span
+								className="sui-icon-chevron-right sui-sm"
+								aria-hidden="true"
+							/>
+							<span className="sui-screen-reader-text">{next_post}</span>
 						</button>
 					]}
 
 					<button
-						className='sui-label'
+						className="sui-label"
 						onClick={() => this.setState({ isShowingAll: !isShowingAll })}>
 						<strong>{isShowingAll ? show_less : show_more}</strong>
-						<span className='sui-icon-chevron-down sui-sm' aria-hidden='true' />
+						<span className="sui-icon-chevron-down sui-sm" aria-hidden="true" />
 					</button>
 				</Navigation>
 			);
 
 			return (
-				<div className='sui-box sui-tutorials-slider-box'>
-					<div className='sui-box-header'>
-						{this.props.title && <h3 className='sui-box-title'>{this.props.title}</h3>}
-						<div className='sui-actions-right'>
+				<div className="sui-box sui-tutorials-slider-box">
+					<div className="sui-box-header">
+						{this.props.title && (
+							<h3 className="sui-box-title">{this.props.title}</h3>
+						)}
+						<div className="sui-actions-right">
 							{this.props.viewAll && (
 								<Link {...this.props}>
-									<span className='sui-icon-open-new-window sui-sm' aria-hidden='true' />
+									<span
+										className="sui-icon-open-new-window sui-sm"
+										aria-hidden="true"
+									/>
 									{view_all}
 								</Link>
 							)}
 
 							<button
 								onClick={e => this.closeButtonClicked(e)}
-								className='sui-button-icon'
-								style={{
-									marginRight: '-9px'
-								}}>
-								<span className='sui-icon-close sui-md' aria-hidden='true' />
-								<span className='sui-screen-reader-text'>{close_tutorials}</span>
+								className="sui-button-icon"
+								style={{ marginRight: "-9px" }}>
+								<span className="sui-icon-close sui-md" aria-hidden="true" />
+								<span className="sui-screen-reader-text">
+									{close_tutorials}
+								</span>
 							</button>
 						</div>
 					</div>
 
-					<Box className={isShowingAll && 'open'}>
+					<Box className={isShowingAll && "open"}>
 						<ListWrapper onScroll={this.handleScroll}>{listPosts}</ListWrapper>
-
 						{2 < posts.length && navigation}
 					</Box>
 				</div>
