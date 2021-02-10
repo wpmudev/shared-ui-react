@@ -49,6 +49,7 @@
     "react": "^17.0.1"
   },
   "peerDependencies": {
+    "@wpmudev/shared-ui": "^2.7.0",
     "react": "^16.0.0"
   }
 }
