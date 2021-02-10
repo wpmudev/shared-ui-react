@@ -1,4 +1,17 @@
-## Unreleased (2021-02-09)
+## Unreleased (2021-02-10)
+
+#### 🐛 Bug Fixes
+* `tutorials-slider`, `tutorials`
+  * [#32](https://github.com/wpmudev/shared-ui-react/pull/32) 🐛 fix/tutorials-slider: `Posts` not appearing after load. ([@iamleigh](https://github.com/iamleigh))
+* `tutorials-slider`
+  * [#35](https://github.com/wpmudev/shared-ui-react/pull/35) 🐛 fix/tutorials-slider: SUI library missing as peer dependency. ([@iamleigh](https://github.com/iamleigh))
+* `tutorials`
+  * [#36](https://github.com/wpmudev/shared-ui-react/pull/36) 🐛 fix/tutorials: SUI library missing as peer dependency. ([@iamleigh](https://github.com/iamleigh))
+
+#### Committers: 1
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+
+## [Core v1.0.4](https://www.npmjs.com/package/@wpmudev/shared-ui-react) (2021-02-09)
 
 #### ✨ New Features or Improvements
 * `button`
