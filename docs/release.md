@@ -120,7 +120,15 @@ yarn run build
 
 #### Update logs.
 
-Review packages with changes and make sure `CHANGELOG.md` files list version to be released with corresponding changes.
+To update `CHANGELOG.md` file, you will need to generate a personal access token for `public_repo`, then run the command below in the same order. Don't forget to save your token for future use.
+
+```
+# Allow access to the repo.
+export GITHUB_AUTH="token_goes_here"
+
+# Generate changelog based on pull requests.
+yarn run logs
+```
 
 #### Publish packages.
 
