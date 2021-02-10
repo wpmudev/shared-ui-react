@@ -46,6 +46,8 @@ npx lerna add package-name --dev --scope=@wpmudev/react-foo
 npx lerna add package-name --peer --scope=@wpmudev/react-foo
 ```
 
+> **Note:** Remove `npx` if the package to be installed is an external package and not part of this monorepo.
+
 ## Showcase
 
 Globally install [Yarn](https://yarnpkg.com/getting-started/install) and [Lerna](https://lerna.js.org/). Since showcase is managed by Storybook run this in the root directory to install Storybook CLI:
