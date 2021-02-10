@@ -147,5 +147,5 @@ npx lerna publish --no-private
 #### Publish showcase.
 
 ```
-yarn run build-storybook.
+yarn run deploy
 ```
