@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased (2021-02-10)
+## [Tutorials v1.0.11](https://www.npmjs.com/package/@wpmudev/react-tutorials) (2021-02-10)
 
 #### Bug Fixes
 * `tutorials-slider`, `tutorials`
