@@ -20,11 +20,6 @@ Component | Version
 
 These are components that work outside SUI React (core package) but still depends on it. Below there is a list with its corresponding links to NPM package and the showcase design spec.
 
-Shared Module | Version
---- | ---
-[Tutorials List](https://wpmudev.github.io/shared-ui-react/?path=/story/tutorials-list--primary) | [![npm version](https://badge.fury.io/js/%40wpmudev%2Freact-tutorials-list.svg)](https://www.npmjs.com/package/@wpmudev/react-tutorials-list)
-[Tutorials Slider](https://wpmudev.github.io/shared-ui-react/?path=/story/tutorials-slider--primary) | [![npm version](https://badge.fury.io/js/%40wpmudev%2Freact-tutorials-slider.svg)](https://www.npmjs.com/package/@wpmudev/react-tutorials-slider)
-
 ## Getting Started
 
 ### React Plugins
