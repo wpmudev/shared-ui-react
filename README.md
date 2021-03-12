@@ -16,10 +16,6 @@ Component | Version
 [Box](https://wpmudev.github.io/shared-ui-react/?path=/story/box--wrapper) | [![npm version](https://badge.fury.io/js/%40wpmudev%2Freact-box.svg)](https://www.npmjs.com/package/@wpmudev/react-box)
 [Button](https://wpmudev.github.io/shared-ui-react/?path=/story/button--primary) | [![npm version](https://badge.fury.io/js/%40wpmudev%2Freact-button.svg)](https://www.npmjs.com/package/@wpmudev/react-button)
 
-## Shared Modules
-
-These are components that work outside SUI React (core package) but still depends on it. Below there is a list with its corresponding links to NPM package and the showcase design spec.
-
 ## Getting Started
 
 ### React Plugins
