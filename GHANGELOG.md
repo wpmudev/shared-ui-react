@@ -1,5 +1,20 @@
 # Changelog
 
+## Unreleased (2021-03-12)
+
+#### Improvements
+* `tutorials-list`, `tutorials-slider`, `tutorials`
+  * [#43](https://github.com/wpmudev/shared-ui-react/pull/43) 🚚 fix/tutorials: Move tutorials related packages to `Shared Modules` repo. ([@iamleigh](https://github.com/iamleigh))
+* `react-box`, `react-button`, `react-compiler`, `react-notifications`, `react-post`
+  * [#42](https://github.com/wpmudev/shared-ui-react/pull/42) 🚚 Rename packages to include "react-" prefix. ([@iamleigh](https://github.com/iamleigh))
+
+#### Bug Fixes
+* `react-post`
+  * [#44](https://github.com/wpmudev/shared-ui-react/pull/44) 🐛 fix/post: API url request failed. ([@iamleigh](https://github.com/iamleigh))
+
+#### Committers: 1
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+
 ## [Tutorials v1.0.11](https://www.npmjs.com/package/@wpmudev/react-tutorials) (2021-02-10)
 
 #### Bug Fixes
