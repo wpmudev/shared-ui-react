@@ -221,7 +221,7 @@ export class Post extends Component {
 	};
 
 	componentDidMount() {
-		const API_URL = "https://premium.wpmudev.org/blog/wp-json/wp/v2/media/";
+		const API_URL = "https://wpmudev.com/blog/wp-json/wp/v2/media/";
 		const QUERY_ID = this.props.media;
 
 		// GET media using fetch.
