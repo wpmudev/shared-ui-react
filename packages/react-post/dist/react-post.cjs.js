@@ -377,7 +377,7 @@ var Post = /*#__PURE__*/function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      var API_URL = "https://premium.wpmudev.org/blog/wp-json/wp/v2/media/";
+      var API_URL = "https://wpmudev.com/blog/wp-json/wp/v2/media/";
       var QUERY_ID = this.props.media; // GET media using fetch.
 
       fetch(API_URL + QUERY_ID).then(function (response) {
@@ -407,9 +407,18 @@ var Post = /*#__PURE__*/function (_Component) {
       var PostImage = ""; // Empty.
 
       if (error) {
-        PostImage = "";
+        PostImage = error.message;
       } else if (!isLoaded) {
-        PostImage = "";
+        PostImage = /*#__PURE__*/React__default['default'].createElement("p", {
+          style: {
+            textAlign: 'center'
+          }
+        }, /*#__PURE__*/React__default['default'].createElement("span", {
+          className: "sui-icon-loader sui-loading",
+          "aria-hidden": "true"
+        }), /*#__PURE__*/React__default['default'].createElement("span", {
+          className: "sui-screen-reader-text"
+        }, "Image is loading"));
       } else {
         PostImage = /*#__PURE__*/React__default['default'].createElement(FeaturedImage, _extends({
           src: media
