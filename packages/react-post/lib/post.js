@@ -259,9 +259,14 @@ export class Post extends Component {
 		let PostImage = ""; // Empty.
 
 		if (error) {
-			PostImage = "";
+			PostImage = error.message;
 		} else if (!isLoaded) {
-			PostImage = "";
+			PostImage = (
+				<p style={ { textAlign: 'center' } }>
+					<span className="sui-icon-loader sui-loading" aria-hidden="true"></span>
+					<span className="sui-screen-reader-text">Image is loading</span>
+				</p>
+			);
 		} else {
 			PostImage = <FeaturedImage src={media} {...this.props} />;
 		}
