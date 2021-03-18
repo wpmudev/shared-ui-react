@@ -2,7 +2,7 @@
   "private": true,
   "name": "@wpmudev/react-builder",
   "version": "0.0.0",
-  "description": "> TODO: description",
+  "description": "WPMU DEV Shared Modules compiler for packages",
   "author": "WPMU DEV",
   "contributors": [
     {
