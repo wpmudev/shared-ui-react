@@ -3,7 +3,7 @@
   "name": "@wpmudev/react-builder",
   "version": "0.0.0",
   "description": "WPMU DEV Shared Modules compiler for packages",
-  "author": "WPMU DEV",
+  "author": "WPMU DEV (https://wpmudev.com/)",
   "contributors": [
     {
       "name": "Leighton Sapir",
