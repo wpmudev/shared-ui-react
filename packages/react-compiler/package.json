@@ -13,7 +13,7 @@
   ],
   "homepage": "https://github.com/wpmudev/shared-ui-react#readme",
   "license": "GPL-3.0",
-  "main": "lib/builder.js",
+  "main": "lib/react-compiler.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -22,7 +22,7 @@
     "lib"
   ],
   "bin": {
-    "sui-builder": "./lib/builder.js"
+    "sui-builder": "./lib/react-compiler.js"
   },
   "repository": {
     "type": "git",
