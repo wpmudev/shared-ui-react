@@ -12,7 +12,7 @@ primary.args = {
     label: 'Company Name',
     maxLength: '',
     placeholder: 'Eg. Acme Industries',
-    description: 'Curabitur blandit tempus porttitor.'
+    description: 'Maecenas sed diam eget risus varius blandit sit amet non magna.'
 };
 primary.argTypes = {
 	maxLength: {
