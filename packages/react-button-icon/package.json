@@ -1,0 +1,44 @@
+{
+  "name": "@wpmudev/react-button-icon",
+  "version": "0.0.0",
+  "description": "WPMU DEV Shared UI React Icon Button Component",
+  "author": "WPMU DEV (https://wpmudev.com/)",
+  "contributors": [
+    {
+      "name": "Leighton Sapir",
+      "email": "2328848+iamleigh@users.noreply.github.com",
+      "url": "https://iamleigh.com/"
+    }
+  ],
+  "homepage": "https://github.com/wpmudev/shared-ui-react#readme",
+  "license": "GPL-3.0",
+  "main": "dist/react-button-icon.cjs.js",
+  "module": "dist/react-button-icon.esm.js",
+  "src": "lib/react-button-icon.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist",
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wpmudev/shared-ui-react.git",
+    "directory": "packages/react-button-icon"
+  },
+  "scripts": {
+    "build": "sui-builder",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/wpmudev/shared-ui-react/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "react": "^17.0.1"
+  }
+}
