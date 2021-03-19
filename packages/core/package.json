@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/shared-ui-react",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "WPMU DEV Shared UI React Components",
   "author": "WPMU DEV",
   "contributors": [
@@ -40,11 +40,11 @@
     "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
-    "@wpmudev/react-box": "^1.0.3",
-    "@wpmudev/react-button": "^1.0.1",
-    "@wpmudev/react-input": "^0.0.0",
-    "@wpmudev/react-notifications": "^1.0.2",
-    "@wpmudev/react-post": "^1.0.7"
+    "@wpmudev/react-box": "^1.0.4",
+    "@wpmudev/react-button": "^1.0.2",
+    "@wpmudev/react-input": "^1.0.0",
+    "@wpmudev/react-notifications": "^1.0.3",
+    "@wpmudev/react-post": "^1.1.0"
   },
   "devDependencies": {
     "@wpmudev/react-builder": "^0.0.0"
