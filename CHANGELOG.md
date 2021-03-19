@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased (2021-03-19)
+## Released (2021-03-19)
 
 #### New Features
 * `react-input`
