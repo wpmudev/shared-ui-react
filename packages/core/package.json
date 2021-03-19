@@ -42,6 +42,7 @@
   "dependencies": {
     "@wpmudev/react-box": "^1.0.3",
     "@wpmudev/react-button": "^1.0.1",
+    "@wpmudev/react-input": "^0.0.0",
     "@wpmudev/react-notifications": "^1.0.2",
     "@wpmudev/react-post": "^1.0.7"
   },
