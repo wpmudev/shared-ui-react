@@ -11,10 +11,16 @@ This is the official implementation of [WPMU DEV Shared UI](https://github.com/w
 
 The following is a list of the components that are ready to be used with corresponding links to NPM package and the showcase design spec.
 
+Container | Version
+--- | ---
+[Box](https://wpmudev.github.io/shared-ui-react/?path=/story/containers-box--wrapper) | [![npm version](https://badge.fury.io/js/%40wpmudev%2Freact-box.svg)](https://www.npmjs.com/package/@wpmudev/react-box)
+
 Component | Version
 --- | ---
-[Box](https://wpmudev.github.io/shared-ui-react/?path=/story/box--wrapper) | [![npm version](https://badge.fury.io/js/%40wpmudev%2Freact-box.svg)](https://www.npmjs.com/package/@wpmudev/react-box)
-[Button](https://wpmudev.github.io/shared-ui-react/?path=/story/button--primary) | [![npm version](https://badge.fury.io/js/%40wpmudev%2Freact-button.svg)](https://www.npmjs.com/package/@wpmudev/react-button)
+[Button](https://wpmudev.github.io/shared-ui-react/?path=/story/components-button--primary) | [![npm version](https://badge.fury.io/js/%40wpmudev%2Freact-button.svg)](https://www.npmjs.com/package/@wpmudev/react-button)
+[Button Icon](https://wpmudev.github.io/shared-ui-react/?path=/story/components-button-icon--primary) | [![npm version](https://badge.fury.io/js/%40wpmudev%2Freact-button-icon.svg)](https://www.npmjs.com/package/@wpmudev/react-button-icon)
+[Input](https://wpmudev.github.io/shared-ui-react/?path=/story/components-input--primary) | [![npm version](https://badge.fury.io/js/%40wpmudev%2Freact-input.svg)](https://www.npmjs.com/package/@wpmudev/react-input)
+[Post](https://wpmudev.github.io/shared-ui-react/?path=/story/components-post--primary) | [![npm version](https://badge.fury.io/js/%40wpmudev%2Freact-post.svg)](https://www.npmjs.com/package/@wpmudev/react-post)
 
 ## Getting Started
 
