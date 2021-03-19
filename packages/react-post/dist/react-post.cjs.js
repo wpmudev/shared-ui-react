@@ -406,23 +406,30 @@ var Post = /*#__PURE__*/function (_Component) {
       var min_read = translate && translate[0].min_read ? translate[0].min_read : "min read";
       var PostImage = ""; // Empty.
 
-      if (error) {
-        PostImage = error.message;
-      } else if (!isLoaded) {
-        PostImage = /*#__PURE__*/React__default['default'].createElement("p", {
-          style: {
-            textAlign: 'center'
-          }
-        }, /*#__PURE__*/React__default['default'].createElement("span", {
-          className: "sui-icon-loader sui-loading",
-          "aria-hidden": "true"
-        }), /*#__PURE__*/React__default['default'].createElement("span", {
-          className: "sui-screen-reader-text"
-        }, "Image is loading"));
-      } else {
+      if (this.props.image) {
         PostImage = /*#__PURE__*/React__default['default'].createElement(FeaturedImage, _extends({
-          src: media
+          src: this.props.image,
+          alt: ""
         }, this.props));
+      } else {
+        if (error) {
+          PostImage = error.message;
+        } else if (!isLoaded) {
+          PostImage = /*#__PURE__*/React__default['default'].createElement("p", {
+            style: {
+              textAlign: 'center'
+            }
+          }, /*#__PURE__*/React__default['default'].createElement("span", {
+            className: "sui-icon-loader sui-loading",
+            "aria-hidden": "true"
+          }), /*#__PURE__*/React__default['default'].createElement("span", {
+            className: "sui-screen-reader-text"
+          }, "Image is loading"));
+        } else {
+          PostImage = /*#__PURE__*/React__default['default'].createElement(FeaturedImage, _extends({
+            src: media
+          }, this.props));
+        }
       }
 
       if (this.props.banner) {
