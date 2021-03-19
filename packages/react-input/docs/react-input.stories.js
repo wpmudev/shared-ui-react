@@ -2,7 +2,7 @@ import React from 'react';
 import { Input } from '../lib/react-input';
 
 export default {
-	title: 'Form/Input',
+	title: 'Components/Input',
 	component: Input,
 }
 
