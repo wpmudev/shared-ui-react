@@ -9,7 +9,7 @@ import DocsSection from "./notes/docs-section.md";
 import DocsFooter from "./notes/docs-footer.md";
 
 export default {
-	title: "Components/Box",
+	title: "Containers/Box",
 	component: Box,
 	subcomponents: {
 		BoxHeader,
