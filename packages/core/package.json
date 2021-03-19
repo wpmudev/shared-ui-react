@@ -26,7 +26,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wpmudev/shared-ui-react.git",
-    "directory": "paackages/core"
+    "directory": "packages/core"
   },
   "scripts": {
     "build": "sui-builder",
