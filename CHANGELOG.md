@@ -9,6 +9,8 @@
   * [#46](https://github.com/wpmudev/shared-ui-react/pull/46) ✨ new/button-icon: Create component. ([@iamleigh](https://github.com/iamleigh))
 
 #### Improvements
+* `core`
+  * [#50](https://github.com/wpmudev/shared-ui-react/pull/50) 🐛 fix(core): Import input component. ([@iamleigh](https://github.com/iamleigh))
 * `react-post`
   * [#49](https://github.com/wpmudev/shared-ui-react/pull/49) 🐛 fix(react-post): Add component to Storybook. ([@iamleigh](https://github.com/iamleigh))
 
