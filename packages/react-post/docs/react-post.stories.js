@@ -1,5 +1,5 @@
 import React from 'react';
-import { Post } from '../lib/post';
+import { Post } from '../lib/react-post';
 
 export default {
     title: 'Components/Post',

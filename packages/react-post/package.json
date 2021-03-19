@@ -14,7 +14,7 @@
   "license": "GPL-3.0",
   "main": "dist/react-post.cjs.js",
   "module": "dist/react-post.esm.js",
-  "src": "lib/post.js",
+  "src": "lib/react-post.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
