@@ -38,5 +38,8 @@
   "bugs": {
     "url": "https://github.com/wpmudev/shared-ui-react/issues"
   },
-  "homepage": "https://github.com/wpmudev/shared-ui-react#readme"
+  "homepage": "https://github.com/wpmudev/shared-ui-react#readme",
+  "devDependencies": {
+    "react": "^17.0.1"
+  }
 }
