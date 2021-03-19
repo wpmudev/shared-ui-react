@@ -1,6 +1,21 @@
 # Changelog
 
-## Unreleased (2021-03-12)
+## Unreleased (2021-03-19)
+
+#### New Features
+* `react-input`
+  * [#47](https://github.com/wpmudev/shared-ui-react/pull/47) ✨ new(react-input): Create component. ([@iamleigh](https://github.com/iamleigh))
+* `react-button-icon`
+  * [#46](https://github.com/wpmudev/shared-ui-react/pull/46) ✨ new/button-icon: Create component. ([@iamleigh](https://github.com/iamleigh))
+
+#### Improvements
+* `react-post`
+  * [#49](https://github.com/wpmudev/shared-ui-react/pull/49) 🐛 fix(react-post): Add component to Storybook. ([@iamleigh](https://github.com/iamleigh))
+
+#### Committers: 1
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+
+## Released (2021-03-12)
 
 #### Improvements
 * `tutorials-list`, `tutorials-slider`, `tutorials`
