@@ -30,10 +30,14 @@
     "directory": "packages/react-radio"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "build": "sui-builder"
   },
   "bugs": {
     "url": "https://github.com/wpmudev/shared-ui-react/issues"
   },
-  "homepage": "https://github.com/wpmudev/shared-ui-react#readme"
+  "homepage": "https://github.com/wpmudev/shared-ui-react#readme",
+  "devDependencies": {
+    "@wpmudev/react-builder": "^0.0.0"
+  }
 }
