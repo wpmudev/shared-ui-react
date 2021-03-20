@@ -1,0 +1,39 @@
+{
+  "name": "@wpmudev/react-radio",
+  "version": "0.0.0",
+  "description": "WPMU DEV Shared UI React Radio Component",
+  "keywords": [],
+  "author": "WPMU DEV (https://wpmudev.com/)",
+  "contributors": [
+    {
+      "name": "Leighton Sapir",
+      "email": "2328848+iamleigh@users.noreply.github.com",
+      "url": "https://iamleigh.com/"
+    }
+  ],
+  "license": "GPL-3.0",
+  "main": "lib/react-radio.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist",
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wpmudev/shared-ui-react.git",
+    "directory": "packages/react-radio"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/wpmudev/shared-ui-react/issues"
+  },
+  "homepage": "https://github.com/wpmudev/shared-ui-react#readme"
+}
