@@ -11,6 +11,7 @@ const Template = args => <Radio {...args} />;
 export const text = Template.bind({});
 text.storyName = 'Text Only';
 text.args = {
+    property: 'options',
     children: (
         <div
             label=""
