@@ -9,7 +9,7 @@ export default {
 const Template = args => <Radio {...args} />;
 
 export const text = Template.bind({});
-text.storyName = 'Text Option';
+text.storyName = 'Text Only';
 text.args = {
     children: (
         <div
