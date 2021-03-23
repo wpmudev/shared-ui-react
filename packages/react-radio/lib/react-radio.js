@@ -6,7 +6,8 @@ export class Radio extends Component {
     }
 
     render() {
-        const Options = Children.map( this.props.children, option => {
+        const Options = Children.map( this.props.children, ( option, index ) => {
+            const hasLabel = option.props.label && '' !== option.props.label;
             const hasImage1x = option.props.image && '' !== option.props.image;
             const hasImage2x = option.props.image2x && '' !== option.props.image2x;
 
@@ -39,7 +40,8 @@ export class Radio extends Component {
                         name={ this.props.property }
                         value={ option.props.value }
                         id={ `${ option.props.value }--option` }
-                        aria-labelledby={ `${ option.props.value }--option-label` }
+                        { ... hasLabel && { 'aria-labelledby': `${ option.props.value }--option-label` } }
+                        { ... option.props.disabled && { disabled: 'disabled' } }
                     />
                     <span aria-hidden="true" />
                     { option.props.label &&
@@ -52,7 +54,8 @@ export class Radio extends Component {
             if ( hasImage1x ) {
                 return (
                     <label
-                        htmlFor={ `${ option.props.value }-option` }
+                        key={ index }
+                        htmlFor={ `${ option.props.value }--option` }
                         className="sui-radio-image"
                     >
                         { hasImage1x && imageHtml }
@@ -66,7 +69,8 @@ export class Radio extends Component {
             // Option with text.
             return (
                 <label
-                    htmlFor={ `${ option.props.value }-option` }
+                    key={ index }
+                    htmlFor={ `${ option.props.value }--option` }
                     className="sui-radio"
                 >
                     { input }
