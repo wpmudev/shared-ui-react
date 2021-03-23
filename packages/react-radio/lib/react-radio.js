@@ -11,12 +11,21 @@ export class Radio extends Component {
             const hasImage1x = option.props.image && '' !== option.props.image;
             const hasImage2x = option.props.image2x && '' !== option.props.image2x;
 
+            let clazz = 'sui-radio';
             let image1x = '';
             let image2x = '';
             let imageHtml = '';
 
             if ( hasImage1x ) {
                 image1x = option.props.image;
+            } else {
+
+                // Set "stacked" alignment.
+                switch ( this.props.alignment ) {
+                    case 'stacked':
+                        clazz += ' sui-radio-stacked';
+                        break;
+                }
             }
 
             if ( hasImage2x ) {
@@ -31,6 +40,13 @@ export class Radio extends Component {
                 );
             } else {
                 imageHtml = <img src={ image1x } alt="" aria-hidden="true" />;
+            }
+
+            switch ( this.props.size ) {
+                case 'sm':
+                case 'small':
+                    clazz += ' sui-radio-sm';
+                    break;
             }
 
             const input = (
@@ -59,7 +75,7 @@ export class Radio extends Component {
                         className="sui-radio-image"
                     >
                         { hasImage1x && imageHtml }
-                        <span className="sui-radio">
+                        <span className={ clazz }>
                             { input }
                         </span>
                     </label>
@@ -71,7 +87,7 @@ export class Radio extends Component {
                 <label
                     key={ index }
                     htmlFor={ `${ option.props.value }--option` }
-                    className="sui-radio"
+                    className={ clazz }
                 >
                     { input }
                 </label>
