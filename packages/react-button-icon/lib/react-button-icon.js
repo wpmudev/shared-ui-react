@@ -1,6 +1,6 @@
 import React from "react";
 
-const ButtonIcon = ({ label, icon, design = "solid", color, ...props }) => {
+const ButtonIcon = ({ label, icon, iconSize, extraClasses, color, onClick, design = "solid", ...props }) => {
 	const loader = (
 		<span
 			className="sui-icon-loader sui-loading"
@@ -11,12 +11,12 @@ const ButtonIcon = ({ label, icon, design = "solid", color, ...props }) => {
 
 	let content = (
 		<React.Fragment>
-			<span className={"sui-icon-" + icon} aria-hidden="true" />
+			<span className={`sui-icon-${icon} ${iconSize ? "sui-" + iconSize : "" }`} aria-hidden="true" />
 			<span className="sui-screen-reader-text">{label}</span>
 		</React.Fragment>
 	);
 
-	let className = "sui-button-icon";
+	let className = `sui-button-icon ${extraClasses || ""}`;
 
 	// Set button color.
 	switch (color) {
@@ -69,6 +69,7 @@ const ButtonIcon = ({ label, icon, design = "solid", color, ...props }) => {
 		<button
 			className={className}
 			disabled={props.disabled || props.loading}
+			onClick={onClick}
 			{...props}>
 			{props.loading ? loader : content}
 		</button>
