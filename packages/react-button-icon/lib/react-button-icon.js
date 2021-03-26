@@ -1,6 +1,6 @@
 import React from "react";
 
-const ButtonIcon = ({ label, icon, iconSize, extraClasses, color, onClick, design = "solid", ...props }) => {
+const ButtonIcon = ({ label, icon, iconSize, extraClasses, color, design = "solid", ...props }) => {
 	const loader = (
 		<span
 			className="sui-icon-loader sui-loading"
@@ -69,7 +69,6 @@ const ButtonIcon = ({ label, icon, iconSize, extraClasses, color, onClick, desig
 		<button
 			className={className}
 			disabled={props.disabled || props.loading}
-			onClick={onClick}
 			{...props}>
 			{props.loading ? loader : content}
 		</button>
