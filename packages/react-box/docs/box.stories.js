@@ -23,7 +23,9 @@ export const wrapper = args => {
 	return (
 		<Box>
 			<BoxHeader {...args}>
-				<button className="sui-button">Action</button>
+				<div class="sui-actions-right">
+					<button className="sui-button">Action</button>
+				</div>
 			</BoxHeader>
 			<BoxBody>
 				<p>
