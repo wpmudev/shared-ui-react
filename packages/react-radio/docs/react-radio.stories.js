@@ -59,7 +59,6 @@ text.argTypes = {
 export const image = Template.bind({});
 image.storyName = 'Image Option';
 image.args = {
-    size: 'small',
     property: 'wpmudev-plugins',
     options: [
         {
