@@ -42,11 +42,7 @@ export class Dropdown extends Component {
             const label = <Fragment>{ icon }{ option.props.name }{ tag }</Fragment>;
 
             if ( option.props.href ) {
-                return (
-                    <li>
-                        <a href={ option.props.href }>{ label }</a>
-                    </li>
-                );
+                return <li><a href={ option.props.href }>{ label }</a></li>;
             }
 
             return <li><button>{ label }</button></li>;
