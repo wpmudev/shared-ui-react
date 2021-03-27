@@ -81,7 +81,7 @@ export class Dropdown extends Component {
                     label={ open ? 'Open menu' : 'Close menu' }
                     onClick={ () => this.toggle() }
                 />
-                <ul>{ options }</ul>
+                { open && <ul>{ options }</ul> }
             </div>
         );
     }
