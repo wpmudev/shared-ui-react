@@ -8,8 +8,8 @@ export default {
 const Template = ({ children, ...args }) => {
     return (
         <Dropdown { ...args }>
-            { children.map( ( child ) => (
-                <div { ...child } />
+            { children.map( ( child, key ) => (
+                <div key={ key } { ...child } />
             ) ) }
         </Dropdown>
     );
