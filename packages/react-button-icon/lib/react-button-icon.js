@@ -1,6 +1,6 @@
 import React from "react";
 
-const ButtonIcon = ({ label, icon, design = "solid", color, ...props }) => {
+const ButtonIcon = React.forwardRef( ({ label, icon, design = "solid", color, ...props }, ref) => {
 	const loader = (
 		<span
 			className="sui-icon-loader sui-loading"
@@ -57,6 +57,7 @@ const ButtonIcon = ({ label, icon, design = "solid", color, ...props }) => {
 	if (props.href) {
 		return (
 			<a
+				ref={ref}
 				className={className}
 				disabled={props.disabled || props.loading}
 				{...props}>
@@ -67,12 +68,13 @@ const ButtonIcon = ({ label, icon, design = "solid", color, ...props }) => {
 
 	return (
 		<button
+			ref={ref}
 			className={className}
 			disabled={props.disabled || props.loading}
 			{...props}>
 			{props.loading ? loader : content}
 		</button>
 	);
-};
+});
 
 export { ButtonIcon };
