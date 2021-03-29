@@ -10,6 +10,9 @@ export class Dropdown extends Component {
         }
 
         this.toggle = this.toggle.bind( this );
+
+        this.setWrapperRef = this.setWrapperRef.bind( this );
+        this.handleClickOutside = this.handleClickOutside.bind( this );
     }
 
     toggle() {
@@ -17,6 +20,24 @@ export class Dropdown extends Component {
 			open: !this.state.open
 		});
 	}
+
+    setWrapperRef( node ) {
+        this.wrapperRef = node;
+    }
+
+    handleClickOutside( e ) {
+        if ( this.wrapperRef && !this.wrapperRef.contains( e.target ) ) {
+            this.setState({ open: false });
+        }
+    }
+
+    componentDidMount() {
+        document.addEventListener( 'mousedown', this.handleClickOutside );
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener( 'mousedown', this.handleClickOutside );
+    }
 
     render() {
         const { open } = this.state;
@@ -73,6 +94,7 @@ export class Dropdown extends Component {
         return (
             <div className={ clazz }>
                 <ButtonIcon
+                    ref={ this.setWrapperRef }
                     icon="widget-settings-config"
                     label={ open ? 'Open menu' : 'Close menu' }
                     onClick={ () => this.toggle() }
