@@ -27,7 +27,7 @@ primary.storyName = 'Default';
 primary.args = {
     items: [
         {
-            name: 'Accordion Item 1',
+            title: 'Accordion Item 1',
             icon: 'forminator',
             image: 'https://pbs.twimg.com/profile_images/671394755951984640/GSkxXgDp_400x400.png',
             children: (
@@ -39,7 +39,7 @@ primary.args = {
             )
         },
         {
-            name: 'Accordion Item 2',
+            title: 'Accordion Item 2',
             icon: 'hustle',
             image: 'https://pbs.twimg.com/profile_images/671394755951984640/GSkxXgDp_400x400.png',
             children: (
@@ -51,7 +51,7 @@ primary.args = {
             )
         },
         {
-            name: 'Accordion Item 3',
+            title: 'Accordion Item 3',
             icon: 'hummingbird',
             image: 'https://pbs.twimg.com/profile_images/671394755951984640/GSkxXgDp_400x400.png',
             children: (
