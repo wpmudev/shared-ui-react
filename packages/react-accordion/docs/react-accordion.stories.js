@@ -6,14 +6,14 @@ export default {
     title: 'Containers/Accordion'
 }
 
-const Template = ({ head, items, ...props }) => {
+const Template = ({ children, ...props }) => {
     return (
         <Box>
 
             <Accordion { ...props }>
 
-                { items.map( ( item, key ) => (
-                    <AccordionItem key={ key } { ...item } />
+                { children.map( ( child, key ) => (
+                    <AccordionItem key={ key } { ...child } />
                 ) ) }
 
             </Accordion>
@@ -25,7 +25,7 @@ const Template = ({ head, items, ...props }) => {
 export const primary = Template.bind({});
 primary.storyName = 'Default';
 primary.args = {
-    items: [
+    children: [
         {
             title: 'Accordion Item 1',
             icon: 'forminator',
