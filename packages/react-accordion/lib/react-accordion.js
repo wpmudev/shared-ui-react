@@ -3,14 +3,17 @@ import styled from 'styled-components';
 
 import { ButtonIcon } from '@wpmudev/react-button-icon';
 
-const screen = {
-	mobile: 480,
-	tablet: 783,
-	laptop: 1200,
-	desktop: 1500
-};
+const ItemImage = styled.span`
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+`;
 
-export class Accordion extends Component {
+class Accordion extends Component {
     constructor( props ) {
         super( props );
     }
@@ -24,17 +27,7 @@ export class Accordion extends Component {
     }
 }
 
-const ItemImage = styled.span`
-width: 30px;
-height: 30px;
-margin-right: 10px;
-border-radius: 10px;
-background-repeat: no-repeat;
-background-size: cover;
-background-position: center;
-`;
-
-export class AccordionItem extends Component {
+class AccordionItem extends Component {
     constructor( props ) {
         super( props );
 
@@ -80,7 +73,7 @@ export class AccordionItem extends Component {
     }
 }
 
-export class AccordionItemHeader extends Component {
+class AccordionItemHeader extends Component {
     constructor( props ) {
         super( props );
 
@@ -139,7 +132,7 @@ export class AccordionItemHeader extends Component {
     }
 }
 
-export class AccordionItemBody extends Component {
+class AccordionItemBody extends Component {
     constructor( props ) {
         super( props );
     }
@@ -151,4 +144,11 @@ export class AccordionItemBody extends Component {
             </div>
         );
     }
+}
+
+export {
+    Accordion,
+    AccordionItem,
+    AccordionItemHeader,
+    AccordionItemBody
 }
