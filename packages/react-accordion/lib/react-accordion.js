@@ -10,13 +10,6 @@ const screen = {
 	desktop: 1500
 };
 
-const device = {
-	mobile: `(min-width: ${screen.mobile}px)`,
-	tablet: `(min-width: ${screen.tablet}px)`,
-	laptop: `(min-width: ${screen.laptop}px)`,
-	desktop: `(min-width: ${screen.desktop}px)`
-};
-
 export class Accordion extends Component {
     constructor( props ) {
         super( props );
