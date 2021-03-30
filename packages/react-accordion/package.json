@@ -40,5 +40,9 @@
   "homepage": "https://github.com/wpmudev/shared-ui-react#readme",
   "devDependencies": {
     "react": "^17.0.2"
+  },
+  "dependencies": {
+    "@wpmudev/react-button-icon": "^1.0.0",
+    "styled-components": "^5.2.1"
   }
 }
