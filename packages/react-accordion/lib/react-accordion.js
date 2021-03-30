@@ -49,7 +49,7 @@ export class AccordionItem extends Component {
         if ( 'sui-dropdown' !== e.target.className ) {
             this.setState({
                 open: !this.state.open
-            })
+            });
         }
     }
 
@@ -59,6 +59,44 @@ export class AccordionItem extends Component {
         const clazz = !open
             ? 'sui-accordion-item'
             : 'sui-accordion-item sui-accordion-item--open';
+
+        return (
+            <div className={ clazz } { ...this.props }>
+
+                <AccordionItemHeader
+                    state={ open ? 'true' : 'false' }
+                    title={ this.props.title }
+                    image={ this.props.image }
+                    icon={ this.props.icon }
+                    onClick={ e => this.toggle(e) }
+                />
+
+                <AccordionItemBody>
+                    { this.props.children }
+                </AccordionItemBody>
+
+            </div>
+        );
+    }
+}
+
+export class AccordionItemHeader extends Component {
+    constructor( props ) {
+        super( props );
+
+        this.state = {
+            open: false,
+        };
+    }
+
+    componentDidMount() {
+        this.setState({
+            open: this.props.state
+        });
+    }
+
+    render() {
+        const { open } = this.state;
 
         const icon = this.props.icon && '' !== this.props.icon
             ? <span className={ `sui-icon-${ this.props.icon }` } aria-hidden="true" />
@@ -70,37 +108,46 @@ export class AccordionItem extends Component {
 
         const title = (
             <div className="sui-accordion-item-title">
-                { icon }{ image }{ this.props.name }
+                { icon }{ image }{ this.props.title }
             </div>
+        );
+
+        const indicator = (
+            <ButtonIcon
+                icon="chevron-down"
+                label={ open ? 'Close section' : 'Open section' }
+                className="sui-button-icon sui-accordion-open-indicator"
+            />
         );
 
         const actions = (
             <div className="sui-accordion-col-auto">
-
-                <ButtonIcon
-                    icon="chevron-down"
-                    label="Open item"
-                    className="sui-button-icon sui-accordion-open-indicator"
-                />
-
+                { this.props.children }
+                { indicator }
             </div>
         );
 
         return (
-            <div className={ clazz }>
-                
-                <div
-                    className="sui-accordion-item-header"
-                    onClick={ e => this.toggle(e) }
-                >
-                    { title }
-                    { actions }
-                </div>
+            <div
+                className="sui-accordion-item-header"
+                { ...this.props }
+            >
+                { title }
+                { actions }
+            </div>
+        );
+    }
+}
 
-                <div className="sui-accordion-item-body">
-                    { this.props.children }
-                </div>
+export class AccordionItemBody extends Component {
+    constructor( props ) {
+        super( props );
+    }
 
+    render() {
+        return (
+            <div className="sui-accordion-item-body">
+                { this.props.children }
             </div>
         );
     }
