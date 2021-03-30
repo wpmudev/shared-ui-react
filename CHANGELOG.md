@@ -1,5 +1,26 @@
 # Changelog
 
+## Unreleased (2021-03-30)
+
+#### New Features
+* `react-accordion`
+  * [#56](https://github.com/wpmudev/shared-ui-react/pull/56) ✨ new(react-accordion): Create new component. ([@iamleigh](https://github.com/iamleigh))
+* `react-dropdown`
+  * [#54](https://github.com/wpmudev/shared-ui-react/pull/54) ✨ new(react-dropdown): Create new component. ([@iamleigh](https://github.com/iamleigh))
+
+#### Improvements
+* `core`
+  * [#52](https://github.com/wpmudev/shared-ui-react/pull/52) 🐛 fix(react-core): Remove peer dependencies. ([@iamleigh](https://github.com/iamleigh))
+* `react-box`
+  * [#51](https://github.com/wpmudev/shared-ui-react/pull/51) 🐛 fix(react-box): Remove peer dependencies. ([@iamleigh](https://github.com/iamleigh))
+
+#### Bug Fixes
+* `react-button-icon`
+  * [#55](https://github.com/wpmudev/shared-ui-react/pull/55) 🐛 fix(react-button-icon): Console error for refs. ([@iamleigh](https://github.com/iamleigh))
+
+#### Committers: 1
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+
 ## Released (2021-03-19)
 
 #### New Features
