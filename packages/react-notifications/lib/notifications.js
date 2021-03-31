@@ -16,6 +16,7 @@ export class Notifications extends Component {
 			case "error":
 			case "upsell":
 				classMain += " sui-notice-" + this.props.type;
+				classIcon += " sui-icon-info";
 				break;
 
 			case "loading":
