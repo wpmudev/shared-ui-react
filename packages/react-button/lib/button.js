@@ -1,6 +1,6 @@
 import React from "react";
 
-const Button = ({
+const Button = React.forwardRef( ({
 	label,
 	icon,
 	design = "solid",
@@ -84,6 +84,6 @@ const Button = ({
 			{props.loading ? loader : content}
 		</button>
 	);
-};
+});
 
 export { Button };
