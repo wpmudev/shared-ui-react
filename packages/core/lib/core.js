@@ -11,6 +11,12 @@ import { ButtonIcon } from "@wpmudev/react-button-icon";
 import { Post } from "@wpmudev/react-post";
 import { Notifications } from "@wpmudev/react-notifications";
 import { Dropdown } from "@wpmudev/react-dropdown";
+import {
+	Accordion,
+	AccordionItem,
+	AccordionItemHeader,
+	AccordionItemBody
+} from "@wpmudev/react-accordion";
 
 export {
 	Box,
@@ -23,5 +29,9 @@ export {
 	ButtonIcon,
 	Post,
 	Notifications,
-	Dropdown
+	Dropdown,
+	Accordion,
+	AccordionItem,
+	AccordionItemHeader,
+	AccordionItemBody
 };
