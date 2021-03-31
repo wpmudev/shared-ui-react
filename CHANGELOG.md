@@ -16,7 +16,8 @@
 
 #### Bug Fixes
 * `react-button`
-  * [#60](https://github.com/wpmudev/shared-ui-react/pull/60) Fix/react button icon/issue 26 ([@iamleigh](https://github.com/iamleigh))
+  * [#60](https://github.com/wpmudev/shared-ui-react/pull/60) 🐛 fix(react-button): Allow custom classes. ([@iamleigh](https://github.com/iamleigh))
+  * [#63](https://github.com/wpmudev/shared-ui-react/pull/63) 🐛 fix(react-button): Console error for refs. ([@iamleigh](https://github.com/iamleigh))
 * `react-button-icon`
   * [#61](https://github.com/wpmudev/shared-ui-react/pull/61) 🐛 fix(react-button-icon): Allow custom classes. ([@iamleigh](https://github.com/iamleigh))
   * [#55](https://github.com/wpmudev/shared-ui-react/pull/55) 🐛 fix(react-button-icon): Console error for refs. ([@iamleigh](https://github.com/iamleigh))
