@@ -42,6 +42,7 @@
     "@wpmudev/react-button-icon": "^1.0.0"
   },
   "devDependencies": {
+    "@wpmudev/react-builder": "^0.0.0",
     "react": "^17.0.2"
   }
 }
