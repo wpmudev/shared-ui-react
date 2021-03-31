@@ -45,7 +45,8 @@ export const wrapper = args => {
 wrapper.storyName = "Box Wrapper";
 wrapper.args = {
 	title: "Box Title",
-	titleIcon: "hummingbird"
+	titleIcon: "hummingbird",
+	className: 'custom-class'
 };
 wrapper.argTypes = {};
 wrapper.parameters = {
