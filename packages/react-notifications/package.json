@@ -14,7 +14,7 @@
   "license": "GPL-3.0",
   "main": "dist/react-notifications.cjs.js",
   "module": "dist/react-notifications.esm.js",
-  "src": "lib/notifications.js",
+  "src": "lib/react-notifications.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
