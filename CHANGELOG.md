@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased (2021-03-31)
+## Released (2021-03-31)
 
 #### New Features
 * `react-accordion`
