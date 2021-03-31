@@ -12,7 +12,7 @@ Make sure builder file is executable by running the following command:
 chmod +x packages/builder/lib/builder.js
 ```
 
-## Prepare component.
+## Prepare package.
 
 Prepare new component(s) `package.json` file before publishing to [NPM Registry](https://www.npmjs.com/) for the first time.
 
@@ -51,7 +51,7 @@ To make sure the component works correctly when installed through NPM, it is nec
 "module": "dist/react-foo.esm.js"
 
 // Set source file.
-"src": "lib/foo.js"
+"src": "lib/react-foo.js"
 ```
 
 ### 4. Include Files
@@ -71,7 +71,7 @@ Make sure to include repository directory:
 
 ```json
 "repository": {
-  "directory": "packages/foo"
+  "directory": "packages/react-foo"
 }
 ```
 
@@ -85,67 +85,47 @@ Don't forget to include builder script:
 }
 ```
 
-### 7. Publish Configurations
+## Publish Packages
 
-Published package must have public access that way anyone can install it and point to NPM Registry.
+Once all pull requests are merged into `development` branch, continue the process below.
 
-```json
-"publishConfig": {
-  "access": "public",
-  "registry": "https://registry.npmjs.org/"
-},
-```
+### 1. Build packages.
 
-### 8. Required Dependencies
+Build all packages by running the following command:
 
 ```
-# Add React as dev dependency for local testing.
-npx lerna add react --dev --scope=@wpmudev/react-foo
-
-# Add React 16+ as peer dependency for consuming apps.
-npx lerna add react@16.x --peer --scope=@wpmudev/react-foo
+yarn build
 ```
 
-## Build library and showcase files.
+>**Note:** Each package built changes needs its own commit and must be pushed directly to `development` branch.
 
-Once all pull requests are merged into master, continue the process below.
 
-#### Build packages.
+### 2. Update global changelog.
 
-```
-yarn run build
-```
-
-> Don't forget to push compiled files.
-
-#### Update logs.
-
-To update `CHANGELOG.md` file, you will need to generate a personal access token for `public_repo`, then run the command below in the same order. Don't forget to save your token for future use.
+1. Grant access to your Github account.
 
 ```
-# Allow access to the repo.
 export GITHUB_AUTH="token_goes_here"
-
-# Generate changelog based on pull requests.
-yarn run logs
 ```
 
-#### Publish packages.
-
-Make sure you logged in NPM Registry and that you are member of [WPMU DEV Organization](https://www.npmjs.com/package/@wpmudev/shared-ui/).
+2. Generate list of changes based on PRs after latest release.
 
 ```
-npm login
+yarn logs
 ```
 
-Use lerna to update packages version and publish to NPM.
+3. Copy and paste generated list into `CHANGELOG.md` file.
+
+### 3. Publish packages to NPM.
 
 ```
-npx lerna publish --no-private
+lerna publish --no-private
 ```
 
-#### Publish showcase.
+>**Note:** Before releasing make sure you are logged in NPM Registry and that you are member of [WPMU DEV Organization](https://www.npmjs.com/package/@wpmudev/shared-ui/).
+
+## Publish Showcase
 
 ```
-yarn run deploy
+yarn deploy
 ```
