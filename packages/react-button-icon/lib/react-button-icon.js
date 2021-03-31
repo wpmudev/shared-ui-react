@@ -1,6 +1,13 @@
 import React from "react";
 
-const ButtonIcon = React.forwardRef( ({ label, icon, design = "solid", color, ...props }, ref) => {
+const ButtonIcon = React.forwardRef( ({
+	label,
+	icon,
+	design = "solid",
+	color,
+	className,
+	...props
+}, ref) => {
 	const loader = (
 		<span
 			className="sui-icon-loader sui-loading"
@@ -16,7 +23,9 @@ const ButtonIcon = React.forwardRef( ({ label, icon, design = "solid", color, ..
 		</React.Fragment>
 	);
 
-	let className = "sui-button-icon";
+	className = '' !== className
+		? 'sui-button-icon ' + className
+		: 'sui-button-icon';
 
 	// Set button color.
 	switch (color) {
