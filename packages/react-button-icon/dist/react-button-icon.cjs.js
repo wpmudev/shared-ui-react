@@ -62,13 +62,14 @@ function _objectWithoutProperties(source, excluded) {
   return target;
 }
 
-var ButtonIcon = function ButtonIcon(_ref) {
+var ButtonIcon = /*#__PURE__*/React__default['default'].forwardRef(function (_ref, ref) {
   var label = _ref.label,
       icon = _ref.icon,
       _ref$design = _ref.design,
       design = _ref$design === void 0 ? "solid" : _ref$design,
       color = _ref.color,
-      props = _objectWithoutProperties(_ref, ["label", "icon", "design", "color"]);
+      className = _ref.className,
+      props = _objectWithoutProperties(_ref, ["label", "icon", "design", "color", "className"]);
 
   var loader = /*#__PURE__*/React__default['default'].createElement("span", {
     className: "sui-icon-loader sui-loading",
@@ -83,7 +84,7 @@ var ButtonIcon = function ButtonIcon(_ref) {
   }), /*#__PURE__*/React__default['default'].createElement("span", {
     className: "sui-screen-reader-text"
   }, label));
-  var className = "sui-button-icon"; // Set button color.
+  className = '' !== className ? 'sui-button-icon ' + className : 'sui-button-icon'; // Set button color.
 
   switch (color) {
     case "blue":
@@ -122,15 +123,17 @@ var ButtonIcon = function ButtonIcon(_ref) {
 
   if (props.href) {
     return /*#__PURE__*/React__default['default'].createElement("a", _extends({
+      ref: ref,
       className: className,
       disabled: props.disabled || props.loading
     }, props), props.loading ? loader : content);
   }
 
   return /*#__PURE__*/React__default['default'].createElement("button", _extends({
+    ref: ref,
     className: className,
     disabled: props.disabled || props.loading
   }, props), props.loading ? loader : content);
-};
+});
 
 exports.ButtonIcon = ButtonIcon;
