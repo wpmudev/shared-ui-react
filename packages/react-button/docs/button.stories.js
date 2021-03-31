@@ -14,7 +14,8 @@ primary.args = {
 	label: "Click Me",
 	design: "",
 	color: "",
-	icon: ""
+	icon: "",
+	className: "custom-class"
 };
 primary.argTypes = {
 	design: {
