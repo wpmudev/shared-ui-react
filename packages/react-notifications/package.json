@@ -45,5 +45,8 @@
   },
   "peerDependencies": {
     "react": "^16.0.0"
+  },
+  "dependencies": {
+    "@wpmudev/react-button-icon": "^1.0.1"
   }
 }
