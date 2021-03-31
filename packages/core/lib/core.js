@@ -10,6 +10,7 @@ import { Button } from "@wpmudev/react-button";
 import { ButtonIcon } from "@wpmudev/react-button-icon";
 import { Post } from "@wpmudev/react-post";
 import { Notifications } from "@wpmudev/react-notifications";
+import { Dropdown } from "@wpmudev/react-dropdown";
 
 export {
 	Box,
@@ -21,5 +22,6 @@ export {
 	Button,
 	ButtonIcon,
 	Post,
-	Notifications
+	Notifications,
+	Dropdown
 };
