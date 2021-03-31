@@ -1,6 +1,13 @@
 import React from "react";
 
-const Button = ({ label, icon, design = "solid", color, ...props }) => {
+const Button = ({
+	label,
+	icon,
+	design = "solid",
+	color,
+	className,
+	...props
+}) => {
 	const loader = (
 		<span
 			className="sui-icon-loader sui-loading"
@@ -18,7 +25,9 @@ const Button = ({ label, icon, design = "solid", color, ...props }) => {
 		</React.Fragment>
 	);
 
-	let className = "sui-button";
+	className = '' !== className
+		? 'sui-button ' + className
+		: 'sui-button';
 
 	// Set button color.
 	switch (color) {
