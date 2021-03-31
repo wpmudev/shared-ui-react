@@ -15,6 +15,7 @@ primary.args = {
 	icon: "close",
 	design: "",
 	color: "",
+	className: "custom-class"
 };
 primary.argTypes = {
 	design: {
