@@ -437,6 +437,134 @@ var Button = /*#__PURE__*/React__default['default'].forwardRef(function (_ref) {
   }, props), props.loading ? loader : content);
 });
 
+function _extends$3() {
+  _extends$3 = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends$3.apply(this, arguments);
+}
+
+function _objectWithoutPropertiesLoose$2(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
+
+function _objectWithoutProperties$2(source, excluded) {
+  if (source == null) return {};
+
+  var target = _objectWithoutPropertiesLoose$2(source, excluded);
+
+  var key, i;
+
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+
+    for (i = 0; i < sourceSymbolKeys.length; i++) {
+      key = sourceSymbolKeys[i];
+      if (excluded.indexOf(key) >= 0) continue;
+      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
+      target[key] = source[key];
+    }
+  }
+
+  return target;
+}
+
+var ButtonIcon = /*#__PURE__*/React__default['default'].forwardRef(function (_ref, ref) {
+  var label = _ref.label,
+      icon = _ref.icon,
+      _ref$design = _ref.design,
+      design = _ref$design === void 0 ? "solid" : _ref$design,
+      color = _ref.color,
+      className = _ref.className,
+      props = _objectWithoutProperties$2(_ref, ["label", "icon", "design", "color", "className"]);
+
+  var loader = /*#__PURE__*/React__default['default'].createElement("span", {
+    className: "sui-icon-loader sui-loading",
+    style: {
+      position: "relative"
+    },
+    "aria-hidden": "true"
+  });
+  var content = /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, /*#__PURE__*/React__default['default'].createElement("span", {
+    className: "sui-icon-" + icon,
+    "aria-hidden": "true"
+  }), /*#__PURE__*/React__default['default'].createElement("span", {
+    className: "sui-screen-reader-text"
+  }, label));
+  className = '' !== className ? 'sui-button-icon ' + className : 'sui-button-icon'; // Set button color.
+
+  switch (color) {
+    case "blue":
+    case "green":
+    case "red":
+    case "orange":
+    case "purple":
+    case "yellow":
+    case "white":
+      className += " sui-button-" + color;
+      break;
+
+    case "gray":
+    default:
+      className += "";
+      break;
+  } // Set button style.
+
+
+  switch (design) {
+    case "ghost":
+    case "outlined":
+      className += " sui-button-" + design;
+      break;
+
+    case "solid":
+    default:
+      className += "";
+      break;
+  } // Set loading class.
+
+
+  if (props.loading) {
+    className += " sui-button-onload";
+  }
+
+  if (props.href) {
+    return /*#__PURE__*/React__default['default'].createElement("a", _extends$3({
+      ref: ref,
+      className: className,
+      disabled: props.disabled || props.loading
+    }, props), props.loading ? loader : content);
+  }
+
+  return /*#__PURE__*/React__default['default'].createElement("button", _extends$3({
+    ref: ref,
+    className: className,
+    disabled: props.disabled || props.loading
+  }, props), props.loading ? loader : content);
+});
+
 function _classCallCheck$1(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
@@ -474,8 +602,8 @@ function _defineProperty(obj, key, value) {
   return obj;
 }
 
-function _extends$3() {
-  _extends$3 = Object.assign || function (target) {
+function _extends$4() {
+  _extends$4 = Object.assign || function (target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i];
 
@@ -489,7 +617,7 @@ function _extends$3() {
     return target;
   };
 
-  return _extends$3.apply(this, arguments);
+  return _extends$4.apply(this, arguments);
 }
 
 function _inherits$1(subClass, superClass) {
@@ -836,7 +964,7 @@ var Post = /*#__PURE__*/function (_Component) {
       var PostImage = ""; // Empty.
 
       if (this.props.image) {
-        PostImage = /*#__PURE__*/React__default['default'].createElement(FeaturedImage, _extends$3({
+        PostImage = /*#__PURE__*/React__default['default'].createElement(FeaturedImage, _extends$4({
           src: this.props.image,
           alt: ""
         }, this.props));
@@ -855,7 +983,7 @@ var Post = /*#__PURE__*/function (_Component) {
             className: "sui-screen-reader-text"
           }, "Image is loading"));
         } else {
-          PostImage = /*#__PURE__*/React__default['default'].createElement(FeaturedImage, _extends$3({
+          PostImage = /*#__PURE__*/React__default['default'].createElement(FeaturedImage, _extends$4({
             src: media
           }, this.props));
         }
@@ -1053,12 +1181,822 @@ var Notifications = /*#__PURE__*/function (_Component) {
   return Notifications;
 }(React.Component);
 
+function _classCallCheck$3(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _defineProperties$3(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass$3(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties$3(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties$3(Constructor, staticProps);
+  return Constructor;
+}
+
+function _extends$5() {
+  _extends$5 = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends$5.apply(this, arguments);
+}
+
+function _inherits$3(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) _setPrototypeOf$3(subClass, superClass);
+}
+
+function _getPrototypeOf$3(o) {
+  _getPrototypeOf$3 = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  };
+  return _getPrototypeOf$3(o);
+}
+
+function _setPrototypeOf$3(o, p) {
+  _setPrototypeOf$3 = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  };
+
+  return _setPrototypeOf$3(o, p);
+}
+
+function _isNativeReflectConstruct$3() {
+  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+  if (Reflect.construct.sham) return false;
+  if (typeof Proxy === "function") return true;
+
+  try {
+    Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+function _assertThisInitialized$3(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return self;
+}
+
+function _possibleConstructorReturn$3(self, call) {
+  if (call && (_typeof(call) === "object" || typeof call === "function")) {
+    return call;
+  }
+
+  return _assertThisInitialized$3(self);
+}
+
+function _createSuper$3(Derived) {
+  var hasNativeReflectConstruct = _isNativeReflectConstruct$3();
+
+  return function _createSuperInternal() {
+    var Super = _getPrototypeOf$3(Derived),
+        result;
+
+    if (hasNativeReflectConstruct) {
+      var NewTarget = _getPrototypeOf$3(this).constructor;
+
+      result = Reflect.construct(Super, arguments, NewTarget);
+    } else {
+      result = Super.apply(this, arguments);
+    }
+
+    return _possibleConstructorReturn$3(this, result);
+  };
+}
+
+function _extends$1$1() {
+  _extends$1$1 = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends$1$1.apply(this, arguments);
+}
+
+function _objectWithoutPropertiesLoose$3(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
+
+function _objectWithoutProperties$3(source, excluded) {
+  if (source == null) return {};
+
+  var target = _objectWithoutPropertiesLoose$3(source, excluded);
+
+  var key, i;
+
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+
+    for (i = 0; i < sourceSymbolKeys.length; i++) {
+      key = sourceSymbolKeys[i];
+      if (excluded.indexOf(key) >= 0) continue;
+      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
+      target[key] = source[key];
+    }
+  }
+
+  return target;
+}
+
+var ButtonIcon$1 = /*#__PURE__*/React__default['default'].forwardRef(function (_ref, ref) {
+  var label = _ref.label,
+      icon = _ref.icon,
+      _ref$design = _ref.design,
+      design = _ref$design === void 0 ? "solid" : _ref$design,
+      color = _ref.color,
+      className = _ref.className,
+      props = _objectWithoutProperties$3(_ref, ["label", "icon", "design", "color", "className"]);
+
+  var loader = /*#__PURE__*/React__default['default'].createElement("span", {
+    className: "sui-icon-loader sui-loading",
+    style: {
+      position: "relative"
+    },
+    "aria-hidden": "true"
+  });
+  var content = /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, /*#__PURE__*/React__default['default'].createElement("span", {
+    className: "sui-icon-" + icon,
+    "aria-hidden": "true"
+  }), /*#__PURE__*/React__default['default'].createElement("span", {
+    className: "sui-screen-reader-text"
+  }, label));
+  className = '' !== className ? 'sui-button-icon ' + className : 'sui-button-icon'; // Set button color.
+
+  switch (color) {
+    case "blue":
+    case "green":
+    case "red":
+    case "orange":
+    case "purple":
+    case "yellow":
+    case "white":
+      className += " sui-button-" + color;
+      break;
+
+    case "gray":
+    default:
+      className += "";
+      break;
+  } // Set button style.
+
+
+  switch (design) {
+    case "ghost":
+    case "outlined":
+      className += " sui-button-" + design;
+      break;
+
+    case "solid":
+    default:
+      className += "";
+      break;
+  } // Set loading class.
+
+
+  if (props.loading) {
+    className += " sui-button-onload";
+  }
+
+  if (props.href) {
+    return /*#__PURE__*/React__default['default'].createElement("a", _extends$1$1({
+      ref: ref,
+      className: className,
+      disabled: props.disabled || props.loading
+    }, props), props.loading ? loader : content);
+  }
+
+  return /*#__PURE__*/React__default['default'].createElement("button", _extends$1$1({
+    ref: ref,
+    className: className,
+    disabled: props.disabled || props.loading
+  }, props), props.loading ? loader : content);
+});
+
+var Dropdown = /*#__PURE__*/function (_Component) {
+  _inherits$3(Dropdown, _Component);
+
+  var _super = _createSuper$3(Dropdown);
+
+  function Dropdown(props) {
+    var _this;
+
+    _classCallCheck$3(this, Dropdown);
+
+    _this = _super.call(this, props);
+    _this.state = {
+      open: false
+    };
+    _this.toggle = _this.toggle.bind(_assertThisInitialized$3(_this));
+    _this.setWrapperRef = _this.setWrapperRef.bind(_assertThisInitialized$3(_this));
+    _this.handleClickOutside = _this.handleClickOutside.bind(_assertThisInitialized$3(_this));
+    return _this;
+  }
+
+  _createClass$3(Dropdown, [{
+    key: "toggle",
+    value: function toggle() {
+      this.setState({
+        open: !this.state.open
+      });
+    }
+  }, {
+    key: "setWrapperRef",
+    value: function setWrapperRef(node) {
+      this.wrapperRef = node;
+    }
+  }, {
+    key: "handleClickOutside",
+    value: function handleClickOutside(e) {
+      if (this.wrapperRef && !this.wrapperRef.contains(e.target)) {
+        this.setState({
+          open: false
+        });
+      }
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      document.addEventListener('mousedown', this.handleClickOutside);
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      document.removeEventListener('mousedown', this.handleClickOutside);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      var open = this.state.open;
+      var options = React.Children.map(this.props.children, function (option) {
+        var icon = option.props.icon && '' !== option.props.icon && /*#__PURE__*/React__default['default'].createElement("span", {
+          className: "sui-icon-".concat(option.props.icon),
+          "aria-hidden": "true"
+        });
+        var tag = option.props.tag && '' !== option.props.tag && /*#__PURE__*/React__default['default'].createElement("span", {
+          className: "sui-tag sui-tag-beta",
+          style: {
+            pointerEvents: 'none',
+            display: 'inline',
+            marginLeft: 5,
+            lineHeight: 1
+          }
+        }, option.props.tag);
+        var label = /*#__PURE__*/React__default['default'].createElement(React.Fragment, null, icon, option.props.name, tag);
+
+        if (option.props.href) {
+          return /*#__PURE__*/React__default['default'].createElement("li", null, /*#__PURE__*/React__default['default'].createElement("a", _extends$5({
+            href: option.props.href
+          }, option.props), label));
+        }
+
+        return /*#__PURE__*/React__default['default'].createElement("li", null, /*#__PURE__*/React__default['default'].createElement("button", option.props, label));
+      });
+      var clazz = !open ? 'sui-dropdown' : 'sui-dropdown open';
+
+      switch (this.props.position) {
+        case 'left':
+          clazz += ' sui-dropdown-right';
+          break;
+
+        case 'center':
+          clazz += ' sui-dropdown-center';
+          break;
+
+        case 'right':
+          clazz += ' sui-dropdown-left';
+          break;
+
+        default:
+          clazz += ' sui-dropdown-right';
+          break;
+      }
+
+      return /*#__PURE__*/React__default['default'].createElement("div", {
+        className: clazz
+      }, /*#__PURE__*/React__default['default'].createElement(ButtonIcon$1, {
+        ref: this.setWrapperRef,
+        icon: "widget-settings-config",
+        label: open ? 'Open menu' : 'Close menu',
+        onClick: function onClick() {
+          return _this2.toggle();
+        }
+      }), open && /*#__PURE__*/React__default['default'].createElement("ul", null, options));
+    }
+  }]);
+
+  return Dropdown;
+}(React.Component);
+
+function _classCallCheck$4(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _defineProperties$4(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass$4(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties$4(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties$4(Constructor, staticProps);
+  return Constructor;
+}
+
+function _defineProperty$1(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+function _extends$6() {
+  _extends$6 = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends$6.apply(this, arguments);
+}
+
+function _inherits$4(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) _setPrototypeOf$4(subClass, superClass);
+}
+
+function _getPrototypeOf$4(o) {
+  _getPrototypeOf$4 = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  };
+  return _getPrototypeOf$4(o);
+}
+
+function _setPrototypeOf$4(o, p) {
+  _setPrototypeOf$4 = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  };
+
+  return _setPrototypeOf$4(o, p);
+}
+
+function _isNativeReflectConstruct$4() {
+  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+  if (Reflect.construct.sham) return false;
+  if (typeof Proxy === "function") return true;
+
+  try {
+    Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+function _assertThisInitialized$4(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return self;
+}
+
+function _possibleConstructorReturn$4(self, call) {
+  if (call && (_typeof(call) === "object" || typeof call === "function")) {
+    return call;
+  }
+
+  return _assertThisInitialized$4(self);
+}
+
+function _createSuper$4(Derived) {
+  var hasNativeReflectConstruct = _isNativeReflectConstruct$4();
+
+  return function _createSuperInternal() {
+    var Super = _getPrototypeOf$4(Derived),
+        result;
+
+    if (hasNativeReflectConstruct) {
+      var NewTarget = _getPrototypeOf$4(this).constructor;
+
+      result = Reflect.construct(Super, arguments, NewTarget);
+    } else {
+      result = Super.apply(this, arguments);
+    }
+
+    return _possibleConstructorReturn$4(this, result);
+  };
+}
+
+function _taggedTemplateLiteral$1(strings, raw) {
+  if (!raw) {
+    raw = strings.slice(0);
+  }
+
+  return Object.freeze(Object.defineProperties(strings, {
+    raw: {
+      value: Object.freeze(raw)
+    }
+  }));
+}
+
+function _extends$1$2() {
+  _extends$1$2 = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends$1$2.apply(this, arguments);
+}
+
+function _objectWithoutPropertiesLoose$4(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
+
+function _objectWithoutProperties$4(source, excluded) {
+  if (source == null) return {};
+
+  var target = _objectWithoutPropertiesLoose$4(source, excluded);
+
+  var key, i;
+
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+
+    for (i = 0; i < sourceSymbolKeys.length; i++) {
+      key = sourceSymbolKeys[i];
+      if (excluded.indexOf(key) >= 0) continue;
+      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
+      target[key] = source[key];
+    }
+  }
+
+  return target;
+}
+
+var ButtonIcon$2 = /*#__PURE__*/React__default['default'].forwardRef(function (_ref, ref) {
+  var label = _ref.label,
+      icon = _ref.icon,
+      _ref$design = _ref.design,
+      design = _ref$design === void 0 ? "solid" : _ref$design,
+      color = _ref.color,
+      className = _ref.className,
+      props = _objectWithoutProperties$4(_ref, ["label", "icon", "design", "color", "className"]);
+
+  var loader = /*#__PURE__*/React__default['default'].createElement("span", {
+    className: "sui-icon-loader sui-loading",
+    style: {
+      position: "relative"
+    },
+    "aria-hidden": "true"
+  });
+  var content = /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, /*#__PURE__*/React__default['default'].createElement("span", {
+    className: "sui-icon-" + icon,
+    "aria-hidden": "true"
+  }), /*#__PURE__*/React__default['default'].createElement("span", {
+    className: "sui-screen-reader-text"
+  }, label));
+  className = '' !== className ? 'sui-button-icon ' + className : 'sui-button-icon'; // Set button color.
+
+  switch (color) {
+    case "blue":
+    case "green":
+    case "red":
+    case "orange":
+    case "purple":
+    case "yellow":
+    case "white":
+      className += " sui-button-" + color;
+      break;
+
+    case "gray":
+    default:
+      className += "";
+      break;
+  } // Set button style.
+
+
+  switch (design) {
+    case "ghost":
+    case "outlined":
+      className += " sui-button-" + design;
+      break;
+
+    case "solid":
+    default:
+      className += "";
+      break;
+  } // Set loading class.
+
+
+  if (props.loading) {
+    className += " sui-button-onload";
+  }
+
+  if (props.href) {
+    return /*#__PURE__*/React__default['default'].createElement("a", _extends$1$2({
+      ref: ref,
+      className: className,
+      disabled: props.disabled || props.loading
+    }, props), props.loading ? loader : content);
+  }
+
+  return /*#__PURE__*/React__default['default'].createElement("button", _extends$1$2({
+    ref: ref,
+    className: className,
+    disabled: props.disabled || props.loading
+  }, props), props.loading ? loader : content);
+});
+
+function _templateObject$1() {
+  var data = _taggedTemplateLiteral$1(["\n    width: 30px;\n    height: 30px;\n    margin-right: 10px;\n    border-radius: 10px;\n    background-repeat: no-repeat;\n    background-size: cover;\n    background-position: center;\n"]);
+
+  _templateObject$1 = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+var ItemImage = styled__default['default'].span(_templateObject$1());
+
+var Accordion = /*#__PURE__*/function (_Component) {
+  _inherits$4(Accordion, _Component);
+
+  var _super = _createSuper$4(Accordion);
+
+  function Accordion(props) {
+    _classCallCheck$4(this, Accordion);
+
+    return _super.call(this, props);
+  }
+
+  _createClass$4(Accordion, [{
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/React__default['default'].createElement("div", {
+        className: "sui-accordion"
+      }, this.props.children);
+    }
+  }]);
+
+  return Accordion;
+}(React.Component);
+
+var AccordionItem = /*#__PURE__*/function (_Component2) {
+  _inherits$4(AccordionItem, _Component2);
+
+  var _super2 = _createSuper$4(AccordionItem);
+
+  function AccordionItem(props) {
+    var _this;
+
+    _classCallCheck$4(this, AccordionItem);
+
+    _this = _super2.call(this, props);
+
+    _defineProperty$1(_assertThisInitialized$4(_this), "toggle", function (e) {
+      if ('sui-dropdown' !== e.target.className) {
+        _this.setState({
+          open: !_this.state.open
+        });
+      }
+    });
+
+    _this.state = {
+      open: false
+    };
+    _this.toggle = _this.toggle.bind(_assertThisInitialized$4(_this));
+    return _this;
+  }
+
+  _createClass$4(AccordionItem, [{
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      var open = this.state.open;
+      var clazz = !open ? 'sui-accordion-item' : 'sui-accordion-item sui-accordion-item--open';
+      return /*#__PURE__*/React__default['default'].createElement("div", _extends$6({
+        className: clazz
+      }, this.props), /*#__PURE__*/React__default['default'].createElement(AccordionItemHeader, {
+        state: open ? 'true' : 'false',
+        title: this.props.title,
+        image: this.props.image,
+        icon: this.props.icon,
+        onClick: function onClick(e) {
+          return _this2.toggle(e);
+        }
+      }), /*#__PURE__*/React__default['default'].createElement(AccordionItemBody, null, this.props.children));
+    }
+  }]);
+
+  return AccordionItem;
+}(React.Component);
+
+var AccordionItemHeader = /*#__PURE__*/function (_Component3) {
+  _inherits$4(AccordionItemHeader, _Component3);
+
+  var _super3 = _createSuper$4(AccordionItemHeader);
+
+  function AccordionItemHeader(props) {
+    var _this3;
+
+    _classCallCheck$4(this, AccordionItemHeader);
+
+    _this3 = _super3.call(this, props);
+    _this3.state = {
+      open: false
+    };
+    return _this3;
+  }
+
+  _createClass$4(AccordionItemHeader, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.setState({
+        open: this.props.state
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var open = this.state.open;
+      var icon = this.props.icon && '' !== this.props.icon ? /*#__PURE__*/React__default['default'].createElement("span", {
+        className: "sui-icon-".concat(this.props.icon),
+        "aria-hidden": "true"
+      }) : '';
+      var image = this.props.image && '' !== this.props.image ? /*#__PURE__*/React__default['default'].createElement(ItemImage, {
+        style: {
+          backgroundImage: "url(".concat(this.props.image, ")")
+        }
+      }) : '';
+      var title = /*#__PURE__*/React__default['default'].createElement("div", {
+        className: "sui-accordion-item-title"
+      }, icon, image, this.props.title);
+      var indicator = /*#__PURE__*/React__default['default'].createElement(ButtonIcon$2, {
+        icon: "chevron-down",
+        label: open ? 'Close section' : 'Open section',
+        className: "sui-button-icon sui-accordion-open-indicator"
+      });
+      var actions = /*#__PURE__*/React__default['default'].createElement("div", {
+        className: "sui-accordion-col-auto"
+      }, this.props.children, indicator);
+      return /*#__PURE__*/React__default['default'].createElement("div", _extends$6({
+        className: "sui-accordion-item-header"
+      }, this.props), title, actions);
+    }
+  }]);
+
+  return AccordionItemHeader;
+}(React.Component);
+
+var AccordionItemBody = /*#__PURE__*/function (_Component4) {
+  _inherits$4(AccordionItemBody, _Component4);
+
+  var _super4 = _createSuper$4(AccordionItemBody);
+
+  function AccordionItemBody(props) {
+    _classCallCheck$4(this, AccordionItemBody);
+
+    return _super4.call(this, props);
+  }
+
+  _createClass$4(AccordionItemBody, [{
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/React__default['default'].createElement("div", {
+        className: "sui-accordion-item-body"
+      }, this.props.children);
+    }
+  }]);
+
+  return AccordionItemBody;
+}(React.Component);
+
+exports.Accordion = Accordion;
+exports.AccordionItem = AccordionItem;
+exports.AccordionItemBody = AccordionItemBody;
+exports.AccordionItemHeader = AccordionItemHeader;
 exports.Box = Box;
 exports.BoxBody = BoxBody;
 exports.BoxFooter = BoxFooter;
 exports.BoxHeader = BoxHeader;
 exports.BoxTitle = BoxTitle;
 exports.Button = Button;
+exports.ButtonIcon = ButtonIcon;
+exports.Dropdown = Dropdown;
 exports.Input = Input;
 exports.Notifications = Notifications;
 exports.Post = Post;
