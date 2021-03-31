@@ -32,6 +32,7 @@
     "directory": "packages/react-dropdown"
   },
   "scripts": {
+    "build": "sui-builder",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {
