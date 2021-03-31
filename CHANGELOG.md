@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased (2021-03-30)
+## Unreleased (2021-03-31)
 
 #### New Features
 * `react-accordion`
@@ -15,7 +15,10 @@
   * [#51](https://github.com/wpmudev/shared-ui-react/pull/51) 🐛 fix(react-box): Remove peer dependencies. ([@iamleigh](https://github.com/iamleigh))
 
 #### Bug Fixes
+* `react-button`
+  * [#60](https://github.com/wpmudev/shared-ui-react/pull/60) Fix/react button icon/issue 26 ([@iamleigh](https://github.com/iamleigh))
 * `react-button-icon`
+  * [#61](https://github.com/wpmudev/shared-ui-react/pull/61) 🐛 fix(react-button-icon): Allow custom classes. ([@iamleigh](https://github.com/iamleigh))
   * [#55](https://github.com/wpmudev/shared-ui-react/pull/55) 🐛 fix(react-button-icon): Console error for refs. ([@iamleigh](https://github.com/iamleigh))
 
 #### Committers: 1
