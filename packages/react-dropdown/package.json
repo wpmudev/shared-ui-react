@@ -12,8 +12,8 @@
     }
   ],
   "license": "GPL-3.0",
-  "main": "lib/react-dropdown.cjs.js",
-  "module": "lib/react-dropdown.esm.js",
+  "main": "dist/react-dropdown.cjs.js",
+  "module": "dist/react-dropdown.esm.js",
   "src": "lib/react-dropdown.js",
   "directories": {
     "lib": "lib",
