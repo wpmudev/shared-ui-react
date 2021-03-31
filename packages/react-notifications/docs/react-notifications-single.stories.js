@@ -6,12 +6,13 @@ export default {
 }
 
 const TypeOptions = {
-    gray: '',
-    blue: 'info',
-    green: 'success',
-    yellow: 'warning',
-    red: 'error',
-    purple: 'upsell'
+    default: '',
+    info: 'info',
+    success: 'success',
+    warning: 'warning',
+    error: 'error',
+    upsell: 'upsell',
+    loading: 'loading'
 };
 
 const Template = ({ ...props }) => {
