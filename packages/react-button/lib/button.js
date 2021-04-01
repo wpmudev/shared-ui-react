@@ -65,25 +65,22 @@ const Button = React.forwardRef( ({
 		className += " sui-button-onload";
 	}
 
-	if (props.href) {
-		return (
-			<a
-				className={className}
-				disabled={props.disabled || props.loading}
-				{...props}>
-				{props.loading ? loader : content}
-			</a>
-		);
+	let htmlTag = 'button';
+	if ( props.href ) {
+		htmlTag = 'a';
+	} else if ( props.htmlFor ) {
+		htmlTag = 'label';
 	}
 
-	return (
-		<button
-			className={className}
-			disabled={props.disabled || props.loading}
-			{...props}>
-			{props.loading ? loader : content}
-		</button>
-	);
+	return React.createElement(
+		htmlTag,
+		{
+			className: className,
+			disabled: props.disabled || props.loading,
+			...props
+		},
+		props.loading ? loader : content
+	)
 });
 
 export { Button };
