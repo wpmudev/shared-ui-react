@@ -25,9 +25,7 @@ const Button = React.forwardRef( ({
 		</React.Fragment>
 	);
 
-	className = '' !== className
-		? 'sui-button ' + className
-		: 'sui-button';
+	className = `sui-button${ className ? ' ' + className : '' }`;
 
 	// Set button color.
 	switch (color) {
