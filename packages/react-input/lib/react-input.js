@@ -30,7 +30,10 @@ export class Input extends Component {
 
         return (
             <div className="sui-form-field">
-                <label for={ uniqueId } className="sui-label">{ this.props.label }</label>
+				{ this.props.label && (
+					<label htmlFor={ uniqueId } className="sui-label">{ this.props.label }</label>
+				) }
+
                 <input
                     id={ uniqueId }
                     type={ type }
