@@ -5,7 +5,8 @@ import { ButtonIcon } from "../../react-button-icon/lib/react-button-icon";
 
 export const Modal = ({ headerContent, bodyContent, footerContent, triggerContent, ...props }) => {
 
-	const [isOpen, setIsOpen] = React.useState();
+	const [ isOpen, setIsOpen ] = React.useState( false );
+	const [ isClosing, setIsClosing ] = React.useState( false );
 
 	useEffect( () => {
 		if ( ! props.dialogId ) {
@@ -18,19 +19,25 @@ export const Modal = ({ headerContent, bodyContent, footerContent, triggerConten
 	const {
 		initialFocus = `#${ props.dialogId }-header-close-button`,
 		getApplicationNode = () => document.getElementsByClassName('sui-wrap')[0],
-		renderToNode = document.getElementsByClassName('sui-2-10-0')[0]
+		renderToNode = document.getElementsByClassName('sui-2-10-0')[0] // TODO: get this dynamically.
 	} = props;
 
 	const openModal = () => setIsOpen( true ),
-		closeModal = () => setIsOpen( false );
+		closeModal = () => {
+			setIsClosing( true );
+			setTimeout( () => {
+				setIsOpen( false );
+				setIsClosing( false );
+			}, 300 );
+		};
 
 	const AltLocationModal = AriaModal.renderTo( renderToNode );
 
     const Modal = isOpen ?
 		<AltLocationModal
 			getApplicationNode={ getApplicationNode }
-			dialogClass={ `sui-modal-content sui-content-fade-in ${ props.dialogClass || "" }` }
-			underlayClass={ `sui-modal sui-active sui-modal-${ props.modalSize || "md" } sui-wrap ${ props.underlayClass || "" }` }
+			dialogClass={ `sui-modal-content sui-content-${ isClosing ? 'fade-out' : 'fade-in' } ${ props.dialogClass || "" }` }
+			underlayClass={ `sui-modal${ isOpen ? ' sui-active' : '' } sui-modal-${ props.modalSize || "md" } sui-wrap ${ props.underlayClass || "" }` }
 			onExit={ closeModal }
 			includeDefaultStyles={ false }
 			initialFocus={ initialFocus }
