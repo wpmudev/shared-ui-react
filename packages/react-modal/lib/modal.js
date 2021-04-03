@@ -39,7 +39,6 @@ export const Modal = ({ headerContent, bodyContent, footerContent, ...props }) =
 			>
 			<Box>
 				<BoxHeader { ...props.headerArgs }>
-					{ headerContent }
 					<div className="sui-actions-right">
 						<ButtonIcon
 							id={ `${ props.dialogId }-header-close-button` }
@@ -50,6 +49,7 @@ export const Modal = ({ headerContent, bodyContent, footerContent, ...props }) =
 							onClick={ closeModal }
 						/>
 					</div>
+					{ headerContent }
 				</BoxHeader>
 				<BoxBody { ...props.bodyArgs }>
 					{ bodyContent }
