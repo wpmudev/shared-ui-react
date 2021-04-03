@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
 import AriaModal from "@justfixnyc/react-aria-modal";
 import { Box, BoxHeader, BoxBody, BoxFooter } from "../../react-box/lib/box";
-import { Button } from "../../react-button/lib/button";
 import { ButtonIcon } from "../../react-button-icon/lib/react-button-icon";
 
-export const Modal = ({ headerContent, bodyContent, footerContent, ...props }) => {
+export const Modal = ({ headerContent, bodyContent, footerContent, triggerContent, ...props }) => {
 
 	const [isOpen, setIsOpen] = React.useState();
 
@@ -49,14 +48,14 @@ export const Modal = ({ headerContent, bodyContent, footerContent, ...props }) =
 							onClick={ closeModal }
 						/>
 					</div>
-					{ headerContent }
+					{ headerContent( { closeModal } ) }
 				</BoxHeader>
 				<BoxBody { ...props.bodyArgs }>
-					{ bodyContent }
+					{ bodyContent( { closeModal } ) }
 				</BoxBody>
 				{ footerContent && (
 					<BoxFooter { ...props.footerArgs }>
-						{ footerContent }
+						{ footerContent( { closeModal } ) }
 					</BoxFooter>
 				) }
 			</Box>
@@ -65,7 +64,7 @@ export const Modal = ({ headerContent, bodyContent, footerContent, ...props }) =
 
 	return (
 		<React.Fragment>
-			<Button { ...props.openButton.props } onClick={ openModal } />
+			{ triggerContent( { openModal } ) }
 			{ Modal }
 		</React.Fragment>
 	);

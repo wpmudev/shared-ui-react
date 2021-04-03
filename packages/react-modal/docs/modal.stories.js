@@ -32,30 +32,39 @@ export const wrapper = args => {
 	);
 };
 
-const headerContent = (
-	<React.Fragment>
-		<BoxTitle id="sui-modal-one-title" extraClasses="sui-lg">Import</BoxTitle>
-		<p id="sui-dialog-one-description" className="sui-description">Choose the configuration file and the settings you want to import.</p>
-	</React.Fragment>
-);
+const headerContent = () =>{
+	return (
+		<React.Fragment>
+			<BoxTitle id="sui-modal-one-title" extraClasses="sui-lg">Import</BoxTitle>
+			<p id="sui-dialog-one-description" className="sui-description">Choose the configuration file and the settings you want to import.</p>
+		</React.Fragment>
+	)
+};
 
-const bodyContent = (
-	<p>
-		Modal
-		{' '}
-		<a id="something" href="#">with</a>
-		{' '}
-		<a href="#">some</a>
-		{' '}
-		<a href="#">focusable</a>
-		{' '}
-		parts.
-	</p>
-);
+const bodyContent = ( { closeModal } ) => {
+	return (
+		<div>
+			<p>
+				Modal
+				{' '}
+				<a id="something" href="#">with</a>
+				{' '}
+				<a href="#">some</a>
+				{' '}
+				<a href="#">focusable</a>
+				{' '}
+				parts.
+			</p>
+			<div>
+				<Button onClick={closeModal} label="Close Modal" />
+			</div>
+		</div>
+	)
+};
 
-const openButton = (
-	<Button label="Open" />
-);
+const triggerContent = ( { openModal } ) => {
+	return <Button onClick={ openModal } label="Open" />
+};
 
 wrapper.storyName = "Modal Wrapper";
 
@@ -64,9 +73,9 @@ wrapper.args = {
 	size: "md",
 	dialogId: "le-dialog-id",
 	bodyContent,
-	openButton,
 	headerArgs: {
 		extraClasses: "sui-flatten sui-content-center sui-spacing-top--60",
 	},
 	headerContent,
+	triggerContent,
 };
