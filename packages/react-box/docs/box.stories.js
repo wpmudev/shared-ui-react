@@ -46,6 +46,8 @@ wrapper.storyName = "Box Wrapper";
 wrapper.args = {
 	title: "Box Title",
 	titleIcon: "hummingbird",
+	titleTagLabel: 'Beta Service',
+	titleTagColor: 'blue',
 	className: 'custom-class'
 };
 wrapper.argTypes = {};
