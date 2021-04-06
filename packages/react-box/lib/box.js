@@ -1,4 +1,25 @@
 import React from "react";
+import styled from 'styled-components';
+
+// UTILS: Default Values.
+const utils = {
+	gutter: 30,
+	gutter_md: 20
+};
+
+const screen = {
+	mobile: 480,
+	tablet: 783,
+	laptop: 1200,
+	desktop: 1500
+};
+
+const device = {
+	mobile: `(min-width: ${screen.mobile}px)`,
+	tablet: `(min-width: ${screen.tablet}px)`,
+	laptop: `(min-width: ${screen.laptop}px)`,
+	desktop: `(min-width: ${screen.desktop}px)`
+};
 
 export const Box = ({ children, className, ...props }) => {
 	return (
@@ -70,6 +91,18 @@ export const BoxTitle = ({
 	);
 };
 
+const Header = styled.div.attrs(props => ({ props }))`
+padding: ${utils.gutter_md / 2}px ${utils.gutter_md}px;
+border: 0 solid #E6E6E6;
+border-bottom-width: ${props => props.border || '1'}px;
+
+@media ${device.tablet} {
+	display: ${props => props.stacked ? 'block' : 'flex'};
+	${props => props.stacked ? '' : 'flex-wrap: row nowrap;'}
+	padding: ${utils.gutter / 2}px ${utils.gutter}px;
+}
+`;
+
 export const BoxHeader = ({
 	title,
 	titleIcon,
@@ -82,12 +115,7 @@ export const BoxHeader = ({
 	...props
 }) => {
 	return (
-		<div
-			className={'undefined' !== typeof className && '' !== className
-				? `sui-box-header ${className}`
-				: 'sui-box-header'
-			}
-			{...props}>
+		<Header {...props}>
 			{title && '' !== title && (
 				<BoxTitle
 					icon={titleIcon}
@@ -98,9 +126,8 @@ export const BoxHeader = ({
 					{title}
 				</BoxTitle>
 			)}
-
 			<div className="sui-actions-right">{children}</div>
-		</div>
+		</Header>
 	);
 };
 
