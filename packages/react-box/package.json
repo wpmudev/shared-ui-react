@@ -42,5 +42,8 @@
   "devDependencies": {
     "@wpmudev/react-builder": "^0.0.0",
     "react": "^17.0.1"
+  },
+  "dependencies": {
+    "styled-components": "^5.2.3"
   }
 }
