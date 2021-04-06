@@ -1,6 +1,6 @@
 import React from "react";
 
-const Button = React.forwardRef( ({
+const Button = ({
 	label,
 	icon,
 	design = "solid",
@@ -25,9 +25,7 @@ const Button = React.forwardRef( ({
 		</React.Fragment>
 	);
 
-	className = '' !== className
-		? 'sui-button ' + className
-		: 'sui-button';
+	className = `sui-button${ className ? ' ' + className : '' }`;
 
 	// Set button color.
 	switch (color) {
@@ -65,25 +63,22 @@ const Button = React.forwardRef( ({
 		className += " sui-button-onload";
 	}
 
-	if (props.href) {
-		return (
-			<a
-				className={className}
-				disabled={props.disabled || props.loading}
-				{...props}>
-				{props.loading ? loader : content}
-			</a>
-		);
+	let htmlTag = 'button';
+	if ( props.href ) {
+		htmlTag = 'a';
+	} else if ( props.htmlFor ) {
+		htmlTag = 'label';
 	}
 
-	return (
-		<button
-			className={className}
-			disabled={props.disabled || props.loading}
-			{...props}>
-			{props.loading ? loader : content}
-		</button>
-	);
-});
+	return React.createElement(
+		htmlTag,
+		{
+			className: className,
+			disabled: props.disabled || props.loading,
+			...props
+		},
+		props.loading ? loader : content
+	)
+};
 
 export { Button };

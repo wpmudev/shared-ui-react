@@ -1,4 +1,5 @@
 import React from "react";
+import { Box, BoxHeader, BoxBody, BoxFooter, BoxSection } from "../../react-box/lib/box";
 import { Button } from "../lib/button";
 
 export default {
@@ -8,15 +9,44 @@ export default {
 
 const Template = args => <Button {...args} />;
 
-export const primary = Template.bind({});
-primary.storyName = "Default";
-primary.args = {
-	label: "Click Me",
-	design: "",
-	color: "",
-	icon: "",
-	className: "custom-class"
+export const primary = () => {
+	return (
+		<Box>
+			<BoxHeader title="Button Component"></BoxHeader>
+			<BoxBody>
+				<p>Some description here</p>
+				<BoxSection
+					title="As a button"
+				>
+					<Button
+						label="I'm a button"
+					/>
+				</BoxSection>
+
+				<BoxSection
+					title="As an anchor"
+				>
+					<Button
+						label="I'm an anchor"
+						href="#"
+						onClick={ ( e ) => e.preventDefault() }
+					/>
+				</BoxSection>
+
+				<BoxSection
+					title="As a label"
+				>
+					<Button
+						label="I'm a label"
+						htmlFor="nothing"
+						className="custom-class"
+					/>
+				</BoxSection>
+			</BoxBody>
+		</Box>
+	);
 };
+primary.storyName = "Default";
 primary.argTypes = {
 	design: {
 		control: {
