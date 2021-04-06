@@ -48,6 +48,8 @@ wrapper.args = {
 	titleIcon: "hummingbird",
 	titleTagLabel: 'Beta Service',
 	titleTagColor: 'blue',
+	border: 1,
+	stacked: false,
 	className: 'custom-class'
 };
 wrapper.argTypes = {};
