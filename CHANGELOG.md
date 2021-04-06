@@ -1,5 +1,26 @@
 # Changelog
 
+## Unreleased (2021-04-06)
+
+#### New Features
+* `react-box`
+  * [#70](https://github.com/wpmudev/shared-ui-react/pull/70) ✨ new(react-box): Allow custom classes. ([@iamleigh](https://github.com/iamleigh))
+
+#### Improvements
+* `react-box`
+  * [#78](https://github.com/wpmudev/shared-ui-react/pull/78) ✨ new(react-box): Add `border` and `stacked` props to header. ([@iamleigh](https://github.com/iamleigh))
+  * [#76](https://github.com/wpmudev/shared-ui-react/pull/76) ✨ new(react-box): Tag props for title. ([@iamleigh](https://github.com/iamleigh))
+* `react-notifications`
+  * [#69](https://github.com/wpmudev/shared-ui-react/pull/69) 🐛 fix(react-notifications): Add multi-line capability. ([@iamleigh](https://github.com/iamleigh))
+  * [#67](https://github.com/wpmudev/shared-ui-react/pull/67) 🐛 fix(react-notifications): Make component dismissible. ([@iamleigh](https://github.com/iamleigh))
+
+#### Bug Fixes
+* `react-notifications`
+  * [#66](https://github.com/wpmudev/shared-ui-react/pull/66) 🐛 fix(react-notifications): Icon not showing up for non-default variation. ([@iamleigh](https://github.com/iamleigh))
+
+#### Committers: 1
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+
 ## Released (2021-03-31)
 
 #### New Features
