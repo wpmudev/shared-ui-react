@@ -3,79 +3,55 @@ import { Box, BoxHeader, BoxBody, BoxFooter, BoxSection } from "../lib/box";
 
 // Import documentation.
 import DocsWrapper from "./notes/docs-wrapper.md";
-import DocsHeader from "./notes/docs-header.md";
 import DocsBody from "./notes/docs-body.md";
 import DocsSection from "./notes/docs-section.md";
 import DocsFooter from "./notes/docs-footer.md";
 
 export default {
 	title: "Containers/Box",
-	component: Box,
-	subcomponents: {
-		BoxHeader,
-		BoxBody,
-		BoxFooter,
-		BoxSection
-	}
+	component: Box
 };
 
-export const wrapper = args => {
+const Wrapper = args => {
 	return (
 		<Box>
-			<BoxHeader {...args}>
-				<button className="sui-button">Action</button>
-			</BoxHeader>
-			<BoxBody>
-				<p>
-					This is box body component. It can only be used inside{" "}
-					<code>{`<Box>`}</code> component.
-				</p>
-				<BoxSection
-					title="Section Title"
-					description="A brief description about this section goes here.">
-					<p>Section content goes here.</p>
-				</BoxSection>
-			</BoxBody>
-			<BoxFooter>
-				<button className="sui-button">Action</button>
-			</BoxFooter>
+			<BoxHeader {...args.header} />
+			<BoxBody {...args.body} />
+			<BoxFooter {...args.footer} />
 		</Box>
-	);
+	)
 };
-wrapper.storyName = "Box Wrapper";
-wrapper.args = {
-	title: "Box Title",
-	titleIcon: "hummingbird",
-	titleTagLabel: 'Beta Service',
-	titleTagColor: 'blue',
-	border: 1,
-	stacked: false,
-	className: 'custom-class'
+Wrapper.storyName = 'Box Wrapper';
+Wrapper.args = {
+	header: {
+		title: 'Box Header'
+	},
+	body: {
+		children: 'Box Body, allows regular content.'
+	},
+	footer: {
+		children: 'Box Footer, allows actions like "save" or "cancel".'
+	}
 };
-wrapper.argTypes = {};
-wrapper.parameters = {
+Wrapper.parameters = {
 	notes: DocsWrapper
 };
 
-export const header = args => {
+const Body = args => {
 	return (
 		<Box>
-			<BoxHeader {...args}>
-				<span>Right actions</span>
-			</BoxHeader>
+			<BoxBody {...args} />
 		</Box>
 	);
 };
-header.storyName = "Box Header";
-header.args = {
-	...wrapper.args
+Body.storyName = 'Box Body';
+Body.args = {};
+Body.argTypes = {};
+Body.parameters = {
+	notes: DocsBody
 };
-header.argTypes = {
-	...wrapper.argTypes
-};
-header.parameters = {
-	notes: DocsHeader
-};
+
+export { Wrapper, Body };
 
 export const body = () => {
 	return (
