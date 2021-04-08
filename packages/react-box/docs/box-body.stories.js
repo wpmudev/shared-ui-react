@@ -5,7 +5,7 @@ import { Box, BoxBody } from '../lib/box';
 import DocsBody from "./notes/docs-body.md";
 
 export default {
-	title: "Containers/Box/Body",
+	title: "Containers/Box/Elements/Body",
 	component: BoxBody
 };
 

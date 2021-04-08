@@ -6,7 +6,7 @@ import { Button } from '@wpmudev/react-button';
 import DocsHeader from "./notes/docs-header.md";
 
 export default {
-	title: "Containers/Box/Header",
+	title: "Containers/Box/Elements/Header",
 	component: BoxHeader
 };
 

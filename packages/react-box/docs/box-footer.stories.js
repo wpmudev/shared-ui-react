@@ -6,7 +6,7 @@ import { Button } from '@wpmudev/react-button';
 import DocsFooter from "./notes/docs-footer.md";
 
 export default {
-	title: "Containers/Box/Footer",
+	title: "Containers/Box/Elements/Footer",
 	component: BoxFooter
 };
 

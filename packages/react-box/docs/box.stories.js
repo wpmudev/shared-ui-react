@@ -19,7 +19,7 @@ const Wrapper = args => {
 		</Box>
 	)
 };
-Wrapper.storyName = 'Box Wrapper';
+Wrapper.storyName = 'Box';
 Wrapper.args = {
 	header: {
 		title: 'Box Header'
@@ -37,22 +37,22 @@ Wrapper.parameters = {
 
 export { Wrapper };
 
-export const section = args => {
-	return (
-		<Box>
-			<BoxBody>
-				<BoxSection {...args}>
-					<p>Section content goes here.</p>
-				</BoxSection>
-			</BoxBody>
-		</Box>
-	);
-};
-section.storyName = "Box Section";
-section.args = {
-	title: "Section Title",
-	description: "A brief description about this section goes here."
-};
-section.parameters = {
-	notes: DocsSection
-};
+// export const section = args => {
+// 	return (
+// 		<Box>
+// 			<BoxBody>
+// 				<BoxSection {...args}>
+// 					<p>Section content goes here.</p>
+// 				</BoxSection>
+// 			</BoxBody>
+// 		</Box>
+// 	);
+// };
+// section.storyName = "Box Section";
+// section.args = {
+// 	title: "Section Title",
+// 	description: "A brief description about this section goes here."
+// };
+// section.parameters = {
+// 	notes: DocsSection
+// };
