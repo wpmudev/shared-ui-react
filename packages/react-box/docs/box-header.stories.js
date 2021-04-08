@@ -92,6 +92,9 @@ SimpleHeader.argTypes = {
 		}
 	}
 };
+SimpleHeader.parameters = {
+    notes: DocsHeader
+};
 
 export const IconHeader = Template.bind({});
 IconHeader.storyName = 'Title with Icon';
