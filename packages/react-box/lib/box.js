@@ -197,6 +197,9 @@ const Footer = styled.div.attrs(props => ({ props }))`
 		'center' === props.alignment && 'text-align: center;'
 	)}
 
+	${props => 'block' !== props.display && '> * { max-width: 100%; flex: 0 0 auto; }' }
+	${props => 'block' !== props.display && '> * + * { margin-left: 10px; }' }
+
 	@media ${device.tablet} {
 		padding-top: ${props => props.paddingTop || 0 === props.paddingTop
 			? props.paddingTop
