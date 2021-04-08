@@ -144,16 +144,85 @@ export const BoxBody = ({ className, children, ...props }) => {
 	);
 };
 
+/**
+ * display: block or inline
+ * alignment: (block) left or center, (inline) sides or center
+ * paddingTop: 30
+ * paddingRight: 30
+ * paddingBottom: 30
+ * paddingLeft: 30
+ * border: 1
+ */
+const Footer = styled.div.attrs(props => ({ props }))`
+.sui-wrap && {
+	flex-flow: row wrap;
+	display: ${props => 'block' !== props.display ? 'flex' : 'block' };
+	${props => 'block' !== props.display && 'flex-flow: row wrap;' }
+	${props => 'block' !== props.display && (
+		'center' !== props.alignment
+			? 'justify-content: space-between;'
+			: 'justify-content: center;'
+	)}
+	margin: 0;
+	padding-top: ${props => props.paddingTop || 0 === props.paddingTop
+		? ( props.paddingTop > 29
+			? props.paddingTop - 10
+			: props.paddingTop)
+		: utils.gutter_md
+	}px;
+	padding-right: ${props => props.paddingRight || 0 === props.paddingRight
+		? ( props.paddingRight > 29
+			? props.paddingRight - 10
+			: props.paddingRight)
+		: utils.gutter_md
+	}px;
+	padding-bottom: ${props => props.paddingBottom || 0 === props.paddingBottom
+		? ( props.paddingBottom > 29
+			? props.paddingBottom - 10
+			: props.paddingBottom)
+		: utils.gutter_md
+	}px;
+	padding-left: ${props => props.paddingLeft || 0 === props.paddingLeft
+		? ( props.paddingLeft > 29
+			? props.paddingLeft - 10
+			: props.paddingLeft)
+		: utils.gutter_md
+	}px;
+	border: 0 solid #E6E6E6;
+	border-top-width: ${props => props.border || (0 === props.border || '' === props.border)
+		? props.border
+		: 1
+	}px;
+	${props => 'block' === props.display && (
+		'center' === props.alignment && 'text-align: center;'
+	)}
+
+	@media ${device.tablet} {
+		padding-top: ${props => props.paddingTop || 0 === props.paddingTop
+			? props.paddingTop
+			: utils.gutter
+		}px;
+		padding-right: ${props => props.paddingRight || 0 === props.paddingRight
+			? props.paddingRight
+			: utils.gutter
+		}px;
+		padding-bottom: ${props => props.paddingBottom || 0 === props.paddingBottom
+			? props.paddingBottom
+			: utils.gutter
+		}px;
+		padding-left: ${props => props.paddingLeft || 0 === props.paddingLeft
+			? props.paddingLeft
+			: utils.gutter
+		}px;
+	}
+}
+`;
+
 export const BoxFooter = ({ className, children, ...props }) => {
 	return (
-		<div
-			className={'undefined' !== typeof className && '' !== className
-				? `sui-box-footer ${className}`
-				: 'sui-box-footer'
-			}
-			{...props}>
+		<Footer className={ className } {...props}>
 			{children}
-		</div>
+		</Footer>
 	);
 };
 
