@@ -1,9 +1,8 @@
 import React from "react";
-import { Box, BoxHeader, BoxBody, BoxFooter, BoxSection } from "../lib/box";
+import { Box, BoxHeader, BoxBody, BoxFooter } from "../lib/box";
 
 // Import documentation.
 import DocsWrapper from "./notes/docs-wrapper.md";
-import DocsSection from "./notes/docs-section.md";
 
 export default {
 	title: "Containers/Box",
@@ -36,23 +35,3 @@ Wrapper.parameters = {
 };
 
 export { Wrapper };
-
-// export const section = args => {
-// 	return (
-// 		<Box>
-// 			<BoxBody>
-// 				<BoxSection {...args}>
-// 					<p>Section content goes here.</p>
-// 				</BoxSection>
-// 			</BoxBody>
-// 		</Box>
-// 	);
-// };
-// section.storyName = "Box Section";
-// section.args = {
-// 	title: "Section Title",
-// 	description: "A brief description about this section goes here."
-// };
-// section.parameters = {
-// 	notes: DocsSection
-// };
