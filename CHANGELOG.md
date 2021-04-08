@@ -1,24 +1,30 @@
 # Changelog
 
-## Unreleased (2021-04-06)
+## Unreleased (2021-04-08)
 
 #### New Features
 * `react-box`
   * [#70](https://github.com/wpmudev/shared-ui-react/pull/70) ✨ new(react-box): Allow custom classes. ([@iamleigh](https://github.com/iamleigh))
-
-#### Improvements
-* `react-box`
   * [#78](https://github.com/wpmudev/shared-ui-react/pull/78) ✨ new(react-box): Add `border` and `stacked` props to header. ([@iamleigh](https://github.com/iamleigh))
   * [#76](https://github.com/wpmudev/shared-ui-react/pull/76) ✨ new(react-box): Tag props for title. ([@iamleigh](https://github.com/iamleigh))
+
+#### Improvements
+* `react-input`
+  * [#74](https://github.com/wpmudev/shared-ui-react/pull/74) 🐛 fix(react-input): Give more flexibility to the 'input' component. ([@a-danae](https://github.com/a-danae))
+* `react-button`
+  * [#73](https://github.com/wpmudev/shared-ui-react/pull/73) 🐛 fix(react-button): Remove forwardRef and fix `undefined` in classes. ([@a-danae](https://github.com/a-danae))
 * `react-notifications`
   * [#69](https://github.com/wpmudev/shared-ui-react/pull/69) 🐛 fix(react-notifications): Add multi-line capability. ([@iamleigh](https://github.com/iamleigh))
   * [#67](https://github.com/wpmudev/shared-ui-react/pull/67) 🐛 fix(react-notifications): Make component dismissible. ([@iamleigh](https://github.com/iamleigh))
 
 #### Bug Fixes
+* `react-button`
+  * [#73](https://github.com/wpmudev/shared-ui-react/pull/73) 🐛 fix(react-button): Remove forwardRef and fix `undefined` in classes. ([@a-danae](https://github.com/a-danae))
 * `react-notifications`
   * [#66](https://github.com/wpmudev/shared-ui-react/pull/66) 🐛 fix(react-notifications): Icon not showing up for non-default variation. ([@iamleigh](https://github.com/iamleigh))
 
-#### Committers: 1
+#### Committers: 2
+- Danae Millan ([@a-danae](https://github.com/a-danae))
 - Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
 
 ## Released (2021-03-31)
