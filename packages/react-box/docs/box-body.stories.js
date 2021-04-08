@@ -6,7 +6,7 @@ import DocsBody from "./notes/docs-body.md";
 
 export default {
 	title: "Containers/Box/Body",
-	component: Box
+	component: BoxBody
 };
 
 const Template = args => {

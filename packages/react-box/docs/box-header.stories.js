@@ -7,7 +7,7 @@ import DocsHeader from "./notes/docs-header.md";
 
 export default {
 	title: "Containers/Box/Header",
-	component: Box
+	component: BoxHeader
 };
 
 const Template = args => {
