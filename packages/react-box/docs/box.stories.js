@@ -4,7 +4,6 @@ import { Box, BoxHeader, BoxBody, BoxFooter, BoxSection } from "../lib/box";
 // Import documentation.
 import DocsWrapper from "./notes/docs-wrapper.md";
 import DocsSection from "./notes/docs-section.md";
-import DocsFooter from "./notes/docs-footer.md";
 
 export default {
 	title: "Containers/Box",
@@ -56,21 +55,4 @@ section.args = {
 };
 section.parameters = {
 	notes: DocsSection
-};
-
-export const footer = () => {
-	return (
-		<Box>
-			<BoxFooter>
-				<p>Box Footer</p>
-			</BoxFooter>
-		</Box>
-	);
-};
-footer.storyName = "Box Footer";
-footer.parameters = {
-	controls: {
-		hideNoControlsWarning: true
-	},
-	notes: DocsFooter
 };
