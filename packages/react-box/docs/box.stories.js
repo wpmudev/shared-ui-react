@@ -3,7 +3,6 @@ import { Box, BoxHeader, BoxBody, BoxFooter, BoxSection } from "../lib/box";
 
 // Import documentation.
 import DocsWrapper from "./notes/docs-wrapper.md";
-import DocsBody from "./notes/docs-body.md";
 import DocsSection from "./notes/docs-section.md";
 import DocsFooter from "./notes/docs-footer.md";
 
@@ -37,38 +36,7 @@ Wrapper.parameters = {
 	notes: DocsWrapper
 };
 
-const Body = args => {
-	return (
-		<Box>
-			<BoxBody {...args} />
-		</Box>
-	);
-};
-Body.storyName = 'Box Body';
-Body.args = {};
-Body.argTypes = {};
-Body.parameters = {
-	notes: DocsBody
-};
-
-export { Wrapper, Body };
-
-export const body = () => {
-	return (
-		<Box>
-			<BoxBody>
-				<p>Box Body</p>
-			</BoxBody>
-		</Box>
-	);
-};
-body.storyName = "Box Body";
-body.parameters = {
-	controls: {
-		hideNoControlsWarning: true
-	},
-	notes: DocsBody
-};
+export { Wrapper };
 
 export const section = args => {
 	return (
