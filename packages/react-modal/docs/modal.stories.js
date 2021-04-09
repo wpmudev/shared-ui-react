@@ -7,30 +7,9 @@ export default {
 	title: "Containers/Modal",
 	component: Modal,
 };
+const Template = args => <Modal {...args}></Modal>;
 
-export const wrapper = args => {
-	return (
-		<Box>
-			<BoxHeader>
-				<BoxTitle>Modal</BoxTitle>
-			</BoxHeader>
-			<BoxBody>
-				<p>This is box body component. It can only be used inside{" "}</p>
-				<BoxSection
-					title="Section Title"
-					description="A brief description about this section goes here.">
-					<p>Section content goes here.</p>
-				</BoxSection>
-
-			</BoxBody>
-			<BoxFooter>
-				<Modal { ...args }>
-					<p>Something</p>
-				</Modal>
-			</BoxFooter>
-		</Box>
-	);
-};
+export const wrapper = Template.bind({});
 
 const headerContent = () =>{
 	return (
