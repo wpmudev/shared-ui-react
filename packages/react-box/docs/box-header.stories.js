@@ -25,7 +25,6 @@ SimpleHeader.args = {
 };
 SimpleHeader.argTypes = {
 	title: {
-		name: 'title',
 		type: {
 			name: 'string',
 			required: false
@@ -36,7 +35,6 @@ SimpleHeader.argTypes = {
 		}
 	},
 	titleIcon: {
-		name: 'titleIcon',
 		type: {
 			name: 'string',
 			required: false
@@ -47,7 +45,6 @@ SimpleHeader.argTypes = {
 		}
 	},
 	titleTagLabel: {
-		name: 'titleTagLabel',
 		type: {
 			name: 'string',
 			required: false
@@ -58,7 +55,6 @@ SimpleHeader.argTypes = {
 		}
 	},
 	titleTagColor: {
-        name: 'titleTagColor',
         type: {
             name: 'string',
             required: false
@@ -77,7 +73,6 @@ SimpleHeader.argTypes = {
 		}
 	},
 	titleTagSize: {
-        name: 'titleTagSize',
         type: {
             name: 'string',
             required: false
