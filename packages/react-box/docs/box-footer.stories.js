@@ -60,7 +60,6 @@ SingleAction.argTypes = {
             required: false
         },
         description: 'Description goes here...',
-        defaultValue: 30,
         control: {
             type: 'number',
             min: 0
@@ -73,7 +72,6 @@ SingleAction.argTypes = {
             required: false
         },
         description: 'Description goes here...',
-        defaultValue: 30,
         control: {
             type: 'number',
             min: 0
@@ -86,7 +84,6 @@ SingleAction.argTypes = {
             required: false
         },
         description: 'Description goes here...',
-        defaultValue: 30,
         control: {
             type: 'number',
             min: 0
@@ -99,7 +96,6 @@ SingleAction.argTypes = {
             required: false
         },
         description: 'Description goes here...',
-        defaultValue: 30,
         control: {
             type: 'number',
             min: 0
@@ -112,7 +108,6 @@ SingleAction.argTypes = {
             required: false
         },
         description: 'Description goes here...',
-        defaultValue: 1,
         control: {
             type: 'number',
             min: 0
