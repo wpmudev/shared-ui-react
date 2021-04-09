@@ -92,40 +92,85 @@ export const BoxTitle = ({
 };
 
 const Header = styled.div.attrs(props => ({ props }))`
-padding: ${utils.gutter_md / 2}px ${utils.gutter_md}px;
-border: 0 solid #E6E6E6;
-border-bottom-width: ${props => props.border || '1'}px;
+.sui-wrap && {
+	margin: 0;
+	padding-top: ${props => props.paddingTop || 0 === props.paddingTop
+		? ( props.paddingTop > 29
+			? props.paddingTop - 10
+			: props.paddingTop)
+		: (utils.gutter_md / 2)
+	}px;
+	padding-right: ${props => props.paddingRight || 0 === props.paddingRight
+		? ( props.paddingRight > 29
+			? props.paddingRight - 10
+			: props.paddingRight)
+		: utils.gutter_md
+	}px;
+	padding-bottom: ${props => props.paddingBottom || 0 === props.paddingBottom
+		? ( props.paddingBottom > 29
+			? props.paddingBottom - 10
+			: props.paddingBottom)
+		: (utils.gutter_md / 2)
+	}px;
+	padding-left: ${props => props.paddingLeft || 0 === props.paddingLeft
+		? ( props.paddingLeft > 29
+			? props.paddingLeft - 10
+			: props.paddingLeft)
+		: utils.gutter_md
+	}px;
+	border: 0 solid #E6E6E6;
+	border-bottom-width: ${props => props.borderBottom || 0 === props.borderBottom
+		? props.borderBottom
+		: 0
+	}px;
 
-@media ${device.tablet} {
-	display: ${props => props.stacked ? 'block' : 'flex'};
-	${props => props.stacked ? '' : 'flex-wrap: row nowrap;'}
-	padding: ${utils.gutter / 2}px ${utils.gutter}px;
+	@media ${device.tablet} {
+		padding-top: ${props => props.paddingTop || 0 === props.paddingTop
+			? props.paddingTop
+			: (utils.gutter / 2)
+		}px;
+		padding-right: ${props => props.paddingRight || 0 === props.paddingRight
+			? props.paddingRight
+			: utils.gutter
+		}px;
+		padding-bottom: ${props => props.paddingBottom || 0 === props.paddingBottom
+			? props.paddingBottom
+			: (utils.gutter / 2)
+		}px;
+		padding-left: ${props => props.paddingLeft || 0 === props.paddingLeft
+			? props.paddingLeft
+			: utils.gutter
+		}px;
+	}
 }
 `;
 
 export const BoxHeader = ({
-	title,
-	titleIcon,
-	titleTagLabel,
-	titleTagColor,
-	titleTagSize,
-	titleTagDesign,
+	title: {},
+	tag: {},
 	className,
 	children,
 	...props
 }) => {
+	if ( 'undefined' !== typeof title ) {
+		return (
+			<Header {...props}>
+				<BoxTitle
+					icon={title.icon}
+					tagLabel={tag.label}
+					tagColor={tag.color}
+					tagSize={tag.size}
+					tagDesign={tag.design}
+				>
+					{title.label}
+				</BoxTitle>
+				<div className="sui-actions-right">{children}</div>
+			</Header>
+		);
+	}
+
 	return (
 		<Header {...props}>
-			{title && '' !== title && (
-				<BoxTitle
-					icon={titleIcon}
-					tagLabel={titleTagLabel}
-					tagColor={titleTagColor}
-					tagSize={titleTagSize}
-					tagDesign={titleTagDesign}>
-					{title}
-				</BoxTitle>
-			)}
 			<div className="sui-actions-right">{children}</div>
 		</Header>
 	);
