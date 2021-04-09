@@ -158,22 +158,13 @@ const Body = styled.div.attrs(props => ({ props }))`
 			: props.paddingLeft)
 		: utils.gutter_md
 	}px;
-	border-style: solid;
-	border-color: #E6E6E6;
+	border: 0 solid #E6E6E6;
 	border-top-width: ${props => props.borderTop || 0 === props.borderTop
 		? props.borderTop
 		: 0
 	}px;
-	border-right-width: ${props => props.borderRight || 0 === props.borderRight
-		? props.borderRight
-		: 0
-	}px;
 	border-bottom-width: ${props => props.borderBottom || 0 === props.borderBottom
 		? props.borderBottom
-		: 0
-	}px;
-	border-left-width: ${props => props.borderLeft || 0 === props.borderLeft
-		? props.borderLeft
 		: 0
 	}px;
 	text-align: ${props => props.alignment || 'left'};

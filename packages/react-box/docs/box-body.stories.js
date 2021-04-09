@@ -93,29 +93,7 @@ DefaultBody.argTypes = {
 			min: 0
 		}
 	},
-	borderRight: {
-		type: {
-			name: 'string',
-			required: false
-		},
-		description: 'Description goes here...',
-		control: {
-			type: 'number',
-			min: 0
-		}
-	},
 	borderBottom: {
-		type: {
-			name: 'string',
-			required: false
-		},
-		description: 'Description goes here...',
-		control: {
-			type: 'number',
-			min: 0
-		}
-	},
-	borderLeft: {
 		type: {
 			name: 'string',
 			required: false
