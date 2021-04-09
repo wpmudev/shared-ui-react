@@ -18,10 +18,10 @@ const Template = args => {
 	);
 };
 
-export const SimpleFooter = Template.bind({});
-SimpleFooter.storyName = 'Single Action';
-SimpleFooter.args = {};
-SimpleFooter.argTypes = {
+export const SingleAction = Template.bind({});
+SingleAction.storyName = 'Single Action';
+SingleAction.args = {};
+SingleAction.argTypes = {
     display: {
         name: 'Display',
         type: {
@@ -48,7 +48,8 @@ SimpleFooter.argTypes = {
             type: 'select',
             options: {
                 default: '',
-                center: 'center'
+                center: 'center',
+                right: 'right',
             }
         },
     },
@@ -132,9 +133,29 @@ SimpleFooter.argTypes = {
         defaultValue: <Button label="Save Changes" color="blue" />
     }
 };
-SimpleFooter.parameters = {
+SingleAction.parameters = {
     notes: DocsFooter,
     controls: {
         hideNoControlsWarning: true
+    }
+};
+
+export const DoubleAction = Template.bind({});
+DoubleAction.storyName = 'Double Action';
+DoubleAction.args = {};
+DoubleAction.argTypes = {
+    ...SingleAction.argTypes,
+    children: {
+        defaultValue: <><Button label="Save Changes" color="blue" /><Button label="Cancel" icon="close" design="ghost" /></>
+    }
+};
+
+export const JointActions = Template.bind({});
+JointActions.storyName = 'Joint Actions';
+JointActions.args = {};
+JointActions.argTypes = {
+    ...SingleAction.argTypes,
+    children: {
+        defaultValue: <><p className="sui-description" style={ { marginTop: 5, marginBottom: 5 } }>Save your progress</p><div><Button label="Save Changes" color="blue" /><Button label="Draft Changes" design="ghost" /></div></>
     }
 };
