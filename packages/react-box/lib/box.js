@@ -119,9 +119,9 @@ const Header = styled.div.attrs(props => ({ props }))`
 		: utils.gutter_md
 	}px;
 	border: 0 solid #E6E6E6;
-	border-bottom-width: ${props => props.borderBottom || 0 === props.borderBottom
-		? props.borderBottom
-		: 0
+	border-bottom-width: ${props => props.border || 0 === props.border
+		? props.border
+		: 1
 	}px;
 
 	@media ${device.tablet} {
