@@ -1,9 +1,7 @@
 import React, { useEffect } from "react";
 import AriaModal from "@justfixnyc/react-aria-modal";
-import { Box, BoxHeader, BoxBody, BoxFooter } from "../../react-box/lib/box";
-import { ButtonIcon } from "../../react-button-icon/lib/react-button-icon";
 
-export const Modal = ({ headerContent, bodyContent, footerContent, triggerContent, ...props }) => {
+export const Modal = ({ renderContent, triggerContent, ...props }) => {
 
 	const [ isOpen, setIsOpen ] = React.useState( false );
 	const [ isClosing, setIsClosing ] = React.useState( false );
@@ -43,33 +41,7 @@ export const Modal = ({ headerContent, bodyContent, footerContent, triggerConten
 			initialFocus={ initialFocus }
 			{ ...props }
 			>
-			<Box>
-				{ headerContent && (
-					<BoxHeader { ...props.headerArgs }>
-						<div className="sui-actions-right">
-							<ButtonIcon
-								id={ `${ props.dialogId }-header-close-button` }
-								label="Close this dialog window"
-								icon="close"
-								iconSize="md"
-								extraClasses="sui-button-float--right sui-md"
-								onClick={ closeModal }
-							/>
-						</div>
-						{ headerContent( { closeModal } ) }
-					</BoxHeader>
-				) }
-				{ bodyContent && (
-					<BoxBody { ...props.bodyArgs }>
-						{ bodyContent( { closeModal } ) }
-					</BoxBody>
-				) }
-				{ footerContent && (
-					<BoxFooter { ...props.footerArgs }>
-						{ footerContent( { closeModal } ) }
-					</BoxFooter>
-				) }
-			</Box>
+			{ renderContent( { closeModal } )}
 		</AltLocationModal>
 		: false;
 
