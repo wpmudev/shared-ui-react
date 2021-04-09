@@ -1,6 +1,25 @@
 # Changelog
 
-## Unreleased (2021-04-08)
+## Unreleased (2021-04-09)
+
+#### New Features
+* `react-box`
+  * [#83](https://github.com/wpmudev/shared-ui-react/pull/83) ✨ new(react-box): Make `body` more flexible with props. ([@iamleigh](https://github.com/iamleigh))
+  * [#80](https://github.com/wpmudev/shared-ui-react/pull/80) ✨ new(react-box): Make footer more flexible. ([@iamleigh](https://github.com/iamleigh))
+
+#### Bug Fixes
+* `react-box`
+  * [#84](https://github.com/wpmudev/shared-ui-react/pull/84) 🐛 fix(react-box): Reestructure `header` props. ([@iamleigh](https://github.com/iamleigh))
+
+#### Documentation
+* `react-button`
+  * [#79](https://github.com/wpmudev/shared-ui-react/pull/79) 📝 docs(react-button): Fix not working controls and add more properties. ([@a-danae](https://github.com/a-danae))
+
+#### Committers: 2
+- Danae Millan ([@a-danae](https://github.com/a-danae))
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+
+## Released (2021-04-08)
 
 #### New Features
 * `react-box`
