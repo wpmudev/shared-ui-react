@@ -176,16 +176,18 @@ export const BoxHeader = ({
 }) => {
 	return (
 		<Header {...props}>
-			<BoxTitle
-				icon={titleIcon}
-				tagLabel={tagLabel}
-				tagColor={tagColor}
-				tagSize={tagSize}
-				tagDesign={tagDesign}
-			>
-				{title}
-			</BoxTitle>
-			<div className="sui-actions-right">{children}</div>
+			{title && '' !== title && (
+				<BoxTitle
+					icon={titleIcon}
+					tagLabel={tagLabel}
+					tagColor={tagColor}
+					tagSize={tagSize}
+					tagDesign={tagDesign}
+				>
+					{title}
+				</BoxTitle>
+			)}
+			{children}
 		</Header>
 	);
 };
