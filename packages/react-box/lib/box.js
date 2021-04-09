@@ -241,7 +241,6 @@ export const BoxBody = ({ className, children, ...props }) => {
 
 const Footer = styled.div.attrs(props => ({ props }))`
 .sui-wrap && {
-	flex-flow: row wrap;
 	display: ${props => 'block' !== props.display ? 'flex' : 'block' };
 	${props => 'block' !== props.display && 'flex-flow: row wrap;' }
 	${props => 'block' !== props.display && ( 'left' === props.alignment || 'right' === props.alignment || 'center' === props.alignment )
