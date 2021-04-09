@@ -8,9 +8,9 @@ export const Box = ({ children, ...props }) => {
 	);
 };
 
-export const BoxTitle = ({ icon, extraClasses, children, ...props }) => {
+export const BoxTitle = ({ icon, children, ...props }) => {
 	return (
-		<h3 className={`sui-box-title ${extraClasses}`} {...props}>
+		<h3 className="sui-box-title" {...props}>
 			{icon && "" !== icon && (
 				<span className={`sui-icon-${icon} sui-md`} aria-hidden="true" />
 			)}
@@ -19,12 +19,12 @@ export const BoxTitle = ({ icon, extraClasses, children, ...props }) => {
 	);
 };
 
-export const BoxHeader = ({ title, titleIcon, extraClasses, children, ...props }) => {
+export const BoxHeader = ({ title, titleIcon, children, ...props }) => {
 	return (
-		<div className={`sui-box-header ${extraClasses || '' }`} {...props}>
+		<div className="sui-box-header" {...props}>
 			{title && "" !== title && <BoxTitle icon={titleIcon}>{title}</BoxTitle>}
 
-			{children}
+			<div className="sui-actions-right">{children}</div>
 		</div>
 	);
 };
