@@ -44,22 +44,26 @@ export const Modal = ({ headerContent, bodyContent, footerContent, triggerConten
 			{ ...props }
 			>
 			<Box>
-				<BoxHeader { ...props.headerArgs }>
-					<div className="sui-actions-right">
-						<ButtonIcon
-							id={ `${ props.dialogId }-header-close-button` }
-							label="Close this dialog window"
-							icon="close"
-							iconSize="md"
-							extraClasses="sui-button-float--right sui-md"
-							onClick={ closeModal }
-						/>
-					</div>
-					{ headerContent( { closeModal } ) }
-				</BoxHeader>
-				<BoxBody { ...props.bodyArgs }>
-					{ bodyContent( { closeModal } ) }
-				</BoxBody>
+				{ headerContent && (
+					<BoxHeader { ...props.headerArgs }>
+						<div className="sui-actions-right">
+							<ButtonIcon
+								id={ `${ props.dialogId }-header-close-button` }
+								label="Close this dialog window"
+								icon="close"
+								iconSize="md"
+								extraClasses="sui-button-float--right sui-md"
+								onClick={ closeModal }
+							/>
+						</div>
+						{ headerContent( { closeModal } ) }
+					</BoxHeader>
+				) }
+				{ bodyContent && (
+					<BoxBody { ...props.bodyArgs }>
+						{ bodyContent( { closeModal } ) }
+					</BoxBody>
+				) }
 				{ footerContent && (
 					<BoxFooter { ...props.footerArgs }>
 						{ footerContent( { closeModal } ) }
