@@ -201,7 +201,7 @@ TagHeader.argTypes = {
 export const ActionHeader = Template.bind({});
 ActionHeader.storyName = 'Title with Content';
 ActionHeader.args = {
-	alignment: 'right'
+	...SimpleHeader.args
 };
 ActionHeader.argTypes = {
     ...SimpleHeader.argTypes,
@@ -212,7 +212,9 @@ ActionHeader.argTypes = {
 
 export const UntitledHeader = Template.bind({});
 UntitledHeader.storyName = 'Content Only';
-UntitledHeader.args = {};
+UntitledHeader.args = {
+	alignment: 'right'
+};
 UntitledHeader.argTypes = {
     ...SimpleHeader.argTypes,
     children: {
