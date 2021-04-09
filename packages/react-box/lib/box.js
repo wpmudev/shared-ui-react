@@ -92,24 +92,84 @@ export const BoxTitle = ({
 };
 
 const Header = styled.div.attrs(props => ({ props }))`
-padding: ${utils.gutter_md / 2}px ${utils.gutter_md}px;
-border: 0 solid #E6E6E6;
-border-bottom-width: ${props => props.border || '1'}px;
+.sui-wrap && {
+	display: ${props => 'block' !== props.display ? 'flex' : 'block' };
+	${props => 'block' !== props.display && 'flex-flow: row wrap;' }
+	${props => 'block' !== props.display && ( 'left' === props.alignment || 'right' === props.alignment || 'center' === props.alignment )
+		? ( 'left' === props.alignment
+			? 'justify-content: flex-start;'
+			: ( 'right' === props.alignment
+				? 'justify-content: flex-end;'
+				: 'justify-content: center;'
+			)
+		)
+		: 'justify-content: space-between;'
+	}
+	margin: 0;
+	padding-top: ${props => props.paddingTop || 0 === props.paddingTop
+		? ( props.paddingTop > 29
+			? props.paddingTop - 10
+			: props.paddingTop)
+		: (utils.gutter_md / 2)
+	}px;
+	padding-right: ${props => props.paddingRight || 0 === props.paddingRight
+		? ( props.paddingRight > 29
+			? props.paddingRight - 10
+			: props.paddingRight)
+		: utils.gutter_md
+	}px;
+	padding-bottom: ${props => props.paddingBottom || 0 === props.paddingBottom
+		? ( props.paddingBottom > 29
+			? props.paddingBottom - 10
+			: props.paddingBottom)
+		: (utils.gutter_md / 2)
+	}px;
+	padding-left: ${props => props.paddingLeft || 0 === props.paddingLeft
+		? ( props.paddingLeft > 29
+			? props.paddingLeft - 10
+			: props.paddingLeft)
+		: utils.gutter_md
+	}px;
+	border: 0 solid #E6E6E6;
+	border-bottom-width: ${props => props.border || 0 === props.border
+		? props.border
+		: 1
+	}px;
+	${props => 'block' === props.display && ( 'right' === props.alignment || 'center' === props.alignment ) &&
+		'text-align: ' + props.alignment + ';'
+	}
 
-@media ${device.tablet} {
-	display: ${props => props.stacked ? 'block' : 'flex'};
-	${props => props.stacked ? '' : 'flex-wrap: row nowrap;'}
-	padding: ${utils.gutter / 2}px ${utils.gutter}px;
+	${props => 'block' !== props.display && '> * { max-width: 100%; flex: 0 0 auto; }' }
+	${props => 'block' !== props.display && '> * + * { margin-left: 10px; }' }
+
+	@media ${device.tablet} {
+		padding-top: ${props => props.paddingTop || 0 === props.paddingTop
+			? props.paddingTop
+			: (utils.gutter / 2)
+		}px;
+		padding-right: ${props => props.paddingRight || 0 === props.paddingRight
+			? props.paddingRight
+			: utils.gutter
+		}px;
+		padding-bottom: ${props => props.paddingBottom || 0 === props.paddingBottom
+			? props.paddingBottom
+			: (utils.gutter / 2)
+		}px;
+		padding-left: ${props => props.paddingLeft || 0 === props.paddingLeft
+			? props.paddingLeft
+			: utils.gutter
+		}px;
+	}
 }
 `;
 
 export const BoxHeader = ({
 	title,
 	titleIcon,
-	titleTagLabel,
-	titleTagColor,
-	titleTagSize,
-	titleTagDesign,
+	tagLabel,
+	tagColor,
+	tagSize,
+	tagDesign,
 	className,
 	children,
 	...props
@@ -119,14 +179,15 @@ export const BoxHeader = ({
 			{title && '' !== title && (
 				<BoxTitle
 					icon={titleIcon}
-					tagLabel={titleTagLabel}
-					tagColor={titleTagColor}
-					tagSize={titleTagSize}
-					tagDesign={titleTagDesign}>
+					tagLabel={tagLabel}
+					tagColor={tagColor}
+					tagSize={tagSize}
+					tagDesign={tagDesign}
+				>
 					{title}
 				</BoxTitle>
 			)}
-			<div className="sui-actions-right">{children}</div>
+			{children}
 		</Header>
 	);
 };
@@ -200,7 +261,6 @@ export const BoxBody = ({ className, children, ...props }) => {
 
 const Footer = styled.div.attrs(props => ({ props }))`
 .sui-wrap && {
-	flex-flow: row wrap;
 	display: ${props => 'block' !== props.display ? 'flex' : 'block' };
 	${props => 'block' !== props.display && 'flex-flow: row wrap;' }
 	${props => 'block' !== props.display && ( 'left' === props.alignment || 'right' === props.alignment || 'center' === props.alignment )

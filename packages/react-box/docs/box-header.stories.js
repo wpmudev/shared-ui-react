@@ -25,7 +25,6 @@ SimpleHeader.args = {
 };
 SimpleHeader.argTypes = {
 	title: {
-		name: 'title',
 		type: {
 			name: 'string',
 			required: false
@@ -36,7 +35,6 @@ SimpleHeader.argTypes = {
 		}
 	},
 	titleIcon: {
-		name: 'titleIcon',
 		type: {
 			name: 'string',
 			required: false
@@ -46,8 +44,7 @@ SimpleHeader.argTypes = {
 			type: 'text'
 		}
 	},
-	titleTagLabel: {
-		name: 'titleTagLabel',
+	tagLabel: {
 		type: {
 			name: 'string',
 			required: false
@@ -57,8 +54,7 @@ SimpleHeader.argTypes = {
 			type: 'text'
 		}
 	},
-	titleTagColor: {
-        name: 'titleTagColor',
+	tagColor: {
         type: {
             name: 'string',
             required: false
@@ -76,8 +72,7 @@ SimpleHeader.argTypes = {
 			}
 		}
 	},
-	titleTagSize: {
-        name: 'titleTagSize',
+	tagSize: {
         type: {
             name: 'string',
             required: false
@@ -90,7 +85,91 @@ SimpleHeader.argTypes = {
 				small: 'small',
 			}
 		}
-	}
+	},
+	display: {
+        type: {
+            name: 'string',
+            required: false
+        },
+        description: 'Description goes here...',
+        control: {
+            type: 'select',
+            options: {
+                block: 'block',
+                inline: 'inline'
+            }
+        },
+    },
+    alignment: {
+        type: {
+            name: 'string',
+            required: false
+        },
+        description: 'Description goes here...',
+        control: {
+            type: 'select',
+            options: {
+                default: '',
+                center: 'center',
+                right: 'right',
+            }
+        },
+    },
+	paddingTop: {
+		type: {
+			name: 'string',
+			required: false
+		},
+		description: 'Description goes here...',
+		control: {
+			type: 'number',
+			min: 0
+		}
+	},
+	paddingRight: {
+		type: {
+			name: 'string',
+			required: false
+		},
+		description: 'Description goes here...',
+		control: {
+			type: 'number',
+			min: 0
+		}
+	},
+	paddingBottom: {
+		type: {
+			name: 'string',
+			required: false
+		},
+		description: 'Description goes here...',
+		control: {
+			type: 'number',
+			min: 0
+		}
+	},
+	paddingLeft: {
+		type: {
+			name: 'string',
+			required: false
+		},
+		description: 'Description goes here...',
+		control: {
+			type: 'number',
+			min: 0
+		}
+	},
+	border: {
+		type: {
+			name: 'string',
+			required: false
+		},
+		description: 'Description goes here...',
+		control: {
+			type: 'number',
+			min: 0
+		}
+	},
 };
 SimpleHeader.parameters = {
     notes: DocsHeader
@@ -111,9 +190,9 @@ TagHeader.storyName = 'Title with Tag';
 TagHeader.args = {
     ...SimpleHeader.args,
     titleIcon: '',
-    titleTagLabel: 'Pro',
-    titleTagColor: 'purple',
-    titleTagSize: 'sm'
+    tagLabel: 'Pro',
+    tagColor: 'purple',
+    tagSize: 'sm'
 };
 TagHeader.argTypes = {
     ...SimpleHeader.argTypes
@@ -121,7 +200,9 @@ TagHeader.argTypes = {
 
 export const ActionHeader = Template.bind({});
 ActionHeader.storyName = 'Title with Content';
-ActionHeader.args = {};
+ActionHeader.args = {
+	...SimpleHeader.args
+};
 ActionHeader.argTypes = {
     ...SimpleHeader.argTypes,
     children: {
@@ -131,7 +212,9 @@ ActionHeader.argTypes = {
 
 export const UntitledHeader = Template.bind({});
 UntitledHeader.storyName = 'Content Only';
-UntitledHeader.args = {};
+UntitledHeader.args = {
+	alignment: 'right'
+};
 UntitledHeader.argTypes = {
     ...SimpleHeader.argTypes,
     children: {
