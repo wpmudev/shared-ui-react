@@ -85,7 +85,62 @@ SimpleHeader.argTypes = {
 				small: 'small',
 			}
 		}
-	}
+	},
+	paddingTop: {
+		type: {
+			name: 'string',
+			required: false
+		},
+		description: 'Description goes here...',
+		control: {
+			type: 'number',
+			min: 0
+		}
+	},
+	paddingRight: {
+		type: {
+			name: 'string',
+			required: false
+		},
+		description: 'Description goes here...',
+		control: {
+			type: 'number',
+			min: 0
+		}
+	},
+	paddingBottom: {
+		type: {
+			name: 'string',
+			required: false
+		},
+		description: 'Description goes here...',
+		control: {
+			type: 'number',
+			min: 0
+		}
+	},
+	paddingLeft: {
+		type: {
+			name: 'string',
+			required: false
+		},
+		description: 'Description goes here...',
+		control: {
+			type: 'number',
+			min: 0
+		}
+	},
+	border: {
+		type: {
+			name: 'string',
+			required: false
+		},
+		description: 'Description goes here...',
+		control: {
+			type: 'number',
+			min: 0
+		}
+	},
 };
 SimpleHeader.parameters = {
     notes: DocsHeader
