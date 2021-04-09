@@ -67,8 +67,28 @@ function _taggedTemplateLiteral(strings, raw) {
   }));
 }
 
+function _templateObject3() {
+  var data = _taggedTemplateLiteral(["\n.sui-wrap && {\n\tdisplay: ", ";\n\t", "\n\t", "\n\tmargin: 0;\n\tpadding-top: ", "px;\n\tpadding-right: ", "px;\n\tpadding-bottom: ", "px;\n\tpadding-left: ", "px;\n\tborder: 0 solid #E6E6E6;\n\tborder-top-width: ", "px;\n\t", "\n\n\t", "\n\t", "\n\n\t@media ", " {\n\t\tpadding-top: ", "px;\n\t\tpadding-right: ", "px;\n\t\tpadding-bottom: ", "px;\n\t\tpadding-left: ", "px;\n\t}\n}\n"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["\n.sui-wrap && {\n\tmargin: 0;\n\tpadding-top: ", "px;\n\tpadding-right: ", "px;\n\tpadding-bottom: ", "px;\n\tpadding-left: ", "px;\n\tborder: 0 solid #E6E6E6;\n\tborder-top-width: ", "px;\n\tborder-bottom-width: ", "px;\n\ttext-align: ", ";\n\n\t@media ", " {\n\t\tpadding-top: ", "px;\n\t\tpadding-right: ", "px;\n\t\tpadding-bottom: ", "px;\n\t\tpadding-left: ", "px;\n\t}\n}\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\npadding: ", "px ", "px;\nborder: 0 solid #E6E6E6;\nborder-bottom-width: ", "px;\n\n@media ", " {\n\tdisplay: ", ";\n\t", "\n\tpadding: ", "px ", "px;\n}\n"]);
+  var data = _taggedTemplateLiteral(["\n.sui-wrap && {\n\tdisplay: ", ";\n\t", "\n\t", "\n\tmargin: 0;\n\tpadding-top: ", "px;\n\tpadding-right: ", "px;\n\tpadding-bottom: ", "px;\n\tpadding-left: ", "px;\n\tborder: 0 solid #E6E6E6;\n\tborder-bottom-width: ", "px;\n\t", "\n\n\t", "\n\t", "\n\n\t@media ", " {\n\t\tpadding-top: ", "px;\n\t\tpadding-right: ", "px;\n\t\tpadding-bottom: ", "px;\n\t\tpadding-left: ", "px;\n\t}\n}\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -153,50 +173,134 @@ var Header = styled.div.attrs(function (props) {
   return {
     props: props
   };
-})(_templateObject(), utils.gutter_md / 2, utils.gutter_md, function (props) {
-  return props.border || '1';
-}, device.tablet, function (props) {
-  return props.stacked ? 'block' : 'flex';
+})(_templateObject(), function (props) {
+  return 'block' !== props.display ? 'flex' : 'block';
 }, function (props) {
-  return props.stacked ? '' : 'flex-wrap: row nowrap;';
-}, utils.gutter / 2, utils.gutter);
+  return 'block' !== props.display && 'flex-flow: row wrap;';
+}, function (props) {
+  return 'block' !== props.display && ('left' === props.alignment || 'right' === props.alignment || 'center' === props.alignment) ? 'left' === props.alignment ? 'justify-content: flex-start;' : 'right' === props.alignment ? 'justify-content: flex-end;' : 'justify-content: center;' : 'justify-content: space-between;';
+}, function (props) {
+  return props.paddingTop || 0 === props.paddingTop ? props.paddingTop > 29 ? props.paddingTop - 10 : props.paddingTop : utils.gutter_md / 2;
+}, function (props) {
+  return props.paddingRight || 0 === props.paddingRight ? props.paddingRight > 29 ? props.paddingRight - 10 : props.paddingRight : utils.gutter_md;
+}, function (props) {
+  return props.paddingBottom || 0 === props.paddingBottom ? props.paddingBottom > 29 ? props.paddingBottom - 10 : props.paddingBottom : utils.gutter_md / 2;
+}, function (props) {
+  return props.paddingLeft || 0 === props.paddingLeft ? props.paddingLeft > 29 ? props.paddingLeft - 10 : props.paddingLeft : utils.gutter_md;
+}, function (props) {
+  return props.border || 0 === props.border ? props.border : 1;
+}, function (props) {
+  return 'block' === props.display && ('right' === props.alignment || 'center' === props.alignment) && 'text-align: ' + props.alignment + ';';
+}, function (props) {
+  return 'block' !== props.display && '> * { max-width: 100%; flex: 0 0 auto; }';
+}, function (props) {
+  return 'block' !== props.display && '> * + * { margin-left: 10px; }';
+}, device.tablet, function (props) {
+  return props.paddingTop || 0 === props.paddingTop ? props.paddingTop : utils.gutter / 2;
+}, function (props) {
+  return props.paddingRight || 0 === props.paddingRight ? props.paddingRight : utils.gutter;
+}, function (props) {
+  return props.paddingBottom || 0 === props.paddingBottom ? props.paddingBottom : utils.gutter / 2;
+}, function (props) {
+  return props.paddingLeft || 0 === props.paddingLeft ? props.paddingLeft : utils.gutter;
+});
 var BoxHeader = function BoxHeader(_ref3) {
   var title = _ref3.title,
       titleIcon = _ref3.titleIcon,
-      titleTagLabel = _ref3.titleTagLabel,
-      titleTagColor = _ref3.titleTagColor,
-      titleTagSize = _ref3.titleTagSize,
-      titleTagDesign = _ref3.titleTagDesign,
+      tagLabel = _ref3.tagLabel,
+      tagColor = _ref3.tagColor,
+      tagSize = _ref3.tagSize,
+      tagDesign = _ref3.tagDesign,
       className = _ref3.className,
       children = _ref3.children,
-      props = _objectWithoutProperties(_ref3, ["title", "titleIcon", "titleTagLabel", "titleTagColor", "titleTagSize", "titleTagDesign", "className", "children"]);
+      props = _objectWithoutProperties(_ref3, ["title", "titleIcon", "tagLabel", "tagColor", "tagSize", "tagDesign", "className", "children"]);
 
   return /*#__PURE__*/React.createElement(Header, props, title && '' !== title && /*#__PURE__*/React.createElement(BoxTitle, {
     icon: titleIcon,
-    tagLabel: titleTagLabel,
-    tagColor: titleTagColor,
-    tagSize: titleTagSize,
-    tagDesign: titleTagDesign
-  }, title), /*#__PURE__*/React.createElement("div", {
-    className: "sui-actions-right"
-  }, children));
+    tagLabel: tagLabel,
+    tagColor: tagColor,
+    tagSize: tagSize,
+    tagDesign: tagDesign
+  }, title), children);
 };
+var Body = styled.div.attrs(function (props) {
+  return {
+    props: props
+  };
+})(_templateObject2(), function (props) {
+  return props.paddingTop || 0 === props.paddingTop ? props.paddingTop > 29 ? props.paddingTop - 10 : props.paddingTop : utils.gutter_md;
+}, function (props) {
+  return props.paddingRight || 0 === props.paddingRight ? props.paddingRight > 29 ? props.paddingRight - 10 : props.paddingRight : utils.gutter_md;
+}, function (props) {
+  return props.paddingBottom || 0 === props.paddingBottom ? props.paddingBottom > 29 ? props.paddingBottom - 10 : props.paddingBottom : utils.gutter_md;
+}, function (props) {
+  return props.paddingLeft || 0 === props.paddingLeft ? props.paddingLeft > 29 ? props.paddingLeft - 10 : props.paddingLeft : utils.gutter_md;
+}, function (props) {
+  return props.borderTop || 0 === props.borderTop ? props.borderTop : 0;
+}, function (props) {
+  return props.borderBottom || 0 === props.borderBottom ? props.borderBottom : 0;
+}, function (props) {
+  return props.alignment || 'left';
+}, device.tablet, function (props) {
+  return props.paddingTop || 0 === props.paddingTop ? props.paddingTop : utils.gutter;
+}, function (props) {
+  return props.paddingRight || 0 === props.paddingRight ? props.paddingRight : utils.gutter;
+}, function (props) {
+  return props.paddingBottom || 0 === props.paddingBottom ? props.paddingBottom : utils.gutter;
+}, function (props) {
+  return props.paddingLeft || 0 === props.paddingLeft ? props.paddingLeft : utils.gutter;
+});
 var BoxBody = function BoxBody(_ref4) {
   var className = _ref4.className,
       children = _ref4.children,
       props = _objectWithoutProperties(_ref4, ["className", "children"]);
 
-  return /*#__PURE__*/React.createElement("div", _extends({
-    className: 'undefined' !== typeof className && '' !== className ? "sui-box-body ".concat(className) : 'sui-box-body'
+  return /*#__PURE__*/React.createElement(Body, _extends({
+    className: className
   }, props), children);
 };
+var Footer = styled.div.attrs(function (props) {
+  return {
+    props: props
+  };
+})(_templateObject3(), function (props) {
+  return 'block' !== props.display ? 'flex' : 'block';
+}, function (props) {
+  return 'block' !== props.display && 'flex-flow: row wrap;';
+}, function (props) {
+  return 'block' !== props.display && ('left' === props.alignment || 'right' === props.alignment || 'center' === props.alignment) ? 'left' === props.alignment ? 'justify-content: flex-start;' : 'right' === props.alignment ? 'justify-content: flex-end;' : 'justify-content: center;' : 'justify-content: space-between;';
+}, function (props) {
+  return props.paddingTop || 0 === props.paddingTop ? props.paddingTop > 29 ? props.paddingTop - 10 : props.paddingTop : utils.gutter_md;
+}, function (props) {
+  return props.paddingRight || 0 === props.paddingRight ? props.paddingRight > 29 ? props.paddingRight - 10 : props.paddingRight : utils.gutter_md;
+}, function (props) {
+  return props.paddingBottom || 0 === props.paddingBottom ? props.paddingBottom > 29 ? props.paddingBottom - 10 : props.paddingBottom : utils.gutter_md;
+}, function (props) {
+  return props.paddingLeft || 0 === props.paddingLeft ? props.paddingLeft > 29 ? props.paddingLeft - 10 : props.paddingLeft : utils.gutter_md;
+}, function (props) {
+  return props.border || 0 === props.border || '' === props.border ? props.border : 1;
+}, function (props) {
+  return 'block' === props.display && ('right' === props.alignment || 'center' === props.alignment) && 'text-align: ' + props.alignment + ';';
+}, function (props) {
+  return 'block' !== props.display && '> * { max-width: 100%; flex: 0 0 auto; }';
+}, function (props) {
+  return 'block' !== props.display && '> * + * { margin-left: 10px; }';
+}, device.tablet, function (props) {
+  return props.paddingTop || 0 === props.paddingTop ? props.paddingTop : utils.gutter;
+}, function (props) {
+  return props.paddingRight || 0 === props.paddingRight ? props.paddingRight : utils.gutter;
+}, function (props) {
+  return props.paddingBottom || 0 === props.paddingBottom ? props.paddingBottom : utils.gutter;
+}, function (props) {
+  return props.paddingLeft || 0 === props.paddingLeft ? props.paddingLeft : utils.gutter;
+});
 var BoxFooter = function BoxFooter(_ref5) {
   var className = _ref5.className,
       children = _ref5.children,
       props = _objectWithoutProperties(_ref5, ["className", "children"]);
 
-  return /*#__PURE__*/React.createElement("div", _extends({
-    className: 'undefined' !== typeof className && '' !== className ? "sui-box-footer ".concat(className) : 'sui-box-footer'
+  return /*#__PURE__*/React.createElement(Footer, _extends({
+    className: className
   }, props), children);
 };
 var BoxSection = function BoxSection(_ref6) {
