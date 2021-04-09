@@ -146,31 +146,27 @@ const Header = styled.div.attrs(props => ({ props }))`
 `;
 
 export const BoxHeader = ({
-	title: {},
-	tag: {},
+	title,
+	titleIcon,
+	tagLabel,
+	tagColor,
+	tagSize,
+	tagDesign,
 	className,
 	children,
 	...props
 }) => {
-	if ( 'undefined' !== typeof title ) {
-		return (
-			<Header {...props}>
-				<BoxTitle
-					icon={title.icon}
-					tagLabel={tag.label}
-					tagColor={tag.color}
-					tagSize={tag.size}
-					tagDesign={tag.design}
-				>
-					{title.label}
-				</BoxTitle>
-				<div className="sui-actions-right">{children}</div>
-			</Header>
-		);
-	}
-
 	return (
 		<Header {...props}>
+			<BoxTitle
+				icon={titleIcon}
+				tagLabel={tagLabel}
+				tagColor={tagColor}
+				tagSize={tagSize}
+				tagDesign={tagDesign}
+			>
+				{title}
+			</BoxTitle>
 			<div className="sui-actions-right">{children}</div>
 		</Header>
 	);
