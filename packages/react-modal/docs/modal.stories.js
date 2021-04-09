@@ -14,9 +14,8 @@ export const wrapper = Template.bind({});
 
 const headerContent = ( { closeModal } ) =>{
 	return (
-		<BoxHeader extraClasses="sui-flatten sui-content-center sui-spacing-top--60">
-			<div className="sui-actions-right">
-				<ButtonIcon
+		<BoxHeader title="Box Title" extraClasses="sui-flatten sui-content-center sui-spacing-top--60">
+			<ButtonIcon
 					id="le-dialog-id-header-close-button"
 					label="Close this dialog window"
 					icon="close"
@@ -24,9 +23,6 @@ const headerContent = ( { closeModal } ) =>{
 					extraClasses="sui-button-float--right sui-md"
 					onClick={ closeModal }
 				/>
-			</div>
-			<BoxTitle id="sui-modal-one-title" extraClasses="sui-lg">Import</BoxTitle>
-			<p id="sui-dialog-one-description" className="sui-description">Choose the configuration file and the settings you want to import.</p>
 		</BoxHeader>
 	)
 };
