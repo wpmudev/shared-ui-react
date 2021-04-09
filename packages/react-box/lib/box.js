@@ -93,6 +93,18 @@ export const BoxTitle = ({
 
 const Header = styled.div.attrs(props => ({ props }))`
 .sui-wrap && {
+	display: ${props => 'block' !== props.display ? 'flex' : 'block' };
+	${props => 'block' !== props.display && 'flex-flow: row wrap;' }
+	${props => 'block' !== props.display && ( 'left' === props.alignment || 'right' === props.alignment || 'center' === props.alignment )
+		? ( 'left' === props.alignment
+			? 'justify-content: flex-start;'
+			: ( 'right' === props.alignment
+				? 'justify-content: flex-end;'
+				: 'justify-content: center;'
+			)
+		)
+		: 'justify-content: space-between;'
+	}
 	margin: 0;
 	padding-top: ${props => props.paddingTop || 0 === props.paddingTop
 		? ( props.paddingTop > 29
@@ -123,6 +135,12 @@ const Header = styled.div.attrs(props => ({ props }))`
 		? props.border
 		: 1
 	}px;
+	${props => 'block' === props.display && ( 'right' === props.alignment || 'center' === props.alignment ) &&
+		'text-align: ' + props.alignment + ';'
+	}
+
+	${props => 'block' !== props.display && '> * { max-width: 100%; flex: 0 0 auto; }' }
+	${props => 'block' !== props.display && '> * + * { margin-left: 10px; }' }
 
 	@media ${device.tablet} {
 		padding-top: ${props => props.paddingTop || 0 === props.paddingTop
