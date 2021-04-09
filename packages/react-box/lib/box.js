@@ -131,28 +131,82 @@ export const BoxHeader = ({
 	);
 };
 
+const Body = styled.div.attrs(props => ({ props }))`
+.sui-wrap && {
+	margin: 0;
+	padding-top: ${props => props.paddingTop || 0 === props.paddingTop
+		? ( props.paddingTop > 29
+			? props.paddingTop - 10
+			: props.paddingTop)
+		: utils.gutter_md
+	}px;
+	padding-right: ${props => props.paddingRight || 0 === props.paddingRight
+		? ( props.paddingRight > 29
+			? props.paddingRight - 10
+			: props.paddingRight)
+		: utils.gutter_md
+	}px;
+	padding-bottom: ${props => props.paddingBottom || 0 === props.paddingBottom
+		? ( props.paddingBottom > 29
+			? props.paddingBottom - 10
+			: props.paddingBottom)
+		: utils.gutter_md
+	}px;
+	padding-left: ${props => props.paddingLeft || 0 === props.paddingLeft
+		? ( props.paddingLeft > 29
+			? props.paddingLeft - 10
+			: props.paddingLeft)
+		: utils.gutter_md
+	}px;
+	border-style: solid;
+	border-color: #E6E6E6;
+	border-top-width: ${props => props.borderTop || 0 === props.borderTop
+		? props.borderTop
+		: 0
+	}px;
+	border-right-width: ${props => props.borderRight || 0 === props.borderRight
+		? props.borderRight
+		: 0
+	}px;
+	border-bottom-width: ${props => props.borderBottom || 0 === props.borderBottom
+		? props.borderBottom
+		: 0
+	}px;
+	border-left-width: ${props => props.borderLeft || 0 === props.borderLeft
+		? props.borderLeft
+		: 0
+	}px;
+	text-align: ${props => props.alignment || 'left'};
+
+	@media ${device.tablet} {
+		padding-top: ${props => props.paddingTop || 0 === props.paddingTop
+			? props.paddingTop
+			: utils.gutter
+		}px;
+		padding-right: ${props => props.paddingRight || 0 === props.paddingRight
+			? props.paddingRight
+			: utils.gutter
+		}px;
+		padding-bottom: ${props => props.paddingBottom || 0 === props.paddingBottom
+			? props.paddingBottom
+			: utils.gutter
+		}px;
+		padding-left: ${props => props.paddingLeft || 0 === props.paddingLeft
+			? props.paddingLeft
+			: utils.gutter
+		}px;
+	}
+}
+`;
+
 export const BoxBody = ({ className, children, ...props }) => {
 	return (
-		<div
-			className={'undefined' !== typeof className && '' !== className
-				? `sui-box-body ${className}`
-				: 'sui-box-body'
-			}
-			{...props}>
+		<Body className={ className } {...props}>
 			{children}
-		</div>
+		</Body>
 	);
 };
 
-/**
- * display: block or inline
- * alignment: (block) left or center, (inline) sides or center
- * paddingTop: 30
- * paddingRight: 30
- * paddingBottom: 30
- * paddingLeft: 30
- * border: 1
- */
 const Footer = styled.div.attrs(props => ({ props }))`
 .sui-wrap && {
 	flex-flow: row wrap;
