@@ -44,7 +44,7 @@ SimpleHeader.argTypes = {
 			type: 'text'
 		}
 	},
-	titleTagLabel: {
+	tagLabel: {
 		type: {
 			name: 'string',
 			required: false
@@ -54,7 +54,7 @@ SimpleHeader.argTypes = {
 			type: 'text'
 		}
 	},
-	titleTagColor: {
+	tagColor: {
         type: {
             name: 'string',
             required: false
@@ -72,7 +72,7 @@ SimpleHeader.argTypes = {
 			}
 		}
 	},
-	titleTagSize: {
+	tagSize: {
         type: {
             name: 'string',
             required: false
@@ -86,6 +86,35 @@ SimpleHeader.argTypes = {
 			}
 		}
 	},
+	display: {
+        type: {
+            name: 'string',
+            required: false
+        },
+        description: 'Description goes here...',
+        control: {
+            type: 'select',
+            options: {
+                block: 'block',
+                inline: 'inline'
+            }
+        },
+    },
+    alignment: {
+        type: {
+            name: 'string',
+            required: false
+        },
+        description: 'Description goes here...',
+        control: {
+            type: 'select',
+            options: {
+                default: '',
+                center: 'center',
+                right: 'right',
+            }
+        },
+    },
 	paddingTop: {
 		type: {
 			name: 'string',
@@ -161,9 +190,9 @@ TagHeader.storyName = 'Title with Tag';
 TagHeader.args = {
     ...SimpleHeader.args,
     titleIcon: '',
-    titleTagLabel: 'Pro',
-    titleTagColor: 'purple',
-    titleTagSize: 'sm'
+    tagLabel: 'Pro',
+    tagColor: 'purple',
+    tagSize: 'sm'
 };
 TagHeader.argTypes = {
     ...SimpleHeader.argTypes
@@ -171,7 +200,9 @@ TagHeader.argTypes = {
 
 export const ActionHeader = Template.bind({});
 ActionHeader.storyName = 'Title with Content';
-ActionHeader.args = {};
+ActionHeader.args = {
+	alignment: 'right'
+};
 ActionHeader.argTypes = {
     ...SimpleHeader.argTypes,
     children: {
