@@ -10,7 +10,7 @@ export default {
 };
 const Template = args => <Modal {...args}></Modal>;
 
-export const wrapper = Template.bind({});
+export const simple = Template.bind({});
 
 const headerContent = ( { closeModal } ) =>{
 	return (
@@ -30,7 +30,7 @@ const headerContent = ( { closeModal } ) =>{
 	)
 };
 
-const bodyContent = ( { closeModal } ) => {
+const bodyContent = () => {
 	return (
 		<BoxBody>
 			<div>
@@ -49,6 +49,34 @@ const bodyContent = ( { closeModal } ) => {
 		</BoxBody>
 	)
 };
+
+const simpleModalContent = ( { closeModal } ) => {
+	return (
+		<React.Fragment>
+			<Box>
+				{ headerContent( { closeModal } ) }
+				{ bodyContent( { closeModal } ) }
+			</Box>
+			<button className="sui-modal-skip" onClick={ closeModal }>Skip this, I know my way around</button>
+		</React.Fragment>
+	);
+};
+
+const triggerContent = ( { openModal } ) => {
+	return <Button onClick={ openModal } label="Open Modal" />
+};
+
+simple.storyName = "Simple";
+
+simple.args = {
+	titleId:"sui-modal-one-title",
+	size: "md",
+	dialogId: "le-dialog-id",
+	modalContent: simpleModalContent,
+	triggerContent
+};
+
+export const slider = Template.bind({});
 
 const renderOne = ( { closeModal, slideTo } ) => {
 	return (
@@ -81,11 +109,7 @@ const renderTwo = ( { closeModal, slideTo } ) => {
 	);
 }
 
-const triggerContent = ( { openModal } ) => {
-	return <Button onClick={ openModal } label="Open" />
-};
-
-const modalContent = {
+const slideModalContent = {
 	'one': {
 		render: renderOne,
 	},
@@ -95,13 +119,13 @@ const modalContent = {
 	},
 }
 
-wrapper.storyName = "Modal Wrapper";
+slider.storyName = "Slider";
 
-wrapper.args = {
+slider.args = {
 	titleId:"sui-modal-one-title",
-	size: "md",
+	size: "lg",
 	dialogId: "le-dialog-id",
-	modalContent,
+	modalContent: slideModalContent,
 	triggerContent,
 	firstSlide: 'one'
 };
