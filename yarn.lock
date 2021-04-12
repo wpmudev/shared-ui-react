@@ -5276,17 +5276,6 @@ babel-jest@^26.6.3:
     graceful-fs "^4.2.4"
     slash "^3.0.0"
 
-babel-loader@^8.2.1:
-  version "8.2.1"
-  resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-8.2.1.tgz"
-  integrity sha512-dMF8sb2KQ8kJl21GUjkW1HWmcsL39GOV5vnzjqrCzEPNY0S0UfMLnumidiwIajDSBmKhYf5iRW+HXaM4cvCKBw==
-  dependencies:
-    find-cache-dir "^2.1.0"
-    loader-utils "^1.4.0"
-    make-dir "^2.1.0"
-    pify "^4.0.1"
-    schema-utils "^2.6.5"
-
 babel-loader@^8.2.2:
   version "8.2.2"
   resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-8.2.2.tgz#9363ce84c10c9a40e6c753748e1441b60c8a0b81"
