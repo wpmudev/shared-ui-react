@@ -15,7 +15,8 @@ export class Dropdown extends Component {
         this.handleClickOutside = this.handleClickOutside.bind( this );
     }
 
-    toggle() {
+    toggle( e ) {
+		e.stopPropagation();
 		this.setState({
 			open: !this.state.open
 		});
@@ -97,7 +98,7 @@ export class Dropdown extends Component {
                     ref={ this.setWrapperRef }
                     icon="widget-settings-config"
                     label={ open ? 'Open menu' : 'Close menu' }
-                    onClick={ () => this.toggle() }
+                    onClick={ ( e ) => this.toggle( e ) }
                 />
                 { open && <ul>{ options }</ul> }
             </div>
