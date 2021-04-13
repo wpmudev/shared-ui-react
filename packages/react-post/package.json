@@ -43,10 +43,13 @@
     "styled-components": "^5"
   },
   "dependencies": {
-    "styled-components": "^5.2.3"
+    "styled-components": "^5.2.1"
   },
   "devDependencies": {
     "@wpmudev/react-builder": "^0.0.0",
     "react": "^17.0.1"
+  },
+  "peerDependencies": {
+    "react": "^16.0.0"
   }
 }
