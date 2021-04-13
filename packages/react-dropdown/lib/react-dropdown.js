@@ -11,6 +11,7 @@ export class Dropdown extends Component {
 
         this.toggle = this.toggle.bind( this );
 
+		this.wrapperRef = React.createRef();
         this.setWrapperRef = this.setWrapperRef.bind( this );
         this.handleClickOutside = this.handleClickOutside.bind( this );
     }
@@ -93,12 +94,11 @@ export class Dropdown extends Component {
         }
 
         return (
-            <div className={ clazz }>
+            <div className={ clazz } ref={ this.setWrapperRef }>
                 <ButtonIcon
-                    ref={ this.setWrapperRef }
                     icon="widget-settings-config"
                     label={ open ? 'Open menu' : 'Close menu' }
-                    onClick={ ( e ) => this.toggle( e ) }
+                    onClick={ this.toggle }
                 />
                 { open && <ul>{ options }</ul> }
             </div>
