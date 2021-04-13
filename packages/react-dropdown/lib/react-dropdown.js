@@ -98,7 +98,7 @@ export class Dropdown extends Component {
                 <ButtonIcon
                     icon="widget-settings-config"
                     label={ open ? 'Open menu' : 'Close menu' }
-                    onClick={ ( e ) => this.toggle( e ) }
+                    onClick={ this.toggle }
                 />
                 { open && <ul>{ options }</ul> }
             </div>
