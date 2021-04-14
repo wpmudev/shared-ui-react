@@ -36,7 +36,7 @@ const Input = ( {
 				id={ uniqueId }
 				type={ type }
 				className={ clazz }
-				{ ... props }
+				{ ...props }
 			/>
 			{ description && (
 				<p className="sui-description">{ description }</p>
