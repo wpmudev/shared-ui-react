@@ -1,6 +1,23 @@
 # Changelog
 
-## Unreleased (2021-04-09)
+## Unreleased (2021-04-14)
+
+#### Improvements
+* `react-dropdown`
+  * [#87](https://github.com/wpmudev/shared-ui-react/pull/87) 🐛 fix(react-dropdown): Prevent clicks from propagating. ([@a-danae](https://github.com/a-danae))
+
+#### Bug Fixes
+* `react-input`
+  * [#86](https://github.com/wpmudev/shared-ui-react/pull/86) 🐛 fix(react-input): Remove extra space when passing the 'Input' props. ([@a-danae](https://github.com/a-danae))
+* `react-dropdown`
+  * [#89](https://github.com/wpmudev/shared-ui-react/pull/89) 🐛 fix(react-dropdown): Menu not closing after clicking on an option. ([@a-danae](https://github.com/a-danae))
+  * [#88](https://github.com/wpmudev/shared-ui-react/pull/88) 🐛 fix(react-dropdown): Clicking on its options closes the menu. ([@a-danae](https://github.com/a-danae))
+
+#### Committers: 2
+- Danae Millan ([@a-danae](https://github.com/a-danae))
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+
+## Released (2021-04-09)
 
 #### New Features
 * `react-box`
