@@ -1758,6 +1758,7 @@ var Dropdown = /*#__PURE__*/function (_Component) {
       open: false
     };
     _this.toggle = _this.toggle.bind(_assertThisInitialized$2(_this));
+    _this.wrapperRef = /*#__PURE__*/React.createRef();
     _this.setWrapperRef = _this.setWrapperRef.bind(_assertThisInitialized$2(_this));
     _this.handleClickOutside = _this.handleClickOutside.bind(_assertThisInitialized$2(_this));
     return _this;
@@ -1765,7 +1766,8 @@ var Dropdown = /*#__PURE__*/function (_Component) {
 
   _createClass$2(Dropdown, [{
     key: "toggle",
-    value: function toggle() {
+    value: function toggle(e) {
+      e.stopPropagation();
       this.setState({
         open: !this.state.open
       });
@@ -1845,15 +1847,19 @@ var Dropdown = /*#__PURE__*/function (_Component) {
       }
 
       return /*#__PURE__*/React.createElement("div", {
-        className: clazz
+        className: clazz,
+        ref: this.setWrapperRef
       }, /*#__PURE__*/React.createElement(ButtonIcon$2, {
-        ref: this.setWrapperRef,
         icon: "widget-settings-config",
         label: open ? 'Open menu' : 'Close menu',
+        onClick: this.toggle
+      }), open && /*#__PURE__*/React.createElement("ul", {
         onClick: function onClick() {
-          return _this2.toggle();
+          return _this2.setState({
+            open: false
+          });
         }
-      }), open && /*#__PURE__*/React.createElement("ul", null, options));
+      }, options));
     }
   }]);
 
