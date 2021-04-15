@@ -1,10 +1,12 @@
 # Changelog
 
-## Unreleased (2021-04-14)
+## Unreleased (2021-04-15)
 
 #### Improvements
 * `react-dropdown`
   * [#87](https://github.com/wpmudev/shared-ui-react/pull/87) 🐛 fix(react-dropdown): Prevent clicks from propagating. ([@a-danae](https://github.com/a-danae))
+* `compiler`, `react-accordion`, `react-box`, `react-button-icon`, `react-input`, `react-notifications`, `react-post`
+  * [#85](https://github.com/wpmudev/shared-ui-react/pull/85) ⬆️ Upgrade dependencies. ([@iamleigh](https://github.com/iamleigh))
 
 #### Bug Fixes
 * `react-input`
