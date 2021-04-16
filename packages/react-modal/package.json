@@ -36,6 +36,7 @@
     "@justfixnyc/react-aria-modal": "^5.1.3-alpha.0"
   },
   "devDependencies": {
-    "@wpmudev/react-box": "^1.0.4"
+    "@wpmudev/react-box": "^1.0.4",
+    "react": "^17.0.2"
   }
 }
