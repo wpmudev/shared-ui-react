@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, BoxHeader, BoxTitle, BoxBody, BoxFooter, BoxSection } from "../../react-box/lib/box";
+import { Box, BoxHeader, BoxTitle, BoxBody, BoxFooter } from '@wpmudev/react-box';
 import { ButtonIcon } from "../../react-button-icon/lib/react-button-icon";
 import { Button } from "../../react-button/lib/button";
 import { Modal } from "../lib/modal";
