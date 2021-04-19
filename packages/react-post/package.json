@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/react-post",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "WPMU DEV Shared UI React Post Component",
   "author": "WPMU DEV",
   "contributors": [
@@ -43,13 +43,10 @@
     "styled-components": "^5"
   },
   "dependencies": {
-    "styled-components": "^5.2.1"
+    "styled-components": "^5.2.3"
   },
   "devDependencies": {
     "@wpmudev/react-builder": "^0.0.0",
     "react": "^17.0.1"
-  },
-  "peerDependencies": {
-    "react": "^16.0.0"
   }
 }

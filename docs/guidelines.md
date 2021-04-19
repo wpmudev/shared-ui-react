@@ -1,53 +1,5 @@
 # General Guidelines
 
-## New Component
-
-```
-npx lerna create foo
-```
-
-Follow lerna steps to configure your new package, but make sure to name it correctly by addinf `@wpmudev/react-` prefix.
-
-```
-$ package name: @wpmudev/react-foo
-$ version (default value):
-$ description: WPMU DEV Shared UI React Foo Component
-$ keywords:
-$ homepage:
-$ license: GPL-3.0
-$ entry point (default value):
-$ git repository (default value):
-```
-
-## Install Packages
-
-Since SUI React is a mono-repo managed by Lerna there are two ways to install packages:
-
-### Global Package
-
-When package is going to be shared between multiple components or going to be used on root.
-
-```
-yarn add -W --dev package-name
-```
-
-### Component Package
-
-When package is required for an specific component.
-
-```
-# Regular dependency
-npx lerna add package-name --scope=@wpmudev/react-foo
-
-# Development dependency
-npx lerna add package-name --dev --scope=@wpmudev/react-foo
-
-# Peer dependency
-npx lerna add package-name --peer --scope=@wpmudev/react-foo
-```
-
-> **Note:** Remove `npx` if the package to be installed is an external package and not part of this monorepo.
-
 ## Showcase
 
 Globally install [Yarn](https://yarnpkg.com/getting-started/install) and [Lerna](https://lerna.js.org/). Since showcase is managed by Storybook run this in the root directory to install Storybook CLI:
@@ -59,5 +11,40 @@ npx sb init
 Now you can initialize your local environment:
 
 ```
-yarn run storybook
+yarn storybook
 ```
+
+## New Package
+
+```
+lerna create @wpmudev/react-foo --yes
+```
+
+## Install NPM Packages
+
+Since SUI React is a mono-repo managed by Lerna there are two ways to install packages:
+
+### Global Package
+
+When package is going to be affect project root only.
+
+```
+yarn add -W --dev package-name
+```
+
+### Component Package
+
+When package is required for an specific component you could run:
+
+```
+# Regular dependency
+lerna add package-name --scope=@wpmudev/react-foo
+
+# Development dependency
+lerna add package-name --dev --scope=@wpmudev/react-foo
+
+# Peer dependency
+lerna add package-name --peer --scope=@wpmudev/react-foo
+```
+
+>**Note:** Packages can only be manually upgraded and removed, after doing that it is necessary to run `lerna bootstrap` for all packages to upgrade.

@@ -1,6 +1,6 @@
 # How to Contribute
 
-If you are looking for a bug to fix, check out [Help Wanted Issues](https://github.com/wpmudev/shared-ui-react/issues?q=is%3Aopen+is%3Aissue+label%3Abug+label%3Aimprovement) on GitHub. Otherwise please open a new issue.
+If you are looking for a bug to fix, check out [Issues List](https://github.com/wpmudev/shared-ui-react/issues) on GitHub. Otherwise please open a new issue.
 
 ## Working on Issues.
 
@@ -10,15 +10,15 @@ SUI React goal is to convert [Shared UI Library](https://github.com/wpmudev/shar
 
 We consider any new API to be a new feature. An API is any of the following:
 
-- Adding a new component
+- Adding a new React Component
 - Update to React Component APIs
-- Prop updates on React Component
+- Prop addition on React Component
 
-> If changes fall under these categories or you'd like to add a new component please open an [issue](https://github.com/wpmudev/shared-ui-react/issues/new) first.
+> If changes fall under these categories or you'd like to add a new package please open an [issue](https://github.com/wpmudev/shared-ui-react/issues/new) first.
 
 ### Fixing Bugs.
 
-Go ahead an open a pull request when:
+Go ahead and open a pull request when:
 
 - The issue is a small doc change (READMEs, documentation, etc.).
 - The changes you want to perform are under 10 - 20 lines of code.
@@ -27,20 +27,20 @@ Go ahead an open a pull request when:
 
 ## Pull Request Message Format
 
-The final pull request message to the @wpmudev/react-foo package, for GitHub issue 1234, should look like this:
+The pull request message to the @wpmudev/react-foo package, for GitHub issue 1234, should look like this:
 
 ```
 # For a fix to an issue
-🐛 fix/component-name: Short description of fix
+🐛 fix(react-foo): Short description of fix.
 
 # For a new feature
-✨ new/component-name: Short description of feature
+✨ new(react-foo): Short description of feature.
 
 # For a doc update
-📝 docs/component-name: Short description of doc changes
+📝 docs(react-foo): Short description of doc changes.
 
 # For accessibility improvements
-♿️ aria/component-name: Short description of feature
+♿️ aria(react-foo): Short description of improvement.
 ```
 
 This commit message is pulled into our `CHANGELOG` when we release and is based on Angular's git commit guidelines.
@@ -50,12 +50,12 @@ This commit message is pulled into our `CHANGELOG` when we release and is based 
 Pull requests should meet the following criteria:
 
 - **PRs should be focused!** PRs should focus on fixing one issue or an additional feature. Anything extra requires another PR.
-- If there is an existing [issue](https://github.com/wpmudev/shared-ui-react/issues/) please refer to it in the description of your PR.
-- Please also add notes/description about what your changes are trying to achieve (or anything you've learned). Brevity appreciated.
+- If there is an existing [issue(s)](https://github.com/wpmudev/shared-ui-react/issues/) please refer to it in the description of your PR.
+- Please also include notes about what your changes are trying to achieve (or anything you've learned). Brevity appreciated.
 
 ### Process
 
-Before opening a PR, it should be up to date with targeted release (`rc<release_number>` ie. `rc0.7.0`, `rc0.8.0`, etc.). In most cases it will never be branched from `master`.
+Before opening a PR, it should be up to date with `development` branch, which is the targeted release branch.
 
 #### Checklist:
 
@@ -65,6 +65,6 @@ Before opening a PR, it should be up to date with targeted release (`rc<release_
 
 Once you have passed all checks, the process is as follows:
 
-1. Ping one of the admins ([@iamleigh](https://github.com/iamleigh), [@a-danae](https://github.com/a-danae)) in the PR when its ready for review.
+1. One of the admins ([@iamleigh](https://github.com/iamleigh), [@a-danae](https://github.com/a-danae)) will review your changes.
 2. We will either approve, request changes, or explain why we can't accept these changes. And we'll work from there.
 3. Assuming approval, one of the admins will merge your changes and remove the branch from the PR.

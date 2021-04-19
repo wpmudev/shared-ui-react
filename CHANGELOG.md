@@ -1,5 +1,95 @@
 # Changelog
 
+## Unreleased (2021-04-15)
+
+#### Improvements
+* `react-dropdown`
+  * [#87](https://github.com/wpmudev/shared-ui-react/pull/87) 🐛 fix(react-dropdown): Prevent clicks from propagating. ([@a-danae](https://github.com/a-danae))
+* `compiler`, `react-accordion`, `react-box`, `react-button-icon`, `react-input`, `react-notifications`, `react-post`
+  * [#85](https://github.com/wpmudev/shared-ui-react/pull/85) ⬆️ Upgrade dependencies. ([@iamleigh](https://github.com/iamleigh))
+
+#### Bug Fixes
+* `react-input`
+  * [#86](https://github.com/wpmudev/shared-ui-react/pull/86) 🐛 fix(react-input): Remove extra space when passing the 'Input' props. ([@a-danae](https://github.com/a-danae))
+* `react-dropdown`
+  * [#89](https://github.com/wpmudev/shared-ui-react/pull/89) 🐛 fix(react-dropdown): Menu not closing after clicking on an option. ([@a-danae](https://github.com/a-danae))
+  * [#88](https://github.com/wpmudev/shared-ui-react/pull/88) 🐛 fix(react-dropdown): Clicking on its options closes the menu. ([@a-danae](https://github.com/a-danae))
+
+#### Committers: 2
+- Danae Millan ([@a-danae](https://github.com/a-danae))
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+
+## Released (2021-04-09)
+
+#### New Features
+* `react-box`
+  * [#83](https://github.com/wpmudev/shared-ui-react/pull/83) ✨ new(react-box): Make `body` more flexible with props. ([@iamleigh](https://github.com/iamleigh))
+  * [#80](https://github.com/wpmudev/shared-ui-react/pull/80) ✨ new(react-box): Make footer more flexible. ([@iamleigh](https://github.com/iamleigh))
+
+#### Bug Fixes
+* `react-box`
+  * [#84](https://github.com/wpmudev/shared-ui-react/pull/84) 🐛 fix(react-box): Reestructure `header` props. ([@iamleigh](https://github.com/iamleigh))
+
+#### Documentation
+* `react-button`
+  * [#79](https://github.com/wpmudev/shared-ui-react/pull/79) 📝 docs(react-button): Fix not working controls and add more properties. ([@a-danae](https://github.com/a-danae))
+
+#### Committers: 2
+- Danae Millan ([@a-danae](https://github.com/a-danae))
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+
+## Released (2021-04-08)
+
+#### New Features
+* `react-box`
+  * [#70](https://github.com/wpmudev/shared-ui-react/pull/70) ✨ new(react-box): Allow custom classes. ([@iamleigh](https://github.com/iamleigh))
+  * [#78](https://github.com/wpmudev/shared-ui-react/pull/78) ✨ new(react-box): Add `border` and `stacked` props to header. ([@iamleigh](https://github.com/iamleigh))
+  * [#76](https://github.com/wpmudev/shared-ui-react/pull/76) ✨ new(react-box): Tag props for title. ([@iamleigh](https://github.com/iamleigh))
+
+#### Improvements
+* `react-input`
+  * [#74](https://github.com/wpmudev/shared-ui-react/pull/74) 🐛 fix(react-input): Give more flexibility to the 'input' component. ([@a-danae](https://github.com/a-danae))
+* `react-button`
+  * [#73](https://github.com/wpmudev/shared-ui-react/pull/73) 🐛 fix(react-button): Remove forwardRef and fix `undefined` in classes. ([@a-danae](https://github.com/a-danae))
+* `react-notifications`
+  * [#69](https://github.com/wpmudev/shared-ui-react/pull/69) 🐛 fix(react-notifications): Add multi-line capability. ([@iamleigh](https://github.com/iamleigh))
+  * [#67](https://github.com/wpmudev/shared-ui-react/pull/67) 🐛 fix(react-notifications): Make component dismissible. ([@iamleigh](https://github.com/iamleigh))
+
+#### Bug Fixes
+* `react-button`
+  * [#73](https://github.com/wpmudev/shared-ui-react/pull/73) 🐛 fix(react-button): Remove forwardRef and fix `undefined` in classes. ([@a-danae](https://github.com/a-danae))
+* `react-notifications`
+  * [#66](https://github.com/wpmudev/shared-ui-react/pull/66) 🐛 fix(react-notifications): Icon not showing up for non-default variation. ([@iamleigh](https://github.com/iamleigh))
+
+#### Committers: 2
+- Danae Millan ([@a-danae](https://github.com/a-danae))
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+
+## Released (2021-03-31)
+
+#### New Features
+* `react-accordion`
+  * [#56](https://github.com/wpmudev/shared-ui-react/pull/56) ✨ new(react-accordion): Create new component. ([@iamleigh](https://github.com/iamleigh))
+* `react-dropdown`
+  * [#54](https://github.com/wpmudev/shared-ui-react/pull/54) ✨ new(react-dropdown): Create new component. ([@iamleigh](https://github.com/iamleigh))
+
+#### Improvements
+* `core`
+  * [#52](https://github.com/wpmudev/shared-ui-react/pull/52) 🐛 fix(react-core): Remove peer dependencies. ([@iamleigh](https://github.com/iamleigh))
+* `react-box`
+  * [#51](https://github.com/wpmudev/shared-ui-react/pull/51) 🐛 fix(react-box): Remove peer dependencies. ([@iamleigh](https://github.com/iamleigh))
+
+#### Bug Fixes
+* `react-button`
+  * [#60](https://github.com/wpmudev/shared-ui-react/pull/60) 🐛 fix(react-button): Allow custom classes. ([@iamleigh](https://github.com/iamleigh))
+  * [#63](https://github.com/wpmudev/shared-ui-react/pull/63) 🐛 fix(react-button): Console error for refs. ([@iamleigh](https://github.com/iamleigh))
+* `react-button-icon`
+  * [#61](https://github.com/wpmudev/shared-ui-react/pull/61) 🐛 fix(react-button-icon): Allow custom classes. ([@iamleigh](https://github.com/iamleigh))
+  * [#55](https://github.com/wpmudev/shared-ui-react/pull/55) 🐛 fix(react-button-icon): Console error for refs. ([@iamleigh](https://github.com/iamleigh))
+
+#### Committers: 1
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+
 ## Released (2021-03-19)
 
 #### New Features
