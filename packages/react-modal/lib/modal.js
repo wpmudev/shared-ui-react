@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import AriaModal from "@justfixnyc/react-aria-modal";
 
 export const Modal = ( { modalContent, triggerContent, ...props } ) => {
-
-	const [ isOpen, setIsOpen ] = React.useState( false );
+	// const [ isOpen, setIsOpen ] = React.useState( props.mounted || false );
+	const [ mounted, setIsOpen ] = React.useState( props.mounted );
 	const [ isClosing, setIsClosing ] = React.useState( false );
 
 	// States for sliders.
@@ -23,7 +23,7 @@ export const Modal = ( { modalContent, triggerContent, ...props } ) => {
 			// Close the modal with the exit animation and reset the slider.
 			setIsClosing( true );
 			setTimeout( () => {
-				setIsOpen( false );
+				// setIsOpen( false );
 				setIsClosing( false );
 				setSlideDirection( null );
 				setCurrentSlide( props.firstSlide );
@@ -34,12 +34,19 @@ export const Modal = ( { modalContent, triggerContent, ...props } ) => {
 			setSlideDirection( direction );
 		};
 
+	const handleOnExit = () => {
+		if ( props.onExit ) {
+			props.onExit();
+		}
+		closeModal();
+	};
+
 	const {
 		getApplicationNode = () => document.getElementsByClassName('sui-wrap')[0],
 		renderToNode = document.getElementsByClassName('sui-2-10-0')[0] // TODO: get this dynamically.
 	} = props;
 
-	let dialogClass = `sui-modal-content sui-content-${ isClosing ? 'fade-out' : 'fade-in' } ${ props.dialogClass || "" }`;
+	let dialogClass = `sui-modal-content sui-content-${ isClosing ? 'fade-out' : 'fade-inz' } ${ props.dialogClass || "" }`;
 	let { initialFocus = `.${ props.dialogId }-header-close-button` } = props;
 
 	let renderContent;
@@ -60,24 +67,18 @@ export const Modal = ( { modalContent, triggerContent, ...props } ) => {
 	// Render the modal outside the main content for accessibility.
 	const AltLocationModal = AriaModal.renderTo( renderToNode );
 
-    const Modal = isOpen ?
+    return (
 		<AltLocationModal
+			mounted={ mounted }
 			getApplicationNode={ getApplicationNode }
 			dialogClass={ dialogClass }
-			underlayClass={ `sui-modal${ isOpen ? ' sui-active' : '' } sui-modal-${ props.modalSize || 'md' } sui-wrap ${ props.underlayClass || '' }` }
-			onExit={ closeModal }
+			underlayClass={ `sui-modal sui-active sui-modal-${ props.size || 'md' } sui-wrap ${ props.underlayClass || '' }` }
+			onExit={ handleOnExit }
 			includeDefaultStyles={ false }
 			initialFocus={ initialFocus }
 			{ ...props }
 			>
 			{ renderContent( { closeModal, slideTo } ) }
 		</AltLocationModal>
-		: false;
-
-	return (
-		<React.Fragment>
-			{ triggerContent( { openModal } ) }
-			{ Modal }
-		</React.Fragment>
 	);
 }

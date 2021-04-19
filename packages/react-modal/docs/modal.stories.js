@@ -2,7 +2,9 @@ import React from "react";
 import { Box, BoxHeader, BoxTitle, BoxBody, BoxFooter } from '@wpmudev/react-box';
 import { ButtonIcon } from "../../react-button-icon/lib/react-button-icon";
 import { Button } from "../../react-button/lib/button";
+import { Input } from "../../react-input/lib/react-input";
 import { Modal } from "../lib/modal";
+import AriaModal from "@justfixnyc/react-aria-modal";
 
 export default {
 	title: "Containers/Modal",
@@ -129,3 +131,78 @@ slider.args = {
 	triggerContent,
 	firstSlide: 'one'
 };
+
+// export const replace = Template.bind({});
+export const replace = () => {
+	const [ isFirstOpen, setIsFirstOpen ] = React.useState( false );
+	const [ isSecondOpen, setIsSecondOpen ] = React.useState( false );
+
+	const [ inputValue, setInputValue ] = React.useState( '' );
+
+	const replaceModalContent = ( { closeModal } ) => {
+
+		const switchModals = () => {
+			// TODO: hide - BUT DON'T UNMOUNT - the first modal.
+			setIsSecondOpen( true );
+		};
+
+		const closeFirstModal = () => {
+			closeModal();
+			setTimeout( () => {
+				setIsFirstOpen( false );
+			}, 400 );
+		};
+
+		return (
+			<Box>
+				{/* { headerContent( { closeModal } ) } */}
+				<Input onChange={ ( e ) => setInputValue( e.target.value ) } value={ inputValue } type="text"/>
+				<button onClick={ closeFirstModal }>Close</button>
+				<Button id="something" onClick={ switchModals } label="open confirmation" />
+			</Box>
+		);
+	};
+
+	const confirmationModalContent = ( { closeModal: animateCloseConfirmation } ) => {
+		const closeConfirmationModal = () => {
+			animateCloseConfirmation();
+			setTimeout( () => {
+				setIsSecondOpen( false );
+			}, 400 );
+		};
+
+		return (
+			<React.Fragment>
+				<button onClick={ closeConfirmationModal }>Something</button>
+				<button id="something-two">Something2</button>
+			</React.Fragment>
+		)
+	};
+
+	return (
+		<React.Fragment>
+			<button onClick={ () => setIsFirstOpen( true ) }>Open</button>
+			<Modal
+				mounted={ isFirstOpen }
+				titleId="sui-modal-one-title"
+				size="md"
+				dialogId="first"
+				initialFocus="#something"
+				modalContent={ replaceModalContent }
+			>
+			</Modal>
+			<Modal
+				mounted={ isSecondOpen }
+				titleId="sui-modal-one-title"
+				size="md"
+				dialogId="confirmation"
+				onExit={ () => setIsSecondOpen( false ) }
+				initialFocus="#something-two"
+				modalContent={confirmationModalContent}
+			>
+			</Modal>
+		</React.Fragment>
+	);
+};
+
+replace.storyName = "Replace";
