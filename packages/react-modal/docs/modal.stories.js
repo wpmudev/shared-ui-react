@@ -4,15 +4,13 @@ import { ButtonIcon } from "../../react-button-icon/lib/react-button-icon";
 import { Button } from "../../react-button/lib/button";
 import { Input } from "../../react-input/lib/react-input";
 import { Modal } from "../lib/modal";
-import AriaModal from "@justfixnyc/react-aria-modal";
 
 export default {
 	title: "Containers/Modal",
 	component: Modal,
 };
-const Template = args => <Modal {...args}></Modal>;
 
-export const simple = Template.bind({});
+const Template = args => <Modal {...args}></Modal>;
 
 const headerContent = ( { closeModal } ) =>{
 	return (
@@ -68,6 +66,8 @@ const triggerContent = ( { openModal } ) => {
 	return <Button onClick={ openModal } label="Open Modal" />
 };
 
+export const simple = Template.bind({});
+
 simple.storyName = "Simple";
 
 simple.args = {
@@ -75,10 +75,9 @@ simple.args = {
 	size: "md",
 	dialogId: "le-dialog-id",
 	modalContent: simpleModalContent,
-	triggerContent
+	triggerContent,
+	renderToNode: '.sui-2-10-0' // TODO: get this dynamically.
 };
-
-export const slider = Template.bind({});
 
 const renderOne = ( { closeModal, slideTo } ) => {
 	return (
@@ -121,6 +120,8 @@ const slideModalContent = {
 	},
 }
 
+export const slider = Template.bind({});
+
 slider.storyName = "Slider";
 
 slider.args = {
@@ -129,80 +130,118 @@ slider.args = {
 	dialogId: "le-dialog-id",
 	modalContent: slideModalContent,
 	triggerContent,
-	firstSlide: 'one'
+	firstSlide: 'one',
+	renderToNode: '.sui-2-10-0' // TODO: get this dynamically.
 };
 
-// export const replace = Template.bind({});
-export const replace = () => {
-	const [ isFirstOpen, setIsFirstOpen ] = React.useState( false );
-	const [ isSecondOpen, setIsSecondOpen ] = React.useState( false );
-
-	const [ inputValue, setInputValue ] = React.useState( '' );
+const FirstModal = ( { isOpen, setIsOpen, switchModals } ) => {
+	const [inputValue, setInputValue ] = React.useState( '' );
 
 	const replaceModalContent = ( { closeModal } ) => {
-
-		const switchModals = () => {
-			// TODO: hide - BUT DON'T UNMOUNT - the first modal.
-			setIsSecondOpen( true );
-		};
-
-		const closeFirstModal = () => {
+		const closeFirstModal = function() {
 			closeModal();
 			setTimeout( () => {
-				setIsFirstOpen( false );
-			}, 400 );
+				setIsOpen( false );
+			}, 300 );
 		};
 
 		return (
 			<Box>
-				{/* { headerContent( { closeModal } ) } */}
-				<Input onChange={ ( e ) => setInputValue( e.target.value ) } value={ inputValue } type="text"/>
-				<button onClick={ closeFirstModal }>Close</button>
-				<Button id="something" onClick={ switchModals } label="open confirmation" />
+				<BoxHeader title="Something to be confirmed">
+					<div className="sui-actions-right">
+						<ButtonIcon
+							label="Close this dialog window"
+							icon="close"
+							iconSize="md"
+							extraClasses="le-dialog-id-header-close-button sui-button-float--right sui-md"
+							onClick={ switchModals }
+						/>
+					</div>
+				</BoxHeader>
+				<BoxBody>
+					<Input onChange={ ( e ) => setInputValue( e.target.value ) } value={ inputValue } type="text"/>
+					<Button onClick={ closeFirstModal } label="Close modal" />
+					<Button id="something" onClick={ switchModals } label="open confirmation" />
+				</BoxBody>
 			</Box>
 		);
 	};
 
-	const confirmationModalContent = ( { closeModal: animateCloseConfirmation } ) => {
-		const closeConfirmationModal = () => {
-			animateCloseConfirmation();
-			setTimeout( () => {
-				setIsSecondOpen( false );
-			}, 400 );
-		};
+	return (
+		<Modal
+			mounted={ isOpen }
+			titleId="sui-modal-one-title"
+			size="md"
+			dialogId="first"
+			initialFocus="#something"
+			modalContent={ replaceModalContent }
+			renderToNode=".sui-2-10-0" // TODO: get this dynamically.
+		></Modal>
+	);
+};
 
-		return (
-			<React.Fragment>
-				<button onClick={ closeConfirmationModal }>Something</button>
-				<button id="something-two">Something2</button>
-			</React.Fragment>
-		)
+const SecondModal = ( { isOpen, switchModals } ) => {
+
+	const confirmationModalContent = () => (
+		<Box>
+			<BoxHeader title="Are you sure?">
+				<div className="sui-actions-right">
+					<ButtonIcon
+						label="Close this dialog window"
+						icon="close"
+						iconSize="md"
+						extraClasses="le-dialog-id-header-close-button sui-button-float--right sui-md"
+						onClick={ switchModals }
+					/>
+				</div>
+			</BoxHeader>
+			<BoxBody>
+				<Button onClick={ switchModals } label="I'm not sure, go back" />
+				<Button id="focused-button" label="Just a focused button" />
+			</BoxBody>
+		</Box>
+	);
+
+	return (
+		<Modal
+			mounted={ isOpen }
+			titleId="sui-modal-one-title"
+			size="md"
+			dialogId="confirmation"
+			initialFocus="#focused-button"
+			modalContent={ confirmationModalContent }
+			renderToNode=".sui-2-10-0" // TODO: get this dynamically.
+		></Modal>
+	);
+};
+
+const Replace = () => {
+	const [ isFirstOpen, setIsFirstOpen ] = React.useState( false );
+	const [ isSecondOpen, setIsSecondOpen ] = React.useState( false );
+
+	const switchModals = () => {
+		setIsFirstOpen( ! isFirstOpen );
+		setIsSecondOpen( ! isSecondOpen );
 	};
 
 	return (
 		<React.Fragment>
-			<button onClick={ () => setIsFirstOpen( true ) }>Open</button>
-			<Modal
-				mounted={ isFirstOpen }
-				titleId="sui-modal-one-title"
-				size="md"
-				dialogId="first"
-				initialFocus="#something"
-				modalContent={ replaceModalContent }
-			>
-			</Modal>
-			<Modal
-				mounted={ isSecondOpen }
-				titleId="sui-modal-one-title"
-				size="md"
-				dialogId="confirmation"
-				onExit={ () => setIsSecondOpen( false ) }
-				initialFocus="#something-two"
-				modalContent={confirmationModalContent}
-			>
-			</Modal>
+			<Button onClick={ () => setIsFirstOpen( true ) } label="Open"/>
+			<FirstModal
+				isOpen={ isFirstOpen }
+				setIsOpen={ setIsFirstOpen }
+				switchModals={ switchModals }
+			/>
+			<SecondModal
+				isOpen={ isSecondOpen }
+				switchModals={ switchModals }
+			/>
 		</React.Fragment>
 	);
 };
+
+const replaceTemplate = () => <Replace />;
+
+export const replace = replaceTemplate.bind({});
 
 replace.storyName = "Replace";
