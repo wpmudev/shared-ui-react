@@ -154,7 +154,7 @@ const FirstModal = ( { isOpen, setIsOpen, switchModals } ) => {
 							icon="close"
 							iconSize="md"
 							extraClasses="le-dialog-id-header-close-button sui-button-float--right sui-md"
-							onClick={ switchModals }
+							onClick={ closeFirstModal }
 						/>
 					</div>
 				</BoxHeader>
