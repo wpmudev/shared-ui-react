@@ -1,8 +1,8 @@
 import React from "react";
 import { Box, BoxHeader, BoxTitle, BoxBody, BoxFooter } from '@wpmudev/react-box';
-import { ButtonIcon } from "../../react-button-icon/lib/react-button-icon";
-import { Button } from "../../react-button/lib/button";
-import { Input } from "../../react-input/lib/react-input";
+import { ButtonIcon } from "@wpmudev/react-button-icon";
+import { Button } from "@wpmudev/react-button";
+import { Input } from "@wpmudev/react-input";
 import { Modal } from "../lib/modal";
 
 export default {
@@ -10,7 +10,7 @@ export default {
 	component: Modal,
 };
 
-const Template = args => <Modal {...args}></Modal>;
+const Template = args => <Modal {...args} />;
 
 const headerContent = ( { closeModal } ) =>{
 	return (
