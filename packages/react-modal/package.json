@@ -2,7 +2,13 @@
   "name": "@wpmudev/react-modal",
   "version": "1.0.0",
   "description": "WPMU DEV Shared UI React Modal Component",
-  "author": "WPMU DEV",
+  "author": "WPMU DEV (https://wpmudev.com)",
+  "contributors": [
+    {
+      "name": "Danae Millán",
+      "email": "41606954+a-danae@users.noreply.github.com"
+    }
+  ],
   "homepage": "https://github.com/wpmudev/shared-ui-react#readme",
   "license": "GPL-3.0",
   "main": "dist/react-modal.cjs.js",
