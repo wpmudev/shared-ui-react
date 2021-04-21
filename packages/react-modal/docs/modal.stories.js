@@ -2,15 +2,15 @@ import React from "react";
 import { Box, BoxHeader, BoxTitle, BoxBody, BoxFooter } from '@wpmudev/react-box';
 import { ButtonIcon } from "../../react-button-icon/lib/react-button-icon";
 import { Button } from "../../react-button/lib/button";
+import { Input } from "../../react-input/lib/react-input";
 import { Modal } from "../lib/modal";
 
 export default {
 	title: "Containers/Modal",
 	component: Modal,
 };
-const Template = args => <Modal {...args}></Modal>;
 
-export const simple = Template.bind({});
+const Template = args => <Modal {...args}></Modal>;
 
 const headerContent = ( { closeModal } ) =>{
 	return (
@@ -66,6 +66,8 @@ const triggerContent = ( { openModal } ) => {
 	return <Button onClick={ openModal } label="Open Modal" />
 };
 
+export const simple = Template.bind({});
+
 simple.storyName = "Simple";
 
 simple.args = {
@@ -73,10 +75,9 @@ simple.args = {
 	size: "md",
 	dialogId: "le-dialog-id",
 	modalContent: simpleModalContent,
-	triggerContent
+	triggerContent,
+	renderToNode: '.sui-2-10-0' // TODO: get this dynamically.
 };
-
-export const slider = Template.bind({});
 
 const renderOne = ( { closeModal, slideTo } ) => {
 	return (
@@ -119,6 +120,8 @@ const slideModalContent = {
 	},
 }
 
+export const slider = Template.bind({});
+
 slider.storyName = "Slider";
 
 slider.args = {
@@ -127,5 +130,118 @@ slider.args = {
 	dialogId: "le-dialog-id",
 	modalContent: slideModalContent,
 	triggerContent,
-	firstSlide: 'one'
+	firstSlide: 'one',
+	renderToNode: '.sui-2-10-0' // TODO: get this dynamically.
 };
+
+const FirstModal = ( { isOpen, setIsOpen, switchModals } ) => {
+	const [inputValue, setInputValue ] = React.useState( '' );
+
+	const replaceModalContent = ( { closeModal } ) => {
+		const closeFirstModal = function() {
+			closeModal();
+			setTimeout( () => {
+				setIsOpen( false );
+			}, 300 );
+		};
+
+		return (
+			<Box>
+				<BoxHeader title="Something to be confirmed">
+					<div className="sui-actions-right">
+						<ButtonIcon
+							label="Close this dialog window"
+							icon="close"
+							iconSize="md"
+							extraClasses="le-dialog-id-header-close-button sui-button-float--right sui-md"
+							onClick={ closeFirstModal }
+						/>
+					</div>
+				</BoxHeader>
+				<BoxBody>
+					<Input onChange={ ( e ) => setInputValue( e.target.value ) } value={ inputValue } type="text"/>
+					<Button onClick={ closeFirstModal } label="Close modal" />
+					<Button id="something" onClick={ switchModals } label="open confirmation" />
+				</BoxBody>
+			</Box>
+		);
+	};
+
+	return (
+		<Modal
+			mounted={ isOpen }
+			titleId="sui-modal-one-title"
+			size="md"
+			dialogId="first"
+			initialFocus="#something"
+			modalContent={ replaceModalContent }
+			renderToNode=".sui-2-10-0" // TODO: get this dynamically.
+		></Modal>
+	);
+};
+
+const SecondModal = ( { isOpen, switchModals } ) => {
+
+	const confirmationModalContent = () => (
+		<Box>
+			<BoxHeader title="Are you sure?">
+				<div className="sui-actions-right">
+					<ButtonIcon
+						label="Close this dialog window"
+						icon="close"
+						iconSize="md"
+						extraClasses="le-dialog-id-header-close-button sui-button-float--right sui-md"
+						onClick={ switchModals }
+					/>
+				</div>
+			</BoxHeader>
+			<BoxBody>
+				<Button onClick={ switchModals } label="I'm not sure, go back" />
+				<Button id="focused-button" label="Just a focused button" />
+			</BoxBody>
+		</Box>
+	);
+
+	return (
+		<Modal
+			mounted={ isOpen }
+			titleId="sui-modal-one-title"
+			size="md"
+			dialogId="confirmation"
+			initialFocus="#focused-button"
+			modalContent={ confirmationModalContent }
+			renderToNode=".sui-2-10-0" // TODO: get this dynamically.
+		></Modal>
+	);
+};
+
+const Replace = () => {
+	const [ isFirstOpen, setIsFirstOpen ] = React.useState( false );
+	const [ isSecondOpen, setIsSecondOpen ] = React.useState( false );
+
+	const switchModals = () => {
+		setIsFirstOpen( ! isFirstOpen );
+		setIsSecondOpen( ! isSecondOpen );
+	};
+
+	return (
+		<React.Fragment>
+			<Button onClick={ () => setIsFirstOpen( true ) } label="Open"/>
+			<FirstModal
+				isOpen={ isFirstOpen }
+				setIsOpen={ setIsFirstOpen }
+				switchModals={ switchModals }
+			/>
+			<SecondModal
+				isOpen={ isSecondOpen }
+				switchModals={ switchModals }
+			/>
+		</React.Fragment>
+	);
+};
+
+const replaceTemplate = () => <Replace />;
+
+export const replace = replaceTemplate.bind({});
+
+replace.storyName = "Replace";
