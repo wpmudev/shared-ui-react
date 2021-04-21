@@ -3,7 +3,7 @@ import { Box, BoxHeader, BoxTitle, BoxBody, BoxFooter } from '@wpmudev/react-box
 import { ButtonIcon } from "@wpmudev/react-button-icon";
 import { Button } from "@wpmudev/react-button";
 import { Input } from "@wpmudev/react-input";
-import { Modal } from "../lib/modal";
+import { Modal } from "../lib/react-modal";
 
 export default {
 	title: "Containers/Modal",

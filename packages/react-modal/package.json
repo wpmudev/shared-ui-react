@@ -7,7 +7,7 @@
   "license": "GPL-3.0",
   "main": "dist/react-modal.cjs.js",
   "module": "dist/react-modal.esm.js",
-  "src": "lib/modal.js",
+  "src": "lib/react-modal.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
