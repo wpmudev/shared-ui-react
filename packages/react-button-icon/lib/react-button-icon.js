@@ -1,6 +1,6 @@
 import React from "react";
 
-const ButtonIcon = ({ label, icon, iconSize, extraClasses, color, design = "solid", ...props }) => {
+const ButtonIcon = ({ label, icon, design = "solid", color, ...props }) => {
 	const loader = (
 		<span
 			className="sui-icon-loader sui-loading"
@@ -11,12 +11,12 @@ const ButtonIcon = ({ label, icon, iconSize, extraClasses, color, design = "soli
 
 	let content = (
 		<React.Fragment>
-			<span className={`sui-icon-${icon} ${iconSize ? "sui-" + iconSize : "" }`} aria-hidden="true" />
+			<span className={"sui-icon-" + icon} aria-hidden="true" />
 			<span className="sui-screen-reader-text">{label}</span>
 		</React.Fragment>
 	);
 
-	let className = `sui-button-icon ${extraClasses || ""}`;
+	let className = "sui-button-icon";
 
 	// Set button color.
 	switch (color) {
