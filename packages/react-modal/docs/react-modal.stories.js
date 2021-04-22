@@ -4,6 +4,7 @@ import { ButtonIcon } from "@wpmudev/react-button-icon";
 import { Button } from "@wpmudev/react-button";
 import { Input } from "@wpmudev/react-input";
 import { Modal } from "../lib/react-modal";
+import banner from "./assets/beehive-welcome.png";
 import image1x from "./assets/hustle-footer.png";
 import image2x from "./assets/hustle-footer@2x.png";
 
@@ -215,21 +216,38 @@ const FirstModal = ( { isOpen, setIsOpen, switchModals } ) => {
 
 		return (
 			<Box>
-				<BoxHeader title="Something to be confirmed">
-					<div className="sui-actions-right">
-						<ButtonIcon
-							label="Close this dialog window"
-							icon="close"
-							iconSize="md"
-							extraClasses="le-dialog-id-header-close-button sui-button-float--right sui-md"
-							onClick={ closeFirstModal }
-						/>
-					</div>
+				<BoxHeader
+					display="block"
+					alignment="center"
+					paddingTop="20"
+					paddingRight="20"
+					paddingLeft="20"
+					paddingBottom="100"
+					border="0"
+					style={ {
+						borderRadius: 4,
+						backgroundImage: `url(${banner})`,
+						backgroundRepeat: 'no-repeat',
+						backgroundPosition: 'top center',
+						backgroundSize: 'cover',
+					} }
+				>
+					<ButtonIcon
+						label="Close this dialog window"
+						icon="close"
+						iconSize="md"
+						extraClasses="le-dialog-id-header-close-button sui-button-float--right sui-md"
+						style={ { display: 'block', marginRight: 0, marginLeft: 'auto' } }
+						onClick={ closeFirstModal }
+					/>
 				</BoxHeader>
-				<BoxBody>
-					<Input onChange={ ( e ) => setInputValue( e.target.value ) } value={ inputValue } type="text"/>
-					<Button onClick={ closeFirstModal } label="Close modal" />
-					<Button id="something" onClick={ switchModals } label="open confirmation" />
+				<BoxBody
+					alignment="center"
+				>
+					<h3>Welcome to Beehive Pro</h3>
+					<p className="sui-description">Hello and welcome to the hottest Google Analytics plugin for WordPress. Let's get started by connecting your Google Analytics account so that we can feed your analytics data. If you only want to enable tracking without reports, you can paste your analytics code via the link below.</p>
+					<Input placeholder="Place access code here" onChange={ ( e ) => setInputValue( e.target.value ) } value={ inputValue } type="text"/>
+					<Button id="auth-button" onClick={ switchModals } label="Authorize" color="blue" />
 				</BoxBody>
 			</Box>
 		);
@@ -239,7 +257,7 @@ const FirstModal = ( { isOpen, setIsOpen, switchModals } ) => {
 		<Modal
 			mounted={ isOpen }
 			titleId="sui-modal-one-title"
-			size="md"
+			size="lg"
 			dialogId="first"
 			initialFocus="#something"
 			modalContent={ replaceModalContent }
@@ -252,21 +270,48 @@ const SecondModal = ( { isOpen, switchModals } ) => {
 
 	const confirmationModalContent = () => (
 		<Box>
-			<BoxHeader title="Are you sure?">
-				<div className="sui-actions-right">
-					<ButtonIcon
-						label="Close this dialog window"
-						icon="close"
-						iconSize="md"
-						extraClasses="le-dialog-id-header-close-button sui-button-float--right sui-md"
-						onClick={ switchModals }
-					/>
-				</div>
+			<BoxHeader
+				paddingTop="20"
+				paddingRight="20"
+				paddingLeft="20"
+				paddingBottom="100"
+				border="0"
+				style={ {
+					borderRadius: 4,
+					backgroundImage: `url(${banner})`,
+					backgroundRepeat: 'no-repeat',
+					backgroundPosition: 'top center',
+					backgroundSize: 'cover',
+				} }
+			>
+				<ButtonIcon
+					label="Go back"
+					icon="chevron-left"
+					iconSize="md"
+					extraClasses="sui-button-float--right"
+					onClick={ switchModals }
+				/>
+				<ButtonIcon
+					label="Close this dialog window"
+					icon="close"
+					iconSize="md"
+					extraClasses="le-dialog-id-header-close-button"
+				/>
 			</BoxHeader>
-			<BoxBody>
-				<Button onClick={ switchModals } label="I'm not sure, go back" />
-				<Button id="focused-button" label="Just a focused button" />
+			<BoxBody
+				alignment="center"
+			>
+				<span className="sui-icon-loader sui-loading" aria-hidden="true" />
+				<h3>Finishing Up...</h3>
+				<p className="sui-description">Please wait a few moments while we set up your account. Note that data can take up to 24 hours to display.</p>
 			</BoxBody>
+			<BoxFooter
+				alignment="center"
+				paddingTop="0"
+				border="0"
+			>
+				<Button onClick={ switchModals } label="Cancel" design="ghost" />
+			</BoxFooter>
 		</Box>
 	);
 
@@ -274,7 +319,6 @@ const SecondModal = ( { isOpen, switchModals } ) => {
 		<Modal
 			mounted={ isOpen }
 			titleId="sui-modal-one-title"
-			size="md"
 			dialogId="confirmation"
 			initialFocus="#focused-button"
 			modalContent={ confirmationModalContent }
