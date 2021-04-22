@@ -27,7 +27,6 @@ const headerContent = ( { closeModal } ) =>{
 				label="Close this dialog window"
 				icon="close"
 				iconSize="md"
-				extraClasses="sui-button-float--right sui-md"
 				onClick={ closeModal }
 			/>
 		</BoxHeader>
@@ -141,14 +140,12 @@ const renderTwo = ( { closeModal, slideTo } ) => {
 						label="Previous slide"
 						icon="chevron-left"
 						iconSize="md"
-						extraClasses="sui-button-float--right sui-md"
 						onClick={ () => slideTo( 'one', 'right' ) }
 					/>
 					<ButtonIcon
 						label="Close this dialog window"
 						icon="close"
 						iconSize="md"
-						extraClasses="sui-button-float--right sui-md"
 						onClick={ closeModal }
 					/>
 				</BoxHeader>
@@ -236,7 +233,6 @@ const FirstModal = ( { isOpen, setIsOpen, switchModals } ) => {
 						label="Close this dialog window"
 						icon="close"
 						iconSize="md"
-						extraClasses="sui-button-float--right sui-md"
 						style={ { display: 'block', marginRight: 0, marginLeft: 'auto' } }
 						onClick={ closeThisModal }
 					/>
@@ -296,7 +292,6 @@ const SecondModal = ( { isOpen, setIsOpen, switchModals } ) => {
 						label="Go back"
 						icon="chevron-left"
 						iconSize="md"
-						extraClasses="sui-button-float--right"
 						onClick={ switchModals }
 					/>
 					<ButtonIcon
