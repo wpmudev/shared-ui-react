@@ -23,9 +23,7 @@ const ButtonIcon = React.forwardRef( ({
 		</React.Fragment>
 	);
 
-	className = '' !== className
-		? 'sui-button-icon ' + className
-		: 'sui-button-icon';
+	className = `sui-button-icon ${className || ''}`;
 
 	// Set button color.
 	switch (color) {
