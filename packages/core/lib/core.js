@@ -7,6 +7,7 @@ import {
 } from "@wpmudev/react-box";
 import { Input } from "@wpmudev/react-input";
 import { Button } from "@wpmudev/react-button";
+import { Modal } from "@wpmudev/react-modal";
 import { ButtonIcon } from "@wpmudev/react-button-icon";
 import { Post } from "@wpmudev/react-post";
 import { Notifications } from "@wpmudev/react-notifications";
@@ -26,6 +27,7 @@ export {
 	BoxFooter,
 	Input,
 	Button,
+	Modal,
 	ButtonIcon,
 	Post,
 	Notifications,
