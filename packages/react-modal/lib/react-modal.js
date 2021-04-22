@@ -44,15 +44,17 @@ export const Modal = ( { modalContent, triggerContent, ...props } ) => {
 
 	let dialogClass = `sui-modal-content sui-content-${ isClosing ? 'fade-out' : 'fade-in' } ${ props.dialogClass || "" }`;
 
-	let renderContent, initialFocus;
+	let renderContent, modalSize, initialFocus;
 	if ( ! isSlider ) {
 		// Not a slider, we can just render the content.
 		renderContent = modalContent;
+		modalSize = props.size;
 		initialFocus = props.initialFocus || false;
 	} else {
 		// Render the content from the given slides.
 		renderContent = modalContent[ currentSlide ].render;
 		initialFocus = modalContent[ currentSlide ].focus || false;
+		modalSize = modalContent[ currentSlide ].size;
 
 		// Add the slide direction class when provided and we're not closing the modal.
 		if ( slideDirection && ! isClosing ) {
@@ -67,7 +69,7 @@ export const Modal = ( { modalContent, triggerContent, ...props } ) => {
 				<AltModal
 					getApplicationNode={ getApplicationNode }
 					dialogClass={ dialogClass }
-					underlayClass={ `sui-modal sui-active sui-modal-${ props.size || 'md' } sui-wrap ${ props.underlayClass || '' }` }
+					underlayClass={ `sui-modal sui-active sui-modal-${ modalSize || 'md' } sui-wrap ${ props.underlayClass || '' }` }
 					includeDefaultStyles={ false }
 					initialFocus={ initialFocus }
 					{ ...props }
