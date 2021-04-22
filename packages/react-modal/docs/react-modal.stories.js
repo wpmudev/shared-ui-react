@@ -118,8 +118,8 @@ const renderOne = ( { closeModal, slideTo } ) => {
 				</BoxFooter>
 				<img
 					src={image1x}
-					srcset={`${image1x} 1x, ${image2x} 2x`}
-					class="sui-image sui-image-center"
+					srcSet={`${image1x} 1x, ${image2x} 2x`}
+					className="sui-image sui-image-center"
 					aria-hidden="true"
 				/>
 			</Box>
@@ -168,8 +168,8 @@ const renderTwo = ( { closeModal, slideTo } ) => {
 				</BoxBody>
 				<img
 					src={image1x}
-					srcset={`${image1x} 1x, ${image2x} 2x`}
-					class="sui-image sui-image-center"
+					srcSet={`${image1x} 1x, ${image2x} 2x`}
+					className="sui-image sui-image-center"
 					aria-hidden="true"
 				/>
 			</Box>
