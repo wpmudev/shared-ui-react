@@ -180,11 +180,11 @@ const renderTwo = ( { closeModal, slideTo } ) => {
 const slideModalContent = {
 	'one': {
 		render: renderOne,
-		size: 'sm',
+		size: 'lg',
 	},
 	'two': {
 		render: renderTwo,
-		size: 'md',
+		size: 'sm',
 		focus: '.sui-form-control',
 	},
 }
