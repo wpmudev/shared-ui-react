@@ -3,6 +3,7 @@ import React from "react";
 const ButtonIcon = React.forwardRef( ({
 	label,
 	icon,
+	iconSize,
 	design = "solid",
 	color,
 	className,
@@ -18,7 +19,7 @@ const ButtonIcon = React.forwardRef( ({
 
 	let content = (
 		<React.Fragment>
-			<span className={"sui-icon-" + icon} aria-hidden="true" />
+			<span className={ `sui-icon-${icon}${iconSize ? ' sui-' + iconSize : '' }` } aria-hidden="true" />
 			<span className="sui-screen-reader-text">{label}</span>
 		</React.Fragment>
 	);
