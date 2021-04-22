@@ -27,7 +27,7 @@ const headerContent = ( { closeModal } ) =>{
 				label="Close this dialog window"
 				icon="close"
 				iconSize="md"
-				extraClasses="le-dialog-id-header-close-button sui-button-float--right sui-md"
+				extraClasses="sui-button-float--right sui-md"
 				onClick={ closeModal }
 			/>
 		</BoxHeader>
@@ -141,14 +141,14 @@ const renderTwo = ( { closeModal, slideTo } ) => {
 						label="Previous slide"
 						icon="chevron-left"
 						iconSize="md"
-						extraClasses="le-dialog-id-header-close-button sui-button-float--right sui-md"
+						extraClasses="sui-button-float--right sui-md"
 						onClick={ () => slideTo( 'one', 'right' ) }
 					/>
 					<ButtonIcon
 						label="Close this dialog window"
 						icon="close"
 						iconSize="md"
-						extraClasses="le-dialog-id-header-close-button sui-button-float--right sui-md"
+						extraClasses="sui-button-float--right sui-md"
 						onClick={ closeModal }
 					/>
 				</BoxHeader>
@@ -207,7 +207,7 @@ const FirstModal = ( { isOpen, setIsOpen, switchModals } ) => {
 	const [inputValue, setInputValue ] = React.useState( '' );
 
 	const replaceModalContent = ( { closeModal } ) => {
-		const closeFirstModal = function() {
+		const closeThisModal = function() {
 			closeModal();
 			setTimeout( () => {
 				setIsOpen( false );
@@ -236,9 +236,9 @@ const FirstModal = ( { isOpen, setIsOpen, switchModals } ) => {
 						label="Close this dialog window"
 						icon="close"
 						iconSize="md"
-						extraClasses="le-dialog-id-header-close-button sui-button-float--right sui-md"
+						extraClasses="sui-button-float--right sui-md"
 						style={ { display: 'block', marginRight: 0, marginLeft: 'auto' } }
-						onClick={ closeFirstModal }
+						onClick={ closeThisModal }
 					/>
 				</BoxHeader>
 				<BoxBody
@@ -259,68 +259,76 @@ const FirstModal = ( { isOpen, setIsOpen, switchModals } ) => {
 			titleId="sui-modal-one-title"
 			size="lg"
 			dialogId="first"
-			initialFocus="#something"
+			initialFocus=".sui-form-control"
 			modalContent={ replaceModalContent }
 			renderToNode=".sui-2-10-0" // TODO: get this dynamically.
 		></Modal>
 	);
 };
 
-const SecondModal = ( { isOpen, switchModals } ) => {
+const SecondModal = ( { isOpen, setIsOpen, switchModals } ) => {
 
-	const confirmationModalContent = () => (
-		<Box>
-			<BoxHeader
-				paddingTop="20"
-				paddingRight="20"
-				paddingLeft="20"
-				paddingBottom="100"
-				border="0"
-				style={ {
-					borderRadius: 4,
-					backgroundImage: `url(${banner})`,
-					backgroundRepeat: 'no-repeat',
-					backgroundPosition: 'top center',
-					backgroundSize: 'cover',
-				} }
-			>
-				<ButtonIcon
-					label="Go back"
-					icon="chevron-left"
-					iconSize="md"
-					extraClasses="sui-button-float--right"
-					onClick={ switchModals }
-				/>
-				<ButtonIcon
-					label="Close this dialog window"
-					icon="close"
-					iconSize="md"
-					extraClasses="le-dialog-id-header-close-button"
-				/>
-			</BoxHeader>
-			<BoxBody
-				alignment="center"
-			>
-				<span className="sui-icon-loader sui-loading" aria-hidden="true" />
-				<h3>Finishing Up...</h3>
-				<p className="sui-description">Please wait a few moments while we set up your account. Note that data can take up to 24 hours to display.</p>
-			</BoxBody>
-			<BoxFooter
-				alignment="center"
-				paddingTop="0"
-				border="0"
-			>
-				<Button onClick={ switchModals } label="Cancel" design="ghost" />
-			</BoxFooter>
-		</Box>
-	);
+	const confirmationModalContent = ( { closeModal } ) => {
+		const closeThisModal = function() {
+			closeModal();
+			setTimeout( () => {
+				setIsOpen( false );
+			}, 300 );
+		};
+
+		return (
+			<Box>
+				<BoxHeader
+					paddingTop="20"
+					paddingRight="20"
+					paddingLeft="20"
+					paddingBottom="100"
+					border="0"
+					style={ {
+						borderRadius: 4,
+						backgroundImage: `url(${banner})`,
+						backgroundRepeat: 'no-repeat',
+						backgroundPosition: 'top center',
+						backgroundSize: 'cover',
+					} }
+				>
+					<ButtonIcon
+						label="Go back"
+						icon="chevron-left"
+						iconSize="md"
+						extraClasses="sui-button-float--right"
+						onClick={ switchModals }
+					/>
+					<ButtonIcon
+						label="Close this dialog window"
+						icon="close"
+						iconSize="md"
+						onClick={ closeThisModal }
+					/>
+				</BoxHeader>
+				<BoxBody
+					alignment="center"
+				>
+					<span className="sui-icon-loader sui-loading" aria-hidden="true" />
+					<h3>Finishing Up...</h3>
+					<p className="sui-description">Please wait a few moments while we set up your account. Note that data can take up to 24 hours to display.</p>
+				</BoxBody>
+				<BoxFooter
+					alignment="center"
+					paddingTop="0"
+					border="0"
+				>
+					<Button onClick={ switchModals } label="Cancel" design="ghost" />
+				</BoxFooter>
+			</Box>
+		);
+	};
 
 	return (
 		<Modal
 			mounted={ isOpen }
 			titleId="sui-modal-one-title"
 			dialogId="confirmation"
-			initialFocus="#focused-button"
 			modalContent={ confirmationModalContent }
 			renderToNode=".sui-2-10-0" // TODO: get this dynamically.
 		></Modal>
@@ -346,6 +354,7 @@ const Replace = () => {
 			/>
 			<SecondModal
 				isOpen={ isSecondOpen }
+				setIsOpen={ setIsSecondOpen }
 				switchModals={ switchModals }
 			/>
 		</React.Fragment>
