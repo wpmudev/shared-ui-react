@@ -1,13 +1,15 @@
 import React from "react";
 
-const ButtonIcon = React.forwardRef( ({
+const ButtonIcon = ({
 	label,
 	icon,
+	iconSize,
 	design = "solid",
 	color,
 	className,
+	loading,
 	...props
-}, ref) => {
+}) => {
 	const loader = (
 		<span
 			className="sui-icon-loader sui-loading"
@@ -18,7 +20,7 @@ const ButtonIcon = React.forwardRef( ({
 
 	let content = (
 		<React.Fragment>
-			<span className={"sui-icon-" + icon} aria-hidden="true" />
+			<span className={ `sui-icon-${icon}${iconSize ? ' sui-' + iconSize : '' }` } aria-hidden="true" />
 			<span className="sui-screen-reader-text">{label}</span>
 		</React.Fragment>
 	);
@@ -59,7 +61,7 @@ const ButtonIcon = React.forwardRef( ({
 	}
 
 	// Set loading class.
-	if (props.loading) {
+	if ( loading ) {
 		className += " sui-button-onload";
 	}
 
@@ -68,12 +70,12 @@ const ButtonIcon = React.forwardRef( ({
 	return React.createElement(
 		htmlTag,
 		{
-			className: className,
-			disabled: props.disabled || props.loading,
+			className,
+			disabled: props.disabled || loading,
 			...props
 		},
-		props.loading ? loader : content
-	)
-});
+		loading ? loader : content
+	);
+};
 
 export { ButtonIcon };
