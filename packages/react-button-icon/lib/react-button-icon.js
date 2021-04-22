@@ -7,6 +7,7 @@ const ButtonIcon = ({
 	design = "solid",
 	color,
 	className,
+	loading,
 	...props
 }) => {
 	const loader = (
@@ -60,28 +61,20 @@ const ButtonIcon = ({
 	}
 
 	// Set loading class.
-	if (props.loading) {
+	if ( loading ) {
 		className += " sui-button-onload";
 	}
 
-	if (props.href) {
-		return (
-			<a
-				className={className}
-				disabled={props.disabled || props.loading}
-				{...props}>
-				{props.loading ? loader : content}
-			</a>
-		);
-	}
+	const htmlTag = props.href ? 'a' : 'button';
 
-	return (
-		<button
-			className={className}
-			disabled={props.disabled || props.loading}
-			{...props}>
-			{props.loading ? loader : content}
-		</button>
+	return React.createElement(
+		htmlTag,
+		{
+			className,
+			disabled: props.disabled || loading,
+			...props
+		},
+		loading ? loader : content
 	);
 };
 
