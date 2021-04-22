@@ -43,16 +43,16 @@ export const Modal = ( { modalContent, triggerContent, ...props } ) => {
 	} = props;
 
 	let dialogClass = `sui-modal-content sui-content-${ isClosing ? 'fade-out' : 'fade-in' } ${ props.dialogClass || "" }`;
-	let { initialFocus = `.${ props.dialogId }-header-close-button` } = props;
 
-	let renderContent;
+	let renderContent, initialFocus;
 	if ( ! isSlider ) {
 		// Not a slider, we can just render the content.
 		renderContent = modalContent;
+		initialFocus = props.initialFocus || false;
 	} else {
 		// Render the content from the given slides.
 		renderContent = modalContent[ currentSlide ].render;
-		initialFocus = modalContent[ currentSlide ].focus ? modalContent[ currentSlide ].focus : initialFocus;
+		initialFocus = modalContent[ currentSlide ].focus || false;
 
 		// Add the slide direction class when provided and we're not closing the modal.
 		if ( slideDirection && ! isClosing ) {

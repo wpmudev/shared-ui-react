@@ -183,7 +183,7 @@ const slideModalContent = {
 	},
 	'two': {
 		render: renderTwo,
-		focus: '#slide-two-focus',
+		focus: '.sui-form-control',
 	},
 }
 
