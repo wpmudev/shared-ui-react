@@ -7,7 +7,7 @@
 	"version": "independent",
 	"command": {
 		"publish": {
-			"message": "🚀 Publish"
+			"message": "🚀 Publish changes."
 		}
 	}
 }
