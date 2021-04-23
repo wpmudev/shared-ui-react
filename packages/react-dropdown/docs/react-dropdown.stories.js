@@ -50,9 +50,9 @@ const Template = ({ children, ...args }) => {
     );
 };
 
-export const primary = Template.bind({});
-primary.storyName = 'Default';
-primary.args = {
+export const DropdownDefault = Template.bind({});
+DropdownDefault.storyName = 'Default';
+DropdownDefault.args = {
     position: 'left',
     children: [
         {
@@ -62,15 +62,14 @@ primary.args = {
             name: 'Option 2'
         },
         {
-            name: 'Option 3',
-            color: 'red'
+            name: 'Option 3'
         },
     ]
 };
 
-export const secondary = Template.bind({});
-secondary.storyName = 'Option Icon';
-secondary.args = {
+export const DropdownIcon = Template.bind({});
+DropdownIcon.storyName = 'Option Icon';
+DropdownIcon.args = {
     position: 'left',
     children: [
         {
@@ -88,9 +87,9 @@ secondary.args = {
     ]
 };
 
-export const tertiary = Template.bind({});
-tertiary.storyName = 'Option Tag';
-tertiary.args = {
+export const DropdownTag = Template.bind({});
+DropdownTag.storyName = 'Option Tag';
+DropdownTag.args = {
     position: 'left',
     children: [
         {
@@ -104,6 +103,34 @@ tertiary.args = {
         {
             name: 'Option 3',
             tag: 'Coming Soon'
+        },
+    ]
+};
+
+export const DropdownColor = Template.bind({});
+DropdownColor.storyName = 'Option Color';
+DropdownColor.args = {
+    position: 'left',
+    children: [
+        {
+            name: 'Option 1',
+            color: 'blue'
+        },
+        {
+            name: 'Option 2',
+            color: 'green'
+        },
+        {
+            name: 'Option 3',
+            color: 'yellow'
+        },
+        {
+            name: 'Option 3',
+            color: 'red'
+        },
+        {
+            name: 'Option 3',
+            color: 'purple'
         },
     ]
 };
