@@ -1,5 +1,44 @@
 import React, { Component, Children, Fragment } from 'react';
 import { ButtonIcon } from '@wpmudev/react-button-icon';
+import styled from 'styled-components';
+
+const Link = styled.a`
+.sui-wrap && {
+    ${props => ('blue' === props.color ? 'color: #17A8E3 !important;' : '')}
+    ${props => ('green' === props.color ? 'color: #1ABC9C !important;' : '')}
+    ${props => ('yellow' === props.color ? 'color: #FECF2F !important;' : '')}
+    ${props => ('red' === props.color ? 'color: #FF6D6D !important;' : '')}
+    ${props => ('purple' === props.color ? 'color: #8D00B1 !important;' : '')}
+
+    &:hover,
+    &:focus {
+        ${props => ('blue' === props.color ? 'background-color: #E1F6FF !important;' : '')}
+        ${props => ('green' === props.color ? 'background-color: #D1F1EA !important;' : '')}
+        ${props => ('yellow' === props.color ? 'background-color: #FFF5D5 !important;' : '')}
+        ${props => ('red' === props.color ? 'background-color: #FFE5E9 !important;' : '')}
+        ${props => ('purple' === props.color ? 'background-color: #F9E1FF !important;' : '')}
+    }
+}
+`;
+
+const Button = styled.button`
+.sui-wrap && {
+    ${props => ('blue' === props.color ? 'color: #17A8E3 !important;' : '')}
+    ${props => ('green' === props.color ? 'color: #1ABC9C !important;' : '')}
+    ${props => ('yellow' === props.color ? 'color: #FECF2F !important;' : '')}
+    ${props => ('red' === props.color ? 'color: #FF6D6D !important;' : '')}
+    ${props => ('purple' === props.color ? 'color: #8D00B1 !important;' : '')}
+
+    &:hover,
+    &:focus {
+        ${props => ('blue' === props.color ? 'background-color: #E1F6FF !important;' : '')}
+        ${props => ('green' === props.color ? 'background-color: #D1F1EA !important;' : '')}
+        ${props => ('yellow' === props.color ? 'background-color: #FFF5D5 !important;' : '')}
+        ${props => ('red' === props.color ? 'background-color: #FFE5E9 !important;' : '')}
+        ${props => ('purple' === props.color ? 'background-color: #F9E1FF !important;' : '')}
+    }
+}
+`;
 
 export class Dropdown extends Component {
     constructor( props ) {
@@ -65,10 +104,20 @@ export class Dropdown extends Component {
             const label = <Fragment>{ icon }{ option.props.name }{ tag }</Fragment>;
 
             if ( option.props.href ) {
-                return <li><a href={ option.props.href } {...option.props}>{ label }</a></li>;
+                return <li>
+                    <Link
+                        href={ option.props.href }
+                        { ...option.props }>
+                        { label }
+                    </Link>
+                </li>;
             }
 
-            return <li><button {...option.props}>{ label }</button></li>;
+            return <li>
+                <Button { ...option.props }>
+                    { label }
+                </Button>
+            </li>;
         });
 
         let clazz = !open
