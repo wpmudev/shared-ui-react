@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/react-dropdown",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "WPMU DEV Shared UI React Dropdown Component",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com/)",
@@ -43,7 +43,7 @@
     "styled-components": "^5"
   },
   "dependencies": {
-    "@wpmudev/react-button-icon": "^1.0.1",
+    "@wpmudev/react-button-icon": "^1.1.0",
     "styled-components": "^5.2.3"
   },
   "devDependencies": {

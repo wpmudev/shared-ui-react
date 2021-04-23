@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/react-notifications",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "WPMU DEV Shared UI React Notifications Component",
   "author": "WPMU DEV",
   "contributors": [
@@ -41,10 +41,10 @@
   },
   "devDependencies": {
     "@wpmudev/react-builder": "^0.0.0",
-    "@wpmudev/react-button": "^1.0.5",
+    "@wpmudev/react-button": "^1.0.6",
     "react": "^17.0.1"
   },
   "dependencies": {
-    "@wpmudev/react-button-icon": "^1.0.1"
+    "@wpmudev/react-button-icon": "^1.1.0"
   }
 }
