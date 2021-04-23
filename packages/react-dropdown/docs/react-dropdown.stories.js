@@ -2,7 +2,42 @@ import React from 'react';
 import { Dropdown } from '../lib/react-dropdown';
 
 export default {
-    title: 'Components/Dropdown'
+    title: 'Components/Dropdown',
+    argTypes: {
+        position: {
+            type: {
+                name: 'string',
+                required: false
+            },
+            description: 'This property will determine where the dropdown menu will be placed.',
+            defaultValue: 'left',
+            control: {
+                type: 'select',
+                options: [
+                    'left',
+                    'center',
+                    'right'
+                ]
+            },
+            table: {
+                type: {
+                    summary: 'options',
+                    detail: '"left", "center", "right"'
+                },
+                defaultValue: {
+                    summary: 'left'
+                }
+            },
+        },
+        children: {
+            data: {
+                type: 'array'
+            },
+            control: {
+                type: null
+            }
+        }
+    }
 }
 
 const Template = ({ children, ...args }) => {
@@ -27,21 +62,10 @@ primary.args = {
             name: 'Option 2'
         },
         {
-            name: 'Option 3'
+            name: 'Option 3',
+            color: 'red'
         },
     ]
-};
-primary.argTypes = {
-    position: {
-        control: {
-            type: 'select',
-            options: [
-                'left',
-                'center',
-                'right'
-            ]
-        }
-    }
 };
 
 export const secondary = Template.bind({});
@@ -63,9 +87,6 @@ secondary.args = {
         },
     ]
 };
-secondary.argTypes = {
-    ...primary.argTypes
-};
 
 export const tertiary = Template.bind({});
 tertiary.storyName = 'Option Tag';
@@ -85,7 +106,4 @@ tertiary.args = {
             tag: 'Coming Soon'
         },
     ]
-};
-tertiary.argTypes = {
-    ...primary.argTypes
 };
