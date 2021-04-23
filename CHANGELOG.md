@@ -2,6 +2,17 @@
 
 ## Unreleased (2021-04-23)
 
+#### Improvements
+* [#100](https://github.com/wpmudev/shared-ui-react/pull/100) 🐛 fix(browserslist): Update browsers data. ([@iamleigh](https://github.com/iamleigh))
+
+#### Bug Fixes
+* `compiler`
+  * [#101](https://github.com/wpmudev/shared-ui-react/pull/101) 🐛 fix(react-modal): React doesn’t recognize prop on DOM element. ([@iamleigh](https://github.com/iamleigh))
+
+#### Committers: 1
+
+## Released (2021-04-23)
+
 #### New Features
 * `react-dropdown`
   * [#99](https://github.com/wpmudev/shared-ui-react/pull/99) ✨ new(react-dropdown): Allow options to change font color. ([@iamleigh](https://github.com/iamleigh))
