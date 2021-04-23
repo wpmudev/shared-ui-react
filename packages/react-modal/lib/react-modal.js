@@ -62,21 +62,24 @@ export const Modal = ( { modalContent, triggerContent, ...props } ) => {
 		}
 	}
 
+	// Use 'isOpen' as an alias of 'mounted' if not defined.
+	if ( 'undefined' === typeof props.mounted ) {
+		props.mounted = isOpen;
+	}
+
 	const AltModal = props.renderToNode ? AriaModal.renderTo( props.renderToNode ) : AriaModal;
     return (
 		<React.Fragment>
-			{ ( isOpen || 'undefined' !== typeof props.mounted ) &&
-				<AltModal
-					getApplicationNode={ getApplicationNode }
-					dialogClass={ dialogClass }
-					underlayClass={ `sui-modal sui-active sui-modal-${ modalSize || 'md' } sui-wrap ${ props.underlayClass || '' }` }
-					includeDefaultStyles={ false }
-					initialFocus={ initialFocus }
-					{ ...props }
-					>
-					{ renderContent( { closeModal, slideTo } ) }
-				</AltModal>
-			}
+			<AltModal
+				getApplicationNode={ getApplicationNode }
+				dialogClass={ dialogClass }
+				underlayClass={ `sui-modal sui-active sui-modal-${ modalSize || 'md' } sui-wrap ${ props.underlayClass || '' }` }
+				includeDefaultStyles={ false }
+				initialFocus={ initialFocus }
+				{ ...props }
+				>
+				{ renderContent( { closeModal, slideTo } ) }
+			</AltModal>
 			{ triggerContent && triggerContent( { openModal } ) }
 		</React.Fragment>
 	);
