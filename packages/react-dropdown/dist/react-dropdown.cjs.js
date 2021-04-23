@@ -3,10 +3,12 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var React = require('react');
+var styled = require('styled-components');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
 var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
+var styled__default = /*#__PURE__*/_interopDefaultLegacy(styled);
 
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -127,22 +129,65 @@ function _createSuper(Derived) {
   };
 }
 
-function _extends$1() {
-  _extends$1 = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
+function _taggedTemplateLiteral(strings, raw) {
+  if (!raw) {
+    raw = strings.slice(0);
+  }
 
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
+  return Object.freeze(Object.defineProperties(strings, {
+    raw: {
+      value: Object.freeze(raw)
     }
+  }));
+}
 
-    return target;
-  };
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
 
-  return _extends$1.apply(this, arguments);
+  return obj;
+}
+
+function ownKeys(object, enumerableOnly) {
+  var keys = Object.keys(object);
+
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    if (enumerableOnly) symbols = symbols.filter(function (sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    });
+    keys.push.apply(keys, symbols);
+  }
+
+  return keys;
+}
+
+function _objectSpread2(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+
+    if (i % 2) {
+      ownKeys(Object(source), true).forEach(function (key) {
+        _defineProperty(target, key, source[key]);
+      });
+    } else if (Object.getOwnPropertyDescriptors) {
+      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+    } else {
+      ownKeys(Object(source)).forEach(function (key) {
+        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+      });
+    }
+  }
+
+  return target;
 }
 
 function _objectWithoutPropertiesLoose(source, excluded) {
@@ -181,14 +226,16 @@ function _objectWithoutProperties(source, excluded) {
   return target;
 }
 
-var ButtonIcon = /*#__PURE__*/React__default['default'].forwardRef(function (_ref, ref) {
+var ButtonIcon = function ButtonIcon(_ref) {
   var label = _ref.label,
       icon = _ref.icon,
+      iconSize = _ref.iconSize,
       _ref$design = _ref.design,
       design = _ref$design === void 0 ? "solid" : _ref$design,
       color = _ref.color,
       className = _ref.className,
-      props = _objectWithoutProperties(_ref, ["label", "icon", "design", "color", "className"]);
+      loading = _ref.loading,
+      props = _objectWithoutProperties(_ref, ["label", "icon", "iconSize", "design", "color", "className", "loading"]);
 
   var loader = /*#__PURE__*/React__default['default'].createElement("span", {
     className: "sui-icon-loader sui-loading",
@@ -198,12 +245,12 @@ var ButtonIcon = /*#__PURE__*/React__default['default'].forwardRef(function (_re
     "aria-hidden": "true"
   });
   var content = /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, /*#__PURE__*/React__default['default'].createElement("span", {
-    className: "sui-icon-" + icon,
+    className: "sui-icon-".concat(icon).concat(iconSize ? ' sui-' + iconSize : ''),
     "aria-hidden": "true"
   }), /*#__PURE__*/React__default['default'].createElement("span", {
     className: "sui-screen-reader-text"
   }, label));
-  className = '' !== className ? 'sui-button-icon ' + className : 'sui-button-icon'; // Set button color.
+  className = "sui-button-icon ".concat(className || ''); // Set button color.
 
   switch (color) {
     case "blue":
@@ -236,25 +283,78 @@ var ButtonIcon = /*#__PURE__*/React__default['default'].forwardRef(function (_re
   } // Set loading class.
 
 
-  if (props.loading) {
+  if (loading) {
     className += " sui-button-onload";
   }
 
-  if (props.href) {
-    return /*#__PURE__*/React__default['default'].createElement("a", _extends$1({
-      ref: ref,
-      className: className,
-      disabled: props.disabled || props.loading
-    }, props), props.loading ? loader : content);
-  }
-
-  return /*#__PURE__*/React__default['default'].createElement("button", _extends$1({
-    ref: ref,
+  var htmlTag = props.href ? 'a' : 'button';
+  return /*#__PURE__*/React__default['default'].createElement(htmlTag, _objectSpread2({
     className: className,
-    disabled: props.disabled || props.loading
-  }, props), props.loading ? loader : content);
-});
+    disabled: props.disabled || loading
+  }, props), loading ? loader : content);
+};
 
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["\n.sui-wrap && {\n    ", "\n    ", "\n    ", "\n    ", "\n    ", "\n\n    &:hover,\n    &:focus {\n        ", "\n        ", "\n        ", "\n        ", "\n        ", "\n    }\n}\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n.sui-wrap && {\n    ", "\n    ", "\n    ", "\n    ", "\n    ", "\n\n    &:hover,\n    &:focus {\n        ", "\n        ", "\n        ", "\n        ", "\n        ", "\n    }\n}\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var Link = styled__default['default'].a(_templateObject(), function (props) {
+  return 'blue' === props.color ? 'color: #17A8E3 !important;' : '';
+}, function (props) {
+  return 'green' === props.color ? 'color: #1ABC9C !important;' : '';
+}, function (props) {
+  return 'yellow' === props.color ? 'color: #FECF2F !important;' : '';
+}, function (props) {
+  return 'red' === props.color ? 'color: #FF6D6D !important;' : '';
+}, function (props) {
+  return 'purple' === props.color ? 'color: #8D00B1 !important;' : '';
+}, function (props) {
+  return 'blue' === props.color ? 'background-color: #E1F6FF !important;' : '';
+}, function (props) {
+  return 'green' === props.color ? 'background-color: #D1F1EA !important;' : '';
+}, function (props) {
+  return 'yellow' === props.color ? 'background-color: #FFF5D5 !important;' : '';
+}, function (props) {
+  return 'red' === props.color ? 'background-color: #FFE5E9 !important;' : '';
+}, function (props) {
+  return 'purple' === props.color ? 'background-color: #F9E1FF !important;' : '';
+});
+var Button = styled__default['default'].button(_templateObject2(), function (props) {
+  return 'blue' === props.color ? 'color: #17A8E3 !important;' : '';
+}, function (props) {
+  return 'green' === props.color ? 'color: #1ABC9C !important;' : '';
+}, function (props) {
+  return 'yellow' === props.color ? 'color: #FECF2F !important;' : '';
+}, function (props) {
+  return 'red' === props.color ? 'color: #FF6D6D !important;' : '';
+}, function (props) {
+  return 'purple' === props.color ? 'color: #8D00B1 !important;' : '';
+}, function (props) {
+  return 'blue' === props.color ? 'background-color: #E1F6FF !important;' : '';
+}, function (props) {
+  return 'green' === props.color ? 'background-color: #D1F1EA !important;' : '';
+}, function (props) {
+  return 'yellow' === props.color ? 'background-color: #FFF5D5 !important;' : '';
+}, function (props) {
+  return 'red' === props.color ? 'background-color: #FFE5E9 !important;' : '';
+}, function (props) {
+  return 'purple' === props.color ? 'background-color: #F9E1FF !important;' : '';
+});
 var Dropdown = /*#__PURE__*/function (_Component) {
   _inherits(Dropdown, _Component);
 
@@ -331,12 +431,12 @@ var Dropdown = /*#__PURE__*/function (_Component) {
         var label = /*#__PURE__*/React__default['default'].createElement(React.Fragment, null, icon, option.props.name, tag);
 
         if (option.props.href) {
-          return /*#__PURE__*/React__default['default'].createElement("li", null, /*#__PURE__*/React__default['default'].createElement("a", _extends({
+          return /*#__PURE__*/React__default['default'].createElement("li", null, /*#__PURE__*/React__default['default'].createElement(Link, _extends({
             href: option.props.href
           }, option.props), label));
         }
 
-        return /*#__PURE__*/React__default['default'].createElement("li", null, /*#__PURE__*/React__default['default'].createElement("button", option.props, label));
+        return /*#__PURE__*/React__default['default'].createElement("li", null, /*#__PURE__*/React__default['default'].createElement(Button, option.props, label));
       });
       var clazz = !open ? 'sui-dropdown' : 'sui-dropdown open';
 
