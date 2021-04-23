@@ -124,22 +124,53 @@ function _createSuper(Derived) {
   };
 }
 
-function _extends() {
-  _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
+function _defineProperty$1(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
 
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
+  return obj;
+}
+
+function ownKeys(object, enumerableOnly) {
+  var keys = Object.keys(object);
+
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    if (enumerableOnly) symbols = symbols.filter(function (sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    });
+    keys.push.apply(keys, symbols);
+  }
+
+  return keys;
+}
+
+function _objectSpread2(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+
+    if (i % 2) {
+      ownKeys(Object(source), true).forEach(function (key) {
+        _defineProperty$1(target, key, source[key]);
+      });
+    } else if (Object.getOwnPropertyDescriptors) {
+      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+    } else {
+      ownKeys(Object(source)).forEach(function (key) {
+        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+      });
     }
+  }
 
-    return target;
-  };
-
-  return _extends.apply(this, arguments);
+  return target;
 }
 
 function _objectWithoutPropertiesLoose(source, excluded) {
@@ -178,14 +209,16 @@ function _objectWithoutProperties(source, excluded) {
   return target;
 }
 
-var ButtonIcon = /*#__PURE__*/React__default['default'].forwardRef(function (_ref, ref) {
+var ButtonIcon = function ButtonIcon(_ref) {
   var label = _ref.label,
       icon = _ref.icon,
+      iconSize = _ref.iconSize,
       _ref$design = _ref.design,
       design = _ref$design === void 0 ? "solid" : _ref$design,
       color = _ref.color,
       className = _ref.className,
-      props = _objectWithoutProperties(_ref, ["label", "icon", "design", "color", "className"]);
+      loading = _ref.loading,
+      props = _objectWithoutProperties(_ref, ["label", "icon", "iconSize", "design", "color", "className", "loading"]);
 
   var loader = /*#__PURE__*/React__default['default'].createElement("span", {
     className: "sui-icon-loader sui-loading",
@@ -195,12 +228,12 @@ var ButtonIcon = /*#__PURE__*/React__default['default'].forwardRef(function (_re
     "aria-hidden": "true"
   });
   var content = /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, /*#__PURE__*/React__default['default'].createElement("span", {
-    className: "sui-icon-" + icon,
+    className: "sui-icon-".concat(icon).concat(iconSize ? ' sui-' + iconSize : ''),
     "aria-hidden": "true"
   }), /*#__PURE__*/React__default['default'].createElement("span", {
     className: "sui-screen-reader-text"
   }, label));
-  className = '' !== className ? 'sui-button-icon ' + className : 'sui-button-icon'; // Set button color.
+  className = "sui-button-icon ".concat(className || ''); // Set button color.
 
   switch (color) {
     case "blue":
@@ -233,24 +266,16 @@ var ButtonIcon = /*#__PURE__*/React__default['default'].forwardRef(function (_re
   } // Set loading class.
 
 
-  if (props.loading) {
+  if (loading) {
     className += " sui-button-onload";
   }
 
-  if (props.href) {
-    return /*#__PURE__*/React__default['default'].createElement("a", _extends({
-      ref: ref,
-      className: className,
-      disabled: props.disabled || props.loading
-    }, props), props.loading ? loader : content);
-  }
-
-  return /*#__PURE__*/React__default['default'].createElement("button", _extends({
-    ref: ref,
+  var htmlTag = props.href ? 'a' : 'button';
+  return /*#__PURE__*/React__default['default'].createElement(htmlTag, _objectSpread2({
     className: className,
-    disabled: props.disabled || props.loading
-  }, props), props.loading ? loader : content);
-});
+    disabled: props.disabled || loading
+  }, props), loading ? loader : content);
+};
 
 var Notifications = /*#__PURE__*/function (_Component) {
   _inherits(Notifications, _Component);
