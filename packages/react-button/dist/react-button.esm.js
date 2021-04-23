@@ -92,7 +92,8 @@ var Button = function Button(_ref) {
       design = _ref$design === void 0 ? "solid" : _ref$design,
       color = _ref.color,
       className = _ref.className,
-      props = _objectWithoutProperties(_ref, ["label", "icon", "design", "color", "className"]);
+      loading = _ref.loading,
+      props = _objectWithoutProperties(_ref, ["label", "icon", "design", "color", "className", "loading"]);
 
   var loader = /*#__PURE__*/React.createElement("span", {
     className: "sui-icon-loader sui-loading",
@@ -138,7 +139,7 @@ var Button = function Button(_ref) {
   } // Set loading class.
 
 
-  if (props.loading) {
+  if (loading) {
     className += " sui-button-onload";
   }
 
@@ -152,8 +153,8 @@ var Button = function Button(_ref) {
 
   return /*#__PURE__*/React.createElement(htmlTag, _objectSpread2({
     className: className,
-    disabled: props.disabled || props.loading
-  }, props), props.loading ? loader : content);
+    disabled: props.disabled || loading
+  }, props), loading ? loader : content);
 };
 
 export { Button };
