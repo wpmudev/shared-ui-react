@@ -6,6 +6,7 @@ const Button = ({
 	design = "solid",
 	color,
 	className,
+	loading,
 	...props
 }) => {
 	const loader = (
@@ -59,7 +60,7 @@ const Button = ({
 	}
 
 	// Set loading class.
-	if (props.loading) {
+	if ( loading ) {
 		className += " sui-button-onload";
 	}
 
@@ -74,10 +75,10 @@ const Button = ({
 		htmlTag,
 		{
 			className: className,
-			disabled: props.disabled || props.loading,
+			disabled: props.disabled || loading,
 			...props
 		},
-		props.loading ? loader : content
+		loading ? loader : content
 	)
 };
 
