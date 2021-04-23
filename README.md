@@ -15,6 +15,7 @@ Container | Version
 --- | ---
 [Accordion](https://wpmudev.github.io/shared-ui-react/?path=/story/containers-accordion--primary) | [![npm version](https://badge.fury.io/js/%40wpmudev%2Freact-accordion.svg)](https://www.npmjs.com/package/@wpmudev/react-accordion)
 [Box](https://wpmudev.github.io/shared-ui-react/?path=/story/containers-box--wrapper) | [![npm version](https://badge.fury.io/js/%40wpmudev%2Freact-box.svg)](https://www.npmjs.com/package/@wpmudev/react-box)
+[Modal](https://wpmudev.github.io/shared-ui-react/?path=/story/containers-modal--simple) | [![npm version](https://badge.fury.io/js/%40wpmudev%2Freact-modal.svg)](https://www.npmjs.com/package/@wpmudev/react-modal)
 
 Component | Version
 --- | ---
