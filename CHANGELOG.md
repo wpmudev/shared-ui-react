@@ -21,6 +21,8 @@
 #### Bug Fixes
 * `react-button`
   * [#97](https://github.com/wpmudev/shared-ui-react/pull/97)  🐛 fix/react-button: Console error when the button is `loading`. ([@a-danae](https://github.com/a-danae))
+* `react-dropdown`
+  * [#90](https://github.com/wpmudev/shared-ui-react/pull/90) 🐛 fix(react-dropdown): Stop click propagation from the dropdown component. ([@a-danae](https://github.com/a-danae))
 * `react-button-icon`
   * [#93](https://github.com/wpmudev/shared-ui-react/pull/93) 🐛 fix/react-button-icon: Prevent `undefined` class from being added. ([@a-danae](https://github.com/a-danae))
   * [#94](https://github.com/wpmudev/shared-ui-react/pull/94) 🐛 fix/react-button-icon: Remove `forwardRef`. ([@a-danae](https://github.com/a-danae))
