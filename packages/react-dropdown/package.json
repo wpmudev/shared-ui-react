@@ -39,6 +39,9 @@
     "url": "https://github.com/wpmudev/shared-ui-react/issues"
   },
   "homepage": "https://github.com/wpmudev/shared-ui-react#readme",
+  "resolutions": {
+    "styled-components": "^5"
+  },
   "dependencies": {
     "@wpmudev/react-button-icon": "^1.0.1",
     "styled-components": "^5.2.3"
