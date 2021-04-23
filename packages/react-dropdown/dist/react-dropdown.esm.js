@@ -369,8 +369,7 @@ var Dropdown = /*#__PURE__*/function (_Component) {
 
   _createClass(Dropdown, [{
     key: "toggle",
-    value: function toggle(e) {
-      e.stopPropagation();
+    value: function toggle() {
       this.setState({
         open: !this.state.open
       });
@@ -451,7 +450,10 @@ var Dropdown = /*#__PURE__*/function (_Component) {
 
       return /*#__PURE__*/React.createElement("div", {
         className: clazz,
-        ref: this.setWrapperRef
+        ref: this.setWrapperRef,
+        onClick: function onClick(e) {
+          return e.stopPropagation();
+        }
       }, /*#__PURE__*/React.createElement(ButtonIcon, {
         icon: "widget-settings-config",
         label: open ? 'Open menu' : 'Close menu',
