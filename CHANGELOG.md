@@ -1,6 +1,35 @@
 # Changelog
 
-## Unreleased (2021-04-15)
+## Unreleased (2021-04-23)
+
+#### New Features
+* `react-dropdown`
+  * [#99](https://github.com/wpmudev/shared-ui-react/pull/99) ✨ new(react-dropdown): Allow options to change font color. ([@iamleigh](https://github.com/iamleigh))
+* `core`, `react-modal`
+  * [#92](https://github.com/wpmudev/shared-ui-react/pull/92) ✨ new(react-modal): Create new component. ([@a-danae](https://github.com/a-danae))
+* `react-button-icon`
+  * [#95](https://github.com/wpmudev/shared-ui-react/pull/95) ✨ new/react-button-icon: Icon size property. ([@a-danae](https://github.com/a-danae))
+* `react-modal`
+  * [#91](https://github.com/wpmudev/shared-ui-react/pull/91) New/modal replace ([@a-danae](https://github.com/a-danae))
+
+#### Improvements
+* `react-modal`
+  * [#98](https://github.com/wpmudev/shared-ui-react/pull/98) 🐛 fix/react-modal: Remove conditional rendering when using the inner modal's state. ([@a-danae](https://github.com/a-danae))
+* `react-button-icon`
+  * [#96](https://github.com/wpmudev/shared-ui-react/pull/96) 🐛 fix/react-button-icon: Adjust the `render` return. ([@a-danae](https://github.com/a-danae))
+
+#### Bug Fixes
+* `react-button`
+  * [#97](https://github.com/wpmudev/shared-ui-react/pull/97)  🐛 fix/react-button: Console error when the button is `loading`. ([@a-danae](https://github.com/a-danae))
+* `react-button-icon`
+  * [#93](https://github.com/wpmudev/shared-ui-react/pull/93) 🐛 fix/react-button-icon: Prevent `undefined` class from being added. ([@a-danae](https://github.com/a-danae))
+  * [#94](https://github.com/wpmudev/shared-ui-react/pull/94) 🐛 fix/react-button-icon: Remove `forwardRef`. ([@a-danae](https://github.com/a-danae))
+
+#### Committers: 2
+- Danae Millan ([@a-danae](https://github.com/a-danae))
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+
+## Released (2021-04-15)
 
 #### Improvements
 * `react-dropdown`
