@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased (2021-04-23)
+## Released (2021-04-23)
 
 #### Improvements
 * [#100](https://github.com/wpmudev/shared-ui-react/pull/100) 🐛 fix(browserslist): Update browsers data. ([@iamleigh](https://github.com/iamleigh))
