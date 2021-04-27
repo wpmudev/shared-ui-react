@@ -1,0 +1,14 @@
+0 silly argv {
+0 silly argv   _: [ 'init' ],
+0 silly argv   lernaVersion: '3.22.1',
+0 silly argv   '$0': '..\\..\\..\\AppData\\Roaming\\npm\\node_modules\\lerna\\cli.js'
+0 silly argv }
+1 notice cli v3.22.1
+2 verbose rootPath C:\Users\win\Documents\GitHub\shared-ui-react
+3 verbose init skipping validations
+4 verbose init skipping preparations
+5 info Initializing Git repository
+6 error Error: spawn git ENOENT
+6 error     at notFoundError (C:\Users\win\Documents\GitHub\shared-ui-react\node_modules\execa\node_modules\cross-spawn\lib\enoent.js:6:26)
+6 error     at verifyENOENT (C:\Users\win\Documents\GitHub\shared-ui-react\node_modules\execa\node_modules\cross-spawn\lib\enoent.js:40:16)
+6 error     at ChildProcess.cp.emit (C:\Users\win\Documents\GitHub\shared-ui-react\node_modules\execa\node_modules\cross-spawn\lib\enoent.js:27:25)
