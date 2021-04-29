@@ -86,7 +86,7 @@ simple.args = {
 	dialogId: "le-dialog-id",
 	modalContent: simpleModalContent,
 	triggerContent,
-	renderToNode: '.sui-2-10-0' // TODO: get this dynamically.
+	renderToNode: '.sui-2-10-8' // TODO: get this dynamically.
 };
 
 const renderOne = ( { closeModal, slideTo } ) => {
@@ -197,7 +197,7 @@ slider.args = {
 	modalContent: slideModalContent,
 	triggerContent,
 	firstSlide: 'one',
-	renderToNode: '.sui-2-10-0' // TODO: get this dynamically.
+	renderToNode: '.sui-2-10-8' // TODO: get this dynamically.
 };
 
 const FirstModal = ( { isOpen, setIsOpen, switchModals } ) => {
@@ -257,7 +257,7 @@ const FirstModal = ( { isOpen, setIsOpen, switchModals } ) => {
 			dialogId="first"
 			initialFocus=".sui-form-control"
 			modalContent={ replaceModalContent }
-			renderToNode=".sui-2-10-0" // TODO: get this dynamically.
+			renderToNode=".sui-2-10-8" // TODO: get this dynamically.
 		></Modal>
 	);
 };
@@ -325,7 +325,7 @@ const SecondModal = ( { isOpen, setIsOpen, switchModals } ) => {
 			titleId="sui-modal-one-title"
 			dialogId="confirmation"
 			modalContent={ confirmationModalContent }
-			renderToNode=".sui-2-10-0" // TODO: get this dynamically.
+			renderToNode=".sui-2-10-8" // TODO: get this dynamically.
 		></Modal>
 	);
 };
