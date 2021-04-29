@@ -1,5 +1,16 @@
 # Changelog
 
+## Released (2021-04-29)
+
+#### Bug Fixes
+* `react-modal`
+  * [#110](https://github.com/wpmudev/shared-ui-react/pull/110) 🐛 fix(react-modal): Unnecessary extra margins from `sui-wrapper` class. ([@iamleigh](https://github.com/iamleigh))
+* `react-dropdown`
+  * [#109](https://github.com/wpmudev/shared-ui-react/pull/109) 🐛 fix(react-dropdown): Uncolored menu option icon. ([@iamleigh](https://github.com/iamleigh))
+
+#### Committers: 1
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+
 ## Released (2021-04-23)
 
 #### Improvements
