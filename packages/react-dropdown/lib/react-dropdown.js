@@ -10,6 +10,10 @@ const Link = styled.a`
     ${props => ('red' === props.color ? 'color: #FF6D6D !important;' : '')}
     ${props => ('purple' === props.color ? 'color: #8D00B1 !important;' : '')}
 
+    [class*="sui-icon-"]:before {
+        color: inherit !important;
+    }
+
     &:hover,
     &:focus {
         ${props => ('blue' === props.color ? 'background-color: #E1F6FF !important;' : '')}
@@ -28,6 +32,10 @@ const Button = styled.button`
     ${props => ('yellow' === props.color ? 'color: #FECF2F !important;' : '')}
     ${props => ('red' === props.color ? 'color: #FF6D6D !important;' : '')}
     ${props => ('purple' === props.color ? 'color: #8D00B1 !important;' : '')}
+
+    [class*="sui-icon-"]:before {
+        color: inherit !important;
+    }
 
     &:hover,
     &:focus {
