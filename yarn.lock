@@ -4000,10 +4000,10 @@
     text-table "^0.2.0"
     webpack-log "^1.1.2"
 
-"@wpmudev/shared-ui@2.10.0":
-  version "2.10.0"
-  resolved "https://registry.yarnpkg.com/@wpmudev/shared-ui/-/shared-ui-2.10.0.tgz#8c3ad6aeca30d099ebf9206f5aa6cc91185ad955"
-  integrity sha512-TsJIZKPTyX1gHXFsxuL/4MOiRCwKTQTiXSHHm9dGUo4RN2QZHsgzjYIEPN2n932bKSEZsUmAIMiWDsd2T97peg==
+"@wpmudev/shared-ui@^2.10.8":
+  version "2.10.8"
+  resolved "https://registry.yarnpkg.com/@wpmudev/shared-ui/-/shared-ui-2.10.8.tgz#6dde8e8d78b393c00e2f819967b2f4fa5f4f7dfa"
+  integrity sha512-EzUdKuC12PHV0cN+v8YTcapRxixG8s2v/D4bpXMirlfX8naSeJIjTlg0P48R8esk/DOCS8vHtEdIV3x/F7KNpA==
 
 "@xtuc/ieee754@^1.2.0":
   version "1.2.0"
