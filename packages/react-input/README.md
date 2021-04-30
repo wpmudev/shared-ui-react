@@ -1,11 +1,7 @@
-# `@wpmudev/react-input`
+# @wpmudev/react-input
 
 > TODO: description
 
-## Usage
+## Usage of the error state
 
-```
-const reactInput = require('@wpmudev/react-input');
-
-// TODO: DEMONSTRATE API
-```
+Input has a state of error that can be toggled by changing the state of the /error/ variable. Also, the error message can be changed by chaning the /errorText/ variable. These variables are declared using the useState hook.
