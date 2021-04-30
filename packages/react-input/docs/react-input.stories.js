@@ -1,70 +1,70 @@
-import React from 'react';
-import { Input } from '../lib/react-input';
+import React from "react";
+import { Input } from "../lib/react-input";
 
 export default {
-	title: 'Components/Input',
-	component: Input,
-}
+  title: "Components/Input",
+  component: Input,
+};
 
-export const primary = ( args ) => <Input { ...args } />;
-primary.storyName = 'Text Input';
+export const primary = (args) => <Input {...args} />;
+primary.storyName = "Text Input";
 primary.args = {
-    label: 'Company Name',
-    placeholder: 'Eg. Acme Industries',
-    description: 'Maecenas sed diam eget risus varius blandit sit amet non magna.'
+  label: "Company Name",
+  placeholder: "Eg. Acme Industries",
+  description:
+    "Maecenas sed diam eget risus varius blandit sit amet non magna.",
+  errorText: "Enter error message",
 };
 primary.argTypes = {
-	maxLength: {
-		type: 'number'
-	},
-	placeholder: {
-		type: 'string',
-	},
-	size: {
-		type: 'string',
-		control: {
-			type: 'select',
-			options: [
-				'',
-				'small',
-				'medium'
-			],
-		}
-	}
+  maxLength: {
+    type: "number",
+  },
+  placeholder: {
+    type: "string",
+  },
+  errorToggle: {
+    type: "boolean",
+    control: {
+      type: "select",
+      options: [true, false],
+    },
+  },
+  size: {
+    type: "string",
+    control: {
+      type: "select",
+      options: ["", "small", "medium"],
+    },
+  },
 };
 
-export const secondary = ( args ) => {
-	return (
-		<Input { ...args } />
-	);
+export const secondary = (args) => {
+  return <Input {...args} />;
 };
-secondary.storyName = 'Number Input';
+secondary.storyName = "Number Input";
 secondary.args = {
-	type: 'number',
-    label: 'Yearzz',
-    placeholder: 'Eg. 10',
-    description: 'Maecenas sed diam eget risus varius blandit sit amet non magna.',
-	min: 0
+  type: "number",
+  label: "Yearzz",
+  placeholder: "Eg. 10",
+  description:
+    "Maecenas sed diam eget risus varius blandit sit amet non magna.",
+  min: 0,
 };
 secondary.argTypes = {
-	min: {
-		type: 'number'
-	},
-	max: {
-		type: 'number'
-	},
-	placeholder: {
-		type: 'string',
-	},
-	size: {
-		type: 'string',
-		control: {
-			type: 'select',
-			options: [
-				'',
-				'small',
-				'medium'
-			],
-		}
-	}
+  min: {
+    type: "number",
+  },
+  max: {
+    type: "number",
+  },
+  placeholder: {
+    type: "string",
+  },
+  size: {
+    type: "string",
+    control: {
+      type: "select",
+      options: ["", "small", "medium"],
+    },
+  },
 };

@@ -1,12 +1,20 @@
 import React, { useState } from "react";
 
-const Input = ({ id, size, label, description, type = "text", ...props }) => {
+const Input = ({
+  id,
+  size,
+  label,
+  description,
+  type = "text",
+  errorToggle,
+  errorText,
+  ...props
+}) => {
   const uniqueId = id && "" !== id ? id : props.property;
 
   let clazz = "sui-form-control";
-  let [error, setError] = useState(false); ////////////////////////////////Contols whether the error state is on or off
-  let [errorText, setErrorText] = useState("Enter error message here."); //Error message that displays bellow the input
-  let classNm = !error
+
+  let classNm = !errorToggle
     ? "sui-form-field"
     : "sui-form-field sui-form-field-error";
 
@@ -31,7 +39,7 @@ const Input = ({ id, size, label, description, type = "text", ...props }) => {
       )}
 
       <input id={uniqueId} type={type} className={clazz} {...props} />
-      {error ? (
+      {errorToggle ? (
         <span id="error-unique-id" className="sui-error-message" role="alert">
           {errorText}
         </span>
