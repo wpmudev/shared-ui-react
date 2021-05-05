@@ -1,7 +1,5 @@
 import React from "react";
 import { ReactPagination } from "../lib/react-pagination";
-<<<<<<< Updated upstream
-=======
 
 let articles = (
   <div>
@@ -204,17 +202,11 @@ let items = [
   articles,
   articles,
 ];
->>>>>>> Stashed changes
 export default {
   title: "Components/Pagination",
   component: ReactPagination,
 };
 const primary = (args) => {
-<<<<<<< Updated upstream
-  return <ReactPagination />;
-};
-primary.storyName = "Default";
-=======
   return <ReactPagination {...args}>{items}</ReactPagination>;
 };
 primary.storyName = "Default";
@@ -232,5 +224,4 @@ primary.argTypes = {
   },
 };
 
->>>>>>> Stashed changes
 export { primary };

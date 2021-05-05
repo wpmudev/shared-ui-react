@@ -1,11 +1,3 @@
-<<<<<<< Updated upstream
-import React from "react";
-
-export default function PageNum({ num }) {
-  return (
-    <li>
-      <a href="#" role="button">
-=======
 import React, { useEffect } from "react";
 
 export default function PageNum({
@@ -47,7 +39,6 @@ export default function PageNum({
         className={currentPage === num ? "sui-active" : null}
         onClick={handleClick}
       >
->>>>>>> Stashed changes
         {num}
       </a>
     </li>
