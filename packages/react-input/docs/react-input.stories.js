@@ -24,10 +24,6 @@ primary.argTypes = {
   },
   errorToggle: {
     type: "boolean",
-    control: {
-      type: "select",
-      options: [true, false],
-    },
   },
   size: {
     type: "string",
