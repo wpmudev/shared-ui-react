@@ -19,7 +19,6 @@ const Accordion = (props) => {
 
 const AccordionItem = (props) => {
   let [open, setOpen] = useState(false);
-  let [toggleOffOn, setToggleOffOn] = useState(false);
 
   function toggle(e) {
     if ("sui-dropdown" !== e.target.className) {
@@ -31,11 +30,10 @@ const AccordionItem = (props) => {
     ? "sui-accordion-item"
     : "sui-accordion-item sui-accordion-item--open";
 
-  const disabled = !toggleOffOn ? "" : "sui-accordion-item--disabled";
   const color = props.color ? props.color : "";
 
   return (
-    <div className={`${clazz} ${disabled}  ${color}`} {...props}>
+    <div className={`${clazz}  ${color}`} {...props}>
       <AccordionItemHeader
         state={open ? "true" : "false"}
         header={props.header}
@@ -70,14 +68,14 @@ const AccordionItemHeader = (props) => {
     </div>
   );
 
-  let array = props.header.map((item) => {
+  let array = props.header.map((item,key) => {
     let size = !props.header.size
       ? "sui-accordion-col-auto"
       : "sui-accordion-col-" + props.header.size;
 
     let title = item.title ? "sui-accordion-item-title" : "";
 
-    return <div className={`${title} ${size}`}>{item.content}</div>;
+    return <div className={`${title} ${size}` key={key}>{item.content}</div>;
   });
 
   return (
