@@ -37,7 +37,6 @@ const AccordionItem = (props) => {
       <AccordionItemHeader
         state={open ? "true" : "false"}
         header={props.header}
-        setToggleOffOn={setToggleOffOn}
         onClick={(e) => toggle(e)}
       />
 
