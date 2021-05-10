@@ -1,154 +1,95 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 
-import { ButtonIcon } from '@wpmudev/react-button-icon';
+import { ButtonIcon } from "@wpmudev/react-button-icon";
 
 const ItemImage = styled.span`
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
-    border-radius: 10px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  border-radius: 10px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 `;
 
-class Accordion extends Component {
-    constructor( props ) {
-        super( props );
+const Accordion = (props) => {
+  return <div className="sui-accordion">{props.children}</div>;
+};
+
+const AccordionItem = (props) => {
+  let [open, setOpen] = useState(false);
+  let [toggleOffOn, setToggleOffOn] = useState(false);
+
+  function toggle(e) {
+    if ("sui-dropdown" !== e.target.className) {
+      setOpen(!open);
     }
+  }
 
-    render() {
-        return (
-            <div className="sui-accordion">
-                { this.props.children }
-            </div>
-        );
-    }
-}
+  const clazz = !open
+    ? "sui-accordion-item"
+    : "sui-accordion-item sui-accordion-item--open";
 
-class AccordionItem extends Component {
-    constructor( props ) {
-        super( props );
+  const disabled = !toggleOffOn ? "" : "sui-accordion-item--disabled";
+  const color = props.color ? props.color : "";
 
-        this.state = {
-            open: false,
-        };
+  return (
+    <div className={`${clazz} ${disabled}  ${color}`} {...props}>
+      <AccordionItemHeader
+        state={open ? "true" : "false"}
+        header={props.header}
+        setToggleOffOn={setToggleOffOn}
+        onClick={(e) => toggle(e)}
+      />
 
-        this.toggle = this.toggle.bind( this );
-    }
+      <AccordionItemBody>{props.children}</AccordionItemBody>
+    </div>
+  );
+};
 
-    toggle = e => {
-        if ( 'sui-dropdown' !== e.target.className ) {
-            this.setState({
-                open: !this.state.open
-            });
-        }
-    }
+const AccordionItemHeader = (props) => {
+  let [openHeader, setOpenHeader] = useState(false);
 
-    render() {
-        const { open } = this.state;
+  useEffect(() => {
+    setOpenHeader(props.state);
+  });
 
-        const clazz = !open
-            ? 'sui-accordion-item'
-            : 'sui-accordion-item sui-accordion-item--open';
+  const indicator = (
+    <ButtonIcon
+      icon="chevron-down"
+      label={openHeader ? "Close section" : "Open section"}
+      className="sui-button-icon sui-accordion-open-indicator"
+    />
+  );
 
-        return (
-            <div className={ clazz } { ...this.props }>
+  const actions = (
+    <div className="sui-accordion-col-auto">
+      {props.children}
+      {indicator}
+    </div>
+  );
 
-                <AccordionItemHeader
-                    state={ open ? 'true' : 'false' }
-                    title={ this.props.title }
-                    image={ this.props.image }
-                    icon={ this.props.icon }
-                    onClick={ e => this.toggle(e) }
-                />
+  let array = props.header.map((item) => {
+    let size = !props.header.size
+      ? "sui-accordion-col-auto"
+      : "sui-accordion-col-" + props.header.size;
 
-                <AccordionItemBody>
-                    { this.props.children }
-                </AccordionItemBody>
+    let title = item.title ? "sui-accordion-item-title" : "";
 
-            </div>
-        );
-    }
-}
+    return <div className={`${title} ${size}`}>{item.content}</div>;
+  });
 
-class AccordionItemHeader extends Component {
-    constructor( props ) {
-        super( props );
+  return (
+    <div className="sui-accordion-item-header" {...props}>
+      {array}
+      {actions}
+    </div>
+  );
+};
 
-        this.state = {
-            open: false,
-        };
-    }
+const AccordionItemBody = (props) => {
+  return <div className="sui-accordion-item-body">{props.children}</div>;
+};
 
-    componentDidMount() {
-        this.setState({
-            open: this.props.state
-        });
-    }
-
-    render() {
-        const { open } = this.state;
-
-        const icon = this.props.icon && '' !== this.props.icon
-            ? <span className={ `sui-icon-${ this.props.icon }` } aria-hidden="true" />
-            : '';
-    
-        const image = this.props.image && '' !== this.props.image
-            ? <ItemImage style={ { backgroundImage: `url(${ this.props.image })` } } />
-            : '';
-
-        const title = (
-            <div className="sui-accordion-item-title">
-                { icon }{ image }{ this.props.title }
-            </div>
-        );
-
-        const indicator = (
-            <ButtonIcon
-                icon="chevron-down"
-                label={ open ? 'Close section' : 'Open section' }
-                className="sui-button-icon sui-accordion-open-indicator"
-            />
-        );
-
-        const actions = (
-            <div className="sui-accordion-col-auto">
-                { this.props.children }
-                { indicator }
-            </div>
-        );
-
-        return (
-            <div
-                className="sui-accordion-item-header"
-                { ...this.props }
-            >
-                { title }
-                { actions }
-            </div>
-        );
-    }
-}
-
-class AccordionItemBody extends Component {
-    constructor( props ) {
-        super( props );
-    }
-
-    render() {
-        return (
-            <div className="sui-accordion-item-body">
-                { this.props.children }
-            </div>
-        );
-    }
-}
-
-export {
-    Accordion,
-    AccordionItem,
-    AccordionItemHeader,
-    AccordionItemBody
-}
+export { Accordion, AccordionItem, AccordionItemHeader, AccordionItemBody };
