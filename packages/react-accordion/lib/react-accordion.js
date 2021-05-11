@@ -6,7 +6,6 @@ const Accordion = (props) => {
 
 const AccordionItem = (props) => {
   let [open, setOpen] = useState(false);
-  let [toggleOffOn, setToggleOffOn] = useState(false);
 
   function toggle(e) {
     if ("sui-dropdown" !== e.target.className) {
@@ -18,15 +17,13 @@ const AccordionItem = (props) => {
     ? "sui-accordion-item"
     : "sui-accordion-item sui-accordion-item--open";
 
-  const disabled = !toggleOffOn ? "" : "sui-accordion-item--disabled";
   const color = props.color ? props.color : "";
 
   return (
-    <div className={`${clazz} ${disabled}  ${color}`} {...props}>
+    <div className={`${clazz}  ${color}`} {...props}>
       <AccordionItemHeader
         state={open ? "true" : "false"}
         header={props.header}
-        setToggleOffOn={setToggleOffOn}
         onClick={(e) => toggle(e)}
       />
 
