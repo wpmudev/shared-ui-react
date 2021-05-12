@@ -1,19 +1,19 @@
 import React from "react";
 
 export default function NextPage({
-  one,
-  two,
-  setOne,
-  setTwo,
+  sliceStart,
+  sliceEnd,
+  setSliceStart,
+  setSliceEnd,
   pagesLimit,
   setCurrentPage,
   setButtonNums,
-  pagesFound,
   disabled,
 }) {
-  function nextHandle() {
-    setTwo(two + pagesLimit);
-    setOne(one + pagesLimit);
+  function nextHandle(e) {
+    e.preventDefault();
+    setSliceEnd(sliceEnd + pagesLimit);
+    setSliceStart(sliceStart + pagesLimit);
     setCurrentPage((prev) => prev + 1);
     setButtonNums((prev) => prev.map((num) => num + 1));
   }

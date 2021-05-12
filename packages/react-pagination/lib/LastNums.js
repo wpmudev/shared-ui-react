@@ -6,25 +6,26 @@ export default function LastNums({
   currentPage,
   setCurrentPage,
   setButtonNums,
-  setNumClick,
-  numClick,
-  setOne,
-  setTwo,
+  setSkipNumsClicked,
+  skipNumsClicked,
+  setSliceStart,
+  setSliceEnd,
   id,
   setLastPageVisible,
   pagesLimit,
 }) {
-  function handleClick() {
+  function handleClick(e) {
+    e.preventDefault();
     setCurrentPage(num);
-    let n = num * pagesLimit;
-    setTwo(n);
-    setOne(n - pagesLimit);
+    const n = num * pagesLimit;
+    setSliceEnd(n);
+    setSliceStart(n - pagesLimit);
 
     setButtonNums([num, num + 1, num + 2, num + 3, num + 4, num + 5]);
     if (id === 1) {
-      setNumClick({ ...numClick, first: false });
+      setSkipNumsClicked({ ...skipNumsClicked, first: false });
     } else if (id === 2) {
-      setNumClick({ ...numClick, second: false });
+      setSkipNumsClicked({ ...skipNumsClicked, second: false });
     }
 
     if (

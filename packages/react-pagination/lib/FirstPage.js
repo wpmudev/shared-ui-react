@@ -1,19 +1,17 @@
 import React from "react";
 
 export default function LastPage({
-  one,
-  two,
-  setOne,
-  setTwo,
+  setSliceStart,
+  setSliceEnd,
   pagesLimit,
   setCurrentPage,
   setButtonNums,
-  pagesFound,
   disabled,
 }) {
-  function clickHandle() {
-    setTwo(pagesLimit);
-    setOne(0);
+  function clickHandle(e) {
+    e.preventDefault();
+    setSliceEnd(pagesLimit);
+    setSliceStart(0);
     setCurrentPage(1);
     setButtonNums([1, 2, 3, 4, 5, 6]);
   }

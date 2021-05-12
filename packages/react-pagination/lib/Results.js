@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 export default function Results({ num }) {
-  let [result, setResult] = useState(num);
+  const [result, setResult] = useState(num);
   useEffect(() => {
     if (num === "1") {
       setResult("1 result");

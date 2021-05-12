@@ -1,19 +1,19 @@
 import React from "react";
 
 export default function SkipToLast({
-  one,
-  two,
-  setOne,
-  setTwo,
+  setSliceStart,
+  setSliceEnd,
   pagesLimit,
   setCurrentPage,
   setButtonNums,
   pagesFound,
   disabled,
 }) {
-  function clickHandle() {
-    setTwo(pagesFound * 2);
-    setOne(pagesFound * 2 - pagesLimit);
+  function clickHandle(e) {
+    e.preventDefault();
+    const n = pagesFound * pagesLimit;
+    setSliceEnd(n);
+    setSliceStart(n - pagesLimit);
     setCurrentPage(pagesFound);
     setButtonNums([
       pagesFound - 5,

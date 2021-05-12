@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import FirstPage from "./FirstPage";
 import PreviousPage from "./PreviousPage";
 import PageNum from "./PageNum";
@@ -10,80 +10,83 @@ const ListOfPages = ({
   pagesFound,
   currentPage,
   setCurrentPage,
-  one,
-  two,
-  setOne,
-  setTwo,
+  sliceStart,
+  sliceEnd,
+  setSliceStart,
+  setSliceEnd,
   pagesLimit,
   skipButtons,
 }) => {
-  let [buttonNums, setButtonNums] = useState([1, 2, 3, 4, 5, 6]);
-  let [numClick, setNumClick] = useState({ first: true, second: true });
-  let [dotsClick, setDotsClick] = useState(false);
-  let [lastPageVisible, setLastPageVisible] = useState(false);
+  const [buttonNums, setButtonNums] = useState([1, 2, 3, 4, 5, 6]);
+  const [skipNumsClicked, setSkipNumsClicked] = useState({
+    first: true,
+    second: true,
+  });
+  const [threeDotsClicked, setThreeDotsClicked] = useState(false);
+  const [lastPageVisible, setLastPageVisible] = useState(false);
 
-  let previousPage =
+  const previousPage =
     buttonNums[0] > 1 ? (
       <PreviousPage
-        one={one}
-        two={two}
+        sliceStart={sliceStart}
+        sliceEnd={sliceEnd}
         disabled={buttonNums[0] > 1 ? false : true}
-        setOne={setOne}
-        setTwo={setTwo}
+        setSliceStart={setSliceStart}
+        setSliceEnd={setSliceEnd}
         pagesLimit={pagesLimit}
         setCurrentPage={setCurrentPage}
         setButtonNums={setButtonNums}
       />
     ) : null;
 
-  let nextPage =
+  const nextPage =
     currentPage != pagesFound ? (
       <NextPage
         disabled={buttonNums[3] > pagesFound && lastPageVisible ? true : false}
         pagesFound={pagesFound}
-        one={one}
-        two={two}
-        setOne={setOne}
+        sliceStart={sliceStart}
+        sliceEnd={sliceEnd}
+        setSliceStart={setSliceStart}
         buttonNums={buttonNums}
-        setTwo={setTwo}
+        setSliceEnd={setSliceEnd}
         pagesLimit={pagesLimit}
         setCurrentPage={setCurrentPage}
-        two={two}
+        sliceEnd={sliceEnd}
         setButtonNums={setButtonNums}
       />
     ) : null;
 
-  let firstPage =
-    currentPage != 1 && !skipButtons ? (
+  const firstPage =
+    currentPage != 1 && skipButtons ? (
       <FirstPage
         disabled={buttonNums[3] > pagesFound && lastPageVisible ? true : false}
         pagesFound={pagesFound}
         disabled={buttonNums[0] > 1 ? false : true}
-        one={one}
-        two={two}
-        setOne={setOne}
+        sliceStart={sliceStart}
+        sliceEnd={sliceEnd}
+        setSliceStart={setSliceStart}
         buttonNums={buttonNums}
-        setTwo={setTwo}
+        setSliceEnd={setSliceEnd}
         pagesLimit={pagesLimit}
         setCurrentPage={setCurrentPage}
-        two={two}
+        sliceEnd={sliceEnd}
         setButtonNums={setButtonNums}
       />
     ) : null;
 
-  let lastPage =
+  const lastPage =
     currentPage != pagesFound && skipButtons ? (
       <SkipToLast
         disabled={buttonNums[3] > pagesFound && lastPageVisible ? true : false}
         pagesFound={pagesFound}
-        one={one}
-        two={two}
-        setOne={setOne}
+        sliceStart={sliceStart}
+        sliceEnd={sliceEnd}
+        setSliceStart={setSliceStart}
         buttonNums={buttonNums}
-        setTwo={setTwo}
+        setSliceEnd={setSliceEnd}
         pagesLimit={pagesLimit}
         setCurrentPage={setCurrentPage}
-        two={two}
+        sliceEnd={sliceEnd}
         setButtonNums={setButtonNums}
       />
     ) : null;
@@ -94,11 +97,11 @@ const ListOfPages = ({
         currentPage={currentPage}
         setLastPageVisible={setLastPageVisible}
         pagesFound={pagesFound}
-        setDotsClick={setDotsClick}
+        setThreeDotsClicked={setThreeDotsClicked}
         setCurrentPage={setCurrentPage}
         num={arg}
-        setOne={setOne}
-        setTwo={setTwo}
+        setSliceStart={setSliceStart}
+        setSliceEnd={setSliceEnd}
         pagesLimit={pagesLimit}
         buttonNums={buttonNums}
         setButtonNums={setButtonNums}
@@ -109,7 +112,7 @@ const ListOfPages = ({
   function lastNum(arg, idd) {
     return (
       <LastNums
-        numClick={numClick}
+        skipNumsClicked={skipNumsClicked}
         pagesFound={pagesFound}
         setLastPageVisible={setLastPageVisible}
         currentPage={currentPage}
@@ -117,28 +120,28 @@ const ListOfPages = ({
         num={arg}
         id={idd}
         setButtonNums={setButtonNums}
-        setOne={setOne}
-        setTwo={setTwo}
+        setSliceStart={setSliceStart}
+        setSliceEnd={setSliceEnd}
         pagesLimit={pagesLimit}
-        setNumClick={setNumClick}
+        setSkipNumsClicked={setSkipNumsClicked}
       />
     );
   }
 
   let firstLastNum =
-    numClick.first === true &&
+    skipNumsClicked.first === true &&
     !buttonNums.some((num) => num === parseInt((pagesFound / 3) * 2)) &&
     !buttonNums.some((num) => num > parseInt((pagesFound / 3) * 2))
       ? lastNum(parseInt((pagesFound / 3) * 2), 1)
       : null;
   let secondLastNum =
-    numClick.second === true &&
+    skipNumsClicked.second === true &&
     !buttonNums.some((num) => num === parseInt((pagesFound / 5) * 4)) &&
     !buttonNums.some((num) => num > parseInt((pagesFound / 5) * 4))
       ? lastNum(parseInt((pagesFound / 5) * 4), 2)
       : null;
 
-  let threeDotsButtons = dotsClick ? (
+  let threeDotsButtons = threeDotsClicked ? (
     <>
       {buttonNums[3] > pagesFound ? null : pageNum(buttonNums[3])}
       {buttonNums[4] > pagesFound ? null : pageNum(buttonNums[4])}
@@ -149,7 +152,7 @@ const ListOfPages = ({
   );
 
   if (currentPage === pagesFound) {
-    threeDotsButtons = dotsClick ? (
+    threeDotsButtons = threeDotsClicked ? (
       <>
         {pageNum(currentPage - 4)}
         {pageNum(currentPage - 3)}
@@ -161,7 +164,7 @@ const ListOfPages = ({
   }
 
   if (currentPage === pagesFound - 1) {
-    threeDotsButtons = dotsClick ? (
+    threeDotsButtons = threeDotsClicked ? (
       <>
         {pageNum(currentPage - 5)}
         {pageNum(currentPage - 4)}
@@ -221,6 +224,7 @@ const ListOfPages = ({
         {threeDotsButtons}
         {pageNum(currentPage - 1)}
         {pageNum(currentPage)}
+        <button onClick={()=>console.log(buttonNums)}>Nums</button>
       </ul>
     );
   } else if (currentPage === pagesFound - 1) {
@@ -235,6 +239,7 @@ const ListOfPages = ({
         {pageNum(currentPage + 1)}
         {firstLastNum}
         {secondLastNum}
+        <button onClick={()=>console.log(buttonNums)}>Nums</button>
       </ul>
     );
   }
@@ -251,6 +256,7 @@ const ListOfPages = ({
       {secondLastNum}
       {nextPage}
       {lastPage}
+      <button onClick={()=>console.log(buttonNums)}>Nums</button>
     </ul>
   );
 };

@@ -1,22 +1,23 @@
 import React from "react";
 
 export default function PreviousPage({
-  one,
-  two,
-  setOne,
-  setTwo,
+  sliceStart,
+  sliceEnd,
+  setSliceStart,
+  setSliceEnd,
   pagesLimit,
   setCurrentPage,
   setButtonNums,
   disabled,
 }) {
-  function prevHandle() {
-    setTwo(two - pagesLimit);
-    setOne(one - pagesLimit);
+  function prevHandle(e) {
+    e.preventDefault();
+    setSliceEnd(sliceEnd - pagesLimit);
+    setSliceStart(sliceStart - pagesLimit);
     setCurrentPage((prev) => prev - 1);
     setButtonNums((prev) => prev.map((num) => num - 1));
   }
-  if (one != 0 && !one - pagesLimit < 0) {
+  if (sliceStart != 0 && !sliceStart - pagesLimit < 0) {
     return (
       <li>
         <a href="#" role="button" onClick={prevHandle}>

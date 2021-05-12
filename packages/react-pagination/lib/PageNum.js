@@ -2,24 +2,31 @@ import React, { useEffect } from "react";
 
 export default function PageNum({
   num,
-  setOne,
-  setTwo,
+  setSliceStart,
+  setSliceEnd,
   pagesLimit,
   currentPage,
   setCurrentPage,
-  setDotsClick,
+  setThreeDotsClicked,
   setLastPageVisible,
   pagesFound,
-  buttonNums,
+  setButtonNums
 }) {
-  function handleClick() {
-    if (num != "...") {
-      let n = num * pagesLimit;
-      setTwo(n);
-      setOne(n - pagesLimit);
+  function handleClick(e) {
+    e.preventDefault();
+    if (num === 1){
+      setButtonNums([1,2,3,4,5,6])
+      const n = num * pagesLimit;
+      setSliceEnd(n);
+      setSliceStart(n - pagesLimit);
+      setCurrentPage(num);
+    } else if (num != "...") {
+      const n = num * pagesLimit;
+      setSliceEnd(n);
+      setSliceStart(n - pagesLimit);
       setCurrentPage(num);
     } else {
-      setDotsClick(true);
+      setThreeDotsClicked(true);
     }
   }
 
