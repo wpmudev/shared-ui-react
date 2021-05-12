@@ -27,15 +27,15 @@ This is a property that stores the children item or items of the accordion item.
 ## Example of usage:
 
 ```
-<Accordion {children}>
-        {children.map((child, key) => (
-          <AccordionItem key={key} {...child} />
+<Accordion>
+        {items.map((item, key) => (
+          <AccordionItem key={key} {...item} />
         ))}
 </Accordion>
 ```
 
 ```
-children: [
+items: [
     {color: "sui-error",
       header: [{
           title: true,
@@ -47,7 +47,7 @@ children: [
             </>
           ),
         },
-    ],
+      ],
       children: (
         <Box>
           <BoxBody>
