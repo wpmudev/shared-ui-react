@@ -224,7 +224,6 @@ const ListOfPages = ({
         {threeDotsButtons}
         {pageNum(currentPage - 1)}
         {pageNum(currentPage)}
-        <button onClick={()=>console.log(buttonNums)}>Nums</button>
       </ul>
     );
   } else if (currentPage === pagesFound - 1) {
@@ -239,7 +238,6 @@ const ListOfPages = ({
         {pageNum(currentPage + 1)}
         {firstLastNum}
         {secondLastNum}
-        <button onClick={()=>console.log(buttonNums)}>Nums</button>
       </ul>
     );
   }
@@ -256,7 +254,6 @@ const ListOfPages = ({
       {secondLastNum}
       {nextPage}
       {lastPage}
-      <button onClick={()=>console.log(buttonNums)}>Nums</button>
     </ul>
   );
 };

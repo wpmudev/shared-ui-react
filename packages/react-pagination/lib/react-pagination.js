@@ -29,7 +29,6 @@ export const ReactPagination = ({
           setSliceEnd={setSliceEnd}
           pagesLimit={pagesLimit}
         />
-        <button onClick={()=>console.log("Start: ",sliceStart, "End: ",sliceEnd, "current :", currentPage)}></button>
       </div>
       <div>{props.children.slice(sliceStart, sliceEnd)}</div>
     </>
