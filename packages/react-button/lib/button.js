@@ -7,6 +7,7 @@ const Button = ({
 	color,
 	className,
 	loading,
+	iconSide,
 	...props
 }) => {
 	const loader = (
@@ -17,14 +18,39 @@ const Button = ({
 		/>
 	);
 
-	let content = (
-		<React.Fragment>
-			{icon && "" !== icon && (
+	let content;
+
+	switch (iconSide) {
+		case "left":
+			content = 		
+				(<React.Fragment>
+				{icon && "" !== icon && (
 				<span className={"sui-icon-" + icon} aria-hidden="true" />
-			)}
-			{label}
-		</React.Fragment>
-	);
+					)}
+				{label}
+				</React.Fragment>)
+				break;
+		case "right":
+			className += " sui-button-icon-right"
+			content = 		
+				(<React.Fragment>
+				{label}
+				{icon && "" !== icon && (
+				<span className={"sui-icon-" + icon} aria-hidden="true" />
+					)}
+				</React.Fragment>)
+			break;
+			default:
+				content = 		
+				(<React.Fragment>
+				{icon && "" !== icon && (
+				<span className={"sui-icon-" + icon} aria-hidden="true" />
+					)}
+				{label}
+				</React.Fragment>)
+				break;
+
+			}
 
 	className = `sui-button${ className ? ' ' + className : '' }`;
 

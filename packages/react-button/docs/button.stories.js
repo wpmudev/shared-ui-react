@@ -65,6 +65,16 @@ primary.argTypes = {
 			]
 		}
 	},
+	iconSide: {
+		description: 'Controls on which side is the icon going to appear',
+		control: {
+			type: "select",
+			options: [
+				"left",
+				"right"
+			]
+		}
+	},
 	icon: {
 		description: 'Name of the icon to include in the button. Check out the <a href="https://wpmudev.github.io/shared-ui/icons/" target="_blank">available icons</a>',
 		table: {
