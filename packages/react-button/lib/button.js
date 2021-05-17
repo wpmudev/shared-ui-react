@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useEffect,useState} from "react";
+
 
 const Button = ({
 	label,
@@ -16,13 +17,25 @@ const Button = ({
 			aria-hidden="true"
 		/>
 	);
+	
+
+		// Compound button settings
+		let [showLabel,setShowLabel] = useState(true)
+		useEffect(()=>{
+			window.addEventListener("resize",()=>{
+				if(window.innerWidth < 782 && (icon && "" !== icon)){
+				setShowLabel(false)}
+				else{setShowLabel(true)}})
+			}
+		)
+		
 
 	let content = (
 		<React.Fragment>
 			{icon && "" !== icon && (
 				<span className={"sui-icon-" + icon} aria-hidden="true" />
 			)}
-			{label}
+			{showLabel && label}
 		</React.Fragment>
 	);
 
