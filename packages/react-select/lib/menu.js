@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect } from 'react';
 
 const Menu = (props) => {
   const ref = useRef(null);
@@ -7,16 +7,16 @@ const Menu = (props) => {
     if (
       ref.current &&
       !ref.current.contains(event.target) &&
-      event.target.tagName !== "TEXTAREA"
+      event.target.tagName !== 'TEXTAREA'
     ) {
       props.setMenuVisible(false);
     }
   };
 
   useEffect(() => {
-    document.addEventListener("click", handleClickOutside, true);
+    document.addEventListener('click', handleClickOutside, true);
     return () => {
-      document.removeEventListener("click", handleClickOutside, true);
+      document.removeEventListener('click', handleClickOutside, true);
     };
   });
 
@@ -36,44 +36,44 @@ const Menu = (props) => {
     });
 
     props.txtarea.current.focus();
-    props.txtarea.current.value = "";
-    props.setInput("");
+    props.txtarea.current.value = '';
+    props.setInput('');
   }
 
   function handleHover(e) {
     e.target.className =
-      "select2-results__option select2-results__option--selectable select2-results__option--highlighted";
+      'select2-results__option select2-results__option--selectable select2-results__option--highlighted';
   }
   function handleOut(e) {
     e.target.className =
-      "select2-results__option select2-results__option--selectable";
+      'select2-results__option select2-results__option--selectable';
   }
 
   return (
     <div
       ref={ref}
-      style={{ width: "100%", margin: "0px", position: "absolute" }}
+      style={{ width: '100%', margin: '0px', position: 'absolute' }}
     >
       {props.menuVisible && (
-        <span className="select2-container sui-select sui-select-theme--search sui-select-dropdown-container--open select2-container--open">
+        <span className='select2-container sui-select sui-select-theme--search sui-select-dropdown-container--open select2-container--open'>
           <span
-            className="sui-select-dropdown sui-select-dropdown--below"
-            dir="ltr"
+            className='sui-select-dropdown sui-select-dropdown--below'
+            dir='ltr'
           >
-            <span className="select2-results">
+            <span className='select2-results'>
               <ul
-                className="select2-results__options"
-                role="listbox"
-                aria-multiselectable="true"
-                id="select2-select-smart-default-results"
-                aria-expanded="true"
-                aria-hidden="false"
+                className='select2-results__options'
+                role='listbox'
+                aria-multiselectable='true'
+                id='select2-select-smart-default-results'
+                aria-expanded='true'
+                aria-hidden='false'
               >
                 {props.itemList.length === 0 ? (
                   <li
-                    className="select2-results__option select2-results__option--selectable"
-                    role="option"
-                    aria-selected="false"
+                    className='select2-results__option select2-results__option--selectable'
+                    role='option'
+                    aria-selected='false'
                   >
                     No items available
                   </li>
@@ -81,9 +81,9 @@ const Menu = (props) => {
                   props.itemList.map((item) => {
                     return (
                       <li
-                        className="select2-results__option select2-results__option--selectable"
-                        role="option"
-                        aria-selected="false"
+                        className='select2-results__option select2-results__option--selectable'
+                        role='option'
+                        aria-selected='false'
                         onClick={handleLiClick}
                         onMouseOver={handleHover}
                         onMouseOut={handleOut}
