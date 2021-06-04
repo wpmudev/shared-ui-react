@@ -9,12 +9,13 @@ export const Pagination = ({ elements, limit, skip, showResults, ...props }) => 
 	const [pageClickCounter,setPageClickCounter] = useState(0)
 
 	useEffect(() => {
+		childrenArray=[]
+		for (let i = 1; i <= 100; ++i)
+			childrenArray.push(i)
 		var pagesArray = []
 		for (let i = 1; i <= pages; ++i)
 			pagesArray.push(i)
 		setPagesArray(pagesArray)
-		for (let i = 1; i <= 100; ++i)
-			childrenArray.push(i)
 	}, [])
 	useEffect(() => {
 		(selectedPage>=endIndex) && incrementIndexes();
@@ -77,9 +78,10 @@ export const Pagination = ({ elements, limit, skip, showResults, ...props }) => 
 		console.log("Click",selectedPage)
 	}
 	console.log(startIndex, endIndex,props.children.length)
+	const childElements=props.children
 	return (
 		<>
-			{props.children.slice(0,2)}
+			{childElements.slice(0,2)}
 			<div className="sui-pagination-wrap">
 				{showResults && <span className="sui-pagination-results">{props.children.length} results</span>}
 				<ul className="sui-pagination">
