@@ -1,17 +1,18 @@
 import React from 'react';
-import { Pagination } from '../lib/react-pagination';
+import { Pagination, childrenArray } from '../lib/react-pagination';
 
 export default {
 	title: 'Components/Pagination',
 	component: Pagination,
 }
 
-export const primary = ( args ) => <Pagination { ...args } ><h1>Blahhhhhhhhhhh</h1><div>Blahhhhhhhhhhh</div></Pagination>;
+export const primary = ( args ) => <Pagination { ...args } ><h1>Blahhhhhhhhhhh</h1>{childrenArray.map((data,index)=><h5 key={index}>This is the sample data that I am working with. Id number is {data}</h5>)}<h2>Footer</h2></Pagination>;
 primary.storyName = 'Pagination';
 primary.args = {
 	elements:80,
 	limit:5,
 	results:true,
-	skip:true
+	skip:true,
+	showResults:true
 };
 primary.argTypes = {};

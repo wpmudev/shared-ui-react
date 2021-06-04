@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-
-export const Pagination = ({ elements, limit, skip, ...props }) => {
+export let childrenArray=[]
+export const Pagination = ({ elements, limit, skip, showResults, ...props }) => {
 	const [pages, setPages] = useState(elements/limit>parseInt(elements/limit) ? parseInt(elements/limit)+1 : elements/limit)
 	const [pagesArray, setPagesArray] = useState([])
 	const [selectedPage, setSelectedPage] = useState(1)
@@ -13,6 +13,8 @@ export const Pagination = ({ elements, limit, skip, ...props }) => {
 		for (let i = 1; i <= pages; ++i)
 			pagesArray.push(i)
 		setPagesArray(pagesArray)
+		for (let i = 1; i <= 100; ++i)
+			childrenArray.push(i)
 	}, [])
 	useEffect(() => {
 		(selectedPage>=endIndex) && incrementIndexes();
@@ -74,11 +76,12 @@ export const Pagination = ({ elements, limit, skip, ...props }) => {
 		setPageClickCounter(pageClickCounter+1)
 		console.log("Click",selectedPage)
 	}
-	console.log(startIndex, endIndex)
+	console.log(startIndex, endIndex,props.children.length)
 	return (
 		<>
-			{props.children}
+			{props.children.slice(0,2)}
 			<div className="sui-pagination-wrap">
+				{showResults && <span className="sui-pagination-results">{props.children.length} results</span>}
 				<ul className="sui-pagination">
 					{skip && <li onClick={handleSkipToFirstPage}><a disabled={selectedPage<=1} title="go to first page"><span className="sui-icon-arrow-skip-back" ></span></a></li>}
 					<li onClick={handlePreviousPage}><a disabled={selectedPage<=1}><span className="sui-icon-chevron-left" ></span></a></li>
