@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
-export let childrenArray=[]
-export const Pagination = ({ elements, limit, skip, showResults, ...props }) => {
+export const Pagination = ({ limit, skip, showResults, ...props }) => {
+	
+	const elements=props.children.length;
 	const [pages, setPages] = useState(elements/limit>parseInt(elements/limit) ? parseInt(elements/limit)+1 : elements/limit)
 	const [pagesArray, setPagesArray] = useState([])
 	const [selectedPage, setSelectedPage] = useState(1)
 	const [startIndex, setStartIndex] = useState(0)
 	const [endIndex, setEndIndex] = useState(pages>=5 ? 5 : pages)
 	const [pageClickCounter,setPageClickCounter] = useState(0)
-
+	const [elementsStartIndex,setElementsStartIndex]=useState(0)
+	const [elementsEndIndex,setElementsEndIndex]=useState(limit)
+	
 	useEffect(() => {
-		childrenArray=[]
-		for (let i = 1; i <= 100; ++i)
-			childrenArray.push(i)
 		var pagesArray = []
 		for (let i = 1; i <= pages; ++i)
 			pagesArray.push(i)
@@ -21,6 +21,17 @@ export const Pagination = ({ elements, limit, skip, showResults, ...props }) => 
 		(selectedPage>=endIndex) && incrementIndexes();
 		(selectedPage<=startIndex+1) && decrementIndexes()
 	}, [pageClickCounter])
+	useEffect(() => {
+		console.log("elementsStartIndex,elementsEndIndex",elementsStartIndex,elementsEndIndex)
+		if(selectedPage>1){
+			if(true ) {
+			setElementsStartIndex(elementsStartIndex+limit)
+			setElementsEndIndex(selectedPage*limit)
+			} else {
+				
+			}
+		}
+	}, [selectedPage])
 
 	const handleSkipToFirstPage = () => {
 		setSelectedPage(1)
@@ -81,9 +92,9 @@ export const Pagination = ({ elements, limit, skip, showResults, ...props }) => 
 	const childElements=props.children
 	return (
 		<>
-			{childElements.slice(0,2)}
+			{childElements.slice(elementsStartIndex,elementsEndIndex)}
 			<div className="sui-pagination-wrap">
-				{showResults && <span className="sui-pagination-results">{props.children.length} results</span>}
+				{showResults && <span className="sui-pagination-results">{elements} results</span>}
 				<ul className="sui-pagination">
 					{skip && <li onClick={handleSkipToFirstPage}><a disabled={selectedPage<=1} title="go to first page"><span className="sui-icon-arrow-skip-back" ></span></a></li>}
 					<li onClick={handlePreviousPage}><a disabled={selectedPage<=1}><span className="sui-icon-chevron-left" ></span></a></li>
