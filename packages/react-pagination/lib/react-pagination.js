@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-export const Pagination = ({ limit, skip, showResults, ...props }) => {
+export const Pagination = ({ limit, skip, results, ...props }) => {
 	
-	const elements=props.children.length;
+	const childElements=props.children
+	const elements=React.Children.map(childElements, child => React.cloneElement(child)).length;
 	const [pages, setPages] = useState(elements/limit>parseInt(elements/limit) ? parseInt(elements/limit)+1 : elements/limit)
 	const [pagesArray, setPagesArray] = useState([])
 	const [selectedPage, setSelectedPage] = useState("1")
@@ -84,13 +85,14 @@ export const Pagination = ({ limit, skip, showResults, ...props }) => {
 		setPageClickCounter(pageClickCounter+1)
 		console.log("Click",selectedPage)
 	}
-	console.log(startIndex, endIndex,props.children.length)
-	const childElements=props.children
+	console.log(startIndex, endIndex,"elements:",elements)
+
 	return (
 		<>
-			{childElements.slice(elementsStartIndex,elementsEndIndex)}
+			{/* {childElements.slice(elementsStartIndex,elementsEndIndex)} */}
+			{ React.Children.map(childElements, child => React.cloneElement(child)).slice(elementsStartIndex,elementsEndIndex)}
 			<div className="sui-pagination-wrap">
-				{showResults && <span className="sui-pagination-results">{elements} results</span>}
+				{results && <span className="sui-pagination-results">{elements} results</span>}
 				<ul className="sui-pagination">
 					{skip && <li onClick={handleSkipToFirstPage}><a disabled={selectedPage<=1} title="go to first page"><span className="sui-icon-arrow-skip-back" ></span></a></li>}
 					<li onClick={handlePreviousPage}><a disabled={selectedPage<=1}><span className="sui-icon-chevron-left" ></span></a></li>
