@@ -4,7 +4,7 @@ export const Pagination = ({ limit, skip, showResults, ...props }) => {
 	const elements=props.children.length;
 	const [pages, setPages] = useState(elements/limit>parseInt(elements/limit) ? parseInt(elements/limit)+1 : elements/limit)
 	const [pagesArray, setPagesArray] = useState([])
-	const [selectedPage, setSelectedPage] = useState(1)
+	const [selectedPage, setSelectedPage] = useState("1")
 	const [startIndex, setStartIndex] = useState(0)
 	const [endIndex, setEndIndex] = useState(pages>=5 ? 5 : pages)
 	const [pageClickCounter,setPageClickCounter] = useState(0)
@@ -23,13 +23,9 @@ export const Pagination = ({ limit, skip, showResults, ...props }) => {
 	}, [pageClickCounter])
 	useEffect(() => {
 		console.log("elementsStartIndex,elementsEndIndex",elementsStartIndex,elementsEndIndex)
-		if(selectedPage>1){
-			if(true ) {
-			setElementsStartIndex(elementsStartIndex+limit)
+		if(selectedPage!=="1"){
+			setElementsStartIndex(selectedPage*limit-limit)
 			setElementsEndIndex(selectedPage*limit)
-			} else {
-				
-			}
 		}
 	}, [selectedPage])
 
@@ -52,7 +48,7 @@ export const Pagination = ({ limit, skip, showResults, ...props }) => {
 	}
 
 	const handleNextPage = () => {
-		(selectedPage < pages) && setSelectedPage(selectedPage+1)
+		(selectedPage < pages) && setSelectedPage(parseInt(selectedPage)+1)
 		console.log("incrementIndexes",selectedPage+1>endIndex,"selectedPage",selectedPage)
 		incrementIndexes()
 	}
@@ -98,24 +94,6 @@ export const Pagination = ({ limit, skip, showResults, ...props }) => {
 				<ul className="sui-pagination">
 					{skip && <li onClick={handleSkipToFirstPage}><a disabled={selectedPage<=1} title="go to first page"><span className="sui-icon-arrow-skip-back" ></span></a></li>}
 					<li onClick={handlePreviousPage}><a disabled={selectedPage<=1}><span className="sui-icon-chevron-left" ></span></a></li>
-					{/* {pages > 5
-						?
-						<>
-							{startIndex !== 0 && <li><a>{pagesArray[0]}</a></li>}
-							{(((pages / 2) > (startIndex + 1)||(pages<16)) && startIndex > 2) && <li><a>...</a></li>}
-							{((parseInt(pages / 2) + 3) <= endIndex && (pages>=16)) && <li><a>{parseInt(pages / 2)}</a></li>}
-							{((pages>=16)&&(startIndex > (pages / 2)+1)) && <li><a>...</a></li>}
-							{pagesArray?.slice(startIndex, endIndex)?.map((data, index) => {
-								return <li onClick={handlePageClick} key={index}><a>{data}</a></li>
-							})}
-							{((endIndex < ((pages / 2) - 1)||startIndex < (parseInt(pages / 2) - 3))&&(pages>=16)) && <li><a>...</a></li>}
-							{(startIndex < (parseInt(pages / 2) - 3) && (pages>=16)) && <li><a>{parseInt(pages / 2)}</a></li>}
-							{(endIndex < (pages - 2) && ((startIndex >= (pages / 2))||(pages<16))) && <li><a>...</a></li>}
-							<li><a>{parseInt(pages)}</a></li>
-						</>
-						: pagesArray?.slice(0, 5)?.map((data, index) => {
-							return <li onClick={handlePageClick} key={index}><a>{data}</a></li>
-						})} */}
 					{(startIndex>1) && <li onClick={handlePreviousEllipsis}><a>...</a></li>}
 					{pagesArray?.slice(startIndex, endIndex)?.map((data, index) => {
 							return <li onClick={()=>handlePageClick(parseInt(data))} key={index}><a className={selectedPage===data ? "sui-active" : ""}>{data}</a></li>
