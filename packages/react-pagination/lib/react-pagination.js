@@ -1,6 +1,9 @@
+import { Box, BoxBody } from "@wpmudev/react-box";
 import React, { useState, useEffect } from "react";
+
 export const Pagination = ({ limit, skip, results, ...args }) => {
-	const childElements = args.children,
+	const componentChildren = [args.children],
+		childElements = [...componentChildren, ...args.child],
 		elements = childElements.length,
 		pages = elements / limit > parseInt(elements / limit) ? parseInt(elements / limit) + 1 : elements / limit,
 		[pagesArray, setPagesArray] = useState([]),
@@ -86,57 +89,59 @@ export const Pagination = ({ limit, skip, results, ...args }) => {
 	console.log(startIndex, endIndex, "elements:", elements);
 
 	return (
-		<>
-			{/* {React.Children.map(childElements, child => React.cloneElement(child)).slice(elementsStartIndex, elementsEndIndex)} */}
-			<div className="sui-pagination-wrap">
-				{results && <span className="sui-pagination-results">{elements} results</span>}
-				<ul className="sui-pagination">
-					{skip && (
-						<li onClick={handleSkipToFirstPage}>
-							<a disabled={selectedPage <= 1} title="go to first page">
-								<span className="sui-icon-arrow-skip-back"></span>
-							</a>
-						</li>
-					)}
-					<li onClick={handlePreviousPage}>
-						<a disabled={selectedPage <= 1}>
-							<span className="sui-icon-chevron-left"></span>
-						</a>
-					</li>
-					{startIndex > 1 && (
-						<li onClick={handlePreviousEllipsis}>
-							<a>...</a>
-						</li>
-					)}
-					{pagesArray?.slice(startIndex, endIndex)?.map((data, index) => {
-						return (
-							<li onClick={() => handlePageClick(parseInt(data))} key={index}>
-								<a aria-selected={selectedPage === data} className={selectedPage === data ? "sui-active" : ""}>
-									{data}
+		<Box>
+			<BoxBody>
+				{/* {React.Children.map(childElements, child => React.cloneElement(child)).slice(elementsStartIndex, elementsEndIndex)} */}
+				<div className="sui-pagination-wrap">
+					{results && <span className="sui-pagination-results">{elements} results</span>}
+					<ul className="sui-pagination">
+						{skip && (
+							<li onClick={handleSkipToFirstPage}>
+								<a disabled={selectedPage <= 1} title="go to first page">
+									<span className="sui-icon-arrow-skip-back"></span>
 								</a>
 							</li>
-						);
-					})}
-					{endIndex < pages - 1 && (
-						<li onClick={handleNextEllipsis}>
-							<a>...</a>
-						</li>
-					)}
-					<li onClick={handleNextPage}>
-						<a disabled={selectedPage >= pages}>
-							<span className="sui-icon-chevron-right"></span>
-						</a>
-					</li>
-					{skip && (
-						<li onClick={handleSkipToLastPage}>
-							<a disabled={selectedPage >= pages} title="go to last page">
-								<span className="sui-icon-arrow-skip-forward"></span>
+						)}
+						<li onClick={handlePreviousPage}>
+							<a disabled={selectedPage <= 1}>
+								<span className="sui-icon-chevron-left"></span>
 							</a>
 						</li>
-					)}
-				</ul>
-			</div>
-			{childElements.slice(elementsStartIndex, elementsEndIndex)}
-		</>
+						{startIndex > 1 && (
+							<li onClick={handlePreviousEllipsis}>
+								<a>...</a>
+							</li>
+						)}
+						{pagesArray?.slice(startIndex, endIndex)?.map((data, index) => {
+							return (
+								<li onClick={() => handlePageClick(parseInt(data))} key={index}>
+									<a aria-selected={selectedPage === data} className={selectedPage === data ? "sui-active" : ""}>
+										{data}
+									</a>
+								</li>
+							);
+						})}
+						{endIndex < pages - 1 && (
+							<li onClick={handleNextEllipsis}>
+								<a>...</a>
+							</li>
+						)}
+						<li onClick={handleNextPage}>
+							<a disabled={selectedPage >= pages}>
+								<span className="sui-icon-chevron-right"></span>
+							</a>
+						</li>
+						{skip && (
+							<li onClick={handleSkipToLastPage}>
+								<a disabled={selectedPage >= pages} title="go to last page">
+									<span className="sui-icon-arrow-skip-forward"></span>
+								</a>
+							</li>
+						)}
+					</ul>
+				</div>
+				{React.Children.map(childElements, child => React.cloneElement(child)).slice(elementsStartIndex, elementsEndIndex)}
+			</BoxBody>
+		</Box>
 	);
 };
