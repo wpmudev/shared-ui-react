@@ -90,13 +90,15 @@ export const Pagination = ({ limit, skip, results, ...args }) => {
 					{skip && (
 						<li onClick={handleSkipToFirstPage}>
 							<a disabled={selectedPage <= 1} title="go to first page">
-								<span className="sui-icon-arrow-skip-back"></span>
+								<span className="sui-screen-reader-text">Go to first page.</span>
+								<span aria-hidden="true" className="sui-icon-arrow-skip-back"></span>
 							</a>
 						</li>
 					)}
 					<li onClick={handlePreviousPage}>
 						<a disabled={selectedPage <= 1}>
-							<span className="sui-icon-chevron-left"></span>
+							<span className="sui-screen-reader-text">Go to previous page.</span>
+							<span aria-hidden="true" className="sui-icon-chevron-left"></span>
 						</a>
 					</li>
 					{startIndex > 0 && (
@@ -120,13 +122,15 @@ export const Pagination = ({ limit, skip, results, ...args }) => {
 					)}
 					<li onClick={handleNextPage}>
 						<a disabled={selectedPage >= pages}>
-							<span className="sui-icon-chevron-right"></span>
+							<span className="sui-screen-reader-text">Go to Next page.</span>
+							<span aria-hidden="true" className="sui-icon-chevron-right"></span>
 						</a>
 					</li>
 					{skip && (
 						<li onClick={handleSkipToLastPage}>
 							<a disabled={selectedPage >= pages} title="go to last page">
-								<span className="sui-icon-arrow-skip-forward"></span>
+								<span className="sui-screen-reader-text">Go to last page.</span>
+								<span aria-hidden="true" className="sui-icon-arrow-skip-forward"></span>
 							</a>
 						</li>
 					)}
