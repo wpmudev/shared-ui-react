@@ -3,11 +3,7 @@
 ![npm peer dependency version](https://img.shields.io/npm/dependency-version/@wpmudev/react-pagination/peer/react)
 
 # React Pagination
-[React Button](https://wpmudev.github.io/shared-ui-react/?path=/story/components-pagination--primary) allows you include a button on your project.
-
-# `@wpmudev/react-pagination`
-
-## Installation
+[React Pagination](https://wpmudev.github.io/shared-ui-react/?path=/story/components-pagination--primary) allows you include to paginate your long-list items on your project.
 
 ```
 npm i @wpmudev/react-pagination --save-dev
@@ -19,16 +15,22 @@ npm i @wpmudev/react-pagination --save-dev
 
 ```js
 import React from 'react';
+
 import {
   Pagination
 } from '@wpmudev/react-pagination';
 
 const MyApp = () => {
   return (
-    <Pagination>
-        <div>Element 1 could be here</div>
-        <div>Element 2 could be here</div>
-        <div>Element 3 could be here</div>
+    <Pagination
+	  limit={5}
+	  results={true}
+	  skip={true}
+	  child={childrenArray}
+	>
+      <div>Element 1 could be here</div>
+      <div>Element 2 could be here</div>
+      <div>Element 3 could be here</div>
     </Pagination>
   );
 }
@@ -40,7 +42,6 @@ Prop Name | Type | Description
 --- | --- | ---
 limit | Integer | Enter the elements limit per page.
 results | Boolean | Shows results section if `true`.
-skip | Boolean | Shows Skip(<<,>>) buttons if `true`.
+skip | Boolean | Shows skip arrow buttons if `true`.
 child | Array | Pass an array here to render as elements.
-Children | html or jsx | These are direct children wrapped inside Pagination Component
 
