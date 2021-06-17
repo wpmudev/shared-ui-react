@@ -1,0 +1,51 @@
+{
+  "name": "@wpmudev/react-pagination",
+  "version": "0.0.0",
+  "description": "WPMU DEV Shared UI React Pagination Component",
+  "keywords": [],
+  "author": "WPMU DEV (https://wpmudev.com/)",
+  "contributors": [
+    {
+      "name": "Leighton Sapir",
+      "email": "2328848+iamleigh@users.noreply.github.com",
+      "url": "https://iamleigh.com/"
+    },
+    {
+      "name": "Gowtham Ravipati",
+      "email": "66052144+Gowtham369@users.noreply.github.com",
+      "url": "https://gowtham369.github.io/Gowtham_Portfolio/"
+    }
+  ],
+  "license": "GPL-3.0",
+  "main": "dist/react-pagination.cjs.js",
+  "module": "dist/react-pagination.esm.js",
+  "src": "lib/react-pagination.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist",
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wpmudev/shared-ui-react.git",
+    "directory": "packages/react-pagination"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "build": "sui-builder"
+  },
+  "bugs": {
+    "url": "https://github.com/wpmudev/shared-ui-react/issues"
+  },
+  "homepage": "https://github.com/wpmudev/shared-ui-react#readme",
+  "devDependencies": {
+    "@wpmudev/react-builder": "^0.0.0",
+	"react": "^17.0.1"
+  }
+}
