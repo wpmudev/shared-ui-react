@@ -35,10 +35,14 @@ primary.args = {
 	results: true, //number of results
 	skip: true, //skip to last and first page buttons status
 	pagesToBottom: false,
-	marginTop:"0px",
-	marginRight:"0px",
-	marginBottom:"0px",
-	marginLeft:"0px",
+	marginTop: "0px",
+	marginRight: "0px",
+	marginBottom: "0px",
+	marginLeft: "0px",
+	skipToFirstLabel: "",
+	previousLabel: "",
+	nextLabel: "",
+	skipToLastLabel: "",
 	child: childrenArray, //Array with child elements
 };
 primary.argTypes = {

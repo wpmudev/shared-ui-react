@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-export const Pagination = ({ limit, skip, results, pagesToBottom, marginTop, marginRight, marginBottom, marginLeft, ...args }) => {
+export const Pagination = ({ limit, skip, results, skipToFirstLabel, previousLabel, nextLabel, skipToLastLabel, pagesToBottom, marginTop, marginRight, marginBottom, marginLeft, ...args }) => {
 	const childElements = args.children ? [...args.children, ...args.child] : [...args.child],
 		elements = childElements.length,
 		pages = elements / limit > parseInt(elements / limit) ? parseInt(elements / limit) + 1 : elements / limit,
@@ -84,19 +84,25 @@ export const Pagination = ({ limit, skip, results, pagesToBottom, marginTop, mar
 	return (
 		<>
 			{pagesToBottom && React.Children.map(childElements, child => React.cloneElement(child)).slice(elementsStartIndex, elementsEndIndex)}
-			<div className="sui-pagination-wrap" style={{marginTop:marginTop,marginRight:marginRight,marginBottom:marginBottom,marginLeft:marginLeft}}>
+			<div className="sui-pagination-wrap" style={{ marginTop: marginTop, marginRight: marginRight, marginBottom: marginBottom, marginLeft: marginLeft }}>
 				{results && <span className="sui-pagination-results">{elements} results</span>}
 				<ul className="sui-pagination">
 					{skip && (
 						<li onClick={handleSkipToFirstPage}>
-							<a disabled={selectedPage <= 1} title="go to first page">
-								<span className="sui-icon-arrow-skip-back"></span>
+							<a disabled={selectedPage <= 1}>
+								<span aria-hidden="false" className="sui-screen-reader-text">
+									{skipToFirstLabel || "Go to first page"}
+								</span>
+								<span aria-hidden="true" title={skipToFirstLabel || "Go to first page"} className="sui-icon-arrow-skip-back"></span>
 							</a>
 						</li>
 					)}
 					<li onClick={handlePreviousPage}>
 						<a disabled={selectedPage <= 1}>
-							<span className="sui-icon-chevron-left"></span>
+							<span aria-hidden="false" className="sui-screen-reader-text">
+								{previousLabel || "Go to previous page"}
+							</span>
+							<span aria-hidden="true" title={previousLabel || "Go to previous page"} className="sui-icon-chevron-left"></span>
 						</a>
 					</li>
 					{startIndex > 0 && (
@@ -120,13 +126,19 @@ export const Pagination = ({ limit, skip, results, pagesToBottom, marginTop, mar
 					)}
 					<li onClick={handleNextPage}>
 						<a disabled={selectedPage >= pages}>
-							<span className="sui-icon-chevron-right"></span>
+							<span aria-hidden="false" className="sui-screen-reader-text">
+								{nextLabel || "Go to next page."}
+							</span>
+							<span aria-hidden="true" title={nextLabel || "Go to next page."} className="sui-icon-chevron-right"></span>
 						</a>
 					</li>
 					{skip && (
 						<li onClick={handleSkipToLastPage}>
-							<a disabled={selectedPage >= pages} title="go to last page">
-								<span className="sui-icon-arrow-skip-forward"></span>
+							<a disabled={selectedPage >= pages}>
+								<span aria-hidden="false" className="sui-screen-reader-text">
+									{skipToLastLabel || "Go to last page."}
+								</span>
+								<span aria-hidden="true" title={skipToLastLabel || "Go to last page"} className="sui-icon-arrow-skip-forward"></span>
 							</a>
 						</li>
 					)}

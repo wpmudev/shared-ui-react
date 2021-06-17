@@ -281,7 +281,12 @@ export class Post extends Component {
 					{PostImage}
 
 					{this.props.title && "" !== this.props.title && (
-						<PostTitle banner>{this.props.title}</PostTitle>
+						<PostTitle
+							banner
+							dangerouslySetInnerHTML={{
+								__html: this.props.title
+							}}
+						/>
 					)}
 
 					{this.props.excerpt && "" !== this.props.excerpt && (
@@ -325,7 +330,11 @@ export class Post extends Component {
 							flex: 1
 						}}>
 						{this.props.title && "" !== this.props.title && (
-							<PostTitle>{this.props.title}</PostTitle>
+							<PostTitle
+								dangerouslySetInnerHTML={{
+									__html: this.props.title
+								}}
+							/>
 						)}
 						{this.props.time && "" !== this.props.time && (
 							<PostTime>
