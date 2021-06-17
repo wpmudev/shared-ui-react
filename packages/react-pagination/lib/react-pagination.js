@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-export const Pagination = ({ limit, skip, results, ...args }) => {
+export const Pagination = ({ limit, skip, results, pagesToBottom, marginTop, marginRight, marginBottom, marginLeft, ...args }) => {
 	const childElements = args.children ? [...args.children, ...args.child] : [...args.child],
 		elements = childElements.length,
 		pages = elements / limit > parseInt(elements / limit) ? parseInt(elements / limit) + 1 : elements / limit,
@@ -83,8 +83,8 @@ export const Pagination = ({ limit, skip, results, ...args }) => {
 
 	return (
 		<>
-			{/* {React.Children.map(childElements, child => React.cloneElement(child)).slice(elementsStartIndex, elementsEndIndex)} */}
-			<div className="sui-pagination-wrap">
+			{pagesToBottom && React.Children.map(childElements, child => React.cloneElement(child)).slice(elementsStartIndex, elementsEndIndex)}
+			<div className="sui-pagination-wrap" style={{marginTop:marginTop,marginRight:marginRight,marginBottom:marginBottom,marginLeft:marginLeft}}>
 				{results && <span className="sui-pagination-results">{elements} results</span>}
 				<ul className="sui-pagination">
 					{skip && (
@@ -132,7 +132,7 @@ export const Pagination = ({ limit, skip, results, ...args }) => {
 					)}
 				</ul>
 			</div>
-			{React.Children.map(childElements, child => React.cloneElement(child)).slice(elementsStartIndex, elementsEndIndex)}
+			{!pagesToBottom && React.Children.map(childElements, child => React.cloneElement(child)).slice(elementsStartIndex, elementsEndIndex)}
 		</>
 	);
 };

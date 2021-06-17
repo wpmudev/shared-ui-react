@@ -34,12 +34,19 @@ primary.args = {
 	limit: 5, //elements per page
 	results: true, //number of results
 	skip: true, //skip to last and first page buttons status
+	pagesToBottom: false,
+	marginTop:"0px",
+	marginRight:"0px",
+	marginBottom:"0px",
+	marginLeft:"0px",
 	child: childrenArray, //Array with child elements
 };
 primary.argTypes = {
 	limit: { type: "number" },
 	results: { type: "boolean" },
 	skip: { type: "boolean" },
+	pagesToTop: { type: "boolean" },
+	pagesToBottom: { type: "boolean" },
 };
 
 export const secondary = args => (
