@@ -34,6 +34,10 @@ primary.args = {
 	limit: 5, //elements per page
 	results: true, //number of results
 	skip: true, //skip to last and first page buttons status
+	skipToFirstLabel:"",
+	previousLabel: "",
+	nextLabel: "",
+	skipToLastLabel:"",
 	child: childrenArray, //Array with child elements
 };
 primary.argTypes = {
