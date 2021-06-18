@@ -48,6 +48,6 @@
     "react": "^17.0.1"
   },
   "dependencies": {
-    "styled-components": "^5.2.3"
+    "styled-components": "^5.3.0"
   }
 }
