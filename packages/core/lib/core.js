@@ -18,6 +18,7 @@ import {
 	AccordionItemHeader,
 	AccordionItemBody
 } from "@wpmudev/react-accordion";
+import { Pagination } from "@wpmudev/react-pagination";
 
 export {
 	Box,
@@ -35,5 +36,6 @@ export {
 	Accordion,
 	AccordionItem,
 	AccordionItemHeader,
-	AccordionItemBody
+	AccordionItemBody,
+	Pagination
 };
