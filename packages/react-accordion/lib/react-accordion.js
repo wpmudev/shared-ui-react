@@ -31,7 +31,14 @@ const Accordion = ({ children, ...props }) => {
 	);
 };
 
-const AccordionItem = ({ titleSize, children, ...props }) => {
+const AccordionItem = ({
+	title,
+	titleSize,
+	icon,
+	image,
+	children,
+	...props
+}) => {
 	const [ isOpen, setIsOpen ] = useToggle();
 
 	return (
@@ -41,10 +48,10 @@ const AccordionItem = ({ titleSize, children, ...props }) => {
 		>
 			<AccordionItemHeader
 				state={ isOpen ? 'true' : 'false' }
-				title={ props.title }
+				title={ title }
 				titleSize={ titleSize }
-				image={ props.image }
-				icon={ props.icon }
+				icon={ icon }
+				image={ image }
 				onClick={ setIsOpen }
 			/>
 			<AccordionItemBody>
@@ -54,25 +61,32 @@ const AccordionItem = ({ titleSize, children, ...props }) => {
 	);
 };
 
-const AccordionItemHeader = ({ titleSize, children, ...props }) => {
+const AccordionItemHeader = ({
+	title,
+	titleSize,
+	icon,
+	image,
+	children,
+	...props
+}) => {
 	const [ isOpen ] = useState( false );
 	const countChildren = React.Children.toArray( children ).length;
 
-	const icon = props.icon && '' !== props.icon
-		? <span className={ `sui-icon-${ props.icon }` } aria-hidden="true" />
+	const titleColumnIcon = 'undefined' !== typeof icon && '' !== icon
+		? <span className={ `sui-icon-${ icon }` } aria-hidden="true" />
 		: '';
 
-	const image = props.image && '' !== props.icon
-		? <ItemImage style={ { backgroundImage: `url(${ props.image })` } } />
+	const titleColumnImage = 'undefined' !== typeof image && '' !== icon
+		? <ItemImage style={ { backgroundImage: `url(${ image })` } } />
 		: '';
 
 	const titleColumnSize = 'undefined' !== typeof titleSize && '' !== titleSize
 		? ' sui-accordion-col-' + titleSize
 		: '';
 
-	const title = (
+	const titleColumn = (
 		<div className={ `sui-accordion-item-title${ titleColumnSize }` }>
-			{ icon }{ image }{ props.title }
+			{ titleColumnIcon }{ titleColumnImage }{ title }
 		</div>
 	);
 
@@ -111,7 +125,7 @@ const AccordionItemHeader = ({ titleSize, children, ...props }) => {
 			className="sui-accordion-item-header"
 			{ ...props }
 		>
-			{ title }
+			{ titleColumn }
 			{ countChildren > 0 ? columns : actions }
 		</div>
 	);
