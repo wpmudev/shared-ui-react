@@ -45,13 +45,7 @@ const AccordionItem = ({ children, ...props }) => {
 				image={ props.image }
 				icon={ props.icon }
 				onClick={ setIsOpen }
-			>
-				{/** JUST FOR TEST – TO REMOVE LATER */}
-				<div size="3">John Doe</div>
-				<div size="5">
-					<a href="#">johndoe@email.com</a>
-				</div>
-			</AccordionItemHeader>
+			/>
 			<AccordionItemBody>
 				{ children }
 			</AccordionItemBody>
