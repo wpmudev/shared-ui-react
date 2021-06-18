@@ -119,7 +119,7 @@ yarn logs
 ### 3. Publish packages to NPM.
 
 ```
-lerna publish --no-private
+npx lerna publish --no-private
 ```
 
 >**Note:** Before releasing make sure you are logged in NPM Registry and that you are member of [WPMU DEV Organization](https://www.npmjs.com/package/@wpmudev/shared-ui/).
