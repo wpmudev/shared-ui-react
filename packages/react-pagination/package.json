@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/react-pagination",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "WPMU DEV Shared UI React Pagination Component",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com/)",
@@ -46,6 +46,6 @@
   "homepage": "https://github.com/wpmudev/shared-ui-react#readme",
   "devDependencies": {
     "@wpmudev/react-builder": "^0.0.0",
-	"react": "^17.0.1"
+    "react": "^17.0.1"
   }
 }
