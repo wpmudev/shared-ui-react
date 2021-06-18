@@ -61,6 +61,8 @@
   "changelog": {
     "repo": "wpmudev/shared-ui-react",
     "labels": {
+	  "repo": "Project (Repository)",
+	  "core": "SUI React Package",
       "new": "New Features",
       "improvement": "Improvements",
       "accessibility": "Accessibility Changes",
