@@ -45,7 +45,13 @@ const AccordionItem = ({ children, ...props }) => {
 				image={ props.image }
 				icon={ props.icon }
 				onClick={ setIsOpen }
-			/>
+			>
+				{/** JUST FOR TEST – TO REMOVE LATER */}
+				<div size="3">John Doe</div>
+				<div size="5">
+					<a href="#">johndoe@email.com</a>
+				</div>
+			</AccordionItemHeader>
 			<AccordionItemBody>
 				{ children }
 			</AccordionItemBody>
@@ -55,6 +61,7 @@ const AccordionItem = ({ children, ...props }) => {
 
 const AccordionItemHeader = ({ children, ...props }) => {
 	const [ isOpen ] = useState( false );
+	const countChildren = React.Children.toArray( children ).length;
 
 	const icon = props.icon && '' !== props.icon
 		? <span className={ `sui-icon-${ props.icon }` } aria-hidden="true" />
@@ -78,9 +85,24 @@ const AccordionItemHeader = ({ children, ...props }) => {
 		/>
 	);
 
+	const columns = React.Children.map( children, ( column, index ) => {
+		index++;
+		const columnSize = column.props.size;
+		const columnClass = 'undefined' !== typeof columnSize && '' !== columnSize
+			? 'sui-accordion-col-' + columnSize
+			: 'sui-accordion-col-auto';
+		const columnContent = column.props.children;
+
+		return (
+			<div className={ columnClass }>
+				{ columnContent }
+				{ countChildren === index && indicator }
+			</div>
+		);
+	});
+
 	const actions = (
 		<div className="sui-accordion-col-auto">
-			{ props.children }
 			{ indicator }
 		</div>
 	);
@@ -91,7 +113,7 @@ const AccordionItemHeader = ({ children, ...props }) => {
 			{ ...props }
 		>
 			{ title }
-			{ actions }
+			{ countChildren > 0 ? columns : actions }
 		</div>
 	);
 };
