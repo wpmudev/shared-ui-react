@@ -1,5 +1,5 @@
 import React from "react";
-import { Pagination, PaginationWrapper, PaginationResults, PaginationNav } from "../lib/react-pagination";
+import { Pagination, PaginationResults, PaginationNav } from "../lib/react-pagination";
 
 export default {
 	title: "Components/Pagination",
