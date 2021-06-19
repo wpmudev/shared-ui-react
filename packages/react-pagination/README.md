@@ -42,6 +42,18 @@ const MyApp = () => {
 		</Pagination>
 	);
 };
+
+
+//This is a prop that has to be passed to Pagination
+const paginationContent = ({ ...properties }) => {
+	return (
+		<>
+			{PaginationNav({ ...properties })}
+			{PaginationResults({ ...properties })}
+			<div>Belllaaaa</div>
+		</>
+	);
+};
 ```
 
 ### Props
@@ -61,3 +73,4 @@ const MyApp = () => {
 | nextLabel | String | String to be passed which will act as a label for previous page button |
 | skipToLastLabel | String | String to be passed which will act as a label for skip to last button |
 | child     | Array   | Pass an array here to render as elements. |
+| paginationContent | component | Pass a component here to be rendered custom. |
