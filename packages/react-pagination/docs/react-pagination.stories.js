@@ -14,7 +14,7 @@ const paginationContent = ({ ...properties }) => {
 	return (
 		<>
 			{PaginationNav({ ...properties })}
-			{PaginationResults({ ...properties })}
+			<div>{PaginationResults({ ...properties })}</div>
 			<div>Belllaaaa</div>
 		</>
 	);

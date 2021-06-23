@@ -35,6 +35,7 @@ const MyApp = () => {
 			nextLabel=""
 			skipToLastLabel=""
 			child={childrenArray}
+			paginationContent
 		>
 			<div>Element 1 could be here</div>
 			<div>Element 2 could be here</div>
@@ -44,7 +45,7 @@ const MyApp = () => {
 };
 
 
-//This is a prop that has to be passed to Pagination
+//This is a prop that has to be passed to Pagination if we want a custom pagination.
 const paginationContent = ({ ...properties }) => {
 	return (
 		<>
