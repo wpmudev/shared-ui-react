@@ -67,10 +67,18 @@ export const Modal = ( { modalContent, triggerContent, ...props } ) => {
 		props.mounted = isOpen;
 	}
 
+	const SUIModal = () => {
+		return <div className={`sui-modal sui-active sui-modal-${ modalSize || 'md' } sui-wrap ${ props.underlayClass || '' }`}>
+			<div role="dialog" id="le-dialog-id" className={dialogClass} aria-labelledby={props.titleId}>
+				{renderContent( { closeModal, slideTo } )}
+			</div>
+		</div>
+	}
+
 	const AltModal = props.renderToNode ? AriaModal.renderTo( props.renderToNode ) : AriaModal;
     return (
 		<React.Fragment>
-			<AltModal
+			{/* <AltModal
 				getApplicationNode={ getApplicationNode }
 				dialogClass={ dialogClass }
 				underlayClass={ `sui-modal sui-active sui-modal-${ modalSize || 'md' } sui-wrap ${ props.underlayClass || '' }` }
@@ -79,7 +87,8 @@ export const Modal = ( { modalContent, triggerContent, ...props } ) => {
 				{ ...props }
 				>
 				{ renderContent( { closeModal, slideTo } ) }
-			</AltModal>
+			</AltModal> */}
+			{isOpen && <SUIModal />}
 			{ triggerContent && triggerContent( { openModal } ) }
 		</React.Fragment>
 	);
