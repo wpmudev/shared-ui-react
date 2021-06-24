@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-export const Pagination = ({ limit, skip, results, skipToFirstLabel, previousLabel, nextLabel, skipToLastLabel, pagesToBottom, marginTop, marginRight, marginBottom, marginLeft, ...args }) => {
+export const Pagination = ({ limit, skip, results, skipToFirstLabel, previousLabel, nextLabel, skipToLastLabel, pagesToBottom, ...args }) => {
 	const childElements = args.children ? [...args.children, ...args.child] : [...args.child],
 		elements = childElements.length,
 		pages = elements / limit > parseInt(elements / limit) ? parseInt(elements / limit) + 1 : elements / limit,
@@ -101,10 +101,6 @@ export const Pagination = ({ limit, skip, results, skipToFirstLabel, previousLab
 		previousLabel,
 		nextLabel,
 		skipToLastLabel,
-		marginTop,
-		marginRight,
-		marginBottom,
-		marginLeft,
 		skip,
 		results,
 		elements,
@@ -113,68 +109,9 @@ export const Pagination = ({ limit, skip, results, skipToFirstLabel, previousLab
 	else
 		return (
 			<>
-				{pagesToBottom && React.Children.map(childElements, child => React.cloneElement(child)).slice(elementsStartIndex, elementsEndIndex)}
-				<div className="sui-pagination-wrap" style={{ marginTop: marginTop, marginRight: marginRight, marginBottom: marginBottom, marginLeft: marginLeft }}>
-					{results && <span className="sui-pagination-results">{elements} results</span>}
-					<ul className="sui-pagination">
-						{skip && (
-							<li onClick={handleSkipToFirstPage}>
-								<a disabled={selectedPage <= 1}>
-									<span aria-hidden="false" className="sui-screen-reader-text">
-										{skipToFirstLabel || "Go to first page"}
-									</span>
-									<span aria-hidden="true" title={skipToFirstLabel || "Go to first page"} className="sui-icon-arrow-skip-back"></span>
-								</a>
-							</li>
-						)}
-						<li onClick={handlePreviousPage}>
-							<a disabled={selectedPage <= 1}>
-								<span aria-hidden="false" className="sui-screen-reader-text">
-									{previousLabel || "Go to previous page"}
-								</span>
-								<span aria-hidden="true" title={previousLabel || "Go to previous page"} className="sui-icon-chevron-left"></span>
-							</a>
-						</li>
-						{startIndex > 0 && (
-							<li onClick={handlePreviousEllipsis}>
-								<a>&#8230;</a>
-							</li>
-						)}
-						{pagesArray?.slice(startIndex, endIndex)?.map((data, index) => {
-							return (
-								<li onClick={() => handlePageClick(parseInt(data))} key={index}>
-									<a aria-selected={selectedPage === data} className={selectedPage === data ? "sui-active" : ""}>
-										{data}
-									</a>
-								</li>
-							);
-						})}
-						{endIndex < pages && (
-							<li onClick={handleNextEllipsis}>
-								<a>&#8230;</a>
-							</li>
-						)}
-						<li onClick={handleNextPage}>
-							<a disabled={selectedPage >= pages}>
-								<span aria-hidden="false" className="sui-screen-reader-text">
-									{nextLabel || "Go to next page."}
-								</span>
-								<span aria-hidden="true" title={nextLabel || "Go to next page."} className="sui-icon-chevron-right"></span>
-							</a>
-						</li>
-						{skip && (
-							<li onClick={handleSkipToLastPage}>
-								<a disabled={selectedPage >= pages}>
-									<span aria-hidden="false" className="sui-screen-reader-text">
-										{skipToLastLabel || "Go to last page."}
-									</span>
-									<span aria-hidden="true" title={skipToLastLabel || "Go to last page"} className="sui-icon-arrow-skip-forward"></span>
-								</a>
-							</li>
-						)}
-					</ul>
-				</div>
-				{!pagesToBottom && React.Children.map(childElements, child => React.cloneElement(child)).slice(elementsStartIndex, elementsEndIndex)}
+				{pagesToBottom && PaginationResults({ ...properties })}
+				{PaginationNav({ ...properties })}
+				{!pagesToBottom && PaginationResults({ ...properties })}
 			</>
 		);
 };
@@ -185,7 +122,7 @@ export const PaginationResults = ({ ...properties }) => {
 
 export const PaginationNav = ({ ...properties }) => {
 	return (
-		<div className="sui-pagination-wrap" style={{ marginTop: properties.marginTop, marginRight: properties.marginRight, marginBottom: properties.marginBottom, marginLeft: properties.marginLeft }}>
+		<div className="sui-pagination-wrap">
 			{properties.results && <span className="sui-pagination-results">{properties.elements} results</span>}
 			<ul className="sui-pagination">
 				{properties.skip && (

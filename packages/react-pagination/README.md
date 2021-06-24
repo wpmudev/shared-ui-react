@@ -20,16 +20,27 @@ import React from "react";
 import { Pagination } from "@wpmudev/react-pagination";
 
 const MyApp = () => {
+
+	//This is a prop that has to be passed to Pagination if we want a custom pagination.
+	const paginationContent = ({ ...properties }) => { 
+	/*You might wonder why *properties* instead of props. It is to make sure that the props which you might already be using in your component or file does not effect the ones that we want to use for the pagination.
+	For that reason, it is highly recommended to use properties and append any other props that you might want to use inside the paginationContent.
+	properties have all the required values for pagination.*/
+		return (
+			<>
+				{PaginationNav({ ...properties })}
+				{PaginationResults({ ...properties })}
+				<div>Belllaaaa</div>
+			</>
+		);
+	};
+
 	return (
 		<Pagination
 			limit={5}
 			results={true}
 			skip={true}
-			pagesToBottom={false}
-			marginTop="0px"
-			marginRight="0px"
-			marginBottom="0px"
-			marginLeft="0px"
+			pagesToBottom={false} //This does not make any difference when using *paginationContent*.
 			skipToFirstLabel=""
 			previousLabel=""
 			nextLabel=""
@@ -45,16 +56,6 @@ const MyApp = () => {
 };
 
 
-//This is a prop that has to be passed to Pagination if we want a custom pagination.
-const paginationContent = ({ ...properties }) => {
-	return (
-		<>
-			{PaginationNav({ ...properties })}
-			{PaginationResults({ ...properties })}
-			<div>Belllaaaa</div>
-		</>
-	);
-};
 ```
 
 ### Props
@@ -65,10 +66,6 @@ const paginationContent = ({ ...properties }) => {
 | results   | Boolean | Shows results section if `true`.          |
 | skip      | Boolean | Shows skip arrow buttons if `true`.       |
 | pagesToBottom | Boolean | Pages will be rendered at bottom if true |
-| marginTop | String | We will pass margin units as per requirement |
-| marginRight | String | We will pass margin units as per requirement |
-| marginBottom | String | We will pass margin units as per requirement |
-| marginLeft | String | We will pass margin units as per requirement |
 | skipToFirstLabel | String | String to be passed which will act as a label for skip to first button |
 | previousLabel | String | String to be passed which will act as a label for next page button |
 | nextLabel | String | String to be passed which will act as a label for previous page button |
