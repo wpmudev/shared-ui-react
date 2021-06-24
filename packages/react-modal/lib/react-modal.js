@@ -69,7 +69,7 @@ export const Modal = ( { modalContent, triggerContent, ...props } ) => {
 
 	const SUIModal = () => {
 		return <div className={`sui-modal sui-active sui-modal-${ modalSize || 'md' } sui-wrap ${ props.underlayClass || '' }`}>
-			<div role="dialog" id="le-dialog-id" className={dialogClass} aria-labelledby={props.titleId}>
+			<div role="dialog" id={props.dialogId} className={dialogClass} aria-labelledby={props.titleId}>
 				{renderContent( { closeModal, slideTo } )}
 			</div>
 		</div>
@@ -88,7 +88,7 @@ export const Modal = ( { modalContent, triggerContent, ...props } ) => {
 				>
 				{ renderContent( { closeModal, slideTo } ) }
 			</AltModal> */}
-			{isOpen && <SUIModal />}
+			{props?.mounted && <SUIModal />}
 			{ triggerContent && triggerContent( { openModal } ) }
 		</React.Fragment>
 	);
