@@ -33,7 +33,7 @@ const MyApp = () => (
 	/>
 );
 ```
-
+When you create modalContent and want something to be autoFocused on mounting the Modal, then add the 'autoFocus' property to the element itself.
 ### Props
 
 Prop Name | Type | Description
