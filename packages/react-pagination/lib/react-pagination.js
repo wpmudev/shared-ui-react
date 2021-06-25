@@ -152,7 +152,7 @@ export const PaginationNav = ({ ...properties }) => {
 				{properties.pagesArray?.slice(properties.startIndex, properties.endIndex)?.map((data, index) => {
 					return (
 						<li onClick={() => properties.handlePageClick(parseInt(data))} key={index}>
-							<a aria-selected={properties.selectedPage === data} className={properties.selectedPage === data ? "sui-active" : ""}>
+							<a aria-selected={properties.selectedPage === data} className={properties.selectedPage == data ? "sui-active" : ""}>
 								{data}
 							</a>
 						</li>
