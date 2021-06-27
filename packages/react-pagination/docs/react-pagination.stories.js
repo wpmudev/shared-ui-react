@@ -145,12 +145,11 @@ secondary.argTypes = {
 	...primary.argsTypes,
 };
 
-export const thirtiary = args => <Pagination {...args}>{/* {PaginationResults({childrenArray,elementsStartIndex=0,elementsEndIndex=5})}  */}</Pagination>;
+export const thirtiary = args => <Pagination {...args} />;
 
 thirtiary.storyName = "Child Property";
 thirtiary.args = {
 	...primary.args,
-	child: childrenArray,
 };
 thirtiary.argTypes = {
 	...primary.argsTypes,

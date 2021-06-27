@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 export const Pagination = ({ limit, skip, results, skipToFirstLabel, previousLabel, nextLabel, skipToLastLabel, pagesToBottom, ...args }) => {
-	const componentChildren = [args.children],
+	const componentChildren = args.children ? (args.children?.length>1 ? [...args.children] : [args.children]) : [],
 		childElements = [...componentChildren, ...args.child],
 		elements = childElements.length,
 		pages = elements / limit > parseInt(elements / limit) ? parseInt(elements / limit) + 1 : elements / limit,
