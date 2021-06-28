@@ -120,19 +120,7 @@ primary.argTypes = {
 export const secondary = args => (
 	<Pagination {...args}>
 		<div>This is sample child component 1</div>
-		<div>This is sample child component 2</div>
-		<div>This is sample child component 3</div>
-		<div>This is sample child component 4</div>
-		<div>This is sample child component 5</div>
-		<div>This is sample child component 6</div>
-		<div>This is sample child component 7</div>
-		<div>This is sample child component 8</div>
-		<div>This is sample child component 10</div>
-		<div>This is sample child component 11</div>
-		<div>This is sample child component 12</div>
-		<div>This is sample child component 13</div>
-		<div>This is sample child component 14</div>
-		<div>This is sample child component 15</div>
+	
 	</Pagination>
 );
 

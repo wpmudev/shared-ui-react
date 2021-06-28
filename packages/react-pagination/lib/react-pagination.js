@@ -123,6 +123,7 @@ export const PaginationResults = ({ ...properties }) => {
 
 export const PaginationNav = ({ ...properties }) => {
 	return (
+		properties.pagesArray.length>1 &&
 		<div className="sui-pagination-wrap">
 			{properties.results && <span className="sui-pagination-results">{properties.elements} results</span>}
 			<ul className="sui-pagination">
