@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/react-box",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "WPMU DEV Shared UI React Box Component",
   "author": "WPMU DEV",
   "contributors": [
@@ -48,6 +48,6 @@
     "react": "^17.0.1"
   },
   "dependencies": {
-    "styled-components": "^5.2.3"
+    "styled-components": "^5.3.0"
   }
 }

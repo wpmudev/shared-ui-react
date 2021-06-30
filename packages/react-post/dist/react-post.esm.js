@@ -425,8 +425,11 @@ var Post = /*#__PURE__*/function (_Component) {
 
       if (this.props.banner) {
         return /*#__PURE__*/React.createElement(PostWrapper, this.props, PostImage, this.props.title && "" !== this.props.title && /*#__PURE__*/React.createElement(PostTitle, {
-          banner: true
-        }, this.props.title), this.props.excerpt && "" !== this.props.excerpt && /*#__PURE__*/React.createElement(Excerpt, {
+          banner: true,
+          dangerouslySetInnerHTML: {
+            __html: this.props.title
+          }
+        }), this.props.excerpt && "" !== this.props.excerpt && /*#__PURE__*/React.createElement(Excerpt, {
           banner: true,
           dangerouslySetInnerHTML: {
             __html: this.props.excerpt
@@ -452,7 +455,11 @@ var Post = /*#__PURE__*/function (_Component) {
           minWidth: "1px",
           flex: 1
         }
-      }, this.props.title && "" !== this.props.title && /*#__PURE__*/React.createElement(PostTitle, null, this.props.title), this.props.time && "" !== this.props.time && /*#__PURE__*/React.createElement(PostTime, null, "*", this.props.time, " ", min_read))), this.props.excerpt && "" !== this.props.excerpt && /*#__PURE__*/React.createElement(Excerpt, {
+      }, this.props.title && "" !== this.props.title && /*#__PURE__*/React.createElement(PostTitle, {
+        dangerouslySetInnerHTML: {
+          __html: this.props.title
+        }
+      }), this.props.time && "" !== this.props.time && /*#__PURE__*/React.createElement(PostTime, null, "*", this.props.time, " ", min_read))), this.props.excerpt && "" !== this.props.excerpt && /*#__PURE__*/React.createElement(Excerpt, {
         dangerouslySetInnerHTML: {
           __html: this.props.excerpt
         }
