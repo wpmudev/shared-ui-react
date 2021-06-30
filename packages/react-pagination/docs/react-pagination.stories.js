@@ -4,18 +4,18 @@ import { Box, BoxHeader, BoxBody, BoxFooter } from '@wpmudev/react-box';
 import { Accordion, AccordionItem } from '@wpmudev/react-accordion';
 import { Button } from '@wpmudev/react-button';
 
-export default {
-	title: "Components/Pagination",
-	component: Pagination,
-};
-
-let childrenArray = new Array();
-for (let i = 1; i <= 34 /* from here you can change the number of elements that can be inputed */; ++i)
-	childrenArray.push(<h5 key={i}>This is the sample data that I am working with. Id number is {i}</h5>);
-
-let childrenItems = new Array();
-for (let i = 1; i <= 34 /* from here you can change the number of elements that can be inputed */; ++i)
-	childrenItems.push(<AccordionItem key={i} title={ `Item ${i}` } />);
+let accordionItems = new Array();
+for (let i = 1; i <= 15; ++i)
+	accordionItems.push(
+		<AccordionItem key={i} title={ `Child Item #${i}` }>
+			<Box>
+				<BoxBody>
+					<h4>Child Item #{i}</h4>
+					<p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Sed posuere consectetur est at lobortis. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Curabitur blandit tempus porttitor. Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+				</BoxBody>
+			</Box>
+		</AccordionItem>
+	);
 
 const paginationContent = ({ ...properties }) => {
 	const styles = {
@@ -26,7 +26,7 @@ const paginationContent = ({ ...properties }) => {
 
 	return (
 		<Box>
-			<BoxHeader title="Presets Config" />
+			<BoxHeader title="Lorem Justo" />
 			<BoxBody>
 				<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec sed odio dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
 				<div style={ styles }>
@@ -43,102 +43,239 @@ const paginationContent = ({ ...properties }) => {
 				border="0"
 				alignment="center"
 			>
-				<p className="sui-description">Created or updated configs via the Hub? <a href="#">Check again</a></p>
+				<p className="sui-description">Donec id elit non mi porta gravida at eget metus? <a href="#">Check again</a></p>
 			</BoxFooter>
 		</Box>
 	);
 };
 
-export const supreme = args => (
-	<Pagination {...args}>
-		<AccordionItem title="Design Test" />
-		<AccordionItem title="Basic Config" />
-		<AccordionItem title="Simple Config" />
-		<AccordionItem title="Test Config" />
-		<AccordionItem title="Advanced Config" />
-	</Pagination>
-);
-supreme.storyName = "Wrapper";
-supreme.args = {
-	limit: 5, //elements per page
-	results: true, //number of results
-	skip: true, //skip to last and first page buttons status
-	skipToFirstLabel: "",
-	previousLabel: "",
-	nextLabel: "",
-	skipToLastLabel: "",
-	child: childrenItems, //Array with child elements
-	paginationContent,
-};
-supreme.argTypes = {
-	limit: { type: "number" },
-	results: { type: "boolean" },
-	skip: { type: "boolean" },
-	pagesToTop: { type: "boolean" },
-	pagesToBottom: { type: "boolean" },
+export default {
+	title: "Components/Pagination",
+	component: Pagination,
+	args: {
+		limit: 5,
+		results: true,
+		skip: true,
+		child: accordionItems,
+		skipToFirstLabel: '',
+		previousLabel: '',
+		nextLabel: '',
+		skipToLastLabel: ''
+	},
+	argTypes: {
+		limit: {
+			type: {
+				name: 'number',
+				required: true
+			},
+			description: '',
+			control: {
+				type: 'number'
+			},
+			table: {
+				category: 'Basic Controls'
+			}
+		},
+		results: {
+			type: {
+				name: 'boolean',
+				required: false
+			},
+			description: '',
+			control: {
+				type: 'boolean'
+			},
+			table: {
+				category: 'Basic Controls'
+			}
+		},
+		skip: {
+			type: {
+				name: 'boolean',
+				required: false
+			},
+			description: '',
+			control: {
+				type: 'boolean'
+			},
+			table: {
+				category: 'Basic Controls'
+			}
+		},
+		child: {
+			type: {
+				name: 'object',
+				required: false
+			},
+			description: '',
+			control: {
+				type: 'object'
+			},
+			table: {
+				category: 'Additional Controls'
+			}
+		},
+		skipToFirstLabel: {
+			type: {
+				name: 'text',
+				required: false
+			},
+			description: '',
+			control: {
+				type: 'text'
+			},
+			table: {
+				category: 'Labels'
+			}
+		},
+		previousLabel: {
+			type: {
+				name: 'text',
+				required: false
+			},
+			description: '',
+			control: {
+				type: 'text'
+			},
+			table: {
+				category: 'Labels'
+			}
+		},
+		nextLabel: {
+			type: {
+				name: 'text',
+				required: false
+			},
+			description: '',
+			control: {
+				type: 'text'
+			},
+			table: {
+				category: 'Labels'
+			}
+		},
+		skipToLastLabel: {
+			type: {
+				name: 'text',
+				required: false
+			},
+			description: '',
+			control: {
+				type: 'text'
+			},
+			table: {
+				category: 'Labels'
+			}
+		},
+	}
 };
 
-export const primary = args => (
-	<Pagination {...args}>
-		<div>This is sample child component 1</div>
-		<div>This is sample child component 2</div>
-		<div>This is sample child component 3</div>
-		<div>This is sample child component 4</div>
-		<div>This is sample child component 5</div>
-		<div>This is sample child component 6</div>
-		<div>This is sample child component 7</div>
-		<div>This is sample child component 8</div>
-		<div>This is sample child component 10</div>
-		<div>This is sample child component 11</div>
-		<div>This is sample child component 12</div>
-		<div>This is sample child component 13</div>
-		<div>This is sample child component 14</div>
-		<div>This is sample child component 15</div>
-	</Pagination>
-);
-
-primary.storyName = "Mixed";
-primary.args = {
-	limit: 5, //elements per page
-	results: true, //number of results
-	skip: true, //skip to last and first page buttons status
+export const simple = args => {
+	return (
+		<Box>
+			<Accordion>
+				<Pagination { ...args }>
+					<AccordionItem title="Children Item A">
+						<Box>
+							<BoxBody>
+								<h4>Children Item A</h4>
+								<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
+							</BoxBody>
+						</Box>
+					</AccordionItem>
+					<AccordionItem title="Children Item B">
+						<Box>
+							<BoxBody>
+								<h4>Children Item B</h4>
+								<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
+							</BoxBody>
+						</Box>
+					</AccordionItem>
+					<AccordionItem title="Children Item C">
+						<Box>
+							<BoxBody>
+								<h4>Children Item C</h4>
+								<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
+							</BoxBody>
+						</Box>
+					</AccordionItem>
+				</Pagination>
+			</Accordion>
+		</Box>
+	);
+};
+simple.storyName = "Simple";
+simple.args = {
+	pagesToTop: false,
 	pagesToBottom: false,
-	skipToFirstLabel: "",
-	previousLabel: "",
-	nextLabel: "",
-	skipToLastLabel: "",
-	child: childrenArray, //Array with child elements
 };
-primary.argTypes = {
-	limit: { type: "number" },
-	results: { type: "boolean" },
-	skip: { type: "boolean" },
-	pagesToTop: { type: "boolean" },
-	pagesToBottom: { type: "boolean" },
+simple.argTypes = {
+	pagesToTop: {
+		type: {
+			name: 'boolean',
+			required: false
+		},
+		description: '',
+		control: {
+			type: 'boolean'
+		},
+		table: {
+			category: 'Additional Controls'
+		}
+	},
+	pagesToBottom: {
+		type: {
+			name: 'boolean',
+			required: false
+		},
+		description: '',
+		control: {
+			type: 'boolean'
+		},
+		table: {
+			category: 'Additional Controls'
+		}
+	}
 };
 
-export const secondary = args => (
-	<Pagination {...args}>
-		<div>This is sample child component 1</div>
-	
-	</Pagination>
-);
-
-secondary.storyName = "Children Components";
-secondary.args = {
-	...primary.args,
-	child: [],
+export const compound = args => {
+	return (
+		<Pagination { ...args }>
+			<AccordionItem title="Children Item A">
+				<Box>
+					<BoxBody>
+						<h4>Children Item A</h4>
+						<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
+					</BoxBody>
+				</Box>
+			</AccordionItem>
+			<AccordionItem title="Children Item B">
+				<Box>
+					<BoxBody>
+						<h4>Children Item B</h4>
+						<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
+					</BoxBody>
+				</Box>
+			</AccordionItem>
+			<AccordionItem title="Children Item C">
+				<Box>
+					<BoxBody>
+						<h4>Children Item C</h4>
+						<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
+					</BoxBody>
+				</Box>
+			</AccordionItem>
+		</Pagination>
+	);
 };
-secondary.argTypes = {
-	...primary.argsTypes,
+compound.storyName = "Compound";
+compound.args = {
+	paginationContent
 };
-
-export const thirtiary = args => <Pagination {...args} />;
-
-thirtiary.storyName = "Child Property";
-thirtiary.args = {
-	...primary.args,
-};
-thirtiary.argTypes = {
-	...primary.argsTypes,
+compound.argTypes = {
+	paginationContent: {
+		table: {
+			category: 'Additional Controls'
+		}
+	}
 };
