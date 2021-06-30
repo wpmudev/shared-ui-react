@@ -1,5 +1,14 @@
 # Changelog
 
+## Released (2021-06-30)
+
+#### New Features
+* `react-pagination`
+  * [#122](https://github.com/wpmudev/shared-ui-react/pull/122) ✨ new(react-pagination): Split component in navigation and results. ([@Gowtham369](https://github.com/Gowtham369))
+
+#### Committers: 1
+- Gowtham Ravipati ([@Gowtham369](https://github.com/Gowtham369))
+
 ## Released (2021-06-18)
 
 #### New Features
