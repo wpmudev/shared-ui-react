@@ -2695,6 +2695,73 @@ function _asyncToGenerator(fn) {
   };
 }
 
+function _defineProperty$6(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+function _extends$6() {
+  _extends$6 = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends$6.apply(this, arguments);
+}
+
+function ownKeys$5(object, enumerableOnly) {
+  var keys = Object.keys(object);
+
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    if (enumerableOnly) symbols = symbols.filter(function (sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    });
+    keys.push.apply(keys, symbols);
+  }
+
+  return keys;
+}
+
+function _objectSpread2$5(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+
+    if (i % 2) {
+      ownKeys$5(Object(source), true).forEach(function (key) {
+        _defineProperty$6(target, key, source[key]);
+      });
+    } else if (Object.getOwnPropertyDescriptors) {
+      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+    } else {
+      ownKeys$5(Object(source)).forEach(function (key) {
+        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+      });
+    }
+  }
+
+  return target;
+}
+
 function _objectWithoutPropertiesLoose$8(source, excluded) {
   if (source == null) return {};
   var target = {};
@@ -2806,7 +2873,7 @@ function _nonIterableRest$2() {
 }
 
 var Pagination = function Pagination(_ref) {
-  var _pagesArray$slice;
+  var _args$children, _properties;
 
   var limit = _ref.limit,
       skip = _ref.skip,
@@ -2815,9 +2882,11 @@ var Pagination = function Pagination(_ref) {
       previousLabel = _ref.previousLabel,
       nextLabel = _ref.nextLabel,
       skipToLastLabel = _ref.skipToLastLabel,
-      args = _objectWithoutProperties$8(_ref, ["limit", "skip", "results", "skipToFirstLabel", "previousLabel", "nextLabel", "skipToLastLabel"]);
+      pagesToBottom = _ref.pagesToBottom,
+      args = _objectWithoutProperties$8(_ref, ["limit", "skip", "results", "skipToFirstLabel", "previousLabel", "nextLabel", "skipToLastLabel", "pagesToBottom"]);
 
-  var childElements = args.children ? [].concat(_toConsumableArray(args.children), _toConsumableArray(args.child)) : _toConsumableArray(args.child),
+  var componentChildren = args.children ? ((_args$children = args.children) === null || _args$children === void 0 ? void 0 : _args$children.length) > 1 ? _toConsumableArray(args.children) : [args.children] : [],
+      childElements = [].concat(componentChildren, _toConsumableArray(args.child)),
       elements = childElements.length,
       pages = elements / limit > parseInt(elements / limit) ? parseInt(elements / limit) + 1 : elements / limit,
       _useState = React.useState([]),
@@ -2939,73 +3008,112 @@ var Pagination = function Pagination(_ref) {
     };
   }();
 
-  return /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, /*#__PURE__*/React__default['default'].createElement("div", {
+  var properties = (_properties = {
+    childElements: childElements,
+    elementsStartIndex: elementsStartIndex,
+    elementsEndIndex: elementsEndIndex,
+    handlePageClick: handlePageClick,
+    handleNextEllipsis: handleNextEllipsis,
+    handlePreviousEllipsis: handlePreviousEllipsis,
+    handleNextPage: handleNextPage,
+    handlePreviousPage: handlePreviousPage,
+    handleSkipToLastPage: handleSkipToLastPage,
+    handleSkipToFirstPage: handleSkipToFirstPage,
+    pagesArray: pagesArray,
+    selectedPage: selectedPage,
+    startIndex: startIndex,
+    endIndex: endIndex,
+    pages: pages,
+    results: results,
+    skipToFirstLabel: skipToFirstLabel,
+    previousLabel: previousLabel,
+    nextLabel: nextLabel,
+    skipToLastLabel: skipToLastLabel,
+    skip: skip
+  }, _defineProperty$6(_properties, "results", results), _defineProperty$6(_properties, "elements", elements), _properties);
+  if (args === null || args === void 0 ? void 0 : args.paginationContent) return /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, args === null || args === void 0 ? void 0 : args.paginationContent(_objectSpread2$5({}, properties)));else return /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, pagesToBottom && PaginationResults(_objectSpread2$5({}, properties)), PaginationNav(_objectSpread2$5({}, properties)), !pagesToBottom && PaginationResults(_objectSpread2$5({}, properties)));
+};
+
+var PaginationResults = function PaginationResults(_ref3) {
+  var _React$Children$map;
+
+  var properties = _extends$6({}, _ref3);
+
+  return (_React$Children$map = React__default['default'].Children.map(properties.childElements, function (data) {
+    return /*#__PURE__*/React__default['default'].cloneElement(data);
+  })) === null || _React$Children$map === void 0 ? void 0 : _React$Children$map.slice(properties.elementsStartIndex, properties.elementsEndIndex);
+};
+
+var PaginationNav = function PaginationNav(_ref4) {
+  var _properties$pagesArra, _properties$pagesArra2;
+
+  var properties = _extends$6({}, _ref4);
+
+  return properties.pagesArray.length > 1 && /*#__PURE__*/React__default['default'].createElement("div", {
     className: "sui-pagination-wrap"
-  }, results && /*#__PURE__*/React__default['default'].createElement("span", {
+  }, properties.results && /*#__PURE__*/React__default['default'].createElement("span", {
     className: "sui-pagination-results"
-  }, elements, " results"), /*#__PURE__*/React__default['default'].createElement("ul", {
+  }, properties.elements, " results"), /*#__PURE__*/React__default['default'].createElement("ul", {
     className: "sui-pagination"
-  }, skip && /*#__PURE__*/React__default['default'].createElement("li", {
-    onClick: handleSkipToFirstPage
+  }, properties.skip && /*#__PURE__*/React__default['default'].createElement("li", {
+    onClick: properties.handleSkipToFirstPage
   }, /*#__PURE__*/React__default['default'].createElement("a", {
-    disabled: selectedPage <= 1
+    disabled: properties.selectedPage <= 1
   }, /*#__PURE__*/React__default['default'].createElement("span", {
     "aria-hidden": "false",
     className: "sui-screen-reader-text"
-  }, skipToFirstLabel || "Go to first page"), /*#__PURE__*/React__default['default'].createElement("span", {
+  }, properties.skipToFirstLabel || "Go to first page"), /*#__PURE__*/React__default['default'].createElement("span", {
     "aria-hidden": "true",
-    title: skipToFirstLabel || "Go to first page",
+    title: properties.skipToFirstLabel || "Go to first page",
     className: "sui-icon-arrow-skip-back"
   }))), /*#__PURE__*/React__default['default'].createElement("li", {
-    onClick: handlePreviousPage
+    onClick: properties.handlePreviousPage
   }, /*#__PURE__*/React__default['default'].createElement("a", {
-    disabled: selectedPage <= 1
+    disabled: properties.selectedPage <= 1
   }, /*#__PURE__*/React__default['default'].createElement("span", {
     "aria-hidden": "false",
     className: "sui-screen-reader-text"
-  }, previousLabel || "Go to previous page"), /*#__PURE__*/React__default['default'].createElement("span", {
+  }, properties.previousLabel || "Go to previous page"), /*#__PURE__*/React__default['default'].createElement("span", {
     "aria-hidden": "true",
-    title: previousLabel || "Go to previous page",
+    title: properties.previousLabel || "Go to previous page",
     className: "sui-icon-chevron-left"
-  }))), startIndex > 0 && /*#__PURE__*/React__default['default'].createElement("li", {
-    onClick: handlePreviousEllipsis
-  }, /*#__PURE__*/React__default['default'].createElement("a", null, "...")), pagesArray === null || pagesArray === void 0 ? void 0 : (_pagesArray$slice = pagesArray.slice(startIndex, endIndex)) === null || _pagesArray$slice === void 0 ? void 0 : _pagesArray$slice.map(function (data, index) {
+  }))), properties.startIndex > 0 && /*#__PURE__*/React__default['default'].createElement("li", {
+    onClick: properties.handlePreviousEllipsis
+  }, /*#__PURE__*/React__default['default'].createElement("a", null, "\u2026")), (_properties$pagesArra = properties.pagesArray) === null || _properties$pagesArra === void 0 ? void 0 : (_properties$pagesArra2 = _properties$pagesArra.slice(properties.startIndex, properties.endIndex)) === null || _properties$pagesArra2 === void 0 ? void 0 : _properties$pagesArra2.map(function (data, index) {
     return /*#__PURE__*/React__default['default'].createElement("li", {
       onClick: function onClick() {
-        return handlePageClick(parseInt(data));
+        return properties.handlePageClick(parseInt(data));
       },
       key: index
     }, /*#__PURE__*/React__default['default'].createElement("a", {
-      "aria-selected": selectedPage === data,
-      className: selectedPage === data ? "sui-active" : ""
+      "aria-selected": properties.selectedPage === data,
+      className: properties.selectedPage == data ? "sui-active" : ""
     }, data));
-  }), endIndex < pages && /*#__PURE__*/React__default['default'].createElement("li", {
-    onClick: handleNextEllipsis
-  }, /*#__PURE__*/React__default['default'].createElement("a", null, "...")), /*#__PURE__*/React__default['default'].createElement("li", {
-    onClick: handleNextPage
+  }), properties.endIndex < properties.pages && /*#__PURE__*/React__default['default'].createElement("li", {
+    onClick: properties.handleNextEllipsis
+  }, /*#__PURE__*/React__default['default'].createElement("a", null, "\u2026")), /*#__PURE__*/React__default['default'].createElement("li", {
+    onClick: properties.handleNextPage
   }, /*#__PURE__*/React__default['default'].createElement("a", {
-    disabled: selectedPage >= pages
+    disabled: properties.selectedPage >= properties.pages
   }, /*#__PURE__*/React__default['default'].createElement("span", {
     "aria-hidden": "false",
     className: "sui-screen-reader-text"
-  }, nextLabel || "Go to next page."), /*#__PURE__*/React__default['default'].createElement("span", {
+  }, properties.nextLabel || "Go to next page."), /*#__PURE__*/React__default['default'].createElement("span", {
     "aria-hidden": "true",
-    title: nextLabel || "Go to next page.",
+    title: properties.nextLabel || "Go to next page.",
     className: "sui-icon-chevron-right"
-  }))), skip && /*#__PURE__*/React__default['default'].createElement("li", {
-    onClick: handleSkipToLastPage
+  }))), properties.skip && /*#__PURE__*/React__default['default'].createElement("li", {
+    onClick: properties.handleSkipToLastPage
   }, /*#__PURE__*/React__default['default'].createElement("a", {
-    disabled: selectedPage >= pages
+    disabled: properties.selectedPage >= properties.pages
   }, /*#__PURE__*/React__default['default'].createElement("span", {
     "aria-hidden": "false",
     className: "sui-screen-reader-text"
-  }, skipToLastLabel || "Go to last page."), /*#__PURE__*/React__default['default'].createElement("span", {
+  }, properties.skipToLastLabel || "Go to last page."), /*#__PURE__*/React__default['default'].createElement("span", {
     "aria-hidden": "true",
-    title: skipToLastLabel || "Go to last page",
+    title: properties.skipToLastLabel || "Go to last page",
     className: "sui-icon-arrow-skip-forward"
-  }))))), React__default['default'].Children.map(childElements, function (child) {
-    return /*#__PURE__*/React__default['default'].cloneElement(child);
-  }).slice(elementsStartIndex, elementsEndIndex));
+  })))));
 };
 
 exports.Accordion = Accordion;
