@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/shared-ui-react",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "WPMU DEV Shared UI React Components",
   "author": "WPMU DEV",
   "contributors": [
@@ -47,7 +47,7 @@
     "@wpmudev/react-dropdown": "^1.1.4",
     "@wpmudev/react-input": "^1.0.4",
     "@wpmudev/react-notifications": "^1.0.8",
-    "@wpmudev/react-pagination": "^1.0.0",
+    "@wpmudev/react-pagination": "^1.1.0",
     "@wpmudev/react-post": "^1.1.4"
   },
   "devDependencies": {
