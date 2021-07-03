@@ -1,5 +1,6 @@
 import React from "react";
 import AriaModal from "@justfixnyc/react-aria-modal";
+import useEscape from "./useEscape";
 
 export const Modal = ( { modalContent, triggerContent, ...props } ) => {
 	const [ isOpen, setIsOpen ] = React.useState( false );
@@ -8,6 +9,8 @@ export const Modal = ( { modalContent, triggerContent, ...props } ) => {
 	// States for sliders.
 	const [ currentSlide, setCurrentSlide ] = React.useState( props.firstSlide );
 	const [ slideDirection, setSlideDirection ] = React.useState( null );
+
+	useEscape(() => closeModal())
 
 	React.useEffect( () => {
 		if ( ! props.dialogId ) {

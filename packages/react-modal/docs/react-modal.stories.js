@@ -7,6 +7,7 @@ import { Modal } from "../lib/react-modal";
 import banner from "./assets/beehive-welcome.png";
 import image1x from "./assets/hustle-footer.png";
 import image2x from "./assets/hustle-footer@2x.png";
+import useEscape from "../lib/useEscape";
 
 export default {
 	title: "Containers/Modal",
@@ -333,7 +334,13 @@ const SecondModal = ( { isOpen, setIsOpen, switchModals } ) => {
 const Replace = () => {
 	const [ isFirstOpen, setIsFirstOpen ] = React.useState( false );
 	const [ isSecondOpen, setIsSecondOpen ] = React.useState( false );
-
+	// useEscape(()=>{setIsFirstOpen(false);setIsSecondOpen(false)})
+	const closeThisModal = function() {
+		setIsFirstOpen(false);setIsSecondOpen(false)
+		setTimeout( () => {
+			setIsOpen( false );
+		}, 300 );
+	};
 	const switchModals = () => {
 		setIsFirstOpen( ! isFirstOpen );
 		setIsSecondOpen( ! isSecondOpen );
