@@ -1,4 +1,4 @@
-import React, { Component, Children, Fragment } from 'react';
+import React, { Component, Children, Fragment, useState, useCallback, useEffect } from 'react';
 import styled from 'styled-components';
 import AriaModal from '@justfixnyc/react-aria-modal';
 
@@ -1383,8 +1383,11 @@ var Post = /*#__PURE__*/function (_Component) {
 
       if (this.props.banner) {
         return /*#__PURE__*/React.createElement(PostWrapper, this.props, PostImage, this.props.title && "" !== this.props.title && /*#__PURE__*/React.createElement(PostTitle, {
-          banner: true
-        }, this.props.title), this.props.excerpt && "" !== this.props.excerpt && /*#__PURE__*/React.createElement(Excerpt, {
+          banner: true,
+          dangerouslySetInnerHTML: {
+            __html: this.props.title
+          }
+        }), this.props.excerpt && "" !== this.props.excerpt && /*#__PURE__*/React.createElement(Excerpt, {
           banner: true,
           dangerouslySetInnerHTML: {
             __html: this.props.excerpt
@@ -1410,7 +1413,11 @@ var Post = /*#__PURE__*/function (_Component) {
           minWidth: "1px",
           flex: 1
         }
-      }, this.props.title && "" !== this.props.title && /*#__PURE__*/React.createElement(PostTitle, null, this.props.title), this.props.time && "" !== this.props.time && /*#__PURE__*/React.createElement(PostTime, null, "*", this.props.time, " ", min_read))), this.props.excerpt && "" !== this.props.excerpt && /*#__PURE__*/React.createElement(Excerpt, {
+      }, this.props.title && "" !== this.props.title && /*#__PURE__*/React.createElement(PostTitle, {
+        dangerouslySetInnerHTML: {
+          __html: this.props.title
+        }
+      }), this.props.time && "" !== this.props.time && /*#__PURE__*/React.createElement(PostTime, null, "*", this.props.time, " ", min_read))), this.props.excerpt && "" !== this.props.excerpt && /*#__PURE__*/React.createElement(Excerpt, {
         dangerouslySetInnerHTML: {
           __html: this.props.excerpt
         }
@@ -2246,43 +2253,6 @@ var Dropdown = /*#__PURE__*/function (_Component) {
   return Dropdown;
 }(Component);
 
-function _classCallCheck$3(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
-
-function _defineProperties$3(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
-  }
-}
-
-function _createClass$3(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties$3(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties$3(Constructor, staticProps);
-  return Constructor;
-}
-
-function _defineProperty$5(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-
 function _extends$5() {
   _extends$5 = Object.assign || function (target) {
     for (var i = 1; i < arguments.length; i++) {
@@ -2299,146 +2269,6 @@ function _extends$5() {
   };
 
   return _extends$5.apply(this, arguments);
-}
-
-function _inherits$3(subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function");
-  }
-
-  subClass.prototype = Object.create(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      writable: true,
-      configurable: true
-    }
-  });
-  if (superClass) _setPrototypeOf$3(subClass, superClass);
-}
-
-function _getPrototypeOf$3(o) {
-  _getPrototypeOf$3 = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
-    return o.__proto__ || Object.getPrototypeOf(o);
-  };
-  return _getPrototypeOf$3(o);
-}
-
-function _setPrototypeOf$3(o, p) {
-  _setPrototypeOf$3 = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
-    o.__proto__ = p;
-    return o;
-  };
-
-  return _setPrototypeOf$3(o, p);
-}
-
-function _isNativeReflectConstruct$3() {
-  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
-  if (Reflect.construct.sham) return false;
-  if (typeof Proxy === "function") return true;
-
-  try {
-    Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
-    return true;
-  } catch (e) {
-    return false;
-  }
-}
-
-function _assertThisInitialized$3(self) {
-  if (self === void 0) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return self;
-}
-
-function _possibleConstructorReturn$3(self, call) {
-  if (call && (_typeof$1(call) === "object" || typeof call === "function")) {
-    return call;
-  }
-
-  return _assertThisInitialized$3(self);
-}
-
-function _createSuper$3(Derived) {
-  var hasNativeReflectConstruct = _isNativeReflectConstruct$3();
-
-  return function _createSuperInternal() {
-    var Super = _getPrototypeOf$3(Derived),
-        result;
-
-    if (hasNativeReflectConstruct) {
-      var NewTarget = _getPrototypeOf$3(this).constructor;
-
-      result = Reflect.construct(Super, arguments, NewTarget);
-    } else {
-      result = Super.apply(this, arguments);
-    }
-
-    return _possibleConstructorReturn$3(this, result);
-  };
-}
-
-function _taggedTemplateLiteral$3(strings, raw) {
-  if (!raw) {
-    raw = strings.slice(0);
-  }
-
-  return Object.freeze(Object.defineProperties(strings, {
-    raw: {
-      value: Object.freeze(raw)
-    }
-  }));
-}
-
-function _defineProperty$1$2(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-
-function ownKeys$4(object, enumerableOnly) {
-  var keys = Object.keys(object);
-
-  if (Object.getOwnPropertySymbols) {
-    var symbols = Object.getOwnPropertySymbols(object);
-    if (enumerableOnly) symbols = symbols.filter(function (sym) {
-      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    });
-    keys.push.apply(keys, symbols);
-  }
-
-  return keys;
-}
-
-function _objectSpread2$4(target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i] != null ? arguments[i] : {};
-
-    if (i % 2) {
-      ownKeys$4(Object(source), true).forEach(function (key) {
-        _defineProperty$1$2(target, key, source[key]);
-      });
-    } else if (Object.getOwnPropertyDescriptors) {
-      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
-    } else {
-      ownKeys$4(Object(source)).forEach(function (key) {
-        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-      });
-    }
-  }
-
-  return target;
 }
 
 function _objectWithoutPropertiesLoose$7(source, excluded) {
@@ -2477,6 +2307,161 @@ function _objectWithoutProperties$7(source, excluded) {
   return target;
 }
 
+function _taggedTemplateLiteral$3(strings, raw) {
+  if (!raw) {
+    raw = strings.slice(0);
+  }
+
+  return Object.freeze(Object.defineProperties(strings, {
+    raw: {
+      value: Object.freeze(raw)
+    }
+  }));
+}
+
+function _slicedToArray$1(arr, i) {
+  return _arrayWithHoles$1(arr) || _iterableToArrayLimit$1(arr, i) || _unsupportedIterableToArray$1(arr, i) || _nonIterableRest$1();
+}
+
+function _arrayWithHoles$1(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+
+function _iterableToArrayLimit$1(arr, i) {
+  if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
+  var _arr = [];
+  var _n = true;
+  var _d = false;
+  var _e = undefined;
+
+  try {
+    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+      _arr.push(_s.value);
+
+      if (i && _arr.length === i) break;
+    }
+  } catch (err) {
+    _d = true;
+    _e = err;
+  } finally {
+    try {
+      if (!_n && _i["return"] != null) _i["return"]();
+    } finally {
+      if (_d) throw _e;
+    }
+  }
+
+  return _arr;
+}
+
+function _unsupportedIterableToArray$1(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray$1(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray$1(o, minLen);
+}
+
+function _arrayLikeToArray$1(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
+
+  return arr2;
+}
+
+function _nonIterableRest$1() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
+function _defineProperty$5(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+function ownKeys$4(object, enumerableOnly) {
+  var keys = Object.keys(object);
+
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    if (enumerableOnly) symbols = symbols.filter(function (sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    });
+    keys.push.apply(keys, symbols);
+  }
+
+  return keys;
+}
+
+function _objectSpread2$4(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+
+    if (i % 2) {
+      ownKeys$4(Object(source), true).forEach(function (key) {
+        _defineProperty$5(target, key, source[key]);
+      });
+    } else if (Object.getOwnPropertyDescriptors) {
+      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+    } else {
+      ownKeys$4(Object(source)).forEach(function (key) {
+        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+      });
+    }
+  }
+
+  return target;
+}
+
+function _objectWithoutPropertiesLoose$1$1(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
+
+function _objectWithoutProperties$1$1(source, excluded) {
+  if (source == null) return {};
+
+  var target = _objectWithoutPropertiesLoose$1$1(source, excluded);
+
+  var key, i;
+
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+
+    for (i = 0; i < sourceSymbolKeys.length; i++) {
+      key = sourceSymbolKeys[i];
+      if (excluded.indexOf(key) >= 0) continue;
+      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
+      target[key] = source[key];
+    }
+  }
+
+  return target;
+}
+
 var ButtonIcon$3 = function ButtonIcon(_ref) {
   var label = _ref.label,
       icon = _ref.icon,
@@ -2486,7 +2471,7 @@ var ButtonIcon$3 = function ButtonIcon(_ref) {
       color = _ref.color,
       className = _ref.className,
       loading = _ref.loading,
-      props = _objectWithoutProperties$7(_ref, ["label", "icon", "iconSize", "design", "color", "className", "loading"]);
+      props = _objectWithoutProperties$1$1(_ref, ["label", "icon", "iconSize", "design", "color", "className", "loading"]);
 
   var loader = /*#__PURE__*/React.createElement("span", {
     className: "sui-icon-loader sui-loading",
@@ -2557,158 +2542,568 @@ function _templateObject$3() {
 
 var ItemImage = styled.span(_templateObject$3());
 
-var Accordion = /*#__PURE__*/function (_Component) {
-  _inherits$3(Accordion, _Component);
+var useToggle = function useToggle() {
+  var initialValue = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
 
-  var _super = _createSuper$3(Accordion);
+  var _useState = useState(initialValue),
+      _useState2 = _slicedToArray$1(_useState, 2),
+      value = _useState2[0],
+      setValue = _useState2[1];
 
-  function Accordion(props) {
-    _classCallCheck$3(this, Accordion);
-
-    return _super.call(this, props);
-  }
-
-  _createClass$3(Accordion, [{
-    key: "render",
-    value: function render() {
-      return /*#__PURE__*/React.createElement("div", {
-        className: "sui-accordion"
-      }, this.props.children);
-    }
-  }]);
-
-  return Accordion;
-}(Component);
-
-var AccordionItem = /*#__PURE__*/function (_Component2) {
-  _inherits$3(AccordionItem, _Component2);
-
-  var _super2 = _createSuper$3(AccordionItem);
-
-  function AccordionItem(props) {
-    var _this;
-
-    _classCallCheck$3(this, AccordionItem);
-
-    _this = _super2.call(this, props);
-
-    _defineProperty$5(_assertThisInitialized$3(_this), "toggle", function (e) {
-      if ('sui-dropdown' !== e.target.className) {
-        _this.setState({
-          open: !_this.state.open
-        });
-      }
+  var toggle = useCallback(function () {
+    setValue(function (v) {
+      return !v;
     });
+  }, []);
+  return [value, toggle];
+};
 
-    _this.state = {
-      open: false
-    };
-    _this.toggle = _this.toggle.bind(_assertThisInitialized$3(_this));
-    return _this;
-  }
+var Accordion = function Accordion(_ref) {
+  var children = _ref.children,
+      props = _objectWithoutProperties$7(_ref, ["children"]);
 
-  _createClass$3(AccordionItem, [{
-    key: "render",
-    value: function render() {
-      var _this2 = this;
+  return /*#__PURE__*/React.createElement("div", _extends$5({
+    className: "sui-accordion"
+  }, props), children);
+};
 
-      var open = this.state.open;
-      var clazz = !open ? 'sui-accordion-item' : 'sui-accordion-item sui-accordion-item--open';
-      return /*#__PURE__*/React.createElement("div", _extends$5({
-        className: clazz
-      }, this.props), /*#__PURE__*/React.createElement(AccordionItemHeader, {
-        state: open ? 'true' : 'false',
-        title: this.props.title,
-        image: this.props.image,
-        icon: this.props.icon,
-        onClick: function onClick(e) {
-          return _this2.toggle(e);
-        }
-      }), /*#__PURE__*/React.createElement(AccordionItemBody, null, this.props.children));
+var AccordionItem = function AccordionItem(_ref2) {
+  var title = _ref2.title,
+      titleSize = _ref2.titleSize,
+      icon = _ref2.icon,
+      image = _ref2.image,
+      children = _ref2.children,
+      props = _objectWithoutProperties$7(_ref2, ["title", "titleSize", "icon", "image", "children"]);
+
+  var _useToggle = useToggle(),
+      _useToggle2 = _slicedToArray$1(_useToggle, 2),
+      isOpen = _useToggle2[0],
+      setIsOpen = _useToggle2[1];
+
+  return /*#__PURE__*/React.createElement("div", _extends$5({
+    className: "sui-accordion-item".concat(isOpen ? ' sui-accordion-item--open' : '')
+  }, props), /*#__PURE__*/React.createElement(AccordionItemHeader, {
+    state: isOpen ? 'true' : 'false',
+    title: title,
+    titleSize: titleSize,
+    icon: icon,
+    image: image,
+    onClick: setIsOpen
+  }), /*#__PURE__*/React.createElement(AccordionItemBody, null, children));
+};
+
+var AccordionItemHeader = function AccordionItemHeader(_ref3) {
+  var title = _ref3.title,
+      titleSize = _ref3.titleSize,
+      icon = _ref3.icon,
+      image = _ref3.image,
+      children = _ref3.children,
+      props = _objectWithoutProperties$7(_ref3, ["title", "titleSize", "icon", "image", "children"]);
+
+  var _useState3 = useState(false),
+      _useState4 = _slicedToArray$1(_useState3, 1),
+      isOpen = _useState4[0];
+
+  var countChildren = React.Children.toArray(children).length;
+  var titleColumnIcon = 'undefined' !== typeof icon && '' !== icon ? /*#__PURE__*/React.createElement("span", {
+    className: "sui-icon-".concat(icon),
+    "aria-hidden": "true"
+  }) : '';
+  var titleColumnImage = 'undefined' !== typeof image && '' !== icon ? /*#__PURE__*/React.createElement(ItemImage, {
+    style: {
+      backgroundImage: "url(".concat(image, ")")
     }
-  }]);
+  }) : '';
+  var titleColumnSize = 'undefined' !== typeof titleSize && '' !== titleSize ? ' sui-accordion-col-' + titleSize : '';
+  var titleColumn = /*#__PURE__*/React.createElement("div", {
+    className: "sui-accordion-item-title".concat(titleColumnSize)
+  }, titleColumnIcon, titleColumnImage, title);
+  var indicator = /*#__PURE__*/React.createElement(ButtonIcon$3, {
+    icon: "chevron-down",
+    label: isOpen ? 'Close section' : 'Open section',
+    className: "sui-button-icon sui-accordion-open-indicator"
+  });
+  var columns = React.Children.map(children, function (column, index) {
+    index++;
+    var columnSize = column.props.size;
+    var columnClass = 'undefined' !== typeof columnSize && '' !== columnSize ? 'sui-accordion-col-' + columnSize : 'sui-accordion-col-auto';
+    var columnContent = column.props.children;
+    return /*#__PURE__*/React.createElement("div", {
+      className: columnClass
+    }, columnContent, countChildren === index && indicator);
+  });
+  var actions = /*#__PURE__*/React.createElement("div", {
+    className: "sui-accordion-col-auto"
+  }, indicator);
+  return /*#__PURE__*/React.createElement("div", _extends$5({
+    className: "sui-accordion-item-header"
+  }, props), titleColumn, countChildren > 0 ? columns : actions);
+};
 
-  return AccordionItem;
-}(Component);
+var AccordionItemBody = function AccordionItemBody(_ref4) {
+  var children = _ref4.children,
+      props = _objectWithoutProperties$7(_ref4, ["children"]);
 
-var AccordionItemHeader = /*#__PURE__*/function (_Component3) {
-  _inherits$3(AccordionItemHeader, _Component3);
+  return /*#__PURE__*/React.createElement("div", _extends$5({
+    className: "sui-accordion-item-body"
+  }, props), children);
+};
 
-  var _super3 = _createSuper$3(AccordionItemHeader);
-
-  function AccordionItemHeader(props) {
-    var _this3;
-
-    _classCallCheck$3(this, AccordionItemHeader);
-
-    _this3 = _super3.call(this, props);
-    _this3.state = {
-      open: false
-    };
-    return _this3;
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
+  try {
+    var info = gen[key](arg);
+    var value = info.value;
+  } catch (error) {
+    reject(error);
+    return;
   }
 
-  _createClass$3(AccordionItemHeader, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.setState({
-        open: this.props.state
+  if (info.done) {
+    resolve(value);
+  } else {
+    Promise.resolve(value).then(_next, _throw);
+  }
+}
+
+function _asyncToGenerator(fn) {
+  return function () {
+    var self = this,
+        args = arguments;
+    return new Promise(function (resolve, reject) {
+      var gen = fn.apply(self, args);
+
+      function _next(value) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
+      }
+
+      function _throw(err) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
+      }
+
+      _next(undefined);
+    });
+  };
+}
+
+function _defineProperty$6(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+function _extends$6() {
+  _extends$6 = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends$6.apply(this, arguments);
+}
+
+function ownKeys$5(object, enumerableOnly) {
+  var keys = Object.keys(object);
+
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    if (enumerableOnly) symbols = symbols.filter(function (sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    });
+    keys.push.apply(keys, symbols);
+  }
+
+  return keys;
+}
+
+function _objectSpread2$5(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+
+    if (i % 2) {
+      ownKeys$5(Object(source), true).forEach(function (key) {
+        _defineProperty$6(target, key, source[key]);
+      });
+    } else if (Object.getOwnPropertyDescriptors) {
+      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+    } else {
+      ownKeys$5(Object(source)).forEach(function (key) {
+        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
       });
     }
-  }, {
-    key: "render",
-    value: function render() {
-      var open = this.state.open;
-      var icon = this.props.icon && '' !== this.props.icon ? /*#__PURE__*/React.createElement("span", {
-        className: "sui-icon-".concat(this.props.icon),
-        "aria-hidden": "true"
-      }) : '';
-      var image = this.props.image && '' !== this.props.image ? /*#__PURE__*/React.createElement(ItemImage, {
-        style: {
-          backgroundImage: "url(".concat(this.props.image, ")")
-        }
-      }) : '';
-      var title = /*#__PURE__*/React.createElement("div", {
-        className: "sui-accordion-item-title"
-      }, icon, image, this.props.title);
-      var indicator = /*#__PURE__*/React.createElement(ButtonIcon$3, {
-        icon: "chevron-down",
-        label: open ? 'Close section' : 'Open section',
-        className: "sui-button-icon sui-accordion-open-indicator"
-      });
-      var actions = /*#__PURE__*/React.createElement("div", {
-        className: "sui-accordion-col-auto"
-      }, this.props.children, indicator);
-      return /*#__PURE__*/React.createElement("div", _extends$5({
-        className: "sui-accordion-item-header"
-      }, this.props), title, actions);
-    }
-  }]);
-
-  return AccordionItemHeader;
-}(Component);
-
-var AccordionItemBody = /*#__PURE__*/function (_Component4) {
-  _inherits$3(AccordionItemBody, _Component4);
-
-  var _super4 = _createSuper$3(AccordionItemBody);
-
-  function AccordionItemBody(props) {
-    _classCallCheck$3(this, AccordionItemBody);
-
-    return _super4.call(this, props);
   }
 
-  _createClass$3(AccordionItemBody, [{
-    key: "render",
-    value: function render() {
-      return /*#__PURE__*/React.createElement("div", {
-        className: "sui-accordion-item-body"
-      }, this.props.children);
+  return target;
+}
+
+function _objectWithoutPropertiesLoose$8(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
+
+function _objectWithoutProperties$8(source, excluded) {
+  if (source == null) return {};
+
+  var target = _objectWithoutPropertiesLoose$8(source, excluded);
+
+  var key, i;
+
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+
+    for (i = 0; i < sourceSymbolKeys.length; i++) {
+      key = sourceSymbolKeys[i];
+      if (excluded.indexOf(key) >= 0) continue;
+      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
+      target[key] = source[key];
     }
-  }]);
+  }
 
-  return AccordionItemBody;
-}(Component);
+  return target;
+}
 
-export { Accordion, AccordionItem, AccordionItemBody, AccordionItemHeader, Box, BoxBody, BoxFooter, BoxHeader, BoxTitle, Button, ButtonIcon, Dropdown, Input, Modal, Notifications, Post };
+function _slicedToArray$2(arr, i) {
+  return _arrayWithHoles$2(arr) || _iterableToArrayLimit$2(arr, i) || _unsupportedIterableToArray$2(arr, i) || _nonIterableRest$2();
+}
+
+function _toConsumableArray(arr) {
+  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray$2(arr) || _nonIterableSpread();
+}
+
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) return _arrayLikeToArray$2(arr);
+}
+
+function _arrayWithHoles$2(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+
+function _iterableToArray(iter) {
+  if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);
+}
+
+function _iterableToArrayLimit$2(arr, i) {
+  if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
+  var _arr = [];
+  var _n = true;
+  var _d = false;
+  var _e = undefined;
+
+  try {
+    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+      _arr.push(_s.value);
+
+      if (i && _arr.length === i) break;
+    }
+  } catch (err) {
+    _d = true;
+    _e = err;
+  } finally {
+    try {
+      if (!_n && _i["return"] != null) _i["return"]();
+    } finally {
+      if (_d) throw _e;
+    }
+  }
+
+  return _arr;
+}
+
+function _unsupportedIterableToArray$2(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray$2(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray$2(o, minLen);
+}
+
+function _arrayLikeToArray$2(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
+
+  return arr2;
+}
+
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
+function _nonIterableRest$2() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
+var Pagination = function Pagination(_ref) {
+  var _args$children, _properties;
+
+  var limit = _ref.limit,
+      skip = _ref.skip,
+      results = _ref.results,
+      skipToFirstLabel = _ref.skipToFirstLabel,
+      previousLabel = _ref.previousLabel,
+      nextLabel = _ref.nextLabel,
+      skipToLastLabel = _ref.skipToLastLabel,
+      pagesToBottom = _ref.pagesToBottom,
+      args = _objectWithoutProperties$8(_ref, ["limit", "skip", "results", "skipToFirstLabel", "previousLabel", "nextLabel", "skipToLastLabel", "pagesToBottom"]);
+
+  var componentChildren = args.children ? ((_args$children = args.children) === null || _args$children === void 0 ? void 0 : _args$children.length) > 1 ? _toConsumableArray(args.children) : [args.children] : [],
+      childElements = [].concat(componentChildren, _toConsumableArray(args.child)),
+      elements = childElements.length,
+      pages = elements / limit > parseInt(elements / limit) ? parseInt(elements / limit) + 1 : elements / limit,
+      _useState = useState([]),
+      _useState2 = _slicedToArray$2(_useState, 2),
+      pagesArray = _useState2[0],
+      setPagesArray = _useState2[1],
+      _useState3 = useState("1"),
+      _useState4 = _slicedToArray$2(_useState3, 2),
+      selectedPage = _useState4[0],
+      setSelectedPage = _useState4[1],
+      _useState5 = useState(0),
+      _useState6 = _slicedToArray$2(_useState5, 2),
+      startIndex = _useState6[0],
+      setStartIndex = _useState6[1],
+      _useState7 = useState(pages >= 5 ? 5 : pages),
+      _useState8 = _slicedToArray$2(_useState7, 2),
+      endIndex = _useState8[0],
+      setEndIndex = _useState8[1],
+      _useState9 = useState(0),
+      _useState10 = _slicedToArray$2(_useState9, 2),
+      pageClickCounter = _useState10[0],
+      setPageClickCounter = _useState10[1],
+      _useState11 = useState(0),
+      _useState12 = _slicedToArray$2(_useState11, 2),
+      elementsStartIndex = _useState12[0],
+      setElementsStartIndex = _useState12[1],
+      _useState13 = useState(limit),
+      _useState14 = _slicedToArray$2(_useState13, 2),
+      elementsEndIndex = _useState14[0],
+      setElementsEndIndex = _useState14[1];
+
+  useEffect(function () {
+    var pagesArray = [];
+
+    for (var i = 1; i <= pages; ++i) {
+      pagesArray.push(i);
+    }
+
+    setPagesArray(pagesArray);
+  }, []);
+  useEffect(function () {
+    selectedPage >= endIndex && incrementIndexes();
+    selectedPage <= startIndex + 1 && decrementIndexes();
+  }, [pageClickCounter]);
+  useEffect(function () {
+    if (selectedPage !== "1") {
+      setElementsStartIndex(selectedPage * limit - limit);
+      setElementsEndIndex(selectedPage * limit);
+    }
+  }, [selectedPage]);
+
+  var handleSkipToFirstPage = function handleSkipToFirstPage() {
+    setSelectedPage(1);
+    setStartIndex(0);
+    setEndIndex(pages >= 5 ? 5 : pages);
+  };
+
+  var handleSkipToLastPage = function handleSkipToLastPage() {
+    setSelectedPage(pages);
+    setStartIndex(pages >= 5 ? pages - 5 : 0);
+    setEndIndex(pages);
+  };
+
+  var handlePreviousPage = function handlePreviousPage() {
+    selectedPage > 1 && setSelectedPage(selectedPage - 1);
+    decrementIndexes();
+  };
+
+  var handleNextPage = function handleNextPage() {
+    selectedPage < pages && setSelectedPage(parseInt(selectedPage) + 1);
+    incrementIndexes();
+  };
+
+  var decrementIndexes = function decrementIndexes() {
+    if (selectedPage - 1 <= startIndex + 1 && startIndex !== 0) {
+      setStartIndex(startIndex - 1);
+      setEndIndex(endIndex - 1);
+    }
+  };
+
+  var incrementIndexes = function incrementIndexes() {
+    if (selectedPage + 1 >= endIndex && endIndex !== pages) {
+      setStartIndex(startIndex + 1);
+      setEndIndex(endIndex + 1);
+    }
+  };
+
+  var handlePreviousEllipsis = function handlePreviousEllipsis() {
+    setSelectedPage(startIndex >= 5 ? endIndex - 6 : endIndex - startIndex - 1);
+    setStartIndex(startIndex >= 5 ? startIndex - 5 : 0);
+    setEndIndex(startIndex >= 5 ? endIndex - 5 : endIndex - startIndex);
+  };
+
+  var handleNextEllipsis = function handleNextEllipsis() {
+    setSelectedPage(pages - endIndex >= 5 ? startIndex + 7 : pages - endIndex + startIndex + 2);
+    setStartIndex(pages - endIndex >= 5 ? startIndex + 5 : pages - endIndex + startIndex);
+    setEndIndex(pages - endIndex >= 5 ? endIndex + 5 : pages);
+  };
+
+  var handlePageClick = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(page) {
+      return regeneratorRuntime.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              setSelectedPage(page);
+              setPageClickCounter(pageClickCounter + 1);
+
+            case 2:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function handlePageClick(_x) {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+
+  var properties = (_properties = {
+    childElements: childElements,
+    elementsStartIndex: elementsStartIndex,
+    elementsEndIndex: elementsEndIndex,
+    handlePageClick: handlePageClick,
+    handleNextEllipsis: handleNextEllipsis,
+    handlePreviousEllipsis: handlePreviousEllipsis,
+    handleNextPage: handleNextPage,
+    handlePreviousPage: handlePreviousPage,
+    handleSkipToLastPage: handleSkipToLastPage,
+    handleSkipToFirstPage: handleSkipToFirstPage,
+    pagesArray: pagesArray,
+    selectedPage: selectedPage,
+    startIndex: startIndex,
+    endIndex: endIndex,
+    pages: pages,
+    results: results,
+    skipToFirstLabel: skipToFirstLabel,
+    previousLabel: previousLabel,
+    nextLabel: nextLabel,
+    skipToLastLabel: skipToLastLabel,
+    skip: skip
+  }, _defineProperty$6(_properties, "results", results), _defineProperty$6(_properties, "elements", elements), _properties);
+  if (args === null || args === void 0 ? void 0 : args.paginationContent) return /*#__PURE__*/React.createElement(React.Fragment, null, args === null || args === void 0 ? void 0 : args.paginationContent(_objectSpread2$5({}, properties)));else return /*#__PURE__*/React.createElement(React.Fragment, null, pagesToBottom && PaginationResults(_objectSpread2$5({}, properties)), PaginationNav(_objectSpread2$5({}, properties)), !pagesToBottom && PaginationResults(_objectSpread2$5({}, properties)));
+};
+
+var PaginationResults = function PaginationResults(_ref3) {
+  var _React$Children$map;
+
+  var properties = _extends$6({}, _ref3);
+
+  return (_React$Children$map = React.Children.map(properties.childElements, function (data) {
+    return /*#__PURE__*/React.cloneElement(data);
+  })) === null || _React$Children$map === void 0 ? void 0 : _React$Children$map.slice(properties.elementsStartIndex, properties.elementsEndIndex);
+};
+
+var PaginationNav = function PaginationNav(_ref4) {
+  var _properties$pagesArra, _properties$pagesArra2;
+
+  var properties = _extends$6({}, _ref4);
+
+  return properties.pagesArray.length > 1 && /*#__PURE__*/React.createElement("div", {
+    className: "sui-pagination-wrap"
+  }, properties.results && /*#__PURE__*/React.createElement("span", {
+    className: "sui-pagination-results"
+  }, properties.elements, " results"), /*#__PURE__*/React.createElement("ul", {
+    className: "sui-pagination"
+  }, properties.skip && /*#__PURE__*/React.createElement("li", {
+    onClick: properties.handleSkipToFirstPage
+  }, /*#__PURE__*/React.createElement("a", {
+    disabled: properties.selectedPage <= 1
+  }, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "false",
+    className: "sui-screen-reader-text"
+  }, properties.skipToFirstLabel || "Go to first page"), /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    title: properties.skipToFirstLabel || "Go to first page",
+    className: "sui-icon-arrow-skip-back"
+  }))), /*#__PURE__*/React.createElement("li", {
+    onClick: properties.handlePreviousPage
+  }, /*#__PURE__*/React.createElement("a", {
+    disabled: properties.selectedPage <= 1
+  }, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "false",
+    className: "sui-screen-reader-text"
+  }, properties.previousLabel || "Go to previous page"), /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    title: properties.previousLabel || "Go to previous page",
+    className: "sui-icon-chevron-left"
+  }))), properties.startIndex > 0 && /*#__PURE__*/React.createElement("li", {
+    onClick: properties.handlePreviousEllipsis
+  }, /*#__PURE__*/React.createElement("a", null, "\u2026")), (_properties$pagesArra = properties.pagesArray) === null || _properties$pagesArra === void 0 ? void 0 : (_properties$pagesArra2 = _properties$pagesArra.slice(properties.startIndex, properties.endIndex)) === null || _properties$pagesArra2 === void 0 ? void 0 : _properties$pagesArra2.map(function (data, index) {
+    return /*#__PURE__*/React.createElement("li", {
+      onClick: function onClick() {
+        return properties.handlePageClick(parseInt(data));
+      },
+      key: index
+    }, /*#__PURE__*/React.createElement("a", {
+      "aria-selected": properties.selectedPage === data,
+      className: properties.selectedPage == data ? "sui-active" : ""
+    }, data));
+  }), properties.endIndex < properties.pages && /*#__PURE__*/React.createElement("li", {
+    onClick: properties.handleNextEllipsis
+  }, /*#__PURE__*/React.createElement("a", null, "\u2026")), /*#__PURE__*/React.createElement("li", {
+    onClick: properties.handleNextPage
+  }, /*#__PURE__*/React.createElement("a", {
+    disabled: properties.selectedPage >= properties.pages
+  }, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "false",
+    className: "sui-screen-reader-text"
+  }, properties.nextLabel || "Go to next page."), /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    title: properties.nextLabel || "Go to next page.",
+    className: "sui-icon-chevron-right"
+  }))), properties.skip && /*#__PURE__*/React.createElement("li", {
+    onClick: properties.handleSkipToLastPage
+  }, /*#__PURE__*/React.createElement("a", {
+    disabled: properties.selectedPage >= properties.pages
+  }, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "false",
+    className: "sui-screen-reader-text"
+  }, properties.skipToLastLabel || "Go to last page."), /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    title: properties.skipToLastLabel || "Go to last page",
+    className: "sui-icon-arrow-skip-forward"
+  })))));
+};
+
+export { Accordion, AccordionItem, AccordionItemBody, AccordionItemHeader, Box, BoxBody, BoxFooter, BoxHeader, BoxTitle, Button, ButtonIcon, Dropdown, Input, Modal, Notifications, Pagination, Post };

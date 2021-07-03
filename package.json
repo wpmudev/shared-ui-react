@@ -56,7 +56,7 @@
     "chromatic": "yarn run build-storybook && npx chromatic --project-token=8qcmh09rb9f --storybook-build-dir storybook-static",
     "lint": "yarn run eslint packages/**/lib/*.js",
     "init-logs": "node_modules/.bin/lerna-changelog",
-    "logs": "lerna-changelog"
+    "changelog": "lerna-changelog"
   },
   "changelog": {
     "repo": "wpmudev/shared-ui-react",

@@ -1,5 +1,37 @@
 # Changelog
 
+## Released (2021-06-30)
+
+#### New Features
+* `react-pagination`
+  * [#122](https://github.com/wpmudev/shared-ui-react/pull/122) ✨ new(react-pagination): Split component in navigation and results. ([@Gowtham369](https://github.com/Gowtham369))
+
+#### Committers: 1
+- Gowtham Ravipati ([@Gowtham369](https://github.com/Gowtham369))
+
+## Released (2021-06-18)
+
+#### New Features
+* `core`
+  * [#127](https://github.com/wpmudev/shared-ui-react/pull/127) ✨ new(react-pagination): Add package to core. ([@iamleigh](https://github.com/iamleigh))
+* `react-pagination`
+  * [#121](https://github.com/wpmudev/shared-ui-react/pull/121) ✨ new(react-pagination): Create package. ([@Gowtham369](https://github.com/Gowtham369))
+
+#### Improvements
+* `react-accordion`
+  * [#125](https://github.com/wpmudev/shared-ui-react/pull/125) 🐛 fix(react-accordion): Allow columns on item header. ([@iamleigh](https://github.com/iamleigh))
+  * [#124](https://github.com/wpmudev/shared-ui-react/pull/124) 🐛 fix(react-accordion): Use hooks instead of classes. ([@iamleigh](https://github.com/iamleigh))
+
+#### Bug Fixes
+* `react-accordion`
+  * [#126](https://github.com/wpmudev/shared-ui-react/pull/126) 🐛 fix(react-accordion): Component properties are rendered on markup. ([@iamleigh](https://github.com/iamleigh))
+* `react-post`
+  * [#123](https://github.com/wpmudev/shared-ui-react/pull/123) 🐛 fix(react-post): Decode post title. ([@iamleigh](https://github.com/iamleigh))
+
+#### Committers: 2
+- Gowtham Ravipati ([@Gowtham369](https://github.com/Gowtham369))
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+
 ## Released (2021-04-29)
 
 #### Bug Fixes
