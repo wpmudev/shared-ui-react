@@ -26,7 +26,8 @@ primary.storyName = 'Default';
 primary.args = {
     children: (
         <p>Nulla vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec ullamcorper nulla non metus auctor fringilla. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-    )
+    ),
+    hideAfter:15000
 };
 primary.argTypes = {
     type: {
@@ -41,7 +42,7 @@ export const secondary = Template.bind({});
 secondary.storyName = 'Dismissable';
 secondary.args = {
     ...primary.args,
-    dismiss: true
+    dismiss: true,
 };
 secondary.argTypes = {
     ...primary.argTypes

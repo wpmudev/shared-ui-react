@@ -27,7 +27,8 @@ primary.args = {
     children: [
         <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>,
         <p>Aenean lacinia bibendum nulla sed consectetur.</p>
-    ]
+    ],
+    hideAfter: 15000
 };
 primary.argTypes = {
     type: {
@@ -42,7 +43,7 @@ export const secondary = Template.bind({});
 secondary.storyName = 'Dismissable';
 secondary.args = {
     ...primary.args,
-    dismiss: true
+    dismiss: true,
 };
 secondary.argTypes = {
     ...primary.argTypes
@@ -55,7 +56,8 @@ thirtiary.args = {
         <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>,
         <p><Button label="Click Here" design="ghost" /></p>
     ],
-    dismiss: true
+    dismiss: true,
+    hideAfter:15000
 };
 thirtiary.argTypes = {
     ...primary.argTypes
