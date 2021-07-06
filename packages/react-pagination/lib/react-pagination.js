@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-export const Pagination = ({ limit, skip, results, skipToFirstLabel, previousLabel, nextLabel, skipToLastLabel, pagesToBottom, ...args }) => {
+export const Pagination = ({ limit, skip, results, skipToFirstLabel, previousLabel, nextLabel, skipToLastLabel, pagesToTop, pagesToBottom, ...args }) => {
 	const componentChildren = args.children ? (args.children?.length>1 ? [...args.children] : [args.children]) : [],
 		childElements = [...componentChildren, ...args.child],
 		elements = childElements.length,
@@ -110,9 +110,9 @@ export const Pagination = ({ limit, skip, results, skipToFirstLabel, previousLab
 	else
 		return (
 			<>
-				{pagesToBottom && PaginationResults({ ...properties })}
-				{PaginationNav({ ...properties })}
-				{!pagesToBottom && PaginationResults({ ...properties })}
+				{pagesToTop && PaginationNav({ ...properties })}
+				{PaginationResults({ ...properties })}
+				{pagesToBottom && PaginationNav({ ...properties })}
 			</>
 		);
 };
