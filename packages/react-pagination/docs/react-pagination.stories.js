@@ -206,7 +206,7 @@ export const simple = args => {
 };
 simple.storyName = "Simple";
 simple.args = {
-	pagesToTop: false,
+	pagesToTop: true,
 	pagesToBottom: false,
 };
 simple.argTypes = {
