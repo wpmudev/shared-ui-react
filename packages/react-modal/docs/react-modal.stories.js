@@ -334,11 +334,10 @@ const SecondModal = ( { isOpen, setIsOpen, switchModals } ) => {
 const Replace = () => {
 	const [ isFirstOpen, setIsFirstOpen ] = React.useState( false );
 	const [ isSecondOpen, setIsSecondOpen ] = React.useState( false );
-	// useEscape(()=>{setIsFirstOpen(false);setIsSecondOpen(false)})
+	useEscape(()=>{closeThisModal()})//Illustration of using ESC handler in a Replace Modal
 	const closeThisModal = function() {
-		setIsFirstOpen(false);setIsSecondOpen(false)
 		setTimeout( () => {
-			setIsOpen( false );
+		setIsFirstOpen(false);setIsSecondOpen(false)
 		}, 300 );
 	};
 	const switchModals = () => {
