@@ -33,6 +33,10 @@ const MyApp = () => (
 	/>
 );
 ```
+```js
+useEscape(() => closeModal()); // Illustration of this function usage
+```
+
 When you create modalContent and want something to be autoFocused on mounting the Modal, then add the 'autoFocus' property to the element itself.
 ### Props
 
@@ -46,7 +50,8 @@ modalContent | Object or Function | Renders the content of the modal. `Object` f
 triggerContent | Function | Optional function to render the element that triggers the opening of the modal.
 size | String | Modal's size. `sm`|`md`|`lg`|`xl`.
 <!-- renderToNode | HTMLElement or String | Value to be passed to the AriaModal's `renderTo` function. Controls where the modal is rendered into.-->
-firstSlide | String | For slider modals only. The `key` of the `modalContent` object that holds the first slide. 
+firstSlide | String | For slider modals only. The `key` of the `modalContent` object that holds the first slide.
+useEscape | Hook or function | Pass it in onLoad event with closeFunction, this will handle the Close Modal Action on click of an ESC.
 
 Plus everything from [aria-modal-react](https://www.npmjs.com/package/@justfixnyc/react-aria-modal), except `includeDefaultStyles` which is set to `false`.
 
