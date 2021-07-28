@@ -3,7 +3,7 @@ import { ButtonLabelIcon } from "../lib/react-button-label-icon";
 
 export default {
 	title: "Components/Button Label Icon",
-	component: ButtonLabelIcon
+	component: ButtonLabelIcon,
 };
 
 const Template = args => <ButtonLabelIcon {...args} />;
@@ -16,58 +16,49 @@ primary.args = {
 	placeIconRight: false,
 	design: "",
 	color: "",
-	className: "custom-class"
+	className: "custom-class",
 };
 primary.argTypes = {
 	design: {
 		control: {
 			type: "select",
-			options: ["", "outlined"]
-		}
+			options: ["", "outlined"],
+		},
 	},
 	color: {
 		control: {
 			type: "select",
-			options: [
-				"",
-				"blue",
-				"green",
-				"red",
-				"orange",
-				"purple",
-				"yellow",
-				"white"
-			]
-		}
-	}
+			options: ["", "blue", "green", "red", "orange", "purple", "yellow", "white"],
+		},
+	},
 };
 
 export const loading = Template.bind({});
 loading.storyName = "Loading";
 loading.args = {
 	...primary.args,
-	loading: true
+	loading: true,
 };
 loading.argTypes = {
 	...primary.argTypes,
 	loading: {
 		control: {
-			type: "boolean"
-		}
-	}
+			type: "boolean",
+		},
+	},
 };
 
 export const disabled = Template.bind({});
 disabled.storyName = "Disabled";
 disabled.args = {
 	...primary.args,
-	disabled: true
+	disabled: true,
 };
 disabled.argTypes = {
 	...primary.argTypes,
 	disabled: {
 		control: {
-			type: "boolean"
-		}
-	}
+			type: "boolean",
+		},
+	},
 };

@@ -1,33 +1,17 @@
 import React from "react";
 
-const ButtonLabelIcon = ({
-	label,
-	icon,
-    placeIconRight,
-	iconSize,
-	design = "solid",
-	color,
-	className,
-	loading,
-	...props
-}) => {
-	const loader = (
-		<span
-			className="sui-icon-loader sui-loading"
-			style={{ position: "relative" }}
-			aria-hidden="true"
-		/>
-	);
+const ButtonLabelIcon = ({ label, icon, placeIconRight, iconSize, design = "solid", color, className, loading, ...props }) => {
+	const loader = <span className="sui-icon-loader sui-loading" style={{ position: "relative" }} aria-hidden="true" />;
 
 	let content = (
 		<React.Fragment>
-			{!placeIconRight && <span className={ `sui-icon-${icon}${iconSize ? ' sui-' + iconSize : '' }` } aria-hidden="true" />}
+			{!placeIconRight && <span className={`sui-icon-${icon}${iconSize ? " sui-" + iconSize : ""}`} aria-hidden="true" />}
 			{label}
-			{placeIconRight && <span className={ `sui-icon-${icon}${iconSize ? ' sui-' + iconSize : '' }` } aria-hidden="true" />}
+			{placeIconRight && <span className={`sui-icon-${icon}${iconSize ? " sui-" + iconSize : ""}`} aria-hidden="true" />}
 		</React.Fragment>
 	);
 
-	className = `sui-button ${placeIconRight ? 'sui-button-icon-right' : ''} ${className || ''}`;
+	className = `sui-button ${placeIconRight ? "sui-button-icon-right" : ""} ${className || ""}`;
 
 	// Set button color.
 	switch (color) {
@@ -61,18 +45,18 @@ const ButtonLabelIcon = ({
 	}
 
 	// Set loading class.
-	if ( loading ) {
+	if (loading) {
 		className += " sui-button-onload";
 	}
 
-	const htmlTag = props.href ? 'a' : 'button';
+	const htmlTag = props.href ? "a" : "button";
 
 	return React.createElement(
 		htmlTag,
 		{
 			className,
 			disabled: props.disabled || loading,
-			...props
+			...props,
 		},
 		loading ? loader : content
 	);
