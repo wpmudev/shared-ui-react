@@ -1,4 +1,4 @@
 import React from "react";
-export const reactBulkActions = ({...args}) => {
+export const ReactBulkActions = ({...args}) => {
 	return <div>{args.description}asdlkjfds</div>;
 };

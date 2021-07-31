@@ -1,12 +1,12 @@
 import React from "react";
-import { reactBulkActions } from "../lib/react-bulk-actions";
+import { ReactBulkActions } from "../lib/react-bulk-actions";
 
 export default {
 	title: 'Components/Bulk Actions',
-	component: reactBulkActions,
+	component: ReactBulkActions,
 }
 
-export const primary = ( args ) => reactBulkActions ({ ...args });
+export const primary = ( args ) => ReactBulkActions ({ ...args });
 primary.storyName = 'Bulk Actions';
 primary.args = {
   description:"Bulk Actions"
