@@ -1,7 +1,4 @@
-'use strict';
-
-module.exports = reactBulkActions;
-
-function reactBulkActions() {
-    // TODO
-}
+import React from "react";
+export const reactBulkActions = ({...args}) => {
+	return <div>{args.description}asdlkjfds</div>;
+};
