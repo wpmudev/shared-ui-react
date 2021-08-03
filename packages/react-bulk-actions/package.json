@@ -44,7 +44,10 @@
   },
   "homepage": "https://github.com/wpmudev/shared-ui-react#readme",
   "devDependencies": {
+    "@wpmudev/react-accordion": "^1.1.0",
+    "@wpmudev/react-box": "^1.2.5",
     "@wpmudev/react-builder": "^0.0.0",
+    "@wpmudev/react-pagination": "^1.1.0",
     "react": "^17.0.2"
   }
 }
