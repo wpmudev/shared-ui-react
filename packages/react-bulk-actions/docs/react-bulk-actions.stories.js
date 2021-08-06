@@ -23,31 +23,14 @@ let childItems = new Array();
   const deleteAll=()=>{
     console.log("Deleted ALL")
   }
-  /* const paginationContent = ({ ...properties }) => {
-		const styles = {
-			display: 'flex',
-			alignItems: 'center',
-			justifyContent: 'space-between'
-		};
-	console.log(properties.childElements,selectedIds)
-		return (<>
-					<div style={styles}>
-						<Button label="Bulk Delete" icon="trash" disabled />
-						{ PaginationNav({ ...properties }) }
-					</div>
-					
-						{properties.childElements.map((data,key)=> <div style={{display:'grid',gridTemplateColumns:'1fr 14fr', alignItems:'center'}}><input id={key} onClick={()=>updateSelectId(key)} type='checkbox'/>{data}</div>)?.slice(properties.elementsStartIndex, properties.elementsEndIndex)}
-					{ PaginationNav({ ...properties }) }
-					</>
-		);
-	}; */
+
+//pass functions as an object through the props
 
 export const primary = ( args ) => <ReactBulkActions { ...args }/>
 primary.storyName = 'Bulk Actions';
 primary.args = {
   description:"Bulk Actions",
-  bulkActions:{"delete":deleteAll,"archive":archiveAll}
-  
+  bulkActions:{"delete":deleteAll,"archive":archiveAll},
 };
 primary.argTypes = {
   description:'string'
