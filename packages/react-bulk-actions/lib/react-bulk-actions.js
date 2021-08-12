@@ -1,28 +1,37 @@
 import React, { useState } from "react";
-import { Button } from '@wpmudev/react-button';
+import { Button } from "@wpmudev/react-button";
+import { Accordion } from "@wpmudev/react-accordion";
 
-export const ReactBulkActions = ({ bulkActions, ...args }) => {
+export const ReactBulkActions = ({ bulkActions, items, ...args }) => {
 	const [selectedIds, setSelectedIds] = useState([]);
 
-	const selectAll = (selectedIds, allIds) => {
-		if (selectedIds.length === 0) {
-			return allIds;
+	const selectAll = () => {
+		console.log("selectAll",items);
+		for (const item of items) {
+			setSelectedIds([...selectedIds, item.id]);
 		}
-		return selectedIds;
 	};
-	const updateSelectId = id => {
-		setSelectedIds([...selectedIds, id]);
+	const updateSelectId = (e,id )=> {
+		!e.target.checked ? setSelectedIds(selectedIds.filter(item => item.id !== id)):setSelectedIds([...selectedIds, id]);
 	};
-	const consoleClick = () => {
-		console.log("Consoling asdasdadsfadsfasdf");
-	};
-	return <>{bulkActionsDropdown(bulkActions, consoleClick)}</>;
+	console.log("SelectIds",selectedIds);
+
+	var functionTobeExecuted = ()=>{}
+	
+	return (
+		<div id="react-bulk-actions">
+			{bulkActionsDropdown(bulkActions,"Apply",functionTobeExecuted)} {bulkActionsItems(items, selectedIds, updateSelectId)}{bulkActionsSelectAll(selectAll)}
+		</div>
+	);
 };
 
-export const bulkActionsDropdown = actionsObj => {
-	let functionTobeExecuted = Object.values(actionsObj)[0];
+export const bulkActionsSelectAll = (selectAll) => {
+return <input type="checkbox" value="Select All" onClick={selectAll} />;
+}
+
+export const bulkActionsDropdown = (actionsObj,buttonLabel,functionTobeExecuted) => {
 	const handleSelectOnChange = e => {
-		functionTobeExecuted = actionsObj[e.target.value];
+		/* e.target.value!=="Null" &&  */(functionTobeExecuted = actionsObj[e.target.value]);
 	};
 	const handleApply = () => {
 		functionTobeExecuted();
@@ -30,13 +39,30 @@ export const bulkActionsDropdown = actionsObj => {
 	return (
 		<>
 			<select name="cars" onChange={e => handleSelectOnChange(e)}>
+				<option value="Null" selected>Select Action</option>
 				{Object.keys(actionsObj).map((data, index) => (
-					<option onClick={Object.values(actionsObj)[index]} value={data}>
+					<option key={index} onClick={Object.values(actionsObj)[index]} value={data}>
 						{data}
 					</option>
 				))}
 			</select>
-			<Button onClick={handleApply} label="Apply" />
+			<Button disabled={false} onClick={handleApply} label={buttonLabel} />
 		</>
+	);
+};
+
+export const bulkActionsItems = (items, selectedIds,updateSelectId) => {
+	// document.getElementById('react-bulk-actions').getElementsByClassName('sui-accordion-item')
+
+	const styles = { position: "absolute", marginTop:"22px",marginLeft:"10px"  };
+	return (
+		<Accordion style={{ position: "relative" }}>
+			{items.map((item, index) => (
+				<>
+					<input type="checkbox" /* checked={selectedIds.includes(index)} */ style={styles} onChange={(e) => updateSelectId(e,index)} id={index} />
+					{item}
+				</>
+			))}
+		</Accordion>
 	);
 };
