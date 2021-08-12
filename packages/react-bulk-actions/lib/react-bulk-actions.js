@@ -16,11 +16,9 @@ export const ReactBulkActions = ({ bulkActions, items, ...args }) => {
 	};
 	console.log("SelectIds",selectedIds);
 
-	var functionTobeExecuted = ()=>{}
-	
 	return (
 		<div id="react-bulk-actions">
-			{bulkActionsDropdown(bulkActions,"Apply",functionTobeExecuted)} {bulkActionsItems(items, selectedIds, updateSelectId)}{bulkActionsSelectAll(selectAll)}
+			{bulkActionsDropdown(bulkActions,"Apply")} {bulkActionsItems(items, selectedIds, updateSelectId)}{bulkActionsSelectAll(selectAll)}
 		</div>
 	);
 };
@@ -29,7 +27,8 @@ export const bulkActionsSelectAll = (selectAll) => {
 return <input type="checkbox" value="Select All" onClick={selectAll} />;
 }
 
-export const bulkActionsDropdown = (actionsObj,buttonLabel,functionTobeExecuted) => {
+export const bulkActionsDropdown = (actionsObj,buttonLabel) => {
+	let functionTobeExecuted = ()=>{}
 	const handleSelectOnChange = e => {
 		/* e.target.value!=="Null" &&  */(functionTobeExecuted = actionsObj[e.target.value]);
 	};
