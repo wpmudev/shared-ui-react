@@ -9,3 +9,13 @@ export const testPassFunction = ( initialValue = false ) => {
 
 	return [ value, toggle ];
 };
+
+export const testNumberFunction = ( initialValue = 0 ) => {
+	const [ count, setCount ] = useState( initialValue );
+
+	const increase = useCallback( () => {
+		setCount( count + 1 );
+	}, []);
+
+	return [ count, increase ];
+}
