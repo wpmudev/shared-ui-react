@@ -66,6 +66,7 @@ const AccordionItemHeader = ({
 	titleSize,
 	icon,
 	image,
+	allowSelection,
 	children,
 	...props
 }) => {
@@ -84,8 +85,16 @@ const AccordionItemHeader = ({
 		? ' sui-accordion-col-' + titleSize
 		: '';
 
+	const titleSelection = (
+		<label className="sui-checkbox" aria-label={ title }>
+			<input type="checkbox" />
+			<span aria-hidden="true" />
+		</label>
+	);
+
 	const titleColumn = (
 		<div className={ `sui-accordion-item-title${ titleColumnSize }` }>
+			{ allowSelection ? titleSelection : '' }
 			{ titleColumnIcon }{ titleColumnImage }{ title }
 		</div>
 	);
