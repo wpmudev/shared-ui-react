@@ -10,7 +10,6 @@ export const ProgressBar = ({ progress, ...args }) => {
 export const bar = progress => {
 	return (
 		<div className="sui-progress-bar" aria-hidden="true">
-			{console.log("adasdf")}
 			<span style={{ width: progress + "%" }}></span>
 		</div>
 	);
