@@ -29,7 +29,7 @@ const Input = ( {
 	}
 
 	return (
-		<div className={`sui-form-field ${errorStatus ? 'sui-form-field-error' : ''}`}>
+		<div className={`sui-form-field${errorStatus ? ' sui-form-field-error' : ''}`}>
 			{ label && (
 				<label htmlFor={ uniqueId } className="sui-label">{ label }</label>
 			) }

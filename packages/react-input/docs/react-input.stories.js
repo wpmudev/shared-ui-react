@@ -48,7 +48,7 @@ secondary.args = {
     description: 'Maecenas sed diam eget risus varius blandit sit amet non magna.',
 	min: 0,
 	errorStatus:false,
-	errorDescription: 'here is a discription of the error',
+	errorDescription: 'Here is a discription of the error',
 };
 secondary.argTypes = {
 	min: {
