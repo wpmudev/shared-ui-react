@@ -30,7 +30,7 @@ const Button = ({
 		</React.Fragment>
 	);
 
-	className = `sui-button ${placeIconRight ? 'sui-button-icon-right' : ''} ${ className ? ' ' + className : '' }`;
+	className = `sui-button${placeIconRight ? ' sui-button-icon-right' : ''} ${ className ? ' ' + className : '' }`;
 
 	// Set button color.
 	switch (color) {
