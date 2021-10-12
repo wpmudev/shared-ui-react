@@ -186,6 +186,7 @@ const ReadMore = styled.p`
 	line-height: 18px !important;
 	font-weight: 500 !important;
 	letter-spacing: -0.2px !important;
+	margin-bottom: 13px;
 `;
 
 export class Post extends Component {
