@@ -3,77 +3,89 @@
 import React, { useState, useRef } from "react";
 import { Button } from "@wpmudev/react-button";
 import { Accordion, AccordionItem } from "@wpmudev/react-accordion";
-import { Box, BoxHeader, BoxBody, BoxFooter } from "@wpmudev/react-box";
+import { Box } from "@wpmudev/react-box";
 
-export const ReactBulkActions = ({ buttonLabel, bulkActions, tableItems }) => {
+export const ReactBulkActions = ({ 
+    buttonLabel, 
+    bulkActionsLabel, 
+    bulkActions, 
+    listItems,
+    buttonAction 
+  }) => {
   const [selectedIds, setSelectedIds] = useState([]);
   const [buttonState, setButtonState] = useState(true);
   const [applyState, setApplyState] = useState(null);
   const optionElem = useRef(null);
 
   // bulk action options
-  const bulkOptions = bulkActions;
+  const bulkOptions = bulkActionsLabel;
 
   // if option is selected change button status
   const selectedOption = (e) => {
     e.preventDefault();
     if (optionElem.current.value !== "null") {
       setButtonState(false);
-      setApplyState(
-        e.target[e.target.selectedIndex].getAttribute("data-action")
-      );
+      setApplyState(e.target[e.target.selectedIndex].getAttribute("data-action"));
     } else {
       setButtonState(true);
       setApplyState(null);
     }
   };
 
-  // delete action
-  const deleteAction = () => {
-    if(selectedIds.length){
-      console.log(selectedIds);
-    } else {
-      alert("empty array please select some items first.");
-    }
-  };
-
-  // edit action
-  const editAction = () => {
-    if(selectedIds.length){
-      console.log(selectedIds);
-    } else {
-      alert("empty array please select some items first.");
-    }
-  };
-
-  // edit action
   const applyAction = (e) => {
     e.preventDefault();
-    switch (e.target.getAttribute("data-action")) {
-      case "editAction":
-        editAction();
-        break;
-      case "deleteAction":
-        deleteAction();
-        break;
+    if(selectedIds.length){
+      bulkActionsLabel.length > 1 ?
+        bulkActions[e.target.getAttribute("data-action")](selectedIds) :
+        buttonAction(selectedIds);
+    } else {
+      alert("Please select some items");
     }
   };
 
   // add/remove ids from array
   const updateSelectedId = (e, id) => {
-    !e.target.checked ? setSelectedIds(selectedIds.filter(item => item.id !== id)) : setSelectedIds([...selectedIds, {id: id}]);
+    !e.target.checked ? 
+      setSelectedIds(selectedIds.filter(item => item.id !== id)) : setSelectedIds([...selectedIds, {id: id}]);
   }
     
   return (
     <>
-      {BulkActions(bulkOptions, selectedOption, optionElem, buttonLabel, applyState, applyAction, buttonState)}
-      <div>{ItemsTable(tableItems, updateSelectedId, setSelectedIds)}</div>
+      {
+        BulkActions(
+          bulkOptions, 
+          selectedOption, 
+          optionElem, 
+          buttonLabel, 
+          applyState, 
+          buttonState, 
+          applyAction
+        )
+      }
+      <div>
+        {
+          ItemsTable(
+            listItems, 
+            updateSelectedId, 
+            setSelectedIds
+          )
+        }
+      </div>
     </>
   );
 };
 
 // bulk actions
-export const BulkActions = (bulkOptions, selectedOption, optionElem, buttonLabel, applyState, applyAction, buttonState) => {
+export const BulkActions = (
+  bulkOptions, 
+  selectedOption, 
+  optionElem, 
+  buttonLabel, 
+  applyState, 
+  buttonState, 
+  applyAction
+) => {
+  
   return(
     <div className="sui-bulk-actions" id="bulk-actions" style={{ display: "flex", paddingBottom: "20px" }}>
       {bulkOptions.length > 1 ? (
@@ -93,7 +105,7 @@ export const BulkActions = (bulkOptions, selectedOption, optionElem, buttonLabel
         >
           <option value="null">Select Action</option>
           {bulkOptions.map((data, index) => (
-            <option key={index} data-action={data.action} value={data.value}>
+            <option key={index} data-action={data.actionName} value={data.value}>
               {data.title}
             </option>
           ))}
@@ -105,7 +117,7 @@ export const BulkActions = (bulkOptions, selectedOption, optionElem, buttonLabel
       <Button
         label={buttonLabel}
         data-action={applyState}
-        onClick={applyAction}
+        onClick={e => applyAction(e)}
         disabled={bulkOptions.length > 1 ? buttonState : false}
       />
     </div>
@@ -113,8 +125,12 @@ export const BulkActions = (bulkOptions, selectedOption, optionElem, buttonLabel
 }
 
 // select all elements
-export const SelectAll = (elemName, setSelectedIds, tableItems) => {
-  const arrItems = tableItems.map(function(data) {return {id: data.id};});
+export const SelectAll = (
+  elemName, 
+  setSelectedIds, 
+  listItems
+) => {
+  const arrItems = listItems.map(function(data) {return {id: data.id};});
   // select all ids
   const selectAllIds = (e) => {
     const checkboxes = document.getElementsByName(elemName);
@@ -131,43 +147,43 @@ export const SelectAll = (elemName, setSelectedIds, tableItems) => {
       setSelectedIds([]);
     }
   }
-  return <input type="checkbox" className="sui-checkbox" style={{ cursor: "pointer" }} name="Select all" aria-label="Select all" onClick={selectAllIds}/>;
+  return (
+    <>
+      <input type="checkbox" id="selectAll" className="sui-checkbox" style={{ cursor: "pointer" }} name="Select all" aria-label="Select all" onClick={selectAllIds}/>
+      <label htmlFor="selectAll">Select all</label>
+    </>
+  );
 };
 
 // table items
-export const ItemsTable = (tableItems, updateSelectedId, setSelectedIds) => {
+export const ItemsTable = (
+  listItems, 
+  updateSelectedId, 
+  setSelectedIds
+) => {
   return (
-    <table style={{ width: "100%" }}>
-      <thead>
-        <tr>
-          <th>
-            {SelectAll("sui checkbox", setSelectedIds, tableItems)}
-          </th>
-          <th>ID</th>
-          <th>Title</th>
-          <th>Content</th>
-        </tr>
-      </thead>
-      <tbody>
-        {tableItems.map(( data, index ) => (
-            <tr key={index}>
-              <td>
-                <input
-                  type="checkbox"
-                  className="sui-checkbox"
-                  style={{ cursor: "pointer" }}
-                  onChange={(e) => updateSelectedId(e, data.id)}
-                  value={data.id}
-                  name="sui checkbox"
-                  aria-label="Item"
-                />
-              </td>
-              <td>{data.id}</td>
-              <td>{data.title}</td>
-              <td>{data.content}</td>
-            </tr>
+    <Box>
+      <Accordion>
+        { SelectAll(
+          "sui checkbox", 
+          setSelectedIds, 
+          listItems
+        )}
+        {listItems.map(( data, index ) => (
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <input
+              type="checkbox"
+              className="sui-checkbox"
+              style={{ cursor: "pointer" }}
+              onChange={(e) => updateSelectedId(e, data.id)}
+              value={data.id}
+              name="sui checkbox"
+              aria-label="Item"
+            />
+            <AccordionItem style={{ width: "100%" }} key={ index } { ...data } />
+          </div>
         ))}
-      </tbody>
-    </table>
+      </Accordion>
+    </Box>    
   );
 };

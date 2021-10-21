@@ -1,6 +1,5 @@
 import React from "react";
-import { Box, BoxHeader, BoxBody, BoxFooter } from "@wpmudev/react-box";
-import { Accordion, AccordionItem } from "@wpmudev/react-accordion";
+import { Box, BoxHeader, BoxBody } from "@wpmudev/react-box";
 import { ReactBulkActions } from "../lib/react-bulk-actions";
 
 export default {
@@ -19,39 +18,69 @@ export const primary = args => {
   );
 };
 
+// delete function
+const deleteFunc = (ids) => {
+	console.log("Delete bulk action.");
+  console.log(ids);
+};
+
+// edit section
+const editFunc = (ids) => {
+	console.log("Edit bulk action.");
+  console.log(ids);
+};
+
 primary.storyName = "Bulk Actions";
 primary.args = {
 	description: "Bulk Actions",
-	bulkActions: [
+	bulkActionsLabel: [
     {
       title: "Delete",
       value: "delete",
-      actionName: "deleteAction",
-      action: "deleteAction",
+      actionName: "deleteAction"
     },
     {
       title: "Edit",
       value: "edit",
-      actionName: "editAction",
-      action: "editAction",
-    },
+      actionName: "editAction"
+    }
   ],
+  bulkActions: { "deleteAction": deleteFunc, "editAction": editFunc },
 	buttonLabel: 'Apply',
-  tableItems: [
+  buttonAction: deleteFunc,
+  listItems: [
     {
       id: 1,
-      title: "Title 1",
-      content: "Content"
+      title: 'Accordion Item 1',
+      children: (
+        <Box>
+            <BoxBody>
+                <p>Accordion Item 1 – Hello world!</p>
+            </BoxBody>
+        </Box>
+      )
     },
     {
       id: 2,
-      title: "Title 2",
-      content: "Content"
+      title: 'Accordion Item 2',
+      children: (
+        <Box>
+            <BoxBody>
+                <p>Accordion Item 2 – Hello world!</p>
+            </BoxBody>
+        </Box>
+      )
     },
     {
       id: 3,
-      title: "Title 3",
-      content: "Content"
+      title: 'Accordion Item 3',
+      children: (
+        <Box>
+            <BoxBody>
+                <p>Accordion Item 3 – Hello world!</p>
+            </BoxBody>
+        </Box>
+      )
     }
   ]
 };
