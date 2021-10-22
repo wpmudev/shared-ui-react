@@ -124,7 +124,7 @@ export const BulkActions = (
   );
 }
 
-// select all elements
+// select all checkbox
 export const SelectAll = (
   elemName, 
   setSelectedIds, 
@@ -170,7 +170,7 @@ export const ItemsTable = (
           listItems
         )}
         {listItems.map(( data, index ) => (
-          <div style={{ display: "flex", alignItems: "center" }}>
+          <div key={data.id} style={{ display: "flex", alignItems: "center" }}>
             <input
               type="checkbox"
               className="sui-checkbox"

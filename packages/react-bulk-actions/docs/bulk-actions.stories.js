@@ -37,7 +37,7 @@ primary.args = {
     {
       title: "Delete",
       value: "delete",
-      actionName: "deleteAction"
+      actionName: "deleteAction" // action name should be same match with bulkActions key.
     },
     {
       title: "Edit",
@@ -45,9 +45,15 @@ primary.args = {
       actionName: "editAction"
     }
   ],
+  
+  // actionName as key and function or script that will be executed when apply button clicked.
   bulkActions: { "deleteAction": deleteFunc, "editAction": editFunc },
 	buttonLabel: 'Apply',
+  
+  // this function will execute when bulk actions is not available or only one bulk action is present then this function will execute on click of Apply button.
   buttonAction: deleteFunc,
+  
+  // accordin items
   listItems: [
     {
       id: 1,
@@ -84,7 +90,4 @@ primary.args = {
     }
   ]
 };
-primary.argTypes = {
-	description: "string",
-  buttonLabel: "string"
-};
+primary.argTypes = {};
