@@ -19,7 +19,17 @@ const Template = ({ ...props }) => {
     return (
         <>
             <Notifications {...props} />
-            <NotificationButton buttonLabel={props.buttonLabel} notificationId={props.notificationId}></NotificationButton>
+            <NotificationButton {...props} message="<p>Hello Button 1</p>"></NotificationButton>
+            <NotificationButton buttonLabel="Next Icon"
+	type="info"
+	icon="info"
+	dismiss=""
+	dismissLabel=""
+	dismissTooltip=""
+	notificationId="float-notice-general"
+	autoClose=""
+	autoCloseTimeout="5000"
+    message="<p>Hello Button 2</p>" ></NotificationButton>
         </>
     );
 }
@@ -30,10 +40,12 @@ primary.args = {
     children: (
         <p>Nulla vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec ullamcorper nulla non metus auctor fringilla. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
     ),
-    hide: false,
     floating: false,
     buttonLabel: 'Show',
-    notificationId: 'id1'
+    notificationId: 'float-notice-general',
+    autoClose: true,
+    autoCloseTimeout: 5000,
+    icon: 'wordpress'    
 };
 primary.argTypes = {
     type: {
