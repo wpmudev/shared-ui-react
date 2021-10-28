@@ -64,11 +64,29 @@ export const Notifications = ({
 	);
 };
 
+// function to disable buttons
+const disableButtons = buttonClass => {
+	const buttonsArray = document.querySelectorAll(buttonClass);
+	buttonsArray.forEach(button => {
+		button.setAttribute("disabled", "disabled");
+	});
+};
+
+// function to enable buttons
+const enableButtons = buttonClass => {
+	const buttonsArray = document.querySelectorAll(buttonClass);
+	buttonsArray.forEach(button => {
+		button.removeAttribute("disabled");
+	});
+};
+
 // function to show notice
-const showNotice = (notificationId, noticeMessage, noticeOptions) => {
+const openNotice = (notificationId, noticeMessage, noticeOptions) => {
 	// Get notification node by ID.
 	const noticeNode = document.getElementById(notificationId);
 	const nodeWrapper = noticeNode.parentNode;
+
+	disableButtons(".sui-action-button");
 
 	// Add active class.
 	noticeNode.classList.add("sui-active");
@@ -177,90 +195,190 @@ const closeNotice = notificationId => {
 
 	// Remove all content from notification.
 	noticeNode.innerHTML = "";
+
+	enableButtons(".sui-action-button");
+};
+
+// slide up
+const slideUp = (target, duration = 500) => {
+	/* Sliding-up logic */
+	target.style.transitionProperty = "height, margin, padding";
+	target.style.transitionDuration = duration + "ms";
+	target.style.boxSizing = "border-box";
+	target.style.height = target.offsetHeight + "px";
+	target.offsetHeight;
+	target.style.overflow = "hidden";
+	target.style.height = 0;
+	target.style.paddingTop = 0;
+	target.style.paddingBottom = 0;
+	target.style.marginTop = 0;
+	target.style.marginBottom = 0;
+	window.setTimeout(() => {
+		target.style.display = "none";
+		target.style.removeProperty("height");
+		target.style.removeProperty("padding-top");
+		target.style.removeProperty("padding-bottom");
+		target.style.removeProperty("margin-top");
+		target.style.removeProperty("margin-bottom");
+		target.style.removeProperty("overflow");
+		target.style.removeProperty("transition-duration");
+		target.style.removeProperty("transition-property");
+	}, duration);
+};
+
+// slide down
+const slideDown = (target, duration = 500) => {
+	/* Sliding-down logic */
+	target.style.removeProperty("display");
+	let display = window.getComputedStyle(target).display;
+
+	if (display === "none") display = "block";
+
+	target.style.display = display;
+	let height = target.offsetHeight;
+	target.style.overflow = "hidden";
+	target.style.height = 0;
+	target.style.paddingTop = 0;
+	target.style.paddingBottom = 0;
+	target.style.marginTop = 0;
+	target.style.marginBottom = 0;
+	target.offsetHeight;
+	target.style.boxSizing = "border-box";
+	target.style.transitionProperty = "height, margin, padding";
+	target.style.transitionDuration = duration + "ms";
+	target.style.height = height + "px";
+	target.style.removeProperty("padding-top");
+	target.style.removeProperty("padding-bottom");
+	target.style.removeProperty("margin-top");
+	target.style.removeProperty("margin-bottom");
+	window.setTimeout(() => {
+		target.style.removeProperty("height");
+		target.style.removeProperty("overflow");
+		target.style.removeProperty("transition-duration");
+		target.style.removeProperty("transition-property");
+	}, duration);
+};
+
+// fade out animation
+const fadeOut = el => {
+	el.style.opacity = 1;
+	(function fade() {
+		if ((el.style.opacity -= 0.1) < 0) {
+			el.style.display = "none";
+		} else {
+			requestAnimationFrame(fade);
+		}
+	})();
+};
+
+// fade in function
+const fadeIn = (el, display) => {
+	el.removeAttribute("style");
+	el.style.opacity = 0;
+	el.style.display = display || "block";
+	(function fade() {
+		var val = parseFloat(el.style.opacity);
+		if (!((val += 0.1) > 1)) {
+			el.style.opacity = val;
+			requestAnimationFrame(fade);
+		}
+	})();
 };
 
 // function to animate the notification
-const animateShowNotice = (
+const animateOpenNotice = (
 	notificationId,
-	animation,
-	dismiss,
-	autoclose,
-	timeout = 300
+	noticeMessage,
+	noticeOptions,
+	animation
 ) => {
 	// Get notification node by ID.
 	const noticeNode = document.getElementById(notificationId);
+	const dismiss = noticeOptions.dismiss.show;
+	const autoclose = noticeOptions.autoclose.show;
+	noticeNode.removeAttribute("style");
 	// animation of notification
-	if ("slide" === animation) {
-		noticeNode.slideDown(timeout, () => {
-			if (true === dismiss) {
-				// Focus dismiss button.
-				noticeNode.closest(".sui-notice-actions button").focus();
+	if (animation === "slide") {
+		openNotice(notificationId, noticeMessage, noticeOptions);
+		slideDown(noticeNode, 500);
+		if (dismiss === true) {
+			// Focus dismiss button.
+			noticeNode.querySelector(".sui-notice-actions button").focus();
 
-				// Dismiss button.
-				noticeNode
-					.closest(".sui-notice-actions button")
-					.addEventListener("click", function () {
-						closeNotice(notificationId);
-					});
-			} else {
-				// check if notice auto-closes
-				if (true === autoclose) {
-					setTimeout(() => closeNotice(notificationId), parseInt(timeout));
-				}
+			// Dismiss button.
+			noticeNode
+				.querySelector(".sui-notice-actions button")
+				.addEventListener("click", function () {
+					animateCloseNotice(notificationId, animation);
+				});
+		} else {
+			if (autoclose === true) {
+				setTimeout(
+					() => animateCloseNotice(notificationId, animation),
+					parseInt(noticeOptions.autoclose.timeout)
+				);
 			}
-		});
-	} else if ("fade" === animation) {
-		noticeNode.fadeIn(timeout, () => {
-			if (true === dismiss) {
-				// Focus dismiss button.
-				noticeNode.closest(".sui-notice-actions button").focus();
+		}
+	} else if (animation === "fade") {
+		openNotice(notificationId, noticeMessage, noticeOptions);
+		fadeIn(noticeNode);
+		if (dismiss === true) {
+			// Focus dismiss button.
+			noticeNode.querySelector(".sui-notice-actions button").focus();
 
-				// Dismiss button.
-				noticeNode
-					.closest(".sui-notice-actions button")
-					.addEventListener("click", function () {
-						closeNotice(notificationId);
-					});
-			} else {
-				// Check if notification auto-closes.
-				if (true === autoclose) {
-					setTimeout(() => closeNotice(notificationId), parseInt(timeout));
-				}
+			// Dismiss button.
+			noticeNode
+				.querySelector(".sui-notice-actions button")
+				.addEventListener("click", function () {
+					animateCloseNotice(notificationId, animation);
+				});
+		} else {
+			if (autoclose === true) {
+				setTimeout(
+					() => animateCloseNotice(notificationId, animation),
+					parseInt(noticeOptions.autoclose.timeout)
+				);
 			}
-		});
+		}
 	} else {
-		noticeNode.show(timeout, () => {
-			// Check if dismiss button enabled.
-			if (true === dismiss) {
-				// Focus dismiss button.
-				noticeNode.closest(".sui-notice-actions button").focus();
+		openNotice(notificationId, noticeMessage, noticeOptions);
+		if (dismiss === true) {
+			// Focus dismiss button.
+			noticeNode.querySelector(".sui-notice-actions button").focus();
 
-				// Dismiss button.
-				noticeNode
-					.closest(".sui-notice-actions button")
-					.addEventListener("click", function () {
-						closeNotice(notificationId);
-					});
-			} else {
-				// Check if notice auto-closes.
-				if (true === autoclose) {
-					setTimeout(() => closeNotice(notificationId), parseInt(autoclose));
-				}
+			// Dismiss button.
+			noticeNode
+				.querySelector(".sui-notice-actions button")
+				.addEventListener("click", function () {
+					animateCloseNotice(notificationId, animation);
+				});
+		} else {
+			if (autoclose === true) {
+				setTimeout(
+					() => animateCloseNotice(notificationId, animation),
+					parseInt(noticeOptions.autoclose.timeout)
+				);
 			}
-		});
+		}
 	}
 };
 
-const animateHideNotice = (notificationId, animation, timeout = 300) => {
+const animateCloseNotice = (notificationId, animation, timeout = 500) => {
 	// Get notification node by ID.
 	const noticeNode = document.getElementById(notificationId);
 	// Close animation.
-	if ("slide" === animation) {
-		noticeNode.slideUp(timeout, () => closeNotice(notificationId));
-	} else if ("fade" === animation) {
-		noticeNode.fadeOut(timeout, () => closeNotice(notificationId));
+	if (animation === "slide") {
+		slideUp(noticeNode);
+		window.setTimeout(() => {
+			closeNotice(notificationId);
+		}, timeout);
+	} else if (animation === "fade") {
+		fadeOut(noticeNode);
+		window.setTimeout(() => {
+			closeNotice(notificationId);
+		}, timeout);
 	} else {
-		noticeNode.hide(timeout, () => closeNotice(notificationId));
+		closeNotice(notificationId);
 	}
 };
 
@@ -275,7 +393,8 @@ export const NotificationButton = ({
 	dismissTooltip,
 	notificationId,
 	autoClose,
-	autoCloseTimeout
+	autoCloseTimeout,
+	animation
 }) => {
 	const showHideClick = e => {
 		e.preventDefault();
@@ -290,9 +409,7 @@ export const NotificationButton = ({
 
 		// Check if `dismiss` exists.
 		noticeOptions.dismiss = {};
-		dismiss
-			? (noticeOptions.dismiss.show = dismiss)
-			: (noticeOptions.dismiss.show = "");
+		noticeOptions.dismiss.show = dismiss;
 
 		// Check if `dismiss-label` exists.
 		dismiss && dismissLabel
@@ -306,17 +423,20 @@ export const NotificationButton = ({
 
 		// Check if `autoclose` exists.
 		noticeOptions.autoclose = {};
-		autoClose
-			? (noticeOptions.autoclose.show = autoClose)
-			: (noticeOptions.autoclose.show = "");
+		noticeOptions.autoclose.show = autoClose;
 
 		// Check if `autoclose-timeout` exists.
 		autoClose && autoCloseTimeout
 			? (noticeOptions.autoclose.timeout = autoCloseTimeout)
-			: (noticeOptions.autoclose.timeout = "");
+			: (noticeOptions.autoclose.timeout = 3000);
 
-		showNotice(notificationId, noticeMessage, noticeOptions);
+		animateOpenNotice(notificationId, noticeMessage, noticeOptions, animation);
 	};
 
-	return <Button label={buttonLabel} onClick={e => showHideClick(e)}></Button>;
+	return (
+		<Button
+			label={buttonLabel}
+			className="sui-action-button"
+			onClick={e => showHideClick(e)}></Button>
+	);
 };
