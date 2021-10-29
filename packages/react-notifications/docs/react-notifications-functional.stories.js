@@ -33,11 +33,11 @@ const Template = ({ ...props }) => {
         buttonLabel="Slide"
         type="info"
         icon="info"
-        dismiss={true}
+        dismiss={false}
         dismissLabel="Close"
         dismissTooltip="Close"
         notificationId="float-notice-general"
-        autoClose={false}
+        autoClose={true}
         autoCloseTimeout="5000"
         animation="slide"
         message="<p>Hello Button 2</p>"
