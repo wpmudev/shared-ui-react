@@ -11,7 +11,9 @@ primary.storyName = 'Text Input';
 primary.args = {
     label: 'Company Name',
     placeholder: 'Eg. Acme Industries',
-    description: 'Maecenas sed diam eget risus varius blandit sit amet non magna.'
+    description: 'Maecenas sed diam eget risus varius blandit sit amet non magna.',
+		errorStatus:false,
+		errorDescription: 'Here is a description of the error',
 };
 primary.argTypes = {
 	maxLength: {
@@ -44,7 +46,9 @@ secondary.args = {
     label: 'Yearzz',
     placeholder: 'Eg. 10',
     description: 'Maecenas sed diam eget risus varius blandit sit amet non magna.',
-	min: 0
+	min: 0,
+	errorStatus:false,
+	errorDescription: 'Here is a discription of the error',
 };
 secondary.argTypes = {
 	min: {

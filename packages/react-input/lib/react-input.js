@@ -6,6 +6,8 @@ const Input = ( {
 	label,
 	description,
 	type = 'text',
+	errorStatus,
+	errorDescription,
 	...props
 } ) => {
 	const uniqueId = ( id && '' !== id )
@@ -27,7 +29,7 @@ const Input = ( {
 	}
 
 	return (
-		<div className="sui-form-field">
+		<div className={`sui-form-field${errorStatus ? ' sui-form-field-error' : ''}`}>
 			{ label && (
 				<label htmlFor={ uniqueId } className="sui-label">{ label }</label>
 			) }
@@ -38,6 +40,9 @@ const Input = ( {
 				className={ clazz }
 				{ ...props }
 			/>
+			{ errorStatus && errorDescription && (
+				<div className="sui-error-message">{ errorDescription }</div>
+			) }
 			{ description && (
 				<p className="sui-description">{ description }</p>
 			) }
