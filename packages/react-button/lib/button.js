@@ -3,10 +3,10 @@ import React from 'react';
 const Button = ({
 	label,
 	icon,
+	iconRight,
 	design = 'solid',
 	color,
 	className,
-	placeIconRight,
 	loading,
 	...props
 }) => {
@@ -20,17 +20,17 @@ const Button = ({
 
 	let content = (
 		<React.Fragment>
-			{icon && !placeIconRight && '' !== icon && (
+			{icon && !iconRight && '' !== icon && (
 				<span className={'sui-icon-' + icon} aria-hidden="true" />
 			)}
 			{label}
-			{icon && placeIconRight && '' !== icon && (
+			{icon && iconRight && '' !== icon && (
 				<span className={'sui-icon-' + icon} aria-hidden="true" />
 			)}
 		</React.Fragment>
 	);
 
-	className = `sui-button${placeIconRight ? ' sui-button-icon-right' : ''}${
+	className = `sui-button${iconRight ? ' sui-button-icon-right' : ''}${
 		className ? ' ' + className : ''
 	}`;
 

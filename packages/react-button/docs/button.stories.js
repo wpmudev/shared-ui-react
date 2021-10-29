@@ -16,13 +16,13 @@ primary.args = {
 	design: null,
 	color: null,
 	icon: null,
+	iconRight: false,
 	loading: null,
 	disabled: null,
 	className: null,
 	htmlFor: null,
 	href: null,
 	onClick: null,
-	placeIconRight: false,
 };
 primary.argTypes = {
 	label: {
@@ -130,7 +130,7 @@ primary.argTypes = {
 			type: null,
 		},
 	},
-	placeIconRight: {
+	iconRight: {
 		description: 'Whether the button should have the icon on the right or on the left',
 		table: {
 			type: { summary: 'boolean' },
