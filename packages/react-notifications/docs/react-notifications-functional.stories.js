@@ -2,7 +2,7 @@ import React from "react";
 import { Notifications, NotificationButton } from "../lib/react-notifications";
 
 export default {
-  title: "Components/Notifications/Button",
+  title: "Components/Notifications/Notification-Functional",
 };
 
 const TypeOptions = {
@@ -33,11 +33,11 @@ const Template = ({ ...props }) => {
         buttonLabel="Slide"
         type="info"
         icon="info"
-        dismiss={false}
-        dismissLabel=""
-        dismissTooltip=""
+        dismiss={true}
+        dismissLabel="Close"
+        dismissTooltip="Close"
         notificationId="float-notice-general"
-        autoClose={true}
+        autoClose={false}
         autoCloseTimeout="5000"
         animation="slide"
         message="<p>Hello Button 2</p>"

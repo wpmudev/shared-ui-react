@@ -428,7 +428,7 @@ export const NotificationButton = ({
 		// Check if `autoclose-timeout` exists.
 		autoClose && autoCloseTimeout
 			? (noticeOptions.autoclose.timeout = autoCloseTimeout)
-			: (noticeOptions.autoclose.timeout = 3000);
+			: (noticeOptions.autoclose.timeout = 5000);
 
 		animateOpenNotice(notificationId, noticeMessage, noticeOptions, animation);
 	};
