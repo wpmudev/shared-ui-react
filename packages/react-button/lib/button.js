@@ -7,6 +7,7 @@ const Button = ({
 	color,
 	className,
 	loading,
+	placeIconRight,
 	...props
 }) => {
 	const loader = (
@@ -19,14 +20,17 @@ const Button = ({
 
 	let content = (
 		<React.Fragment>
-			{icon && "" !== icon && (
+			{icon && !placeIconRight && "" !== icon && (
 				<span className={"sui-icon-" + icon} aria-hidden="true" />
 			)}
 			{label}
+			{icon && placeIconRight && "" !== icon && (
+				<span className={"sui-icon-" + icon} aria-hidden="true" />
+			)}
 		</React.Fragment>
 	);
 
-	className = `sui-button${ className ? ' ' + className : '' }`;
+	className = `sui-button${placeIconRight ? ' sui-button-icon-right' : ''}${ className ? ' ' + className : '' }`;
 
 	// Set button color.
 	switch (color) {
