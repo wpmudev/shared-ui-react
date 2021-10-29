@@ -1,5 +1,4 @@
 import React from 'react';
-import { Box, BoxHeader, BoxBody, BoxFooter, BoxSection } from '../../react-box/lib/box';
 import { Button } from '../lib/button';
 
 export default {
