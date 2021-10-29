@@ -1,15 +1,16 @@
-import { bar, ProgressBar, pecentage, progressIcon, closeBtn } from "../lib/react-progress-bar";
+import React from 'react';
+import { bar, ProgressBar, pecentage, progressIcon, closeBtn } from '../lib/react-progress-bar';
 
 export default {
-	title: "Components/Progress bar",
+	title: 'Components/Progress bar',
 	component: ProgressBar,
 };
 
 const func = () => {
-	console.log("OnClick Event Managed");
+	console.log('OnClick Event Managed');
 };
 
-const content = progress => {
+const content = (progress) => {
 	return (
 		<>
 			{bar(progress)}
@@ -20,9 +21,9 @@ const content = progress => {
 	);
 };
 
-export const basic = args => <ProgressBar {...args} />;
+export const basic = (args) => <ProgressBar {...args} />;
 
-basic.storyName = "Basic";
+basic.storyName = 'Basic';
 
 basic.args = {
 	content,
