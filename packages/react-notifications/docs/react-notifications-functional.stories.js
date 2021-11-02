@@ -27,20 +27,7 @@ const Template = ({ ...props }) => {
       <Notifications {...props} />
       <NotificationButton
         {...props}
-        message="<p>Hello Button 1</p>"
-      ></NotificationButton>
-      <NotificationButton
-        buttonLabel="Slide"
-        type="info"
-        icon="info"
-        dismiss={true}
-        dismissLabel="Close"
-        dismissTooltip="Close"
-        notificationId="float-notice-general"
-        autoClose={false}
-        autoCloseTimeout="5000"
-        animation="slide"
-        message="<p>Nulla vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec ullamcorper nulla non metus auctor fringilla. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>"
+        message="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc rutrum faucibus ultricies. Proin bibendum eget mi ut pellentesque. Sed dapibus tincidunt est eget laoreet. Phasellus suscipit dignissim risus nec aliquam. Suspendisse id elementum sapien. Suspendisse potenti. Proin dapibus erat imperdiet, mattis neque quis, hendrerit odio.</p>"
       ></NotificationButton>
     </>
   );
@@ -59,13 +46,15 @@ primary.args = {
     </p>
   ),
   floating: false,
-  buttonLabel: "Fade",
+  buttonLabel: "Animate",
   notificationId: "float-notice-general",
   autoClose: true,
   autoCloseTimeout: 5000,
-  icon: "wordpress",
+  icon: "info",
   animation: "fade",
-  dismiss: false
+  dismiss: false,
+  dismissLabel: "Close",
+  dismissTooltip: "Close",
 };
 primary.argTypes = {
   type: {

@@ -5,6 +5,7 @@ import { Button } from "@wpmudev/react-button";
 export const Notifications = ({
 	children,
 	type,
+	icon,
 	dismiss,
 	floating,
 	notificationId
@@ -25,7 +26,7 @@ export const Notifications = ({
 		case "error":
 		case "upsell":
 			classMain += " sui-notice-" + type;
-			classIcon += " sui-icon-info";
+			classIcon += " sui-icon-" + icon;
 			break;
 
 		case "loading":
@@ -33,7 +34,7 @@ export const Notifications = ({
 			break;
 
 		default:
-			classIcon += " sui-icon-info";
+			classIcon += " sui-icon-" + icon;
 			break;
 	}
 
