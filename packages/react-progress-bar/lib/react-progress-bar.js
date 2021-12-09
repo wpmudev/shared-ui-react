@@ -1,35 +1,66 @@
 import React from 'react';
+import { ButtonIcon } from '@wpmudev/react-button-icon';
 
-export const ProgressBar = ({ progress, ...args }) => {
-	return (
-		<div className={args.outlined && 'sui-progress-block'}>
-			<div className="sui-progress">{args.content(progress)}</div>
-		</div>
+export const ProgressBar = ({
+	classes,
+	now,
+	hasLoader = true,
+	hasLabel = true,
+	hasCancel = true,
+	hasFrame = false,
+	hasLegend = true,
+	sourceLang,
+	...props
+}) => {
+	const extraClasses = 'undefined' !== typeof classes && '' !== classes ? ' ' + classes : '';
+	const value = 'undefined' !== typeof now && !isNaN(now) ? now : 0;
+
+	const lang = Object.assign(
+		{
+			cancel: 'Cancel',
+			legend: 'Status...',
+		},
+		sourceLang,
 	);
-};
-export const bar = (progress) => {
-	return (
-		<div className="sui-progress-bar" aria-hidden="true">
-			<span style={{ width: progress + '%' }}></span>
-		</div>
-	);
-};
 
-export const pecentage = (progress) => {
-	return <span className="sui-progress-text">{progress}%</span>;
-};
-
-export const progressIcon = () => {
-	return (
-		<span className="sui-progress-icon" aria-hidden="true">
-			<span className="sui-icon-loader sui-loading"></span>
+	const loaderMarkup = hasLoader && (
+		<span className="sui-progress-icon">
+			<span className="sui-icon-loader sui-loading" />
 		</span>
 	);
-};
-export const closeBtn = (func) => {
+
+	const loaderText = hasLabel && (
+		<span className="sui-progress-text">{'' === value ? 0 : value}%</span>
+	);
+
+	const loaderBar = (
+		<div className="sui-progress-bar">
+			<span style={{ width: `${'' === value ? 0 : value}%` }} />
+		</div>
+	);
+
+	const innerMarkup = (
+		<div className={`sui-progress${extraClasses}`} {...props}>
+			{loaderMarkup}
+			{loaderText}
+			{loaderBar}
+			{hasCancel && <ButtonIcon icon="close" iconSize="sm" label={lang.cancel} />}
+		</div>
+	);
+
 	return (
-		<button onClick={func} className="sui-button-icon sui-tooltip" data-tooltip="Cancel">
-			<span className="sui-icon-close" aria-hidden="true"></span>
-		</button>
+		<React.Fragment>
+			{hasFrame && (
+				<React.Fragment>
+					<div className="sui-progress-block">{innerMarkup}</div>
+					{hasLegend && (
+						<div className="sui-progress-state">
+							<span>{lang.legend}</span>
+						</div>
+					)}
+				</React.Fragment>
+			)}
+			{!hasFrame && innerMarkup}
+		</React.Fragment>
 	);
 };
