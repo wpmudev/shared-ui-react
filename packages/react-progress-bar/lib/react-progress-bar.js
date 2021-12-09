@@ -10,6 +10,7 @@ export const ProgressBar = ({
 	hasFrame = false,
 	hasLegend = true,
 	sourceLang,
+	cbFunction = () => {},
 	...props
 }) => {
 	const extraClasses = 'undefined' !== typeof classes && '' !== classes ? ' ' + classes : '';
@@ -44,7 +45,9 @@ export const ProgressBar = ({
 			{loaderMarkup}
 			{loaderText}
 			{loaderBar}
-			{hasCancel && <ButtonIcon icon="close" iconSize="sm" label={lang.cancel} />}
+			{hasCancel && (
+				<ButtonIcon icon="close" iconSize="sm" label={lang.cancel} onClick={() => cbFunction()} />
+			)}
 		</div>
 	);
 

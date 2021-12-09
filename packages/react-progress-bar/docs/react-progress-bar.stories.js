@@ -6,9 +6,9 @@ export default {
 	component: ProgressBar,
 };
 
-// const func = () => {
-// 	console.log('OnClick Event Managed');
-// };
+const func = () => {
+	console.log('You cancelled this progress...');
+};
 
 export const unboxed = (args) => <ProgressBar {...args} />;
 unboxed.storyName = 'Default';
@@ -23,6 +23,7 @@ unboxed.args = {
 		cancel: 'Pause',
 		legend: 'Plugin is loading...',
 	},
+	cbFunction: () => func(),
 };
 unboxed.argTypes = {
 	now: {
