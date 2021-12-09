@@ -16,8 +16,14 @@ export const Modal = ({ modalContent, triggerContent, ...props }) => {
 			throw new Error("SUI Modal instances should have a `dialogId`");
 		}
 		window.addEventListener("keydown", handleFocusTrap);
-		isOpen && document?.getElementById("modal_parent").querySelectorAll('textarea, button, [href], input, select, [tabindex]:not([tabindex="-1"])')[0].focus()
-	}, [isOpen]);
+		isOpen &&
+			document
+				?.getElementById("modal_parent")
+				.querySelectorAll(
+					'textarea, button, [href], input, select, [tabindex]:not([tabindex="-1"])'
+				)[0]
+				.focus();
+	}, [isOpen, props.dialogId]);
 
 	const isSlider = "object" === typeof modalContent && null !== modalContent;
 
@@ -42,7 +48,9 @@ export const Modal = ({ modalContent, triggerContent, ...props }) => {
 
 	const { getApplicationNode = () => document.getElementsByClassName("sui-wrap")[0] } = props;
 
-	let dialogClass = `sui-modal-content sui-content-${isClosing ? "fade-out" : "fade-in"} ${props.dialogClass || ""}`;
+	let dialogClass = `sui-modal-content sui-content-${
+		isClosing ? "fade-out" : "fade-in"
+	} ${props.dialogClass || ""}`;
 
 	let renderContent, modalSize, initialFocus;
 	if (!isSlider) {
@@ -68,7 +76,8 @@ export const Modal = ({ modalContent, triggerContent, ...props }) => {
 	}
 
 	const handleFocusTrap = e => {
-		const focusableElements = ' textarea, button, [href], input, select, [tabindex]:not([tabindex="-1"])';
+		const focusableElements =
+			' textarea, button, [href], input, select, [tabindex]:not([tabindex="-1"])';
 		const modal = document?.getElementById("modal_parent"); // select the modal by it's id
 
 		const firstFocusableElement = modal?.querySelectorAll(focusableElements)[0]; // get first element to be focused inside modal
@@ -98,8 +107,16 @@ export const Modal = ({ modalContent, triggerContent, ...props }) => {
 
 	const SUIModal = () => {
 		return (
-			<div id="modal_parent" className={`sui-modal sui-active sui-modal-${modalSize || "md"} sui-wrap ${props.underlayClass || ""}`}>
-				<div role="dialog" id={props.dialogId} className={dialogClass} aria-labelledby={props.titleId}>
+			<div
+				id="modal_parent"
+				className={`sui-modal sui-active sui-modal-${
+					modalSize || "md"
+				} sui-wrap ${props.underlayClass || ""}`}>
+				<div
+					role="dialog"
+					id={props.dialogId}
+					className={dialogClass}
+					aria-labelledby={props.titleId}>
 					{renderContent({ closeModal, slideTo })}
 				</div>
 			</div>
