@@ -1,6 +1,5 @@
-import React, { createElement } from "react";
+import React from "react";
 import useEscape from "./useEscape";
-import { createPortal } from "react-dom";
 
 export const Modal = ({ modalContent, triggerContent, ...props }) => {
 	const [isOpen, setIsOpen] = React.useState(false);
