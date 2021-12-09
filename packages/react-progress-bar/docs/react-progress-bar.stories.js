@@ -49,6 +49,7 @@ boxed.args = {
 		cancel: 'Pause',
 		legend: 'Plugin is loading...',
 	},
+	cbFunction: () => func(),
 };
 boxed.argTypes = {
 	now: {
