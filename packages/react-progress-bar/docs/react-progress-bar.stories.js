@@ -1,32 +1,61 @@
 import React from 'react';
-import { bar, ProgressBar, pecentage, progressIcon, closeBtn } from '../lib/react-progress-bar';
+import { ProgressBar } from '../lib/react-progress-bar';
 
 export default {
 	title: 'Components/Progress bar',
 	component: ProgressBar,
 };
 
-const func = () => {
-	console.log('OnClick Event Managed');
+// const func = () => {
+// 	console.log('OnClick Event Managed');
+// };
+
+export const unboxed = (args) => <ProgressBar {...args} />;
+unboxed.storyName = 'Default';
+unboxed.args = {
+	now: 30,
+	hasLoader: true,
+	hasLabel: true,
+	hasCancel: true,
+	hasFrame: false,
+	hasLegend: false,
+	sourceLang: {
+		cancel: 'Pause',
+		legend: 'Plugin is loading...',
+	},
+};
+unboxed.argTypes = {
+	now: {
+		control: {
+			type: 'range',
+			min: 0,
+			max: 100,
+			step: 1,
+		},
+	},
 };
 
-const content = (progress) => {
-	return (
-		<>
-			{bar(progress)}
-			{pecentage(progress)}
-			{progressIcon()}
-			{closeBtn(func)}
-		</>
-	);
+export const boxed = (args) => <ProgressBar {...args} />;
+boxed.storyName = 'Boxed';
+boxed.args = {
+	now: 30,
+	hasLoader: true,
+	hasLabel: true,
+	hasCancel: true,
+	hasFrame: true,
+	hasLegend: true,
+	sourceLang: {
+		cancel: 'Pause',
+		legend: 'Plugin is loading...',
+	},
 };
-
-export const basic = (args) => <ProgressBar {...args} />;
-
-basic.storyName = 'Basic';
-
-basic.args = {
-	content,
-	outlined: false,
-	progress: 50,
+boxed.argTypes = {
+	now: {
+		control: {
+			type: 'range',
+			min: 0,
+			max: 100,
+			step: 1,
+		},
+	},
 };
