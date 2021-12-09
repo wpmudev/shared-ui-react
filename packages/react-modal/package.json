@@ -38,9 +38,6 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "dependencies": {
-    "@justfixnyc/react-aria-modal": "^5.1.3-alpha.0"
-  },
   "devDependencies": {
     "@wpmudev/react-box": "^1.2.5",
     "@wpmudev/react-builder": "^0.0.0",

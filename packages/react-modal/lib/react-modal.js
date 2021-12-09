@@ -1,5 +1,4 @@
 import React, { createElement } from "react";
-import AriaModal from "@justfixnyc/react-aria-modal";
 import useEscape from "./useEscape";
 import { createPortal } from "react-dom";
 
@@ -108,19 +107,8 @@ export const Modal = ({ modalContent, triggerContent, ...props }) => {
 		);
 	};
 
-	const AltModal = props.renderToNode ? AriaModal.renderTo(props.renderToNode) : AriaModal;
 	return (
 		<React.Fragment>
-			{/* <AltModal
-				getApplicationNode={ getApplicationNode }
-				dialogClass={ dialogClass }
-				underlayClass={ `sui-modal sui-active sui-modal-${ modalSize || 'md' } sui-wrap ${ props.underlayClass || '' }` }
-				includeDefaultStyles={ false }
-				initialFocus={ initialFocus }
-				{ ...props }
-				>
-				{ renderContent( { closeModal, slideTo } ) }
-			</AltModal> */}
 			{props?.mounted && <SUIModal />}
 			{triggerContent && triggerContent({ openModal })}
 		</React.Fragment>
