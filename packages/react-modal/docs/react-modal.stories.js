@@ -7,7 +7,6 @@ import { Modal } from "../lib/react-modal";
 import banner from "./assets/beehive-welcome.png";
 import image1x from "./assets/hustle-footer.png";
 import image2x from "./assets/hustle-footer@2x.png";
-import useEscape from "../lib/useEscape";
 
 export default {
 	title: "Containers/Modal",
@@ -334,12 +333,6 @@ const SecondModal = ( { isOpen, setIsOpen, switchModals } ) => {
 const Replace = () => {
 	const [ isFirstOpen, setIsFirstOpen ] = React.useState( false );
 	const [ isSecondOpen, setIsSecondOpen ] = React.useState( false );
-	useEscape(()=>{closeThisModal()})//Illustration of using ESC handler in a Replace Modal
-	const closeThisModal = function() {
-		setTimeout( () => {
-		setIsFirstOpen(false);setIsSecondOpen(false)
-		}, 300 );
-	};
 	const switchModals = () => {
 		setIsFirstOpen( ! isFirstOpen );
 		setIsSecondOpen( ! isSecondOpen );
