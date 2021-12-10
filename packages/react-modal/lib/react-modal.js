@@ -1,5 +1,5 @@
 import React from "react";
-import useEscape from "./useEscape";
+import AriaModal from "./components/react-aria-modal";
 
 export const Modal = ({ modalContent, triggerContent, ...props }) => {
 	const [isOpen, setIsOpen] = React.useState(false);
@@ -9,50 +9,46 @@ export const Modal = ({ modalContent, triggerContent, ...props }) => {
 	const [currentSlide, setCurrentSlide] = React.useState(props.firstSlide);
 	const [slideDirection, setSlideDirection] = React.useState(null);
 
-	useEscape(() => closeModal());
-
 	React.useEffect(() => {
 		if (!props.dialogId) {
 			throw new Error("SUI Modal instances should have a `dialogId`");
 		}
-		window.addEventListener("keydown", handleFocusTrap);
-		isOpen &&
-			document
-				?.getElementById("modal_parent")
-				.querySelectorAll(
-					'textarea, button, [href], input, select, [tabindex]:not([tabindex="-1"])'
-				)[0]
-				.focus();
-	}, [isOpen, props.dialogId]);
+	}, [props.dialogId]);
 
 	const isSlider = "object" === typeof modalContent && null !== modalContent;
 
-	const openModal = () => setIsOpen(true),
-		closeModal = () => {
-			// Close the modal with the exit animation and reset the slider.
-			setIsClosing(true);
-			setTimeout(() => {
-				setIsOpen(false);
-				setIsClosing(false);
+	const openModal = () => setIsOpen(true);
 
-				if (isSlider) {
-					setSlideDirection(null);
-					setCurrentSlide(props.firstSlide);
-				}
-			}, 300);
-		},
-		slideTo = (slide, direction = "left") => {
-			setCurrentSlide(slide);
-			setSlideDirection(direction);
-		};
+	const closeModal = () => {
+		// Close the modal with the exit animation and reset the slider.
+		setIsClosing(true);
 
-	const { getApplicationNode = () => document.getElementsByClassName("sui-wrap")[0] } = props;
+		setTimeout(() => {
+			setIsOpen(false);
+			setIsClosing(false);
+
+			if (isSlider) {
+				setSlideDirection(null);
+				setCurrentSlide(props.firstSlide);
+			}
+		}, 300);
+	};
+
+	const slideTo = (slide, direction = "left") => {
+		setCurrentSlide(slide);
+		setSlideDirection(direction);
+	};
+
+	const {
+		getApplicationNode = () => document.getElementsByClassName("sui-wrap")[0]
+	} = props;
 
 	let dialogClass = `sui-modal-content sui-content-${
 		isClosing ? "fade-out" : "fade-in"
 	} ${props.dialogClass || ""}`;
 
 	let renderContent, modalSize, initialFocus;
+
 	if (!isSlider) {
 		// Not a slider, we can just render the content.
 		renderContent = modalContent;
@@ -75,57 +71,23 @@ export const Modal = ({ modalContent, triggerContent, ...props }) => {
 		props.mounted = isOpen;
 	}
 
-	const handleFocusTrap = e => {
-		const focusableElements =
-			' textarea, button, [href], input, select, [tabindex]:not([tabindex="-1"])';
-		const modal = document?.getElementById("modal_parent"); // select the modal by it's id
-
-		const firstFocusableElement = modal?.querySelectorAll(focusableElements)[0]; // get first element to be focused inside modal
-		const focusableContent = modal?.querySelectorAll(focusableElements);
-		const lastFocusableElement = focusableContent[focusableContent?.length - 1]; // get last element to be focused inside modal
-		let isTabPressed = e?.key === "Tab" || e?.keyCode === 9;
-
-		if (!isTabPressed) {
-			return;
-		}
-
-		if (e?.shiftKey) {
-			// if shift key pressed for shift + tab combination
-			if (document?.activeElement === firstFocusableElement) {
-				lastFocusableElement?.focus();
-				e?.preventDefault();
-			}
-		} else {
-			// if tab key is pressed
-			if (document?.activeElement === lastFocusableElement) {
-				// if focused has reached to last focusable element then focus first focusable element after pressing tab
-				firstFocusableElement?.focus();
-				e?.preventDefault();
-			}
-		}
-	};
-
-	const SUIModal = () => {
-		return (
-			<div
-				id="modal_parent"
-				className={`sui-modal sui-active sui-modal-${
-					modalSize || "md"
-				} sui-wrap ${props.underlayClass || ""}`}>
-				<div
-					role="dialog"
-					id={props.dialogId}
-					className={dialogClass}
-					aria-labelledby={props.titleId}>
-					{renderContent({ closeModal, slideTo })}
-				</div>
-			</div>
-		);
-	};
+	const AltModal = props.renderToNode
+		? AriaModal.renderTo(props.renderToNode)
+		: AriaModal;
 
 	return (
 		<React.Fragment>
-			{props?.mounted && <SUIModal />}
+			<AltModal
+				getApplicationNode={getApplicationNode}
+				dialogClass={dialogClass}
+				underlayClass={`sui-modal sui-active sui-modal-${
+					modalSize || "md"
+				} sui-wrap ${props.underlayClass || ""}`}
+				includeDefaultStyle={false}
+				initialFocus={initialFocus}
+				{...props}>
+				{renderContent({ closeModal, slideTo })}
+			</AltModal>
 			{triggerContent && triggerContent({ openModal })}
 		</React.Fragment>
 	);
