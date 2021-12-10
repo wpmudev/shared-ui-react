@@ -33,25 +33,20 @@ const MyApp = () => (
 	/>
 );
 ```
-```js
-useEscape(() => closeModal()); // Illustration of this function usage
-```
 
-When you create modalContent and want something to be autoFocused on mounting the Modal, then add the 'autoFocus' property to the element itself.
 ### Props
 
 Prop Name | Type | Description
 --- | --- | ---
 dialogID* | String | ID attribute of the dialog.
-<!-- initialFocus* | String | String for `querySelector` to get the element that should be focused when the modal opens. -->
+initialFocus* | String | String for `querySelector` to get the element that should be focused when the modal opens.
 titleId | String | The id of the element that should be used as the modal's accessible title. This value is passed to the modal's aria-labelledby attribute.
 titleText | String | A string to use as the modal's accessible title. This value is passed to the modal's aria-label attribute.
 modalContent | Object or Function | Renders the content of the modal. `Object` for slider modals. `Function` for simple modals. More details on the showcase.
 triggerContent | Function | Optional function to render the element that triggers the opening of the modal.
 size | String | Modal's size. `sm`|`md`|`lg`|`xl`.
-<!-- renderToNode | HTMLElement or String | Value to be passed to the AriaModal's `renderTo` function. Controls where the modal is rendered into.-->
+renderToNode | HTMLElement or String | Value to be passed to the AriaModal's `renderTo` function. Controls where the modal is rendered into.
 firstSlide | String | For slider modals only. The `key` of the `modalContent` object that holds the first slide.
-useEscape | function | Pass it in onLoad event with closeFunction, this will handle the Close Modal Action on click of an ESC.
 
 Plus everything from [aria-modal-react](https://www.npmjs.com/package/@justfixnyc/react-aria-modal), except `includeDefaultStyles` which is set to `false`.
 
