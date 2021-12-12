@@ -71,18 +71,18 @@ export const Modal = ({ modalContent, triggerContent, ...props }) => {
 		props.mounted = isOpen;
 	}
 
-	const AltModal = props.renderToNode
-		? AriaModal.renderTo(props.renderToNode)
-		: AriaModal;
+	const wrapper = !props.renderToNode ? ".sui-wrap" : props.renderToNode;
+
+	const AltModal = wrapper ? AriaModal.renderTo(wrapper) : AriaModal;
 
 	return (
 		<React.Fragment>
 			<AltModal
 				getApplicationNode={getApplicationNode}
 				dialogClass={dialogClass}
-				underlayClass={`sui-modal sui-active sui-modal-${
-					modalSize || "md"
-				} sui-wrap ${props.underlayClass || ""}`}
+				underlayClass={`sui-modal sui-modal-${modalSize || "md"} sui-active ${
+					props.underlayClass || ""
+				}`}
 				includeDefaultStyle={false}
 				initialFocus={initialFocus}
 				{...props}>
