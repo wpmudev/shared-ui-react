@@ -75,8 +75,7 @@ simple.args = {
 	size: "md",
 	dialogId: "le-dialog-id",
 	modalContent: simpleModalContent,
-	triggerContent,
-	renderToNode: ".sui-2-10-8" // TODO: get this dynamically.
+	triggerContent
 };
 
 const renderOne = ({ closeModal, slideTo }) => {
@@ -181,8 +180,7 @@ slider.args = {
 	dialogId: "le-dialog-id",
 	modalContent: slideModalContent,
 	triggerContent,
-	firstSlide: "one",
-	renderToNode: ".sui-2-10-8" // TODO: get this dynamically.
+	firstSlide: "one"
 };
 
 const FirstModal = ({ isOpen, setIsOpen, switchModals }) => {
@@ -252,9 +250,7 @@ const FirstModal = ({ isOpen, setIsOpen, switchModals }) => {
 			size="lg"
 			dialogId="first"
 			initialFocus=".sui-form-control"
-			modalContent={replaceModalContent}
-			renderToNode=".sui-2-10-8" // TODO: get this dynamically.
-		></Modal>
+			modalContent={replaceModalContent}></Modal>
 	);
 };
 
