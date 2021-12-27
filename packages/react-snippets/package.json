@@ -26,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/creador-dev/shared-ui-react/issues"
   },
-  "homepage": "https://github.com/creador-dev/shared-ui-react#readme"
+  "homepage": "https://github.com/creador-dev/shared-ui-react#readme",
+  "dependencies": {
+    "@wordpress/compose": "^5.0.7"
+  }
 }
