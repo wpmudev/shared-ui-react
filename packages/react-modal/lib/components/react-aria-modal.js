@@ -120,26 +120,27 @@ class Modal extends React.Component {
 		const props = this.props;
 		let style = {};
 
-		if (props.includeDefaultStyles) {
-			style = {
-				position: "fixed",
-				top: 0,
-				left: 0,
-				width: "100%",
-				height: "100%",
-				zIndex: 1050,
-				overflowX: "hidden",
-				overflowY: "auto",
-				WebkitOverflowScrolling: "touch",
-				textAlign: "center"
-			};
-			if (props.underlayColor) {
-				style.background = props.underlayColor;
-			}
-			if (props.underlayClickExits) {
-				style.cursor = "pointer";
-			}
-		}
+		// @edited
+		// if (props.includeDefaultStyles) {
+		// 	style = {
+		// 		position: "fixed",
+		// 		top: 0,
+		// 		left: 0,
+		// 		width: "100%",
+		// 		height: "100%",
+		// 		zIndex: 1050,
+		// 		overflowX: "hidden",
+		// 		overflowY: "auto",
+		// 		WebkitOverflowScrolling: "touch",
+		// 		textAlign: "center"
+		// 	};
+		// 	if (props.underlayColor) {
+		// 		style.background = props.underlayColor;
+		// 	}
+		// 	if (props.underlayClickExits) {
+		// 		style.cursor = "pointer";
+		// 	}
+		// }
 
 		if (props.underlayStyle) {
 			for (const key in props.underlayStyle) {
@@ -164,31 +165,33 @@ class Modal extends React.Component {
 
 		let verticalCenterStyle = {};
 
-		if (props.includeDefaultStyles) {
-			verticalCenterStyle = {
-				display: "inline-block",
-				height: "100%",
-				verticalAlign: "middle"
-			};
-		}
+		// @edited
+		// if (props.includeDefaultStyles) {
+		// 	verticalCenterStyle = {
+		// 		display: "inline-block",
+		// 		height: "100%",
+		// 		verticalAlign: "middle"
+		// 	};
+		// }
 
 		let dialogStyle = {};
 
-		if (props.includeDefaultStyles) {
-			dialogStyle = {
-				display: "inline-block",
-				textAlign: "left",
-				top: 0,
-				maxWidth: "100%",
-				cursor: "default",
-				outline: props.focusDialog ? 0 : undefined
-			};
+		// @edited
+		// if (props.includeDefaultStyles) {
+		// 	dialogStyle = {
+		// 		display: "inline-block",
+		// 		textAlign: "left",
+		// 		top: 0,
+		// 		maxWidth: "100%",
+		// 		cursor: "default",
+		// 		outline: props.focusDialog ? 0 : undefined
+		// 	};
 
-			if (props.verticallyCenter) {
-				dialogStyle.verticalAlign = "middle";
-				dialogStyle.top = 0;
-			}
-		}
+		// 	if (props.verticallyCenter) {
+		// 		dialogStyle.verticalAlign = "middle";
+		// 		dialogStyle.top = 0;
+		// 	}
+		// }
 
 		if (props.dialogStyle) {
 			for (const key in props.dialogStyle) {
@@ -257,10 +260,12 @@ class Modal extends React.Component {
 Modal.defaultProps = {
 	underlayProps: {},
 	dialogId: "react-aria-modal-dialog",
-	underlayClickExits: true,
+	// @edited
+	// underlayClickExits: true,
 	escapeExits: true,
-	underlayColor: "rgba(0,0,0,0.5)",
-	includeDefaultStyles: true,
+	// @edited
+	// underlayColor: "rgba(0,0,0,0.5)",
+	// includeDefaultStyles: true,
 	focusTrapPaused: false,
 	scrollDisabled: true
 };
