@@ -2,24 +2,24 @@ import React from 'react';
 import { Button } from '../lib/button';
 
 export default {
-	title: 'Components/Button',
+	title: 'Components/Button/Light',
 	component: Button,
 };
 
 const Template = (args) => <Button {...args} />;
 
 export const primary = Template.bind({});
-primary.storyName = 'Loading';
+primary.storyName = 'Default';
 primary.args = {
 	label: 'Button',
-	design: 'text',
+	design: 'light',
 	color: 'gray',
 	width: 'default',
 	height: '30',
 	icon: null,
 	iconRight: false,
-	loading: true,
-	disabled: true,
+	loading: null,
+	disabled: null,
 	className: null,
 	htmlFor: null,
 	href: null,
@@ -177,12 +177,38 @@ primary.argTypes = {
 	},
 };
 
-// disabled button
-export const disabled = Template.bind({});
-disabled.storyName = 'Disabled';
-disabled.args = {
+// blue button
+export const blue = Template.bind({});
+blue.storyName = 'Blue';
+blue.args = {
 	...primary.args,
-	loading: false,
-	disabled: true,
+	color: 'blue',
 };
-disabled.argTypes = primary.argTypes;
+blue.argTypes = primary.argTypes;
+
+// red button
+export const red = Template.bind({});
+red.storyName = 'Red';
+red.args = {
+	...primary.args,
+	color: 'red',
+};
+red.argTypes = primary.argTypes;
+
+// purple button
+export const purple = Template.bind({});
+purple.storyName = 'Purple';
+purple.args = {
+	...primary.args,
+	color: 'purple',
+};
+purple.argTypes = primary.argTypes;
+
+// green button
+export const green = Template.bind({});
+green.storyName = 'Green';
+green.args = {
+	...primary.args,
+	color: 'green',
+};
+green.argTypes = primary.argTypes;

@@ -9,7 +9,7 @@ export default {
 const Template = (args) => <Button {...args} />;
 
 export const primary = Template.bind({});
-primary.storyName = 'Loading';
+primary.storyName = 'Disabled';
 primary.args = {
 	label: 'Button',
 	design: 'text',
@@ -18,7 +18,7 @@ primary.args = {
 	height: '30',
 	icon: null,
 	iconRight: false,
-	loading: true,
+	loading: false,
 	disabled: true,
 	className: null,
 	htmlFor: null,
@@ -176,13 +176,3 @@ primary.argTypes = {
 		},
 	},
 };
-
-// disabled button
-export const disabled = Template.bind({});
-disabled.storyName = 'Disabled';
-disabled.args = {
-	...primary.args,
-	loading: false,
-	disabled: true,
-};
-disabled.argTypes = primary.argTypes;
