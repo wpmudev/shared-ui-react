@@ -59,7 +59,7 @@ export const parameters = {
 
 export const decorators = [
 	( Story ) => (
-		<div className="sui-2-10-8">
+		<div className="sui-2-12-2">
 			<div className="sui-wrap">
 				<Story />
 			</div>
