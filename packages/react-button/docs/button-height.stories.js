@@ -2,17 +2,17 @@ import React from 'react';
 import { Button } from '../lib/button';
 
 export default {
-	title: 'Components/Button/Ghost Dashed',
+	title: 'Components/Button/Height',
 	component: Button,
 };
 
 const Template = (args) => <Button {...args} />;
 
 export const primary = Template.bind({});
-primary.storyName = 'Default';
+primary.storyName = '30px (Default)';
 primary.args = {
 	label: 'Button',
-	design: 'ghost-dashed',
+	design: 'solid',
 	color: 'gray',
 	width: 'default',
 	height: '30',
@@ -177,58 +177,29 @@ primary.argTypes = {
 	},
 };
 
-// blue button
-export const blue = Template.bind({});
-blue.storyName = 'Blue';
-blue.args = {
+// 50px icon button
+export const fifty = Template.bind({});
+fifty.storyName = '50px';
+fifty.args = {
 	...primary.args,
-	color: 'blue',
+	height: '50',
 };
-blue.argTypes = primary.argTypes;
+fifty.argTypes = primary.argTypes;
 
-// red button
-export const red = Template.bind({});
-red.storyName = 'Red';
-red.args = {
+// 60px icon button
+export const sixty = Template.bind({});
+sixty.storyName = '60px';
+sixty.args = {
 	...primary.args,
-	color: 'red',
+	height: '60',
 };
-red.argTypes = primary.argTypes;
+sixty.argTypes = primary.argTypes;
 
-// purple button
-export const purple = Template.bind({});
-purple.storyName = 'Purple';
-purple.args = {
+// 70px icon button
+export const seventy = Template.bind({});
+seventy.storyName = '70px';
+seventy.args = {
 	...primary.args,
-	color: 'purple',
+	height: '70',
 };
-purple.argTypes = primary.argTypes;
-
-// green button
-export const green = Template.bind({});
-green.storyName = 'Green';
-green.args = {
-	...primary.args,
-	color: 'green',
-};
-green.argTypes = primary.argTypes;
-
-// loading button
-export const loading = Template.bind({});
-loading.storyName = 'Loading';
-loading.args = {
-	...primary.args,
-	loading: true,
-	disabled: true,
-};
-loading.argTypes = primary.argTypes;
-
-// disabled button
-export const disabled = Template.bind({});
-disabled.storyName = 'Disabled';
-disabled.args = {
-	...primary.args,
-	loading: false,
-	disabled: true,
-};
-disabled.argTypes = primary.argTypes;
+seventy.argTypes = primary.argTypes;

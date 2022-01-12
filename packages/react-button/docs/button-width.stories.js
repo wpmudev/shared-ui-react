@@ -2,24 +2,24 @@ import React from 'react';
 import { Button } from '../lib/button';
 
 export default {
-	title: 'Components/Button',
+	title: 'Components/Button/Width',
 	component: Button,
 };
 
 const Template = (args) => <Button {...args} />;
 
 export const primary = Template.bind({});
-primary.storyName = 'Disabled';
+primary.storyName = 'Default';
 primary.args = {
 	label: 'Button',
-	design: 'text',
+	design: 'solid',
 	color: 'gray',
 	width: 'default',
 	height: '30',
 	icon: null,
-	iconRight: false,
-	loading: false,
-	disabled: true,
+	iconRight: true,
+	loading: null,
+	disabled: null,
 	className: null,
 	htmlFor: null,
 	href: null,
@@ -176,3 +176,12 @@ primary.argTypes = {
 		},
 	},
 };
+
+// full width button
+export const fullWidth = Template.bind({});
+fullWidth.storyName = 'Full';
+fullWidth.args = {
+	...primary.args,
+	width: 'full',
+};
+fullWidth.argTypes = primary.argTypes;

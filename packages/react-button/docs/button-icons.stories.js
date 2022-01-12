@@ -2,24 +2,24 @@ import React from 'react';
 import { Button } from '../lib/button';
 
 export default {
-	title: 'Components/Button',
+	title: 'Components/Button/Icon',
 	component: Button,
 };
 
 const Template = (args) => <Button {...args} />;
 
 export const primary = Template.bind({});
-primary.storyName = 'Loading';
+primary.storyName = 'Trailing Icon';
 primary.args = {
 	label: 'Button',
-	design: 'text',
+	design: 'solid',
 	color: 'gray',
 	width: 'default',
 	height: '30',
-	icon: null,
-	iconRight: false,
-	loading: true,
-	disabled: true,
+	icon: 'wpmudev-logo',
+	iconRight: true,
+	loading: null,
+	disabled: null,
 	className: null,
 	htmlFor: null,
 	href: null,
@@ -176,6 +176,25 @@ primary.argTypes = {
 		},
 	},
 };
+
+// left icon button
+export const leftIcon = Template.bind({});
+leftIcon.storyName = 'Leading Icon';
+leftIcon.args = {
+	...primary.args,
+	iconRight: false,
+};
+leftIcon.argTypes = primary.argTypes;
+
+// loading button
+export const loading = Template.bind({});
+loading.storyName = 'Loading';
+loading.args = {
+	...primary.args,
+	loading: true,
+	disabled: true,
+};
+loading.argTypes = primary.argTypes;
 
 // disabled button
 export const disabled = Template.bind({});

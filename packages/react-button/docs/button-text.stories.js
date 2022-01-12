@@ -212,3 +212,23 @@ green.args = {
 	color: 'green',
 };
 green.argTypes = primary.argTypes;
+
+// loading button
+export const loading = Template.bind({});
+loading.storyName = 'Loading';
+loading.args = {
+	...primary.args,
+	loading: true,
+	disabled: true,
+};
+loading.argTypes = primary.argTypes;
+
+// disabled button
+export const disabled = Template.bind({});
+disabled.storyName = 'Disabled';
+disabled.args = {
+	...primary.args,
+	loading: false,
+	disabled: true,
+};
+disabled.argTypes = primary.argTypes;

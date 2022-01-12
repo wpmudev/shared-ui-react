@@ -31,9 +31,9 @@ const Button = ({
 		</React.Fragment>
 	);
 
-	className = `sui-button${iconRight ? ' sui-button-icon-right' : ''}${
-		className ? ' ' + className : ''
-	}`;
+	className = `sui-button${
+		icon ? (iconRight ? ' sui-button--icon-trailing' : ' sui-button--icon-leading') : ''
+	}${className ? ' ' + className : ''}`;
 
 	// Set button style.
 	switch (design) {
@@ -102,6 +102,7 @@ const Button = ({
 	// Set loading class.
 	if (loading) {
 		className += ' sui-button--loading';
+		props.disabled = true;
 	}
 
 	let htmlTag = 'button';
@@ -115,7 +116,7 @@ const Button = ({
 		htmlTag,
 		{
 			className: className,
-			disabled: props.disabled || loading,
+			disabled: props.disabled,
 			...props,
 		},
 		loading ? loader : content,
