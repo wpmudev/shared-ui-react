@@ -26,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/wpmudev/shared-ui-react/issues"
   },
-  "homepage": "https://github.com/wpmudev/shared-ui-react#readme"
+  "homepage": "https://github.com/wpmudev/shared-ui-react#readme",
+  "dependencies": {
+    "react-datepicker": "^4.6.0"
+  }
 }
