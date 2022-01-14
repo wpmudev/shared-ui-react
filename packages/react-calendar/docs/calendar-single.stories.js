@@ -14,6 +14,12 @@ export default {
 				},
 			},
 		},
+		error: {
+			description: 'Error message',
+			control: {
+				type: 'boolean',
+			},
+		},
 	},
 };
 
