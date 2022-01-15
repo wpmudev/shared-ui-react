@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
-
 import styled from 'styled-components';
 // react-datepicker css
 import 'react-datepicker/dist/react-datepicker.css';
@@ -314,6 +313,16 @@ const DateWrapper = styled.div`
 const Link = styled.a`
 	&.ui-datepicker-prev {
 		left: 0;
+		&:before {
+			content: 'Ó';
+		}
+	}
+
+	&.ui-datepicker-next {
+		right: 0;
+		&:before {
+			content: '˜';
+		}
 	}
 
 	&.ui-datepicker-next:before,
@@ -331,18 +340,6 @@ const Link = styled.a`
 		color: #888;
 		opacity: 1;
 		-webkit-font-smoothing: antialiased;
-	}
-
-	&.ui-datepicker-prev:before {
-		content: 'Ó';
-	}
-
-	&.ui-datepicker-next {
-		right: 0;
-	}
-
-	&.ui-datepicker-next:before {
-		content: '˜';
 	}
 `;
 
@@ -517,11 +514,12 @@ const rangeDatepicker = ({
 	);
 };
 
-export const Calendar = ({ type, error }) => {
+export const Calendar = ({ type, errorStatus }) => {
 	const [startDate, setStartDate] = useState(type === 'single' ? null : new Date());
 
 	var month = new Date();
 	month.setDate(month.getDate() + 29);
+
 	const [endDate, setEndDate] = useState(month);
 
 	const [rangeDate, setRangeDate] = useState('custom');
@@ -535,7 +533,7 @@ export const Calendar = ({ type, error }) => {
 
 	return (
 		<ParentWrapper>
-			<div className={error ? 'sui-form-field sui-form-field-error' : 'sui-form-field'}>
+			<div className={`sui-form-field${errorStatus ? ' sui-form-field-error' : ''}`}>
 				<label htmlFor="date-simple-default" id="date-simple-default--label" className="sui-label">
 					Expiration Date
 				</label>
@@ -555,7 +553,7 @@ export const Calendar = ({ type, error }) => {
 					<span className="sui-icon-calendar" aria-hidden="true"></span>
 				</div>
 
-				{error ? (
+				{errorStatus ? (
 					<span id="date-simple-default--error" className="sui-error-message">
 						Expiration date is empty or date inserted is not valid.
 					</span>

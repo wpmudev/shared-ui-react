@@ -14,7 +14,7 @@ export default {
 				},
 			},
 		},
-		error: {
+		errorStatus: {
 			description: 'Error message',
 			control: {
 				type: 'boolean',
@@ -37,4 +37,11 @@ export const secondary = Template.bind({});
 secondary.storyName = 'Range';
 secondary.args = {
 	type: 'range',
+};
+
+export const error = Template.bind({});
+error.storyName = 'Error';
+error.args = {
+	type: 'range',
+	errorStatus: true,
 };
