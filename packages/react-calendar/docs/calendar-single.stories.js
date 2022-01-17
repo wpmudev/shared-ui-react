@@ -38,10 +38,3 @@ secondary.storyName = 'Range';
 secondary.args = {
 	type: 'range',
 };
-
-export const error = Template.bind({});
-error.storyName = 'Error';
-error.args = {
-	type: 'range',
-	errorStatus: true,
-};
