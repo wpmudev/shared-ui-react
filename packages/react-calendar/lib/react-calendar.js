@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import 'react-datepicker/dist/react-datepicker.css';
 
 const ParentWrapper = styled.div`
-	.sui-date .react-datepicker__input-container .sui-form-control.sui-date--field {
+	.sui-date .react-datepicker__input-container .sui-form-control.sui-date-field {
 		padding-left: 14px;
 	}
 `;
@@ -361,7 +361,7 @@ const singleDatepicker = ({ startDate, setStartDate }) => {
 				startDate={startDate}
 				dateFormat="MMMM d, yyyy"
 				placeholderText="Pick a date"
-				className="sui-form-control sui-date--field"
+				className="sui-form-control sui-date-field"
 				calendarClassName="sui__calendar"
 			/>
 		</DateWrapper>
@@ -489,7 +489,7 @@ const rangeDatepicker = ({
 				selected={startDate}
 				onChange={onChange}
 				dateFormat="MMMM d, yyyy"
-				className="sui-form-control sui-date--field"
+				className="sui-form-control sui-date-field"
 				startDate={startDate}
 				endDate={endDate}
 				monthsShown={2}
