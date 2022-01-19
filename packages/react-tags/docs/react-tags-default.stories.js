@@ -4,6 +4,11 @@ import { Tags } from '../lib/react-tags';
 export default {
 	title: 'Components/Tags/Default',
 	component: Tags,
+	parameters: {
+		backgrounds: {
+			default: 'White',
+		},
+	},
 	args: {
 		text: 'Primary',
 		color: 'default',

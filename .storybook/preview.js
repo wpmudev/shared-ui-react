@@ -49,7 +49,8 @@ export const parameters = {
   backgrounds: {
 	  default: 'WordPress',
 	  values: [
-		  { name: 'WordPress', value: '#f1f1f1' }
+		  { name: 'WordPress', value: '#f1f1f1' },
+		  { name: 'White', value: '#fff' },
 	  ]
   },
   viewport: {
