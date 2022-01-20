@@ -29,5 +29,10 @@
   "homepage": "https://github.com/wpmudev/shared-ui-react#readme",
   "devDependencies": {
     "@wpmudev/react-button": "^1.0.8"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
+    "@mui/material": "^5.3.0"
   }
 }

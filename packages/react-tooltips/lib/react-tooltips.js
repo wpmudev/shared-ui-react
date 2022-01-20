@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from '@wpmudev/react-button';
+import { Tooltip } from '@mui/material';
 
 export default function ToolTips({ text, tooltipText, position }) {
 	let classes = 'sui-tooltip ';
@@ -19,5 +20,12 @@ export default function ToolTips({ text, tooltipText, position }) {
 		default:
 			break;
 	}
-	return <Button label={text} className={classes} data-tooltip={tooltipText} />;
+
+	return (
+		<Tooltip title={tooltipText} placement={position} classes={'sui-tooltip'} arrow>
+			<span>
+				<Button label={text} />
+			</span>
+		</Tooltip>
+	);
 }

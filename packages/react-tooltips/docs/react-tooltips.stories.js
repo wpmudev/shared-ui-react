@@ -6,8 +6,8 @@ export default {
 	component: ToolTips,
 	args: {
 		text: 'Element content',
-		tooltipText: 'Tooltip content goes here',
-		position: 'default',
+		tooltipText: 'Example tooltip content goes here',
+		position: 'top',
 	},
 	argTypes: {
 		text: {
@@ -34,13 +34,13 @@ export default {
 			control: {
 				type: 'select',
 				options: {
-					Default: 'default',
+					Default: 'top',
 					Top: 'top',
-					'Top Left': 'top-left',
-					'Top Right': 'top-right',
+					'Top Left': 'top-start',
+					'Top Right': 'top-end',
 					Bottom: 'bottom',
-					'Bottom Left': 'bottom-left',
-					'Bottom Right': 'bottom-right',
+					'Bottom Left': 'bottom-start',
+					'Bottom Right': 'bottom-end',
 					Left: 'left',
 					Right: 'right',
 				},
@@ -55,3 +55,9 @@ const Template = (args) => {
 
 export const primary = Template.bind({});
 primary.storyName = 'Default';
+
+export const topLeft = Template.bind({});
+topLeft.storyName = 'Top Left';
+topLeft.args = {
+	position: 'top-start',
+};
