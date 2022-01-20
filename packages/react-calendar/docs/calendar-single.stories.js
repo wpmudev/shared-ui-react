@@ -3,6 +3,9 @@ import { Calendar } from '../lib/react-calendar';
 
 export default {
 	title: 'Components/Calendar',
+	args: {
+		type: 'single',
+	},
 	argTypes: {
 		type: {
 			description: 'Select the type of calendar',
@@ -29,9 +32,6 @@ const Template = ({ ...args }) => {
 
 export const primary = Template.bind({});
 primary.storyName = 'Default';
-primary.args = {
-	type: 'single',
-};
 
 export const secondary = Template.bind({});
 secondary.storyName = 'Range';
