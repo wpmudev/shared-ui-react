@@ -18,21 +18,38 @@ export default {
 		ghost: false,
 	},
 	argTypes: {
+		text: {
+			description: 'The text of tag.',
+			control: {
+				type: 'text',
+			},
+		},
 		color: {
+			description: 'The color of tag.',
 			control: {
 				type: 'select',
 				options: ['default', 'red', 'yellow', 'green', 'blue', 'purple', 'disabled'],
 			},
 		},
 		size: {
+			description: 'The size of tag.',
 			control: {
 				type: 'select',
 				options: { default: 'default', small: 'sm', 'mini pro': 'pro', 'mini beta': 'beta' },
 			},
 		},
-		truncated: { control: { type: 'boolean' } },
-		uppercase: { control: { type: 'boolean' } },
-		ghost: { control: { type: 'boolean' } },
+		truncated: {
+			description: 'The text of tag will be truncated or not.',
+			control: { type: 'boolean' },
+		},
+		uppercase: {
+			description: 'The text of tag will be uppercase or not.',
+			control: { type: 'boolean' },
+		},
+		ghost: {
+			description: 'The tag background will be transparent.',
+			control: { type: 'boolean' },
+		},
 	},
 };
 
