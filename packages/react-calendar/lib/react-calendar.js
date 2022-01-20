@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
+import { Input } from '@wpmudev/react-input';
 import DatePicker from 'react-datepicker';
 import styled from 'styled-components';
 // react-datepicker css
 import 'react-datepicker/dist/react-datepicker.css';
 
 const ParentWrapper = styled.div`
-	.sui-date .react-datepicker__input-container .sui-form-control.sui-date-field {
-		padding-left: 14px;
+	.sui-date .react-datepicker__input-container .sui-form-control {
+		padding-left: 14px !important;
 	}
 `;
 
@@ -333,6 +334,18 @@ const Link = styled.a`
 	}
 `;
 
+const DatepickerInput = ({ onChange, placeholder, value, isSecure, id, onClick, ariaLabel }) => (
+	<Input
+		onChange={onChange}
+		placeholder={placeholder}
+		value={value}
+		isSecure={isSecure}
+		id={id}
+		onClick={onClick}
+		aria-label={ariaLabel}
+	/>
+);
+
 const singleDatepicker = ({ startDate, setStartDate }) => {
 	return (
 		<DateWrapper>
@@ -362,10 +375,11 @@ const singleDatepicker = ({ startDate, setStartDate }) => {
 				)}
 				selected={startDate}
 				onChange={(date) => setStartDate(date)}
+				id="singleDate"
+				customInput={<DatepickerInput ariaLabel="Date Picker" />}
 				startDate={startDate}
 				dateFormat="MMMM d, yyyy"
 				placeholderText="Pick a date"
-				className="sui-form-control sui-date-field"
 				calendarClassName="sui__calendar"
 			/>
 		</DateWrapper>
@@ -500,8 +514,9 @@ const rangeDatepicker = ({
 				fixedHeight
 				selected={startDate}
 				onChange={onChange}
+				id="rangeDate"
+				customInput={<DatepickerInput ariaLabel="Range Date Picker" />}
 				dateFormat="MMMM d, yyyy"
-				className="sui-form-control sui-date-field"
 				startDate={startDate}
 				endDate={endDate}
 				monthsShown={2}
