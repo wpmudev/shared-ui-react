@@ -5,6 +5,8 @@ export default {
 	title: 'Components/Calendar',
 	args: {
 		type: 'single',
+		arialabelledby: 'unique-id--label',
+		ariadescribedby: 'unique-id--message unique-id--error',
 	},
 	argTypes: {
 		type: {
@@ -21,6 +23,18 @@ export default {
 			description: 'Error message',
 			control: {
 				type: 'boolean',
+			},
+		},
+		arialabelledby: {
+			description: 'Aria label for the calendar',
+			control: {
+				type: 'text',
+			},
+		},
+		ariadescribedby: {
+			description: 'Aria label for the calendar',
+			control: {
+				type: 'text',
 			},
 		},
 	},

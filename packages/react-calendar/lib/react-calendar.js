@@ -334,7 +334,16 @@ const Link = styled.a`
 	}
 `;
 
-const DatepickerInput = ({ onChange, placeholder, value, isSecure, id, onClick, ariaLabel }) => (
+const DatepickerInput = ({
+	onChange,
+	placeholder,
+	value,
+	isSecure,
+	id,
+	onClick,
+	arialabelledby,
+	ariadescribedby,
+}) => (
 	<Input
 		onChange={onChange}
 		placeholder={placeholder}
@@ -342,11 +351,12 @@ const DatepickerInput = ({ onChange, placeholder, value, isSecure, id, onClick, 
 		isSecure={isSecure}
 		id={id}
 		onClick={onClick}
-		aria-label={ariaLabel}
+		aria-labelledby={arialabelledby}
+		aria-describedby={ariadescribedby}
 	/>
 );
 
-const singleDatepicker = ({ startDate, setStartDate }) => {
+const singleDatepicker = ({ startDate, setStartDate, arialabelledby, ariadescribedby }) => {
 	return (
 		<DateWrapper>
 			<DatePicker
@@ -376,7 +386,9 @@ const singleDatepicker = ({ startDate, setStartDate }) => {
 				selected={startDate}
 				onChange={(date) => setStartDate(date)}
 				id="singleDate"
-				customInput={<DatepickerInput ariaLabel="Date Picker" />}
+				customInput={
+					<DatepickerInput arialabelledby={arialabelledby} ariadescribedby={ariadescribedby} />
+				}
 				startDate={startDate}
 				dateFormat="MMMM d, yyyy"
 				placeholderText="Pick a date"
@@ -394,6 +406,8 @@ const rangeDatepicker = ({
 	endDate,
 	rangeDate,
 	setRangeDate,
+	arialabelledby,
+	ariadescribedby,
 }) => {
 	return (
 		<DateWrapper>
@@ -515,7 +529,9 @@ const rangeDatepicker = ({
 				selected={startDate}
 				onChange={onChange}
 				id="rangeDate"
-				customInput={<DatepickerInput ariaLabel="Range Date Picker" />}
+				customInput={
+					<DatepickerInput arialabelledby={arialabelledby} ariadescribedby={ariadescribedby} />
+				}
 				dateFormat="MMMM d, yyyy"
 				startDate={startDate}
 				endDate={endDate}
@@ -526,7 +542,7 @@ const rangeDatepicker = ({
 	);
 };
 
-export const Calendar = ({ type, errorStatus }) => {
+export const Calendar = ({ type, errorStatus, arialabelledby, ariadescribedby }) => {
 	const [startDate, setStartDate] = useState(type === 'single' ? null : new Date());
 
 	var month = new Date();
@@ -552,7 +568,7 @@ export const Calendar = ({ type, errorStatus }) => {
 
 				<div className="sui-date">
 					{type === 'single'
-						? singleDatepicker({ startDate, setStartDate })
+						? singleDatepicker({ startDate, setStartDate, arialabelledby, ariadescribedby })
 						: rangeDatepicker({
 								startDate,
 								setStartDate,
@@ -561,6 +577,8 @@ export const Calendar = ({ type, errorStatus }) => {
 								endDate,
 								rangeDate,
 								setRangeDate,
+								arialabelledby,
+								ariadescribedby,
 						  })}
 					<span className="sui-icon-calendar" aria-hidden="true"></span>
 				</div>
