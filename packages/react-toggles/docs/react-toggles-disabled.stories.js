@@ -3,11 +3,11 @@ import { Box, BoxBody } from '@wpmudev/react-box';
 import { Toggles } from '../lib/react-toggles';
 
 export default {
-	title: 'Components/Toggles/Active',
+	title: 'Components/Toggles/Disabled',
 	component: Toggles,
 	args: {
 		toggleState: true,
-		disabled: false,
+		disabled: true,
 		htmlFor: 'unique-id',
 		arialabelldby: 'unique-id-label',
 		ariadescribedby: 'unique-id-description',
@@ -90,10 +90,11 @@ const Template = (args) => (
 );
 
 export const primary = Template.bind({});
-primary.storyName = 'On - Default';
+primary.storyName = 'On - Disabled';
 
-export const label = Template.bind({});
-label.storyName = 'Off - Default';
-label.args = {
+export const disabled = Template.bind({});
+disabled.storyName = 'Off - Disabled';
+disabled.args = {
 	toggleState: false,
+	disabled: true,
 };

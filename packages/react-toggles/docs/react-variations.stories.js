@@ -3,7 +3,7 @@ import { Box, BoxBody } from '@wpmudev/react-box';
 import { Toggles } from '../lib/react-toggles';
 
 export default {
-	title: 'Components/Toggles/Active',
+	title: 'Components/Toggles/Variations',
 	component: Toggles,
 	args: {
 		toggleState: true,
@@ -12,7 +12,7 @@ export default {
 		arialabelldby: 'unique-id-label',
 		ariadescribedby: 'unique-id-description',
 		label: 'Toggle Label',
-		description: 'Toggle description goes here.',
+		description: '',
 		id: 'unique-id',
 		subContent: false,
 		labelHidden: false,
@@ -90,10 +90,20 @@ const Template = (args) => (
 );
 
 export const primary = Template.bind({});
-primary.storyName = 'On - Default';
+primary.storyName = 'Label - Default';
 
 export const label = Template.bind({});
-label.storyName = 'Off - Default';
+label.storyName = 'Label - Hidden';
 label.args = {
 	toggleState: false,
+	labelHidden: true,
+	description: '',
+};
+
+export const description = Template.bind({});
+description.storyName = 'Description - Default';
+description.args = {
+	toggleState: false,
+	labelHidden: false,
+	description: 'Toggle description goes here.',
 };
