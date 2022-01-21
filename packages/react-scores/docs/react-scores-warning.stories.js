@@ -13,7 +13,10 @@ export default {
 		score: {
 			description: 'The score value',
 			control: {
-				type: 'number',
+				type: 'range',
+				min: 0,
+				max: 100,
+				step: 1,
 			},
 		},
 		type: {
