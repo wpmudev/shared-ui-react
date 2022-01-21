@@ -1,7 +1,5 @@
-'use strict';
+import React from 'react';
 
-module.exports = reactFieldList;
-
-function reactFieldList() {
-    // TODO
+export default function FieldList({ text }) {
+	return <div>{text}</div>;
 }
