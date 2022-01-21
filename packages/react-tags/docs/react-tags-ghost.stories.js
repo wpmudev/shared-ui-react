@@ -1,14 +1,10 @@
 import React from 'react';
+import { Box, BoxBody } from '@wpmudev/react-box';
 import { Tags } from '../lib/react-tags';
 
 export default {
 	title: 'Components/Tags/Ghost',
 	component: Tags,
-	parameters: {
-		backgrounds: {
-			default: 'White',
-		},
-	},
 	args: {
 		text: 'Primary',
 		color: 'red',
@@ -54,7 +50,13 @@ export default {
 };
 
 const Template = ({ ...props }) => {
-	return <Tags {...props} />;
+	return (
+		<Box>
+			<BoxBody>
+				<Tags {...props} />
+			</BoxBody>
+		</Box>
+	);
 };
 
 export const primary = Template.bind({});
