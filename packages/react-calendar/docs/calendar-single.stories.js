@@ -1,4 +1,5 @@
 import React from 'react';
+import { Box, BoxBody } from '@wpmudev/react-box';
 import { Calendar } from '../lib/react-calendar';
 
 export default {
@@ -41,7 +42,13 @@ export default {
 };
 
 const Template = ({ ...args }) => {
-	return <Calendar {...args} />;
+	return (
+		<Box>
+			<BoxBody>
+				<Calendar {...args} />
+			</BoxBody>
+		</Box>
+	);
 };
 
 export const primary = Template.bind({});
