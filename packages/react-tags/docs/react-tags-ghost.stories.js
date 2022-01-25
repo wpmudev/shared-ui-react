@@ -6,6 +6,7 @@ export default {
 	title: 'Components/Tags/Ghost',
 	component: Tags,
 	args: {
+		type: 'text',
 		text: 'Primary',
 		color: 'red',
 		size: 'default',
@@ -14,6 +15,13 @@ export default {
 		ghost: true,
 	},
 	argTypes: {
+		type: {
+			description: 'The type of the tag.',
+			control: {
+				type: 'select',
+				options: ['button', 'link', 'text'],
+			},
+		},
 		text: {
 			description: 'The text of tag.',
 			control: {

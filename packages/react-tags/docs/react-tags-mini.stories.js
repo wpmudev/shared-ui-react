@@ -6,6 +6,7 @@ export default {
 	title: 'Components/Tags/Mini',
 	component: Tags,
 	args: {
+		type: 'text',
 		text: 'Pro',
 		color: 'default',
 		size: 'pro',
@@ -14,6 +15,13 @@ export default {
 		ghost: false,
 	},
 	argTypes: {
+		type: {
+			description: 'The type of the tag.',
+			control: {
+				type: 'select',
+				options: ['button', 'link', 'text'],
+			},
+		},
 		text: {
 			description: 'The text of tag.',
 			control: {

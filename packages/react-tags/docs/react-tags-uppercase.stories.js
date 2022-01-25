@@ -6,6 +6,7 @@ export default {
 	title: 'Components/Tags/Uppercase',
 	component: Tags,
 	args: {
+		type: 'text',
 		text: 'Blue',
 		color: 'blue',
 		size: 'default',
@@ -14,6 +15,13 @@ export default {
 		ghost: false,
 	},
 	argTypes: {
+		type: {
+			description: 'The type of the tag.',
+			control: {
+				type: 'select',
+				options: ['button', 'link', 'text'],
+			},
+		},
 		text: {
 			description: 'The text of tag.',
 			control: {
