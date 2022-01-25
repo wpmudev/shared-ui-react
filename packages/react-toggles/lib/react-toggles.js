@@ -3,18 +3,19 @@ import React, { useState } from 'react';
 export const Toggles = ({
 	toggleState,
 	disabled,
-	arialabelledby,
-	ariadescribedby,
+	labelId,
+	descriptionId,
 	label,
 	description,
 	id,
-	subContent,
+	additionalSettingsId,
+	additionalSettings,
 	labelHidden,
 }) => {
-	const [state, setState] = useState(toggleState);
+	const [checkedState, setCheckedState] = useState(toggleState);
 
 	const changeState = () => {
-		setState(!state);
+		setCheckedState(!checkedState);
 	};
 
 	return (
@@ -23,18 +24,19 @@ export const Toggles = ({
 				<input
 					type="checkbox"
 					id={id}
-					aria-labelledby={arialabelledby}
-					aria-describedby={ariadescribedby}
+					aria-labelledby={!labelHidden ? labelId : null}
+					aria-describedby={description ? descriptionId : null}
+					aria-controls={additionalSettings ? additionalSettingsId : null}
 					disabled={disabled}
 					onClick={changeState}
-					defaultChecked={state}
+					defaultChecked={checkedState}
 				/>
 
 				<span className="sui-toggle-slider" aria-hidden="true"></span>
 
 				{label && (
 					<span
-						id={arialabelledby}
+						id={labelId}
 						className={!labelHidden ? 'sui-toggle-label' : 'sui-screen-reader-text'}
 					>
 						{label}
@@ -47,13 +49,13 @@ export const Toggles = ({
 					</span>
 				)}
 			</label>
-			{subContent && (
+			{additionalSettings && (
 				<div
 					tab-index="0"
-					id="unique-id-content"
+					id={additionalSettingsId}
 					className="sui-toggle-content"
 					aria-label="A brief description"
-					style={{ display: state ? 'block' : 'none' }}
+					style={{ display: checkedState ? 'block' : 'none' }}
 				>
 					<div className="sui-row">
 						<div className="sui-col-md-6">

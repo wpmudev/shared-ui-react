@@ -8,72 +8,72 @@ export default {
 	args: {
 		toggleState: true,
 		disabled: true,
-		htmlFor: 'unique-id',
-		arialabelldby: 'unique-id-label',
-		ariadescribedby: 'unique-id-description',
+		labelId: 'unique-id-label',
+		descriptionId: 'unique-id-description',
 		label: 'Toggle Label',
 		description: 'Toggle description goes here.',
 		id: 'unique-id',
-		subContent: false,
+		additionalSettingsId: 'unique-id-additional-settings',
+		additionalSettings: false,
 		labelHidden: false,
 	},
 	argTypes: {
+		id: {
+			description: 'This will be unique id of the toggle.',
+			control: {
+				type: 'text',
+			},
+		},
 		toggleState: {
-			description: 'Toggle state',
+			description: 'The toggle will be on/off.',
 			control: {
 				type: 'boolean',
 			},
 		},
 		disabled: {
-			description: 'Toggle disabled',
+			description: 'The toggle will be disabled.',
 			control: {
 				type: 'boolean',
 			},
 		},
-		htmlFor: {
-			description: 'HTML for',
-			control: {
-				type: 'text',
-			},
-		},
-		arialabelldby: {
-			description: 'ARIA label by',
-			control: {
-				type: 'text',
-			},
-		},
-		ariadescribedby: {
-			description: 'ARIA described by',
+		labelId: {
+			description: 'This will be unique label id of toggle.',
 			control: {
 				type: 'text',
 			},
 		},
 		label: {
-			description: 'Label',
+			description: 'This will be label of the toggle.',
+			control: {
+				type: 'text',
+			},
+		},
+		labelHidden: {
+			description: 'The label will be visually hidden but available for screen readers.',
+			control: {
+				type: 'boolean',
+			},
+		},
+		descriptionId: {
+			description: 'This will be the unique id of the toggle description.',
 			control: {
 				type: 'text',
 			},
 		},
 		description: {
-			description: 'Description',
+			description: 'This will be description of the toggle.',
 			control: {
 				type: 'text',
 			},
 		},
-		id: {
-			description: 'ID',
+		additionalSettingsId: {
+			description: 'This will be the id of the additional settings.',
 			control: {
 				type: 'text',
 			},
 		},
-		subContent: {
-			description: 'Sub content',
-			control: {
-				type: 'boolean',
-			},
-		},
-		labelHidden: {
-			description: 'The label is visually hidden but available for screen readers.',
+		additionalSettings: {
+			description: 'This will show additional settings when turned on.',
 			control: {
 				type: 'boolean',
 			},
