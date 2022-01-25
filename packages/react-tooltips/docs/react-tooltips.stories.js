@@ -5,45 +5,44 @@ export default {
 	title: 'Components/Tooltips',
 	component: ToolTips,
 	args: {
-		text: 'Element content',
+		buttonText: 'Element content',
 		tooltipText: 'Example tooltip content goes here',
 		position: 'top',
+		id: 'tooltip-id',
 	},
 	argTypes: {
-		text: {
-			type: {
-				name: 'text',
-				required: true,
-			},
-			description: '',
+		buttonText: {
+			description: 'This will be the text of the button.',
 			control: {
 				type: 'text',
 			},
 		},
 		tooltipText: {
-			type: {
-				name: 'text',
-				required: true,
-			},
-			description: '',
+			description: 'This will be the content of the tooltip',
 			control: {
 				type: 'text',
 			},
 		},
 		position: {
+			description: 'This will be the position of the tooltip',
 			control: {
 				type: 'select',
 				options: {
-					Default: 'top',
 					Top: 'top',
-					'Top Left': 'top-start',
-					'Top Right': 'top-end',
+					'Top Left': 'top-left',
+					'Top Right': 'top-right',
 					Bottom: 'bottom',
-					'Bottom Left': 'bottom-start',
-					'Bottom Right': 'bottom-end',
+					'Bottom Left': 'bottom-left',
+					'Bottom Right': 'bottom-right',
 					Left: 'left',
 					Right: 'right',
 				},
+			},
+		},
+		id: {
+			description: 'This will be id and aria describedby for tooltip',
+			control: {
+				type: 'text',
 			},
 		},
 	},
@@ -59,5 +58,5 @@ primary.storyName = 'Default';
 export const topLeft = Template.bind({});
 topLeft.storyName = 'Top Left';
 topLeft.args = {
-	position: 'top-start',
+	position: 'top-left',
 };

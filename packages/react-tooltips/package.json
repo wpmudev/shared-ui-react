@@ -31,8 +31,6 @@
     "@wpmudev/react-button": "^1.0.8"
   },
   "dependencies": {
-    "@emotion/react": "^11.7.1",
-    "@emotion/styled": "^11.6.0",
-    "@mui/material": "^5.3.0"
+    "styled-components": "^5.3.3"
   }
 }
