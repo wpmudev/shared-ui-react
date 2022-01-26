@@ -1,6 +1,5 @@
 import React from "react";
 import { Modal } from "../lib/react-modal";
-// import { BoxHeader, BoxBody, BoxFooter } from "@wpmudev/react-box";
 import { Button } from "@wpmudev/react-button";
 import { ButtonIcon } from "@wpmudev/react-button-icon";
 import image1x from "./images/hustle-footer.png";
