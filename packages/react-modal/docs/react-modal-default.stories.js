@@ -5,7 +5,7 @@ import { Button } from "@wpmudev/react-button";
 import { ButtonIcon } from "@wpmudev/react-button-icon";
 
 export default {
-	title: "Containers/Modal/Simple",
+	title: "Containers/Modal/Default",
 	component: Modal
 };
 
