@@ -1,6 +1,6 @@
 import React from "react";
 import { Modal } from "../lib/react-modal";
-import { Box, BoxHeader, BoxBody, BoxFooter } from "@wpmudev/react-box";
+import { BoxHeader, BoxBody, BoxFooter } from "@wpmudev/react-box";
 import { Button } from "@wpmudev/react-button";
 import { ButtonIcon } from "@wpmudev/react-button-icon";
 
@@ -14,8 +14,8 @@ const Template = args => <Modal {...args} />;
 const sampleOneContent = ({ closeModal }) => {
 	return (
 		<React.Fragment>
-			<Box>
-				<BoxHeader>
+			<div className="sui-box">
+				<BoxHeader title={"Get Started"}>
 					<Button label="Skip" design="ghost" onClick={closeModal} />
 				</BoxHeader>
 				<BoxBody>
@@ -24,8 +24,16 @@ const sampleOneContent = ({ closeModal }) => {
 							"Welcome to Hummingbird, the hottest Performance plugin for WordPress! We recommend running a quick performance test before you start tweaking things. Alternatively you can skip this step if you'd prefer start customizing."
 						}
 					</p>
+
+					<div className="sui-border-frame">
+						<p className="sui-description">
+							{
+								"This is only a performance test. Once you know what to fix you can get started in the next steps."
+							}
+						</p>
+					</div>
 				</BoxBody>
-			</Box>
+			</div>
 		</React.Fragment>
 	);
 };
@@ -33,7 +41,7 @@ const sampleOneContent = ({ closeModal }) => {
 const sampleTwoContent = ({ closeModal }) => {
 	return (
 		<React.Fragment>
-			<Box>
+			<div className="sui-box">
 				<div className="sui-box-header sui-flatten sui-content-center sui-spacing-top--60">
 					<ButtonIcon
 						icon="close"
@@ -43,7 +51,7 @@ const sampleTwoContent = ({ closeModal }) => {
 						onClick={closeModal}
 					/>
 
-					<h3 id="sample-modal__title" className="sui-box-title">
+					<h3 id="sample-modal__title" className="sui-box-title sui-lg">
 						Import Pop-up
 					</h3>
 
@@ -86,7 +94,7 @@ const sampleTwoContent = ({ closeModal }) => {
 
 					<Button label="Cancel" onClick={closeModal} />
 				</BoxFooter>
-			</Box>
+			</div>
 		</React.Fragment>
 	);
 };
@@ -100,7 +108,7 @@ sampleOne.storyName = "Sample 1";
 sampleOne.args = {
 	dialogId: "sample-modal",
 	titleId: "sample-modal__title",
-	size: "md",
+	size: "lg",
 	modalContent: sampleOneContent,
 	triggerContent
 };
