@@ -6,7 +6,7 @@ import { Input } from "@wpmudev/react-input";
 import banner from "./images/beehive-welcome.png";
 
 export default {
-	title: "Containers/Modal/Switch",
+	title: "Containers/Modal/Replace",
 	component: Modal
 };
 
