@@ -21,7 +21,7 @@ const ButtonIcon = ({
 	let content = (
 		<React.Fragment>
 			<span className={ `${icon ? 'sui-icon-' + icon : ''}${iconSize ? ' sui-' + iconSize : '' }` } aria-hidden="true" />
-			<span className="sui-screen-reader-text">{label}</span>
+			{label ? <span className="sui-screen-reader-text">{label}</span> : ''}
 		</React.Fragment>
 	);
 
