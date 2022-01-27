@@ -1,13 +1,12 @@
 import React from 'react';
-import styled from 'styled-components';
 
-export const Tags = ({ size, text, ghost, color, truncated, uppercase, type }) => {
+export const Tags = ({ size, text, ghost, color, truncated, uppercase, type, ...props }) => {
 	let classes = [
 			'sui-tag',
 			truncated ? 'sui-tag-truncated' : '',
 			uppercase ? 'sui-tag-uppercase' : '',
 		],
-		Wrapper = 'span';
+		htmlTag = '';
 
 	// switch size
 	switch (size) {
@@ -41,18 +40,23 @@ export const Tags = ({ size, text, ghost, color, truncated, uppercase, type }) =
 
 	// switch type of tag
 	switch (type) {
-		case 'button':
 		case 'a':
-		case 'span':
-			Wrapper = type;
+		case 'label':
+		case 'button':
+			htmlTag = type;
 			break;
 		default:
+			htmlTag = 'span';
 			break;
 	}
 
-	return (
-		<Wrapper className={classes.join(' ')} style={{ maxWidth: '100px' }}>
-			{truncated ? <span>{text}</span> : text}
-		</Wrapper>
+	return React.createElement(
+		htmlTag,
+		{
+			className: classes.join(' '),
+			style: { maxWidth: '100px' },
+			...props,
+		},
+		truncated ? <span>{text}</span> : text,
 	);
 };

@@ -23,13 +23,13 @@ export default {
 			},
 		},
 		text: {
-			description: 'The text of the tag.',
+			description: 'The content of the tag.',
 			control: {
 				type: 'text',
 			},
 		},
 		color: {
-			description: 'The color of the tag.',
+			description: 'The color of the tag that will be filled background.',
 			control: {
 				type: 'select',
 				options: ['default', 'red', 'yellow', 'green', 'blue', 'purple', 'disabled'],
@@ -43,16 +43,20 @@ export default {
 			},
 		},
 		truncated: {
-			description: 'The text of tag will be truncated or not.',
+			description: 'By default tags are multi-line, this mean height of the tag will adjust depending on the amount of text and its width. But there are times when you will need to truncate text inside tag instead using multi-line text.',
 			control: { type: 'boolean' },
 		},
 		uppercase: {
-			description: 'The text of tag will be uppercase or not.',
+			description: 'Some tags require to have uppercase text.',
 			control: { type: 'boolean' },
 		},
 		ghost: {
-			description: 'The tag background will be transparent.',
+			description: 'Some designs will require outlined tags.',
 			control: { type: 'boolean' },
+		},
+		href: {
+			description: 'The href of the tag.',
+			control: { type: 'text' },
 		},
 	},
 };
@@ -79,6 +83,7 @@ export const link = Template.bind({});
 link.storyName = 'Link';
 link.args = {
 	type: 'a',
+	href: 'https://www.wpmudev.org',
 };
 
 // text variant
