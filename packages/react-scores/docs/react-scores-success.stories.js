@@ -11,7 +11,7 @@ export default {
 	},
 	argTypes: {
 		score: {
-			description: 'The score value',
+			description: 'The score value to display.',
 			control: {
 				type: 'range',
 				min: 0,
@@ -20,7 +20,7 @@ export default {
 			},
 		},
 		type: {
-			description: 'The scroes color variation.',
+			description: 'The scroes color variation according to type.',
 			control: {
 				type: 'select',
 				options: ['error', 'warning', 'success'],
