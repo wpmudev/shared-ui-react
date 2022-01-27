@@ -3,7 +3,7 @@ import { Box, BoxBody } from '@wpmudev/react-box';
 import ToolTips from '../lib/react-tooltips';
 
 export default {
-	title: 'Components/Tooltips/Variations',
+	title: 'Components/Tooltips/Position',
 	component: ToolTips,
 	args: {
 		buttonText: 'Element content',
@@ -77,27 +77,54 @@ const Template = (args) => {
 	);
 };
 
-// icon button
-export const button = Template.bind({});
-button.storyName = 'Button';
+export const primary = Template.bind({});
+primary.storyName = 'Top';
 
-// icon button
-export const icon = Template.bind({});
-icon.storyName = 'Icon Button';
-icon.args = {
-	icon: true,
+// top left position
+export const topLeft = Template.bind({});
+topLeft.storyName = 'Top Left';
+topLeft.args = {
+	position: 'top-left',
 };
 
-// custom width
-export const customWidth = Template.bind({});
-customWidth.storyName = 'Custom Width';
-customWidth.args = {
-	customWidth: '171',
+// top right position
+export const topRight = Template.bind({});
+topRight.storyName = 'Top Right';
+topRight.args = {
+	position: 'top-right',
 };
 
-// custom mobile width
-export const customMobileWidth = Template.bind({});
-customMobileWidth.storyName = 'Custom Mobile Width';
-customMobileWidth.args = {
-	customMobileWidth: '200',
+// bottom position
+export const bottom = Template.bind({});
+bottom.storyName = 'Bottom';
+bottom.args = {
+	position: 'bottom',
+};
+
+// bottom left position
+export const bottomLeft = Template.bind({});
+bottomLeft.storyName = 'Bottom Left';
+bottomLeft.args = {
+	position: 'bottom-left',
+};
+
+// bottom right position
+export const bottomRight = Template.bind({});
+bottomRight.storyName = 'Bottom Right';
+bottomRight.args = {
+	position: 'bottom-right',
+};
+
+// left position
+export const left = Template.bind({});
+left.storyName = 'Left';
+left.args = {
+	position: 'left',
+};
+
+// right position
+export const right = Template.bind({});
+right.storyName = 'Right';
+right.args = {
+	position: 'right',
 };
