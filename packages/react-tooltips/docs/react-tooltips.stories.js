@@ -64,6 +64,18 @@ export default {
 		icon: {
 			description: 'This will be the icon of the tooltip',
 		},
+		iconName: {
+			description: 'This will be the icon name of the tooltip',
+			control: {
+				type: 'text',
+			},
+		},
+		iconLabel: {
+			description: 'This will be the icon label of the tooltip',
+			control: {
+				type: 'text',
+			},
+		},
 	},
 };
 
@@ -86,6 +98,8 @@ export const icon = Template.bind({});
 icon.storyName = 'Icon Button';
 icon.args = {
 	icon: true,
+	iconLabel: 'Icon Label',
+	iconName: 'info',
 };
 
 // custom width

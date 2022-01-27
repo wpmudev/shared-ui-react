@@ -113,17 +113,23 @@ const Wrapper = styled.span`
 `;
 
 export default function ToolTips({
+	className,
 	buttonText,
 	tooltipText,
 	position,
 	id,
 	customWidth,
 	icon,
+	iconLabel,
+	iconName,
 	customMobileWidth,
 }) {
 	const [isOpen, setIsOpen] = useState(false);
 	let tooltipWidth = {};
 	let classes = isOpen ? 'sui-tooltip show ' : 'sui-tooltip hide';
+
+	// add classname in class
+	className ? (classes += ` ${className}`) : null;
 
 	// if custom width is set, use it
 	customWidth ? (tooltipWidth['--tooltip-width'] = `${customWidth}px`) : '';
@@ -174,8 +180,8 @@ export default function ToolTips({
 		<Wrapper className={classes}>
 			{icon ? (
 				<ButtonIcon
-					label="Close"
-					icon="info"
+					label={iconLabel}
+					icon={iconName}
 					className="sui__tooltip-elem"
 					aria-describedby={id}
 					onFocus={() => setIsOpen(true)}
