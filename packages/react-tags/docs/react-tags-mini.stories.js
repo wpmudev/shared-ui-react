@@ -19,24 +19,24 @@ export default {
 			description: 'The type of the tag.',
 			control: {
 				type: 'select',
-				options: ['button', 'link', 'text'],
+				options: { Button: 'button', Link: 'a', Text: 'span' },
 			},
 		},
 		text: {
-			description: 'The text of tag.',
+			description: 'The text of the tag.',
 			control: {
 				type: 'text',
 			},
 		},
 		color: {
-			description: 'The color of tag.',
+			description: 'The color of the tag.',
 			control: {
 				type: 'select',
 				options: ['default', 'red', 'yellow', 'green', 'blue', 'purple', 'disabled'],
 			},
 		},
 		size: {
-			description: 'The size of tag.',
+			description: 'The size of the tag.',
 			control: {
 				type: 'select',
 				options: { default: 'default', small: 'sm', 'mini pro': 'pro', 'mini beta': 'beta' },

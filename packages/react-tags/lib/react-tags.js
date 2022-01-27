@@ -1,20 +1,13 @@
 import React from 'react';
-import { Button } from '@wpmudev/react-button';
 import styled from 'styled-components';
 
-const ButtonWrapper = styled(Button)`
-	&.sui-button.sui-tag {
-		font-size: 75px;
-	}
-`;
-
-export const Tags = ({ size, text, ghost, color, truncated, uppercase, type = 'span' }) => {
+export const Tags = ({ size, text, ghost, color, truncated, uppercase, type }) => {
 	let classes = [
 			'sui-tag',
 			truncated ? 'sui-tag-truncated' : '',
 			uppercase ? 'sui-tag-uppercase' : '',
 		],
-		Wrapper = type;
+		Wrapper = 'span';
 
 	// switch size
 	switch (size) {
@@ -49,18 +42,12 @@ export const Tags = ({ size, text, ghost, color, truncated, uppercase, type = 's
 	// switch type of tag
 	switch (type) {
 		case 'button':
-			Wrapper = ButtonWrapper;
+		case 'a':
+		case 'span':
+			Wrapper = type;
 			break;
-		case 'link':
-			Wrapper = 'a';
-			break;
-		case 'text':
 		default:
 			break;
-	}
-
-	if (type === 'button') {
-		return <Wrapper className={classes.join(' ')} label={text} />;
 	}
 
 	return (

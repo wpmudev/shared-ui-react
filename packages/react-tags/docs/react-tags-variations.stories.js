@@ -3,16 +3,16 @@ import { Box, BoxBody } from '@wpmudev/react-box';
 import { Tags } from '../lib/react-tags';
 
 export default {
-	title: 'Components/Tags/Ghost',
+	title: 'Components/Tags/Variations',
 	component: Tags,
 	args: {
 		type: 'text',
 		text: 'Primary',
-		color: 'red',
+		color: 'default',
 		size: 'default',
 		truncated: false,
 		uppercase: false,
-		ghost: true,
+		ghost: false,
 	},
 	argTypes: {
 		type: {
@@ -67,29 +67,23 @@ const Template = ({ ...props }) => {
 	);
 };
 
-export const primary = Template.bind({});
-primary.storyName = 'Red';
-
-export const yellow = Template.bind({});
-yellow.storyName = 'Yellow';
-yellow.args = {
-	color: 'yellow',
+// button variant
+export const button = Template.bind({});
+button.storyName = 'Button';
+button.args = {
+	type: 'button',
 };
 
-export const green = Template.bind({});
-green.storyName = 'Green';
-green.args = {
-	color: 'green',
+// link variant
+export const link = Template.bind({});
+link.storyName = 'Link';
+link.args = {
+	type: 'a',
 };
 
-export const blue = Template.bind({});
-blue.storyName = 'Blue';
-blue.args = {
-	color: 'blue',
-};
-
-export const purple = Template.bind({});
-purple.storyName = 'Purple';
-purple.args = {
-	color: 'purple',
+// text variant
+export const text = Template.bind({});
+text.storyName = 'Text';
+text.args = {
+	type: 'span',
 };
