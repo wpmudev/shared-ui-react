@@ -36,7 +36,7 @@ This requires React 16+
 
 ## Usage
 
-Just provide the right props (see below) and pass the content of the modal as this component's child.
+Just provide the right props (see below) and pass the content of the modal as this component's child. But if you need something more complex as an slider or replace modal you can review the demos showcase for a live example and more notes about it.
 
 ```js
 import React from 'react';
