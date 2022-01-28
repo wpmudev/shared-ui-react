@@ -183,7 +183,7 @@ const SampleOneContent = () => {
 const sampleOneTemplate = () => <SampleOneContent />;
 
 export const sampleOne = sampleOneTemplate.bind({});
-sampleOne.storyName = "Sample One";
+sampleOne.storyName = "Sample 1";
 sampleOne.parameters = {
 	notes: DocsReplaceOne
 };
@@ -321,7 +321,7 @@ const SampleTwoContent = () => {
 const sampleTwoTemplate = () => <SampleTwoContent />;
 
 export const sampleTwo = sampleTwoTemplate.bind({});
-sampleTwo.storyName = "Sample Two";
+sampleTwo.storyName = "Sample 2";
 sampleTwo.parameters = {
 	notes: DocsReplaceTwo
 };

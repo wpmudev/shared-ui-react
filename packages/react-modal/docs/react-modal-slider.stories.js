@@ -323,6 +323,7 @@ const triggerContent = ({ openModal }) => {
 };
 
 export const sampleOne = Template.bind({});
+sampleOne.storyName = "Sample 1";
 sampleOne.args = {
 	dialogId: "sample-modal",
 	titleId: "sample-modal__title",
@@ -333,6 +334,7 @@ sampleOne.args = {
 };
 
 export const sampleTwo = Template.bind({});
+sampleTwo.storyName = "Sample 2";
 sampleTwo.args = {
 	dialogId: "sample-modal",
 	titleId: "sample-modal__title",
