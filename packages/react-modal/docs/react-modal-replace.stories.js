@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Modal } from "../lib/react-modal";
 import { Button } from "@wpmudev/react-button";
 import { ButtonIcon } from "@wpmudev/react-button-icon";
 import { Input } from "@wpmudev/react-input";
 import banner from "./images/beehive-welcome.png";
+import image1x from "./images/hustle-footer.png";
+import image2x from "./images/hustle-footer@2x.png";
+
+import DocsReplaceOne from "./notes/docs-replace-one.md";
+import DocsReplaceTwo from "./notes/docs-replace-two.md";
 
 export default {
 	title: "Containers/Modal/Replace",
@@ -14,7 +19,7 @@ const SampleOneModalOne = ({ isOpen, setIsOpen, switchModals }) => {
 	const [inputValue, setInputValue] = React.useState("");
 
 	const replaceModalContent = ({ closeModal }) => {
-		const closeThisModal = function () {
+		const closeThisModal = () => {
 			closeModal();
 			setTimeout(() => {
 				setIsOpen(false);
@@ -82,7 +87,8 @@ const SampleOneModalOne = ({ isOpen, setIsOpen, switchModals }) => {
 			size="lg"
 			dialogId="first"
 			initialFocus=".sui-form-control"
-			modalContent={replaceModalContent}></Modal>
+			modalContent={replaceModalContent}
+		/>
 	);
 };
 
@@ -178,3 +184,144 @@ const sampleOneTemplate = () => <SampleOneContent />;
 
 export const sampleOne = sampleOneTemplate.bind({});
 sampleOne.storyName = "Sample One";
+sampleOne.parameters = {
+	notes: DocsReplaceOne
+};
+
+const SampleTwoModalOne = ({ isOpen }) => {
+	const replaceModalContent = () => {
+		return (
+			<div className="sui-box">
+				<div className="sui-box-header sui-flatten sui-content-center sui-spacing-top--60 sui-spacing-bottom--30">
+					<span
+						className="sui-icon-loader sui-loading sui-lg"
+						aria-hidden="true"
+					/>
+
+					<h3 id="sample-modal-one__title" className="sui-box-title sui-lg">
+						{"Publishing..."}
+					</h3>
+
+					<p className="sui-description">
+						{
+							"Great work! Please hold tight a few moments while we publish your form to the world."
+						}
+					</p>
+				</div>
+
+				<img
+					src={image1x}
+					srcSet={`${image1x} 1x, ${image2x} 2x`}
+					className="sui-image sui-image-center"
+					aria-hidden="true"
+					alt=""
+				/>
+			</div>
+		);
+	};
+
+	return (
+		<Modal
+			mounted={isOpen}
+			dialogId="sui-modal-one"
+			titleId="sui-modal-one__title"
+			size="sm"
+			initialFocus=".sui-box-title"
+			modalContent={replaceModalContent}
+		/>
+	);
+};
+
+const SampleTwoModalTwo = ({ isOpen, setIsOpen }) => {
+	const replaceModalContent = ({ closeModal }) => {
+		const closeThisModal = () => {
+			closeModal();
+			setIsOpen(false);
+		};
+
+		return (
+			<div className="sui-box">
+				<div className="sui-box-header sui-flatten sui-content-center sui-spacing-top--60">
+					<ButtonIcon
+						icon="close"
+						iconSize="md"
+						label="Close this modal"
+						className="sui-button-float--right"
+						onClick={closeThisModal}
+					/>
+
+					<span
+						className="sui-icon-check sui-lg"
+						style={{ marginBottom: 10 }}
+						aria-hidden="true"
+					/>
+
+					<h3 id="sample-modal-one__title" className="sui-box-title sui-lg">
+						{"Ready to go!"}
+					</h3>
+
+					<p className="sui-description">
+						{
+							"Your form is now ready to be embedded into a page or template of your choice. Simply copy and paste the shortcode below to display it!"
+						}
+					</p>
+				</div>
+
+				<div className="sui-box-body">
+					<div className="sui-form-control">{'[forminator_form id="277"]'}</div>
+				</div>
+
+				<img
+					src={image1x}
+					srcSet={`${image1x} 1x, ${image2x} 2x`}
+					className="sui-image sui-image-center"
+					aria-hidden="true"
+					alt=""
+				/>
+			</div>
+		);
+	};
+
+	return (
+		<Modal
+			mounted={isOpen}
+			dialogId="sui-modal-one"
+			titleId="sui-modal-one__title"
+			size="sm"
+			modalContent={replaceModalContent}
+		/>
+	);
+};
+
+const SampleTwoContent = () => {
+	const [isFirstOpen, setIsFirstOpen] = React.useState(false);
+	const [isSecondOpen, setIsSecondOpen] = React.useState(false);
+
+	useEffect(() => {
+		const success = setTimeout(() => {
+			if (isFirstOpen) {
+				setIsFirstOpen(false);
+				setIsSecondOpen(true);
+			}
+		}, 1000);
+		return success;
+	}, [isFirstOpen]);
+
+	return (
+		<React.Fragment>
+			<Button onClick={() => setIsFirstOpen(true)} label="Open Modal" />
+
+			<SampleTwoModalOne isOpen={isFirstOpen} />
+
+			<SampleTwoModalTwo isOpen={isSecondOpen} setIsOpen={setIsSecondOpen} />
+		</React.Fragment>
+	);
+};
+
+const sampleTwoTemplate = () => <SampleTwoContent />;
+
+export const sampleTwo = sampleTwoTemplate.bind({});
+sampleTwo.storyName = "Sample Two";
+sampleTwo.parameters = {
+	notes: DocsReplaceTwo
+};
