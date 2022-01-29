@@ -5,6 +5,8 @@ import { ButtonIcon } from "@wpmudev/react-button-icon";
 import image1x from "./images/hustle-footer.png";
 import image2x from "./images/hustle-footer@2x.png";
 
+import SampleOneDocs from "./notes/docs-slider-one.md";
+
 export default {
 	title: "Containers/Modal/Slider",
 	component: Modal
@@ -331,6 +333,9 @@ sampleOne.args = {
 	modalContent: sampleOneContent,
 	firstSlide: "one",
 	triggerContent
+};
+sampleOne.parameters = {
+	notes: SampleOneDocs
 };
 
 export const sampleTwo = Template.bind({});
