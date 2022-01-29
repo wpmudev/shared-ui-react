@@ -1,12 +1,12 @@
 # Replace Modal
 
-## Sample One
+## Sample 1
 
-This is a typical example of a "replace modal" where after performing an action, like clicking on a button, the currently open modal will be replaced by another.
+"Sample One" is a typical example of a "replace modal" where after performing an action, like clicking on a button, the currently open modal will be replaced by another.
 
 #### **Modal One**
 
-This modal will contain a simple form that's conformed by an input and a button. The button will simulate an authorization and then proceed to replace the currently open modal with the second.
+This modal will contain a simple form conformed by input and button. The button will simulate an authorization and replace the currently open modal with the second.
 
 ```jsx
 const ModalOne = ({ isOpen, setIsOpen, switchModals }) => {
@@ -65,8 +65,8 @@ const ModalOne = ({ isOpen, setIsOpen, switchModals }) => {
 
 This modal will show users that the action performed previously was done successfully but will also give the user two options to choose from:
 
-1. To close the modal with the "close" icon button or the "finish" button at the bottom.
-2. To go back to the previous modal (and be able to repeat the process).
+1. Close the modal with the "close" icon button or the "finish" button at the bottom.
+2. To go back to the previous modal (and repeat the process).
 
 ```jsx
 const ModalTwo = ({ isOpen, setIsOpen, switchModals }) => {
@@ -123,7 +123,7 @@ const ModalTwo = ({ isOpen, setIsOpen, switchModals }) => {
 
 #### **Load Modals**
 
-Finally, we need to load both modals accordingly to what we want. First, the "Open Modal" trigger button will show the **Modal One**. Once it is loaded the user can interact with it by clicking on the "authorize" button to close it and replace it with the **Modal Two**. `useState()` will also help us to show and hide the modals.
+Finally, we need to load both modals accordingly to what we want. First, the "Open Modal" trigger button will show the "Modal One." Once it is loaded, the user can interact with it by clicking on the "authorize" button to close it and replace it with the "Modal Two." `useState()` will also help us to show and hide the modals.
 
 ```jsx
 const SampleContent = () => {
