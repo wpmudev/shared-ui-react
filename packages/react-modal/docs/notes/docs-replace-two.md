@@ -41,7 +41,7 @@ const sampleModalOne = ({ isOpen }) => {
 
 We will include a message and simple action, close button.
 
-The message will let users know that the background has already finished what was happening. On the other hand, the action will allow the users to close the modal.
+The message will let users know that the background has already finished. On the other hand, the action will allow the users to close the modal.
 
 Notice we don't use the `initialFocus` property here. That's because the modal has a focusable element to rely on for auto-focus.
 
