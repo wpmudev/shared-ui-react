@@ -182,9 +182,9 @@ const SampleOneContent = () => {
 
 const sampleOneTemplate = () => <SampleOneContent />;
 
-export const sampleOne = sampleOneTemplate.bind({});
-sampleOne.storyName = "Sample 1";
-sampleOne.parameters = {
+export const SampleOne = sampleOneTemplate.bind({});
+SampleOne.storyName = "Sample 1";
+SampleOne.parameters = {
 	notes: DocsReplaceOne
 };
 
@@ -320,8 +320,8 @@ const SampleTwoContent = () => {
 
 const sampleTwoTemplate = () => <SampleTwoContent />;
 
-export const sampleTwo = sampleTwoTemplate.bind({});
-sampleTwo.storyName = "Sample 2";
-sampleTwo.parameters = {
+export const SampleTwo = sampleTwoTemplate.bind({});
+SampleTwo.storyName = "Sample 2";
+SampleTwo.parameters = {
 	notes: DocsReplaceTwo
 };
