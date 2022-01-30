@@ -99,7 +99,6 @@ const PostFooter = styled.div`
 	flex-flow: row wrap;
 	align-items: center;
 	margin-top: 15px;
-	min-height: 30px;
 `;
 
 const FeaturedImage = styled.div.attrs(() => ({
@@ -187,8 +186,6 @@ const ReadMore = styled.p`
 	line-height: 18px !important;
 	font-weight: 500 !important;
 	letter-spacing: -0.2px !important;
-	margin-bottom: 0;
-	align-self: flex-start;
 `;
 
 export class Post extends Component {
