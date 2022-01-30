@@ -43,7 +43,7 @@ We will include a message and simple action, close button.
 
 The message will let users know that the background has already finished. On the other hand, the action will allow the users to close the modal.
 
-Notice we don't use the `initialFocus` property here. That's because the modal has a focusable element to rely on for auto-focus.
+Notice we do not use the `initialFocus` property here because the modal has a focusable element for auto-focus.
 
 ```jsx
 const SampleTwoModalTwo = ({ isOpen, setIsOpen }) => {
@@ -84,7 +84,7 @@ const SampleTwoModalTwo = ({ isOpen, setIsOpen }) => {
 
 Finally, we need to call both of the modals previously created. First, the "Modal One" will be opened once the user clicks on the "Open Modal" button, and after 10 seconds, the modal will close and get replaced by the "Modal Two."
 
-Below you can find an example of how to call the modals in the correct order. `useState` will help set modals open or false, depending on the case. In contrast, `useEffect` will call the second modal, replacing the first one, after some time. There's also the "trigger component," which in this case will be the `<Button />` component.
+Below, find an example of how to call the modals in the correct order. `useState` will help set modals open or false, depending on the case. In contrast, `useEffect` will call the second modal, replacing the first one, after some time. There is also the "trigger component," which in this case will be the `<Button />` component.
 
 ```jsx
 const SampleContent = () => {
