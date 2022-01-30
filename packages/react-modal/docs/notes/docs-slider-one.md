@@ -4,11 +4,11 @@
 
 This modal sample simulates the Hustle plugin when the user triggers a modal to create a new opt-in.
 
-The idea is to move users between steps and move forward or backward, depending on the case. Each step is a modal, and you can configure it to have independent properties, like different sizes.
+The idea is to move users between steps and move forward or backward. Each step is a modal and can configure to have independent properties, like different sizes.
 
-In our example, you will see we move from a large modal to a small modal and vice versa.
+In this example, notice we move from a large modal to a small modal and vice versa. It also includes an animation to give users the perception of moving from left to right or right to left, depending on the case.
 
-> The code below won't contain the entire markup used on the sample listed in this story, but it will include the base actions and structure.
+> The code below will not contain the entire markup used on the sample listed in this story, but it will include the base actions and structure.
 
 #### **Step One**
 
@@ -57,7 +57,7 @@ The second step contains three actionable elements that are important for the mo
 2. One button to close the modal, canceling all the processes.
 3. One button to complete and confirm the operation.
 
-There's also some text to give context and input. However, the actionable elements that interact directly with the modal are more important for this example.
+There is also some text to give context and input. However, the actionable elements that interact directly with the modal are more important for this example.
 
 ```jsx
 const stepTwo = ({ closeModal, slideTo }) => {
@@ -137,11 +137,11 @@ const loadSteps = {
 
 #### **Load Modal**
 
-We will use a button like shown in the sample code below to trigger our modal. Then we have some basic properties we need for the slides modal to work.
+We will use a button to trigger our modal. Then we have some basic properties we need for the slides modal to work.
 
 1. The `firstSlide` property will determine the first slide to open.
-2. The `modalContent` property is where we will load add the `loadSteps` constant created previously to list all the steps on our modal.
-3. The `triggerContent` function will contain the element that will open our modal.
+2. The `modalContent` property is where we will add the `loadSteps` constant created previously to list all the steps on our modal.
+3. The `triggerContent` function will contain the element that will open our modal. In this case, a button.
 
 ```jsx
 const triggerContent = ({ openModal }) => {

@@ -6,6 +6,7 @@ import image1x from "./images/hustle-footer.png";
 import image2x from "./images/hustle-footer@2x.png";
 
 import SampleOneDocs from "./notes/docs-slider-one.md";
+import SampleTwoDocs from "./notes/docs-slider-two.md";
 
 export default {
 	title: "Containers/Modal/Slider",
@@ -246,7 +247,7 @@ const sampleTwoSlideOne = ({ closeModal, slideTo }) => {
 	);
 };
 
-const sampleTwoSlideTwo = ({ closeModal, slideTo }) => {
+const sampleTwoSlideTwo = ({ slideTo }) => {
 	const toggleContainer = {
 		display: "flex",
 		alignItems: "center",
@@ -258,28 +259,11 @@ const sampleTwoSlideTwo = ({ closeModal, slideTo }) => {
 	return (
 		<div className="sui-box">
 			<div className="sui-box-header sui-flatten sui-content-center sui-spacing-top--60 sui-spacing-bottom--30 sui-spacing-sides--50">
-				<ButtonIcon
-					icon="chevron-left"
-					iconSize="md"
-					label={"Go to previous slide"}
-					className="sui-button-float--left"
-					onClick={() => slideTo("one", "right")}
-				/>
-
-				<ButtonIcon
-					icon="close"
-					iconSize="md"
-					label={"Close this modal"}
-					className="sui-button-float--right"
-					onClick={closeModal}
-				/>
-
-				<h3 className="sui-box-title sui-lg">{"Create Ticket"}</h3>
+				<h3 className="sui-box-title sui-lg">Create Ticket</h3>
 
 				<p className="sui-description">
-					{
-						"In addition to adding a new contact to your HubSpot account, you can also create a HubSpot ticket for each form submission."
-					}
+					In addition to adding a new contact to your HubSpot account, you can
+					also create a HubSpot ticket for each form submission.
 				</p>
 			</div>
 
@@ -302,9 +286,57 @@ const sampleTwoSlideTwo = ({ closeModal, slideTo }) => {
 				</label>
 			</div>
 
-			<div className="sui-box-footer sui-flatten sui-content-right sui-spacing-top--30">
-				<Button color="blue" label={"Activate"} onClick={closeModal} />
+			<div className="sui-box-footer sui-flatten sui-content-center sui-spacing-top--30">
+				<Button
+					color="blue"
+					label="Activate"
+					onClick={() => slideTo("three", "left")}
+				/>
 			</div>
+		</div>
+	);
+};
+
+const sampleTwoSlideThree = ({ closeModal, slideTo }) => {
+	return (
+		<div className="sui-box">
+			<div className="sui-box-header sui-flatten sui-content-center sui-spacing-top--60 sui-spacing-sides--50">
+				<ButtonIcon
+					icon="chevron-left"
+					iconSize="md"
+					label="Cancel and repeat process"
+					className="sui-button-float--left"
+					onClick={() => slideTo("one", "right")}
+				/>
+
+				<ButtonIcon
+					icon="close"
+					iconSize="md"
+					label="Cancel process and close modal"
+					className="sui-button-float--right"
+					onClick={closeModal}
+				/>
+
+				<h3 className="sui-box-title sui-lg">Confirm Integration</h3>
+
+				<p className="sui-description">
+					Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
+					Maecenas faucibus mollis interdum.
+				</p>
+			</div>
+
+			<div className="sui-box-footer sui-flatten sui-content-center sui-spacing-top--30">
+				<Button color="blue" label="Confirm Changes" onClick={closeModal} />
+				<Button design="ghost" label="Cancel" onClick={closeModal} />
+			</div>
+
+			<img
+				src={image1x}
+				srcSet={`${image1x} 1x, ${image2x} 2x`}
+				className="sui-image sui-image-center"
+				aria-hidden="true"
+				alt=""
+			/>
 		</div>
 	);
 };
@@ -315,8 +347,11 @@ const sampleTwoContent = {
 		focus: "select"
 	},
 	two: {
-		render: sampleTwoSlideTwo,
-		focus: ".sui-toggle"
+		render: sampleTwoSlideTwo
+	},
+	three: {
+		render: sampleTwoSlideThree,
+		focus: ".sui-button-blue"
 	}
 };
 
@@ -347,4 +382,7 @@ sampleTwo.args = {
 	modalContent: sampleTwoContent,
 	firstSlide: "one",
 	triggerContent
+};
+sampleTwo.parameters = {
+	notes: SampleTwoDocs
 };
