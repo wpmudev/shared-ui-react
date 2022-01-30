@@ -6,24 +6,27 @@
 
 >**THIS IS A FORK.**
 
-This is based on a forked version of [react-aria-modal](https://github.com/davidtheclark/react-aria-modal) package that's built according to [WAI-ARIA Authoring Practices](http://www.w3.org/TR/wai-aria-practices/#dialog_modal) but ran out of maintenance and was hard to adapt for this project purpose because of the amount of dependencies dispersed across multiple Github repositories (some of which contained bugs that need to be addressed immediately).
+**SUI React Modal** is based on a forked version of the [react-aria-modal](https://github.com/davidtheclark/react-aria-modal) package and built according to [WAI-ARIA Authoring Practices](http://www.w3.org/TR/wai-aria-practices/#dialog_modal) but ran out of maintenance.
+
+The original package was hard to adapt for this project because of the number of dependencies dispersed across multiple Github repositories (some of which contained bugs that need immediate solutions).
 
 However, being ours a modified version, it does things slightly different:
 
 - It drops support for React 15 (and older versions).
-- It bundle's up all `react-aria-modal` dependencies into a single package.
-- It removes `includeDefaultStyles` and `verticalCenterStyle` properties.
+- It bundles up all the `react-aria-modal` dependencies into a single package.
+- It removes the `includeDefaultStyles` and `verticalCenterStyle` built-in properties.
 
 ## Overview
 
-The main idea of this module is to provide a **container** that will wrap its inner content to present it on a dialog modal. It has the following features, while giving you complete control of the content:
-- **Trapped Focus:** `TAB` and `SHIFT + TAB` cycles through the modal's focusable nodes without returning to the main document beneath.
-- **Keyboard Shortcuts:** `ESC` will close the modal.
-- **Background Scroll:** Scrolling is frozen on the main document beneath the modal.
-- **ARIA Roles:** It can be assigned with `dialog` or `alertdialog` role.
-- **Underlay Mask:** Clicking on it will close the modal, although this can be disabled through props.
+The main idea of this module is to provide a **container** that will wrap its inner content to present it on a dialog modal. It has the following features while giving the developers complete control of the content:
 
-This modal relies on the styling provided by WPMU DEV's [Shared UI](https://github.com/wpmudev/shared-ui). The relevant styles must be included and the modal must be rendered within a `<div>` with the class `.sui-wrap` for the styles to take effect.
+- **Trapped Focus:** `TAB` and `SHIFT + TAB` cycle through the modal's focusable nodes without returning to the main document beneath.
+- **Keyboard Shortcuts:** `ESC` will close the modal.
+- **Background Scroll:** Scrolling is disabled on the main document beneath the modal.
+- **ARIA Roles:** The roles `dialog` or `alertDialog` are assigned depending on the case.
+- **Underlay Mask:** Clicking on it will close the modal, although it is possible to disable this through props.
+
+> **Remember:** This modal relies on the styling provided by WPMU DEV's [Shared UI](https://github.com/wpmudev/shared-ui).
 
 ## Installation
 
@@ -36,7 +39,7 @@ This requires React 16+
 
 ## Usage
 
-Just provide the right props (see below) and pass the content of the modal as this component's child. But if you need something more complex as an slider or replace modal you can review the demos showcase for a live example and more notes about it.
+Just provide the right props (see below) and pass the modal's content as this component's child. However, if the modal needs to be more complex, like a "slider (steps)" or "replace" modal, you can review the demos showcase for a live example and more notes about it.
 
 ```js
 import React from 'react';
@@ -53,35 +56,35 @@ const MyApp = () => (
 );
 ```
 
-## Props
+## Properties (Props)
 
-Any `data-*` or `aria-*` props will be passed directly to the modal's container `sui-modal`.
+Properties like `data-*` or `aria-*` pass directly to the modal's container (`sui-modal`).
 
 ### dialogID
 Type: `string`
 
-Choose your own ID attribute for the dialog element but remember it must be unique.
+Choose a unique ID for the dialog element.
 
 ### initialFocus
 Type: `string`
 
-By default, when the modal activates its first focusable child will receive focus. If, instead, you want to identify a specific element that should receive initial focus, pass a selector `string` to this prop.
+When the modal activates, its first focusable child will receive focus by default. If another specific element should receive initial focus, pass the `string` selector to this prop.
 
 That selector is passed to `document.querySelector()` to find the DOM node.
 
 ### titleId
 Type: `string`
 
-The ID of the element that should be used as the modal's accessible title. This value is passed to the modal's `aria-labelledby` attribute.
+Use the ID of a text element as the modal's accessible title. The value passes to the modal's `aria-labelledby` attribute.
 
-**Note:** You must use either `titleId` or `titleText` but not both.
+**Important:** You must use either `titleId` or `titleText` but not both.
 
 ### titleText
 Type: `string`
 
-A string to use as the modal's accessible title. This value is passed to the modal's `aria-label` attribute.
+A string to use as the modal's accessible title. The value passes to the modal's `aria-labelledby` attribute.
 
-**Note:** You must use either `titleId` or `titleText` but not both.
+**Important:** You must use either `titleId` or `titleText` but not both.
 
 ### size
 Type: `string`
@@ -91,7 +94,7 @@ A string to set modal size. You can choose between: `sm` | `md` | `lg` | `xl`
 ### modalContent
 Type: `object` or `function`
 
-Renders the content of the modal. You must use `Object` for slider modals while `function` for simple modals.
+Renders the content of the modal. To use `Object` is a requirement for slider modals, while simple modals use `function` as a must.
 
 ### triggerContent
 Type: `function`
@@ -102,8 +105,3 @@ Optional function to render the element that triggers the opening of the modal.
 Type: `string`
 
 **For sliders modals only.** This prop contains the `key` of the `modalContent` object that holds the first slide you want to show.
-
-## renderToNode (HTMLElement | String)
-This module, with the help of `react-aria-modal`, uses **React Portals** to insert the modal into a new element at the end of any element containing `.sui-wrap` class, making it easier to style content inside modal.
-
-The static `renderToNode` function returns a new component that renders modals into a specific element, rather than a newly created element at the bottom of `.sui-wrap`.
