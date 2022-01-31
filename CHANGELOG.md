@@ -19,6 +19,7 @@
   * Misaligned description when `reading time` is missing. [#147](https://github.com/wpmudev/shared-ui-react/pull/147) ([SUI-257](https://incsub.atlassian.net/browse/SUI-257)) ([@iamleigh](https://github.com/iamleigh))
 
 #### 🏠 Internal
+* Update change log file to new structure. [#157](https://github.com/wpmudev/shared-ui-react/pull/157) ([SUI-271](https://incsub.atlassian.net/browse/SUI-271)) ([@iamleigh](https://github.com/iamleigh))
 * Styled components can't be loaded multiple times. [#141](https://github.com/wpmudev/shared-ui-react/pull/141) ([SUI-272](https://incsub.atlassian.net/browse/SUI-272)) ([@iamleigh](https://github.com/iamleigh))
 * Update change log labels. [#140](https://github.com/wpmudev/shared-ui-react/pull/140) ([SUI-270](https://incsub.atlassian.net/browse/SUI-270)) ([@iamleigh](https://github.com/iamleigh))
 
