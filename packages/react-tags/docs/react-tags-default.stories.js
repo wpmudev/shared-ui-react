@@ -3,29 +3,34 @@ import { Box, BoxBody } from '@wpmudev/react-box';
 import { Tags } from '../lib/react-tags';
 
 export default {
-	title: 'Components/Tags/Default',
+	title: 'Components/Tags',
 	component: Tags,
 	args: {
-		type: 'text',
-		text: 'Primary',
+		label: 'Primary',
+		childrenContent: true,
 		color: 'default',
 		size: 'default',
-		truncated: false,
-		uppercase: false,
+		href: '',
+		onClick: () => {
+			console.log('onClick');
+			alert('onClick');
+		},
 		ghost: false,
+		uppercase: false,
+		truncated: false,
+		multiline: false,
 	},
 	argTypes: {
-		type: {
-			description: 'The type of the tag.',
-			control: {
-				type: 'select',
-				options: { Button: 'button', Link: 'a', Text: 'span' },
-			},
-		},
-		text: {
+		label: {
 			description: 'The content of the tag.',
 			control: {
 				type: 'text',
+			},
+		},
+		childrenContent: {
+			description: 'If true, the content of the tag will be rendered as children.',
+			control: {
+				type: 'boolean',
 			},
 		},
 		color: {
@@ -42,21 +47,30 @@ export default {
 				options: { default: 'default', small: 'sm', 'mini pro': 'pro', 'mini beta': 'beta' },
 			},
 		},
+		href: {
+			description: 'The href of the tag.',
+			control: { type: 'text' },
+		},
+		onClick: {
+			description: 'The onClick of the tag.',
+			control: { type: 'function' },
+		},
+		ghost: {
+			description: 'Some designs will require outlined tags.',
+			control: { type: 'boolean' },
+		},
 		truncated: {
-			description: 'By default tags are multi-line, this mean height of the tag will adjust depending on the amount of text and its width. But there are times when you will need to truncate text inside tag instead using multi-line text.',
+			description:
+				'By default tags are multi-line, this mean height of the tag will adjust depending on the amount of text and its width. But there are times when you will need to truncate text inside tag instead using multi-line text.',
 			control: { type: 'boolean' },
 		},
 		uppercase: {
 			description: 'Some tags require to have uppercase text.',
 			control: { type: 'boolean' },
 		},
-		ghost: {
-			description: 'Some designs will require outlined tags.',
+		multiline: {
+			description: 'Some tags require to have multi-line text.',
 			control: { type: 'boolean' },
-		},
-		href: {
-			description: 'The href of the tag.',
-			control: { type: 'text' },
 		},
 	},
 };
@@ -72,36 +86,45 @@ const Template = ({ ...props }) => {
 };
 
 export const primary = Template.bind({});
-primary.storyName = 'Default';
+primary.storyName = 'Solid';
 
-export const red = Template.bind({});
-red.storyName = 'Red';
-red.args = {
-	color: 'red',
+export const ghost = Template.bind({});
+ghost.storyName = 'Ghost';
+ghost.args = {
+	ghost: true,
 };
 
-export const yellow = Template.bind({});
-yellow.storyName = 'Yellow';
-yellow.args = {
-	color: 'yellow',
+export const small = Template.bind({});
+small.storyName = 'Small';
+small.args = {
+	size: 'sm',
 };
 
-export const green = Template.bind({});
-green.storyName = 'Green';
-green.args = {
-	color: 'green',
+export const mini = Template.bind({});
+mini.storyName = 'Mini';
+mini.args = {
+	size: 'pro',
 };
 
-export const blue = Template.bind({});
-blue.storyName = 'Blue';
-blue.args = {
+export const uppercase = Template.bind({});
+uppercase.storyName = 'Uppercase';
+uppercase.args = {
 	color: 'blue',
+	uppercase: true,
 };
 
-export const purple = Template.bind({});
-purple.storyName = 'Purple';
-purple.args = {
-	color: 'purple',
+export const multiline = Template.bind({});
+multiline.storyName = 'Multiline';
+multiline.args = {
+	label: 'Multiple line tag',
+	multiline: true,
+};
+
+export const truncated = Template.bind({});
+truncated.storyName = 'Truncated';
+truncated.args = {
+	label: 'Multiple line tag',
+	truncated: true,
 };
 
 export const disabled = Template.bind({});

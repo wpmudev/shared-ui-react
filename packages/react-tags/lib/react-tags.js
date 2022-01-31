@@ -1,6 +1,18 @@
 import React from 'react';
 
-export const Tags = ({ size, text, ghost, color, truncated, uppercase, type, ...props }) => {
+export const Tags = ({
+	size,
+	label,
+	childrenContent,
+	ghost,
+	color,
+	truncated,
+	multiline,
+	uppercase,
+	onClick,
+	href,
+	...props
+}) => {
 	let classes = [
 			'sui-tag',
 			truncated ? 'sui-tag-truncated' : '',
@@ -27,36 +39,31 @@ export const Tags = ({ size, text, ghost, color, truncated, uppercase, type, ...
 		case 'blue':
 		case 'purple':
 		case 'disabled':
-			classes.push(`sui-tag-${color}`);
+			ghost ? classes.push(`sui-tag-ghost sui-tag-${color}`) : classes.push(`sui-tag-${color}`);
 			break;
 		default:
+			ghost && classes.push('sui-tag-ghost sui-tag-red');
 			break;
 	}
 
-	// type switch
-	if (ghost) {
-		classes.push('sui-tag-ghost');
-	}
-
-	// switch type of tag
-	switch (type) {
-		case 'a':
-		case 'label':
-		case 'button':
-			htmlTag = type;
-			break;
-		default:
-			htmlTag = 'span';
-			break;
+	// if props href is set, then set htmlTag to 'a' or if else onclick set then set html tag to 'button'
+	if (href) {
+		htmlTag = 'a';
+	} else if (onClick) {
+		htmlTag = 'button';
+	} else {
+		htmlTag = 'span';
 	}
 
 	return React.createElement(
 		htmlTag,
 		{
 			className: classes.join(' '),
-			style: { maxWidth: '100px' },
+			style: truncated || multiline ? { maxWidth: '100px' } : {},
+			onClick: onClick ? onClick : null,
+			href: href ? href : null,
 			...props,
 		},
-		truncated ? <span>{text}</span> : text,
+		truncated || childrenContent ? <span>{label}</span> : label,
 	);
 };
