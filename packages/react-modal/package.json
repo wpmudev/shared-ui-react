@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/react-modal",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "WPMU DEV Shared UI React Modal Component",
   "author": "WPMU DEV (https://wpmudev.com)",
   "contributors": [
@@ -41,9 +41,9 @@
   "devDependencies": {
     "@wpmudev/react-box": "^1.2.5",
     "@wpmudev/react-builder": "^0.0.0",
-    "@wpmudev/react-button": "^1.0.8",
+    "@wpmudev/react-button": "^1.1.0",
     "@wpmudev/react-button-icon": "^1.1.0",
-    "@wpmudev/react-input": "^1.0.4",
+    "@wpmudev/react-input": "^1.1.0",
     "react": "^17.0.2"
   },
   "peerDependencies": {
