@@ -12,6 +12,14 @@ const IconWrap = styled.span`
 	}
 `;
 
+const ButtonWrap = styled.button`
+	cursor: pointer !important;
+`;
+
+const LinkWrap = styled.a`
+	cursor: pointer !important;
+`;
+
 export const Tags = ({
 	size,
 	label,
@@ -61,9 +69,9 @@ export const Tags = ({
 
 	// if props href is set, then set htmlTag to 'a' or if else onclick set then set html tag to 'button'
 	if (href) {
-		htmlTag = 'a';
+		htmlTag = LinkWrap;
 	} else if (onClick) {
-		htmlTag = 'button';
+		htmlTag = ButtonWrap;
 	} else {
 		htmlTag = 'span';
 	}

@@ -22,7 +22,7 @@ export default {
 	},
 	argTypes: {
 		label: {
-			description: 'The content of the tag.',
+			description: 'The label of the tag.',
 			control: {
 				type: 'text',
 			},
@@ -48,17 +48,17 @@ export default {
 			},
 		},
 		icon: {
-			description: 'The icon of the tag.',
+			description: 'Add icon inside the tag.',
 			control: {
 				type: 'text',
 			},
 		},
 		href: {
-			description: 'The href of the tag.',
+			description: 'The link or href of the tag.',
 			control: { type: 'text' },
 		},
 		onClick: {
-			description: 'The onClick of the tag.',
+			description: 'The button with onClick function for the tag.',
 			control: { type: 'function' },
 		},
 		ghost: {
@@ -105,4 +105,6 @@ export const icon = Template.bind({});
 icon.storyName = 'Icon';
 icon.args = {
 	icon: 'info',
+	childrenContent: true,
+	onClick: '',
 };
