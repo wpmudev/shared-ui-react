@@ -1,4 +1,16 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const IconWrap = styled.span`
+	width: 22px;
+	position: relative;
+	margin-left: -7px;
+	vertical-align: middle;
+	line-height: 1;
+	&:before {
+		color: inherit !important;
+	}
+`;
 
 export const Tags = ({
 	size,
@@ -10,6 +22,7 @@ export const Tags = ({
 	multiline,
 	uppercase,
 	onClick,
+	icon,
 	href,
 	...props
 }) => {
@@ -64,6 +77,7 @@ export const Tags = ({
 			href: href ? href : null,
 			...props,
 		},
+		icon ? <IconWrap className={'sui-icon-' + icon} aria-hidden="true"></IconWrap> : null,
 		truncated || childrenContent ? <span>{label}</span> : label,
 	);
 };

@@ -3,7 +3,7 @@ import { Box, BoxBody } from '@wpmudev/react-box';
 import { Tags } from '../lib/react-tags';
 
 export default {
-	title: 'Components/Tags/Simple',
+	title: 'Components/Tags/Variations',
 	component: Tags,
 	args: {
 		label: 'Primary',
@@ -12,7 +12,9 @@ export default {
 		size: 'default',
 		icon: '',
 		href: '',
-		onClick: '',
+		onClick: () => {
+			alert('button clicked.');
+		},
 		ghost: false,
 		uppercase: false,
 		truncated: false,
@@ -90,50 +92,17 @@ const Template = ({ ...props }) => {
 };
 
 export const primary = Template.bind({});
-primary.storyName = 'Solid';
+primary.storyName = 'Button';
 
-export const ghost = Template.bind({});
-ghost.storyName = 'Ghost';
-ghost.args = {
-	ghost: true,
+export const link = Template.bind({});
+link.storyName = 'Link';
+link.args = {
+	href: 'https://www.wpmudev.org',
+	onClick: '',
 };
 
-export const small = Template.bind({});
-small.storyName = 'Small';
-small.args = {
-	size: 'sm',
-};
-
-export const mini = Template.bind({});
-mini.storyName = 'Mini';
-mini.args = {
-	size: 'pro',
-};
-
-export const uppercase = Template.bind({});
-uppercase.storyName = 'Uppercase';
-uppercase.args = {
-	color: 'blue',
-	uppercase: true,
-};
-
-export const multiline = Template.bind({});
-multiline.storyName = 'Multiline';
-multiline.args = {
-	label: 'Multiple line tag',
-	multiline: true,
-};
-
-export const truncated = Template.bind({});
-truncated.storyName = 'Truncated';
-truncated.args = {
-	label: 'Multiple line tag',
-	childrenContent: true,
-	truncated: true,
-};
-
-export const disabled = Template.bind({});
-disabled.storyName = 'Disabled';
-disabled.args = {
-	color: 'disabled',
+export const icon = Template.bind({});
+icon.storyName = 'Icon';
+icon.args = {
+	icon: 'info',
 };
