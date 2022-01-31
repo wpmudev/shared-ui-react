@@ -3,19 +3,19 @@ import { Box, BoxBody } from '@wpmudev/react-box';
 import { Toggles } from '../lib/react-toggles';
 
 export default {
-	title: 'Components/Toggles/Additional Settings',
+	title: 'Components/Toggles/Hidden Content',
 	component: Toggles,
 	args: {
-		toggleState: true,
+		toggleState: false,
 		disabled: false,
 		labelId: 'unique-id-label',
 		descriptionId: 'unique-id-description',
 		label: 'Toggle Label',
-		description: 'Toggle description goes here.',
+		description: '',
 		id: 'unique-id',
 		additionalSettingsId: 'unique-id-additional-settings',
-		additionalSettings: true,
-		labelHidden: false,
+		additionalSettings: false,
+		labelHidden: true,
 	},
 	argTypes: {
 		id: {
@@ -90,10 +90,16 @@ const Template = (args) => (
 );
 
 export const primary = Template.bind({});
-primary.storyName = 'On - Default';
+primary.storyName = 'Default';
 
-export const label = Template.bind({});
-label.storyName = 'Off - Inactive';
-label.args = {
-	toggleState: false,
+export const active = Template.bind({});
+active.storyName = 'Active';
+active.args = {
+	toggleState: true,
+};
+
+export const disabled = Template.bind({});
+disabled.storyName = 'Disabled';
+disabled.args = {
+	disabled: true,
 };
