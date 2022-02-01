@@ -86,7 +86,7 @@ export default {
 		bulkActionsLabel: {
 			description: 'Bulk Actions Label',
 			control: {
-				type: 'array',
+				type: 'object',
 			},
 		},
 		bulkActions: {
@@ -110,7 +110,7 @@ export default {
 		listItems: {
 			description: 'List Items',
 			control: {
-				type: 'array',
+				type: 'object',
 			},
 		},
 	},
