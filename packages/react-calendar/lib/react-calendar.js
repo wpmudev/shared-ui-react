@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Input } from '@wpmudev/react-input';
 import DatePicker from 'react-datepicker';
+import { add } from 'date-fns';
 import styled from 'styled-components';
 // react-datepicker css
 import 'react-datepicker/dist/react-datepicker.css';
@@ -338,7 +339,6 @@ const DatepickerInput = ({
 	onChange,
 	placeholder,
 	value,
-	isSecure,
 	id,
 	onClick,
 	arialabelledby,
@@ -348,7 +348,6 @@ const DatepickerInput = ({
 		onChange={onChange}
 		placeholder={placeholder}
 		value={value}
-		isSecure={isSecure}
 		id={id}
 		onClick={onClick}
 		aria-labelledby={arialabelledby}
@@ -432,8 +431,9 @@ const rangeDatepicker = ({
 										className={rangeDate === 'tomorrow' ? 'active' : ''}
 										data-type="tomorrow"
 										onClick={() => {
-											var tomorrow = new Date();
-											tomorrow.setDate(tomorrow.getDate() + 1);
+											var tomorrow = add(new Date(), {
+												days: 1,
+											});
 											setStartDate(tomorrow);
 											setEndDate(tomorrow);
 											setRangeDate('tomorrow');
@@ -447,13 +447,12 @@ const rangeDatepicker = ({
 										onClick={() => {
 											var curr = new Date(); // get current date
 											var first = curr.getDate() - curr.getDay(); // First day is the day of the month - the day of the week
-											var last = first + 6; // last day is the first day + 6
-
-											var firstday = new Date(curr.setDate(first));
-											var lastday = new Date(curr.setDate(last));
-
-											setStartDate(firstday);
-											setEndDate(lastday);
+											var firstDay = new Date(curr.getFullYear(), curr.getMonth(), first);
+											var lastDay = add(firstDay, {
+												days: 6,
+											});
+											setStartDate(firstDay);
+											setEndDate(lastDay);
 											setRangeDate('week');
 										}}
 									>
@@ -465,7 +464,9 @@ const rangeDatepicker = ({
 										onClick={() => {
 											var date = new Date();
 											var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
-											var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+											var lastDay = add(firstDay, {
+												days: 29,
+											});
 											setStartDate(firstDay);
 											setEndDate(lastDay);
 											setRangeDate('month');
@@ -477,8 +478,6 @@ const rangeDatepicker = ({
 										className={rangeDate === 'custom' ? 'active' : ''}
 										data-type="custom"
 										onClick={() => {
-											var month = new Date();
-											month.setDate(month.getDate() + 29);
 											setStartDate(new Date());
 											setEndDate(new Date());
 											setRangeDate('custom');
