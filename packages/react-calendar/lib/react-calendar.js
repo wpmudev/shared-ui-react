@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Input } from '@wpmudev/react-input';
+import { Input } from '../../react-input/lib/react-input.js';
 import DatePicker from 'react-datepicker';
 import { add } from 'date-fns';
 import styled from 'styled-components';
@@ -335,25 +335,17 @@ const Link = styled.a`
 	}
 `;
 
-const DatepickerInput = ({
-	onChange,
-	placeholder,
-	value,
-	id,
-	onClick,
-	arialabelledby,
-	ariadescribedby,
-}) => (
+const DatepickerInput = React.forwardRef((props, ref) => (
 	<Input
-		onChange={onChange}
-		placeholder={placeholder}
-		value={value}
-		id={id}
-		onClick={onClick}
-		aria-labelledby={arialabelledby}
-		aria-describedby={ariadescribedby}
+		onChange={props.onChange}
+		placeholder={props.placeholder}
+		value={props.value}
+		id={props.id}
+		onClick={props.onClick}
+		aria-labelledby={props.arialabelledby}
+		aria-describedby={props.ariadescribedby}
 	/>
-);
+));
 
 const singleDatepicker = ({ startDate, setStartDate, arialabelledby, ariadescribedby }) => {
 	return (
