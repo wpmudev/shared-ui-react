@@ -18,6 +18,12 @@ export class Notifications extends Component {
 		});
 	}
 
+	componentDidMount(){
+		setTimeout(() => {
+			this.setState({ hide:true})
+		}, this.props.hideAfter);
+	}
+
 	render() {
 		const { hide } = this.state;
 		
