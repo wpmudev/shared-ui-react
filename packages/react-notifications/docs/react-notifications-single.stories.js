@@ -26,7 +26,16 @@ primary.storyName = 'Default';
 primary.args = {
     children: (
         <p>Nulla vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec ullamcorper nulla non metus auctor fringilla. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-    )
+    ),
+    floating: false,
+    notificationId: "float-notice-general",
+    autoClose: true,
+    autoCloseTimeout: 5000,
+    icon: "wordpress",
+    animation: "fade",
+    dismiss: false,
+    dismissLabel: "Close",
+    dismissTooltip: "Close",
 };
 primary.argTypes = {
     type: {

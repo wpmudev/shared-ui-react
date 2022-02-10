@@ -27,7 +27,16 @@ primary.args = {
     children: [
         <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>,
         <p>Aenean lacinia bibendum nulla sed consectetur.</p>
-    ]
+    ],
+    floating: false,
+    notificationId: "float-notice-general",
+    autoClose: true,
+    autoCloseTimeout: 5000,
+    icon: "info",
+    animation: "fade",
+    dismiss: false,
+    dismissLabel: "Close",
+    dismissTooltip: "Close",
 };
 primary.argTypes = {
     type: {
@@ -51,11 +60,11 @@ secondary.argTypes = {
 export const thirtiary = Template.bind({});
 thirtiary.storyName = 'Action Button';
 thirtiary.args = {
+    ...primary.args,
     children: [
         <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>,
         <p><Button label="Click Here" design="ghost" /></p>
     ],
-    dismiss: true
 };
 thirtiary.argTypes = {
     ...primary.argTypes
