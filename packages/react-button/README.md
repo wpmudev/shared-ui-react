@@ -40,3 +40,4 @@ color | String | Type color name to change button default color.
 href | String | Sets a hyperlink & uses anchor tag instead of a button.
 loading | Boolean | Sets button in loading state if `true`.
 disabled | Boolean | Disables button if `true`.
+large | Boolean | Increases the size of the button if it's `true`.

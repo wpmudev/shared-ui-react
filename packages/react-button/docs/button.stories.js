@@ -77,6 +77,12 @@ primary.argTypes = {
 			type: 'boolean',
 		},
 	},
+	large: {
+		description: 'Controls whether the button is bigger or smaller',
+		control: {
+			type: "boolean"
+		}
+	},
 	disabled: {
 		description: 'Whether the button should be disabled',
 		table: {

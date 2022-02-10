@@ -8,6 +8,7 @@ const Button = ({
 	color,
 	className,
 	loading,
+	large,
 	...props
 }) => {
 	const loader = (
@@ -34,6 +35,9 @@ const Button = ({
 		className ? ' ' + className : ''
 	}`;
 
+
+	// Set button size.
+		large ? className += " sui-button-lg" : undefined
 	// Set button color.
 	switch (color) {
 		case 'blue':
