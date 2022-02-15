@@ -3,7 +3,6 @@ import { Input } from '../../react-input/lib/react-input.js';
 import DatePicker from 'react-datepicker';
 import { add } from 'date-fns';
 import styled from 'styled-components';
-// react-datepicker css
 import 'react-datepicker/dist/react-datepicker.css';
 
 const ParentWrapper = styled.div`
