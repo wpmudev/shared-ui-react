@@ -61,14 +61,25 @@ export class Notifications extends Component {
 		);
 
 		if ( !hide ) {
-			return (
-				<div className={classMain}>
-					<div className="sui-notice-content">
-						{ message }
-						{ this.props.dismiss && actions }
+			return this.props.float ? 
+				(
+					<div className="sui-floating-notices" style={{ width: '100%' }}>
+						<div role="alert" className={classMain} style={{ display: !hide ? 'block' : '' }}  aria-live="assertive">
+							<div className="sui-notice-content">
+								{ message }
+								{ this.props.dismiss && actions }
+							</div>
+						</div>
 					</div>
-				</div>
-			);
+				):
+				(
+					<div role="alert" className={classMain} style={{ display: !hide ? 'block' : '' }}  aria-live="assertive">
+						<div className="sui-notice-content">
+							{ message }
+							{ this.props.dismiss && actions }
+						</div>
+					</div>
+				);
 		}
 
 		return null;
