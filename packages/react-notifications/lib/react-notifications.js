@@ -73,7 +73,7 @@ export class Notifications extends Component {
 					</div>
 				):
 				(
-					<div role="alert" className={classMain} style={{ display: !hide ? 'block' : '' }}  aria-live="assertive">
+					<div role="alert" className={classMain} style={{ display: !hide ? 'block' : null }}  aria-live="assertive">
 						<div className="sui-notice-content">
 							{ message }
 							{ this.props.dismiss && actions }
