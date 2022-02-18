@@ -13,7 +13,7 @@ export const RadioAndCheckbox = ({ size, stacked, type, options }) => {
     }
 
     return (
-        <div className="sui-form-field" role={type == 'radio' ? 'radiogroup' : null}>
+        <div className="sui-form-field" role={type == 'radio' ? 'radiogroup' : 'group'}>
             {options.map((option, index) => {
                 return (
                     option.image ?
