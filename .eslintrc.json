@@ -7,6 +7,7 @@
 		"eslint:recommended",
 		"plugin:react/recommended",
 		"plugin:react-hooks/recommended",
+		"plugin:storybook/recommended",
 		"plugin:jsx-a11y/recommended",
 		"plugin:prettier/recommended",
 		"prettier/react"
@@ -46,5 +47,11 @@
 			}
 		],
 		"react/jsx-uses-react": "error"
-	}
+	},
+	"overrides": [
+		{
+			"files": [ "*.stories.js" ],
+			"rules": {}
+		}
+	]
 }
