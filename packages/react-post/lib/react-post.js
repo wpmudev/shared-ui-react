@@ -180,7 +180,7 @@ const Excerpt = styled.div`
 const ReadMore = styled.p`
 	min-width: 1px;
 	flex: 1;
-	${props => (props.banner ? "" : "margin: 4px 0 0;")}
+	${props => (props.banner ? "margin-bottom: 0 !important;" : "margin: 4px 0 0;")}
 	color: #17A8E3 !important;
 	font-size: 13px !important;
 	line-height: 18px !important;

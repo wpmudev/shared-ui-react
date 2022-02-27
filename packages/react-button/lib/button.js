@@ -1,9 +1,10 @@
-import React from "react";
+import React from 'react';
 
 const Button = ({
 	label,
 	icon,
-	design = "solid",
+	iconRight,
+	design = 'solid',
 	color,
 	className,
 	loading,
@@ -12,62 +13,67 @@ const Button = ({
 	const loader = (
 		<span
 			className="sui-icon-loader sui-loading"
-			style={{ position: "relative" }}
+			style={{ position: 'relative' }}
 			aria-hidden="true"
 		/>
 	);
 
 	let content = (
 		<React.Fragment>
-			{icon && "" !== icon && (
-				<span className={"sui-icon-" + icon} aria-hidden="true" />
+			{icon && !iconRight && '' !== icon && (
+				<span className={'sui-icon-' + icon} aria-hidden="true" />
 			)}
 			{label}
+			{icon && iconRight && '' !== icon && (
+				<span className={'sui-icon-' + icon} aria-hidden="true" />
+			)}
 		</React.Fragment>
 	);
 
-	className = `sui-button${ className ? ' ' + className : '' }`;
+	className = `sui-button${iconRight ? ' sui-button-icon-right' : ''}${
+		className ? ' ' + className : ''
+	}`;
 
 	// Set button color.
 	switch (color) {
-		case "blue":
-		case "green":
-		case "red":
-		case "orange":
-		case "purple":
-		case "yellow":
-		case "white":
-			className += " sui-button-" + color;
+		case 'blue':
+		case 'green':
+		case 'red':
+		case 'orange':
+		case 'purple':
+		case 'yellow':
+		case 'white':
+			className += ' sui-button-' + color;
 			break;
 
-		case "gray":
+		case 'gray':
 		default:
-			className += "";
+			className += '';
 			break;
 	}
 
 	// Set button style.
 	switch (design) {
-		case "ghost":
-		case "outlined":
-			className += " sui-button-" + design;
+		case 'ghost':
+		case 'outlined':
+			className += ' sui-button-' + design;
 			break;
 
-		case "solid":
+		case 'solid':
 		default:
-			className += "";
+			className += '';
 			break;
 	}
 
 	// Set loading class.
-	if ( loading ) {
-		className += " sui-button-onload";
+	if (loading) {
+		className += ' sui-button-onload';
 	}
 
 	let htmlTag = 'button';
-	if ( props.href ) {
+	if (props.href) {
 		htmlTag = 'a';
-	} else if ( props.htmlFor ) {
+	} else if (props.htmlFor) {
 		htmlTag = 'label';
 	}
 
@@ -76,10 +82,10 @@ const Button = ({
 		{
 			className: className,
 			disabled: props.disabled || loading,
-			...props
+			...props,
 		},
-		loading ? loader : content
-	)
+		loading ? loader : content,
+	);
 };
 
 export { Button };
