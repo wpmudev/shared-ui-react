@@ -3995,10 +3995,10 @@
     text-table "^0.2.0"
     webpack-log "^1.1.2"
 
-"@wpmudev/shared-ui@^2.10.8":
-  version "2.10.8"
-  resolved "https://registry.yarnpkg.com/@wpmudev/shared-ui/-/shared-ui-2.10.8.tgz#6dde8e8d78b393c00e2f819967b2f4fa5f4f7dfa"
-  integrity sha512-EzUdKuC12PHV0cN+v8YTcapRxixG8s2v/D4bpXMirlfX8naSeJIjTlg0P48R8esk/DOCS8vHtEdIV3x/F7KNpA==
+"@wpmudev/shared-ui@^2.12.3":
+  version "2.12.3"
+  resolved "https://registry.yarnpkg.com/@wpmudev/shared-ui/-/shared-ui-2.12.3.tgz#441440a085778545edc4aaf8220fd8cdeb3cd747"
+  integrity sha512-bUPheTTStENAiRqhoM7Wp+lrDyvSXr4qQoXqBtkfcFUSS5ulo3OF9MHvn41B/uvjikVTBB0HjI9ue+t/OwUHBA==
 
 "@xtuc/ieee754@^1.2.0":
   version "1.2.0"
