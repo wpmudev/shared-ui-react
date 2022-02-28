@@ -11,7 +11,7 @@ module.exports = {
 		"@storybook/addon-a11y",
 		"@storybook/addon-notes/register-panel"
 	],
-	webpackFinal: async config => {
+	webpackFinal: async ( config ) => {
 		// Change the order of resolution of main fields.
 		config.resolve.mainFields = [
 			'src',
@@ -31,7 +31,4 @@ module.exports = {
 		// Return the altered config
 		return config;
 	},
-	core: {
-		builder: "webpack5"
-	}
-};
+}
