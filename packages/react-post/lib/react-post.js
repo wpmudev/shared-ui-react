@@ -122,7 +122,7 @@ const PostTitle = styled.h3`
 	overflow: hidden;
 	display: -webkit-box !important;
 	-webkit-box-orient: vertical;
-	${props => (props.banner ? "flex: 1 1 auto;" : "")}
+	${props => (props.banner ? "flex: 0 1 auto;" : "")}
 	margin: ${props => (props.banner ? "0 0 10px" : "0")} !important;
 	padding: 0 !important;
 	border: 0;
