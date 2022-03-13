@@ -9,17 +9,15 @@ export default {
 const Template = (args) => <Button {...args} />;
 
 export const primary = Template.bind({});
-primary.storyName = 'Loading';
+primary.storyName = 'Default';
 primary.args = {
 	label: 'Button',
-	design: 'text',
-	color: 'gray',
-	width: 'default',
-	height: '30',
+	design: null,
+	color: null,
 	icon: null,
 	iconRight: false,
-	loading: true,
-	disabled: true,
+	loading: null,
+	disabled: null,
 	className: null,
 	htmlFor: null,
 	href: null,
@@ -40,17 +38,11 @@ primary.argTypes = {
 		description: 'The button style',
 		table: {
 			type: { summary: 'string' },
-			defaultValue: { summary: 'text' },
+			defaultValue: { summary: 'solid' },
 		},
 		control: {
 			type: 'select',
-			options: {
-				'Text (Default)': 'text',
-				Solid: 'solid',
-				Light: 'light',
-				Ghost: 'ghost',
-				'Ghost Dashed': 'ghost-dashed',
-			},
+			options: ['solid', 'ghost'],
 		},
 	},
 	color: {
@@ -61,35 +53,7 @@ primary.argTypes = {
 		},
 		control: {
 			type: 'select',
-			options: {
-				'Gray (Default)': 'gray',
-				Blue: 'blue',
-				Green: 'green',
-				Red: 'red',
-				Purple: 'purple',
-			},
-		},
-	},
-	width: {
-		description: 'The button width',
-		control: {
-			type: 'select',
-			options: {
-				Default: 'default',
-				'Full Width': 'full',
-			},
-		},
-	},
-	height: {
-		description: 'The button height',
-		control: {
-			type: 'select',
-			options: {
-				'30px (Default)': '30',
-				'50px': '50',
-				'60px': '60',
-				'70px': '70',
-			},
+			options: ['gray', 'blue', 'green', 'red', 'orange', 'purple', 'yellow', 'white'],
 		},
 	},
 	icon: {
@@ -177,12 +141,17 @@ primary.argTypes = {
 	},
 };
 
-// disabled button
+export const loading = Template.bind({});
+loading.storyName = 'Loading';
+loading.args = {
+	...primary.args,
+	loading: true,
+};
+loading.argTypes = primary.argTypes;
+
 export const disabled = Template.bind({});
 disabled.storyName = 'Disabled';
 disabled.args = {
 	...primary.args,
-	loading: false,
 	disabled: true,
 };
-disabled.argTypes = primary.argTypes;
