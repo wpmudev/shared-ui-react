@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/react-input",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "WPMU DEV Shared UI React Input Component",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com/)",
@@ -41,6 +41,6 @@
   "homepage": "https://github.com/wpmudev/shared-ui-react#readme",
   "devDependencies": {
     "@wpmudev/react-builder": "^0.0.0",
-    "react": "^17.0.1"
+    "react": "^17.0.2"
   }
 }
