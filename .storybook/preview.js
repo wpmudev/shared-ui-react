@@ -1,5 +1,6 @@
 import React from 'react';
 import '@wpmudev/shared-ui/dist/css/shared-ui.min.css'; // Get latest SUI styles.
+import "./body-class";
 
 const customViewports = {
 	xl: {
@@ -59,10 +60,8 @@ export const parameters = {
 
 export const decorators = [
 	( Story ) => (
-		<div className="sui-2-10-8">
-			<div className="sui-wrap">
-				<Story />
-			</div>
+		<div className="sui-wrap">
+			<Story />
 		</div>
 	),
 ]

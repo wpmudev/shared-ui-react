@@ -180,7 +180,7 @@ const Excerpt = styled.div`
 const ReadMore = styled.p`
 	min-width: 1px;
 	flex: 1;
-	${props => (props.banner ? "" : "margin: 4px 0 0;")}
+	${props => (props.banner ? "margin-bottom: 0 !important;" : "margin: 4px 0 0;")}
 	color: #17A8E3 !important;
 	font-size: 13px !important;
 	line-height: 18px !important;
@@ -256,10 +256,13 @@ export class Post extends Component {
 		const min_read =
 			translate && translate[0].min_read ? translate[0].min_read : "min read";
 
+		// replace html entities from the title with character.
+		const postTitle = this.props.title.replace(/&#(\d+);/g, function(match, dec) {return String.fromCharCode(dec);});
+
 		let PostImage = ""; // Empty.
 
 		if ( this.props.image ) {
-			PostImage = <FeaturedImage src={this.props.image} alt="" {...this.props} />;
+			PostImage = <FeaturedImage src={this.props.image} alt="" {...this.props} title={postTitle} />;
 		} else {
 			if (error) {
 				PostImage = error.message;
@@ -271,13 +274,13 @@ export class Post extends Component {
 					</p>
 				);
 			} else {
-				PostImage = <FeaturedImage src={media} {...this.props} />;
+				PostImage = <FeaturedImage src={media} {...this.props} title={postTitle} />;
 			}
 		}
 
 		if (this.props.banner) {
 			return (
-				<PostWrapper {...this.props}>
+				<PostWrapper {...this.props} title={postTitle}>
 					{PostImage}
 
 					{this.props.title && "" !== this.props.title && (
@@ -320,7 +323,7 @@ export class Post extends Component {
 		}
 
 		return (
-			<PostWrapper {...this.props}>
+			<PostWrapper {...this.props} title={postTitle}>
 				<PostHeader>
 					{PostImage}
 
