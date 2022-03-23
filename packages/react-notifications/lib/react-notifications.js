@@ -1,76 +1,65 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { ButtonIcon } from '@wpmudev/react-button-icon';
 
-export class Notifications extends Component {
-	constructor(props) {
-		super(props);
+export const Notifications = ({ children, type, dismiss, float }) => {
+	let classMain = "sui-notice";
+	let classIcon = "sui-notice-icon sui-md";
 
-		this.state = {
-			hide: false
-		};
+	const [hide, setHide] = useState(false);
 
-		this.close = this.close.bind( this );
+	switch (type) {
+		case "info":
+		case "success":
+		case "warning":
+		case "error":
+		case "upsell":
+			classMain += " sui-notice-" + type;
+			classIcon += " sui-icon-info";
+			break;
+
+		case "loading":
+			classIcon += " sui-icon-loader sui-loading";
+			break;
+
+		default:
+			classIcon += " sui-icon-info";
+			break;
 	}
 
-	close = () => {
-		this.setState({
-			hide: true
-		});
-	}
+	const message = (
+		<div className="sui-notice-message">
+			<span className={classIcon} aria-hidden="true" />
+			{children}
+		</div>
+	);
 
-	render() {
-		const { hide } = this.state;
-		
-		let classMain = "sui-notice";
-		let classIcon = "sui-notice-icon sui-md";
+	const actions = (
+		<div className="sui-notice-actions">
+			<ButtonIcon
+				icon="check"
+				label="Hide"
+				onClick={() => setHide(true)}
+			/>
+		</div>
+	);
 
-		switch (this.props.type) {
-			case "info":
-			case "success":
-			case "warning":
-			case "error":
-			case "upsell":
-				classMain += " sui-notice-" + this.props.type;
-				classIcon += " sui-icon-info";
-				break;
-
-			case "loading":
-				classIcon += " sui-icon-loader sui-loading";
-				break;
-
-			default:
-				classIcon += " sui-icon-info";
-				break;
-		}
-
-		const message = (
-			<div className="sui-notice-message">
-				<span className={classIcon} aria-hidden="true" />
-				{this.props.children}
-			</div>
-		);
-
-		const actions = (
-			<div className="sui-notice-actions">
-				<ButtonIcon
-					icon="check"
-					label="Hide"
-					onClick={ e => this.close(e) }
-				/>
-			</div>
-		);
-
-		if ( !hide ) {
-			return (
-				<div className={classMain}>
-					<div className="sui-notice-content">
-						{ message }
-						{ this.props.dismiss && actions }
+	return !hide ? (
+		float ? (
+				<div className="sui-floating-notices" style={{ width: '100%' }}>
+					<div role="alert" className={classMain} style={{ display: !hide ? 'block' : null }}  aria-live="assertive">
+						<div className="sui-notice-content">
+							{ message }
+							{ dismiss && actions }
+						</div>
 					</div>
 				</div>
-			);
-		}
-
-		return null;
-	}
+			) : (
+				<div role="alert" className={classMain} style={{ display: !hide ? 'block' : null }}  aria-live="assertive">
+					<div className="sui-notice-content">
+						{ message }
+						{ dismiss && actions }
+					</div>
+				</div>
+			)
+	) : null;	
 }
