@@ -70,6 +70,7 @@ const RadioAndCheckbox = ({ size, stacked, type, options }) => {
                     option.image ?
                     (
                         <OptionInput 
+                            index={index}
                             type={type}
                             label={option.label}
                             labelId={option.labelId}
@@ -82,6 +83,7 @@ const RadioAndCheckbox = ({ size, stacked, type, options }) => {
                         />
                     ) : (
                         <OptionInput 
+                            index={index}
                             type={type}
                             label={option.label}
                             labelId={option.labelId}
