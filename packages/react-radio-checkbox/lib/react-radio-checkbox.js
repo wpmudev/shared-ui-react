@@ -1,6 +1,6 @@
 import React from 'react'
 
-const OptionInput = ({ 
+const RadioCheckboxInput = ({ 
     type, 
     label, 
     labelId, 
@@ -51,7 +51,7 @@ const OptionInput = ({
     );
 }
 
-const RadioAndCheckbox = ({ size, stacked, type, options }) => {
+const RadioAndCheckboxGroup = ({ size, stacked, type, options }) => {
 
     const mainClasses = [`sui-${type}`];
 
@@ -69,7 +69,7 @@ const RadioAndCheckbox = ({ size, stacked, type, options }) => {
                 return (
                     option.image ?
                     (
-                        <OptionInput 
+                        <RadioCheckboxInput 
                             index={index}
                             type={type}
                             label={option.label}
@@ -82,7 +82,7 @@ const RadioAndCheckbox = ({ size, stacked, type, options }) => {
                             disabled={option.disabled}
                         />
                     ) : (
-                        <OptionInput 
+                        <RadioCheckboxInput 
                             index={index}
                             type={type}
                             label={option.label}
@@ -101,6 +101,6 @@ const RadioAndCheckbox = ({ size, stacked, type, options }) => {
 }
 
 export {
-    RadioAndCheckbox,
-    OptionInput
+    RadioAndCheckboxGroup,
+    RadioCheckboxInput
 }

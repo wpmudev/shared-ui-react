@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, BoxBody } from '@wpmudev/react-box';
-import { RadioAndCheckbox } from '../lib/react-radio-checkbox';
+import { RadioAndCheckboxGroup } from '../lib/react-radio-checkbox';
 
 export default {
 	title: 'Components/Radio and Checkbox/Checkbox',
@@ -54,7 +54,7 @@ const Template = ({ ...props }) => {
     return (
         <Box>
             <BoxBody>
-                <RadioAndCheckbox {...props} />
+                <RadioAndCheckboxGroup {...props} />
             </BoxBody>
         </Box>
     );
