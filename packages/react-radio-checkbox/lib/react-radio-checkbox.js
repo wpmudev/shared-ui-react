@@ -30,7 +30,7 @@ const OptionInput = ({
                         {...props} 
                     />
                     <span aria-hidden="true"></span>
-                    <span id={labelId}>{label}</span>
+                    {label && ((<span id={labelId}>{label}</span>))}
                 </span>
             </label>
         ) : (
