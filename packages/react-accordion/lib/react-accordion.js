@@ -2,6 +2,7 @@ import React, { Component, useState, useEffect, setState, useCallback } from 're
 import styled from 'styled-components';
 
 import { ButtonIcon } from '@wpmudev/react-button-icon';
+import { RadioCheckboxInput } from '@wpmudev/react-radio-checkbox';
 
 const ItemImage = styled.span`
     width: 30px;
@@ -37,6 +38,10 @@ const AccordionItem = ({
 	icon,
 	image,
 	children,
+	checkboxInput,
+	checkboxId,
+	checkboxSelected,
+	checkboxClickHandler,
 	...props
 }) => {
 	const [ isOpen, setIsOpen ] = useToggle();
@@ -53,6 +58,10 @@ const AccordionItem = ({
 				icon={ icon }
 				image={ image }
 				onClick={ setIsOpen }
+				checkboxInput={ checkboxInput }
+				checkboxId={ checkboxId }
+				checkboxSelected={ checkboxSelected }
+				checkboxClickHandler={ checkboxClickHandler }
 			/>
 			<AccordionItemBody>
 				{ children }
@@ -67,6 +76,10 @@ const AccordionItemHeader = ({
 	icon,
 	image,
 	children,
+	checkboxInput,
+	checkboxId,
+	checkboxSelected,
+	checkboxClickHandler,
 	...props
 }) => {
 	const [ isOpen ] = useState( false );
@@ -84,9 +97,20 @@ const AccordionItemHeader = ({
 		? ' sui-accordion-col-' + titleSize
 		: '';
 
+	const checkboxItem = checkboxInput ? (
+		<RadioCheckboxInput
+			type="checkbox"
+			id={ checkboxId }
+			name="accordion-checkbox"
+			defaultChecked={ checkboxSelected }
+			onChange={ checkboxClickHandler }
+		/>
+	) : '';
+		
+
 	const titleColumn = (
 		<div className={ `sui-accordion-item-title${ titleColumnSize }` }>
-			{ titleColumnIcon }{ titleColumnImage }{ title }
+			{ checkboxItem }{ titleColumnIcon }{ titleColumnImage }{ title }
 		</div>
 	);
 
