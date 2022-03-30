@@ -53,14 +53,14 @@ const OptionInput = ({
 
 const RadioAndCheckbox = ({ size, stacked, type, options }) => {
 
-    const mainClass = [`sui-${type}`];
+    const mainClasses = [`sui-${type}`];
 
     if (size === 'small') {
-        mainClass.push(`sui-${type}-sm`);
+        mainClasses.push(`sui-${type}-sm`);
     }
 
     if (stacked) {
-        mainClass.push(`sui-${type}-stacked`);
+        mainClasses.push(`sui-${type}-stacked`);
     }
 
     return (
@@ -73,7 +73,7 @@ const RadioAndCheckbox = ({ size, stacked, type, options }) => {
                             type={type}
                             label={option.label}
                             labelId={option.labelId}
-                            mainClasses={mainClass.join(' ')}
+                            mainClasses={mainClasses.join(' ')}
                             id={option.id}
                             name={option.name}
                             image={option.image}
