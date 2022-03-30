@@ -51,7 +51,7 @@ const RadioCheckboxInput = ({
     );
 }
 
-const RadioAndCheckboxGroup = ({ size, stacked, type, options }) => {
+const RadioCheckboxGroup = ({ size, stacked, type, options }) => {
 
     const mainClasses = [`sui-${type}`];
 
@@ -101,6 +101,6 @@ const RadioAndCheckboxGroup = ({ size, stacked, type, options }) => {
 }
 
 export {
-    RadioAndCheckboxGroup,
+    RadioCheckboxGroup,
     RadioCheckboxInput
 }
