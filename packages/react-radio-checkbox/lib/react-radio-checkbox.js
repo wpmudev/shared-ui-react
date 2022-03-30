@@ -4,7 +4,6 @@ const RadioCheckboxInput = ({
     type, 
     label, 
     labelId, 
-    mainClasses, 
     id, 
     name, 
     image, 
@@ -12,6 +11,17 @@ const RadioCheckboxInput = ({
     disabled,
     ...props
 }) => {
+
+    const mainClasses = [`sui-${type}`];
+
+    if (props.size === 'small') {
+        mainClasses.push(`sui-${type}-sm`);
+    }
+
+    if (props.stacked) {
+        mainClasses.push(`sui-${type}-stacked`);
+    }
+
     return (
         image ? (
             <label className={`sui-${type}-image`} htmlFor={id}>
@@ -19,7 +29,7 @@ const RadioCheckboxInput = ({
                     src={image.src}
                     srcSet={image.srcset}
                     alt={image.alt} />
-                <span className={mainClasses}>
+                <span className={mainClasses.join(' ')}>
                     <input
                         id={id}
                         type={type}
@@ -34,7 +44,7 @@ const RadioCheckboxInput = ({
                 </span>
             </label>
         ) : (
-            <label className={mainClasses} htmlFor={id}>
+            <label className={mainClasses.join(' ')} htmlFor={id}>
                 <input 
                     id={id}
                     type={type} 
@@ -51,18 +61,7 @@ const RadioCheckboxInput = ({
     );
 }
 
-const RadioCheckboxGroup = ({ size, stacked, type, options }) => {
-
-    const mainClasses = [`sui-${type}`];
-
-    if (size === 'small') {
-        mainClasses.push(`sui-${type}-sm`);
-    }
-
-    if (stacked) {
-        mainClasses.push(`sui-${type}-stacked`);
-    }
-
+const RadioCheckboxGroup = ({ type, options, ...props }) => {
     return (
         <div className="sui-form-field" role={type == 'radio' ? 'radiogroup' : 'group'}>
             {options?.map((option, index) => {
@@ -70,28 +69,28 @@ const RadioCheckboxGroup = ({ size, stacked, type, options }) => {
                     option.image ?
                     (
                         <RadioCheckboxInput 
-                            index={index}
+                            key={index}
                             type={type}
                             label={option.label}
                             labelId={option.labelId}
-                            mainClasses={mainClasses.join(' ')}
                             id={option.id}
                             name={option.name}
                             image={option.image}
                             defaultChecked={option.defaultChecked}
                             disabled={option.disabled}
+                            {...props}
                         />
                     ) : (
                         <RadioCheckboxInput 
-                            index={index}
+                            key={index}
                             type={type}
                             label={option.label}
                             labelId={option.labelId}
-                            mainClasses={mainClasses.join(' ')}
                             id={option.id}
                             name={option.name}
                             defaultChecked={option.defaultChecked}
                             disabled={option.disabled}
+                            {...props}
                         />
                     )
                 );
