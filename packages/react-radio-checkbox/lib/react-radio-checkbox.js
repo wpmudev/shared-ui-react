@@ -1,6 +1,57 @@
 import React from 'react'
 
-export const RadioAndCheckbox = ({ size, stacked, type, options }) => {
+const OptionInput = ({ 
+    type, 
+    label, 
+    labelId, 
+    mainClasses, 
+    id, 
+    name, 
+    image, 
+    defaultChecked, 
+    disabled,
+    ...props
+}) => {
+    return (
+        image ? (
+            <label className={`sui-${type}-image`} htmlFor={id}>
+                <img
+                    src={image.src}
+                    srcSet={image.srcset}
+                    alt={image.alt} />
+                <span className={mainClasses}>
+                    <input
+                        id={id}
+                        type={type}
+                        name={name}
+                        aria-labelledby={labelId}
+                        disabled={disabled}
+                        defaultChecked={defaultChecked}
+                        {...props} 
+                    />
+                    <span aria-hidden="true"></span>
+                    <span id={labelId}>{label}</span>
+                </span>
+            </label>
+        ) : (
+            <label className={mainClasses} htmlFor={id}>
+                <input 
+                    id={id}
+                    type={type} 
+                    name={name}
+                    aria-labelledby={labelId}
+                    defaultChecked={defaultChecked}
+                    disabled={disabled}
+                    {...props}
+                />
+                <span aria-hidden="true"></span>
+                {label && ((<span id={labelId}>{label}</span>))}
+            </label>
+        )
+    );
+}
+
+const RadioAndCheckbox = ({ size, stacked, type, options }) => {
 
     const mainClass = [`sui-${type}`];
 
@@ -18,38 +69,28 @@ export const RadioAndCheckbox = ({ size, stacked, type, options }) => {
                 return (
                     option.image ?
                     (
-                        <label className={`sui-${type}-image`} htmlFor={option.id} key={index}>
-                            <img
-                                src={option.image.src}
-                                srcSet={option.image.srcset}
-                                alt={option.image.alt}
-                            />
-                            <span className={mainClass.join(' ')}>
-                                <input 
-                                    id={option.id} 
-                                    type={type} 
-                                    name={option.name} 
-                                    aria-labelledby={option.arialabelledby} 
-                                    defaultChecked={option.defaultChecked} 
-                                    disabled={option.disabled} 
-                                />
-                                <span aria-hidden="true"></span>
-                                <span id={option.arialabelledby}>{option.label}</span>
-                            </span>
-                        </label>
+                        <OptionInput 
+                            type={type}
+                            label={option.label}
+                            labelId={option.labelId}
+                            mainClasses={mainClass.join(' ')}
+                            id={option.id}
+                            name={option.name}
+                            image={option.image}
+                            defaultChecked={option.defaultChecked}
+                            disabled={option.disabled}
+                        />
                     ) : (
-                        <label className={mainClass.join(' ')} htmlFor={option.id} key={index}>
-                            <input 
-                                id={option.id} 
-                                type={type} 
-                                name={option.name} 
-                                aria-labelledby={option.arialabelledby} 
-                                defaultChecked={option.defaultChecked} 
-                                disabled={option.disabled} 
-                            />
-                            <span aria-hidden="true"></span>
-                            <span id={option.arialabelledby}>{option.label}</span>
-                        </label>
+                        <OptionInput 
+                            type={type}
+                            label={option.label}
+                            labelId={option.labelId}
+                            mainClasses={mainClass.join(' ')}
+                            id={option.id}
+                            name={option.name}
+                            defaultChecked={option.defaultChecked}
+                            disabled={option.disabled}
+                        />
                     )
                 );
             })}
@@ -57,3 +98,7 @@ export const RadioAndCheckbox = ({ size, stacked, type, options }) => {
     )
 }
 
+export {
+    RadioAndCheckbox,
+    OptionInput
+}
