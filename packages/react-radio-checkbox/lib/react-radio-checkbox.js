@@ -87,7 +87,7 @@ const RadioCheckboxGroup = ({ size, stacked, type, options }) => {
                             type={type}
                             label={option.label}
                             labelId={option.labelId}
-                            mainClasses={mainClass.join(' ')}
+                            mainClasses={mainClasses.join(' ')}
                             id={option.id}
                             name={option.name}
                             defaultChecked={option.defaultChecked}
