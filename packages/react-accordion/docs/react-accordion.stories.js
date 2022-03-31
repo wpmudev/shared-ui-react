@@ -30,6 +30,8 @@ primary.args = {
             title: 'Accordion Item 1',
             icon: 'forminator',
             image: 'https://pbs.twimg.com/profile_images/671394755951984640/GSkxXgDp_400x400.png',
+            checkboxInput: true,
+            checkboxId: 'accordion-item-1',
             children: (
                 <Box>
                     <BoxBody>
@@ -42,6 +44,8 @@ primary.args = {
             title: 'Accordion Item 2',
             icon: 'hustle',
             image: 'https://pbs.twimg.com/profile_images/671394755951984640/GSkxXgDp_400x400.png',
+            checkboxInput: true,
+            checkboxId: 'accordion-item-2',
             children: (
                 <Box>
                     <BoxBody>
@@ -54,6 +58,8 @@ primary.args = {
             title: 'Accordion Item 3',
             icon: 'hummingbird',
             image: 'https://pbs.twimg.com/profile_images/671394755951984640/GSkxXgDp_400x400.png',
+            checkboxInput: true,
+            checkboxId: 'accordion-item-3',
             children: (
                 <Box>
                     <BoxBody>
