@@ -2,6 +2,8 @@ import React, { Component, useState, useEffect, setState, useCallback } from 're
 import styled from 'styled-components';
 
 import { ButtonIcon } from '@wpmudev/react-button-icon';
+import { Button } from '@wpmudev/react-button';
+import { Dropdown } from '@wpmudev/react-dropdown';
 
 const ItemImage = styled.span`
     width: 30px;
@@ -31,6 +33,14 @@ const Accordion = ({ children, ...props }) => {
 	);
 };
 
+const AccordionBlocks = ({ children, ...props }) => {
+	return (
+		<div className="sui-accordion sui-accordion-block" { ...props }>
+			{ children }
+		</div>
+	);
+};
+
 const AccordionItem = ({
 	title,
 	titleSize,
@@ -53,6 +63,8 @@ const AccordionItem = ({
 				icon={ icon }
 				image={ image }
 				onClick={ setIsOpen }
+				tag={ props.tag }
+				trimmed={ props.trimmed }
 			/>
 			<AccordionItemBody>
 				{ children }
@@ -67,6 +79,9 @@ const AccordionItemHeader = ({
 	icon,
 	image,
 	children,
+	tag,
+	trimmed,
+	created,
 	...props
 }) => {
 	const [ isOpen ] = useState( false );
@@ -84,9 +99,17 @@ const AccordionItemHeader = ({
 		? ' sui-accordion-col-' + titleSize
 		: '';
 
+	const tagContent = 'undefined' !== typeof tag && '' !== tag && (
+					<span className={ tag === 'Published' ? "sui-tag sui-tag-blue" : "sui-tag" }>{tag}</span>
+				);
+
+	const titleContent = 'undefined' !== typeof trimmed && '' !== trimmed ?
+		<span className="sui-trim-text">{title}{tagContent}</span>
+	 : title;
+
 	const titleColumn = (
-		<div className={ `sui-accordion-item-title${ titleColumnSize }` }>
-			{ titleColumnIcon }{ titleColumnImage }{ title }
+		<div className={ `sui-accordion-item-title${ titleColumnSize }` + (trimmed && (' sui-trim-title')) }>
+			{ titleColumnIcon }{ titleColumnImage }{ titleContent }
 		</div>
 	);
 
@@ -120,12 +143,19 @@ const AccordionItemHeader = ({
 		</div>
 	);
 
+	const lastdate = (created && (
+		<div className="sui-accordion-item-date">
+			<strong>Last Submission</strong> {created}
+		</div>
+	));
+
 	return (
 		<div
 			className="sui-accordion-item-header"
 			{ ...props }
 		>
 			{ titleColumn }
+			{ lastdate }
 			{ countChildren > 0 ? columns : actions }
 		</div>
 	);
@@ -144,6 +174,7 @@ const AccordionItemBody = ({ children, ...props }) => {
 
 export {
     Accordion,
+	AccordionBlocks,
     AccordionItem,
     AccordionItemHeader,
     AccordionItemBody
