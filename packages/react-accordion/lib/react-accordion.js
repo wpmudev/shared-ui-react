@@ -2,8 +2,6 @@ import React, { Component, useState, useEffect, setState, useCallback } from 're
 import styled from 'styled-components';
 
 import { ButtonIcon } from '@wpmudev/react-button-icon';
-import { Button } from '@wpmudev/react-button';
-import { Dropdown } from '@wpmudev/react-dropdown';
 
 const ItemImage = styled.span`
     width: 30px;
@@ -27,15 +25,7 @@ const useToggle = ( initialValue = false ) => {
 
 const Accordion = ({ children, ...props }) => {
 	return (
-		<div className="sui-accordion" { ...props }>
-			{ children }
-		</div>
-	);
-};
-
-const AccordionBlocks = ({ children, ...props }) => {
-	return (
-		<div className="sui-accordion sui-accordion-block" { ...props }>
+		<div className={ `sui-accordion ${props.classes ? props.classes : ''}` } { ...props }>
 			{ children }
 		</div>
 	);
@@ -79,9 +69,6 @@ const AccordionItemHeader = ({
 	icon,
 	image,
 	children,
-	tag,
-	trimmed,
-	lastDate,
 	...props
 }) => {
 	const [ isOpen ] = useState( false );
@@ -99,16 +86,16 @@ const AccordionItemHeader = ({
 		? ' sui-accordion-col-' + titleSize
 		: '';
 
-	const tagContent = 'undefined' !== typeof tag && '' !== tag && (
-					<span className={ tag === 'Published' ? "sui-tag sui-tag-blue" : "sui-tag" }>{tag}</span>
+	const tagContent = 'undefined' !== typeof props.tag && '' !== props.tag && (
+					<span className={ props.tag === 'Published' ? "sui-tag sui-tag-blue" : "sui-tag" }>{props.tag}</span>
 				);
 
-	const titleContent = 'undefined' !== typeof trimmed && '' !== trimmed ?
+	const titleContent = 'undefined' !== typeof props.trimmed && '' !== props.trimmed ?
 		<span className="sui-trim-text">{title}{tagContent}</span>
 	 : title;
 
 	const titleColumn = (
-		<div className={ `sui-accordion-item-title${ titleColumnSize }` + ('undefined' !== typeof trimmed && '' !== trimmed ? (' sui-trim-title') : '') }>
+		<div className={ `sui-accordion-item-title${ titleColumnSize }` + (props.trimmed ? (' sui-trim-title') : '') }>
 			{ titleColumnIcon }{ titleColumnImage }{ titleContent }
 		</div>
 	);
@@ -143,9 +130,9 @@ const AccordionItemHeader = ({
 		</div>
 	);
 
-	const lastdate = (lastDate && (
+	const lastdate = (props.lastDate && (
 		<div className="sui-accordion-item-date">
-			<strong>Last Submission</strong> {lastDate}
+			<strong>Last Submission</strong> {props.lastDate}
 		</div>
 	));
 
@@ -174,7 +161,6 @@ const AccordionItemBody = ({ children, ...props }) => {
 
 export {
     Accordion,
-	AccordionBlocks,
     AccordionItem,
     AccordionItemHeader,
     AccordionItemBody
