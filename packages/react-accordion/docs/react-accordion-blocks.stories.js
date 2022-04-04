@@ -87,7 +87,7 @@ const Template = ({ children, ...props }) => {
                                 </div>
                                 
                                 {child.tag !== 'Published' && child.infoMessage && ( 
-                                    <div className={`sui-chartjs-message ${ child.chartData ? 'sui-chartjs-message' : '' }`}>
+                                    <div className={`sui-chartjs-message ${ !child.chartData ? ('sui-chartjs-message--empty') : '' }`}>
                                         <p><span className="sui-icon-info"></span> {child.infoMessage}</p>
                                     </div>
                                 )}
@@ -206,7 +206,7 @@ ternary.args = {
             tag: "Draft",
             trimmed: true,
             lastDate: "March 12, 2018 @ 10:18am",
-            infoMessage: " This form is still in draft state. You can test your form, but we won't start collecting conversion data until you publish it live.",
+            infoMessage: "This form is still in draft state. You can test your form, but we won't start collecting conversion data until you publish it live.",
             chartTitles: (
                 <>
                     <li data-col="large">
