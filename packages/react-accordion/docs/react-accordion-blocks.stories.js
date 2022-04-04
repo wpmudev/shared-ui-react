@@ -83,17 +83,19 @@ const Template = ({ children, ...props }) => {
                             <div className={ `sui-chartjs sui-chartjs-animated ${!isLoading && ('sui-chartjs-loaded')}` }>
 
                                 <div className="sui-chartjs-message sui-chartjs-message--loading">
-                                    <p><span className="sui-icon-loader sui-loading" aria-hidden="true"></span> Loading data...</p>
+                                    <p><span className="sui-icon-loader sui-loading"></span> Loading data...</p>
                                 </div>
                                 
-                                {child.tag !== 'Published' && ( 
-                                    <div className="sui-chartjs-message">
-                                        <p><span className="sui-icon-info" aria-hidden="true"></span> This form is in draft state, so we’ve paused collecting data until you publish it live.</p>
+                                {child.tag !== 'Published' && child.infoMessage && ( 
+                                    <div className={`sui-chartjs-message ${ child.chartData ? 'sui-chartjs-message' : '' }`}>
+                                        <p><span className="sui-icon-info"></span> {child.infoMessage}</p>
                                     </div>
                                 )}
 
-                                <div className="sui-chartjs-canvas" aria-hidden="true">
-                                    <Line data={ child.chartData } options={ child.chartOptions } fill="start" />
+                                <div className="sui-chartjs-canvas">
+                                    {child.chartData && (
+                                        <Line data={ child.chartData } options={ child.chartOptions } fill="start" />
+                                    )}
                                 </div>
 
                             </div>
@@ -153,10 +155,11 @@ secondary.args = {
     classes: "sui-accordion-block",
     children: [
         {
-            title: 'This title can be cut-off (trim). Resize to test.',
+            title: 'Title',
             tag: "Draft",
             trimmed: true,
             lastDate: "March 12, 2018 @ 10:18am",
+            infoMessage: "This form is in draft state, so we’ve paused collecting data until you publish it live.",
             chartTitles: (
                 <>
                     <li data-col="large">
@@ -192,3 +195,48 @@ secondary.args = {
 };
 
 secondary.argTypes = {};
+
+export const ternary = Template.bind({});
+ternary.storyName = 'Empty';
+ternary.args = {
+    classes: "sui-accordion-block",
+    children: [
+        {
+            title: 'Title',
+            tag: "Draft",
+            trimmed: true,
+            lastDate: "March 12, 2018 @ 10:18am",
+            infoMessage: " This form is still in draft state. You can test your form, but we won't start collecting conversion data until you publish it live.",
+            chartTitles: (
+                <>
+                    <li data-col="large">
+                        <strong>Last Submission</strong>
+                        <span>Never</span>
+                    </li>
+
+                    <li>
+                        <strong>Views</strong>
+                        <span>0</span>
+                    </li>
+
+                    <li>
+                        <strong>Submissions</strong>
+                        <a href="">0</a>
+                    </li>
+
+                    <li>
+                        <strong>Conversion Rate</strong>
+                        <span>0%</span>
+                    </li>
+
+                    <li>
+                        <strong>Fields</strong>
+                        <span>7</span>
+                    </li>
+			    </>
+            )
+        }
+    ]
+};
+
+ternary.argTypes = {};
