@@ -81,7 +81,7 @@ const AccordionItemHeader = ({
 	children,
 	tag,
 	trimmed,
-	created,
+	lastDate,
 	...props
 }) => {
 	const [ isOpen ] = useState( false );
@@ -108,7 +108,7 @@ const AccordionItemHeader = ({
 	 : title;
 
 	const titleColumn = (
-		<div className={ `sui-accordion-item-title${ titleColumnSize }` + (trimmed && (' sui-trim-title')) }>
+		<div className={ `sui-accordion-item-title${ titleColumnSize }` + ('undefined' !== typeof trimmed && '' !== trimmed ? (' sui-trim-title') : '') }>
 			{ titleColumnIcon }{ titleColumnImage }{ titleContent }
 		</div>
 	);
@@ -143,9 +143,9 @@ const AccordionItemHeader = ({
 		</div>
 	);
 
-	const lastdate = (created && (
+	const lastdate = (lastDate && (
 		<div className="sui-accordion-item-date">
-			<strong>Last Submission</strong> {created}
+			<strong>Last Submission</strong> {lastDate}
 		</div>
 	));
 
