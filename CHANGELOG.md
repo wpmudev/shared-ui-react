@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
 
+## [1.8.1](https://github.com/wpmudev/shared-ui/compare/v1.8.0...v1.8.1) (Unreleased)
+
+#### 🐛 Bug Fixes
+* `compiler`
+  * Rollup was trying to import and compile `react-dom` causing an error during build. [#166](https://github.com/wpmudev/shared-ui-react/pull/166) ([SUI-329](https://incsub.atlassian.net/browse/SUI-329)) ([@creador-dev](https://github.com/creador-dev))
+* `react-post`
+  * Post title HTML chars are rendered encoded on hovering. [#163](https://github.com/wpmudev/shared-ui-react/pull/163) ([SUI-264](https://incsub.atlassian.net/browse/SUI-264)) ([@creador-dev](https://github.com/creador-dev))
+
+#### 🏠 Internal
+* `react-accordion`, `react-box`, `react-button-icon`, `react-button`, `react-dropdown`, `react-input`, `react-modal`, `react-notifications`, `react-pagination`, `react-post`, `react-progress-bar`
+  * Set `react` dependency to latest version for all packages. [#171](https://github.com/wpmudev/shared-ui-react/pull/171) ([SUI-203](https://incsub.atlassian.net/browse/SUI-203)) ([@iamleigh](https://github.com/iamleigh))
+* Other
+  * Upgrade `SUI` dependency to its latest version. [#160](https://github.com/wpmudev/shared-ui-react/pull/160) ([SUI-314](https://incsub.atlassian.net/browse/SUI-314)) ([@iamleigh](https://github.com/iamleigh))
+
+#### Committers: 2
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
+
 ## [1.8.0](https://github.com/wpmudev/shared-ui/compare/v1.7.0...v1.8.0) (2022-01-30)
 
 #### ✨ New Features
