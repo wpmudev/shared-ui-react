@@ -4,26 +4,19 @@ import { Button } from '../lib/button';
 export default {
 	title: 'Components/Button',
 	component: Button,
+	parameters: {
+		notes: {
+			disabled: true,
+		},
+	},
 };
 
-const Template = (args) => <Button {...args} />;
-
-export const primary = Template.bind({});
-primary.storyName = 'Default';
-primary.args = {
-	label: 'Button',
-	design: null,
-	color: null,
-	icon: null,
-	iconRight: false,
-	loading: null,
-	disabled: null,
-	className: null,
-	htmlFor: null,
-	href: null,
-	onClick: null,
+export const demo = (args) => <Button {...args} />;
+demo.storyName = 'Demo';
+demo.args = {
+	label: 'Button Label',
 };
-primary.argTypes = {
+demo.argTypes = {
 	label: {
 		description: 'The text that shows up in the button',
 		table: {
@@ -139,19 +132,4 @@ primary.argTypes = {
 			type: 'boolean',
 		},
 	},
-};
-
-export const loading = Template.bind({});
-loading.storyName = 'Loading';
-loading.args = {
-	...primary.args,
-	loading: true,
-};
-loading.argTypes = primary.argTypes;
-
-export const disabled = Template.bind({});
-disabled.storyName = 'Disabled';
-disabled.args = {
-	...primary.args,
-	disabled: true,
 };
