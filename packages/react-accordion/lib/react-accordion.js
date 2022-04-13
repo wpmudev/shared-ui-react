@@ -25,7 +25,7 @@ const useToggle = ( initialValue = false ) => {
 
 const Accordion = ({ children, ...props }) => {
 	return (
-		<div className="sui-accordion" { ...props }>
+		<div className={ `sui-accordion ${props.classes ? props.classes : ''}` } { ...props }>
 			{ children }
 		</div>
 	);
@@ -53,6 +53,8 @@ const AccordionItem = ({
 				icon={ icon }
 				image={ image }
 				onClick={ setIsOpen }
+				tag={ props.tag }
+				trimmed={ props.trimmed }
 			/>
 			<AccordionItemBody>
 				{ children }
@@ -84,9 +86,17 @@ const AccordionItemHeader = ({
 		? ' sui-accordion-col-' + titleSize
 		: '';
 
+	const tagContent = 'undefined' !== typeof props.tag && '' !== props.tag && (
+					<span className={ props.tag === 'Published' ? "sui-tag sui-tag-blue" : "sui-tag" }>{props.tag}</span>
+				);
+
+	const titleContent = 'undefined' !== typeof props.trimmed && '' !== props.trimmed ?
+		<span className="sui-trim-text">{title}{tagContent}</span>
+	 : title;
+
 	const titleColumn = (
-		<div className={ `sui-accordion-item-title${ titleColumnSize }` }>
-			{ titleColumnIcon }{ titleColumnImage }{ title }
+		<div className={ `sui-accordion-item-title${ titleColumnSize }` + (props.trimmed ? (' sui-trim-title') : '') }>
+			{ titleColumnIcon }{ titleColumnImage }{ titleContent }
 		</div>
 	);
 
@@ -120,12 +130,19 @@ const AccordionItemHeader = ({
 		</div>
 	);
 
+	const lastdate = (props.lastDate && (
+		<div className="sui-accordion-item-date">
+			<strong>Last Submission</strong> {props.lastDate}
+		</div>
+	));
+
 	return (
 		<div
 			className="sui-accordion-item-header"
 			{ ...props }
 		>
 			{ titleColumn }
+			{ lastdate }
 			{ countChildren > 0 ? columns : actions }
 		</div>
 	);
