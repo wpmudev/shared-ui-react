@@ -29,7 +29,7 @@ primary.args = {
         {
             title: 'Accordion Item 1',
             icon: 'forminator',
-            image: 'https://pbs.twimg.com/profile_images/671394755951984640/GSkxXgDp_400x400.png',
+            image: 'https://i.postimg.cc/j57qvw0V/Tu7j65-LQ-400x400.png',
             children: (
                 <Box>
                     <BoxBody>
@@ -41,7 +41,7 @@ primary.args = {
         {
             title: 'Accordion Item 2',
             icon: 'hustle',
-            image: 'https://pbs.twimg.com/profile_images/671394755951984640/GSkxXgDp_400x400.png',
+            image: 'https://i.postimg.cc/j57qvw0V/Tu7j65-LQ-400x400.png',
             children: (
                 <Box>
                     <BoxBody>
@@ -53,7 +53,7 @@ primary.args = {
         {
             title: 'Accordion Item 3',
             icon: 'hummingbird',
-            image: 'https://pbs.twimg.com/profile_images/671394755951984640/GSkxXgDp_400x400.png',
+            image: 'https://i.postimg.cc/j57qvw0V/Tu7j65-LQ-400x400.png',
             children: (
                 <Box>
                     <BoxBody>
