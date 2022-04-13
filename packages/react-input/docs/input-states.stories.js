@@ -104,7 +104,7 @@ export const primary = () => {
 	return (
 		<Template>
 			<Section
-				title="Default Input"
+				title="Input"
 				description="This is the default state of a input."
 				code="&lt;Input description=&quot;Text description.&quot; label=&quot;Text Label&quot; placeholder=&quot;Placeholder&quot; type=&quot;text&quot; /&gt;"
 				isDefault={ true }
@@ -126,7 +126,7 @@ export const secondary = () => {
 		<Template>
 			<Section
 				title="Error Input"
-				description="This is the default state of a input."
+				description="This is the error state of a input."
 				code="&lt;Input description=&quot;Text description.&quot; errorStatus={true} errorDescription=&quot;Error description.&quot; label=&quot;Text Label&quot; placeholder=&quot;Placeholder&quot; type=&quot;text&quot; /&gt;"
 				isDefault={ false }
 				isLast={ true }>
@@ -143,3 +143,25 @@ export const secondary = () => {
 	);
 };
 secondary.storyName = 'Error';
+
+export const ternary = () => {
+	return (
+		<Template>
+			<Section
+				title="Disabled Input"
+				description="This is the disabled state of a input."
+				code="&lt;Input description=&quot;Text description.&quot; label=&quot;Text Label&quot; placeholder=&quot;Placeholder&quot; type=&quot;text&quot; disabled /&gt;"
+				isDefault={ false }
+				isLast={ true }>
+				<Input
+					description="Text description."
+					label="Text Label"
+					placeholder="Placeholder"
+					type="text"
+					disabled
+				/>
+			</Section>
+		</Template>
+	);
+};
+ternary.storyName = 'Disabled';
