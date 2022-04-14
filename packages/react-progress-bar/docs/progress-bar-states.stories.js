@@ -2,7 +2,7 @@ import React from 'react';
 import { ProgressBar } from '../lib/react-progress-bar';
 
 export default {
-	title: 'Components/Progress bar/Modifiers',
+	title: 'Components/Progress bar/States',
 	component: ProgressBar,
 	parameters: {
 		actions: {
@@ -100,105 +100,60 @@ const Section = ({ title, description, code, code2, isDefault = false, isLast = 
 	);
 }
 
+export const normal = () => {
+	return (
+		<Template>
+			<Section
+				title="Progress Bar"
+				description="This is the default state of a progress bar."
+				code="&lt;ProgressBar now={30}/&gt;"
+				isDefault={ true }
+				isLast={ false }>
+				<ProgressBar now={30}/>
+			</Section>
+			<Section
+				title="Boxed Progress Bar"
+				code="&lt;ProgressBar hasFrame={ true } hasLegend={ true } hasLoader={ true } now={30} sourceLang={{ cancel: 'Pause', legend: 'Plugin is loading...' }} /&gt;"
+				isLast={ true }>
+				<ProgressBar
+					hasFrame={ true }
+					hasLegend={ true }
+					now={30}
+					sourceLang={{
+						cancel: 'Pause',
+						legend: 'Plugin is loading...'
+					}}
+				/>
+			</Section>
+		</Template>
+	);
+};
+normal.storyName = 'Static';
+
 export const loader = () => {
 	return (
 		<Template>
 			<Section
-				title="Progress Bar with loader"
-				code="&lt;ProgressBar hasCancel={false} hasLabel={false} hasLoader={true} now={30}/&gt;"
-				isDefault={ false }
-				isLast={ true }>
+				title="Loading"
+				description="This is the loading state of a progress bar."
+				code="&lt;ProgressBar hasLoader={true} now={30}/&gt;"
+				isDefault={ true }
+				isLast={ false }>
 				<ProgressBar
-					hasCancel={false}
-					hasLabel={false}
 					hasLoader={true}
 					now={30}
 				/>
 			</Section>
-		</Template>
-	);
-};
-loader.storyName = 'With Loader';
-
-export const label = () => {
-	return (
-		<Template>
 			<Section
-				title="Boxed Progress Bar"
-				code="&lt;ProgressBar hasCancel={false} hasLoader={false} hasLabel={ true } now={30} /&gt;"
+				title="Loading with text"
+				description="This is the loading state of a progress bar with legend text."
+				code="&lt;ProgressBar hasFrame={ true } hasLegend={ true } hasLoader={ true } now={30} sourceLang={{ cancel: 'Pause', legend: 'Plugin is loading...' }} /&gt;"
+				isDefault={ false }
 				isLast={ true }>
 				<ProgressBar
-					hasCancel={false}
-					hasLoader={false}
-					hasLabel={ true }
-					now={30}
-				/>
-			</Section>
-		</Template>
-	);
-};
-label.storyName = 'With Label';
-
-export const cancel = () => {
-	return (
-		<Template>
-			<Section
-				title="Boxed Progress Bar"
-				code="&lt;ProgressBar hasCancel={true} hasLoader={false} hasLabel={false} now={30}/&gt;"
-				isLast={ true }>
-				<ProgressBar
-					hasCancel={true}
-					hasLoader={false}
-					hasLabel={false}
-					now={30}
-				/>
-			</Section>
-		</Template>
-	);
-};
-cancel.storyName = 'With Cancel Button';
-
-export const frame = () => {
-	return (
-		<Template>
-			<Section
-				title="Progress Bar with legend text"
-				code="&lt;ProgressBar cbFunction={() =&gt; {}} hasCancel={ true } hasFrame={ true } hasLabel={ true } hasLegend={ true } hasLoader={ true } now={30} sourceLang={{ cancel: 'Pause', legend: 'Plugin is loading...' }} /&gt;"
-				isLast={ true }>
-				<ProgressBar
-					cbFunction={() => {}}
-					hasCancel={ false }
 					hasFrame={ true }
-					hasLabel={ false }
-					hasLegend={ false }
-					hasLoader={ false }
-					now={30}
-					sourceLang={{
-						cancel: 'Pause',
-						legend: 'Plugin is loading...'
-					}}
-				/>
-			</Section>
-		</Template>
-	);
-};
-frame.storyName = 'With Legend Text';
-
-
-export const legend = () => {
-	return (
-		<Template>
-			<Section
-				title="Progress Bar with legend text"
-				code="&lt;ProgressBar cbFunction={() =&gt; {}} hasCancel={ true } hasFrame={ true } hasLabel={ true } hasLegend={ true } hasLoader={ true } now={30} sourceLang={{ cancel: 'Pause', legend: 'Plugin is loading...' }} /&gt;"
-				isLast={ true }>
-				<ProgressBar
-					cbFunction={() => {}}
-					hasCancel={ false }
-					hasFrame={ true }
-					hasLabel={ false }
 					hasLegend={ true }
-					hasLoader={ false }
+					hasLoader={ true }
 					now={30}
 					sourceLang={{
 						cancel: 'Pause',
@@ -209,4 +164,4 @@ export const legend = () => {
 		</Template>
 	);
 };
-legend.storyName = 'With Legend Text';
+loader.storyName = 'Loading';
