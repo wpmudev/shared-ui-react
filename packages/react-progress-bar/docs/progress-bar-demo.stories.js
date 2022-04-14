@@ -11,7 +11,7 @@ const func = () => {
 };
 
 export const demo = (args) => <ProgressBar {...args} />;
-demo.storyName = 'Default';
+demo.storyName = 'Demo';
 demo.args = {
 	now: 30,
 	hasLoader: true,
