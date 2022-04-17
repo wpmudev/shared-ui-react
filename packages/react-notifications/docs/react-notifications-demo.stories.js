@@ -54,12 +54,20 @@ demo.argTypes = {
 				'error',
 				'warning',
 				'upsell',
-				'loading',
 			],
 		},
 	},
 	dismiss: {
 		description: 'This argument will show a dismiss button that will hide the notification after clicking on it.',
+		table: {
+			type: { summary: 'boolean' },
+		},
+		control: {
+			type: 'boolean',
+		},
+	},
+	loading: {
+		description: 'Put the notification in loading mode enabling the spinner/loader icon.',
 		table: {
 			type: { summary: 'boolean' },
 		},
