@@ -79,7 +79,7 @@ demo.argTypes = {
 		description: 'This argument allows you to edit the text of some static elements, like the dismiss button label.',
 		table: {
 			type: {
-				summary: 'array',
+				summary: 'object',
 				detail: `"dismiss": "Hide Notification"`
 			}
 		},
