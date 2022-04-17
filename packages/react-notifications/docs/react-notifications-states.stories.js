@@ -30,6 +30,16 @@ const Demo = args => {
 	);
 };
 
+const Template = ({ children }) => {
+	return (
+		<div className="sui-box">
+			<div className="sui-box-body">
+				{ children }
+			</div>
+		</div>
+	);
+};
+
 const Title = ({ children }) => {
 	const customStyles = {
 		margin: 0,
@@ -100,25 +110,29 @@ const Section = ({ title, description, code, code2, isDefault = false, isLast = 
 
 export const primary = () => {
 	return (
-		<Section
-			title='Static'
-			description='This is the default state of a notification. It can be used inline or floating.'
-			isDefault={ true }
-			isLast={ true }>
-			<Demo />
-		</Section>
+		<Template>
+			<Section
+				title='Static'
+				description='This is the default state of a notification. It can be used inline or floating.'
+				isDefault={ true }
+				isLast={ true }>
+				<Demo />
+			</Section>
+		</Template>
 	);
 };
 primary.storyName = 'Static';
 
 export const loading = () => {
 	return (
-		<Section
-			title='Loading'
-			description='We can also use a notification to alert users that something is happening in the background, like settings being saved.'
-			isLast={ true }>
-			<Demo type='loading' />
-		</Section>
+		<Template>
+			<Section
+				title='Loading'
+				description='We can also use a notification to alert users that something is happening in the background, like settings being saved.'
+				isLast={ true }>
+				<Demo type='loading' />
+			</Section>
+		</Template>
 	);
 };
 loading.storyName = 'Loading';

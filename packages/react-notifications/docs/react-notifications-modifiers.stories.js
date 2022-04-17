@@ -30,6 +30,16 @@ const Demo = args => {
 	);
 };
 
+const Template = ({ children }) => {
+	return (
+		<div className="sui-box">
+			<div className="sui-box-body">
+				{ children }
+			</div>
+		</div>
+	);
+};
+
 const Title = ({ children }) => {
 	const customStyles = {
 		margin: 0,
@@ -100,7 +110,7 @@ const Section = ({ title, description, code, code2, isDefault = false, isLast = 
 
 export const color = () => {
 	return (
-		<>
+		<Template>
 			<Section
 				title='Gray'
 				description='By default, the notifications come in gray color.'
@@ -156,14 +166,14 @@ export const color = () => {
 				isLast={ true }>
 				<Demo type='upsell' />
 			</Section>
-		</>
+		</Template>
 	);
 };
 color.storyName = 'Color';
 
 export const dismiss = () => {
 	return (
-		<>
+		<Template>
 			<Section
 				title='Hide Dismiss'
 				code="&lt;Notification&gt;
@@ -181,7 +191,7 @@ export const dismiss = () => {
 				isLast={ true }>
 				<Demo dismiss="true" />
 			</Section>
-		</>
+		</Template>
 	);
 };
 dismiss.storyName = 'Dismiss';
