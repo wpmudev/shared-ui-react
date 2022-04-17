@@ -96,7 +96,8 @@ export const position = args => {
 	return (
 		<>
 			<Section
-				title="Inline"
+				title='Inline'
+				description='By default, the post image is placed at the left of the post title.'
 				isDefault={ true }>
 				<div style={ { width: '100%', maxWidth: '300px' } }>
 					<Post { ...args } />
@@ -104,7 +105,8 @@ export const position = args => {
 			</Section>
 
 			<Section
-				title="Banner"
+				title='Banner'
+				description='When using the "banner" argument it places the post image on top of the post title.'
 				isLast={ true }>
 				<div style={ { width: '100%', maxWidth: '300px' } }>
 					<Post { ...args } banner={ true } />
