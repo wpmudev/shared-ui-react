@@ -80,7 +80,7 @@ demo.argTypes = {
 		table: {
 			type: {
 				summary: 'object',
-				detail: `"dismiss": "Hide Notification"`
+				detail: `"dismiss": "Hide Notification"`,
 			}
 		},
 	},
