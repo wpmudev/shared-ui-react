@@ -20,26 +20,30 @@ export class Notifications extends Component {
 
 	render() {
 		const { hide } = this.state;
-		
+
 		let classMain = "sui-notice";
 		let classIcon = "sui-notice-icon sui-md";
 
-		switch (this.props.type) {
+		switch ( this.props.type ) {
 			case "info":
 			case "success":
 			case "warning":
 			case "error":
 			case "upsell":
 				classMain += " sui-notice-" + this.props.type;
-				classIcon += " sui-icon-info";
-				break;
-
-			case "loading":
-				classIcon += " sui-icon-loader sui-loading";
+				if ( this.props.loading ) {
+					classIcon += " sui-icon-loader sui-loading";
+				} else {
+					classIcon += " sui-icon-info";
+				}
 				break;
 
 			default:
-				classIcon += " sui-icon-info";
+				if ( this.props.loading ) {
+					classIcon += " sui-icon-loader sui-loading";
+				} else {
+					classIcon += " sui-icon-info";
+				}
 				break;
 		}
 
