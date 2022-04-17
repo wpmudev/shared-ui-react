@@ -112,8 +112,11 @@ export const primary = () => {
 	return (
 		<Template>
 			<Section
-				title='Static'
-				description='This is the default state of a notification. It can be used inline or floating.'
+				title="Static"
+				description="This is the default state of a notification. It can be used inline or floating."
+				code="&lt;Notifications&gt;
+					...
+				&lt;/Notifications&gt;"
 				isDefault={ true }
 				isLast={ true }>
 				<Demo />
@@ -127,15 +130,15 @@ export const loading = () => {
 	return (
 		<Template>
 			<Section
-				title='Loading'
-				description='We can also use a notification to alert users that something is happening in the background, like settings being saved.'
+				title="Loading"
+				description="We can also use a notification to alert users that something is happening in the background, like settings being saved."
+				code="&lt;Notifications loading={ true }&gt;
+					...
+				&lt;/Notifications&gt;"
 				isLast={ true }>
-				<Demo type='loading' />
+				<Demo loading={ true } />
 			</Section>
 		</Template>
 	);
 };
 loading.storyName = 'Loading';
-loading.args = {
-	type: 'loading',
-};
