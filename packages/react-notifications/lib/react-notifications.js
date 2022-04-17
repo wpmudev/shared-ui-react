@@ -47,6 +47,13 @@ export class Notifications extends Component {
 				break;
 		}
 
+		const lang = Object.assign(
+			{
+				dismiss: 'Hide Notification'
+			},
+			this.props.sourceLang
+		);
+
 		const message = (
 			<div className="sui-notice-message">
 				<span className={classIcon} aria-hidden="true" />
@@ -58,7 +65,7 @@ export class Notifications extends Component {
 			<div className="sui-notice-actions">
 				<ButtonIcon
 					icon="check"
-					label="Hide"
+					label={ lang.dismiss }
 					onClick={ e => this.close(e) }
 				/>
 			</div>
