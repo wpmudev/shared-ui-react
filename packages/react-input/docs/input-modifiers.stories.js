@@ -182,3 +182,77 @@ export const secondary = () => {
 	);
 };
 secondary.storyName = 'By type';
+
+export const constrained = () => {
+	return (
+		<Template>
+			<Section
+				title="Constrained Input"
+				description="Only the input field will be constrained."
+				code="&lt;Input description=&quot;Text description.&quot; label=&quot;Text Label&quot; placeholder=&quot;Placeholder&quot; type=&quot;text&quot; /&gt;"
+				isDefault={ true }
+				isLast={ false }>
+				<Input
+					description="This is a text description of a constrained field."
+					label="Constrained Field Text Label"
+					placeholder="Placeholder"
+					type="text"
+					size="small"
+					constrainedField={ false }
+				/>
+			</Section>
+			<Section
+				title="Constrained Field"
+				description="The whole field will be constrained to certain width."
+				code="&lt;Input description=&quot;This is a text description of a constrained field.&quot; label=&quot;Constrained Field Text Label&quot; placeholder=&quot;Placeholder&quot; type=&quot;text&quot; size=&quot;medium&quot; constrainedField={ true } /&gt;"
+				isDefault={ false }
+				isLast={ false }>
+				<Input
+					description="This is a text description of a constrained field."
+					label="Constrained Field Text Label"
+					placeholder="Placeholder"
+					type="text"
+					size="small"
+					constrainedField={ true }
+				/>
+			</Section>
+		</Template>
+	);
+};
+constrained.storyName = 'By constrained';
+
+export const affix = () => {
+	return (
+		<Template>
+			<Section
+				title="Prefix"
+				description="The prefix is a text that appears before the input."
+				code="&lt;Input description=&quot;Text description.&quot; label=&quot;Text Label&quot; placeholder=&quot;Placeholder&quot; type=&quot;text&quot; prefix=&quot;$&quot; /&gt;"
+				isDefault={ false }
+				isLast={ false }>
+				<Input
+					description="Text description."
+					label="Text Label"
+					placeholder="Placeholder"
+					type="text"
+					prefix="$"
+				/>
+			</Section>
+			<Section
+				title="Suffix"
+				description="The suffix is a text that appears after the input."
+				code="&lt;Input description=&quot;Text description.&quot; label=&quot;Text Label&quot; placeholder=&quot;Placeholder&quot; type=&quot;text&quot; suffix=&quot;suffix&quot; /&gt;"
+				isDefault={ false }
+				isLast={ true }>
+				<Input
+					description="Text description."
+					label="Text Label"
+					placeholder="Placeholder"
+					type="text"
+					suffix="suffix"
+				/>
+			</Section>
+		</Template>
+	);
+};
+affix.storyName = 'By affix';
