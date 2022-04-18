@@ -2,7 +2,7 @@ import React from 'react';
 import { ProgressBar } from '../lib/react-progress-bar';
 
 export default {
-	title: 'Components/Progress bar/States',
+	title: 'Components/Progress bar/Modifiers',
 	component: ProgressBar,
 	parameters: {
 		actions: {
@@ -100,7 +100,7 @@ const Section = ({ title, description, code, code2, isDefault = false, isLast = 
 	);
 }
 
-export const normal = () => {
+export const design = () => {
 	return (
 		<Template>
 			<Section
@@ -108,29 +108,19 @@ export const normal = () => {
 				description="This is the default state of a progress bar."
 				code="&lt;ProgressBar now={30}/&gt;"
 				isDefault={ true }
-				isLast={ true }>
+				isLast={ false }>
 				<ProgressBar now={30}/>
 			</Section>
-		</Template>
-	);
-};
-normal.storyName = 'Static';
-
-export const loader = () => {
-	return (
-		<Template>
 			<Section
-				title="Loading"
-				description="This is the loading state of a progress bar."
-				code="&lt;ProgressBar hasLoader={true} now={30}/&gt;"
-				isDefault={ true }
+				title="Boxed Progress Bar"
+				code="&lt;ProgressBar hasFrame={ true } hasLoader={ true } now={30} /&gt;"
 				isLast={ true }>
 				<ProgressBar
-					hasLoader={true}
+					hasFrame={ true }
 					now={30}
 				/>
 			</Section>
 		</Template>
 	);
 };
-loader.storyName = 'Loading';
+design.storyName = 'By Design';
