@@ -83,7 +83,7 @@ demo.argTypes = {
 		},
 	},
 	constrainedField: {
-		description: 'The whole field will be constrainedField.',
+		description: 'The whole field will be constrained.',
 		table: {
 			type: { summary: 'boolean' },
 			defaultValue: { summary: 'false' },
