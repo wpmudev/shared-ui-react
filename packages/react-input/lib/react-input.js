@@ -2,39 +2,46 @@ import React from 'react';
 
 const Input = ({
 	id,
+	constrainedField,
 	size,
 	label,
 	description,
 	type = 'text',
 	errorStatus,
 	errorDescription,
+	prefix,
+	suffix,
 	...props
 }) => {
 	const uniqueId = id && '' !== id ? id : props.property;
 
-	let clazz = 'sui-form-control';
+	let clazz = 'sui-form-control' + (suffix ? ' sui-field-has-suffix' : '') + (prefix ? ' sui-field-has-prefix' : '');
+	let sizeClass = '';
 
 	switch (size) {
 		case 'sm':
 		case 'small':
-			clazz += ' sui-input-sm';
+			sizeClass += ' sui-input-sm';
 			break;
 
 		case 'md':
 		case 'medium':
-			clazz += ' sui-input-md';
+			sizeClass += ' sui-input-md';
 			break;
 	}
 
 	return (
-		<div className={`sui-form-field${errorStatus ? ' sui-form-field-error' : ''}`}>
+		<div className={`sui-form-field${errorStatus ? ' sui-form-field-error' : ''}${constrainedField ? sizeClass : ''}`}>
 			{label && (
 				<label htmlFor={uniqueId} className="sui-label">
 					{label}
 				</label>
 			)}
-
-			<input id={uniqueId} type={type} className={clazz} {...props} />
+			
+			{prefix && (<span className="sui-field-prefix">{prefix}</span>)}
+			<input id={uniqueId} type={type} className={`${!constrainedField ? clazz + sizeClass : clazz}`} {...props} />
+			{suffix && (<span className="sui-field-suffix">{suffix}</span>)}
+			
 			{errorStatus && errorDescription && (
 				<div className="sui-error-message">{errorDescription}</div>
 			)}

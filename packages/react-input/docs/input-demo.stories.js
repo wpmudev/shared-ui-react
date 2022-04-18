@@ -82,6 +82,16 @@ demo.argTypes = {
 			type: 'text',
 		},
 	},
+	constrainedField: {
+		description: 'The whole field will be constrainedField.',
+		table: {
+			type: { summary: 'boolean' },
+			defaultValue: { summary: 'false' },
+		},
+		control: {
+			type: 'boolean',
+		},
+	},
 	size: {
 		description: 'The size of the input',
 		table: {
@@ -98,6 +108,26 @@ demo.argTypes = {
 		table: {
 			type: { summary: 'string' },
 			defaultValue: { summary: 'text' },
+		},
+		control: {
+			type: 'text',
+		},
+	},
+	suffix: {
+		description: 'The suffix of the input',
+		table: {
+			type: { summary: 'string' },
+			defaultValue: { summary: '' },
+		},
+		control: {
+			type: 'text',
+		},
+	},
+	prefix: {
+		description: 'The prefix of the input',
+		table: {
+			type: { summary: 'string' },
+			defaultValue: { summary: '' },
 		},
 		control: {
 			type: 'text',
