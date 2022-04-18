@@ -263,6 +263,8 @@ export class Post extends Component {
 
 		if ( this.props.image ) {
 			PostImage = <FeaturedImage src={this.props.image} alt="" {...this.props} title={postTitle} />;
+		} else if( this.props.image === '' || null ) {
+			PostImage = <FeaturedImage {...this.props} title={postTitle} />;
 		} else {
 			if (error) {
 				PostImage = error.message;
