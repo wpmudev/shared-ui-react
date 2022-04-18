@@ -23,7 +23,7 @@ const Template = ({ children, ...props }) => {
 }
 
 export const primary = Template.bind({});
-primary.storyName = 'Default';
+primary.storyName = 'Demo';
 primary.args = {
     children: [
         {
