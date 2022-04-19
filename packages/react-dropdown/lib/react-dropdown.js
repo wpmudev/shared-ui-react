@@ -45,6 +45,11 @@ const Button = styled.button`
         ${props => ('red' === props.color ? 'background-color: #FFE5E9 !important;' : '')}
         ${props => ('purple' === props.color ? 'background-color: #F9E1FF !important;' : '')}
     }
+
+    &[disabled] {
+        opacity: 0.5;
+        pointer-events: none;
+    }
 }
 `;
 
