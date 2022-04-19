@@ -155,6 +155,7 @@ export class Dropdown extends Component {
                     icon="widget-settings-config"
                     label={ open ? 'Open menu' : 'Close menu' }
                     onClick={ this.toggle }
+                    {...this.props}
                 />
                 { open && <ul onClick={ () => this.setState({ open: false }) }>{ options }</ul> }
             </div>
