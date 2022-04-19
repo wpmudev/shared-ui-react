@@ -112,7 +112,7 @@ const FeaturedImage = styled.div.attrs(() => ({
 	display: block;
 	${props => (props.banner ? "flex: 0 0 auto;" : "")}
 	background-color: #FFF;
-	background-image: url(${props => props.src || "none"});
+	background-image: ${props => (props.src ? `url(${props.src})` : 'none')};
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -260,10 +260,11 @@ export class Post extends Component {
 		const postTitle = this.props.title.replace(/&#(\d+);/g, function(match, dec) {return String.fromCharCode(dec);});
 
 		let PostImage = ""; // Empty.
+		let image = this.props.image;
 
-		if ( this.props.image ) {
-			PostImage = <FeaturedImage src={this.props.image} alt="" {...this.props} title={postTitle} />;
-		} else if( this.props.image === '' || null ) {
+		if ( image ) {
+			PostImage = <FeaturedImage src={image} alt="" {...this.props} title={postTitle} />;
+		} else if( typeof image === 'undefined' || image === null || image === '' ) {
 			PostImage = <FeaturedImage {...this.props} title={postTitle} />;
 		} else {
 			if (error) {
