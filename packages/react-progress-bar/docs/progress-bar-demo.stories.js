@@ -59,6 +59,16 @@ demo.argTypes = {
 			type: 'boolean',
 		},
 	},
+	hasBar: {
+		description: 'Whether to show the bar',
+		table: {
+			type: { summary: 'boolean' },
+			defaultValue: { summary: 'true' },
+		},
+		control: {
+			type: 'boolean',
+		},
+	},
 	hasCancel: {
 		description: 'Whether to show the cancel button',
 		table: {
