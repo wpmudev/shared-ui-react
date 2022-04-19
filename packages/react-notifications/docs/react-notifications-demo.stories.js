@@ -1,6 +1,10 @@
 import React from 'react';
 import { Notifications } from '../lib/react-notifications';
 
+const func = () => {
+	console.log('You called an callback function...');
+};
+
 export default {
 	title: 'Components/Notifications',
 	component: Notifications,
@@ -16,7 +20,7 @@ export default {
 
 export const demo = args => {
 	return (
-		<Notifications { ...args }>
+		<Notifications { ...args } >
 			<p>Nulla vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec ullamcorper nulla non metus auctor fringilla. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
 			<p>
 				<button className="sui-button sui-button-ghost">
@@ -27,6 +31,9 @@ export const demo = args => {
 	);
 };
 demo.storyName = 'Demo';
+demo.args = {
+	cbFunction: () => func(),
+}
 demo.argTypes = {
 	children: {
 		type: {
@@ -84,4 +91,13 @@ demo.argTypes = {
 			}
 		},
 	},
+	cbFunction: {
+		description: 'This is the callback function.',
+		table: {
+			type: { summary: 'function' }
+		},
+		control: {
+			type: 'function'
+		}
+	}
 };
