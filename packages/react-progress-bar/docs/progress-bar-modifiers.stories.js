@@ -113,7 +113,7 @@ export const design = () => {
 			</Section>
 			<Section
 				title="Boxed Progress Bar"
-				code="&lt;ProgressBar hasFrame={ true } hasLoader={ true } now={30} /&gt;"
+				code="&lt;ProgressBar hasFrame={ true } now={30} /&gt;"
 				isLast={ true }>
 				<ProgressBar
 					hasFrame={ true }
