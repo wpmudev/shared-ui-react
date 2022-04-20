@@ -42,11 +42,22 @@ const WelcomeBanner = ({ heading, subheading, ctaLabel, ctaLink }) => {
 	);
 };
 
-const Article = ({ title, children }) => {
+const Article = ({ heading, subheading, children }) => {
 	return (
 		<div className="article">
-			<h1 className="article__title">{ title }</h1>
-			{ children }
+			<h1 className="article__heading">{ heading }</h1>
+
+			<div className="article__content">
+				<h2 className="article__subheading">{ subheading }</h2>
+
+				<div className="article__inner-content">
+					{ children }
+				</div>
+			</div>
+
+			<div className="article__footer">
+				<p>© 2021-2022 Project by <a href="http://incsub.com/" target="_blank" rel="nofollow">Incsub</a></p>
+			</div>
 		</div>
 	);
 };
