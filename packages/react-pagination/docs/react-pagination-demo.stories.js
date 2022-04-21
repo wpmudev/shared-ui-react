@@ -188,42 +188,68 @@ export default {
 	}
 };
 
-export const compound = args => {
+export const demo = args => {
 	return (
-		<Pagination { ...args }>
-			<AccordionItem title="Children Item A">
-				<Box>
-					<BoxBody>
-						<h4>Children Item A</h4>
-						<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
-					</BoxBody>
-				</Box>
-			</AccordionItem>
-			<AccordionItem title="Children Item B">
-				<Box>
-					<BoxBody>
-						<h4>Children Item B</h4>
-						<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
-					</BoxBody>
-				</Box>
-			</AccordionItem>
-			<AccordionItem title="Children Item C">
-				<Box>
-					<BoxBody>
-						<h4>Children Item C</h4>
-						<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
-					</BoxBody>
-				</Box>
-			</AccordionItem>
-		</Pagination>
+		<Box>
+			<Accordion>
+				<Pagination { ...args }>
+					<AccordionItem title="Children Item A">
+						<Box>
+							<BoxBody>
+								<h4>Children Item A</h4>
+								<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
+							</BoxBody>
+						</Box>
+					</AccordionItem>
+					<AccordionItem title="Children Item B">
+						<Box>
+							<BoxBody>
+								<h4>Children Item B</h4>
+								<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
+							</BoxBody>
+						</Box>
+					</AccordionItem>
+					<AccordionItem title="Children Item C">
+						<Box>
+							<BoxBody>
+								<h4>Children Item C</h4>
+								<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
+							</BoxBody>
+						</Box>
+					</AccordionItem>
+				</Pagination>
+			</Accordion>
+		</Box>
 	);
 };
-compound.storyName = "Demo";
-compound.args = {
-	paginationContent
+demo.storyName = "Demo";
+demo.args = {
+	pagesToTop: false,
+	pagesToBottom: false,
 };
-compound.argTypes = {
-	paginationContent: {
+demo.argTypes = {
+	pagesToTop: {
+		type: {
+			name: 'boolean',
+			required: false
+		},
+		description: '',
+		control: {
+			type: 'boolean'
+		},
+		table: {
+			category: 'Additional Controls'
+		}
+	},
+	pagesToBottom: {
+		type: {
+			name: 'boolean',
+			required: false
+		},
+		description: '',
+		control: {
+			type: 'boolean'
+		},
 		table: {
 			category: 'Additional Controls'
 		}
