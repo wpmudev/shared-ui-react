@@ -17,43 +17,11 @@ for (let i = 1; i <= 15; ++i)
 		</AccordionItem>
 	);
 
-const paginationContent = ({ ...properties }) => {
-	const styles = {
-		display: 'flex',
-		alignItems: 'center',
-		justifyContent: 'space-between'
-	};
-
-	return (
-		<Box>
-			<BoxHeader title="Lorem Justo" />
-			<BoxBody>
-				<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec sed odio dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-				<div style={ styles }>
-					<Button label="Bulk Delete" icon="trash" disabled />
-					{ PaginationNav({ ...properties }) }
-				</div>
-				<Accordion>
-					{ PaginationResults({ ...properties }) }
-				</Accordion>
-				{ PaginationNav({ ...properties }) }
-			</BoxBody>
-			<BoxFooter
-				paddingTop="0"
-				border="0"
-				alignment="center"
-			>
-				<p className="sui-description">Donec id elit non mi porta gravida at eget metus? <a href="#">Check again</a></p>
-			</BoxFooter>
-		</Box>
-	);
-};
-
 export default {
 	title: "Components/Pagination",
 	component: Pagination,
 	args: {
-		limit: 5,
+		limit: 2,
 		results: true,
 		skip: true,
 		child: accordionItems,
