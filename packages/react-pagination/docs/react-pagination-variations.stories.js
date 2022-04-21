@@ -153,11 +153,11 @@ export const simple = () => {
 		<Template>
 			<Section
 				title="Simple"
-				code="&lt;Pagination limit={5} results={true} skip={true} child={accordionItems} pagesToTop={false} pagesToBottom={false} /&gt;"
+				code="&lt;Pagination limit={5} results={true} skip={true} child={accordionItems} pagesToTop={false} /&gt;"
 				isDefault={ true }
 				isLast={ true }>
 				<Accordion>
-					<Pagination limit={5} results={true} skip={true} child={accordionItems} pagesToTop={false} pagesToBottom={false} />
+					<Pagination limit={2} results={true} skip={true} child={accordionItems} />
 				</Accordion>
 			</Section>
 		</Template>
@@ -170,10 +170,10 @@ export const compound = () => {
 		<Template>
 			<Section
 				title="Compound"
-				code="&lt;Pagination limit={5} results={true} skip={true} child={accordionItems} pagesToTop={false} pagesToBottom={false} paginationContent={paginationContent} /&gt;"
+				code="&lt;Pagination limit={5} results={true} skip={true} child={accordionItems} pagesToTop={false} paginationContent={paginationContent} /&gt;"
 				isLast={ true }>
 				<Accordion>
-					<Pagination limit={5} results={true} skip={true} child={accordionItems} pagesToTop={false} pagesToBottom={false} paginationContent={paginationContent} />
+					<Pagination limit={2} results={true} skip={true} child={accordionItems} paginationContent={paginationContent} />
 				</Accordion>
 			</Section>
 		</Template>
