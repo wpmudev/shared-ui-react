@@ -1,10 +1,6 @@
 import React from 'react';
 import { Notifications } from '../lib/react-notifications';
 
-const func = () => {
-	console.log('You called an callback function...');
-};
-
 export default {
 	title: 'Components/Notifications/Modifiers',
 	component: Notifications,
