@@ -276,6 +276,8 @@ export class Post extends Component {
 		} else {
 			if (error) {
 				PostImage = error.message;
+			} else if ( (typeof image === 'undefined' || image === null || image === '') && !media.length && error ) {
+				PostImage = <FeaturedImage {...this.props} title={postTitle} />;
 			} else if (!isLoaded) {
 				PostImage = (
 					<p style={ { textAlign: 'center' } }>
@@ -283,9 +285,6 @@ export class Post extends Component {
 						<span className="sui-screen-reader-text">Image is loading</span>
 					</p>
 				);
-				if ( (typeof image === 'undefined' || image === null || image === '') && !media.length && error ) {
-					PostImage = <FeaturedImage {...this.props} title={postTitle} />;
-				} 
 			} else {
 				PostImage = <FeaturedImage src={media} {...this.props} title={postTitle} />;
 			}
