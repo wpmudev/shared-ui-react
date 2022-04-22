@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { Children } from 'react';
 import { linkTo } from '@storybook/addon-links';
 import { Button } from '@wpmudev/react-button';
 
 import './css/page.css';
 import './css/banner.css';
 import './css/article.css';
+import './css/section.css';
+import './css/actions.css';
 
 const WelcomePage = ({ children }) => {
 	return (
@@ -62,8 +64,62 @@ const Article = ({ heading, subheading, children }) => {
 	);
 };
 
+const Section = ({ title, children }) => {
+	return (
+		<div className="section">
+			<h3 className="section__title">{ title }</h3>
+			{ children }
+		</div>
+	);
+};
+
+const LinkBanner = ({ title, subtitle, link }) => {
+	const hasTitle = title && '' !== title;
+	const hasSubtitle = subtitle && '' !== subtitle;
+	const hasLink = link && '' !== link;
+
+	return (
+		<>
+			{ hasTitle && hasLink && (
+				<button className="link-banner" onClick={ linkTo( link ) }>
+					<span className="link-banner__title">{ title }</span>
+
+					{ hasSubtitle && (
+						<span className="link-banner__subtitle">{ subtitle }</span>
+					)}
+
+					<span className="link-banner__icon sui-icon-chevron-right sui-lg" aria-hidden="true" />
+				</button>
+			)}
+		</>
+	);
+};
+
+const LinkBannerList = ({ children }) => {
+	const bannerItems = Children.map( children, ( child, key ) => {
+
+		return (
+			<LinkBanner
+				key={ key }
+				title={ child.props.title }
+				subtitle={ child.props.subtitle }
+				link={ child.props.link }
+			/>
+		);
+	} );
+
+	return (
+		<div className="link-banner__container">
+			{ bannerItems }
+		</div>
+	);
+};
+
 export {
 	WelcomePage,
 	WelcomeBanner,
-	Article
+	Article,
+	Section,
+	LinkBanner,
+	LinkBannerList
 };
