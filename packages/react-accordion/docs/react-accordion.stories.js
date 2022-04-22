@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, BoxBody } from '@wpmudev/react-box';
 import { Accordion, AccordionItem } from '../lib/react-accordion';
+import LogoImage from './assets/images/logo.png';
 
 export default {
     title: 'Containers/Accordion'
@@ -29,7 +30,7 @@ primary.args = {
         {
             title: 'Accordion Item 1',
             icon: 'forminator',
-            image: 'https://pbs.twimg.com/profile_images/671394755951984640/GSkxXgDp_400x400.png',
+            image: LogoImage,
             children: (
                 <Box>
                     <BoxBody>
@@ -41,7 +42,7 @@ primary.args = {
         {
             title: 'Accordion Item 2',
             icon: 'hustle',
-            image: 'https://pbs.twimg.com/profile_images/671394755951984640/GSkxXgDp_400x400.png',
+            image: LogoImage,
             children: (
                 <Box>
                     <BoxBody>
@@ -53,7 +54,7 @@ primary.args = {
         {
             title: 'Accordion Item 3',
             icon: 'hummingbird',
-            image: 'https://pbs.twimg.com/profile_images/671394755951984640/GSkxXgDp_400x400.png',
+            image: LogoImage,
             children: (
                 <Box>
                     <BoxBody>
