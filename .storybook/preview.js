@@ -56,6 +56,17 @@ export const parameters = {
   viewport: {
 	  viewports: customViewports
   },
+  options: {
+	  storySort: {
+		  order: [
+			  'Welcome',
+			  'Getting Started',
+			  'Changelog',
+			  'Roadmap',
+			  '*',
+		  ],
+	  },
+  },
 }
 
 export const decorators = [
