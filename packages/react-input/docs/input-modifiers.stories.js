@@ -204,9 +204,9 @@ export const constrained = () => {
 			<Section
 				title="Constrained Field"
 				description="The whole field will be constrained to certain width."
-				code="&lt;Input description=&quot;This is a text description of a constrained field.&quot; label=&quot;Constrained Field Text Label&quot; placeholder=&quot;Placeholder&quot; type=&quot;text&quot; size=&quot;medium&quot; constrainedField={ true } /&gt;"
+				code="&lt;Input type=&quot;text&quot; size=&quot;medium&quot; constrainedField={ true } /&gt;"
 				isDefault={ false }
-				isLast={ false }>
+				isLast={ true }>
 				<Input
 					description="This is a text description of a constrained field."
 					label="Constrained Field Text Label"

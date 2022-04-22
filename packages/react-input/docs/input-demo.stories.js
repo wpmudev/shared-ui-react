@@ -5,6 +5,9 @@ export default {
 	title: 'Components/Input',
 	component: Input,
 	parameters: {
+		actions: {
+			disabled: true,
+		},
 		notes: {
 			disabled: true,
 		},
