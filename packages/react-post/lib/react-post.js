@@ -225,7 +225,8 @@ export class Post extends Component {
 		const QUERY_ID = this.props.media;
 
 		// GET media using fetch.
-		fetch(API_URL + QUERY_ID)
+		if ( QUERY_ID ) {	
+			fetch(API_URL + QUERY_ID)
 			.then(response => response.json())
 			.then(
 				data => {
@@ -241,6 +242,7 @@ export class Post extends Component {
 					});
 				}
 			);
+		}
 	}
 
 	render() {
@@ -264,7 +266,7 @@ export class Post extends Component {
 
 		if ( image ) {
 			PostImage = <FeaturedImage src={image} alt="" {...this.props} title={postTitle} />;
-		} else if( typeof image === 'undefined' || image === null || image === '' ) {
+		} else if( (typeof image === 'undefined' || image === null || image === '') && !media.length ) {
 			PostImage = <FeaturedImage {...this.props} title={postTitle} />;
 		} else {
 			if (error) {
