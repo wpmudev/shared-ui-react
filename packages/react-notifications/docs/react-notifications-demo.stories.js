@@ -82,6 +82,12 @@ demo.argTypes = {
 			type: 'boolean',
 		},
 	},
+	cbFunction: {
+		description: 'Use this property to call another <strong>function</strong> into the "dismiss button" <strong>onClick</strong> function.',
+		table: {
+			type: { summary: 'function' }
+		},
+	},
 	sourceLang: {
 		description: 'This argument allows you to edit the text of some static elements, like the dismiss button label.',
 		table: {
@@ -91,13 +97,4 @@ demo.argTypes = {
 			}
 		},
 	},
-	cbFunction: {
-		description: 'This is the callback function.',
-		table: {
-			type: { summary: 'function' }
-		},
-		control: {
-			type: 'function'
-		}
-	}
 };
