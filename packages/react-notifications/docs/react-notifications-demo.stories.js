@@ -1,10 +1,6 @@
 import React from 'react';
 import { Notifications } from '../lib/react-notifications';
 
-const func = () => {
-	console.log('You called an callback function...');
-};
-
 export default {
 	title: 'Components/Notifications',
 	component: Notifications,
@@ -31,9 +27,6 @@ export const demo = args => {
 	);
 };
 demo.storyName = 'Demo';
-demo.args = {
-	cbFunction: () => func(),
-}
 demo.argTypes = {
 	children: {
 		type: {
