@@ -20,120 +20,155 @@ demo.args = {
 	label: 'Company Name',
 	placeholder: 'Eg. Acme Industries',
 	description: 'Maecenas sed diam eget risus varius blandit sit amet non magna.',
-	errorStatus: false,
 	errorDescription: 'Here is a description of the error',
-	size: 'large',
 };
 demo.argTypes = {
+	// Elements
 	label: {
-		description: 'The label of the input',
+		description: 'Use this property to add a label for the input.',
 		table: {
-			type: { summary: 'string' },
-			defaultValue: { summary: '' },
+			category: 'Elements',
+			type: {
+				summary: 'string',
+			},
 		},
 		control: {
 			type: 'text',
 		},
 	},
-	maxLength: {
-		description: 'The maximum length of the input',
-		table: {
-			type: { summary: 'number' },
-			defaultValue: { summary: '' },
-		},
-		control: {
-			type: 'number',
-		},
-	},
 	placeholder: {
-		description: 'The placeholder of the input',
+		description: 'This property allows you to include a placeholder for the input.',
 		table: {
-			type: { summary: 'string' },
-			defaultValue: { summary: '' },
+			category: 'Elements',
+			type: {
+				summary: 'string',
+			},
 		},
 		control: {
 			type: 'text',
 		},
 	},
 	description: {
-		description: 'The description of the input',
+		description: 'When you need to include a description below the input field, use this property.',
 		table: {
-			type: { summary: 'string' },
-			defaultValue: { summary: '' },
+			category: 'Elements',
+			type: {
+				summary: 'string',
+			},
 		},
 		control: {
 			type: 'text',
-		},
-	},
-	errorStatus: {
-		description: 'Whether the input has an error',
-		table: {
-			type: { summary: 'boolean' },
-			defaultValue: { summary: false },
-		},
-		control: {
-			type: 'boolean',
 		},
 	},
 	errorDescription: {
-		description: 'The error description of the input',
+		description: 'This property will help you to include an error message below the input field.',
 		table: {
-			type: { summary: 'string' },
-			defaultValue: { summary: '' },
+			category: 'Elements',
+			type: {
+				summary: 'string',
+			},
 		},
 		control: {
 			type: 'text',
 		},
 	},
-	constrainedField: {
-		description: 'The whole field will be constrained.',
-		table: {
-			type: { summary: 'boolean' },
-			defaultValue: { summary: 'false' },
-		},
-		control: {
-			type: 'boolean',
-		},
-	},
-	size: {
-		description: 'The size of the input',
-		table: {
-			type: { summary: 'string' },
-			defaultValue: { summary: 'large' },
-		},
-		control: {
-			type: 'select',
-			options: ['large', 'small', 'medium'],
-		},
-	},
+	// Modifiers
 	type: {
-		description: 'The type of the input',
+		description: 'This property will determine the type of field for the input. By default, it has **text** value.',
 		table: {
+			category: 'Modifiers',
+			type: {
+				summary: 'text | number | email',
+			},
+			defaultValue: {
+				summary: 'text',
+			},
+		},
+		control: {
+			type: 'text',
+		},
+	},
+	// Modifiers | Field Affix
+	prefix: {
+		description: 'This property adds a prefix, some text before the input.',
+		table: {
+			category: 'Modifiers',
+			subcategory: 'Field Affix',
 			type: { summary: 'string' },
-			defaultValue: { summary: 'text' },
 		},
 		control: {
 			type: 'text',
 		},
 	},
 	suffix: {
-		description: 'The suffix of the input',
+		description: 'This property adds a suffix, some text after the input.',
 		table: {
+			category: 'Modifiers',
+			subcategory: 'Field Affix',
 			type: { summary: 'string' },
-			defaultValue: { summary: '' },
 		},
 		control: {
 			type: 'text',
 		},
 	},
-	prefix: {
-		description: 'The prefix of the input',
+	// Modifiers | Field Size
+	size: {
+		description: 'Modify the size of the input field or the entire container. Allowed options:',
 		table: {
-			type: { summary: 'string' },
-			defaultValue: { summary: '' },
+			category: 'Modifiers',
+			subcategory: 'Field Size',
+			type: {
+				summary: 'small | medium'
+			},
 		},
 		control: {
-			type: 'text',
+			type: 'select',
+			options: {
+				default: '',
+				small: 'small',
+				medium: 'medium',
+			},
+		},
+	},
+	constrainedField: {
+		description: 'When this property is enabled, it allows the whole container to be resized based on the `size` property option.',
+		table: {
+			category: 'Modifiers',
+			subcategory: 'Field Size',
+			type: {
+				summary: 'boolean',
+			},
+			defaultValue: {
+				summary: 'false',
+			},
+		},
+		control: {
+			type: 'boolean',
+		},
+	},
+	// States
+	disabled: {
+		description: 'This property allows you to enable or disable the input field.',
+		table: {
+			category: 'States',
+			type: {
+				summary: 'boolean',
+			},
+		},
+		control: {
+			type: 'boolean',
+		},
+	},
+	errorStatus: {
+		description: 'Set this property to **true** whether the input has an error to show the error message, if added one, and paint the input field in red.',
+		table: {
+			category: 'States',
+			type: {
+				summary: 'boolean',
+			},
+		},
+		control: {
+			type: 'boolean',
 		},
 	},
 };
