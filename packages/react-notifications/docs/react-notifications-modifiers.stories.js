@@ -175,7 +175,8 @@ export const dismiss = () => {
 	return (
 		<Template>
 			<Section
-				title='Hide Dismiss'
+				title='Simple Notice'
+				description="By default, the notifications doesn't show a dismiss button. It is just plain text."
 				code="&lt;Notification&gt;
 					...
 				&lt;/Notification&gt;"
@@ -184,12 +185,23 @@ export const dismiss = () => {
 			</Section>
 
 			<Section
-				title='Show Dismiss'
+				title='Simple Dismiss'
+				description='With this property, you can show the dismiss button, it will close the notification but after refreshing the page it will appear again.'
 				code="&lt;Notification dismiss=&quot;true&quot;&gt;
 					...
 				&lt;/Notification&gt;"
 				isLast={ true }>
 				<Demo dismiss="true" />
+			</Section>
+
+			<Section
+				title='Callback Dismiss'
+				description='Show dismiss button with callback function. For example, display alert window after notice closes.'
+				code="&lt;Notification dismiss=&quot;true&quot; cbFunction={() => { window.alert( 'Hello' ) }}&gt;
+					...
+				&lt;/Notification&gt;"
+				isLast={ true }>
+				<Demo dismiss="true" cbFunction={() => { window.alert( 'Refresh the page to show the notice again.' ) }} />
 			</Section>
 		</Template>
 	);

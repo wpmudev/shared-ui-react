@@ -6,17 +6,17 @@ export default {
 	component: Notifications,
 	parameters: {
 		actions: {
-			disabled: true,
+			disable: true,
 		},
 		notes: {
-			disabled: true,
+			disable: true,
 		},
 	},
 };
 
 export const demo = args => {
 	return (
-		<Notifications { ...args }>
+		<Notifications { ...args } >
 			<p>Nulla vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec ullamcorper nulla non metus auctor fringilla. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
 			<p>
 				<button className="sui-button sui-button-ghost">
@@ -73,6 +73,12 @@ demo.argTypes = {
 		},
 		control: {
 			type: 'boolean',
+		},
+	},
+	cbFunction: {
+		description: 'Use this property to call another <strong>function</strong> into the "dismiss button" <strong>onClick</strong> function.',
+		table: {
+			type: { summary: 'function' }
 		},
 	},
 	sourceLang: {
