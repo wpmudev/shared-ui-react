@@ -1,0 +1,79 @@
+body[class*="sui-"] .sui-wrap .log:not(:last-child) {
+	margin-bottom: 40px;
+	padding-bottom: 40px;
+	border-bottom: 1px solid #DDDDDD;
+}
+
+body[class*="sui-"] .sui-wrap .log__title {
+	margin: 0 0 20px;
+	font-size: 24px;
+	line-height: 30px;
+	font-weight: 700;
+}
+
+body[class*="sui-"] .sui-wrap .log__title .sui-tag {
+	min-height: 24px;
+	position: relative;
+	top: -4px;
+	padding-top: 1px;
+	padding-right: 12px;
+	padding-bottom: 3px;
+	padding-left: 12px;
+	margin-left: 10px;
+	line-height: 16px;
+	font-weight: 700;
+	font-variant: small-caps;
+	text-transform: lowercase;
+}
+
+body[class*="sui-"] .sui-wrap .log__subtitle {
+	margin: 0 0 10px;
+	font-size: 18px;
+	line-height: 24px;
+}
+
+body[class*="sui-"] .sui-wrap .log__package {
+	padding: 0;
+	border: 0;
+	background: transparent;
+	color: #9026B1;
+	font-weight: bold;
+}
+
+body[class*="sui-"] .sui-wrap .log__group {
+	padding: 40px;
+	box-shadow: none;
+}
+
+body[class*="sui-"] .sui-wrap .log__group-item:not(:last-child) {
+	margin: 0 0 20px;
+}
+
+body[class*="sui-"] .sui-wrap .log__list,
+body[class*="sui-"] .sui-wrap .log__sublist {
+	color: #333;
+	list-style: disclosure-closed;
+}
+
+body[class*="sui-"] .sui-wrap .log__list {
+	margin: 0;
+	padding: 0;
+	padding-left: 30px;
+}
+
+body[class*="sui-"] .sui-wrap .log__list li {
+	margin: 0 0 10px;
+}
+
+body[class*="sui-"] .sui-wrap .log__list li:last-child {
+	margin-bottom: 0;
+}
+
+body[class*="sui-"] .sui-wrap li.log__list-folder {
+	margin-left: -16px;
+	list-style: none;
+}
+
+body[class*="sui-"] .sui-wrap li.log__list-folder [class*="sui-icon-"]:before {
+	color: #9026B1;
+}
