@@ -230,10 +230,17 @@ export class Post extends Component {
 			.then(response => response.json())
 			.then(
 				data => {
-					this.setState({
-						isLoaded: true,
-						media: data.guid.rendered
-					});
+					if (data.data?.status === 404) {
+						this.setState({
+							isLoaded: true,
+							error: data.data.message
+						});
+					} else {
+						this.setState({
+							isLoaded: true,
+							media: data.guid.rendered
+						});
+					}
 				},
 				error => {
 					this.setState({
@@ -266,8 +273,6 @@ export class Post extends Component {
 
 		if ( image ) {
 			PostImage = <FeaturedImage src={image} alt="" {...this.props} title={postTitle} />;
-		} else if( (typeof image === 'undefined' || image === null || image === '') && !media.length ) {
-			PostImage = <FeaturedImage {...this.props} title={postTitle} />;
 		} else {
 			if (error) {
 				PostImage = error.message;
@@ -278,6 +283,9 @@ export class Post extends Component {
 						<span className="sui-screen-reader-text">Image is loading</span>
 					</p>
 				);
+				if ( (typeof image === 'undefined' || image === null || image === '') && !media.length && error ) {
+					PostImage = <FeaturedImage {...this.props} title={postTitle} />;
+				} 
 			} else {
 				PostImage = <FeaturedImage src={media} {...this.props} title={postTitle} />;
 			}
