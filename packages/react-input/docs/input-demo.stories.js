@@ -88,29 +88,6 @@ demo.argTypes = {
 			type: 'text',
 		},
 	},
-	// Modifiers | Field Affix
-	prefix: {
-		description: 'This property adds a prefix, some text before the input.',
-		table: {
-			category: 'Modifiers',
-			subcategory: 'Field Affix',
-			type: { summary: 'string' },
-		},
-		control: {
-			type: 'text',
-		},
-	},
-	suffix: {
-		description: 'This property adds a suffix, some text after the input.',
-		table: {
-			category: 'Modifiers',
-			subcategory: 'Field Affix',
-			type: { summary: 'string' },
-		},
-		control: {
-			type: 'text',
-		},
-	},
 	// Modifiers | Field Size
 	size: {
 		description: 'Modify the size of the input field or the entire container. Allowed options:',
