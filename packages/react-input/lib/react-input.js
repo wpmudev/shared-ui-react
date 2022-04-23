@@ -35,7 +35,6 @@ const Input = ({
 			)}
 
 			<input id={uniqueId} type={type} className={clazz} {...props} />
-
 			{errorStatus && errorDescription && (
 				<div className="sui-error-message">{errorDescription}</div>
 			)}
