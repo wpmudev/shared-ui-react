@@ -100,68 +100,52 @@ const Section = ({ title, description, code, code2, isDefault = false, isLast = 
 	);
 }
 
-export const primary = () => {
+export const Primary = () => {
 	return (
 		<Template>
 			<Section
-				title="Input"
-				description="This is the default state of a input."
-				code="&lt;Input description=&quot;Text description.&quot; label=&quot;Text Label&quot; placeholder=&quot;Placeholder&quot; type=&quot;text&quot; /&gt;"
+				title="Static"
+				description="This is the default (enabled) state of an input."
+				code="&lt;Input placeholder=&quot;Placeholder&quot; /&gt;"
 				isDefault={ true }
 				isLast={ true }>
-				<Input
-					description="Text description."
-					label="Text Label"
-					placeholder="Placeholder"
-					type="text"
-				/>
+				<Input placeholder="Username" />
 			</Section>
 		</Template>
 	);
 };
-primary.storyName = 'Static';
+Primary.storyName = 'Static';
 
-export const secondary = () => {
+export const Error = () => {
 	return (
 		<Template>
 			<Section
-				title="Error Input"
-				description="This is the error state of a input."
-				code="&lt;Input description=&quot;Text description.&quot; errorStatus={true} errorDescription=&quot;Error description.&quot; label=&quot;Text Label&quot; placeholder=&quot;Placeholder&quot; type=&quot;text&quot; /&gt;"
-				isDefault={ false }
+				title="Error"
+				description="We show this variation when the input has any error."
+				code="&lt;Input errorDescription=&quot;Error message&quot; errorStatus={ true } /&gt;"
 				isLast={ true }>
 				<Input
-					description="Text description."
-					errorStatus={true}
-					errorDescription="Error description."
-					label="Text Label"
-					placeholder="Placeholder"
-					type="text"
+					placeholder="Username"
+					errorDescription="The user doesn't exist. Please, try again with a different user name."
+					errorStatus={ true }
 				/>
 			</Section>
 		</Template>
 	);
 };
-secondary.storyName = 'Error';
+Error.storyName = 'Error';
 
-export const ternary = () => {
+export const Disabled = () => {
 	return (
 		<Template>
 			<Section
-				title="Disabled Input"
-				description="This is the disabled state of a input."
-				code="&lt;Input description=&quot;Text description.&quot; label=&quot;Text Label&quot; placeholder=&quot;Placeholder&quot; type=&quot;text&quot; disabled /&gt;"
-				isDefault={ false }
+				title="Disabled"
+				description="Prevent user from interacting with the input field."
+				code="&lt;Input placeholder=&quot;Placeholder&quot; disabled /&gt;"
 				isLast={ true }>
-				<Input
-					description="Text description."
-					label="Text Label"
-					placeholder="Placeholder"
-					type="text"
-					disabled
-				/>
+				<Input placeholder="Username" disabled />
 			</Section>
 		</Template>
 	);
 };
-ternary.storyName = 'Disabled';
+Disabled.storyName = 'Disabled';
