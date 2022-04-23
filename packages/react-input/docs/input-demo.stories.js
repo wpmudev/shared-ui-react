@@ -74,11 +74,11 @@ demo.argTypes = {
 	},
 	// Modifiers
 	type: {
-		description: 'This property will determine the type of field for the input. By default, it has **text** value.',
+		description: 'This property will determine the type of field for the input. Below are the allowed values for this field:',
 		table: {
 			category: 'Modifiers',
 			type: {
-				summary: 'text | number | email',
+				summary: 'text | number | email | password | tel | time | url | hidden',
 			},
 			defaultValue: {
 				summary: 'text',
