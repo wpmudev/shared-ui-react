@@ -88,12 +88,10 @@ demo.argTypes = {
 			type: 'text',
 		},
 	},
-	// Modifiers | Field Size
 	size: {
 		description: 'Modify the size of the input field or the entire container. Allowed options:',
 		table: {
 			category: 'Modifiers',
-			subcategory: 'Field Size',
 			type: {
 				summary: 'small | medium'
 			},
@@ -105,22 +103,6 @@ demo.argTypes = {
 				small: 'small',
 				medium: 'medium',
 			},
-		},
-	},
-	constrainedField: {
-		description: 'When this property is enabled, it allows the whole container to be resized based on the `size` property option.',
-		table: {
-			category: 'Modifiers',
-			subcategory: 'Field Size',
-			type: {
-				summary: 'boolean',
-			},
-			defaultValue: {
-				summary: 'false',
-			},
-		},
-		control: {
-			type: 'boolean',
 		},
 	},
 	// States
