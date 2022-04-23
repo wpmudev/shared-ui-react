@@ -136,56 +136,6 @@ export const Type = () => {
 };
 Type.storyName = 'By Type';
 
-export const Affix = () => {
-	return (
-		<Template>
-			<Section
-				title="No Affix"
-				description="By default, we don't add any affix next to the input field."
-				code="&lt;Input placeholder=&quot;Placeholder&quot; /&gt;"
-				isDefault={ true }>
-				<Input placeholder="Username" />
-			</Section>
-
-			<Section
-				title="Prefix"
-				description={
-					[
-						'Using the ',
-						<code>prefix</code>,
-						' property, we can add some content before the input field.'
-					]
-				}
-				code="&lt;Input placeholder=&quot;Placeholder&quot; prefix=&quot;prefix&quot; /&gt;">
-				<Input placeholder="10.00" prefix="$" type="number" />
-			</Section>
-
-			<Section
-				title="Suffix"
-				description={
-					[
-						'Using the ',
-						<code>suffix</code>,
-						' property, we can add some content after the input field.'
-					]
-				}
-				code="&lt;Input placeholder=&quot;Placeholder&quot; suffix=&quot;suffix&quot; /&gt;"
-				isLast={ true }>
-				<Input placeholder="10.00" suffix="USD" type="number" />
-			</Section>
-
-			<Section
-				title="Both Affix"
-				description="You can also use both affix properties if that's what the design requires."
-				code="&lt;Input placeholder=&quot;Placeholder&quot; prefix=&quot;prefix&quot; suffix=&quot;suffix&quot; /&gt;"
-				isLast={ true }>
-				<Input placeholder="10.00" prefix="$" suffix="USD" type="number" />
-			</Section>
-		</Template>
-	);
-};
-Affix.storyName = 'By Affix';
-
 export const Size = () => {
 	return (
 		<Template>
