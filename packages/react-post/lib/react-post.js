@@ -118,6 +118,16 @@ const FeaturedImage = styled.div.attrs(() => ({
 	background-repeat: no-repeat;
 `;
 
+const EmptyImage = styled.div.attrs(() => ({
+	tabIndex: "-1",
+	"aria-hidden": true
+}))`
+	${props => (props.banner ? "" : "width: 66px;")}
+	height: ${props => (props.banner ? "140px" : "54px")};
+	margin: ${props => (props.banner ? "-20px -20px 20px" : "0 10px 0 0")};
+	${props => (props.banner ? "flex: 0 0 auto;" : "")}
+`;
+
 const PostTitle = styled.h3`
 	overflow: hidden;
 	display: -webkit-box !important;
@@ -276,8 +286,8 @@ export class Post extends Component {
 		} else {
 			if (error) {
 				PostImage = error.message;
-			} else if ( (typeof image === 'undefined' || image === null || image === '') && !media.length && error ) {
-				PostImage = <FeaturedImage {...this.props} title={postTitle} />;
+			} else if ( (typeof image === 'undefined' || image === null || image === '') && !this.props.media || error ) {
+				PostImage = <EmptyImage {...this.props} />;
 			} else if (!isLoaded) {
 				PostImage = (
 					<p style={ { textAlign: 'center' } }>
