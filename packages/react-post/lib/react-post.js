@@ -277,7 +277,7 @@ export class Post extends Component {
 			if (error) {
 				PostImage = error.message;
 			} else if ( (typeof image === 'undefined' || image === null || image === '') && !this.props.media || error ) {
-				PostImage = '';
+				PostImage = <span style={{ marginTop: '20px' }}></span>;
 			} else if (!isLoaded) {
 				PostImage = (
 					<p style={ { textAlign: 'center' } }>
