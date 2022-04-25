@@ -19,10 +19,6 @@ export const demo = (args) => <ProgressBar {...args} />;
 demo.storyName = 'Demo';
 demo.args = {
 	now: 30,
-	sourceLang: {
-		cancel: 'Pause',
-		legend: 'Plugin is loading...',
-	},
 	cbFunction: () => func(),
 };
 demo.argTypes = {
