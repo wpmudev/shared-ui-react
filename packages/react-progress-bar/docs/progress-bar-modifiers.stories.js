@@ -2,7 +2,7 @@ import React from 'react';
 import { ProgressBar } from '../lib/react-progress-bar';
 
 export default {
-	title: 'Components/Progress bar/Modifiers',
+	title: 'Components/Progress Bar/Modifiers',
 	component: ProgressBar,
 	parameters: {
 		actions: {
