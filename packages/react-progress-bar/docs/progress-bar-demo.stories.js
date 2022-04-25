@@ -50,7 +50,7 @@ demo.argTypes = {
 		},
 	},
 	hasLabel: {
-		description: 'This will show the percentage of the progress bar in number.',
+		description: 'This will show the percentage of the progress bar loaded as label.',
 		table: {
 			type: { summary: 'boolean' },
 			defaultValue: { summary: 'true' },
