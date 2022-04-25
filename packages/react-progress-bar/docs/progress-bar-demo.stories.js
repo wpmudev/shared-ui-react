@@ -60,7 +60,7 @@ demo.argTypes = {
 		},
 	},
 	hasBar: {
-		description: 'If true, this will show a bar.',
+		description: 'If true, this will show the bar.',
 		table: {
 			type: { summary: 'boolean' },
 			defaultValue: { summary: 'true' },
@@ -70,7 +70,7 @@ demo.argTypes = {
 		},
 	},
 	hasCancel: {
-		description: 'This will show the progress bar cancel button.',
+		description: 'The cancel button to run the callback function.',
 		table: {
 			type: { summary: 'boolean' },
 			defaultValue: { summary: 'true' },
@@ -80,7 +80,7 @@ demo.argTypes = {
 		},
 	},
 	hasFrame: {
-		description: 'The progress bar will have a frame with white background.',
+		description: 'This will show the frame with white background.',
 		table: {
 			type: { summary: 'boolean' },
 			defaultValue: { summary: 'false' },
@@ -90,7 +90,7 @@ demo.argTypes = {
 		},
 	},
 	hasLegend: {
-		description: 'The progress bar will show the legend text which is defined in "sourceLang".',
+		description: 'This will show the legend text which is defined in "sourceLang".',
 		table: {
 			type: { summary: 'boolean' },
 			defaultValue: { summary: 'false' },
@@ -110,7 +110,7 @@ demo.argTypes = {
 		},
 	},
 	cbFunction: {
-		description: 'This is a callback function which will be executed when the progress bar cancel button is clicked.',
+		description: 'This is a callback function which will be called when the cancel button is clicked.',
 		table: {
 			type: { summary: 'function' },
 		},
