@@ -104,12 +104,12 @@ export const normal = () => {
 	return (
 		<Template>
 			<Section
-				title="Progress Bar"
+				title="Static"
 				description="This is the default state of a progress bar."
-				code="&lt;ProgressBar now={30}/&gt;"
-				isDefault={ true }
+				code="&lt;ProgressBar hasLoader={false}/&gt;"
+				isDefault={ false }
 				isLast={ true }>
-				<ProgressBar now={30}/>
+				<ProgressBar hasLoader={false}/>
 			</Section>
 		</Template>
 	);
@@ -122,13 +122,10 @@ export const loader = () => {
 			<Section
 				title="Loading"
 				description="This is the loading state of a progress bar."
-				code="&lt;ProgressBar hasLoader={true} now={30}/&gt;"
+				code="&lt;ProgressBar now={30}/&gt;"
 				isDefault={ true }
 				isLast={ true }>
-				<ProgressBar
-					hasLoader={true}
-					now={30}
-				/>
+				<ProgressBar now={30}/>
 			</Section>
 		</Template>
 	);
