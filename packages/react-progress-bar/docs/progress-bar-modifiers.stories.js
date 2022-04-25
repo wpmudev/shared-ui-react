@@ -104,15 +104,15 @@ export const design = () => {
 	return (
 		<Template>
 			<Section
-				title="Progress Bar"
-				description="This is the default state of a progress bar."
+				title="Default"
+				description="This is the default design of a progress bar."
 				code="&lt;ProgressBar now={30}/&gt;"
-				isDefault={ true }
-				isLast={ false }>
+				isDefault={ true }>
 				<ProgressBar now={30}/>
 			</Section>
 			<Section
-				title="Boxed Progress Bar"
+				title="Boxed"
+				description="This is the design of a progress bar with boxed frame."
 				code="&lt;ProgressBar hasFrame={ true } now={30} /&gt;"
 				isLast={ true }>
 				<ProgressBar

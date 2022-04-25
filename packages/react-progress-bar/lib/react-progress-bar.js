@@ -6,7 +6,6 @@ export const ProgressBar = ({
 	now,
 	hasLoader = true,
 	hasLabel = true,
-	hasBar = true,
 	hasCancel = true,
 	hasFrame = false,
 	hasLegend = true,
@@ -35,7 +34,7 @@ export const ProgressBar = ({
 		<span className="sui-progress-text">{'' === value ? 0 : value}%</span>
 	);
 
-	const loaderBar = hasBar && (
+	const loaderBar = (
 		<div className="sui-progress-bar">
 			<span style={{ width: `${'' === value ? 0 : value}%` }} />
 		</div>

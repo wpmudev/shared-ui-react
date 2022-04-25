@@ -4,6 +4,11 @@ import { ProgressBar } from '../lib/react-progress-bar';
 export default {
 	title: 'Components/Progress Bar',
 	component: ProgressBar,
+	parameters: {
+		actions: {
+			disabled: true,
+		},
+	},
 };
 
 const func = () => {
@@ -14,11 +19,6 @@ export const demo = (args) => <ProgressBar {...args} />;
 demo.storyName = 'Demo';
 demo.args = {
 	now: 30,
-	hasLoader: true,
-	hasLabel: true,
-	hasCancel: true,
-	hasFrame: false,
-	hasLegend: false,
 	sourceLang: {
 		cancel: 'Pause',
 		legend: 'Plugin is loading...',
@@ -27,10 +27,10 @@ demo.args = {
 };
 demo.argTypes = {
 	now: {
-		description: 'The current progress value',
+		description: 'The value will be the percentage of the progress bar loaded.',
 		table: {
 			type: { summary: 'number' },
-			defaultValue: { summary: '30' },
+			defaultValue: { summary: '0' },
 		},
 		control: {
 			type: 'range',
@@ -40,7 +40,7 @@ demo.argTypes = {
 		},
 	},
 	hasLoader: {
-		description: 'Whether to show the loader',
+		description: 'If true, the progress bar will show a loader icon.',
 		table: {
 			type: { summary: 'boolean' },
 			defaultValue: { summary: 'true' },
@@ -50,7 +50,7 @@ demo.argTypes = {
 		},
 	},
 	hasLabel: {
-		description: 'Whether to show the label',
+		description: 'This will show the percentage of the progress bar in number.',
 		table: {
 			type: { summary: 'boolean' },
 			defaultValue: { summary: 'true' },
@@ -60,7 +60,7 @@ demo.argTypes = {
 		},
 	},
 	hasBar: {
-		description: 'Whether to show the bar',
+		description: 'If true, this will show a bar.',
 		table: {
 			type: { summary: 'boolean' },
 			defaultValue: { summary: 'true' },
@@ -70,7 +70,7 @@ demo.argTypes = {
 		},
 	},
 	hasCancel: {
-		description: 'Whether to show the cancel button',
+		description: 'This will show the progress bar cancel button.',
 		table: {
 			type: { summary: 'boolean' },
 			defaultValue: { summary: 'true' },
@@ -80,7 +80,7 @@ demo.argTypes = {
 		},
 	},
 	hasFrame: {
-		description: 'Whether to show the frame',
+		description: 'The progress bar will have a frame with white background.',
 		table: {
 			type: { summary: 'boolean' },
 			defaultValue: { summary: 'false' },
@@ -90,7 +90,7 @@ demo.argTypes = {
 		},
 	},
 	hasLegend: {
-		description: 'Whether to show the legend',
+		description: 'The progress bar will show the legend text which is defined in "sourceLang".',
 		table: {
 			type: { summary: 'boolean' },
 			defaultValue: { summary: 'false' },
@@ -100,7 +100,7 @@ demo.argTypes = {
 		},
 	},
 	sourceLang: {
-		description: 'The source language',
+		description: 'The source language object with "cancel" and "legend" text.',
 		table: {
 			type: { summary: 'object' },
 			defaultValue: { summary: '{ cancel: \'Pause\', legend: \'Plugin is loading...\' }' },
@@ -110,10 +110,9 @@ demo.argTypes = {
 		},
 	},
 	cbFunction: {
-		description: 'The callback function',
+		description: 'This is a callback function which will be executed when the progress bar cancel button is clicked.',
 		table: {
 			type: { summary: 'function' },
-			defaultValue: { summary: '() => { console.log(\'You cancelled this progress...\'); }' },
 		},
 		control: {
 			type: 'function',

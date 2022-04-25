@@ -105,33 +105,29 @@ export const elements = () => {
 		<Template>
 			<Section
 				title="Loading Wheel"
-				code="&lt;ProgressBar hasLoader={true} hasCancel={false} hasBar={false} hasLabel={false} /&gt;"
-				isLast={ false }>
-				<ProgressBar hasLoader={true} hasCancel={false} hasBar={false} hasLabel={false} />
+				code="&lt;ProgressBar hasCancel={false} hasBar={false} hasLabel={false} /&gt;">
+				<ProgressBar hasCancel={false} hasBar={false} hasLabel={false} />
 			</Section>
             <Section
 				title="Percentage Text"
-				code="&lt;ProgressBar hasLoader={false} hasCancel={false} hasBar={false} now={50} hasLabel={true} /&gt;"
-				isLast={ false }>
-				<ProgressBar hasLoader={false} hasCancel={false} hasBar={false} now={50} hasLabel={true} />
+				code="&lt;ProgressBar hasLoader={false} hasCancel={false} hasBar={false} now={50} /&gt;">
+				<ProgressBar hasLoader={false} hasCancel={false} hasBar={false} now={50} />
 			</Section>
             <Section
 				title="Loading Bar"
-				code="&lt;ProgressBar hasLoader={false} hasCancel={false} now={30} hasBar={true} hasLabel={false} /&gt;"
-				isLast={ false }>
+				code="&lt;ProgressBar hasLoader={false} hasCancel={false} now={30} hasLabel={false} /&gt;">
 				<ProgressBar hasLoader={false} hasCancel={false} now={30} hasBar={true} hasLabel={false} />
 			</Section>
             <Section
 				title="Cancel Button"
-				code="&lt;ProgressBar hasLoader={false} hasCancel={true} hasBar={false} hasLabel={false} /&gt;"
-				isLast={ false }>
-				<ProgressBar hasLoader={false} hasCancel={true} hasBar={false} hasLabel={false} />
+				code="&lt;ProgressBar hasLoader={false} hasBar={false} hasLabel={false} /&gt;">
+				<ProgressBar hasLoader={false} hasBar={false} hasLabel={false} />
 			</Section>
             <Section
 				title="Legend Text"
-				code="&lt;ProgressBar hasLoader={false} hasCancel={false} now={30} hasBar={true} hasLabel={false} hasFrame={true} /&gt;"
+				code="&lt;ProgressBar hasLoader={false} hasCancel={false} now={30} hasLabel={false} hasFrame={true} /&gt;"
 				isLast={ true }>
-				<ProgressBar hasLoader={false} hasCancel={false} now={30} hasBar={true} hasLabel={false} hasFrame={true} />
+				<ProgressBar hasLoader={false} hasCancel={false} now={30} hasLabel={false} hasFrame={true} />
 			</Section>
 		</Template>
 	);
