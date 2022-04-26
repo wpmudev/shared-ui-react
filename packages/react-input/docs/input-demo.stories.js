@@ -48,6 +48,18 @@ demo.argTypes = {
 			type: 'text',
 		},
 	},
+	prefix: {
+		description: 'This property allows you to add a prefix to the input field.',
+		table: {
+			category: 'Elements',
+			type: {
+				summary: 'string',
+			},
+		},
+		control: {
+			type: 'text',
+		},
+	},
 	description: {
 		description: 'When you need to include a description below the input field, use this property.',
 		table: {
