@@ -2,43 +2,72 @@ import React from 'react';
 
 const Input = ({
 	id,
-	size,
 	label,
 	description,
 	type = 'text',
 	errorStatus,
 	errorDescription,
+	size,
+	fieldSize,
 	...props
 }) => {
 	const uniqueId = id && '' !== id ? id : props.property;
 
-	let clazz = 'sui-form-control';
+	let fieldClasses = 'sui-form-field';
 
-	switch (size) {
+	switch ( fieldSize ) {
 		case 'sm':
 		case 'small':
-			clazz += ' sui-input-sm';
+			fieldClasses += ' sui-input-sm';
 			break;
 
 		case 'md':
 		case 'medium':
-			clazz += ' sui-input-md';
+			fieldClasses += ' sui-input-md';
+			break;
+
+		default:
+			// Nothing.
+			break;
+	}
+
+	if ( errorStatus ) {
+		fieldClasses += ' sui-form-field-error';
+	}
+
+	let inputClasses = 'sui-form-control';
+
+	switch ( size ) {
+		case 'sm':
+		case 'small':
+			inputClasses += ' sui-input-sm';
+			break;
+
+		case 'md':
+		case 'medium':
+			inputClasses += ' sui-input-md';
+			break;
+
+		default:
+			// Nothing.
 			break;
 	}
 
 	return (
-		<div className={`sui-form-field${errorStatus ? ' sui-form-field-error' : ''}`}>
-			{label && (
-				<label htmlFor={uniqueId} className="sui-label">
-					{label}
+		<div className={ fieldClasses }>
+			{ label && (
+				<label htmlFor={ uniqueId } className="sui-label">
+					{ label }
 				</label>
 			)}
 
-			<input id={uniqueId} type={type} className={clazz} {...props} />
-			{errorStatus && errorDescription && (
-				<div className="sui-error-message">{errorDescription}</div>
+			<input id={ uniqueId } type={ type } className={ inputClasses } { ...props } />
+
+			{ errorStatus && errorDescription && (
+				<div className="sui-error-message">{ errorDescription }</div>
 			)}
-			{description && <p className="sui-description">{description}</p>}
+
+			{ description && <p className="sui-description">{ description }</p> }
 		</div>
 	);
 };
