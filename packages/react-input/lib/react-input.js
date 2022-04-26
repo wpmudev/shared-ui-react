@@ -8,11 +8,14 @@ const Input = ({
 	type = 'text',
 	errorStatus,
 	errorDescription,
+	suffix,
 	...props
 }) => {
 	const uniqueId = id && '' !== id ? id : props.property;
 
 	let clazz = 'sui-form-control';
+
+	suffix && (clazz += ' sui-field-has-suffix');
 
 	switch (size) {
 		case 'sm':
@@ -35,6 +38,11 @@ const Input = ({
 			)}
 
 			<input id={uniqueId} type={type} className={clazz} {...props} />
+
+			{suffix && (
+				<span class="sui-field-suffix">{suffix}</span>
+			)}
+
 			{errorStatus && errorDescription && (
 				<div className="sui-error-message">{errorDescription}</div>
 			)}
