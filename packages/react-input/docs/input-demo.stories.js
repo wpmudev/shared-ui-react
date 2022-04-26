@@ -72,11 +72,29 @@ demo.argTypes = {
 			type: 'text',
 		},
 	},
-	// Modifiers
+	// Field Modifiers
+	fieldSize: {
+		description: 'Modify the size of the entire container. Allowed options:',
+		table: {
+			category: 'Field Modifiers',
+			type: {
+				summary: 'small | medium'
+			},
+		},
+		control: {
+			type: 'select',
+			options: {
+				none: '',
+				small: 'small',
+				medium: 'medium',
+			},
+		},
+	},
+	// Input Modifiers
 	type: {
 		description: 'This property will determine the type of field for the input. Below are the allowed values for this field:',
 		table: {
-			category: 'Modifiers',
+			category: 'Input Modifiers',
 			type: {
 				summary: 'text | number | email | password | tel | time | url | hidden',
 			},
@@ -89,9 +107,9 @@ demo.argTypes = {
 		},
 	},
 	size: {
-		description: 'Modify the size of the input field or the entire container. Allowed options:',
+		description: 'Modify the size of the input field only. Allowed options:',
 		table: {
-			category: 'Modifiers',
+			category: 'Input Modifiers',
 			type: {
 				summary: 'small | medium'
 			},
@@ -99,7 +117,7 @@ demo.argTypes = {
 		control: {
 			type: 'select',
 			options: {
-				default: '',
+				none: '',
 				small: 'small',
 				medium: 'medium',
 			},
