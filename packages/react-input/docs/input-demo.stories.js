@@ -123,6 +123,18 @@ demo.argTypes = {
 			},
 		},
 	},
+	prefix: {
+		description: 'This property allows you to add some text before the input.',
+		table: {
+			category: 'Modifiers',
+			type: {
+				summary: 'string',
+			},
+		},
+		control: {
+			type: 'text',
+		},
+	},
 	// States
 	disabled: {
 		description: 'This property allows you to enable or disable the input field.',
