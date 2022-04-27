@@ -48,18 +48,6 @@ demo.argTypes = {
 			type: 'text',
 		},
 	},
-	suffix: {
-		description: 'This property allows you to add a suffix to the input field.',
-		table: {
-			category: 'Elements',
-			type: {
-				summary: 'string',
-			},
-		},
-		control: {
-			type: 'text',
-		},
-	},
 	description: {
 		description: 'When you need to include a description below the input field, use this property.',
 		table: {
@@ -115,6 +103,18 @@ demo.argTypes = {
 				small: 'small',
 				medium: 'medium',
 			},
+		},
+	},
+	suffix: {
+		description: 'This property allows you to add some text after the input.',
+		table: {
+			category: 'Modifiers',
+			type: {
+				summary: 'string',
+			},
+		},
+		control: {
+			type: 'text',
 		},
 	},
 	// States
