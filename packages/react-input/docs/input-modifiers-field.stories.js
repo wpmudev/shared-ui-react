@@ -139,3 +139,18 @@ export const Size = () => {
 	);
 };
 Size.storyName = 'By Size';
+
+export const Affix = () => {
+	return (
+		<Template>
+			<Section
+				title="Suffix"
+				description="This will allow you to add some text after the input."
+				isLast={true}
+				code="&lt;Input placeholder=&quot;Placeholder&quot; suffix=&quot;suffix&quot; /&gt;">
+				<Input placeholder="Username" suffix="suffix" />
+			</Section>
+		</Template>
+	);
+};
+Affix.storyName = 'By Affix'; 
