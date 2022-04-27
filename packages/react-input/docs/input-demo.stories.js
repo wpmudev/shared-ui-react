@@ -126,7 +126,7 @@ demo.argTypes = {
 	suffix: {
 		description: 'This property allows you to add some text after the input.',
 		table: {
-			category: 'Modifiers',
+			category: 'Field Modifiers',
 			type: {
 				summary: 'string',
 			},
