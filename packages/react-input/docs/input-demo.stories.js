@@ -126,7 +126,7 @@ demo.argTypes = {
 	prefix: {
 		description: 'This property allows you to add some text before the input.',
 		table: {
-			category: 'Modifiers',
+			category: 'Field Modifiers',
 			type: {
 				summary: 'string',
 			},
