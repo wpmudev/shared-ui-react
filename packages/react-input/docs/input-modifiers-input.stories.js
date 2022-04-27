@@ -2,7 +2,7 @@ import React from 'react';
 import { Input } from '../lib/react-input';
 
 export default {
-	title: 'Components/Input/Field Modifiers',
+	title: 'Components/Input/Input Modifiers',
 	component: Input,
 	parameters: {
 		actions: {
@@ -141,7 +141,7 @@ export const Size = () => {
 		<Template>
 			<Section
 				title="Full Size"
-				description="By default, the input field occupies the entire container."
+				description="By default, the input occupies the entire width of its parent container."
 				code="&lt;Input placeholder=&quot;Placeholder&quot; /&gt;"
 				isDefault={ true }>
 				<Input placeholder="Username" />
@@ -151,7 +151,7 @@ export const Size = () => {
 				title="Medium"
 				description={
 					[
-						'Using this option, you can resize the input field to a maximum width of ',
+						'Using this option, you can resize the input to a maximum width of ',
 						<strong>240px</strong>
 					]
 				}
@@ -163,7 +163,7 @@ export const Size = () => {
 				title="Small"
 				description={
 					[
-						'Using this option, you can resize the input field to a maximum width of ',
+						'Using this option, you can resize the input to a maximum width of ',
 						<strong>80px</strong>
 					]
 				}
