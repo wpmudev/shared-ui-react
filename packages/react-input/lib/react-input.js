@@ -10,6 +10,7 @@ const Input = ({
 	size,
 	fieldSize,
 	suffix,
+	prefix,
 	...props
 }) => {
 	const uniqueId = id && '' !== id ? id : props.property;
@@ -39,6 +40,7 @@ const Input = ({
 	let inputClasses = 'sui-form-control';
 
 	suffix && (inputClasses += ' sui-field-has-suffix');
+	prefix && (inputClasses += ' sui-field-has-prefix');
 
 	switch ( size ) {
 		case 'sm':
@@ -62,6 +64,10 @@ const Input = ({
 				<label htmlFor={ uniqueId } className="sui-label">
 					{ label }
 				</label>
+			)}
+
+			{prefix && (
+				<span class="sui-field-prefix">{prefix}</span>
 			)}
 
 			<input id={ uniqueId } type={ type } className={ inputClasses } { ...props } />

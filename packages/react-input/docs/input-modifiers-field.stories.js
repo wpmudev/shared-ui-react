@@ -144,6 +144,12 @@ export const Affix = () => {
 	return (
 		<Template>
 			<Section
+				title="Prefix"
+				description="This will allow you to add some text before the input."
+				code="&lt;Input placeholder=&quot;Placeholder&quot; prefix=&quot;$&quot; /&gt;">
+				<Input placeholder="Username" prefix="$" />
+			</Section>
+			<Section
 				title="Suffix"
 				description="This will allow you to add some text after the input."
 				isLast={true}
@@ -153,4 +159,4 @@ export const Affix = () => {
 		</Template>
 	);
 };
-Affix.storyName = 'By Affix'; 
+Affix.storyName = 'By Affix';

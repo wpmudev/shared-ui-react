@@ -123,6 +123,18 @@ demo.argTypes = {
 			},
 		},
 	},
+	prefix: {
+		description: 'This property allows you to add some text before the input.',
+		table: {
+			category: 'Field Modifiers',
+			type: {
+				summary: 'string',
+			},
+		},
+		control: {
+			type: 'text',
+		},
+	},
 	suffix: {
 		description: 'This property allows you to add some text after the input.',
 		table: {
