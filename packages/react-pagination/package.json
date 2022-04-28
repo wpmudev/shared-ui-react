@@ -47,7 +47,7 @@
   "devDependencies": {
     "@wpmudev/react-accordion": "^1.0.4",
     "@wpmudev/react-box": "^1.2.5",
-    "@wpmudev/react-builder": "^0.0.0",
+    "@wpmudev/react-builder": "^1.0.1",
     "@wpmudev/react-button": "^1.1.0",
     "react": "^18.0.0"
   }

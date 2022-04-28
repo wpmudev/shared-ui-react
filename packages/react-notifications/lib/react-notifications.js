@@ -16,6 +16,7 @@ export class Notifications extends Component {
 		this.setState({
 			hide: true
 		});
+		this.props.cbFunction ? this.props.cbFunction() : '';
 	}
 
 	render() {
