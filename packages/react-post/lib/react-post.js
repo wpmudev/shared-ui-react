@@ -64,6 +64,11 @@ const PostWrapper = styled.div.attrs(props => ({
 				: ""}
 	}
 
+	&[disabled] {
+		pointer-events: none;
+		opacity: 0.5;
+	}
+
 	${props =>
 		props.banner
 			? `@media ${device.tablet} {
