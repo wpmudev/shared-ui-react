@@ -1,25 +1,20 @@
 import React from 'react';
 import { ProgressBar } from '../lib/react-progress-bar';
+import { action } from '@storybook/addon-actions';
 
 export default {
 	title: 'Components/Progress Bar',
 	component: ProgressBar,
-	parameters: {
-		actions: {
-			disabled: true,
-		},
-	},
-};
-
-const func = () => {
-	console.log('You cancelled this progress...');
 };
 
 export const demo = (args) => <ProgressBar {...args} />;
 demo.storyName = 'Demo';
 demo.args = {
-	now: 30,
-	cbFunction: () => func(),
+	cbFunction: () => {
+		action( 'click' )(
+			'Loading process interrupted.'
+		);
+	},
 };
 demo.argTypes = {
 	now: {
@@ -106,9 +101,11 @@ demo.argTypes = {
 		},
 	},
 	cbFunction: {
-		description: 'This is a callback function which will be called when the cancel button is clicked.',
+		description: 'Use this property to call a function when clicking on the cancel button.',
 		table: {
-			type: { summary: 'function' },
+			type: {
+				summary: 'function',
+			},
 		},
 		control: {
 			type: 'function',
