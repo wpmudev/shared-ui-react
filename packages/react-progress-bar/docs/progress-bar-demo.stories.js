@@ -7,21 +7,29 @@ export default {
 	component: ProgressBar,
 };
 
-export const demo = (args) => <ProgressBar {...args} />;
+const initialValue = () => {
+	action( 'load' )( 'Loading process initiates.' );
+	return 0;
+};
+
+export const demo = args => <ProgressBar { ...args } />;
 demo.storyName = 'Demo';
 demo.args = {
+	now: initialValue(),
 	cbFunction: () => {
-		action( 'click' )(
-			'Loading process interrupted.'
-		);
+		action( 'click' )( 'Loading process interrupted.' );
 	},
 };
 demo.argTypes = {
 	now: {
 		description: 'The value will be the percentage of the progress bar loaded.',
 		table: {
-			type: { summary: 'number' },
-			defaultValue: { summary: '0' },
+			type: {
+				summary: 'number',
+			},
+			defaultValue: {
+				summary: '0',
+			},
 		},
 		control: {
 			type: 'range',
