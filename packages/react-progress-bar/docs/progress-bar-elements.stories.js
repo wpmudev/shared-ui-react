@@ -100,29 +100,61 @@ const Section = ({ title, description, code, code2, isDefault = false, isLast = 
 	);
 }
 
-export const elements = () => {
+export const loading = () => {
 	return (
 		<Template>
 			<Section
 				title="Loading Wheel"
+				isLast={true}
 				code="&lt;ProgressBar hasCancel={false} hasBar={false} hasLabel={false} /&gt;">
 				<ProgressBar hasCancel={false} hasBar={false} hasLabel={false} />
 			</Section>
+		</Template>
+	);
+};
+
+export const percentage = () => {
+	return (
+		<Template>
             <Section
 				title="Percentage Text"
+				isLast={true}
 				code="&lt;ProgressBar hasLoader={false} hasCancel={false} hasBar={false} now={50} /&gt;">
 				<ProgressBar hasLoader={false} hasCancel={false} hasBar={false} now={50} />
 			</Section>
+		</Template>
+	);
+};
+
+export const bar = () => {
+	return (
+		<Template>
             <Section
 				title="Loading Bar"
+				isLast={true}
 				code="&lt;ProgressBar hasLoader={false} hasCancel={false} now={30} hasLabel={false} /&gt;">
 				<ProgressBar hasLoader={false} hasCancel={false} now={30} hasBar={true} hasLabel={false} />
 			</Section>
+		</Template>
+	);
+};
+
+export const cancel = () => {
+	return (
+		<Template>
             <Section
 				title="Cancel Button"
+				isLast={true}
 				code="&lt;ProgressBar hasLoader={false} hasBar={false} hasLabel={false} /&gt;">
 				<ProgressBar hasLoader={false} hasBar={false} hasLabel={false} />
 			</Section>
+		</Template>
+	);
+};
+
+export const legend = () => {
+	return (
+		<Template>
             <Section
 				title="Legend Text"
 				code="&lt;ProgressBar hasLoader={false} hasCancel={false} now={30} hasLabel={false} hasFrame={true} /&gt;"
