@@ -12,15 +12,10 @@ export default {
 	},
 };
 
-const initialValue = () => {
-	action( 'load' )( 'Loading process initiates.' );
-	return 0;
-};
-
 export const demo = args => <ProgressBar { ...args } />;
 demo.storyName = 'Demo';
 demo.args = {
-	now: initialValue(),
+	now: 0,
 	hasLoader: true,
 	hasLabel: true,
 	hasCancel: true,
