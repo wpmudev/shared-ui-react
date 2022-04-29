@@ -151,7 +151,7 @@ export const simple = () => {
 		<Template>
 			<Section
 				title="Simple"
-				code="&lt;Pagination limit={5} results={true} skip={true} child={accordionItems} pagesToTop={false} /&gt;"
+				code="&lt;Pagination limit={2} results={true} skip={true}&gt;&lt;Accordion&gt;{accordionItems}&lt;/Accordion&gt;&lt;/Pagination&gt;"
 				isDefault={ true }
 				isLast={ true }>
 				<Pagination limit={2} results={true} skip={true}>
@@ -170,7 +170,7 @@ export const compound = () => {
 		<Template>
 			<Section
 				title="Compound"
-				code="&lt;Pagination limit={5} results={true} skip={true} child={accordionItems} pagesToTop={false} paginationContent={paginationContent} /&gt;"
+				code="&lt;Pagination limit={2} results={true} skip={true} paginationContent={paginationContent}&gt;&lt;Accordion&gt;{accordionItems}&lt;/Accordion&gt;&lt;/Pagination&gt;"
 				isLast={ true }>
 				<Pagination limit={2} results={true} skip={true} paginationContent={paginationContent}>
 					<Accordion>

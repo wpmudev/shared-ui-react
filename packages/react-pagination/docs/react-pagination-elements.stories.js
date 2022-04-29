@@ -122,7 +122,7 @@ export const elements = () => {
 			<Section
 				title="List of Pages"
                 description="Show a list of available pages with arrows for easier navigation."
-				code="&lt;Pagination limit={2} skip={true} /&gt;">
+				code="&lt;Pagination limit={2} skip={true}&gt;&lt;Accordion&gt;{accordionItems}&lt;/Accordion&gt;&lt;/Pagination&gt;">
 				<Pagination limit={2} skip={true}>
 					<Accordion>
 						{accordionItems}
@@ -133,7 +133,7 @@ export const elements = () => {
             <Section
 				title="List of Pages with Results"
                 description="Even when elements above can work isolated depending on what designer decides for the project you can also use them together."
-				code="&lt;Pagination limit={2} results={true} skip={true} /&gt;"
+				code="&lt;Pagination limit={2} results={true} skip={true}&gt;&lt;Accordion&gt;{accordionItems}&lt;/Accordion&gt;&lt;/Pagination&gt;"
 				isLast={ true }>
 				<Pagination limit={2} results={true} skip={true}>
 					<Accordion>
