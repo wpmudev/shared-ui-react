@@ -20,16 +20,15 @@ export default {
 			},
 		},
 	},
-};
-
-const Template = ({ children }) => {
-	return (
-		<div className="sui-box">
-			<div className="sui-box-body">
-				{children}
+	decorators: [
+		( Story ) => (
+			<div className="sui-box">
+				<div className="sui-box-body">
+					<Story />
+				</div>
 			</div>
-		</div>
-	);
+		),
+	],
 };
 
 const Title = ({ children }) => {
@@ -100,27 +99,44 @@ const Section = ({ title, description, code, code2, isDefault = false, isLast = 
 	);
 }
 
-export const design = () => {
+export const Design = () => {
 	return (
-		<Template>
+		<>
 			<Section
-				title="Default"
-				description="This is the default design of a progress bar."
-				code="&lt;ProgressBar now={ 30 }/&gt;"
+				title="Unboxed"
+				description="By default, the progress bar is simple and shows all the necessary elements to work."
+				code="&lt;ProgressBar now={ 30 } /&gt;"
 				isDefault={ true }>
-				<ProgressBar now={30}/>
+				<ProgressBar now={ 30 } />
 			</Section>
+
 			<Section
-				title="Boxed"
-				description="This is the design of a progress bar with boxed frame."
-				code="&lt;ProgressBar hasFrame={ true } now={ 30 } /&gt;"
-				isLast={ true }>
-				<ProgressBar
-					hasFrame={ true }
-					now={30}
-				/>
+				title="Boxed Simple"
+				description={
+					[
+						"Using the ",
+						<code style={{ fontSize: 11 }}>hasFrame</code>,
+						" property, you can display a gray border with inner spacing around the progress bar and its elements."
+					]
+				}
+				code="&lt;ProgressBar now={ 30 } hasFrame={ true } hasLegend={ false } /&gt;">
+				<ProgressBar now={ 30 } hasFrame={ true } hasLegend={ false } />
 			</Section>
-		</Template>
+
+			<Section
+				title="Boxed with Legend"
+				description={
+					[
+						"The boxed variation can come with a legend at the bottom if necessary that you can display using the ",
+						<code style={{ fontSize: 11 }}>hasLegend</code>,
+						" property."
+					]
+				}
+				code="&lt;ProgressBar now={ 30 } hasFrame={ true } hasLegend={ true } /&gt;"
+				isLast={ true }>
+				<ProgressBar now={ 30 } hasFrame={ true } hasLegend={ true } />
+			</Section>
+		</>
 	);
 };
-design.storyName = 'By Design';
+Design.storyName = 'By Design';
