@@ -33,9 +33,7 @@ const paginationContent = ({ ...properties }) => {
 					<Button label="Bulk Delete" icon="trash" disabled />
 					{ PaginationNav({ ...properties }) }
 				</div>
-				<Accordion>
-					{ PaginationResults({ ...properties }) }
-				</Accordion>
+				{ PaginationResults({ ...properties }) }
 				{ PaginationNav({ ...properties }) }
 			</BoxBody>
 			<BoxFooter
@@ -156,9 +154,11 @@ export const simple = () => {
 				code="&lt;Pagination limit={5} results={true} skip={true} child={accordionItems} pagesToTop={false} /&gt;"
 				isDefault={ true }
 				isLast={ true }>
-				<Accordion>
-					<Pagination limit={2} results={true} skip={true} child={accordionItems} />
-				</Accordion>
+				<Pagination limit={2} results={true} skip={true}>
+					<Accordion>
+						{accordionItems}
+					</Accordion>
+				</Pagination>
 			</Section>
 		</Template>
 	);
@@ -172,9 +172,11 @@ export const compound = () => {
 				title="Compound"
 				code="&lt;Pagination limit={5} results={true} skip={true} child={accordionItems} pagesToTop={false} paginationContent={paginationContent} /&gt;"
 				isLast={ true }>
-				<Accordion>
-					<Pagination limit={2} results={true} skip={true} child={accordionItems} paginationContent={paginationContent} />
-				</Accordion>
+				<Pagination limit={2} results={true} skip={true} paginationContent={paginationContent}>
+					<Accordion>
+						{accordionItems}
+					</Accordion>
+				</Pagination>
 			</Section>
 		</Template>
 	);

@@ -122,20 +122,24 @@ export const elements = () => {
 			<Section
 				title="List of Pages"
                 description="Show a list of available pages with arrows for easier navigation."
-				code="&lt;Pagination limit={2} skip={true} child={accordionItems} /&gt;">
-				<Accordion>
-					<Pagination limit={2} skip={true} child={accordionItems} />
-				</Accordion>
+				code="&lt;Pagination limit={2} skip={true} /&gt;">
+				<Pagination limit={2} skip={true}>
+					<Accordion>
+						{accordionItems}
+					</Accordion>
+				</Pagination>
 			</Section>
 
             <Section
 				title="List of Pages with Results"
                 description="Even when elements above can work isolated depending on what designer decides for the project you can also use them together."
-				code="&lt;Pagination limit={2} results={true} skip={true} child={accordionItems}  /&gt;"
+				code="&lt;Pagination limit={2} results={true} skip={true} /&gt;"
 				isLast={ true }>
-				<Accordion>
-					<Pagination limit={2} results={true} skip={true} child={accordionItems} />
-				</Accordion>
+				<Pagination limit={2} results={true} skip={true}>
+					<Accordion>
+						{accordionItems}
+					</Accordion>
+				</Pagination>
 			</Section>
 		</Template>
 	);
