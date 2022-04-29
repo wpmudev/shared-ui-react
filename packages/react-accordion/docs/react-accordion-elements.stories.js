@@ -20,6 +20,7 @@ export default {
 				hidden: true,
 			},
 		},
+		viewMode: 'canvas',
 	},
 	decorators: [
 		( Story ) => (
