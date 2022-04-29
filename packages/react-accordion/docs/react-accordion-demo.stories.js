@@ -1,28 +1,31 @@
 import React from 'react';
-import { Box, BoxBody } from '@wpmudev/react-box';
 import { Accordion, AccordionItem } from '../lib/react-accordion';
 
 import LogoImage from './assets/images/logo.png';
 
 export default {
 	title: 'Containers/Accordion',
+	component: AccordionItem,
+	parameters: {
+		notes: {
+			disabled: true,
+		},
+		viewMode: 'canvas',
+	},
 }
 
-const Template = ({ children, ...props }) => {
+export const Demo = ({ children, ...props }) => {
 	return (
-		<Box>
-			<Accordion { ...props }>
+		<div className="sui-box">
+			<Accordion>
 				<AccordionItem { ...props }>
 					{ children }
 				</AccordionItem>
 			</Accordion>
-		</Box>
+		</div>
 	);
-}
-
-export const demo = Template.bind({});
-demo.storyName = 'Demo';
-demo.args = {
+};
+Demo.args = {
 	title: 'Accordion Item',
 	icon: 'wpmudev-logo',
 	image: LogoImage,
@@ -32,7 +35,7 @@ demo.args = {
 		</div>
 	</div>,
 };
-demo.argTypes = {
+Demo.argTypes = {
 	title: {
 		type: {
 			required: true,
@@ -71,5 +74,18 @@ demo.argTypes = {
 			type: 'text',
 		},
 	},
-	children: {},
+	children: {
+		type: {
+			required: true,
+		},
+		description: 'Place the content you would like to display inside the component.',
+		table: {
+			type: {
+				summary: 'element[]',
+			},
+		},
+		control: {
+			type: null,
+		},
+	},
 };
