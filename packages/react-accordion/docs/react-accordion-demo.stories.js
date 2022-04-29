@@ -10,7 +10,6 @@ export default {
 		notes: {
 			disabled: true,
 		},
-		viewMode: 'canvas',
 	},
 }
 
