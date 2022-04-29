@@ -20,16 +20,15 @@ export default {
 			},
 		},
 	},
-};
-
-const Template = ({ children }) => {
-	return (
-		<div className="sui-box">
-			<div className="sui-box-body">
-				{children}
+	decorators: [
+		( Story ) => (
+			<div className="sui-box">
+				<div className="sui-box-body">
+					<Story />
+				</div>
 			</div>
-		</div>
-	);
+		),
+	],
 };
 
 const Title = ({ children }) => {
@@ -100,67 +99,86 @@ const Section = ({ title, description, code, code2, isDefault = false, isLast = 
 	);
 }
 
-export const loading = () => {
+export const Loader = () => {
 	return (
-		<Template>
-			<Section
-				title="Loading Wheel"
-				isLast={true}
-				code="&lt;ProgressBar hasCancel={false} hasBar={false} hasLabel={false} /&gt;">
-				<ProgressBar hasCancel={false} hasBar={false} hasLabel={false} />
-			</Section>
-		</Template>
+		<Section
+			title="Loading Wheel"
+			description={
+				[
+					"By default, the component shows the loading wheel but you can hide it by setting ",
+					<code style={{ fontSize: 11 }}>hasLoader</code>,
+					" property to ",
+					<code style={{ fontSize: 11 }}>false</code>,
+					"."
+				]
+			}
+			isLast={ true }>
+			<ProgressBar now={ 30 } hasCancel={ false } hasBar={ false } hasLabel={ false } />
+		</Section>
 	);
 };
 
-export const percentage = () => {
+export const Percent = () => {
 	return (
-		<Template>
-            <Section
-				title="Percentage Text"
-				isLast={true}
-				code="&lt;ProgressBar hasLoader={false} hasCancel={false} hasBar={false} now={50} /&gt;">
-				<ProgressBar hasLoader={false} hasCancel={false} hasBar={false} now={50} />
-			</Section>
-		</Template>
+		<Section
+			title="Percentage Text"
+			description={
+				[
+					"By default, the component shows the progress value or percentage, but you can hide it by setting ",
+					<code style={{ fontSize: 11 }}>hasLabel</code>,
+					" property to ",
+					<code style={{ fontSize: 11 }}>false</code>,
+					"."
+				]
+			}
+			isLast={true}>
+			<ProgressBar hasLoader={ false } hasCancel={ false } hasBar={ false } now={ 30 } />
+		</Section>
 	);
 };
 
-export const bar = () => {
+export const Cancel = () => {
 	return (
-		<Template>
-            <Section
-				title="Loading Bar"
-				isLast={true}
-				code="&lt;ProgressBar hasLoader={false} hasCancel={false} now={30} hasLabel={false} /&gt;">
-				<ProgressBar hasLoader={false} hasCancel={false} now={30} hasBar={true} hasLabel={false} />
-			</Section>
-		</Template>
+		<Section
+			title="Cancel Button"
+			description={
+				[
+					"By default, the component shows the cancel button, but you can hide it by setting ",
+					<code style={{ fontSize: 11 }}>hasCancel</code>,
+					" property to ",
+					<code style={{ fontSize: 11 }}>false</code>,
+					". You can also pass a function when clicking on it by using the ",
+					<code style={{ fontSize: 11 }}>cbFunction</code>,
+					" property."
+				]
+			}
+			isLast={ true }>
+			<ProgressBar now={ 30 } hasLoader={ false } hasBar={ false } hasLabel={ false } />
+		</Section>
 	);
 };
 
-export const cancel = () => {
+export const Legend = () => {
 	return (
-		<Template>
-            <Section
-				title="Cancel Button"
-				isLast={true}
-				code="&lt;ProgressBar hasLoader={false} hasBar={false} hasLabel={false} /&gt;">
-				<ProgressBar hasLoader={false} hasBar={false} hasLabel={false} />
-			</Section>
-		</Template>
-	);
-};
-
-export const legend = () => {
-	return (
-		<Template>
+		<>
             <Section
 				title="Legend Text"
-				code="&lt;ProgressBar hasLoader={false} hasCancel={false} now={30} hasLabel={false} hasFrame={true} /&gt;"
+				description={
+					[
+						"This text appears below the progress bar and only when ",
+						<code style={{ fontSize: 11 }}>hasFrame</code>,
+						" and ",
+						<code style={{ fontSize: 11 }}>hasLegend</code>,
+						" properties are set to ",
+						<code style={{ fontSize: 11 }}>true</code>,
+						". You can edit the text using ",
+						<code style={{ fontSize: 11 }}>sourceLang</code>,
+						" property."
+					]
+				}
 				isLast={ true }>
-				<ProgressBar hasLoader={false} hasCancel={false} now={30} hasLabel={false} hasFrame={true} />
+				<ProgressBar hasLoader={ false } hasCancel={ false } now={ 30 } hasLabel={ false } hasFrame={ true } />
 			</Section>
-		</Template>
+		</>
 	);
 };
