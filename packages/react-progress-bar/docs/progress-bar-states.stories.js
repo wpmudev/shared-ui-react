@@ -20,16 +20,15 @@ export default {
 			},
 		},
 	},
-};
-
-const Template = ({ children }) => {
-	return (
-		<div className="sui-box">
-			<div className="sui-box-body">
-				{children}
+	decorators: [
+		( Story ) => (
+			<div className="sui-box">
+				<div className="sui-box-body">
+					<Story />
+				</div>
 			</div>
-		</div>
-	);
+		),
+	],
 };
 
 const Title = ({ children }) => {
@@ -100,34 +99,39 @@ const Section = ({ title, description, code, code2, isDefault = false, isLast = 
 	);
 }
 
-export const normal = () => {
+export const Initial = () => {
 	return (
-		<Template>
-			<Section
-				title="Static"
-				description="This is the default state of a progress bar."
-				code="&lt;ProgressBar hasLoader={ false }/&gt;"
-				isDefault={ false }
-				isLast={ true }>
-				<ProgressBar hasLoader={false}/>
-			</Section>
-		</Template>
+		<Section
+			title="Initial"
+			description="By default, the progress bar has zero value as its initial state."
+			code="&lt;ProgressBar now={ 0 } /&gt;"
+			isDefault={ true }
+			isLast={ true }>
+			<ProgressBar now={ 0 } />
+		</Section>
 	);
 };
-normal.storyName = 'Static';
 
-export const loader = () => {
+export const Loading = () => {
 	return (
-		<Template>
-			<Section
-				title="Loading"
-				description="This is the loading state of a progress bar."
-				code="&lt;ProgressBar now={ 30 }/&gt;"
-				isDefault={ true }
-				isLast={ true }>
-				<ProgressBar now={30}/>
-			</Section>
-		</Template>
+		<Section
+			title="Loading"
+			description="While the process is happening, the progress bar fills with blue."
+			code="&lt;ProgressBar now={ 30 } /&gt;"
+			isLast={ true }>
+			<ProgressBar now={ 30 } />
+		</Section>
 	);
 };
-loader.storyName = 'Loading';
+
+export const Complete = () => {
+	return (
+		<Section
+			title="Complete"
+			description="The progress bar measures in percentage, which means once the progress reaches 100, the whole bar will be blue."
+			code="&lt;ProgressBar now={ 100 } /&gt;"
+			isLast={ true }>
+			<ProgressBar now={ 100 } />
+		</Section>
+	);
+};
