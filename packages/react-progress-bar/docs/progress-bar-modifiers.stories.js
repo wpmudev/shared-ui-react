@@ -106,14 +106,14 @@ export const design = () => {
 			<Section
 				title="Default"
 				description="This is the default design of a progress bar."
-				code="&lt;ProgressBar now={30}/&gt;"
+				code="&lt;ProgressBar now={ 30 }/&gt;"
 				isDefault={ true }>
 				<ProgressBar now={30}/>
 			</Section>
 			<Section
 				title="Boxed"
 				description="This is the design of a progress bar with boxed frame."
-				code="&lt;ProgressBar hasFrame={ true } now={30} /&gt;"
+				code="&lt;ProgressBar hasFrame={ true } now={ 30 } /&gt;"
 				isLast={ true }>
 				<ProgressBar
 					hasFrame={ true }

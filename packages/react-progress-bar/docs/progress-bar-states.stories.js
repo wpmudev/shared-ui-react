@@ -106,7 +106,7 @@ export const normal = () => {
 			<Section
 				title="Static"
 				description="This is the default state of a progress bar."
-				code="&lt;ProgressBar hasLoader={false}/&gt;"
+				code="&lt;ProgressBar hasLoader={ false }/&gt;"
 				isDefault={ false }
 				isLast={ true }>
 				<ProgressBar hasLoader={false}/>
@@ -122,7 +122,7 @@ export const loader = () => {
 			<Section
 				title="Loading"
 				description="This is the loading state of a progress bar."
-				code="&lt;ProgressBar now={30}/&gt;"
+				code="&lt;ProgressBar now={ 30 }/&gt;"
 				isDefault={ true }
 				isLast={ true }>
 				<ProgressBar now={30}/>
