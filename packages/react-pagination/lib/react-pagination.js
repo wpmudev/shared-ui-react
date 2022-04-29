@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 
 export const Pagination = ({ limit, skip, results, skipToFirstLabel, previousLabel, nextLabel, skipToLastLabel, pagesToBottom, ...args }) => {
-	const wrapper = args.children,
-		componentChildren = wrapper?.props?.children ? (wrapper?.props?.children?.length>1 ? [...wrapper.props.children] : [wrapper.props.children]) : [],
+	const componentWrapper = args.children,
+		componentChildren = componentWrapper?.props?.children ? (componentWrapper?.props?.children?.length>1 ? [...componentWrapper.props.children] : [componentWrapper.props.children]) : [],
 		childElements = [...componentChildren],
 		elements = childElements.length,
 		pages = elements / limit > parseInt(elements / limit) ? parseInt(elements / limit) + 1 : elements / limit,
@@ -83,7 +83,7 @@ export const Pagination = ({ limit, skip, results, skipToFirstLabel, previousLab
 		setPageClickCounter(pageClickCounter + 1);
 	};
 	const properties = {
-		wrapper,
+		componentWrapper,
 		childElements,
 		elementsStartIndex,
 		elementsEndIndex,
@@ -121,7 +121,7 @@ export const Pagination = ({ limit, skip, results, skipToFirstLabel, previousLab
 
 export const PaginationResults = ({ ...properties }) => {
 	const items = React.Children.map(properties.childElements, data => React.cloneElement(data))?.slice(properties.elementsStartIndex, properties.elementsEndIndex);
-	return React.Children.map(properties.wrapper, data => React.cloneElement(data, '', items));
+	return React.Children.map(properties.componentWrapper, data => React.cloneElement(data, '', items));
 };
 
 export const PaginationNav = ({ ...properties }) => {

@@ -161,7 +161,7 @@ export const demo = args => {
 					<AccordionItem title="Children Item D">
 						<Box>
 							<BoxBody>
-								<h4>Children Item A</h4>
+								<h4>Children Item D</h4>
 								<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
 							</BoxBody>
 						</Box>
@@ -169,7 +169,7 @@ export const demo = args => {
 					<AccordionItem title="Children Item E">
 						<Box>
 							<BoxBody>
-								<h4>Children Item B</h4>
+								<h4>Children Item E</h4>
 								<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
 							</BoxBody>
 						</Box>
@@ -177,7 +177,7 @@ export const demo = args => {
 					<AccordionItem title="Children Item F">
 						<Box>
 							<BoxBody>
-								<h4>Children Item C</h4>
+								<h4>Children Item F</h4>
 								<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
 							</BoxBody>
 						</Box>
@@ -185,7 +185,7 @@ export const demo = args => {
 					<AccordionItem title="Children Item G">
 						<Box>
 							<BoxBody>
-								<h4>Children Item A</h4>
+								<h4>Children Item G</h4>
 								<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
 							</BoxBody>
 						</Box>
@@ -193,7 +193,7 @@ export const demo = args => {
 					<AccordionItem title="Children Item H">
 						<Box>
 							<BoxBody>
-								<h4>Children Item B</h4>
+								<h4>Children Item H</h4>
 								<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
 							</BoxBody>
 						</Box>
@@ -201,79 +201,79 @@ export const demo = args => {
 					<AccordionItem title="Children Item I">
 						<Box>
 							<BoxBody>
-								<h4>Children Item C</h4>
+								<h4>Children Item I</h4>
 								<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
 							</BoxBody>
 						</Box>
 					</AccordionItem>
-					<AccordionItem title="Children Item A">
+					<AccordionItem title="Children Item J">
 						<Box>
 							<BoxBody>
-								<h4>Children Item A</h4>
+								<h4>Children Item J</h4>
 								<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
 							</BoxBody>
 						</Box>
 					</AccordionItem>
-					<AccordionItem title="Children Item B">
+					<AccordionItem title="Children Item K">
 						<Box>
 							<BoxBody>
-								<h4>Children Item B</h4>
+								<h4>Children Item K</h4>
 								<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
 							</BoxBody>
 						</Box>
 					</AccordionItem>
-					<AccordionItem title="Children Item C">
+					<AccordionItem title="Children Item L">
 						<Box>
 							<BoxBody>
-								<h4>Children Item C</h4>
+								<h4>Children Item L</h4>
 								<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
 							</BoxBody>
 						</Box>
 					</AccordionItem>
-					<AccordionItem title="Children Item D">
+					<AccordionItem title="Children Item M">
 						<Box>
 							<BoxBody>
-								<h4>Children Item A</h4>
+								<h4>Children Item M</h4>
 								<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
 							</BoxBody>
 						</Box>
 					</AccordionItem>
-					<AccordionItem title="Children Item E">
+					<AccordionItem title="Children Item N">
 						<Box>
 							<BoxBody>
-								<h4>Children Item B</h4>
+								<h4>Children Item N</h4>
 								<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
 							</BoxBody>
 						</Box>
 					</AccordionItem>
-					<AccordionItem title="Children Item F">
+					<AccordionItem title="Children Item O">
 						<Box>
 							<BoxBody>
-								<h4>Children Item C</h4>
+								<h4>Children Item O</h4>
 								<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
 							</BoxBody>
 						</Box>
 					</AccordionItem>
-					<AccordionItem title="Children Item G">
+					<AccordionItem title="Children Item P">
 						<Box>
 							<BoxBody>
-								<h4>Children Item A</h4>
+								<h4>Children Item P</h4>
 								<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
 							</BoxBody>
 						</Box>
 					</AccordionItem>
-					<AccordionItem title="Children Item H">
+					<AccordionItem title="Children Item Q">
 						<Box>
 							<BoxBody>
-								<h4>Children Item B</h4>
+								<h4>Children Item Q</h4>
 								<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
 							</BoxBody>
 						</Box>
 					</AccordionItem>
-					<AccordionItem title="Children Item I">
+					<AccordionItem title="Children Item R">
 						<Box>
 							<BoxBody>
-								<h4>Children Item C</h4>
+								<h4>Children Item R</h4>
 								<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
 							</BoxBody>
 						</Box>
