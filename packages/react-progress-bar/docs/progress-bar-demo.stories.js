@@ -16,6 +16,15 @@ export const demo = args => <ProgressBar { ...args } />;
 demo.storyName = 'Demo';
 demo.args = {
 	now: initialValue(),
+	hasLoader: true,
+	hasLabel: true,
+	hasCancel: true,
+	hasFrame: false,
+	hasLegend: true,
+	sourceLang: {
+		cancel: 'Cancel',
+		legend: 'Status...',
+	},
 	cbFunction: () => {
 		action( 'click' )( 'Loading process interrupted.' );
 	},
@@ -39,77 +48,91 @@ demo.argTypes = {
 		},
 	},
 	hasLoader: {
-		description: 'If true, the progress bar will show a loader icon.',
+		description: 'Disable with **false** value to hide the loader icon.',
 		table: {
-			type: { summary: 'boolean' },
-			defaultValue: { summary: 'true' },
+			type: {
+				summary: 'boolean',
+			},
+			defaultValue: {
+				summary: 'true',
+			},
 		},
 		control: {
 			type: 'boolean',
 		},
 	},
 	hasLabel: {
-		description: 'This will show the percentage of the progress bar loaded as label.',
+		description: 'Disable with **false** value to hide the percentage label.',
 		table: {
-			type: { summary: 'boolean' },
-			defaultValue: { summary: 'true' },
-		},
-		control: {
-			type: 'boolean',
-		},
-	},
-	hasBar: {
-		description: 'If true, this will show the bar.',
-		table: {
-			type: { summary: 'boolean' },
-			defaultValue: { summary: 'true' },
+			type: {
+				summary: 'boolean',
+			},
+			defaultValue: {
+				summary: 'true',
+			},
 		},
 		control: {
 			type: 'boolean',
 		},
 	},
 	hasCancel: {
-		description: 'The cancel button to run the callback function.',
+		description: 'Use **false** to hide the cancel button.',
 		table: {
-			type: { summary: 'boolean' },
-			defaultValue: { summary: 'true' },
+			type: {
+				summary: 'boolean',
+			},
+			defaultValue: {
+				summary: 'true',
+			},
 		},
 		control: {
 			type: 'boolean',
 		},
 	},
 	hasFrame: {
-		description: 'This will show the frame with white background.',
+		description:
+			'Enable to wrap the progress bar in a white box with a border. It also allows you to display a legend text at the bottom.',
 		table: {
-			type: { summary: 'boolean' },
-			defaultValue: { summary: 'false' },
+			type: {
+				summary: 'boolean',
+			},
+			defaultValue: {
+				summary: 'false',
+			},
 		},
 		control: {
 			type: 'boolean',
 		},
 	},
 	hasLegend: {
-		description: 'This will show the legend text which is defined in "sourceLang".',
+		description:
+			'Enable this property to show a legend text below the box. You can edit this text with the **sourceLang** prop.',
 		table: {
-			type: { summary: 'boolean' },
-			defaultValue: { summary: 'false' },
+			type: {
+				summary: 'boolean',
+			},
+			defaultValue: {
+				summary: 'false',
+			},
 		},
 		control: {
 			type: 'boolean',
 		},
 	},
 	sourceLang: {
-		description: 'The source language object with "cancel" and "legend" text.',
+		description: 'Edit some elements\' source language, like the "cancel" button or "legend" text.',
 		table: {
-			type: { summary: 'object' },
-			defaultValue: { summary: '{ cancel: \'Pause\', legend: \'Plugin is loading...\' }' },
+			type: {
+				summary: 'object',
+				detail: "{\n    cancel: 'Cancel',\n    legend: 'Status...',\n}",
+			},
 		},
 		control: {
 			type: 'object',
 		},
 	},
 	cbFunction: {
-		description: 'Use this property to call a function when clicking on the cancel button.',
+		description: 'Use this property to pass a function when clicking on cancel button.',
 		table: {
 			type: {
 				summary: 'function',
