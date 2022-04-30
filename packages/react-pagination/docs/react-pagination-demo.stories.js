@@ -1,318 +1,162 @@
 import React from "react";
-import { Pagination, PaginationResults, PaginationNav } from "../lib/react-pagination";
-import { Box, BoxHeader, BoxBody, BoxFooter } from '@wpmudev/react-box';
-import { Accordion, AccordionItem } from '@wpmudev/react-accordion';
-import { Button } from '@wpmudev/react-button';
+import { Pagination } from "../lib/react-pagination";
 
 export default {
 	title: "Components/Pagination",
 	component: Pagination,
-	args: {
-		limit: 2,
-		results: true,
-		skip: true,
-		pagesToBottom: false,
-		skipToFirstLabel: '',
-		previousLabel: '',
-		nextLabel: '',
-		skipToLastLabel: ''
+	parameters: {
+		actions: {
+			disabled: true,
+		},
+		notes: {
+			disabled: true,
+		},
 	},
-	argTypes: {
-		limit: {
-			description: 'The number of items to show per page',
-			type: {
-				name: 'number',
-				required: true
-			},
-			table: {
-				type: { summary: 'number' },
-				defaultValue: { summary: '' },
-			},
-			control: {
-				type: 'number',
-			},
-			table: {
-				category: 'Basic Controls'
-			}
-		},
-		results: {
-			description: 'Show the total number of results',
-			table: {
-				type: { summary: 'boolean' },
-				defaultValue: { summary: '' },
-			},
-			control: {
-				type: 'boolean',
-			},
-			table: {
-				category: 'Basic Controls'
-			}
-		},
-		skip: {
-			description: 'Show the skip to page input',
-			table: {
-				type: { summary: 'boolean' },
-				defaultValue: { summary: '' },
-			},
-			control: {
-				type: 'boolean',
-			},
-			table: {
-				category: 'Basic Controls'
-			}
-		},
-		pagesToBottom: {
-			description: 'Pagination will be shown at the bottom of the page',
-			table: {
-				type: { summary: 'boolean' },
-				defaultValue: { summary: '' },
-			},
-			control: {
-				type: 'boolean',
-			},
-			table: {
-				category: 'Additional Controls'
-			}
-		},
-		skipToFirstLabel: {
-			description: 'The label for the skip to first page button',
-			table: {
-				type: { summary: 'string' },
-				defaultValue: { summary: '' },
-			},
-			control: {
-				type: 'text',
-			},
-			table: {
-				category: 'Labels'
-			}
-		},
-		previousLabel: {
-			description: 'The label for the previous page button',
-			table: {
-				type: { summary: 'string' },
-				defaultValue: { summary: '' },
-			},
-			control: {
-				type: 'text',
-			},
-			table: {
-				category: 'Labels'
-			}
-		},
-		nextLabel: {
-			description: 'The label for the next page button',
-			table: {
-				type: { summary: 'string' },
-				defaultValue: { summary: '' },
-			},
-			control: {
-				type: 'text',
-			},
-			table: {
-				category: 'Labels'
-			}
-		},
-		skipToLastLabel: {
-			description: 'The label for the skip to last page button',
-			table: {
-				type: { summary: 'string' },
-				defaultValue: { summary: '' },
-			},
-			control: {
-				type: 'text',
-			},
-			table: {
-				category: 'Labels'
-			}
-		},
-	}
 };
 
-export const demo = args => {
+export const Demo = args => {
+	// Array numbers from 1 to n.
+	const createList = ( topNumber ) => {
+		const listNumbers = [];
+		topNumber = topNumber + 1;
+
+		for ( let i = 1; i < topNumber; i++ ) {
+			listNumbers.push( i );
+		}
+
+		return listNumbers;
+	}
+
+	const items = createList( 100 );
+
 	return (
-		<Box>
-			<Pagination { ...args }>
-				<Accordion>
-					<AccordionItem title="Children Item A">
-						<Box>
-							<BoxBody>
-								<h4>Children Item A</h4>
-								<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
-							</BoxBody>
-						</Box>
-					</AccordionItem>
-					<AccordionItem title="Children Item B">
-						<Box>
-							<BoxBody>
-								<h4>Children Item B</h4>
-								<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
-							</BoxBody>
-						</Box>
-					</AccordionItem>
-					<AccordionItem title="Children Item C">
-						<Box>
-							<BoxBody>
-								<h4>Children Item C</h4>
-								<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
-							</BoxBody>
-						</Box>
-					</AccordionItem>
-					<AccordionItem title="Children Item D">
-						<Box>
-							<BoxBody>
-								<h4>Children Item D</h4>
-								<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
-							</BoxBody>
-						</Box>
-					</AccordionItem>
-					<AccordionItem title="Children Item E">
-						<Box>
-							<BoxBody>
-								<h4>Children Item E</h4>
-								<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
-							</BoxBody>
-						</Box>
-					</AccordionItem>
-					<AccordionItem title="Children Item F">
-						<Box>
-							<BoxBody>
-								<h4>Children Item F</h4>
-								<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
-							</BoxBody>
-						</Box>
-					</AccordionItem>
-					<AccordionItem title="Children Item G">
-						<Box>
-							<BoxBody>
-								<h4>Children Item G</h4>
-								<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
-							</BoxBody>
-						</Box>
-					</AccordionItem>
-					<AccordionItem title="Children Item H">
-						<Box>
-							<BoxBody>
-								<h4>Children Item H</h4>
-								<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
-							</BoxBody>
-						</Box>
-					</AccordionItem>
-					<AccordionItem title="Children Item I">
-						<Box>
-							<BoxBody>
-								<h4>Children Item I</h4>
-								<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
-							</BoxBody>
-						</Box>
-					</AccordionItem>
-					<AccordionItem title="Children Item J">
-						<Box>
-							<BoxBody>
-								<h4>Children Item J</h4>
-								<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
-							</BoxBody>
-						</Box>
-					</AccordionItem>
-					<AccordionItem title="Children Item K">
-						<Box>
-							<BoxBody>
-								<h4>Children Item K</h4>
-								<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
-							</BoxBody>
-						</Box>
-					</AccordionItem>
-					<AccordionItem title="Children Item L">
-						<Box>
-							<BoxBody>
-								<h4>Children Item L</h4>
-								<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
-							</BoxBody>
-						</Box>
-					</AccordionItem>
-					<AccordionItem title="Children Item M">
-						<Box>
-							<BoxBody>
-								<h4>Children Item M</h4>
-								<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
-							</BoxBody>
-						</Box>
-					</AccordionItem>
-					<AccordionItem title="Children Item N">
-						<Box>
-							<BoxBody>
-								<h4>Children Item N</h4>
-								<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
-							</BoxBody>
-						</Box>
-					</AccordionItem>
-					<AccordionItem title="Children Item O">
-						<Box>
-							<BoxBody>
-								<h4>Children Item O</h4>
-								<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
-							</BoxBody>
-						</Box>
-					</AccordionItem>
-					<AccordionItem title="Children Item P">
-						<Box>
-							<BoxBody>
-								<h4>Children Item P</h4>
-								<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
-							</BoxBody>
-						</Box>
-					</AccordionItem>
-					<AccordionItem title="Children Item Q">
-						<Box>
-							<BoxBody>
-								<h4>Children Item Q</h4>
-								<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
-							</BoxBody>
-						</Box>
-					</AccordionItem>
-					<AccordionItem title="Children Item R">
-						<Box>
-							<BoxBody>
-								<h4>Children Item R</h4>
-								<p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur.</p>
-							</BoxBody>
-						</Box>
-					</AccordionItem>
-				</Accordion>
-			</Pagination>
-		</Box>
+		<div className="sui-box">
+			<div className="sui-box-body">
+				<Pagination { ...args }>
+					<ul>
+						{ items.map( ( item, key ) => (
+							<li key={ key }>User #{ item }</li>
+						) ) }
+					</ul>
+				</Pagination>
+			</div>
+		</div>
 	);
 };
-demo.storyName = "Demo";
-demo.args = {
-	pagesToTop: false,
+Demo.args = {
+	limit: 10,
+	skip: false,
+	results: false,
 	pagesToBottom: false,
 };
-demo.argTypes = {
-	pagesToTop: {
+Demo.argTypes = {
+	limit: {
 		type: {
-			name: 'boolean',
-			required: false
+			required: true,
 		},
-		description: '',
-		control: {
-			type: 'boolean'
-		},
+		description: "Use this property to set a maximum number of items per page. If empty or zero, the pagination won't show.",
 		table: {
-			category: 'Additional Controls'
-		}
+			type: {
+				summary: 'number',
+			},
+		},
+		control: {
+			type: 'number',
+		},
+	},
+	skip: {
+		description: 'Enable this property to show skip buttons on pagination. Those will help you move directly to first and last page.',
+		table: {
+			type: {
+				summary: 'boolean',
+			},
+		},
+		control: {
+			type: 'boolean',
+		},
+	},
+	results: {
+		description: 'When enabled, it shows the total number of results.',
+		table: {
+			type: {
+				summary: 'boolean',
+			},
+		},
+		control: {
+			type: 'boolean',
+		},
 	},
 	pagesToBottom: {
-		type: {
-			name: 'boolean',
-			required: false
-		},
-		description: '',
-		control: {
-			type: 'boolean'
-		},
+		description: 'If you need to show the pagination at the bottom of the list, enable this property.',
 		table: {
-			category: 'Additional Controls'
-		}
-	}
+			type: {
+				summary: 'boolean',
+			},
+		},
+		control: {
+			type: 'boolean',
+		},
+	},
+	children: {
+		type: {
+			required: true,
+		},
+		description: 'Place the content you would like to display inside the component.',
+		table: {
+			type: {
+				summary: 'element[]',
+			},
+		},
+		control: {
+			type: null,
+		},
+	},
+	previousLabel: {
+		description: 'By default, the "previous" button will have as label **"Go to previous page"**. You can change that using this property.',
+		table: {
+			category: 'Source Language',
+			type: {
+				summary: 'string',
+			},
+		},
+		control: {
+			type: 'text',
+		},
+	},
+	nextLabel: {
+		description: 'By default, the "next" button will have as label **"Go to next page"**. You can change that using this property.',
+		table: {
+			category: 'Source Language',
+			type: {
+				summary: 'string',
+			},
+		},
+		control: {
+			type: 'text',
+		},
+	},
+	skipToFirstLabel: {
+		description: 'By default, the "skip to first" button will have as label **"Go to first page"**. You can change that using this property.',
+		table: {
+			category: 'Source Language',
+			type: {
+				summary: 'string',
+			},
+		},
+		control: {
+			type: 'text',
+		},
+	},
+	skipToLastLabel: {
+		description: 'By default, the "skip to last" button will have as label **"Go to last page"**. You can change that using this property.',
+		table: {
+			category: 'Source Language',
+			type: {
+				summary: 'string',
+			},
+		},
+		control: {
+			type: 'text',
+		},
+	},
 };
