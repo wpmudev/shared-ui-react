@@ -117,7 +117,7 @@ const FeaturedImage = styled.div.attrs(() => ({
 	display: block;
 	${props => (props.banner ? "flex: 0 0 auto;" : "")}
 	background-color: #FFF;
-	background-image: url(${props => props.src || "none"});
+	background-image: ${props => (props.src ? `url(${props.src})` : 'none')};
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -230,14 +230,22 @@ export class Post extends Component {
 		const QUERY_ID = this.props.media;
 
 		// GET media using fetch.
-		fetch(API_URL + QUERY_ID)
+		if ( QUERY_ID ) {	
+			fetch(API_URL + QUERY_ID)
 			.then(response => response.json())
 			.then(
 				data => {
-					this.setState({
-						isLoaded: true,
-						media: data.guid.rendered
-					});
+					if (data.data?.status === 404) {
+						this.setState({
+							isLoaded: true,
+							error: data.data.message
+						});
+					} else {
+						this.setState({
+							isLoaded: true,
+							media: data.guid.rendered
+						});
+					}
 				},
 				error => {
 					this.setState({
@@ -246,6 +254,7 @@ export class Post extends Component {
 					});
 				}
 			);
+		}
 	}
 
 	render() {
@@ -265,12 +274,15 @@ export class Post extends Component {
 		const postTitle = this.props.title.replace(/&#(\d+);/g, function(match, dec) {return String.fromCharCode(dec);});
 
 		let PostImage = ""; // Empty.
+		let image = this.props.image;
 
-		if ( this.props.image ) {
-			PostImage = <FeaturedImage src={this.props.image} alt="" {...this.props} title={postTitle} />;
+		if ( image ) {
+			PostImage = <FeaturedImage src={image} alt="" {...this.props} title={postTitle} />;
 		} else {
 			if (error) {
 				PostImage = error.message;
+			} else if ( (typeof image === 'undefined' || image === null || image === '') && !this.props.media || error ) {
+				PostImage = <span style={{ marginTop: '10px' }}></span>;
 			} else if (!isLoaded) {
 				PostImage = (
 					<p style={ { textAlign: 'center' } }>
