@@ -135,6 +135,18 @@ demo.argTypes = {
 			type: 'text',
 		},
 	},
+	suffix: {
+		description: 'This property allows you to add some text after the input.',
+		table: {
+			category: 'Field Modifiers',
+			type: {
+				summary: 'string',
+			},
+		},
+		control: {
+			type: 'text',
+		},
+	},
 	// States
 	disabled: {
 		description: 'This property allows you to enable or disable the input field.',

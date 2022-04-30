@@ -149,6 +149,13 @@ export const Affix = () => {
 				code="&lt;Input placeholder=&quot;Placeholder&quot; prefix=&quot;$&quot; /&gt;">
 				<Input placeholder="Username" prefix="$" />
 			</Section>
+			<Section
+				title="Suffix"
+				description="This will allow you to add some text after the input."
+				isLast={true}
+				code="&lt;Input placeholder=&quot;Placeholder&quot; suffix=&quot;suffix&quot; /&gt;">
+				<Input placeholder="Username" suffix="suffix" />
+			</Section>
 		</Template>
 	);
 };

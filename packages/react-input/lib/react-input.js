@@ -9,6 +9,7 @@ const Input = ({
 	errorDescription,
 	size,
 	fieldSize,
+	suffix,
 	prefix,
 	...props
 }) => {
@@ -38,6 +39,7 @@ const Input = ({
 
 	let inputClasses = 'sui-form-control';
 
+	suffix && (inputClasses += ' sui-field-has-suffix');
 	prefix && (inputClasses += ' sui-field-has-prefix');
 
 	switch ( size ) {
@@ -69,6 +71,10 @@ const Input = ({
 			)}
 
 			<input id={ uniqueId } type={ type } className={ inputClasses } { ...props } />
+
+			{suffix && (
+				<span class="sui-field-suffix">{suffix}</span>
+			)}
 
 			{ errorStatus && errorDescription && (
 				<div className="sui-error-message">{ errorDescription }</div>
