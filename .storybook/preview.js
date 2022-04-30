@@ -56,6 +56,7 @@ export const parameters = {
   viewport: {
 	  viewports: customViewports
   },
+  viewMode: 'canvas',
 }
 
 export const decorators = [
