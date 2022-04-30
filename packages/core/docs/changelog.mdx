@@ -1,0 +1,35 @@
+import { WelcomePage, Article, Log, LogList } from './components';
+
+<div className="sui-wrap">
+	<WelcomePage>
+			<Article
+				heading="Latest Releases"
+				subheading={
+					[
+						"SUI React parts are versioned and released using Node Package Manager. NPM's ",
+						<a href="https://www.npmjs.com/org/wpmudev" target="_blank" rel="nofollow">organization page</a>,
+						' lists all packages available and their most recent versions.'
+					]
+				}
+			>
+				<Log title="1.8.0" date="2022-01-30" link="https://github.com/wpmudev/shared-ui/compare/v1.7.0...v1.8.0" isLatest={ true }>
+					<LogList label="new">
+						<div packages={[ 'progress-bar' ]} name="Create new component." />
+						<div packages={[ 'button' ]} name="Allow icon to be placed at left or right of label." />
+						<div packages={[ 'input' ]} name="Allow error class/state." />
+					</LogList>
+					<LogList label="improvement">
+						<div packages={[ 'modal' ]} name="Trap focus without external library" />
+					</LogList>
+					<LogList label="bug">
+						<div packages={[ 'post' ]} name={[ 'Misaligned description when ', <code>reading time</code>, ' is missing.' ]} />
+					</LogList>
+					<LogList label="internal">
+						<div name="Update change log file to new structure." />
+						<div name="Styled components can't be loaded multiple times." />
+						<div name="Update change log labels." />
+					</LogList>
+				</Log>
+			</Article>
+		</WelcomePage>
+</div>
