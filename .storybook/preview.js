@@ -1,6 +1,6 @@
 import React from 'react';
 import '@wpmudev/shared-ui/dist/css/shared-ui.min.css'; // Get latest SUI styles.
-import "./body-class";
+import "./preview-scripts";
 
 const customViewports = {
 	xl: {
