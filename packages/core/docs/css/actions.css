@@ -1,0 +1,43 @@
+body[class*="sui-"] .sui-wrap .link-banner {
+	cursor: pointer;
+	width: 100%;
+	height: auto;
+	display: block;
+	position: relative;
+	margin: 0;
+	padding: 20px;
+	border: 0;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	background: hsl(0, 0%, 100%);
+	color: #333;
+	direction: ltr;
+	text-align: left;
+}
+
+body[class*="sui-"] .sui-wrap .link-banner__title {
+	display: block;
+	font-size: 20px;
+	line-height: 24px;
+	font-weight: 700;
+}
+
+body[class*="sui-"] .sui-wrap .link-banner__subtitle {
+	display: block;
+	margin: 10px 0 0;
+}
+
+body[class*="sui-"] .sui-wrap .link-banner__icon {
+	display: block;
+	position: absolute;
+	top: 50%;
+	right: 20px;
+	transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+}
+
+body[class*="sui-"] .sui-wrap .link-banner__container .link-banner:not(:last-child) {
+	margin-bottom: 10px;
+}

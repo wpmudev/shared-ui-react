@@ -1,0 +1,19 @@
+body[class*="sui-"] .sui-wrap .section:not(:last-child) {
+	margin-bottom: 40px;
+	padding-bottom: 40px;
+	border-bottom: 1px solid #DDDDDD;
+}
+
+body[class*="sui-"] .sui-wrap .section__title {
+	margin: 0 0 20px;
+	padding: 0;
+	border: 0;
+	color: hsl(0, 0%, 20%);
+	font-size: 24px;
+	line-height: 30px;
+	font-weight: bold;
+}
+
+body[class*="sui-"] .sui-wrap .section__title:last-child {
+	margin-bottom: 0;
+}
