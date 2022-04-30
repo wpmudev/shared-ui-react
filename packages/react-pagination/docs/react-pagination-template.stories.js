@@ -1,6 +1,5 @@
 import React from "react";
 import { Pagination, PaginationResults, PaginationNav } from "../lib/react-pagination";
-import { Box, BoxHeader, BoxBody, BoxFooter } from '@wpmudev/react-box';
 import { Accordion, AccordionItem } from '@wpmudev/react-accordion';
 import { Button } from '@wpmudev/react-button';
 
