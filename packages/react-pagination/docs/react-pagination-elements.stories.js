@@ -1,21 +1,5 @@
 import React from "react";
 import { Pagination, PaginationResults, PaginationNav } from "../lib/react-pagination";
-import { Box, BoxHeader, BoxBody, BoxFooter } from '@wpmudev/react-box';
-import { Accordion, AccordionItem } from '@wpmudev/react-accordion';
-import { Button } from '@wpmudev/react-button';
-
-let accordionItems = new Array();
-for (let i = 1; i <= 15; ++i)
-	accordionItems.push(
-		<AccordionItem key={i} title={ `Child Item #${i}` }>
-			<Box>
-				<BoxBody>
-					<h4>Child Item #{i}</h4>
-					<p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Sed posuere consectetur est at lobortis. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Curabitur blandit tempus porttitor. Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-				</BoxBody>
-			</Box>
-		</AccordionItem>
-	);
 
 export default {
 	title: "Components/Pagination/Elements",
@@ -36,19 +20,18 @@ export default {
 			},
 		},
 	},
-};
-
-const Template = ({ children }) => {
-	return (
-		<div className="sui-box">
-			<div className="sui-box-body">
-				{children}
+	decorators: [
+		( Story ) => (
+			<div className="sui-box">
+				<div className="sui-box-body">
+					<Story />
+				</div>
 			</div>
-		</div>
-	);
+		),
+	],
 };
 
-const Title = ({ children }) => {
+const StoryTitle = ({ children }) => {
 	const customStyles = {
 		margin: 0,
 		marginBottom: 10 + 'px',
@@ -58,11 +41,11 @@ const Title = ({ children }) => {
 	};
 
 	return (
-		<h3 style={ customStyles }>{ children }</h3>
+		<h2 style={ customStyles }>{ children }</h2>
 	);
 }
 
-const Description = ({ children }) => {
+const StoryDescription = ({ children }) => {
 	const customStyles = {
 		margin: 0,
 		marginBottom: 10 + 'px',
@@ -75,7 +58,7 @@ const Description = ({ children }) => {
 	);
 }
 
-const Code = ({ spaceTop = 5, spaceBottom = 20, children }) => {
+const StoryCode = ({ spaceTop = 5, spaceBottom = 20, children }) => {
 	const customStyles = {
 		display: 'block',
 		margin: 0,
@@ -89,26 +72,26 @@ const Code = ({ spaceTop = 5, spaceBottom = 20, children }) => {
 	);
 }
 
-const Section = ({ title, description, code, code2, isDefault = false, isLast = false, children }) => {
+const StorySection = ({ title, description, code, code2, isDefault = false, isLast = false, children }) => {
 	return (
 		<>
 			{ title && '' !== title && (
-				<Title>{ title }{ isDefault && (
+				<StoryTitle>{ title }{ isDefault && (
 					<span
 						className="sui-tag sui-tag-sm sui-tag-yellow"
 						style={ { marginLeft: 10 + 'px' } }
 						aria-hidden="true"
 					>Default</span>
-				)}</Title>
+				)}</StoryTitle>
 			)}
 			{ description && '' !== description && (
-				<Description>{ description }</Description>
+				<StoryDescription>{ description }</StoryDescription>
 			)}
 			{ code && '' !== code && (
-				<Code { ... ( code2 && '' !== code2 ) && { spaceBottom: 5 } }>{ code }</Code>
+				<StoryCode { ... ( code2 && '' !== code2 ) && { spaceBottom: 5 } }>{ code }</StoryCode>
 			)}
 			{ code2 && '' !== code2 && (
-				<Code>{ code2 }</Code>
+				<StoryCode>{ code2 }</StoryCode>
 			)}
 			{ children }
 			{ !isLast && <hr /> }
@@ -116,32 +99,99 @@ const Section = ({ title, description, code, code2, isDefault = false, isLast = 
 	);
 }
 
-export const elements = () => {
-	return (
-		<Template>
-			<Section
-				title="List of Pages"
-                description="Show a list of available pages with arrows for easier navigation."
-				code="&lt;Pagination limit={2} skip={true}&gt;&lt;Accordion&gt;{accordionItems}&lt;/Accordion&gt;&lt;/Pagination&gt;">
-				<Pagination limit={2} skip={true}>
-					<Accordion>
-						{accordionItems}
-					</Accordion>
-				</Pagination>
-			</Section>
+// Array numbers from 1 to n.
+const createList = ( topNumber ) => {
+	const listNumbers = [];
+	topNumber = topNumber + 1;
 
-            <Section
-				title="List of Pages with Results"
-                description="Even when elements above can work isolated depending on what designer decides for the project you can also use them together."
-				code="&lt;Pagination limit={2} results={true} skip={true}&gt;&lt;Accordion&gt;{accordionItems}&lt;/Accordion&gt;&lt;/Pagination&gt;"
+	for ( let i = 1; i < topNumber; i++ ) {
+		listNumbers.push( i );
+	}
+
+	return listNumbers;
+}
+
+// List numbers from 1 to 20.
+const sampleList = createList( 20 );
+
+// Navigation only template.
+const onlyNavigation = ({ ...props }) => {
+	return PaginationNav({ ...props });
+};
+
+// Results only template.
+const onlyResults = ({ ...props }) => {
+	return PaginationResults({ ...props });
+};
+
+export const Navigation = () => {
+	return (
+		<>
+			<StorySection
+				title="Basic Navigation"
+				description="By default, the component displays a simple navigation with the pages, next and previous buttons."
+				isDefault={ true }
 				isLast={ true }>
-				<Pagination limit={2} results={true} skip={true}>
-					<Accordion>
-						{accordionItems}
-					</Accordion>
-				</Pagination>
-			</Section>
-		</Template>
+				<div className="sui-border-frame">
+					<Pagination limit={ 5 } paginationContent={ onlyNavigation }>
+						<ul>
+							{ sampleList.map( ( item, key ) => (
+								<li key={ key }>List item #{ item }</li>
+							) ) }
+						</ul>
+					</Pagination>
+				</div>
+			</StorySection>
+
+			<StorySection
+				title="Skip Buttons"
+				description="Commonly used when there are more than 10 pages. These buttons appear in addition to the basic navigation."
+				isLast={ true }>
+				<div className="sui-border-frame">
+					<Pagination limit={ 5 } skip={ true } paginationContent={ onlyNavigation }>
+						<ul>
+							{ sampleList.map( ( item, key ) => (
+								<li key={ key }>List item #{ item }</li>
+							) ) }
+						</ul>
+					</Pagination>
+				</div>
+			</StorySection>
+
+			<StorySection
+				title="Results"
+				description="Used to display the total number of items. It shows before the navigation buttons."
+				isLast={ true }>
+				<div className="sui-border-frame">
+					<Pagination limit={ 5 } results={ true } paginationContent={ onlyNavigation }>
+						<ul>
+							{ sampleList.map( ( item, key ) => (
+								<li key={ key }>List item #{ item }</li>
+							) ) }
+						</ul>
+					</Pagination>
+				</div>
+			</StorySection>
+		</>
 	);
 };
-elements.storyName = 'Elements';
+
+export const ResultsList = () => {
+	return (
+		<StorySection
+			title="Results List"
+			description="It displays the list of items per page. In this sample, it will only show 5 items (even when we have 20 items in total) since the navigation bar is hidden."
+			isDefault={ true }
+			isLast={ true }>
+			<div className="sui-border-frame">
+				<Pagination limit={ 5 } results={ true } paginationContent={ onlyResults}>
+					<ul style={{ margin: 0 }}>
+						{ sampleList.map( ( item, key ) => (
+							<li key={ key }>List item #{ item }</li>
+						) ) }
+					</ul>
+				</Pagination>
+			</div>
+		</StorySection>
+	);
+};
