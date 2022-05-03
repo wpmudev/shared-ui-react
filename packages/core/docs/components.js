@@ -115,11 +115,108 @@ const LinkBannerList = ({ children }) => {
 	);
 };
 
+const Log = ({ title, date, link, isLatest = false, children }) => {
+	const hasTitle = title && '' !== title;
+	const hasLink = link && '' !== link;
+	const hasDate = date && '' !== date;
+
+	return (
+		<div className="log">
+			{ hasTitle && !hasLink && (
+				<h3 className="log__title">{ hasDate ? `${ title } (${ date })` : `${ title }` }{ isLatest && (
+					<span className="sui-tag sui-tag-purple">Latest</span>
+				)}</h3>
+			)}
+			{ hasTitle && hasLink && (
+				<h3 className="log__title"><a href={ link } target="_blank" rel="nofollow">{ title }</a>{ hasDate && ` (${ date })`}{ isLatest && (
+					<span className="sui-tag sui-tag-purple">Latest</span>
+				)}</h3>
+			)}
+			<div className="log__group sui-box">{ children }</div>
+		</div>
+	);
+};
+
+const LogList = ({ label, children }) => {
+	const logListItems = Children.map( children, ( child, key ) => {
+		const packages = child.props.packages;
+		const hasPackages = 'undefined' !== typeof packages;
+
+		const listPackages = Children.map( packages, ( pack, idx ) => {
+			idx++;
+			return <><code key={ idx } className="log__package">react-{ pack }</code>{ idx < packages.length ? ', ' : '' }</>;
+		});
+
+		return (
+			<>
+				{ hasPackages && (
+					<li className="log__list-folder">
+						<span class="sui-icon-folder sui-sm" aria-hidden="true" /> { listPackages }
+						<ul className="log__sublist">
+							<li key={ key }>{ child.props.name }</li>
+						</ul>
+					</li>
+				)}
+				{ !hasPackages && (
+					<li key={ key }>{ child.props.name }</li>
+				)}
+			</>
+		);
+	} );
+
+	let logLabel = '';
+
+	switch ( label ) {
+		case 'break':
+			logLabel = <h5 className="log__subtitle">Breaking Changes</h5>;
+			break;
+
+		case 'new':
+			logLabel = <h5 className="log__subtitle">New Features</h5>;
+			break;
+
+		case 'improvement':
+			logLabel = <h5 className="log__subtitle">Improvements</h5>;
+			break;
+
+		case 'accessibility':
+			logLabel = <h5 className="log__subtitle">Accessibility</h5>;
+			break;
+
+		case 'bug':
+			logLabel = <h5 className="log__subtitle">Bug Fixes</h5>;
+			break;
+
+		case 'documentation':
+			logLabel = <h5 className="log__subtitle">Documentation</h5>;
+			break;
+
+		case 'internal':
+			logLabel = <h5 className="log__subtitle">Internal</h5>;
+			break;
+
+		default:
+			// nothing.
+			break;
+	}
+
+	return (
+		<div className="log__group-item">
+			{ logLabel || '' }
+			<ul className="log__list">
+				{ logListItems }
+			</ul>
+		</div>
+	);
+};
+
 export {
 	WelcomePage,
 	WelcomeBanner,
 	Article,
 	Section,
 	LinkBanner,
-	LinkBannerList
+	LinkBannerList,
+	Log,
+	LogList
 };
