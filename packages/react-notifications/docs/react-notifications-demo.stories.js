@@ -6,10 +6,10 @@ export default {
 	component: Notifications,
 	parameters: {
 		actions: {
-			disabled: true,
+			disable: true,
 		},
 		notes: {
-			disabled: true,
+			disable: true,
 		},
 	},
 };
