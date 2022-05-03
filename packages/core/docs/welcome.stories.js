@@ -16,5 +16,5 @@ export default {
 };
 
 export const Welcome = () => {
-	return <p>Welcome to Shared UI React</p>;
+	return <p>On the sidebar, click on the "Welcome" page again to see the real docs.</p>;
 };
