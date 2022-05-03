@@ -15,4 +15,6 @@ export default {
 	},
 };
 
-export const Welcome = () => {};
+export const Welcome = () => {
+	return <p>Welcome to Shared UI React</p>;
+};
