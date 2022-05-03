@@ -6,7 +6,7 @@ export default {
 	component: ButtonIcon,
 	parameters: {
 		notes: {
-			disable: true,
+			disabled: true,
 		},
 	},
 };

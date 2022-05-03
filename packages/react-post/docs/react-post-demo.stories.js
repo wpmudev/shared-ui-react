@@ -8,7 +8,7 @@ export default {
 	component: Post,
 	parameters: {
 		notes: {
-			disable: true,
+			disabled: true,
 		},
 	},
 };

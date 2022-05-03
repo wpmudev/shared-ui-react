@@ -6,13 +6,13 @@ export default {
 	component: Input,
 	parameters: {
 		actions: {
-			disable: true,
+			disabled: true,
 		},
 		controls: {
-			disable: true,
+			disabled: true,
 		},
 		notes: {
-			disable: true,
+			disabled: true,
 		},
 		previewTabs: {
 			'storybook/docs/panel': {
