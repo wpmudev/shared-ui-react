@@ -6,7 +6,7 @@ export default {
 	component: Dropdown,
 	parameters: {
 		notes: {
-			disabled: true,
+			disable: true,
 		},
 	},
 }
