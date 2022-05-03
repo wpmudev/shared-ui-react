@@ -4,6 +4,8 @@ body[class*="sui-"] .sui-wrap .article {
 
 body[class*="sui-"] .sui-wrap .article a {
 	color: hsl(214, 84%, 56%);
+	font-size: inherit;
+	font-weight: inherit;
 }
 
 body[class*="sui-"] .sui-wrap .article a:hover,
@@ -12,7 +14,7 @@ body[class*="sui-"] .sui-wrap .article a:focus {
 }
 
 body[class*="sui-"] .sui-wrap .article__heading {
-	margin: -40px -40px 0;
+	margin: 0 -40px;
 	padding: 40px 80px;
 	border: 0 solid #E6E6E6;
 	border-bottom-width: 1px;

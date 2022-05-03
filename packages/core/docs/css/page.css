@@ -1,9 +1,12 @@
-body[class*="sui-"] .sui-wrap .welcome-page {
-	margin: 0 -1rem -1rem;
+body[class*="sui-"] #docs-root .sbdocs-wrapper {
+	padding: 0;
+	background: transparent;
 }
 
-body[class*="sui-"] .sui-wrap .welcome-page__inner {
-	margin-top: calc(-1rem - 30px);
-	margin-right: -30px;
-	margin-left: -10px;
+body[class*="sui-"] #docs-root .sbdocs-content {
+	max-width: 100%;
+}
+
+body[class*="sui-"] #docs-root .sui-wrap:not(.sui-modal) {
+	margin: 0;
 }
