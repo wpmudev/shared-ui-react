@@ -31,16 +31,16 @@ The pull request message to the @wpmudev/react-foo package, for GitHub issue 123
 
 ```
 # For a fix to an issue
-🐛 fix(react-foo): Short description of fix.
+fix(foo): Short description of fix.
 
 # For a new feature
-✨ new(react-foo): Short description of feature.
+new(foo): Short description of feature.
 
 # For a doc update
-📝 docs(react-foo): Short description of doc changes.
+docs(foo): Short description of doc changes.
 
 # For accessibility improvements
-♿️ aria(react-foo): Short description of improvement.
+aria(foo): Short description of improvement.
 ```
 
 This commit message is pulled into our `CHANGELOG` when we release and is based on Angular's git commit guidelines.
