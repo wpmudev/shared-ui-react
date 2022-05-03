@@ -111,7 +111,7 @@ export GITHUB_AUTH="token_goes_here"
 2. Generate list of changes based on PRs after latest release.
 
 ```
-yarn logs
+yarn changelog
 ```
 
 3. Copy and paste generated list into `CHANGELOG.md` file.
