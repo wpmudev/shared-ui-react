@@ -39,9 +39,7 @@
     margin-right: 3px;
 }
 
-.os-content .sidebar-item,
-.os-content .sidebar-item:hover,
-.os-content .sidebar-item:focus {
+.os-content .sidebar-item {
     background: unset !important;
 }
 
