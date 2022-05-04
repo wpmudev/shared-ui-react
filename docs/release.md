@@ -9,7 +9,7 @@ Have in mind this guide is for developers member of [WPMU DEV Organization](http
 Make sure builder file is executable by running the following command:
 
 ```
-chmod +x packages/builder/lib/builder.js
+chmod +x packages/compiler/lib/builder.js
 ```
 
 ## Prepare package.
@@ -111,7 +111,7 @@ export GITHUB_AUTH="token_goes_here"
 2. Generate list of changes based on PRs after latest release.
 
 ```
-yarn logs
+yarn changelog
 ```
 
 3. Copy and paste generated list into `CHANGELOG.md` file.
