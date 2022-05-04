@@ -31,12 +31,12 @@ export const ProgressBar = ({
 	);
 
 	const loaderText = hasLabel && (
-		<span className="sui-progress-text">{'' === value ? 0 : value}%</span>
+		<span className="sui-progress-text">{value}%</span>
 	);
 
 	const loaderBar = (
 		<div className="sui-progress-bar">
-			<span style={{ width: `${'' === value ? 0 : value}%` }} />
+			<span style={{ width: `${value}%` }} />
 		</div>
 	);
 
