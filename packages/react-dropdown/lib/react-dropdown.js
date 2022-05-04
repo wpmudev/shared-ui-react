@@ -137,10 +137,6 @@ export class Dropdown extends Component {
             : 'sui-dropdown open';
 
         switch ( this.props.position ) {
-            case 'left':
-                clazz += ' sui-dropdown-right';
-                break;
-
             case 'center':
                 clazz += ' sui-dropdown-center';
                 break;
