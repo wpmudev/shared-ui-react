@@ -4,7 +4,7 @@ import { Accordion, AccordionItem } from '../lib/react-accordion';
 import LogoImage from './assets/images/logo.png';
 
 export default {
-	title: 'Containers/Accordion/Elements',
+	title: 'Containers/Accordion/Item Elements',
 	parameters: {
 		actions: {
 			disabled: true,
