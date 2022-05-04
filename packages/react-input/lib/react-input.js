@@ -67,13 +67,13 @@ const Input = ({
 			)}
 
 			{prefix && (
-				<span class="sui-field-prefix">{prefix}</span>
+				<span className="sui-field-prefix">{prefix}</span>
 			)}
 
 			<input id={ uniqueId } type={ type } className={ inputClasses } { ...props } />
 
 			{suffix && (
-				<span class="sui-field-suffix">{suffix}</span>
+				<span className="sui-field-suffix">{suffix}</span>
 			)}
 
 			{ errorStatus && errorDescription && (
