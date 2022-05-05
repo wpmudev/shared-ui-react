@@ -48,6 +48,9 @@
     "sass-loader": "^10.1.0",
     "style-loader": "^2.0.0"
   },
+  "resolutions": {
+    "is-svg": "^4.3.2"
+  },
   "scripts": {
     "build": "npx lerna run build",
     "test": "echo \"Error: no test specified\" && exit 1",
