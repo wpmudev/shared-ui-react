@@ -49,7 +49,7 @@
     "style-loader": "^2.0.0"
   },
   "resolutions": {
-    "**/prismjs": "^1.28.0"
+    "prismjs": "^1.28.0"
   },
   "scripts": {
     "build": "npx lerna run build",
