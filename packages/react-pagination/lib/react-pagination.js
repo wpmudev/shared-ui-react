@@ -99,7 +99,6 @@ export const Pagination = ({ limit, skip, results, skipToFirstLabel, previousLab
 		startIndex,
 		endIndex,
 		pages,
-		results,
 		skipToFirstLabel,
 		previousLabel,
 		nextLabel,
