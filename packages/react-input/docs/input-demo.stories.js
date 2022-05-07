@@ -21,6 +21,7 @@ demo.args = {
 	placeholder: 'Eg. Acme Industries',
 	description: 'Maecenas sed diam eget risus varius blandit sit amet non magna.',
 	errorDescription: 'Here is a description of the error',
+	type: 'text',
 };
 demo.argTypes = {
 	// Elements
@@ -97,9 +98,6 @@ demo.argTypes = {
 			category: 'Input Modifiers',
 			type: {
 				summary: 'text | number | email | password | tel | time | url | hidden',
-			},
-			defaultValue: {
-				summary: 'text',
 			},
 		},
 		control: {

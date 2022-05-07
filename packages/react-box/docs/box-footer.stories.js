@@ -20,7 +20,9 @@ const Template = args => {
 
 export const SingleAction = Template.bind({});
 SingleAction.storyName = 'Single Action';
-SingleAction.args = {};
+SingleAction.args = {
+    children: <Button label="Save Changes" color="blue" />
+};
 SingleAction.argTypes = {
     display: {
         name: 'Display',
@@ -123,9 +125,6 @@ SingleAction.argTypes = {
         control: {
             type: 'text'
         }
-    },
-    children: {
-        defaultValue: <Button label="Save Changes" color="blue" />
     }
 };
 SingleAction.parameters = {
@@ -137,20 +136,18 @@ SingleAction.parameters = {
 
 export const DoubleAction = Template.bind({});
 DoubleAction.storyName = 'Double Action';
-DoubleAction.args = {};
+DoubleAction.args = {
+    children: <><Button label="Save Changes" color="blue" /><Button label="Cancel" icon="close" design="ghost" /></>
+};
 DoubleAction.argTypes = {
     ...SingleAction.argTypes,
-    children: {
-        defaultValue: <><Button label="Save Changes" color="blue" /><Button label="Cancel" icon="close" design="ghost" /></>
-    }
 };
 
 export const JointActions = Template.bind({});
 JointActions.storyName = 'Joint Actions';
-JointActions.args = {};
+JointActions.args = {
+    children: <><p className="sui-description" style={ { marginTop: 5, marginBottom: 5 } }>Save your progress</p><div><Button label="Save Changes" color="blue" /><Button label="Draft Changes" design="ghost" /></div></>
+};
 JointActions.argTypes = {
     ...SingleAction.argTypes,
-    children: {
-        defaultValue: <><p className="sui-description" style={ { marginTop: 5, marginBottom: 5 } }>Save your progress</p><div><Button label="Save Changes" color="blue" /><Button label="Draft Changes" design="ghost" /></div></>
-    }
 };

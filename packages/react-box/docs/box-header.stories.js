@@ -201,23 +201,19 @@ TagHeader.argTypes = {
 export const ActionHeader = Template.bind({});
 ActionHeader.storyName = 'Title with Content';
 ActionHeader.args = {
-	...SimpleHeader.args
+	...SimpleHeader.args,
+	children: <Button label="Right Action" color="blue" />
 };
 ActionHeader.argTypes = {
     ...SimpleHeader.argTypes,
-    children: {
-        defaultValue: <Button label="Right Action" color="blue" />
-    }
 };
 
 export const UntitledHeader = Template.bind({});
 UntitledHeader.storyName = 'Content Only';
 UntitledHeader.args = {
-	alignment: 'right'
+	alignment: 'right',
+	children: <Button label="Right Action" color="blue" />
 };
 UntitledHeader.argTypes = {
     ...SimpleHeader.argTypes,
-    children: {
-        defaultValue: <Button label="Right Action" color="blue" />
-    }
 };
