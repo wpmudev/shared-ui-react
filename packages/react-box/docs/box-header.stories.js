@@ -77,6 +77,7 @@ SimpleHeader.argTypes = {
 		}
 	},
 	display: {
+		options: ['block', 'inline'],
         type: {
             name: 'string',
             required: false
@@ -84,10 +85,6 @@ SimpleHeader.argTypes = {
         description: 'Description goes here...',
         control: {
             type: 'select',
-            options: {
-                block: 'block',
-                inline: 'inline'
-            }
         },
     },
     alignment: {
