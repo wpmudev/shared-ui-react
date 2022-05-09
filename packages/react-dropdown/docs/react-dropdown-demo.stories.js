@@ -38,8 +38,8 @@ demo.args = {
     ]
 };
 demo.argTypes = {
-	options: ['left', 'center', 'right'],
 	position: {
+		options: ['left', 'center', 'right'],
 		type: {
 			name: 'string',
 			required: false
