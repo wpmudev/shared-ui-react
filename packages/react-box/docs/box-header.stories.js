@@ -55,6 +55,7 @@ SimpleHeader.argTypes = {
 		}
 	},
 	tagColor: {
+		options: ['default', 'red', 'yellow', 'green', 'blue', 'purple'],
         type: {
             name: 'string',
             required: false
@@ -62,17 +63,10 @@ SimpleHeader.argTypes = {
         description: 'By default **tags background** color is a subtle `light gray` but you can change this for any of the options suggested in the control selector: red, yellow, green, blue, purple. You can also leave this option empty, or simply not include it, to get default color.',
 		control: {
 			type: 'select',
-			options: {
-				default: '',
-				red: 'red',
-				yellow: 'yellow',
-				green: 'green',
-				blue: 'blue',
-				purple: 'purple'
-			}
 		}
 	},
 	tagSize: {
+		options: ['default', 'small'],
         type: {
             name: 'string',
             required: false
@@ -80,10 +74,6 @@ SimpleHeader.argTypes = {
         description: 'By default ',
 		control: {
 			type: 'select',
-			options: {
-				default: '',
-				small: 'small',
-			}
 		}
 	},
 	display: {
@@ -101,6 +91,7 @@ SimpleHeader.argTypes = {
         },
     },
     alignment: {
+		options: ['default', 'center', 'right'],
         type: {
             name: 'string',
             required: false
@@ -108,11 +99,6 @@ SimpleHeader.argTypes = {
         description: 'Description goes here...',
         control: {
             type: 'select',
-            options: {
-                default: '',
-                center: 'center',
-                right: 'right',
-            }
         },
     },
 	paddingTop: {

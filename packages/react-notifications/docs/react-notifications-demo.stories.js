@@ -41,20 +41,13 @@ demo.argTypes = {
 		},
 	},
 	type: {
+		options: ['default', 'info', 'success', 'error', 'warning', 'upsell'],
 		description: 'Use this argument to change notifications color based on the type of notice you want to show.',
 		table: {
 			type: { summary: 'string' },
 		},
 		control: {
 			type: 'select',
-			options: [
-				'',
-				'info',
-				'success',
-				'error',
-				'warning',
-				'upsell',
-			],
 		},
 	},
 	dismiss: {

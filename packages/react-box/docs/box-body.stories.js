@@ -24,6 +24,7 @@ DefaultBody.storyName = 'Body';
 DefaultBody.args = {};
 DefaultBody.argTypes = {
 	alignment: {
+		options: ['left', 'center', 'right'],
         type: {
             name: 'string',
             required: false
@@ -31,11 +32,6 @@ DefaultBody.argTypes = {
         description: 'Description goes here...',
         control: {
             type: 'select',
-            options: {
-                left: 'left',
-                center: 'center',
-                right: 'right',
-            }
         },
 	},
 	paddingTop: {

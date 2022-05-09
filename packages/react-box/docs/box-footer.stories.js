@@ -25,6 +25,7 @@ SingleAction.args = {
 };
 SingleAction.argTypes = {
     display: {
+        options: ['block', 'inline'],
         name: 'Display',
         type: {
             name: 'string',
@@ -33,13 +34,10 @@ SingleAction.argTypes = {
         description: 'Description goes here...',
         control: {
             type: 'select',
-            options: {
-                block: 'block',
-                inline: 'inline'
-            }
         },
     },
     alignment: {
+        options: ['default', 'center', 'right'],
         name: 'Alignment',
         type: {
             name: 'string',
@@ -48,11 +46,6 @@ SingleAction.argTypes = {
         description: 'Description goes here...',
         control: {
             type: 'select',
-            options: {
-                default: '',
-                center: 'center',
-                right: 'right',
-            }
         },
     },
     paddingTop: {

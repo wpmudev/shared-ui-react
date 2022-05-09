@@ -38,33 +38,33 @@ demo.argTypes = {
 		},
 	},
 	iconSize: {
+		options: ['sm', 'md', 'lg'],
 		description: 'By default, the icon has a 12px size but you can change it with this property. You could use either:',
 		table: {
 			type: { summary: 'sm | md | lg' },
 		},
 		control: {
 			type: 'select',
-			options: ['', 'sm', 'md', 'lg'],
 		},
 	},
 	design: {
+		options: ['default', 'outlined'],
 		description: 'The button styles. It could be either solid (default) or outlined.',
 		table: {
 			type: { summary: 'string' },
 		},
 		control: {
 			type: 'select',
-			options: ['', 'outlined'],
 		},
 	},
 	color: {
+		options: ['default', 'blue', 'green', 'red', 'orange', 'purple', 'yellow', 'white'],
 		description: 'The button comes in gray color by default but you can change that with this property.',
 		table: {
 			type: { summary: 'string' },
 		},
 		control: {
 			type: 'select',
-			options: ['', 'blue', 'green', 'red', 'orange', 'purple', 'yellow', 'white'],
 		},
 	},
 	className: {

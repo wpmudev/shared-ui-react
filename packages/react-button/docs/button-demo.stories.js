@@ -32,23 +32,23 @@ demo.argTypes = {
 		},
 	},
 	design: {
+		options: ['solid', 'ghost'],
 		description: 'The button style',
 		table: {
 			type: { summary: 'string' }
 		},
 		control: {
 			type: 'select',
-			options: ['solid', 'ghost'],
 		},
 	},
 	color: {
+		options: ['gray', 'blue', 'green', 'red', 'orange', 'purple', 'yellow', 'white'],
 		description: 'The button color',
 		table: {
 			type: { summary: 'string' }
 		},
 		control: {
 			type: 'select',
-			options: ['gray', 'blue', 'green', 'red', 'orange', 'purple', 'yellow', 'white'],
 		},
 	},
 	icon: {

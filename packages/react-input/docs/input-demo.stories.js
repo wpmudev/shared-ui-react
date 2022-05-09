@@ -75,6 +75,7 @@ demo.argTypes = {
 	},
 	// Field Modifiers
 	fieldSize: {
+		options: ['none', 'small', 'medium'],
 		description: 'Modify the size of the entire container. Allowed options:',
 		table: {
 			category: 'Field Modifiers',
@@ -84,11 +85,6 @@ demo.argTypes = {
 		},
 		control: {
 			type: 'select',
-			options: {
-				none: '',
-				small: 'small',
-				medium: 'medium',
-			},
 		},
 	},
 	// Input Modifiers
@@ -105,6 +101,7 @@ demo.argTypes = {
 		},
 	},
 	size: {
+		options: ['none', 'small', 'medium'],
 		description: 'Modify the size of the input field only. Allowed options:',
 		table: {
 			category: 'Input Modifiers',
@@ -114,11 +111,6 @@ demo.argTypes = {
 		},
 		control: {
 			type: 'select',
-			options: {
-				none: '',
-				small: 'small',
-				medium: 'medium',
-			},
 		},
 	},
 	prefix: {
