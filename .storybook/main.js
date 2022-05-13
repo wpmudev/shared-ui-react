@@ -12,7 +12,7 @@ module.exports = {
 		"@storybook/addon-notes/register-panel",
 		"@geometricpanda/storybook-addon-badges"
 	],
-	webpackFinal: async ( config ) => {
+	webpackFinal: async config => {
 		// Change the order of resolution of main fields.
 		config.resolve.mainFields = [
 			'src',
@@ -32,4 +32,7 @@ module.exports = {
 		// Return the altered config
 		return config;
 	},
-}
+	core: {
+		builder: 'webpack5'
+	}
+};
