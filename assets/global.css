@@ -10,7 +10,9 @@
 }
 
 .os-content .sidebar-header button,
-.os-content button.sidebar-subheading-action {
+.os-content button.sidebar-subheading-action,
+.os-content .sidebar-item + a,
+.os-content .sidebar-subheading button > span {
     display: none;
 }
 
@@ -21,6 +23,11 @@
 
 #storybook-explorer-menu {
     margin: 16px 17px 0;
+}
+
+.os-content .sidebar-subheading button {
+    padding-left: 0;
+    pointer-events: none;
 }
 
 .os-content .sidebar-item {
