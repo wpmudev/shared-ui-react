@@ -31,12 +31,12 @@ export const ProgressBar = ({
 	);
 
 	const loaderText = hasLabel && (
-		<span className="sui-progress-text">{value}%</span>
+		<span className="sui-progress-text">{isNaN(value) ? 0 : value}%</span>
 	);
 
 	const loaderBar = (
 		<div className="sui-progress-bar">
-			<span style={{ width: `${value}%` }} />
+			<span style={{ width: `${isNaN(value) ? 0 : value}%` }} />
 		</div>
 	);
 
