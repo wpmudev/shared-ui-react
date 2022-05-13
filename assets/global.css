@@ -9,8 +9,14 @@
     --color-faded: rgba(255, 255, 255, 0.2);
 }
 
-.os-content .sidebar-header button {
+.os-content .sidebar-header button,
+.os-content button.sidebar-subheading-action {
     display: none;
+}
+
+#root > div > div:last-child > div > div:last-child {
+    border-top: none;
+    border-left: none;
 }
 
 #storybook-explorer-menu {
