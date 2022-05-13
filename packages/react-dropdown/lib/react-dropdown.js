@@ -69,9 +69,9 @@ export class Dropdown extends Component {
     }
 
     toggle() {
-		this.setState({
-			open: !this.state.open
-		});
+		this.setState((state) => ({
+			open: !state.open
+		}));
 	}
 
     setWrapperRef( node ) {
