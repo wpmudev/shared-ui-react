@@ -29,7 +29,7 @@ DefaultBody.argTypes = {
             required: false
         },
         description: 'Description goes here...',
-		options: ['left', 'center', 'right'],
+        options: ['left', 'center', 'right'],
         control: { type: 'select' },
 	},
 	paddingTop: {
@@ -38,7 +38,7 @@ DefaultBody.argTypes = {
 			required: false
 		},
 		description: 'Description goes here...',
-		control: {
+        control: {
 			type: 'number',
 			min: 0
 		}
@@ -49,7 +49,7 @@ DefaultBody.argTypes = {
 			required: false
 		},
 		description: 'Description goes here...',
-		control: {
+        control: {
 			type: 'number',
 			min: 0
 		}
@@ -60,7 +60,7 @@ DefaultBody.argTypes = {
 			required: false
 		},
 		description: 'Description goes here...',
-		control: {
+        control: {
 			type: 'number',
 			min: 0
 		}
@@ -71,7 +71,7 @@ DefaultBody.argTypes = {
 			required: false
 		},
 		description: 'Description goes here...',
-		control: {
+        control: {
 			type: 'number',
 			min: 0
 		}
@@ -82,7 +82,7 @@ DefaultBody.argTypes = {
 			required: false
 		},
 		description: 'Description goes here...',
-		control: {
+        control: {
 			type: 'number',
 			min: 0
 		}
@@ -93,7 +93,7 @@ DefaultBody.argTypes = {
 			required: false
 		},
 		description: 'Description goes here...',
-		control: {
+        control: {
 			type: 'number',
 			min: 0
 		}

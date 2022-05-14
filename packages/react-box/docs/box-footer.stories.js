@@ -31,7 +31,7 @@ SingleAction.argTypes = {
             required: false
         },
         description: 'Description goes here...',
-		options: ['block', 'inline'],
+        options: ['block', 'inline'],
         control: { type: 'select' },
     },
     alignment: {
@@ -41,7 +41,7 @@ SingleAction.argTypes = {
             required: false
         },
         description: 'Description goes here...',
-		options: ['default', 'center', 'right'],
+        options: ['default', 'center', 'right'],
         control: { type: 'select' },
     },
     paddingTop: {

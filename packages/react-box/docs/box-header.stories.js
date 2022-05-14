@@ -30,7 +30,7 @@ SimpleHeader.argTypes = {
 			required: false
 		},
 		description: 'Assign a title to your box.',
-		control: {
+        control: {
 			type: 'text'
 		}
 	},
@@ -40,7 +40,7 @@ SimpleHeader.argTypes = {
 			required: false
 		},
 		description: 'Enter the icon name you can find listed [here](https://wpmudev.github.io/shared-ui/icons/).',
-		control: {
+        control: {
 			type: 'text'
 		}
 	},
@@ -50,7 +50,7 @@ SimpleHeader.argTypes = {
 			required: false
 		},
 		description: 'Some boxes might contain title followed by a tag to highlight some content as "beta" feature or items count.',
-		control: {
+        control: {
 			type: 'text'
 		}
 	},
@@ -60,8 +60,8 @@ SimpleHeader.argTypes = {
             required: false
         },
         description: 'By default **tags background** color is a subtle `light gray` but you can change this for any of the options suggested in the control selector: red, yellow, green, blue, purple. You can also leave this option empty, or simply not include it, to get default color.',
-		options: ['default', 'red', 'yellow', 'green', 'blue', 'purple'],
-		control: { type: 'select' }
+        options: ['default', 'red', 'yellow', 'green', 'blue', 'purple'],
+        control: { type: 'select' }
 	},
 	tagSize: {
 		type: {
@@ -69,8 +69,8 @@ SimpleHeader.argTypes = {
             required: false
         },
         description: 'By default ',
-		options: ['default', 'small'],
-		control: { type: 'select' }
+        options: ['default', 'small'],
+        control: { type: 'select' }
 	},
 	display: {
 		type: {
@@ -78,7 +78,7 @@ SimpleHeader.argTypes = {
             required: false
         },
         description: 'Description goes here...',
-		options: ['block', 'inline'],
+        options: ['block', 'inline'],
         control: { type: 'select' },
     },
     alignment: {
@@ -87,7 +87,7 @@ SimpleHeader.argTypes = {
             required: false
         },
         description: 'Description goes here...',
-		options: ['default', 'center', 'right'],
+        options: ['default', 'center', 'right'],
         control: { type: 'select' },
     },
 	paddingTop: {
@@ -96,7 +96,7 @@ SimpleHeader.argTypes = {
 			required: false
 		},
 		description: 'Description goes here...',
-		control: {
+        control: {
 			type: 'number',
 			min: 0
 		}
@@ -107,7 +107,7 @@ SimpleHeader.argTypes = {
 			required: false
 		},
 		description: 'Description goes here...',
-		control: {
+        control: {
 			type: 'number',
 			min: 0
 		}
@@ -118,7 +118,7 @@ SimpleHeader.argTypes = {
 			required: false
 		},
 		description: 'Description goes here...',
-		control: {
+        control: {
 			type: 'number',
 			min: 0
 		}
@@ -129,7 +129,7 @@ SimpleHeader.argTypes = {
 			required: false
 		},
 		description: 'Description goes here...',
-		control: {
+        control: {
 			type: 'number',
 			min: 0
 		}
@@ -140,7 +140,7 @@ SimpleHeader.argTypes = {
 			required: false
 		},
 		description: 'Description goes here...',
-		control: {
+        control: {
 			type: 'number',
 			min: 0
 		}
