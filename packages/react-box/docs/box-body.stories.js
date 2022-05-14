@@ -24,15 +24,13 @@ DefaultBody.storyName = 'Body';
 DefaultBody.args = {};
 DefaultBody.argTypes = {
 	alignment: {
-		options: ['left', 'center', 'right'],
-        type: {
+		type: {
             name: 'string',
             required: false
         },
         description: 'Description goes here...',
-        control: {
-            type: 'select',
-        },
+		options: ['left', 'center', 'right'],
+        control: { type: 'select' },
 	},
 	paddingTop: {
 		type: {
