@@ -10,6 +10,7 @@ module.exports = {
 		'plugin:jsx-a11y/recommended',
 		'plugin:prettier/recommended',
 		'prettier/react',
+		'plugin:storybook/recommended'
 	],
 	parserOptions: {
 		ecmaFeatures: {
