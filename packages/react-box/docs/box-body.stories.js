@@ -33,67 +33,67 @@ DefaultBody.argTypes = {
         control: { type: 'select' },
 	},
 	paddingTop: {
-        type: {
+		type: {
 			name: 'string',
 			required: false
 		},
 		description: 'Description goes here...',
-        control: {
+		control: {
 			type: 'number',
 			min: 0
 		}
 	},
 	paddingRight: {
-        type: {
+		type: {
 			name: 'string',
 			required: false
 		},
 		description: 'Description goes here...',
-        control: {
+		control: {
 			type: 'number',
 			min: 0
 		}
 	},
 	paddingBottom: {
-        type: {
+		type: {
 			name: 'string',
 			required: false
 		},
 		description: 'Description goes here...',
-        control: {
+		control: {
 			type: 'number',
 			min: 0
 		}
 	},
 	paddingLeft: {
-        type: {
+		type: {
 			name: 'string',
 			required: false
 		},
 		description: 'Description goes here...',
-        control: {
+		control: {
 			type: 'number',
 			min: 0
 		}
 	},
 	borderTop: {
-        type: {
+		type: {
 			name: 'string',
 			required: false
 		},
 		description: 'Description goes here...',
-        control: {
+		control: {
 			type: 'number',
 			min: 0
 		}
 	},
 	borderBottom: {
-        type: {
+		type: {
 			name: 'string',
 			required: false
 		},
 		description: 'Description goes here...',
-        control: {
+		control: {
 			type: 'number',
 			min: 0
 		}
