@@ -6,7 +6,7 @@ export default {
 	component: Button,
 	parameters: {
 		notes: {
-			disabled: true,
+			disable: true,
 		},
 	},
 };
@@ -70,7 +70,7 @@ demo.argTypes = {
 			type: 'boolean',
 		},
 	},
-	disabled: {
+	disable: {
 		description: 'Whether the button should be disabled',
 		table: {
 			type: { summary: 'boolean' },

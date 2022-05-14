@@ -8,13 +8,13 @@ export default {
 	component: Pagination,
 	parameters: {
 		actions: {
-			disabled: true,
+			disable: true,
 		},
 		controls: {
-			disabled: true,
+			disable: true,
 		},
 		notes: {
-			disabled: true,
+			disable: true,
 		},
 		previewTabs: {
 			'storybook/docs/panel': {
