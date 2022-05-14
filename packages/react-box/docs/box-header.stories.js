@@ -25,7 +25,7 @@ SimpleHeader.args = {
 };
 SimpleHeader.argTypes = {
 	title: {
-		type: {
+        type: {
 			name: 'string',
 			required: false
 		},
@@ -35,7 +35,7 @@ SimpleHeader.argTypes = {
 		}
 	},
 	titleIcon: {
-		type: {
+        type: {
 			name: 'string',
 			required: false
 		},
@@ -45,7 +45,7 @@ SimpleHeader.argTypes = {
 		}
 	},
 	tagLabel: {
-		type: {
+        type: {
 			name: 'string',
 			required: false
 		},
@@ -55,7 +55,7 @@ SimpleHeader.argTypes = {
 		}
 	},
 	tagColor: {
-		type: {
+        type: {
 			name: 'string',
             required: false
         },
@@ -64,7 +64,7 @@ SimpleHeader.argTypes = {
         control: { type: 'select' }
 	},
 	tagSize: {
-		type: {
+        type: {
 			name: 'string',
             required: false
         },
@@ -73,7 +73,7 @@ SimpleHeader.argTypes = {
         control: { type: 'select' }
 	},
 	display: {
-		type: {
+        type: {
 			name: 'string',
             required: false
         },
@@ -82,7 +82,7 @@ SimpleHeader.argTypes = {
         control: { type: 'select' },
     },
     alignment: {
-		type: {
+        type: {
 			name: 'string',
             required: false
         },
@@ -91,7 +91,7 @@ SimpleHeader.argTypes = {
         control: { type: 'select' },
     },
 	paddingTop: {
-		type: {
+        type: {
 			name: 'string',
 			required: false
 		},
@@ -102,7 +102,7 @@ SimpleHeader.argTypes = {
 		}
 	},
 	paddingRight: {
-		type: {
+        type: {
 			name: 'string',
 			required: false
 		},
@@ -113,7 +113,7 @@ SimpleHeader.argTypes = {
 		}
 	},
 	paddingBottom: {
-		type: {
+        type: {
 			name: 'string',
 			required: false
 		},
@@ -124,7 +124,7 @@ SimpleHeader.argTypes = {
 		}
 	},
 	paddingLeft: {
-		type: {
+        type: {
 			name: 'string',
 			required: false
 		},
@@ -135,7 +135,7 @@ SimpleHeader.argTypes = {
 		}
 	},
 	border: {
-		type: {
+        type: {
 			name: 'string',
 			required: false
 		},

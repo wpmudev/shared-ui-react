@@ -24,7 +24,7 @@ DefaultBody.storyName = 'Body';
 DefaultBody.args = {};
 DefaultBody.argTypes = {
 	alignment: {
-		type: {
+        type: {
             name: 'string',
             required: false
         },
@@ -33,7 +33,7 @@ DefaultBody.argTypes = {
         control: { type: 'select' },
 	},
 	paddingTop: {
-		type: {
+        type: {
 			name: 'string',
 			required: false
 		},
@@ -44,7 +44,7 @@ DefaultBody.argTypes = {
 		}
 	},
 	paddingRight: {
-		type: {
+        type: {
 			name: 'string',
 			required: false
 		},
@@ -55,7 +55,7 @@ DefaultBody.argTypes = {
 		}
 	},
 	paddingBottom: {
-		type: {
+        type: {
 			name: 'string',
 			required: false
 		},
@@ -66,7 +66,7 @@ DefaultBody.argTypes = {
 		}
 	},
 	paddingLeft: {
-		type: {
+        type: {
 			name: 'string',
 			required: false
 		},
@@ -77,7 +77,7 @@ DefaultBody.argTypes = {
 		}
 	},
 	borderTop: {
-		type: {
+        type: {
 			name: 'string',
 			required: false
 		},
@@ -88,7 +88,7 @@ DefaultBody.argTypes = {
 		}
 	},
 	borderBottom: {
-		type: {
+        type: {
 			name: 'string',
 			required: false
 		},
