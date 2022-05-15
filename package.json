@@ -47,7 +47,8 @@
     "style-loader": "^2.0.0"
   },
   "resolutions": {
-	  "nth-check": "^2.0.1"
+	  "nth-check": "^2.0.1",
+	  "glob-parent": "^6.0.2"
   },
   "scripts": {
     "build": "npx lerna run build",
