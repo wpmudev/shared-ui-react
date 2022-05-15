@@ -4,11 +4,6 @@ import { Button } from '../lib/button';
 export default {
 	title: 'Components/Button',
 	component: Button,
-	parameters: {
-		notes: {
-			disable: true,
-		},
-	},
 };
 
 export const demo = (args) => <Button {...args} />;

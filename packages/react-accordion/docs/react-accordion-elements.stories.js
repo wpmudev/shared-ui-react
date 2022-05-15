@@ -12,9 +12,6 @@ export default {
 		controls: {
 			disable: true,
 		},
-		notes: {
-			disable: true,
-		},
 		previewTabs: {
 			'storybook/docs/panel': {
 				hidden: true,

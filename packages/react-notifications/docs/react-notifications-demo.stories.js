@@ -8,9 +8,6 @@ export default {
 		actions: {
 			disable: true,
 		},
-		notes: {
-			disable: true,
-		},
 	},
 };
 
