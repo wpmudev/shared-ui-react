@@ -2,9 +2,6 @@ import React from "react";
 import { Box, BoxHeader } from '../lib/box';
 import { Button } from '@wpmudev/react-button';
 
-// Import documentation.
-import DocsHeader from "./notes/docs-header.md";
-
 export default {
 	title: "Containers/Box/Elements/Header",
 	component: BoxHeader
@@ -170,9 +167,6 @@ SimpleHeader.argTypes = {
 			min: 0
 		}
 	},
-};
-SimpleHeader.parameters = {
-    notes: DocsHeader
 };
 
 export const IconHeader = Template.bind({});
