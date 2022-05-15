@@ -7,9 +7,6 @@ import banner from "./images/beehive-welcome.png";
 import image1x from "./images/hustle-footer.png";
 import image2x from "./images/hustle-footer@2x.png";
 
-import DocsReplaceOne from "./notes/docs-replace-one.md";
-import DocsReplaceTwo from "./notes/docs-replace-two.md";
-
 export default {
 	title: "Containers/Modal/Replace",
 	component: Modal
@@ -184,9 +181,6 @@ const sampleOneTemplate = () => <SampleOneContent />;
 
 export const SampleOne = sampleOneTemplate.bind({});
 SampleOne.storyName = "Sample 1";
-SampleOne.parameters = {
-	notes: DocsReplaceOne
-};
 
 const SampleTwoModalOne = ({ isOpen }) => {
 	const replaceModalContent = () => {
@@ -322,6 +316,3 @@ const sampleTwoTemplate = () => <SampleTwoContent />;
 
 export const SampleTwo = sampleTwoTemplate.bind({});
 SampleTwo.storyName = "Sample 2";
-SampleTwo.parameters = {
-	notes: DocsReplaceTwo
-};
