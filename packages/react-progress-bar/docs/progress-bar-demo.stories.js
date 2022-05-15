@@ -7,7 +7,7 @@ export default {
 	component: ProgressBar,
 	parameters: {
 		notes: {
-			disabled: true,
+			disable: true,
 		},
 	},
 };

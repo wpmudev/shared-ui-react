@@ -8,7 +8,7 @@ export default {
 	component: AccordionItem,
 	parameters: {
 		notes: {
-			disabled: true,
+			disable: true,
 		},
 	},
 }
