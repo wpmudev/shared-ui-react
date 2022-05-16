@@ -25,6 +25,10 @@
     margin: 16px 17px 0;
 }
 
+#storybook-explorer-menu a {
+    margin-left: -16px;
+}
+
 .os-content .sidebar-subheading button {
     padding-left: 0;
     pointer-events: none;
