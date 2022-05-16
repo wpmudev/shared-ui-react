@@ -4,11 +4,6 @@ import { Dropdown } from '../lib/react-dropdown';
 export default {
     title: 'Components/Dropdown',
 	component: Dropdown,
-	parameters: {
-		notes: {
-			disabled: true,
-		},
-	},
 }
 
 const Template = ({ children, ...args }) => {

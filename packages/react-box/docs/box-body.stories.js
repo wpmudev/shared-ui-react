@@ -1,9 +1,6 @@
 import React from "react";
 import { Box, BoxBody } from '../lib/box';
 
-// Import documentation.
-import DocsBody from "./notes/docs-body.md";
-
 export default {
 	title: "Containers/Box/Elements/Body",
 	component: BoxBody
@@ -104,7 +101,4 @@ DefaultBody.argTypes = {
 			min: 0
 		}
 	},
-};
-DefaultBody.parameters = {
-    notes: DocsBody
 };

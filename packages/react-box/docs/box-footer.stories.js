@@ -2,9 +2,6 @@ import React from "react";
 import { Box, BoxFooter } from '../lib/box';
 import { Button } from '@wpmudev/react-button';
 
-// Import documentation.
-import DocsFooter from "./notes/docs-footer.md";
-
 export default {
 	title: "Containers/Box/Elements/Footer",
 	component: BoxFooter
@@ -129,7 +126,6 @@ SingleAction.argTypes = {
     }
 };
 SingleAction.parameters = {
-    notes: DocsFooter,
     controls: {
         hideNoControlsWarning: true
     }

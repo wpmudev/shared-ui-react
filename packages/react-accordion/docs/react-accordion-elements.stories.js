@@ -7,13 +7,10 @@ export default {
 	title: 'Containers/Accordion/Item Elements',
 	parameters: {
 		actions: {
-			disabled: true,
+			disable: true,
 		},
 		controls: {
-			disabled: true,
-		},
-		notes: {
-			disabled: true,
+			disable: true,
 		},
 		previewTabs: {
 			'storybook/docs/panel': {

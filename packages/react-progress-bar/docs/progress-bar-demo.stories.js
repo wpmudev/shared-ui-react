@@ -5,11 +5,6 @@ import { action } from '@storybook/addon-actions';
 export default {
 	title: 'Components/Progress Bar',
 	component: ProgressBar,
-	parameters: {
-		notes: {
-			disabled: true,
-		},
-	},
 };
 
 export const demo = args => <ProgressBar { ...args } />;

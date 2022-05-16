@@ -6,11 +6,6 @@ import demoImage from './images/demo.png';
 export default {
 	title: 'Components/Post',
 	component: Post,
-	parameters: {
-		notes: {
-			disabled: true,
-		},
-	},
 };
 
 export const demo = args => {

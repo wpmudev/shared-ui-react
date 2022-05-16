@@ -369,9 +369,6 @@ sampleOne.args = {
 	firstSlide: "one",
 	triggerContent
 };
-sampleOne.parameters = {
-	notes: SampleOneDocs
-};
 
 export const sampleTwo = Template.bind({});
 sampleTwo.storyName = "Sample 2";
@@ -382,7 +379,4 @@ sampleTwo.args = {
 	modalContent: sampleTwoContent,
 	firstSlide: "one",
 	triggerContent
-};
-sampleTwo.parameters = {
-	notes: SampleTwoDocs
 };

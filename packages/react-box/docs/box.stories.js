@@ -1,9 +1,6 @@
 import React from "react";
 import { Box, BoxHeader, BoxBody, BoxFooter } from "../lib/box";
 
-// Import documentation.
-import DocsWrapper from "./notes/docs-wrapper.md";
-
 export default {
 	title: "Containers/Box",
 	component: Box
@@ -29,9 +26,6 @@ Wrapper.args = {
 	footer: {
 		children: 'Box Footer, allows actions like "save" or "cancel".'
 	}
-};
-Wrapper.parameters = {
-	notes: DocsWrapper
 };
 
 export { Wrapper };

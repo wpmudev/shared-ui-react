@@ -6,10 +6,7 @@ export default {
 	component: Pagination,
 	parameters: {
 		actions: {
-			disabled: true,
-		},
-		notes: {
-			disabled: true,
+			disable: true,
 		},
 	},
 };

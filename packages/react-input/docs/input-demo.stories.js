@@ -6,10 +6,7 @@ export default {
 	component: Input,
 	parameters: {
 		actions: {
-			disabled: true,
-		},
-		notes: {
-			disabled: true,
+			disable: true,
 		},
 	},
 };
@@ -148,7 +145,7 @@ demo.argTypes = {
 		},
 	},
 	// States
-	disabled: {
+	disable: {
 		description: 'This property allows you to enable or disable the input field.',
 		table: {
 			category: 'States',

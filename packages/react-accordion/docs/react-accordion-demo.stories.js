@@ -6,11 +6,6 @@ import LogoImage from './assets/images/logo.png';
 export default {
 	title: 'Containers/Accordion',
 	component: AccordionItem,
-	parameters: {
-		notes: {
-			disabled: true,
-		},
-	},
 }
 
 export const Demo = ({ children, ...props }) => {

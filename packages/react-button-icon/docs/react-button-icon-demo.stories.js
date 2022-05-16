@@ -4,11 +4,6 @@ import { ButtonIcon } from "../lib/react-button-icon";
 export default {
 	title: "Components/Button Icon",
 	component: ButtonIcon,
-	parameters: {
-		notes: {
-			disabled: true,
-		},
-	},
 };
 
 export const demo = args => <ButtonIcon {...args} />;

@@ -1,9 +1,6 @@
 import React from "react";
 import { Box, BoxBody, BoxSection } from '../lib/box';
 
-// Import documentation.
-import DocsSection from "./notes/docs-section.md";
-
 export default {
 	title: "Containers/Box/Elements/Section",
 	component: BoxSection
@@ -52,7 +49,4 @@ primary.argTypes = {
             type: 'text'
         }
     },
-};
-primary.parameters = {
-    notes: DocsSection
 };
