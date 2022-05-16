@@ -31,11 +31,10 @@ export const ProgressBar = ({
 	);
 
 	const checkValue = (value) => {
-		if('undefined' === typeof value || null === value || isNaN(value)) {
-			return 0;
-		} else {
+		if('undefined' !== typeof value && null !== value || !isNaN(value)) {
 			return value;
 		}
+		return 0;
 	}
 
 	const loaderText = hasLabel && (
