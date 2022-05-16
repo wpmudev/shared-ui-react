@@ -30,13 +30,21 @@ export const ProgressBar = ({
 		</span>
 	);
 
+	const checkValue = (value) => {
+		if('undefined' === typeof value || null === value || isNaN(value)) {
+			return 0;
+		} else {
+			return value;
+		}
+	}
+
 	const loaderText = hasLabel && (
-		<span className="sui-progress-text">{isNaN(value) ? 0 : value}%</span>
+		<span className="sui-progress-text">{checkValue(value)}%</span>
 	);
 
 	const loaderBar = (
 		<div className="sui-progress-bar">
-			<span style={{ width: `${isNaN(value) ? 0 : value}%` }} />
+			<span style={{ width: `${checkValue(value)}%` }} />
 		</div>
 	);
 
