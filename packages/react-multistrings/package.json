@@ -29,6 +29,6 @@
   "homepage": "https://github.com/wpmudev/shared-ui-react#readme",
   "dependencies": {
     "@wpmudev/react-button-icon": "^1.1.1",
-    "@wpmudev/react-input": "^1.1.1"
+    "@wpmudev/react-input": "^1.2.0"
   }
 }

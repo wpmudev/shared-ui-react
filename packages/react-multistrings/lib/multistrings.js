@@ -8,6 +8,7 @@ export const MultiString = ({
     placeholder,
     description,
     values = [],
+    disallowedCharsArray = [],
 }) => {
 
     const [items, setItems] = useState(values);
@@ -34,14 +35,14 @@ export const MultiString = ({
                 </div>
                 <div className="sui-form-field sui-multistrings" tabIndex="-1" aria-hidden="true">
                     {label && ( <label id={labelId} htmlFor={inputId}>{label}</label> )}
-                    {buildItems(inputId, placeholder, items)}
+                    {buildItems(inputId, placeholder, items, disallowedCharsArray)}
                     {description && ( <p id={descriptionId} className="sui-description" dangerouslySetInnerHTML={{ __html: description }} /> )}
                 </div>
             </div>
         );
     }
 
-    const buildItems = (inputId, placeholder, items) => {
+    const buildItems = (inputId, placeholder, items, disallowedCharsArray) => {
         return (
             <ul className="sui-multistrings-list">
                 {items && items.map((item, index) => {
@@ -49,12 +50,12 @@ export const MultiString = ({
                         <li key={index} title={item}>
                             <i className="sui-icon-page sui-sm" aria-hidden="true"></i>
                             {item}
-                            <ButtonIcon label="Delete" icon="close" color="white" onClick={ () => handleDelete(index) }/>
+                            <ButtonIcon label="Delete" icon="close" color="white" style={{ boxShadow: "none" }} onClick={ () => handleDelete(index) }/>
                         </li>
                     );
                 })}
                 <li className="sui-multistrings-input">
-                    <Input id={inputId} autoComplete="off" placeholder={placeholder} aria-autocomplete="none" style={{ height: 'auto' }} onKeyDown={ (e) => handleKeyPress(e) } />
+                    <Input id={inputId} autoComplete="off" placeholder={placeholder} aria-autocomplete="none" style={{ height: 'auto' }} onKeyDown={ (e) => handleKeyPress(e, disallowedCharsArray) } />
                 </li>
             </ul>
         );
@@ -68,13 +69,92 @@ export const MultiString = ({
     }
 
     // add items on enter key press
-    const handleKeyPress = (e) => {
-        if (e.keyCode === 13) {
+    const handleKeyPress = (e, disallowedCharsArray) => {
+        const disallowedString = getRegexPatternForDisallowedChars( disallowedCharsArray ),
+            regex = new RegExp( `[\r\n${disallowedString}]`, 'gm' );
+        
+        // Do nothing if the key is from the disallowed ones.
+        if ( disallowedCharsArray.includes( e.key ) ) {
+            e.preventDefault();
+            return;
+        } else if (e.keyCode === 13) {
+            if( disallowedCharsArray.includes( e.target.value ) ) {
+                e.target.value = '';
+                return;
+            }
             const newItems = [...items];
             newItems.push(e.target.value);
             setItems(newItems);
             e.target.value = '';
+        } else {
+            return;
         }
+    }
+
+    // disallowed characters
+    const getRegexPatternForDisallowedChars = (disallowedCharsArray) => {
+        // Regex for removing the disallowed keys from the inserted strings.
+        const escapeRegExp = string => string.replace( /[.*+?^${}()|[\]\\]/g, '\\$&' ),
+            disallowedPattern = escapeRegExp( disallowedCharsArray.join( '' ) );
+        return disallowedPattern;
+    }
+
+    // remove disallowed characters
+    const handleInsertTags = (disallowedCharsArray) => {
+
+        const disallowedString = getRegexPatternForDisallowedChars( disallowedCharsArray ),
+            regex = new RegExp( `[\r\n${disallowedString}]`, 'gm' );
+
+        // Sanitize the values on keydown.
+        $tagInput.on( 'keydown', function( e ) {
+
+            // Do nothing if the key is from the disallowed ones.
+            if ( disallowedCharsArray.includes( e.key ) ) {
+                e.preventDefault();
+                return;
+            }
+
+            let input    = $( this ),
+                oldValue = $textarea.val(),
+                newValue = input.val();
+
+            // Get rid of new lines, commas, and any chars passed by the admin from the newly entered value.
+            const newTrim = newValue.replace( regex, '' ),
+                isEnter   = ( 13 === e.keyCode );
+
+            if ( isEnter ) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+
+            // If there's no value to add, don't insert any new value.
+            if ( 0 !== newTrim.length && 0 !== newTrim.trim().length ) {
+
+                if ( isEnter ) {
+                    const newTextareaValue = oldValue.length ? `${ oldValue }\n${ newTrim }` : newTrim;
+
+                    // Print new value on textarea.
+                    $textarea.val( newTextareaValue );
+
+                    // Print new value on the list.
+                    const html = buildItem( newTrim );
+                    $( html ).insertBefore( $mainWrapper.find( '.sui-multistrings-input' ) );
+
+                    // Clear input value.
+                    input.val( '' );
+
+                    // Bid the event to remove the tags.
+                    bindRemoveTag( $mainWrapper );
+
+                } else {
+                    input.val( newTrim );
+                }
+
+            } else {
+                input.val( '' );
+            }
+
+        });
     }
 
     return (
