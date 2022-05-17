@@ -1,0 +1,50 @@
+{
+	"env": {
+		"browser": true,
+		"es6": true,
+		"jquery": false
+	},
+	"extends": [
+		"plugin:react/recommended",
+		"plugin:react-hooks/recommended",
+		"plugin:jsx-a11y/recommended",
+		"plugin:storybook/recommended",
+		"plugin:@wordpress/eslint-plugin/recommended",
+		"plugin:jest/recommended",
+		"plugin:prettier/recommended"
+	],
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": 2018,
+		"sourceType": "module"
+	},
+	"parser": "@babel/eslint-parser",
+	"settings": {
+		"react": {
+			"version": "detect"
+		}
+	},
+	"plugins": ["react", "jsx-a11y", "prettier"],
+	"rules": {
+		"no-invalid-this": 0,
+		"react/jsx-uses-react": "error",
+		"prettier/prettier": [
+			"error",
+			{
+				"printWidth": 100,
+				"trailingComma": "es5",
+				"useTabs": true,
+				"tabWidth": 2,
+				"singleQuote": true
+			}
+		],
+		"arrow-body-style": "off",
+		"prefer-arrow-callback": "off"
+	},
+	"globals": {
+		"Atomics": "readonly",
+		"SharedArrayBuffer": "readonly"
+	}
+}
