@@ -1,17 +1,15 @@
 {
 	"env": {
 		"browser": true,
-		"es6": true,
-		"jquery": false
+		"es6": true
 	},
 	"extends": [
+		"eslint:recommended",
 		"plugin:react/recommended",
 		"plugin:react-hooks/recommended",
 		"plugin:jsx-a11y/recommended",
-		"plugin:storybook/recommended",
-		"plugin:@wordpress/eslint-plugin/recommended",
-		"plugin:jest/recommended",
-		"plugin:prettier/recommended"
+		"plugin:prettier/recommended",
+		"prettier/react"
 	],
 	"parserOptions": {
 		"ecmaFeatures": {
@@ -26,10 +24,14 @@
 			"version": "detect"
 		}
 	},
-	"plugins": ["react", "jsx-a11y", "prettier"],
+	"plugins": ["react", "prettier"],
 	"rules": {
-		"no-invalid-this": 0,
-		"react/jsx-uses-react": "error",
+		"react/prop-types": [
+			2,
+			{
+				"skipUndeclared": true
+			}
+		],
 		"prettier/prettier": [
 			"error",
 			{
@@ -40,8 +42,7 @@
 				"singleQuote": true
 			}
 		],
-		"arrow-body-style": "off",
-		"prefer-arrow-callback": "off"
+		"react/jsx-uses-react": "error"
 	},
 	"globals": {
 		"Atomics": "readonly",
