@@ -94,14 +94,14 @@ export const MultiString = ({
                 handleSetValues(newItems);
             }
             e.target.value = '';
-        } else{
+        } else {
             const newValues = [];
             let values = [...e.target.value];
             for ( let value of values ) {
                 let item = value.replace( regex, '' );
                 item ? newValues.push( item ) : '';
             }
-            e.target.value = newValues.toString();
+            e.target.value = newValues.join('');
         }
         return;
     }
