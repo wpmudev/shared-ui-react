@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Input = ({
+const Input = React.forwardRef(({
 	id,
 	label,
 	description,
@@ -12,7 +12,7 @@ const Input = ({
 	suffix,
 	prefix,
 	...props
-}) => {
+}, ref) => {
 	const uniqueId = id && '' !== id ? id : props.property;
 
 	let fieldClasses = 'sui-form-field';
@@ -70,7 +70,7 @@ const Input = ({
 				<span class="sui-field-prefix">{prefix}</span>
 			)}
 
-			<input id={ uniqueId } type={ type } className={ inputClasses } { ...props } />
+			<input id={ uniqueId } type={ type } className={ inputClasses } ref={ref} { ...props } />
 
 			{suffix && (
 				<span class="sui-field-suffix">{suffix}</span>
@@ -83,6 +83,6 @@ const Input = ({
 			{ description && <p className="sui-description">{ description }</p> }
 		</div>
 	);
-};
+});
 
 export { Input };
