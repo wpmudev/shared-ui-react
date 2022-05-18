@@ -75,7 +75,7 @@ demo.argTypes = {
 		table: {
 			category: 'Field Modifiers',
 			type: {
-				summary: 'small | medium'
+				summary: 'small | medium',
 			},
 		},
 		control: {
@@ -89,7 +89,8 @@ demo.argTypes = {
 	},
 	// Input Modifiers
 	type: {
-		description: 'This property will determine the type of field for the input. Below are the allowed values for this field:',
+		description:
+			'This property will determine the type of field for the input. Below are the allowed values for this field:',
 		table: {
 			category: 'Input Modifiers',
 			type: {
@@ -108,7 +109,7 @@ demo.argTypes = {
 		table: {
 			category: 'Input Modifiers',
 			type: {
-				summary: 'small | medium'
+				summary: 'small | medium',
 			},
 		},
 		control: {
@@ -158,7 +159,8 @@ demo.argTypes = {
 		},
 	},
 	errorStatus: {
-		description: 'Set this property to **true** whether the input has an error to show the error message, if added one, and paint the input field in red.',
+		description:
+			'Set this property to **true** whether the input has an error to show the error message, if added one, and paint the input field in red.',
 		table: {
 			category: 'States',
 			type: {

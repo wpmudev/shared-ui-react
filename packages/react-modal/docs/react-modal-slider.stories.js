@@ -1,19 +1,19 @@
-import React from "react";
-import { Modal } from "../lib/react-modal";
-import { Button } from "@wpmudev/react-button";
-import { ButtonIcon } from "@wpmudev/react-button-icon";
-import image1x from "./images/hustle-footer.png";
-import image2x from "./images/hustle-footer@2x.png";
+import React from 'react';
+import { Modal } from '../lib/react-modal';
+import { Button } from '@wpmudev/react-button';
+import { ButtonIcon } from '@wpmudev/react-button-icon';
+import image1x from './images/hustle-footer.png';
+import image2x from './images/hustle-footer@2x.png';
 
-import SampleOneDocs from "./notes/docs-slider-one.md";
-import SampleTwoDocs from "./notes/docs-slider-two.md";
+import SampleOneDocs from './notes/docs-slider-one.md';
+import SampleTwoDocs from './notes/docs-slider-two.md';
 
 export default {
-	title: "Containers/Modal/Slider",
-	component: Modal
+	title: 'Containers/Modal/Slider',
+	component: Modal,
 };
 
-const Template = args => <Modal {...args} />;
+const Template = (args) => <Modal {...args} />;
 
 const sampleOneSlideOne = ({ closeModal, slideTo }) => {
 	return (
@@ -28,12 +28,10 @@ const sampleOneSlideOne = ({ closeModal, slideTo }) => {
 						onClick={closeModal}
 					/>
 					<h3 id="sui-modal__title" className="sui-box-title sui-lg">
-						{"Choose Content Type"}
+						{'Choose Content Type'}
 					</h3>
 					<p className="sui-description">
-						{
-							"Let's start by choosing an appropriate content type based on your goal."
-						}
+						{"Let's start by choosing an appropriate content type based on your goal."}
 					</p>
 				</div>
 
@@ -42,40 +40,33 @@ const sampleOneSlideOne = ({ closeModal, slideTo }) => {
 						<li>
 							<label
 								htmlFor="demo-dialog--sample-hustle-create-option-1"
-								className="sui-box-selector">
+								className="sui-box-selector"
+							>
 								<input
 									type="radio"
 									name="demo-dialog--sample-hustle-create-options"
 									id="demo-dialog--sample-hustle-create-option-1"
 								/>
 								<span>
-									<span
-										className="sui-icon-mail"
-										aria-hidden="true"
-										tabIndex="-1"></span>{" "}
-									Email Opt-in
+									<span className="sui-icon-mail" aria-hidden="true" tabIndex="-1"></span> Email
+									Opt-in
 								</span>
-								<span>
-									Perfect for Newsletter signups, or collecting user data in
-									general.
-								</span>
+								<span>Perfect for Newsletter signups, or collecting user data in general.</span>
 							</label>
 						</li>
 
 						<li>
 							<label
 								htmlFor="demo-dialog--sample-hustle-create-option-2"
-								className="sui-box-selector">
+								className="sui-box-selector"
+							>
 								<input
 									type="radio"
 									name="demo-dialog--sample-hustle-create-options"
 									id="demo-dialog--sample-hustle-create-option-2"
 								/>
 								<span>
-									<span
-										className="sui-icon-info"
-										aria-hidden="true"
-										tabIndex="-1"></span>{" "}
+									<span className="sui-icon-info" aria-hidden="true" tabIndex="-1"></span>{' '}
 									Informational
 								</span>
 								<span>Perfect for promotional offers with Call to Action.</span>
@@ -85,7 +76,7 @@ const sampleOneSlideOne = ({ closeModal, slideTo }) => {
 				</div>
 
 				<div className="sui-box-footer sui-content-right sui-flatten">
-					<Button label={"Next"} onClick={() => slideTo("two", "left")} />
+					<Button label={'Next'} onClick={() => slideTo('two', 'left')} />
 				</div>
 
 				<img
@@ -111,20 +102,20 @@ const sampleOneSlideTwo = ({ closeModal, slideTo }) => {
 				<ButtonIcon
 					icon="chevron-left"
 					iconSize="md"
-					label={"Go to previous step"}
+					label={'Go to previous step'}
 					className="sui-button-float--left"
-					onClick={() => slideTo("one", "right")}
+					onClick={() => slideTo('one', 'right')}
 				/>
 
 				<ButtonIcon
 					icon="close"
 					iconSize="md"
-					label={"Close this modal"}
+					label={'Close this modal'}
 					className="sui-button-float--right"
 					onClick={closeModal}
 				/>
 
-				<h3 className="sui-box-title sui-lg">{"Create Popup"}</h3>
+				<h3 className="sui-box-title sui-lg">{'Create Popup'}</h3>
 
 				<p className="sui-description">
 					{"Let's give your new popup a name. What would you like to name it?"}
@@ -136,7 +127,8 @@ const sampleOneSlideTwo = ({ closeModal, slideTo }) => {
 					<label
 						htmlFor="demo-dialog--sample-hustle-create-slide-2-input"
 						id="demo-dialog--sample-hustle-create-slide-2-input-label"
-						className="sui-screen-reader-text">
+						className="sui-screen-reader-text"
+					>
 						Enter form name
 					</label>
 
@@ -152,7 +144,7 @@ const sampleOneSlideTwo = ({ closeModal, slideTo }) => {
 						<ButtonIcon
 							icon="arrow-right"
 							iconSize="md"
-							label={"Build New Popup"}
+							label={'Build New Popup'}
 							color="blue"
 							onClick={closeModal}
 						/>
@@ -161,7 +153,8 @@ const sampleOneSlideTwo = ({ closeModal, slideTo }) => {
 					<span
 						id="demo-dialog--sample-hustle-create-slide-2-input-desc"
 						className="sui-description"
-						style={{ marginTop: 10 }}>
+						style={{ marginTop: 10 }}
+					>
 						This will not be visible anywhere on your website
 					</span>
 				</div>
@@ -181,13 +174,13 @@ const sampleOneSlideTwo = ({ closeModal, slideTo }) => {
 const sampleOneContent = {
 	one: {
 		render: sampleOneSlideOne,
-		size: "lg"
+		size: 'lg',
 	},
 	two: {
 		render: sampleOneSlideTwo,
-		size: "sm",
-		focus: ".sui-form-control"
-	}
+		size: 'sm',
+		focus: '.sui-form-control',
+	},
 };
 
 const sampleTwoSlideOne = ({ closeModal, slideTo }) => {
@@ -197,13 +190,13 @@ const sampleTwoSlideOne = ({ closeModal, slideTo }) => {
 				<ButtonIcon
 					icon="close"
 					iconSize="md"
-					label={"Close this modal"}
+					label={'Close this modal'}
 					className="sui-button-float--right"
 					onClick={closeModal}
 				/>
 
 				<h2 id="sample-modal__title" className="sui-box-title sui-lg">
-					{"Create Contact"}
+					{'Create Contact'}
 				</h2>
 
 				<p className="sui-description">
@@ -218,15 +211,16 @@ const sampleTwoSlideOne = ({ closeModal, slideTo }) => {
 					<label
 						htmlFor="demo-dialog--sample-hubspot-list"
 						id="demo-dialog--sample-hubspot-list-label"
-						className="sui-label">
-						HubSpot List (optional){" "}
-						<span className="sui-label-note">Static list only</span>
+						className="sui-label"
+					>
+						HubSpot List (optional) <span className="sui-label-note">Static list only</span>
 					</label>
 
 					<select
 						id="demo-dialog--sample-hubspot-list"
 						aria-labelledby="demo-dialog--sample-hubspot-list-label"
-						aria-required="true">
+						aria-required="true"
+					>
 						<option value="">Select a list</option>
 						<option value="list-1">List #1</option>
 						<option value="list-2">List #2</option>
@@ -234,14 +228,14 @@ const sampleTwoSlideOne = ({ closeModal, slideTo }) => {
 					</select>
 
 					<span className="sui-description">
-						You can optionally add the contact to a static HubSpot list. Leave
-						it empty to create a contact without adding it to a list.
+						You can optionally add the contact to a static HubSpot list. Leave it empty to create a
+						contact without adding it to a list.
 					</span>
 				</div>
 			</div>
 
 			<div className="sui-box-footer sui-flatten sui-content-right">
-				<Button label={"Continue"} onClick={() => slideTo("two", "left")} />
+				<Button label={'Continue'} onClick={() => slideTo('two', 'left')} />
 			</div>
 		</div>
 	);
@@ -249,11 +243,11 @@ const sampleTwoSlideOne = ({ closeModal, slideTo }) => {
 
 const sampleTwoSlideTwo = ({ slideTo }) => {
 	const toggleContainer = {
-		display: "flex",
-		alignItems: "center",
-		justifyContent: "center",
-		padding: "19px 20px",
-		backgroundColor: "#f8f8f8"
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center',
+		padding: '19px 20px',
+		backgroundColor: '#f8f8f8',
 	};
 
 	return (
@@ -262,15 +256,13 @@ const sampleTwoSlideTwo = ({ slideTo }) => {
 				<h3 className="sui-box-title sui-lg">Create Ticket</h3>
 
 				<p className="sui-description">
-					In addition to adding a new contact to your HubSpot account, you can
-					also create a HubSpot ticket for each form submission.
+					In addition to adding a new contact to your HubSpot account, you can also create a HubSpot
+					ticket for each form submission.
 				</p>
 			</div>
 
 			<div style={toggleContainer}>
-				<label
-					htmlFor="demo-dialog--sample-hubspot-ticket-toggle"
-					className="sui-toggle">
+				<label htmlFor="demo-dialog--sample-hubspot-ticket-toggle" className="sui-toggle">
 					<input
 						type="checkbox"
 						id="demo-dialog--sample-hubspot-ticket-toggle"
@@ -281,17 +273,14 @@ const sampleTwoSlideTwo = ({ slideTo }) => {
 				<label
 					htmlFor="demo-dialog--sample-hubspot-ticket-toggle"
 					id="demo-dialog--sample-hubspot-ticket-toggle-label"
-					className="sui-toggle-label">
+					className="sui-toggle-label"
+				>
 					Create a HubSpot ticket for each submission
 				</label>
 			</div>
 
 			<div className="sui-box-footer sui-flatten sui-content-center sui-spacing-top--30">
-				<Button
-					color="blue"
-					label="Activate"
-					onClick={() => slideTo("three", "left")}
-				/>
+				<Button color="blue" label="Activate" onClick={() => slideTo('three', 'left')} />
 			</div>
 		</div>
 	);
@@ -306,7 +295,7 @@ const sampleTwoSlideThree = ({ closeModal, slideTo }) => {
 					iconSize="md"
 					label="Cancel and repeat process"
 					className="sui-button-float--left"
-					onClick={() => slideTo("one", "right")}
+					onClick={() => slideTo('one', 'right')}
 				/>
 
 				<ButtonIcon
@@ -320,8 +309,8 @@ const sampleTwoSlideThree = ({ closeModal, slideTo }) => {
 				<h3 className="sui-box-title sui-lg">Confirm Integration</h3>
 
 				<p className="sui-description">
-					Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
-					Maecenas faucibus mollis interdum.
+					Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Maecenas faucibus
+					mollis interdum.
 				</p>
 			</div>
 
@@ -344,15 +333,15 @@ const sampleTwoSlideThree = ({ closeModal, slideTo }) => {
 const sampleTwoContent = {
 	one: {
 		render: sampleTwoSlideOne,
-		focus: "select"
+		focus: 'select',
 	},
 	two: {
-		render: sampleTwoSlideTwo
+		render: sampleTwoSlideTwo,
 	},
 	three: {
 		render: sampleTwoSlideThree,
-		focus: ".sui-button-blue"
-	}
+		focus: '.sui-button-blue',
+	},
 };
 
 const triggerContent = ({ openModal }) => {
@@ -360,23 +349,23 @@ const triggerContent = ({ openModal }) => {
 };
 
 export const sampleOne = Template.bind({});
-sampleOne.storyName = "Sample 1";
+sampleOne.storyName = 'Sample 1';
 sampleOne.args = {
-	dialogId: "sample-modal",
-	titleId: "sample-modal__title",
-	size: "lg",
+	dialogId: 'sample-modal',
+	titleId: 'sample-modal__title',
+	size: 'lg',
 	modalContent: sampleOneContent,
-	firstSlide: "one",
-	triggerContent
+	firstSlide: 'one',
+	triggerContent,
 };
 
 export const sampleTwo = Template.bind({});
-sampleTwo.storyName = "Sample 2";
+sampleTwo.storyName = 'Sample 2';
 sampleTwo.args = {
-	dialogId: "sample-modal",
-	titleId: "sample-modal__title",
-	size: "md",
+	dialogId: 'sample-modal',
+	titleId: 'sample-modal__title',
+	size: 'md',
 	modalContent: sampleTwoContent,
-	firstSlide: "one",
-	triggerContent
+	firstSlide: 'one',
+	triggerContent,
 };

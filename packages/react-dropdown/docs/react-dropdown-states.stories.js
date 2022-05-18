@@ -2,7 +2,7 @@ import React from 'react';
 import { Dropdown } from '../lib/react-dropdown';
 
 export default {
-    title: 'Components/Dropdown/States',
+	title: 'Components/Dropdown/States',
 	component: Dropdown,
 	parameters: {
 		actions: {
@@ -17,14 +17,12 @@ export default {
 			},
 		},
 	},
-}
+};
 
 const Template = ({ children }) => {
 	return (
 		<div className="sui-box">
-			<div className="sui-box-body">
-				{children}
-			</div>
+			<div className="sui-box-body">{children}</div>
 		</div>
 	);
 };
@@ -38,10 +36,8 @@ const Title = ({ children }) => {
 		lineHeight: 22 + 'px',
 	};
 
-	return (
-		<h3 style={ customStyles }>{ children }</h3>
-	);
-}
+	return <h3 style={customStyles}>{children}</h3>;
+};
 
 const Description = ({ children }) => {
 	const customStyles = {
@@ -50,11 +46,11 @@ const Description = ({ children }) => {
 	};
 
 	return (
-		<p className="sui-description" style={ customStyles }>
-			{ children }
+		<p className="sui-description" style={customStyles}>
+			{children}
 		</p>
 	);
-}
+};
 
 const Code = ({ spaceTop = 5, spaceBottom = 20, children }) => {
 	const customStyles = {
@@ -65,47 +61,49 @@ const Code = ({ spaceTop = 5, spaceBottom = 20, children }) => {
 		padding: 5 + 'px ' + 10 + 'px',
 	};
 
-	return (
-		<code style={ customStyles }>{ children }</code>
-	);
-}
+	return <code style={customStyles}>{children}</code>;
+};
 
-const Section = ({ title, description, code, code2, isDefault = false, isLast = false, children }) => {
+const Section = ({
+	title,
+	description,
+	code,
+	code2,
+	isDefault = false,
+	isLast = false,
+	children,
+}) => {
 	return (
 		<>
-			{ title && '' !== title && (
-				<Title>{ title }{ isDefault && (
-					<span
-						className="sui-tag sui-tag-sm sui-tag-yellow"
-						style={ { marginLeft: 10 + 'px' } }
-						aria-hidden="true"
-					>Default</span>
-				)}</Title>
+			{title && '' !== title && (
+				<Title>
+					{title}
+					{isDefault && (
+						<span
+							className="sui-tag sui-tag-sm sui-tag-yellow"
+							style={{ marginLeft: 10 + 'px' }}
+							aria-hidden="true"
+						>
+							Default
+						</span>
+					)}
+				</Title>
 			)}
-			{ description && '' !== description && (
-				<Description>{ description }</Description>
+			{description && '' !== description && <Description>{description}</Description>}
+			{code && '' !== code && (
+				<Code {...(code2 && '' !== code2 && { spaceBottom: 5 })}>{code}</Code>
 			)}
-			{ code && '' !== code && (
-				<Code { ... ( code2 && '' !== code2 ) && { spaceBottom: 5 } }>{ code }</Code>
-			)}
-			{ code2 && '' !== code2 && (
-				<Code>{ code2 }</Code>
-			)}
-			<div className="sui-border-frame">
-				{ children }
-			</div>
-			{ !isLast && <hr /> }
+			{code2 && '' !== code2 && <Code>{code2}</Code>}
+			<div className="sui-border-frame">{children}</div>
+			{!isLast && <hr />}
 		</>
 	);
-}
+};
 
 export const container = () => {
 	return (
 		<Template>
-			<Section
-				title="Enabled"
-				code="&lt;Dropdown&gt; ... &lt;/Dropdown&gt;"
-				isDefault={ true }>
+			<Section title="Enabled" code="&lt;Dropdown&gt; ... &lt;/Dropdown&gt;" isDefault={true}>
 				<Dropdown>
 					<div name="Option 1" />
 					<div name="Option 2" />
@@ -116,7 +114,8 @@ export const container = () => {
 			<Section
 				title="Disabled"
 				code="&lt;Dropdown disabled&gt; ... &lt;/Dropdown&gt;"
-				isLast={ true }>
+				isLast={true}
+			>
 				<Dropdown disabled>
 					<div name="Option 1" />
 					<div name="Option 2" />
@@ -133,10 +132,11 @@ export const option = () => {
 		<Template>
 			<Section
 				title="Enabled"
-				code="&lt;Dropdown&gt;
-					&lt;div name=&quot;Option Name&quot; /&gt;
-				&lt;/Dropdown&gt;"
-				isDefault={ true }>
+				code='&lt;Dropdown&gt;
+					&lt;div name="Option Name" /&gt;
+				&lt;/Dropdown&gt;'
+				isDefault={true}
+			>
 				<Dropdown>
 					<div name="Option 1" />
 					<div name="Option 2" />
@@ -146,10 +146,11 @@ export const option = () => {
 
 			<Section
 				title="Disabled"
-				code="&lt;Dropdown&gt;
-					&lt;div name=&quot;Option Name&quot; disabled /&gt;
-				&lt;/Dropdown&gt;"
-				isLast={ true }>
+				code='&lt;Dropdown&gt;
+					&lt;div name="Option Name" disabled /&gt;
+				&lt;/Dropdown&gt;'
+				isLast={true}
+			>
 				<Dropdown>
 					<div name="Option 1" disabled />
 					<div name="Option 2" />
