@@ -81,19 +81,29 @@ export const MultiString = ({
     }
 
     // add items on enter key press
-    const handleKeyPress = (e, disallowedCharsArray) => {        
+    const handleKeyPress = (e, disallowedCharsArray) => {   
+        const disallowedString = getRegexPatternForDisallowedChars( disallowedCharsArray ),
+                regex = new RegExp( `[\r\n${disallowedString}]`, 'gm' );
+        
         // Do nothing if the key is from the disallowed ones.
-        if ( disallowedCharsArray.includes( e.key ) ) {
-            e.preventDefault();
-            return;
-        } else if (e.keyCode === 13 && e.target.value !== '') {
+        if (e.keyCode === 13 && e.target.value !== '') {
             const newItems = [...items];
-            newItems.push(e.target.value);
-            handleSetValues(newItems);
+            const newTrim = e.target.value.replace( regex, '' );
+            if (0 !== newTrim.length && 0 !== newTrim.trim().length) {
+                newItems.push(newTrim);
+                handleSetValues(newItems);
+            }
             e.target.value = '';
-        } else {
-            return;
+        } else{
+            const newValues = [];
+            let values = [...e.target.value];
+            for ( let value of values ) {
+                let item = value.replace( regex, '' );
+                item ? newValues.push( item ) : '';
+            }
+            e.target.value = newValues.toString();
         }
+        return;
     }
 
     // set values after removing out characters in disallowed patterns
