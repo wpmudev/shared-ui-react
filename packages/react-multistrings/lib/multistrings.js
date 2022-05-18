@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Input } from '@wpmudev/react-input';
 import { ButtonIcon } from '@wpmudev/react-button-icon';
 
@@ -8,43 +8,55 @@ export const MultiString = ({
     placeholder,
     description,
     values = [],
-    disallowedCharsArray = [],
+    disallowedChars = '',
 }) => {
-
+    const inputRef = useRef(null);
     const [items, setItems] = useState(values);
+    const labelId = `${uniqueId}-label`;
+    const descriptionId = `${uniqueId}-description`;
+    const inputId = `${uniqueId}-input`;
 
-    const buildWrapper = (label, description, uniqueId, placeholder) => {
+    useEffect(() => {
+        handleSetValues(values);
+    }, []);
 
-        const labelId = `${uniqueId}-label`;
-        const descriptionId = `${uniqueId}-description`;
-        const inputId = `${uniqueId}-input`;
+    // build disallowed chars array.
+    const getDisallowedChars = ( disallowedChars ) => {
+        const disallowedCharsArray = [];
+        let customDisallowedKeys = disallowedChars;
+        if ( customDisallowedKeys ) {
+            if ( 'number' === typeof customDisallowedKeys ) {
+                customDisallowedKeys = customDisallowedKeys.toString();
+            }
+            // Make an array from the user defined keys.
+            const customKeysArray = customDisallowedKeys.split( ',' );
+            for ( let key of customKeysArray ) {
+                // Convert to integer.
+                const intKey = parseInt( key, 10 );
+                // And filter out any NaN.
+                if ( ! isNaN( intKey ) ) {
+                    // Convert ascii code to character.
+                    disallowedCharsArray.push( String.fromCharCode( intKey ) );
+                } else {
+                    disallowedCharsArray.push( key );
+                }
+            }
+        }
+        return disallowedCharsArray;
+    }
 
-        return (
-            <div className="sui-multistrings-wrap">
-                <div className="sui-multistrings-aria">
-                    {label && ( <label id={labelId} htmlFor={inputId}>{label}</label> )}
-                    <textarea 
-                        placeholder={placeholder} 
-                        id={inputId} 
-                        className="sui-multistrings" 
-                        aria-labelledby="exclude-files-strings-label" 
-                        aria-describedby="exclude-files-description"
-                        defaultValue={items.toString()}
-                    />
-                    {description && ( <p id={descriptionId} className="sui-description" dangerouslySetInnerHTML={{ __html: description }} /> )}
-                </div>
-                <div className="sui-form-field sui-multistrings" tabIndex="-1" aria-hidden="true">
-                    {label && ( <label id={labelId} htmlFor={inputId}>{label}</label> )}
-                    {buildItems(inputId, placeholder, items, disallowedCharsArray)}
-                    {description && ( <p id={descriptionId} className="sui-description" dangerouslySetInnerHTML={{ __html: description }} /> )}
-                </div>
-            </div>
-        );
+    const disallowedCharsArray = disallowedChars ? getDisallowedChars(disallowedChars) : '';
+
+    // regex pattern for disallowed characters
+    const getRegexPatternForDisallowedChars = (disallowedCharsArray) => {
+        const escapeRegExp = string => string.replace( /[.*+?^${}()|[\]\\]/g, '\\$&' ),
+            disallowedPattern = escapeRegExp( disallowedCharsArray.join( ',' ) );
+        return disallowedPattern;
     }
 
     const buildItems = (inputId, placeholder, items, disallowedCharsArray) => {
         return (
-            <ul className="sui-multistrings-list">
+            <ul className="sui-multistrings-list" onClick={() => inputRef.current.focus()}>
                 {items && items.map((item, index) => {
                     return (
                         <li key={index} title={item}>
@@ -55,7 +67,7 @@ export const MultiString = ({
                     );
                 })}
                 <li className="sui-multistrings-input">
-                    <Input id={inputId} autoComplete="off" placeholder={placeholder} aria-autocomplete="none" style={{ height: 'auto' }} onKeyDown={ (e) => handleKeyPress(e, disallowedCharsArray) } />
+                    <Input id={inputId} autoComplete="off" placeholder={placeholder} aria-autocomplete="none" ref={inputRef} style={{ height: 'auto' }} onKeyDown={ (e) => handleKeyPress(e, disallowedCharsArray) } />
                 </li>
             </ul>
         );
@@ -69,97 +81,53 @@ export const MultiString = ({
     }
 
     // add items on enter key press
-    const handleKeyPress = (e, disallowedCharsArray) => {
-        const disallowedString = getRegexPatternForDisallowedChars( disallowedCharsArray ),
-            regex = new RegExp( `[\r\n${disallowedString}]`, 'gm' );
-        
+    const handleKeyPress = (e, disallowedCharsArray) => {        
         // Do nothing if the key is from the disallowed ones.
         if ( disallowedCharsArray.includes( e.key ) ) {
             e.preventDefault();
             return;
-        } else if (e.keyCode === 13) {
-            if( disallowedCharsArray.includes( e.target.value ) ) {
-                e.target.value = '';
-                return;
-            }
+        } else if (e.keyCode === 13 && e.target.value !== '') {
             const newItems = [...items];
             newItems.push(e.target.value);
-            setItems(newItems);
+            handleSetValues(newItems);
             e.target.value = '';
         } else {
             return;
         }
     }
 
-    // disallowed characters
-    const getRegexPatternForDisallowedChars = (disallowedCharsArray) => {
-        // Regex for removing the disallowed keys from the inserted strings.
-        const escapeRegExp = string => string.replace( /[.*+?^${}()|[\]\\]/g, '\\$&' ),
-            disallowedPattern = escapeRegExp( disallowedCharsArray.join( '' ) );
-        return disallowedPattern;
-    }
-
-    // remove disallowed characters
-    const handleInsertTags = (disallowedCharsArray) => {
-
-        const disallowedString = getRegexPatternForDisallowedChars( disallowedCharsArray ),
+    // set values after removing out characters in disallowed patterns
+    const handleSetValues = (values) => {
+        const newValues = [],
+            disallowedString = getRegexPatternForDisallowedChars( disallowedCharsArray ),
             regex = new RegExp( `[\r\n${disallowedString}]`, 'gm' );
 
-        // Sanitize the values on keydown.
-        $tagInput.on( 'keydown', function( e ) {
-
-            // Do nothing if the key is from the disallowed ones.
-            if ( disallowedCharsArray.includes( e.key ) ) {
-                e.preventDefault();
-                return;
-            }
-
-            let input    = $( this ),
-                oldValue = $textarea.val(),
-                newValue = input.val();
-
-            // Get rid of new lines, commas, and any chars passed by the admin from the newly entered value.
-            const newTrim = newValue.replace( regex, '' ),
-                isEnter   = ( 13 === e.keyCode );
-
-            if ( isEnter ) {
-                e.preventDefault();
-                e.stopPropagation();
-            }
-
-            // If there's no value to add, don't insert any new value.
-            if ( 0 !== newTrim.length && 0 !== newTrim.trim().length ) {
-
-                if ( isEnter ) {
-                    const newTextareaValue = oldValue.length ? `${ oldValue }\n${ newTrim }` : newTrim;
-
-                    // Print new value on textarea.
-                    $textarea.val( newTextareaValue );
-
-                    // Print new value on the list.
-                    const html = buildItem( newTrim );
-                    $( html ).insertBefore( $mainWrapper.find( '.sui-multistrings-input' ) );
-
-                    // Clear input value.
-                    input.val( '' );
-
-                    // Bid the event to remove the tags.
-                    bindRemoveTag( $mainWrapper );
-
-                } else {
-                    input.val( newTrim );
-                }
-
-            } else {
-                input.val( '' );
-            }
-
-        });
+        for ( let value of values ) {
+            let item = value.replace( regex, '' );
+            item ? newValues.push( item ) : '';
+        }
+        setItems(newValues);
     }
 
     return (
-        <div>
-            {buildWrapper(label, description, uniqueId, placeholder)}
+        <div className="sui-multistrings-wrap">
+            <div className="sui-multistrings-aria">
+                {label && ( <label id={labelId} htmlFor={inputId}>{label}</label> )}
+                <textarea 
+                    placeholder={placeholder} 
+                    id={inputId} 
+                    className="sui-multistrings" 
+                    {...(label ? {'aria-labelledby': labelId} : '')}
+                    {...(description ? {'aria-describedby': descriptionId} : '')}
+                    {...(items ? {'defaultValue': items.toString()} : '')}
+                />
+                {description && ( <p id={descriptionId} className="sui-description" dangerouslySetInnerHTML={{ __html: description }} /> )}
+            </div>
+            <div className="sui-form-field sui-multistrings" tabIndex="-1" aria-hidden="true">
+                {label && ( <label id={labelId} htmlFor={inputId}>{label}</label> )}
+                {buildItems(inputId, placeholder, items, disallowedCharsArray)}
+                {description && ( <p id={descriptionId} className="sui-description" dangerouslySetInnerHTML={{ __html: description }} /> )}
+            </div>
         </div>
     );
 }
