@@ -48,6 +48,6 @@
   },
   "devDependencies": {
     "@wpmudev/react-builder": "^1.0.1",
-    "react": "^18.1.0"
+    "react": "^17.0.2"
   }
 }

@@ -49,6 +49,6 @@
     "@wpmudev/react-box": "^1.2.6",
     "@wpmudev/react-builder": "^1.0.1",
     "@wpmudev/react-button": "^1.1.1",
-    "react": "^18.1.0"
+    "react": "^17.0.2"
   }
 }
