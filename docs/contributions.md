@@ -56,9 +56,9 @@ Before opening a PR, it should be up to date with the targeted release branch (r
 #### Checklist:
 
 - [ ] All unit tests pass.
-- [ ] Lint passes.
-- [ ] Chromatic tests passes.
-- [ ] CodeQL tests pass.
+  - [ ] Chromatic test passes.
+  - [ ] CodeQL test passes.
+  - [ ] Security/Snyk test passes.
 - [ ] Descriptions of the changes done.
 - [ ] Sign the pull request by assigning it to yourself in the "assignees" section.
 
