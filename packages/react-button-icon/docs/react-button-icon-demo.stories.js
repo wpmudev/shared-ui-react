@@ -1,16 +1,16 @@
-import React from "react";
-import { ButtonIcon } from "../lib/react-button-icon";
+import React from 'react';
+import { ButtonIcon } from '../lib/react-button-icon';
 
 export default {
-	title: "Components/Button Icon",
+	title: 'Components/Button Icon',
 	component: ButtonIcon,
 };
 
-export const demo = args => <ButtonIcon {...args} />;
-demo.storyName = "Demo";
+export const demo = (args) => <ButtonIcon {...args} />;
+demo.storyName = 'Demo';
 demo.args = {
-	label: "Close this content",
-	icon: "close",
+	label: 'Close this content',
+	icon: 'close',
 };
 demo.argTypes = {
 	label: {
@@ -33,7 +33,8 @@ demo.argTypes = {
 		},
 	},
 	iconSize: {
-		description: 'By default, the icon has a 12px size but you can change it with this property. You could use either:',
+		description:
+			'By default, the icon has a 12px size but you can change it with this property. You could use either:',
 		table: {
 			type: { summary: 'sm | md | lg' },
 		},
@@ -53,7 +54,8 @@ demo.argTypes = {
 		},
 	},
 	color: {
-		description: 'The button comes in gray color by default but you can change that with this property.',
+		description:
+			'The button comes in gray color by default but you can change that with this property.',
 		table: {
 			type: { summary: 'string' },
 		},

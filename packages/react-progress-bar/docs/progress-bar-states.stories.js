@@ -18,7 +18,7 @@ export default {
 		},
 	},
 	decorators: [
-		( Story ) => (
+		(Story) => (
 			<div className="sui-box">
 				<div className="sui-box-body">
 					<Story />
@@ -37,10 +37,8 @@ const Title = ({ children }) => {
 		lineHeight: 22 + 'px',
 	};
 
-	return (
-		<h3 style={ customStyles }>{ children }</h3>
-	);
-}
+	return <h3 style={customStyles}>{children}</h3>;
+};
 
 const Description = ({ children }) => {
 	const customStyles = {
@@ -49,11 +47,11 @@ const Description = ({ children }) => {
 	};
 
 	return (
-		<p className="sui-description" style={ customStyles }>
-			{ children }
+		<p className="sui-description" style={customStyles}>
+			{children}
 		</p>
 	);
-}
+};
 
 const Code = ({ spaceTop = 5, spaceBottom = 20, children }) => {
 	const customStyles = {
@@ -64,37 +62,44 @@ const Code = ({ spaceTop = 5, spaceBottom = 20, children }) => {
 		padding: 5 + 'px ' + 10 + 'px',
 	};
 
-	return (
-		<code style={ customStyles }>{ children }</code>
-	);
-}
+	return <code style={customStyles}>{children}</code>;
+};
 
-const Section = ({ title, description, code, code2, isDefault = false, isLast = false, children }) => {
+const Section = ({
+	title,
+	description,
+	code,
+	code2,
+	isDefault = false,
+	isLast = false,
+	children,
+}) => {
 	return (
 		<>
-			{ title && '' !== title && (
-				<Title>{ title }{ isDefault && (
-					<span
-						className="sui-tag sui-tag-sm sui-tag-yellow"
-						style={ { marginLeft: 10 + 'px' } }
-						aria-hidden="true"
-					>Default</span>
-				)}</Title>
+			{title && '' !== title && (
+				<Title>
+					{title}
+					{isDefault && (
+						<span
+							className="sui-tag sui-tag-sm sui-tag-yellow"
+							style={{ marginLeft: 10 + 'px' }}
+							aria-hidden="true"
+						>
+							Default
+						</span>
+					)}
+				</Title>
 			)}
-			{ description && '' !== description && (
-				<Description>{ description }</Description>
+			{description && '' !== description && <Description>{description}</Description>}
+			{code && '' !== code && (
+				<Code {...(code2 && '' !== code2 && { spaceBottom: 5 })}>{code}</Code>
 			)}
-			{ code && '' !== code && (
-				<Code { ... ( code2 && '' !== code2 ) && { spaceBottom: 5 } }>{ code }</Code>
-			)}
-			{ code2 && '' !== code2 && (
-				<Code>{ code2 }</Code>
-			)}
-			{ children }
-			{ !isLast && <hr /> }
+			{code2 && '' !== code2 && <Code>{code2}</Code>}
+			{children}
+			{!isLast && <hr />}
 		</>
 	);
-}
+};
 
 export const Initial = () => {
 	return (
@@ -102,9 +107,10 @@ export const Initial = () => {
 			title="Initial"
 			description="By default, the progress bar has zero value as its initial state."
 			code="&lt;ProgressBar now={ 0 } /&gt;"
-			isDefault={ true }
-			isLast={ true }>
-			<ProgressBar now={ 0 } />
+			isDefault={true}
+			isLast={true}
+		>
+			<ProgressBar now={0} />
 		</Section>
 	);
 };
@@ -115,8 +121,9 @@ export const Loading = () => {
 			title="Loading"
 			description="While the process is happening, the progress bar fills with blue."
 			code="&lt;ProgressBar now={ 30 } /&gt;"
-			isLast={ true }>
-			<ProgressBar now={ 30 } />
+			isLast={true}
+		>
+			<ProgressBar now={30} />
 		</Section>
 	);
 };
@@ -127,8 +134,9 @@ export const Complete = () => {
 			title="Complete"
 			description="The progress bar measures in percentage, which means once the progress reaches 100, the whole bar will be blue."
 			code="&lt;ProgressBar now={ 100 } /&gt;"
-			isLast={ true }>
-			<ProgressBar now={ 100 } />
+			isLast={true}
+		>
+			<ProgressBar now={100} />
 		</Section>
 	);
 };

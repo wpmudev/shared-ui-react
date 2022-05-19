@@ -21,7 +21,7 @@ export const ProgressBar = ({
 			cancel: 'Cancel',
 			legend: 'Status...',
 		},
-		sourceLang,
+		sourceLang
 	);
 
 	const loaderMarkup = hasLoader && (

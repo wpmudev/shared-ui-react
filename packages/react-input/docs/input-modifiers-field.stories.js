@@ -22,9 +22,7 @@ export default {
 const Template = ({ children }) => {
 	return (
 		<div className="sui-box">
-			<div className="sui-box-body">
-				{children}
-			</div>
+			<div className="sui-box-body">{children}</div>
 		</div>
 	);
 };
@@ -38,10 +36,8 @@ const Title = ({ children }) => {
 		lineHeight: 22 + 'px',
 	};
 
-	return (
-		<h3 style={ customStyles }>{ children }</h3>
-	);
-}
+	return <h3 style={customStyles}>{children}</h3>;
+};
 
 const Description = ({ children }) => {
 	const customStyles = {
@@ -50,11 +46,11 @@ const Description = ({ children }) => {
 	};
 
 	return (
-		<p className="sui-description" style={ customStyles }>
-			{ children }
+		<p className="sui-description" style={customStyles}>
+			{children}
 		</p>
 	);
-}
+};
 
 const Code = ({ spaceTop = 5, spaceBottom = 20, children }) => {
 	const customStyles = {
@@ -65,37 +61,44 @@ const Code = ({ spaceTop = 5, spaceBottom = 20, children }) => {
 		padding: 5 + 'px ' + 10 + 'px',
 	};
 
-	return (
-		<code style={ customStyles }>{ children }</code>
-	);
-}
+	return <code style={customStyles}>{children}</code>;
+};
 
-const Section = ({ title, description, code, code2, isDefault = false, isLast = false, children }) => {
+const Section = ({
+	title,
+	description,
+	code,
+	code2,
+	isDefault = false,
+	isLast = false,
+	children,
+}) => {
 	return (
 		<>
-			{ title && '' !== title && (
-				<Title>{ title }{ isDefault && (
-					<span
-						className="sui-tag sui-tag-sm sui-tag-yellow"
-						style={ { marginLeft: 10 + 'px' } }
-						aria-hidden="true"
-					>Default</span>
-				)}</Title>
+			{title && '' !== title && (
+				<Title>
+					{title}
+					{isDefault && (
+						<span
+							className="sui-tag sui-tag-sm sui-tag-yellow"
+							style={{ marginLeft: 10 + 'px' }}
+							aria-hidden="true"
+						>
+							Default
+						</span>
+					)}
+				</Title>
 			)}
-			{ description && '' !== description && (
-				<Description>{ description }</Description>
+			{description && '' !== description && <Description>{description}</Description>}
+			{code && '' !== code && (
+				<Code {...(code2 && '' !== code2 && { spaceBottom: 5 })}>{code}</Code>
 			)}
-			{ code && '' !== code && (
-				<Code { ... ( code2 && '' !== code2 ) && { spaceBottom: 5 } }>{ code }</Code>
-			)}
-			{ code2 && '' !== code2 && (
-				<Code>{ code2 }</Code>
-			)}
-			{ children }
-			{ !isLast && <hr /> }
+			{code2 && '' !== code2 && <Code>{code2}</Code>}
+			{children}
+			{!isLast && <hr />}
 		</>
 	);
-}
+};
 
 export const Size = () => {
 	return (
@@ -103,33 +106,32 @@ export const Size = () => {
 			<Section
 				title="Full Size"
 				description="By default, the input field occupies the entire width of its parent container."
-				code="&lt;Input placeholder=&quot;Placeholder&quot; /&gt;"
-				isDefault={ true }>
+				code='&lt;Input placeholder="Placeholder" /&gt;'
+				isDefault={true}
+			>
 				<Input placeholder="Username" />
 			</Section>
 
 			<Section
 				title="Medium"
-				description={
-					[
-						'Using this option, you can resize the input field to a maximum width of ',
-						<strong>240px</strong>
-					]
-				}
-				code="&lt;Input placeholder=&quot;Placeholder&quot; size=&quot;medium&quot; /&gt;">
+				description={[
+					'Using this option, you can resize the input field to a maximum width of ',
+					<strong>240px</strong>,
+				]}
+				code='&lt;Input placeholder="Placeholder" size="medium" /&gt;'
+			>
 				<Input placeholder="Username" size="medium" />
 			</Section>
 
 			<Section
 				title="Small"
-				description={
-					[
-						'Using this option, you can resize the input field to a maximum width of ',
-						<strong>80px</strong>
-					]
-				}
-				code="&lt;Input placeholder=&quot;Placeholder&quot; size=&quot;small&quot; /&gt;"
-				isLast={ true }>
+				description={[
+					'Using this option, you can resize the input field to a maximum width of ',
+					<strong>80px</strong>,
+				]}
+				code='&lt;Input placeholder="Placeholder" size="small" /&gt;'
+				isLast={true}
+			>
 				<Input placeholder="Username" size="small" />
 			</Section>
 		</Template>
@@ -143,14 +145,16 @@ export const Affix = () => {
 			<Section
 				title="Prefix"
 				description="This will allow you to add some text before the input."
-				code="&lt;Input placeholder=&quot;Placeholder&quot; prefix=&quot;$&quot; /&gt;">
+				code='&lt;Input placeholder="Placeholder" prefix="$" /&gt;'
+			>
 				<Input placeholder="Username" prefix="$" />
 			</Section>
 			<Section
 				title="Suffix"
 				description="This will allow you to add some text after the input."
 				isLast={true}
-				code="&lt;Input placeholder=&quot;Placeholder&quot; suffix=&quot;suffix&quot; /&gt;">
+				code='&lt;Input placeholder="Placeholder" suffix="suffix" /&gt;'
+			>
 				<Input placeholder="Username" suffix="suffix" />
 			</Section>
 		</Template>

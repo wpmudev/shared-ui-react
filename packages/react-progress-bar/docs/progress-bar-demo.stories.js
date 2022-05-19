@@ -7,7 +7,7 @@ export default {
 	component: ProgressBar,
 };
 
-export const demo = args => <ProgressBar { ...args } />;
+export const demo = (args) => <ProgressBar {...args} />;
 demo.storyName = 'Demo';
 demo.args = {
 	now: 0,
@@ -21,7 +21,7 @@ demo.args = {
 		legend: 'Status...',
 	},
 	cbFunction: () => {
-		action( 'click' )( 'Loading process interrupted.' );
+		action('click')('Loading process interrupted.');
 	},
 };
 demo.argTypes = {
