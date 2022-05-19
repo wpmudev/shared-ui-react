@@ -28,9 +28,9 @@ demo.argTypes = {
 			type: { summary: 'string' },
 			defaultValue: { summary: 'solid' },
 		},
+		options: ['solid', 'ghost'],
 		control: {
 			type: 'select',
-			options: ['solid', 'ghost'],
 		},
 	},
 	color: {
@@ -39,9 +39,9 @@ demo.argTypes = {
 			type: { summary: 'string' },
 			defaultValue: { summary: 'gray' },
 		},
+		options: ['gray', 'blue', 'green', 'red', 'orange', 'purple', 'yellow', 'white'],
 		control: {
 			type: 'select',
-			options: ['gray', 'blue', 'green', 'red', 'orange', 'purple', 'yellow', 'white'],
 		},
 	},
 	icon: {

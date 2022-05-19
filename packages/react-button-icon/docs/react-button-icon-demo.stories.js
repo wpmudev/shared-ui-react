@@ -38,9 +38,9 @@ demo.argTypes = {
 		table: {
 			type: { summary: 'sm | md | lg' },
 		},
+		options: ['', 'sm', 'md', 'lg'],
 		control: {
 			type: 'select',
-			options: ['', 'sm', 'md', 'lg'],
 		},
 	},
 	design: {
@@ -48,9 +48,9 @@ demo.argTypes = {
 		table: {
 			type: { summary: 'string' },
 		},
+		options: ['', 'outlined'],
 		control: {
 			type: 'select',
-			options: ['', 'outlined'],
 		},
 	},
 	color: {
@@ -59,9 +59,9 @@ demo.argTypes = {
 		table: {
 			type: { summary: 'string' },
 		},
+		options: ['', 'blue', 'green', 'red', 'orange', 'purple', 'yellow', 'white'],
 		control: {
 			type: 'select',
-			options: ['', 'blue', 'green', 'red', 'orange', 'purple', 'yellow', 'white'],
 		},
 	},
 	className: {

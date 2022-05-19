@@ -26,13 +26,9 @@ DefaultBody.argTypes = {
 			required: false,
 		},
 		description: 'Description goes here...',
+		options: ['left', 'center','right'],
 		control: {
 			type: 'select',
-			options: {
-				left: 'left',
-				center: 'center',
-				right: 'right',
-			},
 		},
 	},
 	paddingTop: {
