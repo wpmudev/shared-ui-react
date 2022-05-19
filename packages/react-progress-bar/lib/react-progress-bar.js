@@ -14,7 +14,13 @@ export const ProgressBar = ({
 	...props
 }) => {
 	const extraClasses = 'undefined' !== typeof classes && '' !== classes ? ' ' + classes : '';
-	const value = 'undefined' !== typeof now && !isNaN(now) ? now : 0;
+	// check whether value is valid or not.
+	const getValue = value => {
+		if (value === undefined || Number.isNaN(value) || value === null)
+			return 0;
+		return value;
+	}
+	const value = getValue(now);
 
 	const lang = Object.assign(
 		{
@@ -30,20 +36,13 @@ export const ProgressBar = ({
 		</span>
 	);
 
-	const checkValue = (value) => {
-		if(null !== value) {
-			return value;
-		}
-		return 0;
-	}
-
 	const loaderText = hasLabel && (
-		<span className="sui-progress-text">{checkValue(value)}%</span>
+		<span className="sui-progress-text">{value}%</span>
 	);
 
 	const loaderBar = (
 		<div className="sui-progress-bar">
-			<span style={{ width: `${checkValue(value)}%` }} />
+			<span style={{ width: `${value}%` }} />
 		</div>
 	);
 
