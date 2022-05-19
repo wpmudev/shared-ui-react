@@ -31,7 +31,7 @@ export const ProgressBar = ({
 	);
 
 	const checkValue = (value) => {
-		if('undefined' !== typeof value && null !== value && !isNaN(value)) {
+		if(null !== value) {
 			return value;
 		}
 		return 0;
