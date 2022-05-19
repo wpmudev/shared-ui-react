@@ -47,6 +47,7 @@ class Modal extends React.Component {
 		if (!this.props.titleText && !this.props.titleId) {
 			throw new Error('react-aria-modal instances should have a `titleText` or `titleId`');
 		}
+		this.timeout = [];
 	}
 
 	componentDidMount() {
@@ -57,14 +58,16 @@ class Modal extends React.Component {
 		// Timeout to ensure this happens *after* focus has moved
 		const applicationNode = this.getApplicationNode();
 
-		setTimeout(() => {
-			if (applicationNode && applicationNode instanceof Element) {
-				applicationNode.setAttribute('aria-hidden', 'true');
-			}
-		}, 0);
+		this.timeout.push(
+			setTimeout(() => {
+				if (applicationNode && applicationNode instanceof Element) {
+					applicationNode.setAttribute("aria-hidden", "true");
+				}
+			}, 0)
+		);
 
 		if (this.props.escapeExits) {
-			this.addKeyDownListener();
+			this.timeout.push(this.addKeyDownListener());
 		}
 
 		if (this.props.scrollDisabled) {
@@ -80,9 +83,9 @@ class Modal extends React.Component {
 		}
 
 		if (this.props.escapeExits && !prevProps.escapeExits) {
-			this.addKeyDownListener();
+			this.timeout.push(this.addKeyDownListener());
 		} else if (!this.props.escapeExits && prevProps.escapeExits) {
-			this.removeKeyDownListener();
+			this.timeout.push(this.removeKeyDownListener());
 		}
 	}
 
@@ -97,20 +100,27 @@ class Modal extends React.Component {
 			applicationNode.setAttribute('aria-hidden', 'false');
 		}
 
-		this.removeKeyDownListener();
+		this.timeout.push(this.removeKeyDownListener());
+		this.clearTimer();
 	}
 
 	addKeyDownListener() {
-		setTimeout(() => {
-			document.addEventListener('keydown', this.checkDocumentKeyDown);
+		return setTimeout(() => {
+			document.addEventListener("keydown", this.checkDocumentKeyDown);
 		});
 	}
 
 	removeKeyDownListener() {
-		setTimeout(() => {
-			document.removeEventListener('keydown', this.checkDocumentKeyDown);
+		return setTimeout(() => {
+			document.removeEventListener("keydown", this.checkDocumentKeyDown);
 		});
 	}
+
+	clearTimer = () => {
+		this.timeout?.forEach(timer => {
+			clearTimeout(timer);
+		});
+	};
 
 	render() {
 		const props = this.props;
