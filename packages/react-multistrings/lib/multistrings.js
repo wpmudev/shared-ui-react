@@ -46,7 +46,7 @@ export const MultiString = ({
     // regex pattern for removing escaped characters.
     const getRegexPatternForDisallowedChars = (disallowedCharsArray) => {
         const escapeRegExp = string => string.replace( /[.*+?^${}()|[\]\\]/g, '\\$&' ),
-            disallowedPattern = escapeRegExp( disallowedCharsArray?.join( ',' ) );
+            disallowedPattern = disallowedCharsArray.length ? escapeRegExp( disallowedCharsArray.join( ',' ) ) : '';
         return disallowedPattern;
     }
 
