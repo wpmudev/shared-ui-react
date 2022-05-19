@@ -17,7 +17,7 @@ const Input = ({
 
 	let fieldClasses = 'sui-form-field';
 
-	switch ( fieldSize ) {
+	switch (fieldSize) {
 		case 'sm':
 		case 'small':
 			fieldClasses += ' sui-input-sm';
@@ -33,7 +33,7 @@ const Input = ({
 			break;
 	}
 
-	if ( errorStatus ) {
+	if (errorStatus) {
 		fieldClasses += ' sui-form-field-error';
 	}
 
@@ -42,7 +42,7 @@ const Input = ({
 	suffix && (inputClasses += ' sui-field-has-suffix');
 	prefix && (inputClasses += ' sui-field-has-prefix');
 
-	switch ( size ) {
+	switch (size) {
 		case 'sm':
 		case 'small':
 			inputClasses += ' sui-input-sm';
@@ -59,28 +59,24 @@ const Input = ({
 	}
 
 	return (
-		<div className={ fieldClasses }>
-			{ label && (
-				<label htmlFor={ uniqueId } className="sui-label">
-					{ label }
+		<div className={fieldClasses}>
+			{label && (
+				<label htmlFor={uniqueId} className="sui-label">
+					{label}
 				</label>
 			)}
 
-			{prefix && (
-				<span class="sui-field-prefix">{prefix}</span>
+			{prefix && <span className="sui-field-prefix">{prefix}</span>}
+
+			<input id={uniqueId} type={type} className={inputClasses} {...props} />
+
+			{suffix && <span className="sui-field-suffix">{suffix}</span>}
+
+			{errorStatus && errorDescription && (
+				<div className="sui-error-message">{errorDescription}</div>
 			)}
 
-			<input id={ uniqueId } type={ type } className={ inputClasses } { ...props } />
-
-			{suffix && (
-				<span class="sui-field-suffix">{suffix}</span>
-			)}
-
-			{ errorStatus && errorDescription && (
-				<div className="sui-error-message">{ errorDescription }</div>
-			)}
-
-			{ description && <p className="sui-description">{ description }</p> }
+			{description && <p className="sui-description">{description}</p>}
 		</div>
 	);
 };

@@ -1,13 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
-export const Pagination = ({ limit, skip, results, skipToFirstLabel, previousLabel, nextLabel, skipToLastLabel, pagesToBottom, ...args }) => {
+export const Pagination = ({
+	limit,
+	skip,
+	results,
+	skipToFirstLabel,
+	previousLabel,
+	nextLabel,
+	skipToLastLabel,
+	pagesToBottom,
+	...args
+}) => {
 	const componentWrapper = args.children,
-		componentChildren = componentWrapper?.props?.children ? (componentWrapper?.props?.children?.length>1 ? [...componentWrapper.props.children] : [componentWrapper.props.children]) : [],
+		componentChildren = componentWrapper?.props?.children
+			? componentWrapper?.props?.children?.length > 1
+				? [...componentWrapper.props.children]
+				: [componentWrapper.props.children]
+			: [],
 		childElements = [...componentChildren],
 		elements = childElements.length,
-		pages = elements / limit > parseInt(elements / limit) ? parseInt(elements / limit) + 1 : elements / limit,
+		pages =
+			elements / limit > parseInt(elements / limit)
+				? parseInt(elements / limit) + 1
+				: elements / limit,
 		[pagesArray, setPagesArray] = useState([]),
-		[selectedPage, setSelectedPage] = useState("1"),
+		[selectedPage, setSelectedPage] = useState('1'),
 		[startIndex, setStartIndex] = useState(0),
 		[endIndex, setEndIndex] = useState(pages >= 5 ? 5 : pages),
 		[pageClickCounter, setPageClickCounter] = useState(0),
@@ -26,7 +43,7 @@ export const Pagination = ({ limit, skip, results, skipToFirstLabel, previousLab
 	}, [pageClickCounter]);
 
 	useEffect(() => {
-		if (selectedPage !== "1") {
+		if (selectedPage !== '1') {
 			setElementsStartIndex(selectedPage * limit - limit);
 			setElementsEndIndex(selectedPage * limit);
 		}
@@ -78,7 +95,7 @@ export const Pagination = ({ limit, skip, results, skipToFirstLabel, previousLab
 		setEndIndex(pages - endIndex >= 5 ? endIndex + 5 : pages);
 	};
 
-	const handlePageClick = async page => {
+	const handlePageClick = async (page) => {
 		setSelectedPage(page);
 		setPageClickCounter(pageClickCounter + 1);
 	};
@@ -99,7 +116,6 @@ export const Pagination = ({ limit, skip, results, skipToFirstLabel, previousLab
 		startIndex,
 		endIndex,
 		pages,
-		results,
 		skipToFirstLabel,
 		previousLabel,
 		nextLabel,
@@ -120,72 +136,100 @@ export const Pagination = ({ limit, skip, results, skipToFirstLabel, previousLab
 };
 
 export const PaginationResults = ({ ...properties }) => {
-	const items = React.Children.map(properties.childElements, data => React.cloneElement(data))?.slice(properties.elementsStartIndex, properties.elementsEndIndex);
-	return React.Children.map(properties.componentWrapper, data => React.cloneElement(data, '', items));
+	const items = React.Children.map(properties.childElements, (data) =>
+		React.cloneElement(data)
+	)?.slice(properties.elementsStartIndex, properties.elementsEndIndex);
+	return React.Children.map(properties.componentWrapper, (data) =>
+		React.cloneElement(data, '', items)
+	);
 };
 
 export const PaginationNav = ({ ...properties }) => {
 	return (
-		properties.pagesArray.length>1 &&
-		<div className="sui-pagination-wrap">
-			{properties.results && <span className="sui-pagination-results">{properties.elements} results</span>}
-			<ul className="sui-pagination">
-				{properties.skip && (
-					<li onClick={properties.handleSkipToFirstPage}>
-						<a disabled={properties.selectedPage <= 1}>
-							<span aria-hidden="false" className="sui-screen-reader-text">
-								{properties.skipToFirstLabel || "Go to first page"}
-							</span>
-							<span aria-hidden="true" title={properties.skipToFirstLabel || "Go to first page"} className="sui-icon-arrow-skip-back"></span>
-						</a>
-					</li>
+		properties.pagesArray.length > 1 && (
+			<div className="sui-pagination-wrap">
+				{properties.results && (
+					<span className="sui-pagination-results">{properties.elements} results</span>
 				)}
-				<li onClick={properties.handlePreviousPage}>
-					<a disabled={properties.selectedPage <= 1}>
-						<span aria-hidden="false" className="sui-screen-reader-text">
-							{properties.previousLabel || "Go to previous page"}
-						</span>
-						<span aria-hidden="true" title={properties.previousLabel || "Go to previous page"} className="sui-icon-chevron-left"></span>
-					</a>
-				</li>
-				{properties.startIndex > 0 && (
-					<li onClick={properties.handlePreviousEllipsis}>
-						<a>&#8230;</a>
-					</li>
-				)}
-				{properties.pagesArray?.slice(properties.startIndex, properties.endIndex)?.map((data, index) => {
-					return (
-						<li onClick={() => properties.handlePageClick(parseInt(data))} key={index}>
-							<a aria-selected={properties.selectedPage === data} className={properties.selectedPage == data ? "sui-active" : ""}>
-								{data}
+				<ul className="sui-pagination">
+					{properties.skip && (
+						<li onClick={properties.handleSkipToFirstPage}>
+							<a disabled={properties.selectedPage <= 1}>
+								<span aria-hidden="false" className="sui-screen-reader-text">
+									{properties.skipToFirstLabel || 'Go to first page'}
+								</span>
+								<span
+									aria-hidden="true"
+									title={properties.skipToFirstLabel || 'Go to first page'}
+									className="sui-icon-arrow-skip-back"
+								></span>
 							</a>
 						</li>
-					);
-				})}
-				{properties.endIndex < properties.pages && (
-					<li onClick={properties.handleNextEllipsis}>
-						<a>&#8230;</a>
-					</li>
-				)}
-				<li onClick={properties.handleNextPage}>
-					<a disabled={properties.selectedPage >= properties.pages}>
-						<span aria-hidden="false" className="sui-screen-reader-text">
-							{properties.nextLabel || "Go to next page."}
-						</span>
-						<span aria-hidden="true" title={properties.nextLabel || "Go to next page."} className="sui-icon-chevron-right"></span>
-					</a>
-				</li>
-				{properties.skip && (
-					<li onClick={properties.handleSkipToLastPage}>
-						<a disabled={properties.selectedPage >= properties.pages}>
+					)}
+					<li onClick={properties.handlePreviousPage}>
+						<a disabled={properties.selectedPage <= 1}>
 							<span aria-hidden="false" className="sui-screen-reader-text">
-								{properties.skipToLastLabel || "Go to last page."}
+								{properties.previousLabel || 'Go to previous page'}
 							</span>
-							<span aria-hidden="true" title={properties.skipToLastLabel || "Go to last page"} className="sui-icon-arrow-skip-forward"></span>
+							<span
+								aria-hidden="true"
+								title={properties.previousLabel || 'Go to previous page'}
+								className="sui-icon-chevron-left"
+							></span>
 						</a>
 					</li>
-				)}
-			</ul>
-		</div>
+					{properties.startIndex > 0 && (
+						<li onClick={properties.handlePreviousEllipsis}>
+							<a>&#8230;</a>
+						</li>
+					)}
+					{properties.pagesArray
+						?.slice(properties.startIndex, properties.endIndex)
+						?.map((data, index) => {
+							return (
+								<li onClick={() => properties.handlePageClick(parseInt(data))} key={index}>
+									<a
+										aria-selected={properties.selectedPage === data}
+										className={properties.selectedPage == data ? 'sui-active' : ''}
+									>
+										{data}
+									</a>
+								</li>
+							);
+						})}
+					{properties.endIndex < properties.pages && (
+						<li onClick={properties.handleNextEllipsis}>
+							<a>&#8230;</a>
+						</li>
+					)}
+					<li onClick={properties.handleNextPage}>
+						<a disabled={properties.selectedPage >= properties.pages}>
+							<span aria-hidden="false" className="sui-screen-reader-text">
+								{properties.nextLabel || 'Go to next page.'}
+							</span>
+							<span
+								aria-hidden="true"
+								title={properties.nextLabel || 'Go to next page.'}
+								className="sui-icon-chevron-right"
+							></span>
+						</a>
+					</li>
+					{properties.skip && (
+						<li onClick={properties.handleSkipToLastPage}>
+							<a disabled={properties.selectedPage >= properties.pages}>
+								<span aria-hidden="false" className="sui-screen-reader-text">
+									{properties.skipToLastLabel || 'Go to last page.'}
+								</span>
+								<span
+									aria-hidden="true"
+									title={properties.skipToLastLabel || 'Go to last page'}
+									className="sui-icon-arrow-skip-forward"
+								></span>
+							</a>
+						</li>
+					)}
+				</ul>
+			</div>
+		)
 	);
 };
