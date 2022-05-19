@@ -1,9 +1,9 @@
 // https://github.com/davidtheclark/react-aria-modal/blob/master/src/react-aria-modal.js
 
-import React from "react";
-import * as noScroll from "./no-scroll";
-import { ReactFocusTrap } from "./focus-trap-react";
-import { displace } from "./react-displace";
+import React from 'react';
+import * as noScroll from './no-scroll';
+import { ReactFocusTrap } from './focus-trap-react';
+import { displace } from './react-displace';
 
 class Modal extends React.Component {
 	constructor(props) {
@@ -14,7 +14,7 @@ class Modal extends React.Component {
 			return this.props.applicationNode;
 		};
 
-		this.checkUnderlayClick = event => {
+		this.checkUnderlayClick = (event) => {
 			if (
 				(this.dialogNode &&
 					event.target instanceof Node &&
@@ -22,34 +22,30 @@ class Modal extends React.Component {
 				// If the click is on the scrollbar we don't want to close the modal.
 				(event.target instanceof Element &&
 					event.target.ownerDocument &&
-					(event.pageX >
-						event.target.ownerDocument.documentElement.offsetWidth ||
-						event.pageY >
-							event.target.ownerDocument.documentElement.offsetHeight))
+					(event.pageX > event.target.ownerDocument.documentElement.offsetWidth ||
+						event.pageY > event.target.ownerDocument.documentElement.offsetHeight))
 			)
 				return;
 			this.exit(event);
 		};
 
-		this.checkDocumentKeyDown = event => {
+		this.checkDocumentKeyDown = (event) => {
 			if (
 				this.props.escapeExits &&
-				(event.key === "Escape" || event.key === "Esc" || event.keyCode === 27)
+				(event.key === 'Escape' || event.key === 'Esc' || event.keyCode === 27)
 			) {
 				this.exit(event);
 			}
 		};
 
-		this.exit = event => {
+		this.exit = (event) => {
 			if (this.props.onExit) {
 				this.props.onExit(event);
 			}
 		};
 
 		if (!this.props.titleText && !this.props.titleId) {
-			throw new Error(
-				"react-aria-modal instances should have a `titleText` or `titleId`"
-			);
+			throw new Error('react-aria-modal instances should have a `titleText` or `titleId`');
 		}
 		this.timeout = [];
 	}
@@ -101,7 +97,7 @@ class Modal extends React.Component {
 		const applicationNode = this.getApplicationNode();
 
 		if (applicationNode && applicationNode instanceof Element) {
-			applicationNode.setAttribute("aria-hidden", "false");
+			applicationNode.setAttribute('aria-hidden', 'false');
 		}
 
 		this.timeout.push(this.removeKeyDownListener());
@@ -154,15 +150,14 @@ class Modal extends React.Component {
 
 		if (props.underlayStyle) {
 			for (const key in props.underlayStyle) {
-				if (!Object.prototype.hasOwnProperty.call(props.underlayStyle, key))
-					continue;
+				if (!Object.prototype.hasOwnProperty.call(props.underlayStyle, key)) continue;
 				style[key] = props.underlayStyle[key];
 			}
 		}
 
 		const underlayProps = {
 			className: props.underlayClass,
-			style: style
+			style: style,
 		};
 
 		if (props.underlayClickExits) {
@@ -205,27 +200,26 @@ class Modal extends React.Component {
 
 		if (props.dialogStyle) {
 			for (const key in props.dialogStyle) {
-				if (!Object.prototype.hasOwnProperty.call(props.dialogStyle, key))
-					continue;
+				if (!Object.prototype.hasOwnProperty.call(props.dialogStyle, key)) continue;
 				dialogStyle[key] = props.dialogStyle[key];
 			}
 		}
 
 		const dialogProps = {
-			key: "b",
-			ref: el => {
+			key: 'b',
+			ref: (el) => {
 				this.dialogNode = el;
 			},
-			role: props.alert ? "alertdialog" : "dialog",
+			role: props.alert ? 'alertdialog' : 'dialog',
 			id: props.dialogId,
 			className: props.dialogClass,
-			style: dialogStyle
+			style: dialogStyle,
 		};
 
 		if (props.titleId) {
-			dialogProps["aria-labelledby"] = props.titleId;
+			dialogProps['aria-labelledby'] = props.titleId;
 		} else if (props.titleText) {
-			dialogProps["aria-label"] = props.titleText;
+			dialogProps['aria-label'] = props.titleText;
 		}
 
 		if (props.focusDialog) {
@@ -239,14 +233,10 @@ class Modal extends React.Component {
 			}
 		}
 
-		const childrenArray = [
-			React.createElement("div", { ...dialogProps }, props.children)
-		];
+		const childrenArray = [React.createElement('div', { ...dialogProps }, props.children)];
 
 		if (props.verticallyCenter) {
-			childrenArray.unshift(
-				React.createElement("div", { key: "a", style: verticalCenterStyle })
-			);
+			childrenArray.unshift(React.createElement('div', { key: 'a', style: verticalCenterStyle }));
 		}
 
 		const focusTrapOptions = props.focusTrapOptions || {};
@@ -262,14 +252,14 @@ class Modal extends React.Component {
 		return React.createElement(
 			ReactFocusTrap,
 			{ focusTrapOptions: focusTrapOptions, paused: props.focusTrapPaused },
-			React.createElement("div", { ...underlayProps }, childrenArray)
+			React.createElement('div', { ...underlayProps }, childrenArray)
 		);
 	}
 }
 
 Modal.defaultProps = {
 	underlayProps: {},
-	dialogId: "react-aria-modal-dialog",
+	dialogId: 'react-aria-modal-dialog',
 	// @edited
 	// underlayClickExits: true,
 	escapeExits: true,
@@ -277,7 +267,7 @@ Modal.defaultProps = {
 	// underlayColor: "rgba(0,0,0,0.5)",
 	// includeDefaultStyles: true,
 	focusTrapPaused: false,
-	scrollDisabled: true
+	scrollDisabled: true,
 };
 
 const AriaModal = displace(Modal);

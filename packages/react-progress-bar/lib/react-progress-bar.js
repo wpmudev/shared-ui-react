@@ -14,14 +14,14 @@ export const ProgressBar = ({
 	...props
 }) => {
 	const extraClasses = 'undefined' !== typeof classes && '' !== classes ? ' ' + classes : '';
-	const value = 'undefined' !== typeof now && !isNaN(now) ? now : 0;
+	const value = 'undefined' !== typeof now && !Number.isNaN(now) ? now : 0;
 
 	const lang = Object.assign(
 		{
 			cancel: 'Cancel',
 			legend: 'Status...',
 		},
-		sourceLang,
+		sourceLang
 	);
 
 	const loaderMarkup = hasLoader && (

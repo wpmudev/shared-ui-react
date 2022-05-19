@@ -2,10 +2,12 @@ name: "Chromatic"
 on:
   pull_request_target:
     branches:
-      - "master"
+      - master
+      - release/**
   push:
     branches:
-      - "master"
+      - master
+      - release/**
 
 jobs:
   test:
