@@ -101,7 +101,7 @@ export const MultiString = ({
                 let item = value.replace( regex, '' );
                 item ? newValues.push( item ) : '';
             }
-            e.target.value = newValues.join('');
+            e.target.value = newValues?.join('');
         }
         return;
     }
