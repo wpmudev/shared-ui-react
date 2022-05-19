@@ -1,19 +1,19 @@
-import React, { useEffect } from "react";
-import { Modal } from "../lib/react-modal";
-import { Button } from "@wpmudev/react-button";
-import { ButtonIcon } from "@wpmudev/react-button-icon";
-import { Input } from "@wpmudev/react-input";
-import banner from "./images/beehive-welcome.png";
-import image1x from "./images/hustle-footer.png";
-import image2x from "./images/hustle-footer@2x.png";
+import React, { useEffect } from 'react';
+import { Modal } from '../lib/react-modal';
+import { Button } from '@wpmudev/react-button';
+import { ButtonIcon } from '@wpmudev/react-button-icon';
+import { Input } from '@wpmudev/react-input';
+import banner from './images/beehive-welcome.png';
+import image1x from './images/hustle-footer.png';
+import image2x from './images/hustle-footer@2x.png';
 
 export default {
-	title: "Containers/Modal/Replace",
-	component: Modal
+	title: 'Containers/Modal/Replace',
+	component: Modal,
 };
 
 const SampleOneModalOne = ({ isOpen, setIsOpen, switchModals }) => {
-	const [inputValue, setInputValue] = React.useState("");
+	const [inputValue, setInputValue] = React.useState('');
 
 	const replaceModalContent = ({ closeModal }) => {
 		const closeThisModal = () => {
@@ -39,7 +39,7 @@ const SampleOneModalOne = ({ isOpen, setIsOpen, switchModals }) => {
 					/>
 
 					<h3 id="sui-modal-one__title" className="sui-box-title sui-lg">
-						{"Welcome to Beehive Pro"}
+						{'Welcome to Beehive Pro'}
 					</h3>
 
 					<p className="sui-description">
@@ -53,24 +53,19 @@ const SampleOneModalOne = ({ isOpen, setIsOpen, switchModals }) => {
 					<div className="sui-border-frame">
 						<p className="sui-description">
 							{
-								"Easily connect with Google and paste the access code below. Please note, we only retrieve analytics information and no personally identifiable data."
+								'Easily connect with Google and paste the access code below. Please note, we only retrieve analytics information and no personally identifiable data.'
 							}
 						</p>
 
 						<Input
 							label="Access Code"
 							placeholder="Place access code here"
-							onChange={e => setInputValue(e.target.value)}
+							onChange={(e) => setInputValue(e.target.value)}
 							value={inputValue}
 							type="text"
 						/>
 
-						<Button
-							id="auth-button"
-							onClick={switchModals}
-							label="Authorize"
-							color="blue"
-						/>
+						<Button id="auth-button" onClick={switchModals} label="Authorize" color="blue" />
 					</div>
 				</div>
 			</div>
@@ -124,12 +119,12 @@ const SampleOneModalTwo = ({ isOpen, setIsOpen, switchModals }) => {
 					<span className="sui-icon-loader sui-loading" aria-hidden="true" />
 
 					<h3 id="sui-modal-two__title" className="sui-box-title sui-lg">
-						{"Finishing Up..."}
+						{'Finishing Up...'}
 					</h3>
 
 					<p className="sui-description">
-						Please wait a few moments while we set up your account. Note that
-						data can take up to 24 hours to display.
+						Please wait a few moments while we set up your account. Note that data can take up to 24
+						hours to display.
 					</p>
 				</div>
 
@@ -180,26 +175,21 @@ const SampleOneContent = () => {
 const sampleOneTemplate = () => <SampleOneContent />;
 
 export const SampleOne = sampleOneTemplate.bind({});
-SampleOne.storyName = "Sample 1";
+SampleOne.storyName = 'Sample 1';
 
 const SampleTwoModalOne = ({ isOpen }) => {
 	const replaceModalContent = () => {
 		return (
 			<div className="sui-box">
 				<div className="sui-box-header sui-flatten sui-content-center sui-spacing-top--60 sui-spacing-bottom--30">
-					<span
-						className="sui-icon-loader sui-loading sui-lg"
-						aria-hidden="true"
-					/>
+					<span className="sui-icon-loader sui-loading sui-lg" aria-hidden="true" />
 
 					<h3 id="sample-modal-one__title" className="sui-box-title sui-lg">
-						{"Publishing..."}
+						{'Publishing...'}
 					</h3>
 
 					<p className="sui-description">
-						{
-							"Great work! Please hold tight a few moments while we publish your form to the world."
-						}
+						{'Great work! Please hold tight a few moments while we publish your form to the world.'}
 					</p>
 				</div>
 
@@ -244,19 +234,15 @@ const SampleTwoModalTwo = ({ isOpen, setIsOpen }) => {
 						onClick={closeThisModal}
 					/>
 
-					<span
-						className="sui-icon-check sui-lg"
-						style={{ marginBottom: 10 }}
-						aria-hidden="true"
-					/>
+					<span className="sui-icon-check sui-lg" style={{ marginBottom: 10 }} aria-hidden="true" />
 
 					<h3 id="sample-modal-one__title" className="sui-box-title sui-lg">
-						{"Ready to go!"}
+						{'Ready to go!'}
 					</h3>
 
 					<p className="sui-description">
 						{
-							"Your form is now ready to be embedded into a page or template of your choice. Simply copy and paste the shortcode below to display it!"
+							'Your form is now ready to be embedded into a page or template of your choice. Simply copy and paste the shortcode below to display it!'
 						}
 					</p>
 				</div>
@@ -315,4 +301,4 @@ const SampleTwoContent = () => {
 const sampleTwoTemplate = () => <SampleTwoContent />;
 
 export const SampleTwo = sampleTwoTemplate.bind({});
-SampleTwo.storyName = "Sample 2";
+SampleTwo.storyName = 'Sample 2';

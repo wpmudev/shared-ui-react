@@ -2,7 +2,7 @@ import React from 'react';
 import { Dropdown } from '../lib/react-dropdown';
 
 export default {
-    title: 'Components/Dropdown/Modifiers',
+	title: 'Components/Dropdown/Modifiers',
 	component: Dropdown,
 	parameters: {
 		actions: {
@@ -17,14 +17,12 @@ export default {
 			},
 		},
 	},
-}
+};
 
 const Template = ({ children }) => {
 	return (
 		<div className="sui-box">
-			<div className="sui-box-body">
-				{children}
-			</div>
+			<div className="sui-box-body">{children}</div>
 		</div>
 	);
 };
@@ -38,10 +36,8 @@ const Title = ({ children }) => {
 		lineHeight: 22 + 'px',
 	};
 
-	return (
-		<h3 style={ customStyles }>{ children }</h3>
-	);
-}
+	return <h3 style={customStyles}>{children}</h3>;
+};
 
 const Description = ({ children }) => {
 	const customStyles = {
@@ -50,11 +46,11 @@ const Description = ({ children }) => {
 	};
 
 	return (
-		<p className="sui-description" style={ customStyles }>
-			{ children }
+		<p className="sui-description" style={customStyles}>
+			{children}
 		</p>
 	);
-}
+};
 
 const Code = ({ spaceTop = 5, spaceBottom = 20, children }) => {
 	const customStyles = {
@@ -65,39 +61,44 @@ const Code = ({ spaceTop = 5, spaceBottom = 20, children }) => {
 		padding: 5 + 'px ' + 10 + 'px',
 	};
 
-	return (
-		<code style={ customStyles }>{ children }</code>
-	);
-}
+	return <code style={customStyles}>{children}</code>;
+};
 
-const Section = ({ title, description, code, code2, isDefault = false, isLast = false, children }) => {
+const Section = ({
+	title,
+	description,
+	code,
+	code2,
+	isDefault = false,
+	isLast = false,
+	children,
+}) => {
 	return (
 		<>
-			{ title && '' !== title && (
-				<Title>{ title }{ isDefault && (
-					<span
-						className="sui-tag sui-tag-sm sui-tag-yellow"
-						style={ { marginLeft: 10 + 'px' } }
-						aria-hidden="true"
-					>Default</span>
-				)}</Title>
+			{title && '' !== title && (
+				<Title>
+					{title}
+					{isDefault && (
+						<span
+							className="sui-tag sui-tag-sm sui-tag-yellow"
+							style={{ marginLeft: 10 + 'px' }}
+							aria-hidden="true"
+						>
+							Default
+						</span>
+					)}
+				</Title>
 			)}
-			{ description && '' !== description && (
-				<Description>{ description }</Description>
+			{description && '' !== description && <Description>{description}</Description>}
+			{code && '' !== code && (
+				<Code {...(code2 && '' !== code2 && { spaceBottom: 5 })}>{code}</Code>
 			)}
-			{ code && '' !== code && (
-				<Code { ... ( code2 && '' !== code2 ) && { spaceBottom: 5 } }>{ code }</Code>
-			)}
-			{ code2 && '' !== code2 && (
-				<Code>{ code2 }</Code>
-			)}
-			<div className="sui-border-frame">
-				{ children }
-			</div>
-			{ !isLast && <hr /> }
+			{code2 && '' !== code2 && <Code>{code2}</Code>}
+			<div className="sui-border-frame">{children}</div>
+			{!isLast && <hr />}
 		</>
 	);
-}
+};
 
 export const position = () => {
 	return (
@@ -105,8 +106,9 @@ export const position = () => {
 			<Section
 				title="Left"
 				description="The dropdown list is aligned to the left."
-				code="&lt;Dropdown position=&quot;left&quot;&gt; ... &lt;/Dropdown&gt;"
-				isDefault={ true }>
+				code='&lt;Dropdown position="left"&gt; ... &lt;/Dropdown&gt;'
+				isDefault={true}
+			>
 				<Dropdown position="left">
 					<div name="Option 1" />
 					<div name="Option 2" />
@@ -117,7 +119,8 @@ export const position = () => {
 			<Section
 				title="Right"
 				description="The dropdown list is aligned to the right."
-				code="&lt;Dropdown position=&quot;right&quot;&gt; ... &lt;/Dropdown&gt;">
+				code='&lt;Dropdown position="right"&gt; ... &lt;/Dropdown&gt;'
+			>
 				<Dropdown position="right">
 					<div name="Option 1" />
 					<div name="Option 2" />
@@ -128,8 +131,9 @@ export const position = () => {
 			<Section
 				title="Center"
 				description="The dropdown list is aligned to the center."
-				code="&lt;Dropdown position=&quot;center&quot;&gt; ... &lt;/Dropdown&gt;"
-				isLast={ true }>
+				code='&lt;Dropdown position="center"&gt; ... &lt;/Dropdown&gt;'
+				isLast={true}
+			>
 				<Dropdown position="center">
 					<div name="Option 1" />
 					<div name="Option 2" />
@@ -147,8 +151,9 @@ export const icon = () => {
 			<Section
 				title="No Icon"
 				description="By default each option doesn't contain an icon."
-				code="&lt;Dropdown&gt; &lt;div name=&quot;Option Name&quot; /&gt; &lt;/Dropdown&gt;"
-				isDefault={ true }>
+				code='&lt;Dropdown&gt; &lt;div name="Option Name" /&gt; &lt;/Dropdown&gt;'
+				isDefault={true}
+			>
 				<Dropdown>
 					<div name="Option 1" />
 					<div name="Option 2" />
@@ -159,8 +164,9 @@ export const icon = () => {
 			<Section
 				title="With Icon"
 				description="Place an icon at the left of the option name."
-				code="&lt;Dropdown&gt; &lt;div name=&quot;Option Name&quot; icon=&quot;icon-name&quot; /&gt; &lt;/Dropdown&gt;"
-				isLast={ true }>
+				code='&lt;Dropdown&gt; &lt;div name="Option Name" icon="icon-name" /&gt; &lt;/Dropdown&gt;'
+				isLast={true}
+			>
 				<Dropdown>
 					<div name="Option 1" icon="wpmudev-logo" />
 					<div name="Option 2" icon="hustle" />
@@ -178,10 +184,11 @@ export const color = () => {
 			<Section
 				title="Gray"
 				description="By default, the dropdown options label have gray color."
-				code="&lt;Dropdown&gt;
-					&lt;div name=&quot;Option Name&quot; /&gt;
-				&lt;/Dropdown&gt;"
-				isDefault={ true }>
+				code='&lt;Dropdown&gt;
+					&lt;div name="Option Name" /&gt;
+				&lt;/Dropdown&gt;'
+				isDefault={true}
+			>
 				<Dropdown>
 					<div name="Option 1" />
 					<div name="Option 2" />
@@ -192,9 +199,10 @@ export const color = () => {
 			<Section
 				title="Blue"
 				description="If you need to highlight a dropdown option as a primary action, you might require this color variation."
-				code="&lt;Dropdown&gt;
-					&lt;div name=&quot;Option Name&quot; color=&quot;blue&quot; /&gt;
-				&lt;/Dropdown&gt;">
+				code='&lt;Dropdown&gt;
+					&lt;div name="Option Name" color="blue" /&gt;
+				&lt;/Dropdown&gt;'
+			>
 				<Dropdown>
 					<div name="Option 1" color="blue" />
 					<div name="Option 2" />
@@ -205,9 +213,10 @@ export const color = () => {
 			<Section
 				title="Red"
 				description="This color variation is commonly associated to delete actions."
-				code="&lt;Dropdown&gt;
-					&lt;div name=&quot;Option Name&quot; color=&quot;red&quot; /&gt;
-				&lt;/Dropdown&gt;">
+				code='&lt;Dropdown&gt;
+					&lt;div name="Option Name" color="red" /&gt;
+				&lt;/Dropdown&gt;'
+			>
 				<Dropdown>
 					<div name="Option 1" color="red" />
 					<div name="Option 2" />
@@ -218,9 +227,10 @@ export const color = () => {
 			<Section
 				title="Green"
 				description="This one works as an alternative color for the dropdown option."
-				code="&lt;Dropdown&gt;
-					&lt;div name=&quot;Option Name&quot; color=&quot;green&quot; /&gt;
-				&lt;/Dropdown&gt;">
+				code='&lt;Dropdown&gt;
+					&lt;div name="Option Name" color="green" /&gt;
+				&lt;/Dropdown&gt;'
+			>
 				<Dropdown>
 					<div name="Option 1" color="green" />
 					<div name="Option 2" />
@@ -231,9 +241,10 @@ export const color = () => {
 			<Section
 				title="Purple"
 				description="This one works as an alternative color for the dropdown option."
-				code="&lt;Dropdown&gt;
-					&lt;div name=&quot;Option Name&quot; color=&quot;purple&quot; /&gt;
-				&lt;/Dropdown&gt;">
+				code='&lt;Dropdown&gt;
+					&lt;div name="Option Name" color="purple" /&gt;
+				&lt;/Dropdown&gt;'
+			>
 				<Dropdown>
 					<div name="Option 1" color="purple" />
 					<div name="Option 2" />
@@ -244,10 +255,11 @@ export const color = () => {
 			<Section
 				title="Yellow"
 				description="This one works as an alternative color for the dropdown option."
-				code="&lt;Dropdown&gt;
-					&lt;div name=&quot;Option Name&quot; color=&quot;yellow&quot; /&gt;
-				&lt;/Dropdown&gt;"
-				isLast={ true }>
+				code='&lt;Dropdown&gt;
+					&lt;div name="Option Name" color="yellow" /&gt;
+				&lt;/Dropdown&gt;'
+				isLast={true}
+			>
 				<Dropdown>
 					<div name="Option 1" color="yellow" />
 					<div name="Option 2" />

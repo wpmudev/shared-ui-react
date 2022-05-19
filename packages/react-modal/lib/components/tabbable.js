@@ -1,21 +1,21 @@
 // https://github.com/davidtheclark/tabbable/blob/master/src/index.js
 
 let candidateSelectors = [
-	"input",
-	"select",
-	"textarea",
-	"a[href]",
-	"button",
-	"[tabindex]",
-	"audio[controls]",
-	"video[controls]",
-	'[contenteditable]:not([contenteditable="false"])'
+	'input',
+	'select',
+	'textarea',
+	'a[href]',
+	'button',
+	'[tabindex]',
+	'audio[controls]',
+	'video[controls]',
+	'[contenteditable]:not([contenteditable="false"])',
 ];
 
-let candidateSelector = candidateSelectors.join(",");
+let candidateSelector = candidateSelectors.join(',');
 
 let matches =
-	typeof Element === "undefined"
+	typeof Element === 'undefined'
 		? () => false
 		: Element.prototype.matches ||
 		  Element.prototype.msMatchesSelector ||
@@ -64,14 +64,14 @@ export function tabbable(el, optionalOptions) {
 			orderedTabbables.push({
 				documentOrder: i,
 				tabIndex: candidateTabindex,
-				node: candidate
+				node: candidate,
 			});
 		}
 	}
 
 	let tabbableNodes = orderedTabbables
 		.sort(sortOrderedTabbables)
-		.map(a => a.node)
+		.map((a) => a.node)
 		.concat(regularTabbables);
 
 	return tabbableNodes;
@@ -81,11 +81,7 @@ tabbable.isTabbable = isTabbable;
 tabbable.isFocusable = isFocusable;
 
 function isNodeMatchingSelectorTabbable(node) {
-	if (
-		!isNodeMatchingSelectorFocusable(node) ||
-		isNonTabbableRadio(node) ||
-		getTabindex(node) < 0
-	) {
+	if (!isNodeMatchingSelectorFocusable(node) || isNonTabbableRadio(node) || getTabindex(node) < 0) {
 		return false;
 	}
 
@@ -94,7 +90,7 @@ function isNodeMatchingSelectorTabbable(node) {
 
 function isTabbable(node) {
 	if (!node) {
-		throw new Error("No node provided");
+		throw new Error('No node provided');
 	}
 
 	if (matches.call(node, candidateSelector) === false) {
@@ -112,11 +108,11 @@ function isNodeMatchingSelectorFocusable(node) {
 	return true;
 }
 
-let focusableCandidateSelector = candidateSelectors.concat("iframe").join(",");
+let focusableCandidateSelector = candidateSelectors.concat('iframe').join(',');
 
 function isFocusable(node) {
 	if (!node) {
-		throw new Error("No node provided");
+		throw new Error('No node provided');
 	}
 
 	// Added this to make TypeScript work.
@@ -130,7 +126,7 @@ function isFocusable(node) {
 }
 
 function getTabindex(node) {
-	let tabindexAttr = parseInt(node.getAttribute("tabindex") || "", 10);
+	let tabindexAttr = parseInt(node.getAttribute('tabindex') || '', 10);
 
 	if (!isNaN(tabindexAttr)) {
 		return tabindexAttr;
@@ -146,25 +142,23 @@ function getTabindex(node) {
 }
 
 function sortOrderedTabbables(a, b) {
-	return a.tabIndex === b.tabIndex
-		? a.documentOrder - b.documentOrder
-		: a.tabIndex - b.tabIndex;
+	return a.tabIndex === b.tabIndex ? a.documentOrder - b.documentOrder : a.tabIndex - b.tabIndex;
 }
 
 function isContentEditable(node) {
-	return node.contentEditable === "true";
+	return node.contentEditable === 'true';
 }
 
 function isInput(node) {
-	return node.tagName === "INPUT";
+	return node.tagName === 'INPUT';
 }
 
 function isHiddenInput(node) {
-	return isInput(node) && node.type === "hidden";
+	return isInput(node) && node.type === 'hidden';
 }
 
 function isRadio(node) {
-	return isInput(node) && node.type === "radio";
+	return isInput(node) && node.type === 'radio';
 }
 
 function isNonTabbableRadio(node) {
@@ -196,9 +190,7 @@ function isTabbableRadio(node) {
 	// This won't account for the edge case where you have radio groups with the same
 	// in separate forms on the same page.
 	let radioSet = Array.from(
-		node.ownerDocument.querySelectorAll(
-			'input[type="radio"][name="' + node.name + '"]'
-		)
+		node.ownerDocument.querySelectorAll('input[type="radio"][name="' + node.name + '"]')
 	);
 
 	let checked = getCheckedRadio(radioSet);
@@ -209,7 +201,5 @@ function isTabbableRadio(node) {
 function isHidden(node) {
 	// offsetParent being null will allow detecting cases where an element is invisible or inside an invisible element,
 	// as long as the element does not use position: fixed. For them, their visibility has to be checked directly as well.
-	return (
-		node.offsetParent === null || getComputedStyle(node).visibility === "hidden"
-	);
+	return node.offsetParent === null || getComputedStyle(node).visibility === 'hidden';
 }
