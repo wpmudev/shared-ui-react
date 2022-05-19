@@ -36,10 +36,11 @@
 			"error",
 			{
 				"printWidth": 100,
-				"trailingComma": "es5",
-				"useTabs": true,
 				"tabWidth": 2,
-				"singleQuote": true
+				"useTabs": true,
+				"singleQuote": true,
+				"trailingComma": "es5",
+				"endOfLine": "lf"
 			}
 		],
 		"react/jsx-uses-react": "error"
