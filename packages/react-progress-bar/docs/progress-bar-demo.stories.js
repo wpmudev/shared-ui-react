@@ -5,14 +5,9 @@ import { action } from '@storybook/addon-actions';
 export default {
 	title: 'Components/Progress Bar',
 	component: ProgressBar,
-	parameters: {
-		notes: {
-			disabled: true,
-		},
-	},
 };
 
-export const demo = args => <ProgressBar { ...args } />;
+export const demo = (args) => <ProgressBar {...args} />;
 demo.storyName = 'Demo';
 demo.args = {
 	now: 0,
@@ -26,7 +21,7 @@ demo.args = {
 		legend: 'Status...',
 	},
 	cbFunction: () => {
-		action( 'click' )( 'Loading process interrupted.' );
+		action('click')('Loading process interrupted.');
 	},
 };
 demo.argTypes = {

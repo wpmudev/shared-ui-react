@@ -8,20 +8,20 @@ export default {
 		actions: {
 			disable: true,
 		},
-		notes: {
-			disable: true,
-		},
 	},
 };
 
-export const demo = args => {
+export const demo = (args) => {
 	return (
-		<Notifications { ...args } >
-			<p>Nulla vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec ullamcorper nulla non metus auctor fringilla. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+		<Notifications {...args}>
 			<p>
-				<button className="sui-button sui-button-ghost">
-					Click Here
-				</button>
+				Nulla vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet, consectetur
+				adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Morbi leo
+				risus, porta ac consectetur ac, vestibulum at eros. Donec ullamcorper nulla non metus auctor
+				fringilla. Nullam id dolor id nibh ultricies vehicula ut id elit.
+			</p>
+			<p>
+				<button className="sui-button sui-button-ghost">Click Here</button>
 			</p>
 		</Notifications>
 	);
@@ -32,7 +32,8 @@ demo.argTypes = {
 		type: {
 			required: true,
 		},
-		description: 'This component supports children content, just make sure it is split in paragraphs to maintain the correct spacing.',
+		description:
+			'This component supports children content, just make sure it is split in paragraphs to maintain the correct spacing.',
 		table: {
 			type: { summary: null },
 		},
@@ -41,24 +42,19 @@ demo.argTypes = {
 		},
 	},
 	type: {
-		description: 'Use this argument to change notifications color based on the type of notice you want to show.',
+		description:
+			'Use this argument to change notifications color based on the type of notice you want to show.',
 		table: {
 			type: { summary: 'string' },
 		},
 		control: {
 			type: 'select',
-			options: [
-				'',
-				'info',
-				'success',
-				'error',
-				'warning',
-				'upsell',
-			],
+			options: ['', 'info', 'success', 'error', 'warning', 'upsell'],
 		},
 	},
 	dismiss: {
-		description: 'This argument will show a dismiss button that will hide the notification after clicking on it.',
+		description:
+			'This argument will show a dismiss button that will hide the notification after clicking on it.',
 		table: {
 			type: { summary: 'boolean' },
 		},
@@ -76,18 +72,20 @@ demo.argTypes = {
 		},
 	},
 	cbFunction: {
-		description: 'Use this property to call another <strong>function</strong> into the "dismiss button" <strong>onClick</strong> function.',
+		description:
+			'Use this property to call another <strong>function</strong> into the "dismiss button" <strong>onClick</strong> function.',
 		table: {
-			type: { summary: 'function' }
+			type: { summary: 'function' },
 		},
 	},
 	sourceLang: {
-		description: 'This argument allows you to edit the text of some static elements, like the dismiss button label.',
+		description:
+			'This argument allows you to edit the text of some static elements, like the dismiss button label.',
 		table: {
 			type: {
 				summary: 'object',
 				detail: `"dismiss": "Hide Notification"`,
-			}
+			},
 		},
 	},
 };

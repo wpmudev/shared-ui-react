@@ -84,7 +84,7 @@ const Button = ({
 			disabled: props.disabled || loading,
 			...props,
 		},
-		loading ? loader : content,
+		loading ? loader : content
 	);
 };
 
