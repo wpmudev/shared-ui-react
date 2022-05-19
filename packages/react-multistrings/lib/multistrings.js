@@ -53,7 +53,7 @@ export const MultiString = ({
     // build items for multistring list items.
     const buildItems = (inputId, placeholder, items, disallowedCharsArray) => {
         return (
-            <ul className="sui-multistrings-list" onClick={() => inputRef.current.focus()}>
+            <ul className="sui-multistrings-list" onClick={() => inputRef.current.focus()} tabIndex="-1">
                 {items && items.map((item, index) => {
                     return (
                         <li key={index} title={item}>
