@@ -8,7 +8,7 @@ export const MultiString = ({
     placeholder,
     description,
     values = [],
-    disallowedChars = '',
+    disallowedChars = ''
 }) => {
     const inputRef = useRef(null);
     const [items, setItems] = useState(values);
@@ -20,7 +20,7 @@ export const MultiString = ({
         handleSetValues(values);
     }, []);
 
-    // build disallowed chars array.
+    // convert disallowed  
     const getDisallowedChars = ( disallowedChars ) => {
         const disallowedCharsArray = [];
         let customDisallowedKeys = disallowedChars;
@@ -28,14 +28,10 @@ export const MultiString = ({
             if ( 'number' === typeof customDisallowedKeys ) {
                 customDisallowedKeys = customDisallowedKeys.toString();
             }
-            // Make an array from the user defined keys.
             const customKeysArray = customDisallowedKeys.split( ',' );
             for ( let key of customKeysArray ) {
-                // Convert to integer.
                 const intKey = parseInt( key, 10 );
-                // And filter out any NaN.
                 if ( ! isNaN( intKey ) ) {
-                    // Convert ascii code to character.
                     disallowedCharsArray.push( String.fromCharCode( intKey ) );
                 } else {
                     disallowedCharsArray.push( key );
@@ -47,13 +43,14 @@ export const MultiString = ({
 
     const disallowedCharsArray = disallowedChars ? getDisallowedChars(disallowedChars) : '';
 
-    // regex pattern for disallowed characters
+    // regex pattern for removing escaped characters.
     const getRegexPatternForDisallowedChars = (disallowedCharsArray) => {
         const escapeRegExp = string => string.replace( /[.*+?^${}()|[\]\\]/g, '\\$&' ),
-            disallowedPattern = escapeRegExp( disallowedCharsArray.join( ',' ) );
+            disallowedPattern = escapeRegExp( disallowedCharsArray?.join( ',' ) );
         return disallowedPattern;
     }
 
+    // build items for multistring list items.
     const buildItems = (inputId, placeholder, items, disallowedCharsArray) => {
         return (
             <ul className="sui-multistrings-list" onClick={() => inputRef.current.focus()}>
@@ -73,19 +70,18 @@ export const MultiString = ({
         );
     }
 
-    // delete items on click of close
+    // delete items on click of close.
     const handleDelete = (index) => {
         const newItems = [...items];
         newItems.splice(index, 1);
         setItems(newItems);
     }
 
-    // add items on enter key press
+    // add items on enter key press.
     const handleKeyPress = (e, disallowedCharsArray) => {   
         const disallowedString = getRegexPatternForDisallowedChars( disallowedCharsArray ),
                 regex = new RegExp( `[\r\n${disallowedString}]`, 'gm' );
         
-        // Do nothing if the key is from the disallowed ones.
         if (e.keyCode === 13 && e.target.value !== '') {
             const newItems = [...items];
             const newTrim = e.target.value.replace( regex, '' );
