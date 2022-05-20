@@ -16,7 +16,7 @@ export const ProgressBar = ({
 	const extraClasses = 'undefined' !== typeof classes && '' !== classes ? ' ' + classes : '';
 	// check whether value is valid or not.
 	const getValue = value => {
-		if (value === undefined || Number.isNaN(value) || value === null)
+		if (value === undefined || Number.isNaN(value) || value === null || value === '')
 			return 0;
 		return value;
 	}
