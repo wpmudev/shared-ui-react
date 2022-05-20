@@ -6,13 +6,10 @@ export default {
 	component: Notifications,
 	parameters: {
 		actions: {
-			disabled: true,
+			disable: true,
 		},
 		controls: {
-			disabled: true,
-		},
-		notes: {
-			disabled: true,
+			disable: true,
 		},
 		previewTabs: {
 			'storybook/docs/panel': {
@@ -22,10 +19,15 @@ export default {
 	},
 };
 
-const Demo = args => {
+const Demo = (args) => {
 	return (
-		<Notifications { ...args }>
-			<p>Nulla vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec ullamcorper nulla non metus auctor fringilla. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+		<Notifications {...args}>
+			<p>
+				Nulla vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet, consectetur
+				adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Morbi leo
+				risus, porta ac consectetur ac, vestibulum at eros. Donec ullamcorper nulla non metus auctor
+				fringilla. Nullam id dolor id nibh ultricies vehicula ut id elit.
+			</p>
 		</Notifications>
 	);
 };
@@ -33,9 +35,7 @@ const Demo = args => {
 const Template = ({ children }) => {
 	return (
 		<div className="sui-box">
-			<div className="sui-box-body">
-				{ children }
-			</div>
+			<div className="sui-box-body">{children}</div>
 		</div>
 	);
 };
@@ -49,10 +49,8 @@ const Title = ({ children }) => {
 		lineHeight: 22 + 'px',
 	};
 
-	return (
-		<h3 style={ customStyles }>{ children }</h3>
-	);
-}
+	return <h3 style={customStyles}>{children}</h3>;
+};
 
 const Description = ({ children }) => {
 	const customStyles = {
@@ -61,11 +59,11 @@ const Description = ({ children }) => {
 	};
 
 	return (
-		<p className="sui-description" style={ customStyles }>
-			{ children }
+		<p className="sui-description" style={customStyles}>
+			{children}
 		</p>
 	);
-}
+};
 
 const Code = ({ spaceTop = 5, spaceBottom = 20, children }) => {
 	const customStyles = {
@@ -76,37 +74,44 @@ const Code = ({ spaceTop = 5, spaceBottom = 20, children }) => {
 		padding: 5 + 'px ' + 10 + 'px',
 	};
 
-	return (
-		<code style={ customStyles }>{ children }</code>
-	);
-}
+	return <code style={customStyles}>{children}</code>;
+};
 
-const Section = ({ title, description, code, code2, isDefault = false, isLast = false, children }) => {
+const Section = ({
+	title,
+	description,
+	code,
+	code2,
+	isDefault = false,
+	isLast = false,
+	children,
+}) => {
 	return (
 		<>
-			{ title && '' !== title && (
-				<Title>{ title }{ isDefault && (
-					<span
-						className="sui-tag sui-tag-sm sui-tag-yellow"
-						style={ { marginLeft: 10 + 'px' } }
-						aria-hidden="true"
-					>Default</span>
-				)}</Title>
+			{title && '' !== title && (
+				<Title>
+					{title}
+					{isDefault && (
+						<span
+							className="sui-tag sui-tag-sm sui-tag-yellow"
+							style={{ marginLeft: 10 + 'px' }}
+							aria-hidden="true"
+						>
+							Default
+						</span>
+					)}
+				</Title>
 			)}
-			{ description && '' !== description && (
-				<Description>{ description }</Description>
+			{description && '' !== description && <Description>{description}</Description>}
+			{code && '' !== code && (
+				<Code {...(code2 && '' !== code2 && { spaceBottom: 5 })}>{code}</Code>
 			)}
-			{ code && '' !== code && (
-				<Code { ... ( code2 && '' !== code2 ) && { spaceBottom: 5 } }>{ code }</Code>
-			)}
-			{ code2 && '' !== code2 && (
-				<Code>{ code2 }</Code>
-			)}
-			{ children }
-			{ !isLast && <hr /> }
+			{code2 && '' !== code2 && <Code>{code2}</Code>}
+			{children}
+			{!isLast && <hr />}
 		</>
 	);
-}
+};
 
 export const primary = () => {
 	return (
@@ -117,8 +122,9 @@ export const primary = () => {
 				code="&lt;Notifications&gt;
 					...
 				&lt;/Notifications&gt;"
-				isDefault={ true }
-				isLast={ true }>
+				isDefault={true}
+				isLast={true}
+			>
 				<Demo />
 			</Section>
 		</Template>
@@ -135,8 +141,9 @@ export const loading = () => {
 				code="&lt;Notifications loading={ true }&gt;
 					...
 				&lt;/Notifications&gt;"
-				isLast={ true }>
-				<Demo loading={ true } />
+				isLast={true}
+			>
+				<Demo loading={true} />
 			</Section>
 		</Template>
 	);

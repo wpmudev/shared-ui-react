@@ -21,13 +21,12 @@ export const ProgressBar = ({
 		return value;
 	}
 	const value = getValue(now);
-
 	const lang = Object.assign(
 		{
 			cancel: 'Cancel',
 			legend: 'Status...',
 		},
-		sourceLang,
+		sourceLang
 	);
 
 	const loaderMarkup = hasLoader && (
