@@ -14,13 +14,7 @@ export const ProgressBar = ({
 	...props
 }) => {
 	const extraClasses = 'undefined' !== typeof classes && '' !== classes ? ' ' + classes : '';
-	// check whether value is valid or not.
-	const getValue = value => {
-		if (value === undefined || Number.isNaN(value) || value === null || value.length === 0)
-			return 0;
-		return value;
-	}
-	const value = getValue(now);
+	const value = parseInt(now) ? parseInt(now) : 0;
 	const lang = Object.assign(
 		{
 			cancel: 'Cancel',
