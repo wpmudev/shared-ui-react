@@ -14,7 +14,8 @@ export const ProgressBar = ({
 	...props
 }) => {
 	const extraClasses = 'undefined' !== typeof classes && '' !== classes ? ' ' + classes : '';
-	const value = parseInt(now) ? parseInt(now) : 0;
+	const currValue = Number(now);
+	const value = currValue && currValue > 0 ? (currValue > 100 ? 100: currValue) : 0;
 	const lang = Object.assign(
 		{
 			cancel: 'Cancel',
