@@ -76,7 +76,7 @@ const AccordionItemHeader = ({
 		? <span className={ `sui-icon-${ icon }` } aria-hidden="true" />
 		: '';
 
-	const titleColumnImage = 'undefined' !== typeof image && '' !== icon
+	const titleColumnImage = 'undefined' !== typeof image && '' !== image
 		? <ItemImage style={ { backgroundImage: `url(${ image })` } } />
 		: '';
 
