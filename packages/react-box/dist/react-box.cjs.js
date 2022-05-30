@@ -76,35 +76,14 @@ function _taggedTemplateLiteral(strings, raw) {
   }));
 }
 
-function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\n.sui-wrap && {\n\tdisplay: ", ";\n\t", "\n\t", "\n\tmargin: 0;\n\tpadding-top: ", "px;\n\tpadding-right: ", "px;\n\tpadding-bottom: ", "px;\n\tpadding-left: ", "px;\n\tborder: 0 solid #E6E6E6;\n\tborder-top-width: ", "px;\n\t", "\n\n\t", "\n\t", "\n\n\t@media ", " {\n\t\tpadding-top: ", "px;\n\t\tpadding-right: ", "px;\n\t\tpadding-bottom: ", "px;\n\t\tpadding-left: ", "px;\n\t}\n}\n"]);
+var _templateObject, _templateObject2, _templateObject3;
 
-  _templateObject3 = function _templateObject3() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n.sui-wrap && {\n\tmargin: 0;\n\tpadding-top: ", "px;\n\tpadding-right: ", "px;\n\tpadding-bottom: ", "px;\n\tpadding-left: ", "px;\n\tborder: 0 solid #E6E6E6;\n\tborder-top-width: ", "px;\n\tborder-bottom-width: ", "px;\n\ttext-align: ", ";\n\n\t@media ", " {\n\t\tpadding-top: ", "px;\n\t\tpadding-right: ", "px;\n\t\tpadding-bottom: ", "px;\n\t\tpadding-left: ", "px;\n\t}\n}\n"]);
-
-  _templateObject2 = function _templateObject2() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n.sui-wrap && {\n\tdisplay: ", ";\n\t", "\n\t", "\n\tmargin: 0;\n\tpadding-top: ", "px;\n\tpadding-right: ", "px;\n\tpadding-bottom: ", "px;\n\tpadding-left: ", "px;\n\tborder: 0 solid #E6E6E6;\n\tborder-bottom-width: ", "px;\n\t", "\n\n\t", "\n\t", "\n\n\t@media ", " {\n\t\tpadding-top: ", "px;\n\t\tpadding-right: ", "px;\n\t\tpadding-bottom: ", "px;\n\t\tpadding-left: ", "px;\n\t}\n}\n"]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
+var _excluded = ["children", "className"],
+    _excluded2 = ["icon", "tagLabel", "tagColor", "tagSize", "tagDesign", "className", "children"],
+    _excluded3 = ["title", "titleIcon", "tagLabel", "tagColor", "tagSize", "tagDesign", "className", "children"],
+    _excluded4 = ["className", "children"],
+    _excluded5 = ["className", "children"],
+    _excluded6 = ["title", "description", "className", "children"];
 
 var utils = {
   gutter: 30,
@@ -125,9 +104,9 @@ var device = {
 var Box = function Box(_ref) {
   var children = _ref.children,
       className = _ref.className,
-      props = _objectWithoutProperties(_ref, ["children", "className"]);
+      props = _objectWithoutProperties(_ref, _excluded);
 
-  return /*#__PURE__*/React__default['default'].createElement("div", _extends({
+  return /*#__PURE__*/React__default["default"].createElement("div", _extends({
     className: 'undefined' !== typeof className && '' !== className ? "sui-box ".concat(className) : 'sui-box'
   }, props), children);
 };
@@ -139,7 +118,7 @@ var BoxTitle = function BoxTitle(_ref2) {
       tagDesign = _ref2.tagDesign,
       className = _ref2.className,
       children = _ref2.children,
-      props = _objectWithoutProperties(_ref2, ["icon", "tagLabel", "tagColor", "tagSize", "tagDesign", "className", "children"]);
+      props = _objectWithoutProperties(_ref2, _excluded2);
 
   var tagClass = 'sui-tag';
 
@@ -166,23 +145,23 @@ var BoxTitle = function BoxTitle(_ref2) {
       break;
   }
 
-  return /*#__PURE__*/React__default['default'].createElement("h3", _extends({
+  return /*#__PURE__*/React__default["default"].createElement("h3", _extends({
     className: 'undefined' !== typeof className && '' !== className ? "sui-box-title ".concat(className) : 'sui-box-title'
-  }, props), icon && "" !== icon && /*#__PURE__*/React__default['default'].createElement("span", {
+  }, props), icon && '' !== icon && /*#__PURE__*/React__default["default"].createElement("span", {
     className: "sui-icon-".concat(icon, " sui-md"),
     "aria-hidden": "true"
-  }), children, tagLabel && '' !== tagLabel && /*#__PURE__*/React__default['default'].createElement("span", {
+  }), children, tagLabel && '' !== tagLabel && /*#__PURE__*/React__default["default"].createElement("span", {
     className: tagClass,
     style: {
       marginLeft: 10
     }
   }, tagLabel));
 };
-var Header = styled__default['default'].div.attrs(function (props) {
+var Header = styled__default["default"].div.attrs(function (props) {
   return {
     props: props
   };
-})(_templateObject(), function (props) {
+})(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n\t.sui-wrap && {\n\t\tdisplay: ", ";\n\t\t", "\n\t\t", "\n\tmargin: 0;\n\t\tpadding-top: ", "px;\n\t\tpadding-right: ", "px;\n\t\tpadding-bottom: ", "px;\n\t\tpadding-left: ", "px;\n\t\tborder: 0 solid #e6e6e6;\n\t\tborder-bottom-width: ", "px;\n\t\t", "\n\n\t\t", "\n\t", "\n\n\t@media ", " {\n\t\t\tpadding-top: ", "px;\n\t\t\tpadding-right: ", "px;\n\t\t\tpadding-bottom: ", "px;\n\t\t\tpadding-left: ", "px;\n\t\t}\n\t}\n"])), function (props) {
   return 'block' !== props.display ? 'flex' : 'block';
 }, function (props) {
   return 'block' !== props.display && 'flex-flow: row wrap;';
@@ -219,12 +198,12 @@ var BoxHeader = function BoxHeader(_ref3) {
       tagLabel = _ref3.tagLabel,
       tagColor = _ref3.tagColor,
       tagSize = _ref3.tagSize,
-      tagDesign = _ref3.tagDesign,
-      className = _ref3.className,
-      children = _ref3.children,
-      props = _objectWithoutProperties(_ref3, ["title", "titleIcon", "tagLabel", "tagColor", "tagSize", "tagDesign", "className", "children"]);
+      tagDesign = _ref3.tagDesign;
+      _ref3.className;
+      var children = _ref3.children,
+      props = _objectWithoutProperties(_ref3, _excluded3);
 
-  return /*#__PURE__*/React__default['default'].createElement(Header, props, title && '' !== title && /*#__PURE__*/React__default['default'].createElement(BoxTitle, {
+  return /*#__PURE__*/React__default["default"].createElement(Header, props, title && '' !== title && /*#__PURE__*/React__default["default"].createElement(BoxTitle, {
     icon: titleIcon,
     tagLabel: tagLabel,
     tagColor: tagColor,
@@ -232,11 +211,11 @@ var BoxHeader = function BoxHeader(_ref3) {
     tagDesign: tagDesign
   }, title), children);
 };
-var Body = styled__default['default'].div.attrs(function (props) {
+var Body = styled__default["default"].div.attrs(function (props) {
   return {
     props: props
   };
-})(_templateObject2(), function (props) {
+})(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n\t.sui-wrap && {\n\t\tmargin: 0;\n\t\tpadding-top: ", "px;\n\t\tpadding-right: ", "px;\n\t\tpadding-bottom: ", "px;\n\t\tpadding-left: ", "px;\n\t\tborder: 0 solid #e6e6e6;\n\t\tborder-top-width: ", "px;\n\t\tborder-bottom-width: ", "px;\n\t\ttext-align: ", ";\n\n\t\t@media ", " {\n\t\t\tpadding-top: ", "px;\n\t\t\tpadding-right: ", "px;\n\t\t\tpadding-bottom: ", "px;\n\t\t\tpadding-left: ", "px;\n\t\t}\n\t}\n"])), function (props) {
   return props.paddingTop || 0 === props.paddingTop ? props.paddingTop > 29 ? props.paddingTop - 10 : props.paddingTop : utils.gutter_md;
 }, function (props) {
   return props.paddingRight || 0 === props.paddingRight ? props.paddingRight > 29 ? props.paddingRight - 10 : props.paddingRight : utils.gutter_md;
@@ -262,17 +241,17 @@ var Body = styled__default['default'].div.attrs(function (props) {
 var BoxBody = function BoxBody(_ref4) {
   var className = _ref4.className,
       children = _ref4.children,
-      props = _objectWithoutProperties(_ref4, ["className", "children"]);
+      props = _objectWithoutProperties(_ref4, _excluded4);
 
-  return /*#__PURE__*/React__default['default'].createElement(Body, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(Body, _extends({
     className: className
   }, props), children);
 };
-var Footer = styled__default['default'].div.attrs(function (props) {
+var Footer = styled__default["default"].div.attrs(function (props) {
   return {
     props: props
   };
-})(_templateObject3(), function (props) {
+})(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n\t.sui-wrap && {\n\t\tdisplay: ", ";\n\t\t", "\n\t\t", "\n\tmargin: 0;\n\t\tpadding-top: ", "px;\n\t\tpadding-right: ", "px;\n\t\tpadding-bottom: ", "px;\n\t\tpadding-left: ", "px;\n\t\tborder: 0 solid #e6e6e6;\n\t\tborder-top-width: ", "px;\n\t\t", "\n\n\t\t", "\n\t", "\n\n\t@media ", " {\n\t\t\tpadding-top: ", "px;\n\t\t\tpadding-right: ", "px;\n\t\t\tpadding-bottom: ", "px;\n\t\t\tpadding-left: ", "px;\n\t\t}\n\t}\n"])), function (props) {
   return 'block' !== props.display ? 'flex' : 'block';
 }, function (props) {
   return 'block' !== props.display && 'flex-flow: row wrap;';
@@ -306,9 +285,9 @@ var Footer = styled__default['default'].div.attrs(function (props) {
 var BoxFooter = function BoxFooter(_ref5) {
   var className = _ref5.className,
       children = _ref5.children,
-      props = _objectWithoutProperties(_ref5, ["className", "children"]);
+      props = _objectWithoutProperties(_ref5, _excluded5);
 
-  return /*#__PURE__*/React__default['default'].createElement(Footer, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(Footer, _extends({
     className: className
   }, props), children);
 };
@@ -317,17 +296,17 @@ var BoxSection = function BoxSection(_ref6) {
       description = _ref6.description,
       className = _ref6.className,
       children = _ref6.children,
-      props = _objectWithoutProperties(_ref6, ["title", "description", "className", "children"]);
+      props = _objectWithoutProperties(_ref6, _excluded6);
 
-  return /*#__PURE__*/React__default['default'].createElement("div", _extends({
+  return /*#__PURE__*/React__default["default"].createElement("div", _extends({
     className: 'undefined' !== typeof className && '' !== className ? "sui-box-settings-row ".concat(className) : 'sui-box-settings-row'
-  }, props), (title && "" !== title || description && "" !== description) && /*#__PURE__*/React__default['default'].createElement("div", {
+  }, props), (title && '' !== title || description && '' !== description) && /*#__PURE__*/React__default["default"].createElement("div", {
     className: "sui-box-settings-col-1"
-  }, "" !== title && /*#__PURE__*/React__default['default'].createElement("h4", {
+  }, '' !== title && /*#__PURE__*/React__default["default"].createElement("h4", {
     className: "sui-settings-label"
-  }, title), "" !== description && /*#__PURE__*/React__default['default'].createElement("p", {
+  }, title), '' !== description && /*#__PURE__*/React__default["default"].createElement("p", {
     className: "sui-description"
-  }, description)), /*#__PURE__*/React__default['default'].createElement("div", {
+  }, description)), /*#__PURE__*/React__default["default"].createElement("div", {
     className: "sui-box-settings-col-2"
   }, children));
 };
