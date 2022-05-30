@@ -9,8 +9,13 @@ All notable changes to this package will be documented in this file. See [Conven
 - Using component state to compute could lead to undesired behavior. [#255](https://github.com/wpmudev/shared-ui-react/pull/255) ([SUI-402](https://incsub.atlassian.net/browse/SUI-402)) ([@creador-dev](https://github.com/creador-dev))
 - Case clause is duplicated. [#229](https://github.com/wpmudev/shared-ui-react/pull/229) ([SUI-401](https://incsub.atlassian.net/browse/SUI-401)) ([@creador-dev](https://github.com/creador-dev))
 
-#### Committers: 1
+#### 🏠 Internal
 
+- ESLint and Prettier configurations not detected. [#265](https://github.com/wpmudev/shared-ui-react/pull/265) ([SUI-396](https://incsub.atlassian.net/browse/SUI-396)) ([@iamleigh](https://github.com/iamleigh))
+
+#### Committers: 2
+
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
 - Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
 
 ## [1.1.5](https://www.npmjs.com/package/@wpmudev/react-dropdown/v/1.1.5) (2022-05-03)
