@@ -10,8 +10,13 @@ All notable changes to this package will be documented in this file. See [Conven
   ([@creador-dev](https://github.com/creador-dev))
 - Using isNaN may lead to unexpected results. [#231](https://github.com/wpmudev/shared-ui-react/pull/231) ([SUI-399](https://incsub.atlassian.net/browse/SUI-399)) ([@creador-dev](https://github.com/creador-dev))
 
-#### Committers: 1
+#### 🏠 Internal
 
+- ESLint and Prettier configurations not detected. [#265](https://github.com/wpmudev/shared-ui-react/pull/265) ([SUI-396](https://incsub.atlassian.net/browse/SUI-396)) ([@iamleigh](https://github.com/iamleigh))
+
+#### Committers: 2
+
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
 - Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
 
 ## [1.0.1](https://www.npmjs.com/package/@wpmudev/react-progress-bar/v/1.0.1) (2022-05-03)
