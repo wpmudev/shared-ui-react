@@ -2,7 +2,7 @@
 
 All notable changes to this package will be documented in this file. See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
 
-## [1.1.6](https://www.npmjs.com/package/@wpmudev/react-modal/v/1.1.6) (2022-05-30)
+## [1.1.6](https://www.npmjs.com/package/@wpmudev/react-dropdown/v/1.1.6) (2022-05-30)
 
 #### 🚀 Improvements
 
@@ -13,7 +13,7 @@ All notable changes to this package will be documented in this file. See [Conven
 
 - Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
 
-## [1.1.5](https://www.npmjs.com/package/@wpmudev/react-modal/v/1.1.5) (2022-05-03)
+## [1.1.5](https://www.npmjs.com/package/@wpmudev/react-dropdown/v/1.1.5) (2022-05-03)
 
 #### 🚀 Improvements
 
