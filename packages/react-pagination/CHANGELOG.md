@@ -2,7 +2,7 @@
 
 All notable changes to this package will be documented in this file. See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
 
-## [1.1.1](https://www.npmjs.com/package/@wpmudev/react-pagination/v/1.1.1) (2022-05-30)
+## [1.1.2](https://www.npmjs.com/package/@wpmudev/react-pagination/v/1.1.2) (2022-05-30)
 
 #### 🐛 Bug Fixes
 
@@ -17,7 +17,7 @@ All notable changes to this package will be documented in this file. See [Conven
 - Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
 - Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
 
-## [1.1.0](https://www.npmjs.com/package/@wpmudev/react-pagination/v/1.1.0) (2022-05-03)
+## [1.1.1](https://www.npmjs.com/package/@wpmudev/react-pagination/v/1.1.1) (2022-05-03)
 
 #### 🐛 Bug Fixes
 
