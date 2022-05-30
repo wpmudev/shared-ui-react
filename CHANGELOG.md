@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
 
-## [1.8.2](https://github.com/wpmudev/shared-ui/compare/v1.8.1...v1.8.2) (2022-05-26)
+## [1.8.2](https://github.com/wpmudev/shared-ui/compare/v1.8.1...v1.8.2) (2022-05-30)
 
 #### 🚀 Improvements
 
