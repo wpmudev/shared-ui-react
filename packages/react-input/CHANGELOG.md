@@ -8,8 +8,13 @@ All notable changes to this package will be documented in this file. See [Conven
 
 - Class identifier is wrong. [#227](https://github.com/wpmudev/shared-ui-react/pull/227) ([SUI-404](https://incsub.atlassian.net/browse/SUI-404)) ([@creador-dev](https://github.com/creador-dev))
 
-#### Committers: 1
+#### 🏠 Internal
 
+- ESLint and Prettier configurations not detected. [#265](https://github.com/wpmudev/shared-ui-react/pull/265) ([SUI-396](https://incsub.atlassian.net/browse/SUI-396)) ([@iamleigh](https://github.com/iamleigh))
+
+#### Committers: 2
+
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
 - Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
 
 ## [1.2.0](https://www.npmjs.com/package/@wpmudev/react-input/v/1.2.0) (2022-05-03)
