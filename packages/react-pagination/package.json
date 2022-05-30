@@ -14,7 +14,10 @@
       "name": "Gowtham Ravipati",
       "email": "66052144+Gowtham369@users.noreply.github.com",
       "url": "https://gowtham369.github.io/Gowtham_Portfolio/"
-    }
+    },
+	{
+		"name": "Pawan Kumar"
+	}
   ],
   "license": "GPL-3.0",
   "main": "dist/react-pagination.cjs.js",
