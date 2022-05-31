@@ -39,10 +39,9 @@ demo.argTypes = {
 			required: false,
 		},
 		description: 'This property will determine where the dropdown menu will be placed.',
-		defaultValue: 'left',
+		options: ['left', 'center', 'right'],
 		control: {
 			type: 'select',
-			options: ['left', 'center', 'right'],
 		},
 		table: {
 			type: {

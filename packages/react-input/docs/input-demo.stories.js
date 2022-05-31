@@ -78,13 +78,9 @@ demo.argTypes = {
 				summary: 'small | medium',
 			},
 		},
+		options: ['none','small','medium'],
 		control: {
 			type: 'select',
-			options: {
-				none: '',
-				small: 'small',
-				medium: 'medium',
-			},
 		},
 	},
 	// Input Modifiers
@@ -112,13 +108,9 @@ demo.argTypes = {
 				summary: 'small | medium',
 			},
 		},
+		options: ['none','small','medium'],
 		control: {
 			type: 'select',
-			options: {
-				none: '',
-				small: 'small',
-				medium: 'medium',
-			},
 		},
 	},
 	prefix: {

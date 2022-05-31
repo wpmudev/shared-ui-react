@@ -47,9 +47,9 @@ demo.argTypes = {
 		table: {
 			type: { summary: 'string' },
 		},
+		options: ['', 'info', 'success', 'error', 'warning', 'upsell'],
 		control: {
 			type: 'select',
-			options: ['', 'info', 'success', 'error', 'warning', 'upsell'],
 		},
 	},
 	dismiss: {

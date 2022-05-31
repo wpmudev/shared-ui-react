@@ -60,16 +60,9 @@ SimpleHeader.argTypes = {
 		},
 		description:
 			'By default **tags background** color is a subtle `light gray` but you can change this for any of the options suggested in the control selector: red, yellow, green, blue, purple. You can also leave this option empty, or simply not include it, to get default color.',
+		options: ['default','red','yellow','green','blue','purple'],
 		control: {
 			type: 'select',
-			options: {
-				default: '',
-				red: 'red',
-				yellow: 'yellow',
-				green: 'green',
-				blue: 'blue',
-				purple: 'purple',
-			},
 		},
 	},
 	tagSize: {
@@ -78,12 +71,9 @@ SimpleHeader.argTypes = {
 			required: false,
 		},
 		description: 'By default ',
+		options: ['default','small'],
 		control: {
 			type: 'select',
-			options: {
-				default: '',
-				small: 'small',
-			},
 		},
 	},
 	display: {
@@ -92,12 +82,9 @@ SimpleHeader.argTypes = {
 			required: false,
 		},
 		description: 'Description goes here...',
+		options: ['block','inline'],
 		control: {
 			type: 'select',
-			options: {
-				block: 'block',
-				inline: 'inline',
-			},
 		},
 	},
 	alignment: {
@@ -106,13 +93,9 @@ SimpleHeader.argTypes = {
 			required: false,
 		},
 		description: 'Description goes here...',
+		options: ['default','center','right'],
 		control: {
 			type: 'select',
-			options: {
-				default: '',
-				center: 'center',
-				right: 'right',
-			},
 		},
 	},
 	paddingTop: {
@@ -199,22 +182,18 @@ export const ActionHeader = Template.bind({});
 ActionHeader.storyName = 'Title with Content';
 ActionHeader.args = {
 	...SimpleHeader.args,
+	children: <Button label="Right Action" color="blue" />
 };
 ActionHeader.argTypes = {
 	...SimpleHeader.argTypes,
-	children: {
-		defaultValue: <Button label="Right Action" color="blue" />,
-	},
 };
 
 export const UntitledHeader = Template.bind({});
 UntitledHeader.storyName = 'Content Only';
 UntitledHeader.args = {
 	alignment: 'right',
+	children: <Button label="Right Action" color="blue" />
 };
 UntitledHeader.argTypes = {
 	...SimpleHeader.argTypes,
-	children: {
-		defaultValue: <Button label="Right Action" color="blue" />,
-	},
 };
