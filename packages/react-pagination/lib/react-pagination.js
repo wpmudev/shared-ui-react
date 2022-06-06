@@ -140,6 +140,11 @@ export const PaginationNav = ({ ...properties }) => {
 						</a>
 					</li>
 				)}
+				{properties.startIndex > 0 && (
+					<li onClick={properties.handlePreviousEllipsis}>
+						<a><span aria-hidden="true" className="sui-icon-arrow-skip-back"></span></a>
+					</li>
+				)}
 				<li onClick={properties.handlePreviousPage}>
 					<a disabled={properties.selectedPage <= 1}>
 						<span aria-hidden="false" className="sui-screen-reader-text">
@@ -148,11 +153,6 @@ export const PaginationNav = ({ ...properties }) => {
 						<span aria-hidden="true" title={properties.previousLabel || "Go to previous page"} className="sui-icon-chevron-left"></span>
 					</a>
 				</li>
-				{properties.startIndex > 0 && (
-					<li onClick={properties.handlePreviousEllipsis}>
-						<a>&#8230;</a>
-					</li>
-				)}
 				{properties.pagesArray?.slice(properties.startIndex, properties.endIndex)?.map((data, index) => {
 					return (
 						<li onClick={() => properties.handlePageClick(parseInt(data))} key={index}>
@@ -162,11 +162,6 @@ export const PaginationNav = ({ ...properties }) => {
 						</li>
 					);
 				})}
-				{properties.endIndex < properties.pages && (
-					<li onClick={properties.handleNextEllipsis}>
-						<a>&#8230;</a>
-					</li>
-				)}
 				<li onClick={properties.handleNextPage}>
 					<a disabled={properties.selectedPage >= properties.pages}>
 						<span aria-hidden="false" className="sui-screen-reader-text">
@@ -175,6 +170,11 @@ export const PaginationNav = ({ ...properties }) => {
 						<span aria-hidden="true" title={properties.nextLabel || "Go to next page."} className="sui-icon-chevron-right"></span>
 					</a>
 				</li>
+				{properties.endIndex < properties.pages && (
+					<li onClick={properties.handleNextEllipsis}>
+						<a><span aria-hidden="true" className="sui-icon-arrow-skip-forward"></span></a>
+					</li>
+				)}
 				{properties.skip && (
 					<li onClick={properties.handleSkipToLastPage}>
 						<a disabled={properties.selectedPage >= properties.pages}>
