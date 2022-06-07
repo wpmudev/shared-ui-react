@@ -168,12 +168,11 @@ const Tabs = ({
     const determineOrientation = ( event, index ) => {
 
         var key      = event.keyCode || event.which,
-            vertical = orientation,
             proceed  = false
             ;
 
         // Check if aria orientation is set to vertical.
-        if ( vertical ) {
+        if ( orientation === 'vertical' ) {
 
             if ( keys.up === key || keys.down === key ) {
                 event.preventDefault();
