@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect } from 'react'
 const Tabs = ({
     tabs = '',
     radio = false,
-    type = '',
+    type = 'default',
     orientation = 'vertical',
 }) => {
     const [activeTab, setActiveTab] = useState(0);

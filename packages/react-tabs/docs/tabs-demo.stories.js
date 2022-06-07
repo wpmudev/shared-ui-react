@@ -4,11 +4,11 @@ import { Tabs } from '../lib/react-tabs';
 export default {
 	title: 'Components/Tabs',
 	component: Tabs,
-	// parameters: {
-	// 	notes: {
-	// 		disabled: true,
-	// 	},
-	// },
+	parameters: {
+		notes: {
+			disabled: true,
+		},
+	},
 };
 
 export const demo = args => <Tabs { ...args } />;
@@ -112,7 +112,7 @@ demo.args = {
             content: <p>Content. Tab 16.</p>,
         },
     ],
-    radio: true,
+    radio: false,
     type: 'default',
     orientation: 'vertical',
 };
