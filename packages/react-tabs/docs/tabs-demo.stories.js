@@ -17,7 +17,7 @@ demo.args = {
     tabs: [
         {
             id: 'tab-1',
-            title: 'Tab 1',
+            title: 'Tab 1 Item',
             content_id: 'tab-1-content',
             content: <p>Content. Tab 1.</p>,
         },
@@ -29,13 +29,13 @@ demo.args = {
         },
         {
             id: 'tab-3',
-            title: 'Tab 3',
+            title: 'Tab 3 Name with text',
             content_id: 'tab-3-content',
             content: <p>Content. Tab 3.</p>,
         },
         {
             id: 'tab-4',
-            title: 'Tab 4',
+            title: 'Tab 4 text only',
             content_id: 'tab-4-content',
             content: <p>Content. Tab 4.</p>,
         },
@@ -77,7 +77,7 @@ demo.args = {
         },
         {
             id: 'tab-11',
-            title: 'Tab 11',
+            title: 'Tab 11 text',
             content_id: 'tab-11-content',
             content: <p>Content. Tab 11.</p>,
         },
@@ -95,7 +95,7 @@ demo.args = {
         },
         {
             id: 'tab-14',
-            title: 'Tab 14',
+            title: 'Tab 14 text with text',
             content_id: 'tab-14-content',
             content: <p>Content. Tab 14.</p>,
         },
@@ -107,13 +107,14 @@ demo.args = {
         },
         {
             id: 'tab-16',
-            title: 'Tab 16',
+            title: 'Tab 16 text with long text',
             content_id: 'tab-16-content',
             content: <p>Content. Tab 16.</p>,
         },
     ],
     radio: true,
     type: 'default',
+    orientation: 'vertical',
 };
 demo.argTypes = {
     type: {
@@ -121,5 +122,11 @@ demo.argTypes = {
             type: 'select',
             options: ['default', 'flushed', 'overflow'],
         },
-    }
+    },
+    orientation: {
+        control: {
+            type: 'select',
+            options: ['horizontal', 'vertical'],
+        },
+    },
 }
