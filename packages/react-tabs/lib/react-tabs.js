@@ -4,13 +4,11 @@ const Tabs = ({
     tabs = '',
     radio = false,
     type = 'default',
-    orientation = 'vertical',
+    orientation = 'horizontal',
 }) => {
     const [activeTab, setActiveTab] = useState(0);
-
     const [leftButton, setLeftButton] = useState(false);
     const [rightButton, setRightButton] = useState(false);
-
     const tabRefs = useRef([]);
     const tabButtonRefs = useRef([]);
 
@@ -110,7 +108,7 @@ const Tabs = ({
         return false;
     };
 
-    const keydownEventListener = ( event, index, tablist ) => {
+    const keydownEventListener = ( event, index) => {
 
         var key = event.keyCode || event.which;
 
@@ -125,7 +123,7 @@ const Tabs = ({
             // because we need to prevent page scroll.
             case keys.up:
             case keys.down:
-                determineOrientation( event, index, tablist );
+                determineOrientation( event, index);
                 break;
         }
     }
