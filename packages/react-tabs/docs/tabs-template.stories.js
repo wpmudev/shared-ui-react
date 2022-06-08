@@ -232,6 +232,7 @@ export const Simple = () => {
 		</StorySection>
 	);
 };
+Simple.storyName = 'Simple Tabs';
 
 export const Radio = () => {
 	return (
@@ -239,12 +240,12 @@ export const Radio = () => {
 			title="Radio Button Tabs"
 			description="These are simple tabs with radio inputs."
 			code="&lt;Tabs tabs={tabsData} radio={true} /&gt;"
-			isDefault={ true }
 			isLast={ true }>
 			<Tabs tabs={radioData} radio={true} />
 		</StorySection>
 	);
 };
+Radio.storyName = 'Radio Tabs';
 
 export const Flushed = () => {
 	return (
@@ -252,7 +253,6 @@ export const Flushed = () => {
 			title="Flushed Tabs"
 			description="For using inside modals or boxes where they are in a padded container but need to be flush to the top and sides."
 			code="&lt;Tabs tabs={tabsData} type=&quot;flushed&quot; /&gt;"
-			isDefault={ true }
 			isLast={ true }>
 				<Accordion>
 					<AccordionItem title="Item #1">
@@ -273,6 +273,7 @@ export const Flushed = () => {
 		</StorySection>
 	);
 };
+Flushed.storyName = 'Flushed Tabs';
 
 export const Overflow = () => {
 	return (
@@ -280,10 +281,19 @@ export const Overflow = () => {
 			title="Overflow Tabs"
 			description="When there is not enough space to have all the tabs we show an arrow and allow horizontal scrolling and a navigation."
 			code="&lt;Tabs tabs={tabsData} type=&quot;overflow&quot; /&gt;"
-			isDefault={ true }
 			isLast={ true }>
-				
-			<Tabs tabs={overflowData} type="overflow" />
+				<div style={{ display: 'flex' }}>
+					<div style={{ width: '25%', padding: '40px 20px', borderRadius: '4px', background: 'lightblue', textAlign: 'center' }}>
+						Empty space
+					</div>
+					<div style={{ width: '50%', margin: '0 30px' }}>
+						<Tabs tabs={overflowData} type="overflow" />
+					</div>
+					<div style={{ width: '25%', padding: '40px 20px', borderRadius: '4px', background: 'lightblue', textAlign: 'center' }}>
+						Empty space
+					</div>
+				</div>
 		</StorySection>
 	);
 };
+Overflow.storyName = 'Overflow Tabs';
