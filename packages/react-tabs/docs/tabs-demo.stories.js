@@ -42,7 +42,7 @@ demo.args = {
     ],
     radio: false,
     type: 'default',
-    orientation: 'vertical',
+    orientation: 'horizontal',
 };
 demo.argTypes = {
     tabs: {
@@ -50,9 +50,6 @@ demo.argTypes = {
         table: {
             type: {
                 summary: 'array',
-            },
-            defaultValue: {
-                summary: '[]',
             },
         },
         control: {
@@ -65,9 +62,6 @@ demo.argTypes = {
             type: {
                 summary: 'boolean',
             },
-            defaultValue: {
-                summary: 'false',
-            },
         },
         control: {
             type: 'boolean',
@@ -78,9 +72,6 @@ demo.argTypes = {
         table: {
             type: {
                 summary: 'string',
-            },
-            defaultValue: {
-                summary: 'default',
             },
         },
         control: {
@@ -93,9 +84,6 @@ demo.argTypes = {
         table: {
             type: {
                 summary: 'string',
-            },
-            defaultValue: {
-                summary: 'horizontal',
             },
         },
         control: {

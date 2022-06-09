@@ -239,7 +239,7 @@ export const Radio = () => {
 		<StorySection
 			title="Radio Button Tabs"
 			description="These are simple tabs with radio inputs."
-			code="&lt;Tabs tabs={tabsData} radio={true} /&gt;"
+			code="&lt;Tabs tabs={radioData} radio={true} /&gt;"
 			isLast={ true }>
 			<Tabs tabs={radioData} radio={true} />
 		</StorySection>
@@ -252,7 +252,7 @@ export const Flushed = () => {
 		<StorySection
 			title="Flushed Tabs"
 			description="For using inside modals or boxes where they are in a padded container but need to be flush to the top and sides."
-			code="&lt;Tabs tabs={tabsData} type=&quot;flushed&quot; /&gt;"
+			code="&lt;Tabs tabs={flushedData} type=&quot;flushed&quot; /&gt;"
 			isLast={ true }>
 				<Accordion>
 					<AccordionItem title="Item #1">
@@ -280,7 +280,7 @@ export const Overflow = () => {
 		<StorySection
 			title="Overflow Tabs"
 			description="When there is not enough space to have all the tabs we show an arrow and allow horizontal scrolling and a navigation."
-			code="&lt;Tabs tabs={tabsData} type=&quot;overflow&quot; /&gt;"
+			code="&lt;Tabs tabs={overflowData} type=&quot;overflow&quot; /&gt;"
 			isLast={ true }>
 				<div style={{ display: 'flex' }}>
 					<div style={{ width: '25%', padding: '40px 20px', borderRadius: '4px', background: 'lightblue', textAlign: 'center' }}>

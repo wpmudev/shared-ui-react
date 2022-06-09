@@ -228,6 +228,7 @@ const Tabs = ({
                             </button>
                             {radio && (
                                     <input 
+                                        key={index}
                                         type="radio"
                                         name="sample-tabs"
                                         value={tab.title}
