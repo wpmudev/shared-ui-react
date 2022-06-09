@@ -1,15 +1,20 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect } from 'react';
+import { ButtonIcon } from '@wpmudev/react-button-icon';
 
 const Tabs = ({
     tabs = '',
     radio = false,
     type = 'default',
     orientation = 'horizontal',
+    cbFunction = (tab, panel) => {
+        console.log(tab, panel);
+    },
 }) => {
     const [activeTab, setActiveTab] = useState(0);
     const [leftButton, setLeftButton] = useState(false);
     const [rightButton, setRightButton] = useState(false);
     const tabRefs = useRef([]);
+    const tabContentRefs = useRef([]);
     const tabButtonRefs = useRef([]);
 
     // For easy reference.
@@ -60,6 +65,13 @@ const Tabs = ({
             window.removeEventListener('resize', overflowing);
         }
     }, [tabs]);
+
+    const activateTab = (index) => {
+        const tabs = tabRefs.current.children;
+        const tabContent = tabContentRefs.current.children;
+        setActiveTab(index);
+        cbFunction(tabs[index], tabContent[index]);
+    }
 
     const reachedEnd = ( offset ) => {
         const tabs = tabRefs.current;
@@ -198,12 +210,18 @@ const Tabs = ({
         <div className={classes}>
             {type === 'overflow' && (
                 <div tabIndex={-1} className="sui-tabs-navigation" aria-hidden="true">
-                    <button type="button" className={`sui-button-icon sui-tabs-navigation--left ${leftButton && ('sui-tabs-navigation--hidden')}`} onClick={leftClick}>
-                        <span className="sui-icon-chevron-left"></span>
-                    </button>
-                    <button type="button" className={`sui-button-icon sui-tabs-navigation--right ${rightButton && ('sui-tabs-navigation--hidden')}`} onClick={rightClick}>
-                        <span className="sui-icon-chevron-right"></span>
-                    </button>
+                    <ButtonIcon
+                        label="Left arrow"
+                        className={`sui-button-icon sui-tabs-navigation--left ${leftButton && ('sui-tabs-navigation--hidden')}`}
+                        icon="chevron-left"
+                        onClick={leftClick}
+                    />
+                    <ButtonIcon
+                        label="Right arrow"
+                        className={`sui-button-icon sui-tabs-navigation--right ${rightButton && ('sui-tabs-navigation--hidden')}`}
+                        icon="chevron-right"
+                        onClick={rightClick}
+                    />
                 </div>
             )}
 
@@ -219,7 +237,7 @@ const Tabs = ({
                                 aria-selected={activeTab === index ? "true" : "false"}
                                 aria-controls={tab.content_id}
                                 tabIndex={activeTab === index ? 0 : -1}
-                                onClick={() => setActiveTab(index)}
+                                onClick={() => activateTab(index)}
                                 onKeyUp={(event) => keyupEventListener(event, index)}
                                 onKeyDown={(event) => keydownEventListener(event, index)}
                                 ref={(element) => {tabButtonRefs.current[index] = element}}
@@ -244,7 +262,7 @@ const Tabs = ({
                 
             </div>
 
-            <div className="sui-tabs-content">
+            <div className="sui-tabs-content" ref={tabContentRefs}>
                 {
                     tabs.map((tab, index) => (
                         <div

@@ -43,6 +43,9 @@ demo.args = {
     radio: false,
     type: 'default',
     orientation: 'horizontal',
+    cbFunction: (tab, panel) => {
+        console.log(tab, panel);
+    }
 };
 demo.argTypes = {
     tabs: {
@@ -89,6 +92,17 @@ demo.argTypes = {
         control: {
             type: 'select',
             options: ['horizontal', 'vertical'],
+        },
+    },
+    cbFunction: {
+        description: 'The callback function that is called when a tab is clicked.',
+        table: {
+            type: {
+                summary: 'function',
+            },
+        },
+        control: {
+            type: 'function',
         },
     },
 }
