@@ -2,7 +2,7 @@ import React from 'react';
 import { Selectors } from '../lib/react-selectors';
 
 export default {
-	title: 'Components/Selectors',
+	title: 'Components/Selectors/Design',
 	component: Selectors,
 	parameters: {
 		actions: {
@@ -102,54 +102,217 @@ const StorySection = ({ title, description, code, code2, isDefault = false, isLa
 const simpleContent = [
 	{
 		id: "unique-id-1",
-		label: "Element text",
+		label: "Checked",
 		labelId: "label-id-1",
-		description: "Element description",
-		descriptionId: "description-id-1",
 		icon: "info",
-		vertical: true,
+		checked: true,
 	},
 	{
 		id: "unique-id-2",
-		label: "Element text",
+		label: "Unchecked",
 		labelId: "label-id-2",
-		description: "Element description",
-		descriptionId: "description-id-2",
+		icon: "info",
+	},
+	{
+		id: "unique-id-3",
+		label: "Unchecked",
+		labelId: "label-id-3",
+		icon: "info",
+	},
+	{
+		id: "unique-id-4",
+		label: "Unchecked",
+		labelId: "label-id-4",
+		icon: "info",
+	},
+	{
+		id: "unique-id-5",
+		label: "Unchecked",
+		labelId: "label-id-5",
+		icon: "info",
+		disabled: true,
+		isPro: true,
+	},
+];
+
+const simpleVerticalContent = [
+	{
+		id: "vertical-unique-id-1",
+		label: "Checked",
+		labelId: "vertical-label-id-1",
+		checked: true,
 		icon: "info",
 		vertical: true,
 	},
 	{
-		id: "unique-id-3",
-		label: "Element text",
-		labelId: "label-id-3",
-		description: "Element description",
-		descriptionId: "description-id-3",
+		id: "vertical-unique-id-2",
+		label: "Unchecked",
+		labelId: "vertical-label-id-2",
+		icon: "info",
+		vertical: true,
+	},
+	{
+		id: "vertical-unique-id-3",
+		label: "Unchecked",
+		labelId: "vertical-label-id-3",
+		icon: "info",
+		vertical: true,
+	},
+	{
+		id: "vertical-unique-id-4",
+		label: "Unchecked",
+		labelId: "vertical-label-id-4",
+		icon: "info",
+		vertical: true,
+	},
+	{
+		id: "vertical-unique-id-5",
+		label: "Unchecked",
+		labelId: "vertical-label-id-5",
 		icon: "info",
 		vertical: true,
 		disabled: true,
 		isPro: true,
 	},
-	{
-		id: "unique-id-4",
-		label: "Element text",
-		labelId: "label-id-4",
-		description: "Element description",
-		descriptionId: "description-id-4",
-		icon: "info",
-		vertical: true,
-	}
 ];
 
-export const Simple = () => {
+const compoundContent = [
+	{
+		id: "compound-unique-id-1",
+		label: "Checked",
+		labelId: "compound-label-id-1",
+		icon: "info",
+		description: "This is a description",
+		descriptionId: "compound-description-id-1",
+		checked: true,
+	},
+	{
+		id: "compound-unique-id-2",
+		label: "Unchecked",
+		labelId: "compound-label-id-2",
+		icon: "info",
+		description: "This is a description",
+		descriptionId: "compound-description-id-2",
+	},
+	{
+		id: "compound-unique-id-3",
+		label: "Unchecked",
+		labelId: "compound-label-id-3",
+		icon: "info",
+		description: "This is a description",
+		descriptionId: "compound-description-id-3",
+	},
+	{
+		id: "compound-unique-id-4",
+		label: "Unchecked",
+		labelId: "compound-label-id-4",
+		icon: "info",
+		description: "This is a description",
+		descriptionId: "compound-description-id-4",
+	},
+	{
+		id: "compound-unique-id-5",
+		label: "Unchecked",
+		labelId: "compound-label-id-5",
+		icon: "info",
+		description: "This is a description",
+		descriptionId: "compound-description-id-5",
+		disabled: true,
+		isPro: true,
+	},
+];
+
+const compoundVerticalContent = [
+	{
+		id: "vertical-compound-unique-id-1",
+		label: "Checked",
+		labelId: "vertical-compound-label-id-1",
+		icon: "info",
+		description: "This is a description",
+		descriptionId: "vertical-compound-description-id-1",
+		checked: true,
+		vertical: true,
+	},
+	{
+		id: "vertical-compound-unique-id-2",
+		label: "Unchecked",
+		labelId: "vertical-compound-label-id-2",
+		icon: "info",
+		description: "This is a description",
+		descriptionId: "vertical-compound-description-id-2",
+		vertical: true,
+	},
+	{
+		id: "vertical-compound-unique-id-3",
+		label: "Unchecked",
+		labelId: "vertical-compound-label-id-3",
+		icon: "info",
+		description: "This is a description",
+		descriptionId: "vertical-compound-description-id-3",
+		vertical: true,
+	},
+	{
+		id: "vertical-compound-unique-id-4",
+		label: "Unchecked",
+		labelId: "vertical-compound-label-id-4",
+		icon: "info",
+		description: "This is a description",
+		descriptionId: "vertical-compound-description-id-4",
+		vertical: true,
+	},
+	{
+		id: "vertical-compound-unique-id-5",
+		label: "Unchecked",
+		labelId: "vertical-compound-label-id-5",
+		icon: "info",
+		description: "This is a description",
+		descriptionId: "vertical-compound-description-id-5",
+		disabled: true,
+		isPro: true,
+		vertical: true,
+	},
+];
+
+export const Default = () => {
 	return (
-		<StorySection
-			title="Simple"
-			description="By default the box selectors are aligned horizontal, based on its icon + text position, and text is always left aligned."
-			code="&lt;Tabs tabs={tabsData} /&gt;"
-			isDefault={ true }
-			isLast={ true }>
-			<Selectors name="simple" content={simpleContent} />
-		</StorySection>
+		<>
+			<StorySection
+				title="Simple"
+				description="By default the box selectors are aligned horizontal, based on its icon + text position, and text is always left aligned."
+				code="&lt;Selectors name=&quot;simple&quot; columns=&quot;three&quot; content={simpleContent} /&gt;"
+				isDefault={ true }>
+				<Selectors name="simple" columns="three" content={simpleContent} />
+			</StorySection>
+			<StorySection
+				title="Compound"
+				description="There are some cases where you gonna need to include a description for the items."
+				code="&lt;Selectors name=&quot;compound&quot; columns=&quot;three&quot; content={compoundContent} /&gt;"
+				isLast={ true }>
+				<Selectors name="compound" columns="three" content={compoundContent} />
+			</StorySection>
+		</>
 	);
 };
-Simple.storyName = 'Simple Tabs';
+Default.storyName = 'Default';
+
+export const Vertical = () => {
+	return (
+		<>
+			<StorySection
+				title="Simple"
+				description="You can vertical align box selectors where its text will always be center aligned and icon will be placed on top of text."
+				code="&lt;Selectors name=&quot;vertical&quot; columns=&quot;three&quot; content={simpleVerticalContent} /&gt;"
+				isDefault={true}>
+				<Selectors name="vertical" columns="three" content={simpleVerticalContent} />
+			</StorySection>
+			<StorySection
+				title="Compound"
+				description="There are some cases where you gonna need to include a description for the items."
+				code="&lt;Selectors name=&quot;compound&quot; columns=&quot;three&quot; content={compoundVerticalContent} /&gt;"
+				isLast={ true }>
+				<Selectors name="compound" columns="three" content={compoundVerticalContent} />
+			</StorySection>
+		</>
+	);
+};
+Vertical.storyName = 'Vertical';

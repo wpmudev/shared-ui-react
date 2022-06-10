@@ -18,34 +18,25 @@ export const demo = args => <Selectors {...args} />;
 demo.storyName = 'Demo';
 demo.args = {
 	name: 'selectors',
-	columns: 'one',
+	columns: 'three',
 	content: [
 		{
 			id: "unique-id-1",
 			label: "Element text",
 			labelId: "label-id-1",
-			description: "Element description",
-			descriptionId: "description-id-1",
 			icon: "info",
-			vertical: true,
 		},
 		{
 			id: "unique-id-2",
 			label: "Element text",
 			labelId: "label-id-2",
-			description: "Element description",
-			descriptionId: "description-id-2",
 			icon: "info",
-			vertical: true,
 		},
 		{
 			id: "unique-id-3",
 			label: "Element text",
 			labelId: "label-id-3",
-			description: "Element description",
-			descriptionId: "description-id-3",
 			icon: "info",
-			vertical: true,
 			disabled: true,
 			isPro: true,
 		},
@@ -53,10 +44,7 @@ demo.args = {
 			id: "unique-id-4",
 			label: "Element text",
 			labelId: "label-id-4",
-			description: "Element description",
-			descriptionId: "description-id-4",
 			icon: "info",
-			vertical: true,
 		}
 	],
 };

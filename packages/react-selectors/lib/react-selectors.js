@@ -42,6 +42,7 @@ const Selectors = ({
                                 aria-labelledby={item.labelId}
                                 aria-describedby={item.descriptionId}
                                 disabled={item.disabled ? true : false}
+                                defaultChecked={item.checked ? true : false}
                             />
                             <span aria-hidden="true">
                                 {item.icon && (<span className={`sui-icon-${item.icon}`}></span>)}
