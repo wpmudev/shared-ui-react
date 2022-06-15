@@ -1,8 +1,8 @@
 // https://github.com/davidtheclark/focus-trap-react/blob/master/src/focus-trap-react.js
 
-import React from "react";
-import ReactDOM from "react-dom";
-import { createFocusTrap } from "./focus-trap";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { createFocusTrap } from './focus-trap';
 
 function isFocusableElement(el) {
 	// This isn't actually a great way of testing this, but we want to
@@ -14,11 +14,11 @@ export class ReactFocusTrap extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.setFocusTrapElement = element => {
+		this.setFocusTrapElement = (element) => {
 			this.focusTrapElement = element;
 		};
 
-		if (typeof document !== "undefined") {
+		if (typeof document !== 'undefined') {
 			this.previouslyFocusedElement = document.activeElement;
 		}
 	}
@@ -31,35 +31,25 @@ export class ReactFocusTrap extends React.Component {
 		// then (optionally) returns focus to it in componentWillUnmount.
 		const specifiedFocusTrapOptions = this.props.focusTrapOptions;
 		const tailoredFocusTrapOptions = {
-			returnFocusOnDeactivate: false
+			returnFocusOnDeactivate: false,
 		};
 
 		for (const optionName in specifiedFocusTrapOptions) {
-			if (
-				!Object.prototype.hasOwnProperty.call(
-					specifiedFocusTrapOptions,
-					optionName
-				)
-			)
-				continue;
+			if (!Object.prototype.hasOwnProperty.call(specifiedFocusTrapOptions, optionName)) continue;
 
-			if (optionName === "returnFocusOnDeactivate") continue;
+			if (optionName === 'returnFocusOnDeactivate') continue;
 
-			tailoredFocusTrapOptions[optionName] =
-				specifiedFocusTrapOptions[optionName];
+			tailoredFocusTrapOptions[optionName] = specifiedFocusTrapOptions[optionName];
 		}
 
 		// eslint-disable-next-line react/no-find-dom-node
 		const focusTrapElementDOMNode = ReactDOM.findDOMNode(this.focusTrapElement);
 
 		if (!(focusTrapElementDOMNode instanceof HTMLElement)) {
-			throw new Error("Focus trap element DOM node is not an HTML element!");
+			throw new Error('Focus trap element DOM node is not an HTML element!');
 		}
 
-		this.focusTrap = this.props._createFocusTrap(
-			focusTrapElementDOMNode,
-			tailoredFocusTrapOptions
-		);
+		this.focusTrap = this.props._createFocusTrap(focusTrapElementDOMNode, tailoredFocusTrapOptions);
 
 		if (this.props.active) {
 			this.focusTrap.activate();
@@ -72,7 +62,7 @@ export class ReactFocusTrap extends React.Component {
 
 	componentDidUpdate(prevProps) {
 		if (!this.focusTrap) {
-			throw new Error("Assertion failure!");
+			throw new Error('Assertion failure!');
 		}
 
 		if (prevProps.active && !this.props.active) {
@@ -93,7 +83,7 @@ export class ReactFocusTrap extends React.Component {
 	}
 	componentWillUnmount() {
 		if (!this.focusTrap) {
-			throw new Error("Assertion failure!");
+			throw new Error('Assertion failure!');
 		}
 
 		this.focusTrap.deactivate();
@@ -110,16 +100,16 @@ export class ReactFocusTrap extends React.Component {
 	render() {
 		const child = React.Children.only(this.props.children);
 
-		const composedRefCallback = element => {
+		const composedRefCallback = (element) => {
 			this.setFocusTrapElement(element);
 
-			if (typeof child.ref === "function") {
+			if (typeof child.ref === 'function') {
 				child.ref(element);
 			}
 		};
 
 		const childWithRef = React.cloneElement(child, {
-			ref: composedRefCallback
+			ref: composedRefCallback,
 		});
 
 		return childWithRef;
@@ -130,5 +120,5 @@ ReactFocusTrap.defaultProps = {
 	active: true,
 	paused: false,
 	focusTrapOptions: {},
-	_createFocusTrap: createFocusTrap
+	_createFocusTrap: createFocusTrap,
 };
