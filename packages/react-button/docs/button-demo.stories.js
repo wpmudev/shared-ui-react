@@ -4,11 +4,6 @@ import { Button } from '../lib/button';
 export default {
 	title: 'Components/Button',
 	component: Button,
-	parameters: {
-		notes: {
-			disabled: true,
-		},
-	},
 };
 
 export const demo = (args) => <Button {...args} />;
@@ -70,7 +65,7 @@ demo.argTypes = {
 			type: 'boolean',
 		},
 	},
-	disabled: {
+	disable: {
 		description: 'Whether the button should be disabled',
 		table: {
 			type: { summary: 'boolean' },
