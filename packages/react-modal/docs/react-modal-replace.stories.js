@@ -13,7 +13,7 @@ export default {
 };
 
 const SampleOneModalOne = ({ isOpen, setIsOpen, switchModals }) => {
-	const [inputValue, setInputValue] = React.useState('');
+	const inputValue = React.useRef(null);
 
 	const replaceModalContent = ({ closeModal }) => {
 		const closeThisModal = () => {
@@ -21,6 +21,10 @@ const SampleOneModalOne = ({ isOpen, setIsOpen, switchModals }) => {
 			setTimeout(() => {
 				setIsOpen(false);
 			}, 300);
+		};
+		
+		const onChangeHandler = (event) => {
+			inputValue.current.value = event.target.value;
 		};
 
 		return (
@@ -60,8 +64,8 @@ const SampleOneModalOne = ({ isOpen, setIsOpen, switchModals }) => {
 						<Input
 							label="Access Code"
 							placeholder="Place access code here"
-							onChange={(e) => setInputValue(e.target.value)}
-							value={inputValue}
+							ref={inputValue}
+							onChange={onChangeHandler}
 							type="text"
 						/>
 
