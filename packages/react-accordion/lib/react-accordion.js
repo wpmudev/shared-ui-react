@@ -61,7 +61,7 @@ const AccordionItemHeader = ({ title, titleSize, icon, image, children, ...props
 		);
 
 	const titleColumnImage =
-		'undefined' !== typeof image && '' !== icon ? (
+		'undefined' !== typeof image && '' !== image ? (
 			<ItemImage style={{ backgroundImage: `url(${image})` }} />
 		) : (
 			''
