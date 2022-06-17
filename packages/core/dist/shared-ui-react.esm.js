@@ -3051,7 +3051,7 @@ var AccordionItemHeader = function AccordionItemHeader(_ref3) {
     className: "sui-icon-".concat(icon),
     "aria-hidden": "true"
   }) : '';
-  var titleColumnImage = 'undefined' !== typeof image && '' !== icon ? /*#__PURE__*/React.createElement(ItemImage, {
+  var titleColumnImage = 'undefined' !== typeof image && '' !== image ? /*#__PURE__*/React.createElement(ItemImage, {
     style: {
       backgroundImage: "url(".concat(image, ")")
     }
