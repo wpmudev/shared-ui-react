@@ -2,13 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
 
+## [1.8.3](https://github.com/wpmudev/shared-ui/compare/v1.8.2...v1.8.3) (2022-06-17)
+
+#### 🐛 Bug Fixes
+* `react-accordion`
+  * When `icon` is empty, the image disappears. [#269](https://github.com/wpmudev/shared-ui-react/pull/269) ([SUI-360](https://incsub.atlassian.net/browse/SUI-360)) ([@creador-dev](https://github.com/creador-dev))
+  * Blank space between icon and title when image is empty. [#269](https://github.com/wpmudev/shared-ui-react/pull/269) ([SUI-361](https://incsub.atlassian.net/browse/SUI-361)) ([@creador-dev](https://github.com/creador-dev))
+
+#### Committers: 1
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
+
 ## [1.8.2](https://github.com/wpmudev/shared-ui/compare/v1.8.1...v1.8.2) (2022-05-30)
 
 #### 🚀 Improvements
 
 - `react-progress-bar`
-  - Comparing a string and a number with strict operator is pointless. [#232](https://github.com/wpmudev/shared-ui-react/pull/232) ([SUI-398](https://incsub.atlassian.net/browse/SUI-398))
-    ([@creador-dev](https://github.com/creador-dev))
+  - Comparing a string and a number with strict operator is pointless. [#232](https://github.com/wpmudev/shared-ui-react/pull/232) ([SUI-398](https://incsub.atlassian.net/browse/SUI-398)) ([@creador-dev](https://github.com/creador-dev))
   - Using isNaN may lead to unexpected results. [#231](https://github.com/wpmudev/shared-ui-react/pull/231) ([SUI-399](https://incsub.atlassian.net/browse/SUI-399)) ([@creador-dev](https://github.com/creador-dev))
 - `react-modal`
   - Missing cleanup of timer in componentDidMount. [#230](https://github.com/wpmudev/shared-ui-react/pull/230) ([SUI-400](https://incsub.atlassian.net/browse/SUI-400)) ([@creador-dev](https://github.com/creador-dev))
