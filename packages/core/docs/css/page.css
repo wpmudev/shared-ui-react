@@ -1,0 +1,12 @@
+body[class*="sui-"] #docs-root .sbdocs-wrapper {
+	padding: 0;
+	background: transparent;
+}
+
+body[class*="sui-"] #docs-root .sbdocs-content {
+	max-width: 100%;
+}
+
+body[class*="sui-"] #docs-root .sui-wrap:not(.sui-modal) {
+	margin: 0;
+}

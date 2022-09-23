@@ -29,6 +29,10 @@
     margin-left: -16px;
 }
 
+.os-content .sidebar-header img {
+    max-height: 40px;
+}
+
 .os-content .sidebar-subheading button {
     padding-left: 0;
     pointer-events: none;
@@ -54,6 +58,15 @@
     color: var(--color-light-blue);
     margin-left: 3px;
     margin-right: 3px;
+}
+
+.os-content .search-result-recentlyOpened {
+    margin-left: -14px;
+    padding: 0;
+}
+
+.os-content ol {
+    margin-left: 0;
 }
 
 .os-content .sidebar-item {

@@ -1,6 +1,6 @@
 import React from 'react';
 import '@wpmudev/shared-ui/dist/css/shared-ui.min.css'; // Get latest SUI styles.
-import "./body-class";
+import "./preview-scripts";
 
 const customViewports = {
 	xl: {
@@ -48,15 +48,23 @@ const customViewports = {
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   backgrounds: {
-	  default: 'WordPress',
-	  values: [
-		  { name: 'WordPress', value: '#f1f1f1' }
-	  ]
+	  disable: true,
   },
   viewport: {
 	  viewports: customViewports
   },
   viewMode: 'canvas',
+  options: {
+	  storySort: {
+		  order: [
+			  'Welcome',
+			  'Getting Started',
+			  'Changelog',
+			  'Roadmap',
+			  '*',
+		  ],
+	  },
+  },
 }
 
 export const decorators = [
@@ -66,3 +74,28 @@ export const decorators = [
 		</div>
 	),
 ]
+
+
+// Hacky way of clicking on Docs button on first load of page.
+// https://github.com/storybookjs/storybook/issues/13128
+function clickDocsButtonOnFirstLoad() {
+	window.removeEventListener("load", clickDocsButtonOnFirstLoad);
+  
+	try {
+	  const docsButtonSelector = window.parent.document.evaluate(
+		"//button[contains(., 'Docs')]",
+		window.parent.document,
+		null,
+		XPathResult.ANY_TYPE,
+		null
+	  );
+  
+	  const button = docsButtonSelector.iterateNext();
+  
+	  button.click();
+	} catch (error) {
+	  // Do nothing if it wasn't able to click on Docs button.
+	}
+}
+  
+window.addEventListener("load", clickDocsButtonOnFirstLoad);

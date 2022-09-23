@@ -1,0 +1,48 @@
+body[class*="sui-"] .sui-wrap .article {
+	padding: 0 40px;
+}
+
+body[class*="sui-"] .sui-wrap .article a {
+	color: hsl(214, 84%, 56%);
+	font-size: inherit;
+	font-weight: inherit;
+}
+
+body[class*="sui-"] .sui-wrap .article a:hover,
+body[class*="sui-"] .sui-wrap .article a:focus {
+	color: hsl(214, 67%, 33%);
+}
+
+body[class*="sui-"] .sui-wrap .article__heading {
+	margin: 0 -40px;
+	padding: 40px 80px;
+	border: 0 solid #E6E6E6;
+	border-bottom-width: 1px;
+	background: hsl(0, 0%, 100%);
+	color: #333;
+	font-size: 36px;
+	line-height: 44px;
+	font-weight: bold;
+}
+
+body[class*="sui-"] .sui-wrap .article__subheading {
+	max-width: 700px;
+	margin: 0 0 40px;
+	padding: 0;
+	color: rgb(102, 118, 128);
+}
+
+body[class*="sui-"] .sui-wrap .article__content {
+	margin: 40px 0;
+	padding: 0 40px;
+}
+
+body[class*="sui-"] .sui-wrap .article__inner-content {
+	max-width: 700px;
+}
+
+body[class*="sui-"] .sui-wrap .article__footer {
+	margin: 0 -40px;
+	padding: 20px 80px;
+	background: hsl(0, 0%, 100%);
+}
