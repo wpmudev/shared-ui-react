@@ -110,6 +110,7 @@ const InputWithRef = React.forwardRef(({
 	...props
 }, ref) => {
 	const uniqueId = id && '' !== id ? id : props.property;
+	const [showIcon, setShowIcon] = useState(true);
 
 	let fieldClasses = 'sui-form-field';
 
@@ -166,7 +167,17 @@ const InputWithRef = React.forwardRef(({
 				<span class="sui-field-prefix">{prefix}</span>
 			)}
 
-			<input id={ uniqueId } type={ type } className={ inputClasses } ref={ref} { ...props } />
+			{ type === 'password' ? (
+				<div className="sui-with-button sui-with-button-icon">
+
+					<input id={ uniqueId } type={ showIcon ? type : 'text' } className={ inputClasses } ref={ ref } { ...props } />
+
+					<ButtonIcon icon={ showIcon ? "eye" : "eye-hide" } label={ showIcon ? "Show password" : "Hide password" } onClick={() => { setShowIcon(!showIcon);  }}/>
+
+				</div>
+			) : (
+				<input id={ uniqueId } type={ type } className={ inputClasses } ref={ ref } { ...props } />
+			)}
 
 			{suffix && (
 				<span class="sui-field-suffix">{suffix}</span>
