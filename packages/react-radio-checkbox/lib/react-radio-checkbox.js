@@ -63,7 +63,7 @@ const RadioCheckboxInput = ({
 
 const RadioCheckboxGroup = ({ type, options, ...props }) => {
     return (
-        <div className="sui-form-field" role={type == 'radio' ? 'radiogroup' : 'group'}>
+        <div className="sui-form-field" role={'radio' === type ? 'radiogroup' : 'group'}>
             {options?.map((option, index) => {
                 return (
                     option.image ?
