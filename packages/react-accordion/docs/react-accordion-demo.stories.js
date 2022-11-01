@@ -89,7 +89,7 @@ Demo.argTypes = {
 			type: null,
 		},
 	},
-	checkboxSelected: {
+	checkboxInput: {
 		description: 'Whether to show or hide checkbox.',
 		table: {
 			type: { summary: 'boolean' },
