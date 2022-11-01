@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Input } from '@wpmudev/react-input';
+import { InputWithRef } from '@wpmudev/react-input';
 import { ButtonIcon } from '@wpmudev/react-button-icon';
 
 export const MultiString = ({
@@ -64,7 +64,7 @@ export const MultiString = ({
                     );
                 })}
                 <li className="sui-multistrings-input">
-                    <Input id={inputId} autoComplete="off" placeholder={placeholder} aria-autocomplete="none" ref={inputRef} style={{ height: 'auto' }} onKeyDown={ (e) => handleKeyPress(e, disallowedCharsArray) } />
+                    <InputWithRef id={inputId} autoComplete="off" placeholder={placeholder} aria-autocomplete="none" ref={inputRef} style={{ height: 'auto' }} onKeyDown={ (e) => handleKeyPress(e, disallowedCharsArray) } />
                 </li>
             </ul>
         );
