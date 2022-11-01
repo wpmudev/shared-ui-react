@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Modal } from '../lib/react-modal';
 import { Button } from '@wpmudev/react-button';
 import { ButtonIcon } from '@wpmudev/react-button-icon';
-import { Input } from '@wpmudev/react-input';
+import { InputWithRef } from '@wpmudev/react-input';
 import banner from './images/beehive-welcome.png';
 import image1x from './images/hustle-footer.png';
 import image2x from './images/hustle-footer@2x.png';
@@ -61,7 +61,7 @@ const SampleOneModalOne = ({ isOpen, setIsOpen, switchModals }) => {
 							}
 						</p>
 
-						<Input
+						<InputWithRef
 							label="Access Code"
 							placeholder="Place access code here"
 							ref={inputValue}
