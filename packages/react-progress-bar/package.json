@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/react-progress-bar",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "WPMU DEV Shared UI React Progress Bar Component",
   "author": "WPMU DEV",
   "contributors": [
@@ -40,10 +40,10 @@
     "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
-    "@wpmudev/react-builder": "^0.0.0",
+    "@wpmudev/react-builder": "^1.0.1",
     "react": "^17.0.2"
   },
   "dependencies": {
-    "@wpmudev/react-button-icon": "^1.1.0"
+    "@wpmudev/react-button-icon": "^1.1.1"
   }
 }

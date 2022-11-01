@@ -45,6 +45,11 @@ const Button = styled.button`
         ${props => ('red' === props.color ? 'background-color: #FFE5E9 !important;' : '')}
         ${props => ('purple' === props.color ? 'background-color: #F9E1FF !important;' : '')}
     }
+
+    &[disabled] {
+        opacity: 0.5;
+        pointer-events: none;
+    }
 }
 `;
 
@@ -155,6 +160,7 @@ export class Dropdown extends Component {
                     icon="widget-settings-config"
                     label={ open ? 'Open menu' : 'Close menu' }
                     onClick={ this.toggle }
+                    {...this.props}
                 />
                 { open && <ul onClick={ () => this.setState({ open: false }) }>{ options }</ul> }
             </div>

@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/react-box",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "WPMU DEV Shared UI React Box Component",
   "author": "WPMU DEV",
   "contributors": [
@@ -43,8 +43,8 @@
     "styled-components": "^5"
   },
   "devDependencies": {
-    "@wpmudev/react-builder": "^0.0.0",
-    "@wpmudev/react-button": "^1.1.0",
+    "@wpmudev/react-builder": "^1.0.1",
+    "@wpmudev/react-button": "^1.1.1",
     "react": "^17.0.2"
   },
   "dependencies": {

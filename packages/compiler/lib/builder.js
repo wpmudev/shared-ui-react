@@ -34,6 +34,7 @@ const inputOptions = {
 	],
 	external: [
 		'react',
+		'react-dom',
 		'styled-components',
 		'@justfixnyc/react-aria-modal'
 	],

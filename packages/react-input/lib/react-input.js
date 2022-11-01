@@ -1,44 +1,98 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { ButtonIcon } from '@wpmudev/react-button-icon';
 
 const Input = ({
 	id,
-	size,
 	label,
 	description,
 	type = 'text',
 	errorStatus,
 	errorDescription,
+	size,
+	fieldSize,
+	suffix,
+	prefix,
 	...props
 }) => {
 	const uniqueId = id && '' !== id ? id : props.property;
+	const [showIcon, setShowIcon] = useState(true);
 
-	let clazz = 'sui-form-control';
+	let fieldClasses = 'sui-form-field';
 
-	switch (size) {
+	switch ( fieldSize ) {
 		case 'sm':
 		case 'small':
-			clazz += ' sui-input-sm';
+			fieldClasses += ' sui-input-sm';
 			break;
 
 		case 'md':
 		case 'medium':
-			clazz += ' sui-input-md';
+			fieldClasses += ' sui-input-md';
+			break;
+
+		default:
+			// Nothing.
+			break;
+	}
+
+	if ( errorStatus ) {
+		fieldClasses += ' sui-form-field-error';
+	}
+
+	let inputClasses = 'sui-form-control';
+
+	suffix && (inputClasses += ' sui-field-has-suffix');
+	prefix && (inputClasses += ' sui-field-has-prefix');
+
+	switch ( size ) {
+		case 'sm':
+		case 'small':
+			inputClasses += ' sui-input-sm';
+			break;
+
+		case 'md':
+		case 'medium':
+			inputClasses += ' sui-input-md';
+			break;
+
+		default:
+			// Nothing.
 			break;
 	}
 
 	return (
-		<div className={`sui-form-field${errorStatus ? ' sui-form-field-error' : ''}`}>
-			{label && (
-				<label htmlFor={uniqueId} className="sui-label">
-					{label}
+		<div className={ fieldClasses }>
+			{ label && (
+				<label htmlFor={ uniqueId } className="sui-label">
+					{ label }
 				</label>
 			)}
 
-			<input id={uniqueId} type={type} className={clazz} {...props} />
-			{errorStatus && errorDescription && (
-				<div className="sui-error-message">{errorDescription}</div>
+			{prefix && (
+				<span class="sui-field-prefix">{prefix}</span>
 			)}
-			{description && <p className="sui-description">{description}</p>}
+
+			{ type === 'password' ? (
+				<div className="sui-with-button sui-with-button-icon">
+
+					<input id={ uniqueId } type={ showIcon ? type : 'text' } className={ inputClasses } { ...props } />
+					
+					<ButtonIcon icon={ showIcon ? "eye" : "eye-hide" } label={ showIcon ? "Show password" : "Hide password" } onClick={() => { setShowIcon(!showIcon);  }}/>
+				
+				</div>
+			) : (
+				<input id={ uniqueId } type={ type } className={ inputClasses } { ...props } />
+			)}
+
+			{suffix && (
+				<span class="sui-field-suffix">{suffix}</span>
+			)}
+
+			{ errorStatus && errorDescription && (
+				<div className="sui-error-message">{ errorDescription }</div>
+			)}
+
+			{ description && <p className="sui-description">{ description }</p> }
 		</div>
 	);
 };
