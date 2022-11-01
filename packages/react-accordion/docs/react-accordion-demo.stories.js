@@ -89,6 +89,16 @@ Demo.argTypes = {
 			type: null,
 		},
 	},
+	checkboxSelected: {
+		description: 'Whether to show or hide checkbox.',
+		table: {
+			type: { summary: 'boolean' },
+			defaultValue: { summary: 'false' },
+		},
+		control: {
+			type: 'boolean',
+		},
+	},
 	checkboxId: {
 		description: 'Id of accordion checkbox.',
 		table: {
