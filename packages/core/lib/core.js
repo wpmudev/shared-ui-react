@@ -1,28 +1,22 @@
 // Components.
-import { Button } from "@wpmudev/react-button";
-import { ButtonIcon } from "@wpmudev/react-button-icon";
-import { Dropdown } from "@wpmudev/react-dropdown";
-import { Input } from "@wpmudev/react-input";
-import { Notifications } from "@wpmudev/react-notifications";
-import { Pagination } from "@wpmudev/react-pagination";
-import { Post } from "@wpmudev/react-post";
-import { ProgressBar } from "@wpmudev/react-progress-bar";
+import { Button } from '@wpmudev/react-button';
+import { ButtonIcon } from '@wpmudev/react-button-icon';
+import { Dropdown } from '@wpmudev/react-dropdown';
+import { Input } from '@wpmudev/react-input';
+import { Notifications } from '@wpmudev/react-notifications';
+import { Pagination } from '@wpmudev/react-pagination';
+import { Post } from '@wpmudev/react-post';
+import { ProgressBar } from '@wpmudev/react-progress-bar';
 
 // Containers.
-import {
-	Box,
-	BoxHeader,
-	BoxTitle,
-	BoxBody,
-	BoxFooter
-} from "@wpmudev/react-box";
+import { Box, BoxHeader, BoxTitle, BoxBody, BoxFooter } from '@wpmudev/react-box';
 import {
 	Accordion,
 	AccordionItem,
 	AccordionItemHeader,
-	AccordionItemBody
-} from "@wpmudev/react-accordion";
-import { Modal } from "@wpmudev/react-modal";
+	AccordionItemBody,
+} from '@wpmudev/react-accordion';
+import { Modal } from '@wpmudev/react-modal';
 
 export {
 	Box,

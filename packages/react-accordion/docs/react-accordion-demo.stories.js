@@ -6,20 +6,13 @@ import LogoImage from './assets/images/logo.png';
 export default {
 	title: 'Containers/Accordion',
 	component: AccordionItem,
-	parameters: {
-		notes: {
-			disabled: true,
-		},
-	},
-}
+};
 
 export const Demo = ({ children, ...props }) => {
 	return (
 		<div className="sui-box">
 			<Accordion>
-				<AccordionItem { ...props }>
-					{ children }
-				</AccordionItem>
+				<AccordionItem {...props}>{children}</AccordionItem>
 			</Accordion>
 		</div>
 	);
@@ -28,13 +21,15 @@ Demo.args = {
 	title: 'Accordion Item',
 	icon: 'wpmudev-logo',
 	image: LogoImage,
-	children: <div className="sui-box">
-		<div className="sui-box-body">
-			<p>Accordion content goes here.</p>
-		</div>
-	</div>,
-	checkboxInput: true,
+  checkboxInput: true,
 	checkboxId: 'accordion-item-1',
+	children: (
+		<div className="sui-box">
+			<div className="sui-box-body">
+				<p>Accordion content goes here.</p>
+			</div>
+		</div>
+	),
 };
 Demo.argTypes = {
 	title: {

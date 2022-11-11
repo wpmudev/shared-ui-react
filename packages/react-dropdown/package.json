@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/react-dropdown",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "WPMU DEV Shared UI React Dropdown Component",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com/)",
@@ -9,6 +9,9 @@
       "name": "Leighton Sapir",
       "email": "2328848+iamleigh@users.noreply.github.com",
       "url": "https://iamleigh.com/"
+    },
+    {
+      "name": "Pawan Kumar"
     }
   ],
   "license": "GPL-3.0",
@@ -43,7 +46,7 @@
     "styled-components": "^5"
   },
   "dependencies": {
-    "@wpmudev/react-button-icon": "^1.1.1",
+    "@wpmudev/react-button-icon": "^1.1.2",
     "styled-components": "^5.3.0"
   },
   "devDependencies": {

@@ -20,6 +20,9 @@ function _defineProperties(target, props) {
 function _createClass(Constructor, protoProps, staticProps) {
   if (protoProps) _defineProperties(Constructor.prototype, protoProps);
   if (staticProps) _defineProperties(Constructor, staticProps);
+  Object.defineProperty(Constructor, "prototype", {
+    writable: false
+  });
   return Constructor;
 }
 
@@ -68,6 +71,9 @@ function _inherits(subClass, superClass) {
       configurable: true
     }
   });
+  Object.defineProperty(subClass, "prototype", {
+    writable: false
+  });
   if (superClass) _setPrototypeOf(subClass, superClass);
 }
 
@@ -93,7 +99,7 @@ function _isNativeReflectConstruct() {
   if (typeof Proxy === "function") return true;
 
   try {
-    Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
+    Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
     return true;
   } catch (e) {
     return false;
@@ -111,6 +117,8 @@ function _assertThisInitialized(self) {
 function _possibleConstructorReturn(self, call) {
   if (call && (typeof call === "object" || typeof call === "function")) {
     return call;
+  } else if (call !== void 0) {
+    throw new TypeError("Derived constructors may only return object or undefined");
   }
 
   return _assertThisInitialized(self);
@@ -147,85 +155,7 @@ function _taggedTemplateLiteral(strings, raw) {
   }));
 }
 
-function _templateObject8() {
-  var data = _taggedTemplateLiteral(["\n\tmin-width: 1px;\n\tflex: 1;\n\t", "\n\tcolor: #17A8E3 !important;\n\tfont-size: 13px !important;\n\tline-height: 18px !important;\n\tfont-weight: 500 !important;\n\tletter-spacing: -0.2px !important;\n"]);
-
-  _templateObject8 = function _templateObject8() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject7() {
-  var data = _taggedTemplateLiteral(["\n\tdisplay: block;\n\t", "\n\n\tp {\n\t\toverflow: hidden;\n\t\tdisplay: -webkit-box;\n\t\t-webkit-box-orient: vertical;\n\t\tmargin: 0 !important;\n\t\tpadding: 0 !important;\n\t\tborder: 0;\n\t\tcolor: #888 !important;\n\t\tfont-size: 13px !important;\n\t\tline-height: 22px !important;\n\t\tletter-spacing: -0.2px;\n\t\t-webkit-line-clamp: ", ";\n\t}\n"]);
-
-  _templateObject7 = function _templateObject7() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject6() {
-  var data = _taggedTemplateLiteral(["\n\t", "\n\tmargin: 0 !important;\n\tpadding: 0 !important;\n\tborder: 0;\n\tcolor: #888 !important;\n\tfont-size: 13px !important;\n\tline-height: 18px !important;\n\tletter-spacing: -0.2px;\n\n\t", "\n"]);
-
-  _templateObject6 = function _templateObject6() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject5() {
-  var data = _taggedTemplateLiteral(["\n\toverflow: hidden;\n\tdisplay: -webkit-box !important;\n\t-webkit-box-orient: vertical;\n\t", "\n\tmargin: ", " !important;\n\tpadding: 0 !important;\n\tborder: 0;\n\tfont-size: 13px !important;\n\tline-height: 18px !important;\n\tfont-weight: 500 !important;\n\tletter-spacing: -0.2px;\n\t", "\n\n\t", "\n"]);
-
-  _templateObject5 = function _templateObject5() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject4() {
-  var data = _taggedTemplateLiteral(["\n\t", "\n\theight: ", ";\n\tmargin: ", ";\n\t", "\n\tdisplay: block;\n\t", "\n\tbackground-color: #FFF;\n\tbackground-image: url(", ");\n\tbackground-size: cover;\n\tbackground-position: center;\n\tbackground-repeat: no-repeat;\n"]);
-
-  _templateObject4 = function _templateObject4() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\n\tdisplay: flex;\n\tflex: 0 0 auto;\n\tflex-flow: row wrap;\n\talign-items: center;\n\tmargin-top: 15px;\n"]);
-
-  _templateObject3 = function _templateObject3() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n\tdisplay: flex;\n\tflex-flow: row wrap;\n\n\t+ div {\n\t\tmargin-top: 20px;\n\t}\n"]);
-
-  _templateObject2 = function _templateObject2() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n\t", "\n\tcursor: pointer;\n\t", "\n\t", "\n\tpadding: ", ";\n\tborder-radius: 4px;\n\tbackground-color: #fff;\n\t", "\n\ttransition: 0.2s ease all;\n\n\t* {\n\t\tpointer-events: none;\n\t}\n\n\t&:hover,\n\t&:focus {\n\t\t", "\n\n\t\t", "\n\t}\n\n\t", "\n\n\t&:focus {\n\t\toutline: none;\n\t\t", "\n\t}\n\n\t@media ", " {\n\t\t", "\n\t}\n"]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8;
 var aria = aria || {};
 aria.KeyCode = {
   TAB: 9,
@@ -259,68 +189,68 @@ var PostWrapper = styled.div.attrs(function (props) {
     tabIndex: 0,
     props: props
   };
-})(_templateObject(), function (props) {
-  return props.banner ? "overflow: hidden;" : "";
+})(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n\t", "\n\tcursor: pointer;\n\t", "\n\t", "\n\tpadding: ", ";\n\tborder-radius: 4px;\n\tbackground-color: #fff;\n\t", "\n\ttransition: 0.2s ease all;\n\n\t* {\n\t\tpointer-events: none;\n\t}\n\n\t&:hover,\n\t&:focus {\n\t\t", "\n\n\t\t", "\n\t}\n\n\t&[disabled] {\n\t\tpointer-events: none;\n\t\topacity: 0.5;\n\t}\n\n\t", "\n\n\t&:focus {\n\t\toutline: none;\n\t\t", "\n\t}\n\n\t@media ", " {\n\t\t", "\n\t}\n"])), function (props) {
+  return props.banner ? 'overflow: hidden;' : '';
 }, function (props) {
-  return props.banner ? "display: flex;" : "";
+  return props.banner ? 'display: flex;' : '';
 }, function (props) {
-  return props.banner ? "flex-flow: column nowrap;" : "";
+  return props.banner ? 'flex-flow: column nowrap;' : '';
 }, function (props) {
-  return props.banner ? "20px 20px 30px" : "10px";
+  return props.banner ? '20px 20px 30px' : '10px';
 }, function (props) {
-  return props.banner ? "box-shadow: 0 0 0 1px #E6E6E6;" : "";
+  return props.banner ? 'box-shadow: 0 0 0 1px #E6E6E6;' : '';
 }, function (props) {
-  return props.banner ? "transform: scale(1.02);" : "background-color: #FAFAFA;";
+  return props.banner ? 'transform: scale(1.02);' : 'background-color: #FAFAFA;';
 }, function (props) {
-  return props.banner ? "@media ".concat(device.tablet, " {\n\t\t\t\ttransform: scale(1.05);\n\t\t\t}") : "";
+  return props.banner ? "@media ".concat(device.tablet, " {\n\t\t\t\ttransform: scale(1.05);\n\t\t\t}") : '';
 }, function (props) {
-  return props.banner ? "@media ".concat(device.tablet, " {\n\t\t\tbox-shadow: 0 2px 7px 0 rgba(0,0,0,0.05);\n\t\t}") : "";
+  return props.banner ? "@media ".concat(device.tablet, " {\n\t\t\tbox-shadow: 0 2px 7px 0 rgba(0,0,0,0.05);\n\t\t}") : '';
 }, function (props) {
-  return props.banner ? "box-shadow: 0 2px 7px 0 rgba(0,0,0,0.05), 0 0 2px 0 #17A8E3;" : "";
+  return props.banner ? 'box-shadow: 0 2px 7px 0 rgba(0,0,0,0.05), 0 0 2px 0 #17A8E3;' : '';
 }, device.tablet, function (props) {
-  return props.banner ? "min-height: 100%;" : "padding: 15px;";
+  return props.banner ? 'min-height: 100%;' : 'padding: 15px;';
 });
-var PostHeader = styled.div(_templateObject2());
-var PostFooter = styled.div(_templateObject3());
+var PostHeader = styled.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n\tdisplay: flex;\n\tflex-flow: row wrap;\n\n\t+ div {\n\t\tmargin-top: 20px;\n\t}\n"])));
+var PostFooter = styled.div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n\tdisplay: flex;\n\tflex: 0 0 auto;\n\tflex-flow: row wrap;\n\talign-items: center;\n\tmargin-top: 15px;\n"])));
 var FeaturedImage = styled.div.attrs(function () {
   return {
-    tabIndex: "-1",
-    "aria-hidden": true
+    tabIndex: '-1',
+    'aria-hidden': true
   };
-})(_templateObject4(), function (props) {
-  return props.banner ? "" : "width: 66px;";
+})(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n\t", "\n\theight: ", ";\n\tmargin: ", ";\n\t", "\n\tdisplay: block;\n\t", "\n\tbackground-color: #FFF;\n\tbackground-image: ", ";\n\tbackground-size: cover;\n\tbackground-position: center;\n\tbackground-repeat: no-repeat;\n"])), function (props) {
+  return props.banner ? '' : 'width: 66px;';
 }, function (props) {
-  return props.banner ? "140px" : "54px";
+  return props.banner ? '140px' : '54px';
 }, function (props) {
-  return props.banner ? "-20px -20px 20px" : "0 10px 0 0";
+  return props.banner ? '-20px -20px 20px' : '0 10px 0 0';
 }, function (props) {
-  return props.banner ? "" : "border-radius: 4px;";
+  return props.banner ? '' : 'border-radius: 4px;';
 }, function (props) {
-  return props.banner ? "flex: 0 0 auto;" : "";
+  return props.banner ? 'flex: 0 0 auto;' : '';
 }, function (props) {
-  return props.src || "none";
+  return props.src ? "url(".concat(props.src, ")") : 'none';
 });
-var PostTitle = styled.h3(_templateObject5(), function (props) {
-  return props.banner ? "flex: 1 1 auto;" : "";
+var PostTitle = styled.h3(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n\toverflow: hidden;\n\tdisplay: -webkit-box !important;\n\t-webkit-box-orient: vertical;\n\t", "\n\tmargin: ", " !important;\n\tpadding: 0 !important;\n\tborder: 0;\n\tfont-size: 13px !important;\n\tline-height: 18px !important;\n\tfont-weight: 500 !important;\n\tletter-spacing: -0.2px;\n\t", "\n\n\t", "\n"])), function (props) {
+  return props.banner ? 'flex: 1 1 auto;' : '';
 }, function (props) {
-  return props.banner ? "0 0 10px" : "0";
+  return props.banner ? '0 0 10px' : '0';
 }, function (props) {
-  return props.banner ? "" : "-webkit-line-clamp: 2;";
+  return props.banner ? '' : '-webkit-line-clamp: 2;';
 }, function (props) {
-  return props.banner ? "@media ".concat(device.tablet, " {\n\t\t\t-webkit-line-clamp: 2;\n\t\t}") : "";
+  return props.banner ? "@media ".concat(device.tablet, " {\n\t\t\t-webkit-line-clamp: 2;\n\t\t}") : '';
 });
-var PostTime = styled.p(_templateObject6(), function (props) {
-  return props.banner ? "flex: 0 0 auto;" : "";
+var PostTime = styled.p(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n\t", "\n\tmargin: 0 !important;\n\tpadding: 0 !important;\n\tborder: 0;\n\tcolor: #888 !important;\n\tfont-size: 13px !important;\n\tline-height: 18px !important;\n\tletter-spacing: -0.2px;\n\n\t", "\n"])), function (props) {
+  return props.banner ? 'flex: 0 0 auto;' : '';
 }, function (props) {
-  return props.banner ? "* + & {\n\t\t\tmargin-left: 5px !important;\n\t\t}" : "";
+  return props.banner ? "* + & {\n\t\t\tmargin-left: 5px !important;\n\t\t}" : '';
 });
-var Excerpt = styled.div(_templateObject7(), function (props) {
-  return props.banner ? "flex: 1 1 auto;" : "";
+var Excerpt = styled.div(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n\tdisplay: block;\n\t", "\n\n\tp {\n\t\toverflow: hidden;\n\t\tdisplay: -webkit-box;\n\t\t-webkit-box-orient: vertical;\n\t\tmargin: 0 !important;\n\t\tpadding: 0 !important;\n\t\tborder: 0;\n\t\tcolor: #888 !important;\n\t\tfont-size: 13px !important;\n\t\tline-height: 22px !important;\n\t\tletter-spacing: -0.2px;\n\t\t-webkit-line-clamp: ", ";\n\t}\n"])), function (props) {
+  return props.banner ? 'flex: 1 1 auto;' : '';
 }, function (props) {
-  return props.banner ? "3" : "2";
+  return props.banner ? '3' : '2';
 });
-var ReadMore = styled.p(_templateObject8(), function (props) {
-  return props.banner ? "" : "margin: 4px 0 0;";
+var ReadMore = styled.p(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\n\tmin-width: 1px;\n\tflex: 1;\n\t", "\n\tcolor: #17A8E3 !important;\n\tfont-size: 13px !important;\n\tline-height: 18px !important;\n\tfont-weight: 500 !important;\n\tletter-spacing: -0.2px !important;\n"])), function (props) {
+  return props.banner ? 'margin-bottom: 0 !important;' : 'margin: 4px 0 0;';
 });
 var Post = /*#__PURE__*/function (_Component) {
   _inherits(Post, _Component);
@@ -338,7 +268,7 @@ var Post = /*#__PURE__*/function (_Component) {
       var ref = e.target !== null ? e.target : e.srcElement;
 
       if (ref) {
-        window.open(ref.getAttribute("data-href"), "_blank");
+        window.open(ref.getAttribute('data-href'), '_blank');
       }
     });
 
@@ -368,22 +298,33 @@ var Post = /*#__PURE__*/function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      var API_URL = "https://wpmudev.com/blog/wp-json/wp/v2/media/";
+      var API_URL = 'https://wpmudev.com/blog/wp-json/wp/v2/media/';
       var QUERY_ID = this.props.media; // GET media using fetch.
 
-      fetch(API_URL + QUERY_ID).then(function (response) {
-        return response.json();
-      }).then(function (data) {
-        _this2.setState({
-          isLoaded: true,
-          media: data.guid.rendered
+      if (QUERY_ID) {
+        fetch(API_URL + QUERY_ID).then(function (response) {
+          return response.json();
+        }).then(function (data) {
+          var _data$data;
+
+          if (((_data$data = data.data) === null || _data$data === void 0 ? void 0 : _data$data.status) === 404) {
+            _this2.setState({
+              isLoaded: true,
+              error: data.data.message
+            });
+          } else {
+            _this2.setState({
+              isLoaded: true,
+              media: data.guid.rendered
+            });
+          }
+        }, function (error) {
+          _this2.setState({
+            isLoaded: true,
+            error: error
+          });
         });
-      }, function (error) {
-        _this2.setState({
-          isLoaded: true,
-          error: error
-        });
-      });
+      }
     }
   }, {
     key: "render",
@@ -393,18 +334,32 @@ var Post = /*#__PURE__*/function (_Component) {
           error = _this$state.error,
           isLoaded = _this$state.isLoaded;
       var translate = this.props.translate;
-      var read_article = translate && translate[0].read_article ? translate[0].read_article : "Read article";
-      var min_read = translate && translate[0].min_read ? translate[0].min_read : "min read";
-      var PostImage = ""; // Empty.
+      var read_article = translate && translate[0].read_article ? translate[0].read_article : 'Read article';
+      var min_read = translate && translate[0].min_read ? translate[0].min_read : 'min read'; // replace html entities from the title with character.
 
-      if (this.props.image) {
+      var postTitle = this.props.title.replace(/&#(\d+);/g, function (match, dec) {
+        return String.fromCharCode(dec);
+      });
+      var PostImage = ''; // Empty.
+
+      var image = this.props.image;
+
+      if (image) {
         PostImage = /*#__PURE__*/React.createElement(FeaturedImage, _extends({
-          src: this.props.image,
+          src: image,
           alt: ""
-        }, this.props));
+        }, this.props, {
+          title: postTitle
+        }));
       } else {
         if (error) {
           PostImage = error.message;
+        } else if ((typeof image === 'undefined' || image === null || image === '') && !this.props.media || error) {
+          PostImage = /*#__PURE__*/React.createElement("span", {
+            style: {
+              marginTop: '10px'
+            }
+          });
         } else if (!isLoaded) {
           PostImage = /*#__PURE__*/React.createElement("p", {
             style: {
@@ -419,17 +374,21 @@ var Post = /*#__PURE__*/function (_Component) {
         } else {
           PostImage = /*#__PURE__*/React.createElement(FeaturedImage, _extends({
             src: media
-          }, this.props));
+          }, this.props, {
+            title: postTitle
+          }));
         }
       }
 
       if (this.props.banner) {
-        return /*#__PURE__*/React.createElement(PostWrapper, this.props, PostImage, this.props.title && "" !== this.props.title && /*#__PURE__*/React.createElement(PostTitle, {
+        return /*#__PURE__*/React.createElement(PostWrapper, _extends({}, this.props, {
+          title: postTitle
+        }), PostImage, this.props.title && '' !== this.props.title && /*#__PURE__*/React.createElement(PostTitle, {
           banner: true,
           dangerouslySetInnerHTML: {
             __html: this.props.title
           }
-        }), this.props.excerpt && "" !== this.props.excerpt && /*#__PURE__*/React.createElement(Excerpt, {
+        }), this.props.excerpt && '' !== this.props.excerpt && /*#__PURE__*/React.createElement(Excerpt, {
           banner: true,
           dangerouslySetInnerHTML: {
             __html: this.props.excerpt
@@ -438,28 +397,30 @@ var Post = /*#__PURE__*/function (_Component) {
           banner: true
         }, /*#__PURE__*/React.createElement(ReadMore, {
           banner: true
-        }, read_article), this.props.time && "" !== this.props.time && /*#__PURE__*/React.createElement(PostTime, {
+        }, read_article), this.props.time && '' !== this.props.time && /*#__PURE__*/React.createElement(PostTime, {
           banner: true
         }, /*#__PURE__*/React.createElement("span", {
           className: "sui-icon-clock sui-sm",
           style: {
-            verticalAlign: "middle",
+            verticalAlign: 'middle',
             marginRight: 5
           },
           "aria-hidden": "true"
         }), this.props.time, " ", min_read)));
       }
 
-      return /*#__PURE__*/React.createElement(PostWrapper, this.props, /*#__PURE__*/React.createElement(PostHeader, null, PostImage, /*#__PURE__*/React.createElement("div", {
+      return /*#__PURE__*/React.createElement(PostWrapper, _extends({}, this.props, {
+        title: postTitle
+      }), /*#__PURE__*/React.createElement(PostHeader, null, PostImage, /*#__PURE__*/React.createElement("div", {
         style: {
-          minWidth: "1px",
+          minWidth: '1px',
           flex: 1
         }
-      }, this.props.title && "" !== this.props.title && /*#__PURE__*/React.createElement(PostTitle, {
+      }, this.props.title && '' !== this.props.title && /*#__PURE__*/React.createElement(PostTitle, {
         dangerouslySetInnerHTML: {
           __html: this.props.title
         }
-      }), this.props.time && "" !== this.props.time && /*#__PURE__*/React.createElement(PostTime, null, "*", this.props.time, " ", min_read))), this.props.excerpt && "" !== this.props.excerpt && /*#__PURE__*/React.createElement(Excerpt, {
+      }), this.props.time && '' !== this.props.time && /*#__PURE__*/React.createElement(PostTime, null, "*", this.props.time, " ", min_read))), this.props.excerpt && '' !== this.props.excerpt && /*#__PURE__*/React.createElement(Excerpt, {
         dangerouslySetInnerHTML: {
           __html: this.props.excerpt
         }
