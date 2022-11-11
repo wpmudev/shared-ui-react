@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Modal } from '../lib/react-modal';
 import { Button } from '@wpmudev/react-button';
 import { ButtonIcon } from '@wpmudev/react-button-icon';
-import { Input } from '@wpmudev/react-input';
+import { InputWithRef } from '@wpmudev/react-input';
 import banner from './images/beehive-welcome.png';
 import image1x from './images/hustle-footer.png';
 import image2x from './images/hustle-footer@2x.png';
@@ -13,7 +13,7 @@ export default {
 };
 
 const SampleOneModalOne = ({ isOpen, setIsOpen, switchModals }) => {
-	const [inputValue, setInputValue] = React.useState('');
+	const inputValue = React.useRef(null);
 
 	const replaceModalContent = ({ closeModal }) => {
 		const closeThisModal = () => {
@@ -21,6 +21,10 @@ const SampleOneModalOne = ({ isOpen, setIsOpen, switchModals }) => {
 			setTimeout(() => {
 				setIsOpen(false);
 			}, 300);
+		};
+		
+		const onChangeHandler = (event) => {
+			inputValue.current.value = event.target.value;
 		};
 
 		return (
@@ -57,11 +61,11 @@ const SampleOneModalOne = ({ isOpen, setIsOpen, switchModals }) => {
 							}
 						</p>
 
-						<Input
+						<InputWithRef
 							label="Access Code"
 							placeholder="Place access code here"
-							onChange={(e) => setInputValue(e.target.value)}
-							value={inputValue}
+							ref={inputValue}
+							onChange={onChangeHandler}
 							type="text"
 						/>
 
