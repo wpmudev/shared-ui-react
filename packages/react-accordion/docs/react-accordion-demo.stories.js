@@ -21,6 +21,8 @@ Demo.args = {
 	title: 'Accordion Item',
 	icon: 'wpmudev-logo',
 	image: LogoImage,
+  checkboxInput: true,
+	checkboxId: 'accordion-item-1',
 	children: (
 		<div className="sui-box">
 			<div className="sui-box-body">
@@ -77,6 +79,46 @@ Demo.argTypes = {
 			type: {
 				summary: 'element[]',
 			},
+		},
+		control: {
+			type: null,
+		},
+	},
+	checkboxInput: {
+		description: 'Whether to show or hide checkbox.',
+		table: {
+			type: { summary: 'boolean' },
+			defaultValue: { summary: 'false' },
+		},
+		control: {
+			type: 'boolean',
+		},
+	},
+	checkboxId: {
+		description: 'Id of accordion checkbox.',
+		table: {
+			type: { summary: 'string' },
+			defaultValue: { summary: 'null' },
+		},
+		control: {
+			type: 'text',
+		},
+	},
+	checkboxSelected: {
+		description: 'Whether the checkbox should be default selected.',
+		table: {
+			type: { summary: 'boolean' },
+			defaultValue: { summary: 'false' },
+		},
+		control: {
+			type: 'boolean',
+		},
+	},
+	checkboxClickHandler: {
+		description: 'Checkbox click event handler.',
+		table: {
+			type: { summary: 'function' },
+			defaultValue: { summary: 'null' },
 		},
 		control: {
 			type: null,

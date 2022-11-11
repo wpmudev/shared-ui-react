@@ -2,6 +2,7 @@ import React, { Component, useState, useEffect, setState, useCallback } from 're
 import styled from 'styled-components';
 
 import { ButtonIcon } from '@wpmudev/react-button-icon';
+import { RadioCheckboxInput } from '@wpmudev/react-radio-checkbox';
 
 const ItemImage = styled.span`
 	width: 30px;
@@ -31,7 +32,7 @@ const Accordion = ({ children, ...props }) => {
 	);
 };
 
-const AccordionItem = ({ title, titleSize, icon, image, children, ...props }) => {
+const AccordionItem = ({ title, titleSize, icon, image, children, checkboxInput, checkboxId, checkboxSelected, checkboxClickHandler, ...props }) => {
 	const [isOpen, setIsOpen] = useToggle();
 
 	return (
@@ -43,13 +44,17 @@ const AccordionItem = ({ title, titleSize, icon, image, children, ...props }) =>
 				icon={icon}
 				image={image}
 				onClick={setIsOpen}
+        checkboxInput={ checkboxInput }
+				checkboxId={ checkboxId }
+				checkboxSelected={ checkboxSelected }
+				checkboxClickHandler={ checkboxClickHandler }
 			/>
 			<AccordionItemBody>{children}</AccordionItemBody>
 		</div>
 	);
 };
 
-const AccordionItemHeader = ({ title, titleSize, icon, image, children, ...props }) => {
+const AccordionItemHeader = ({ title, titleSize, icon, image, children, checkboxInput, checkboxId, checkboxSelected, checkboxClickHandler, ...props }) => {
 	const [isOpen] = useState(false);
 	const countChildren = React.Children.toArray(children).length;
 
@@ -70,8 +75,20 @@ const AccordionItemHeader = ({ title, titleSize, icon, image, children, ...props
 	const titleColumnSize =
 		'undefined' !== typeof titleSize && '' !== titleSize ? ' sui-accordion-col-' + titleSize : '';
 
+	const checkboxItem = checkboxInput ? (
+		<RadioCheckboxInput
+			type="checkbox"
+			id={ checkboxId }
+			name="accordion-checkbox"
+			defaultChecked={ checkboxSelected }
+			onChange={ checkboxClickHandler }
+		/>
+	) : '';
+		
+
 	const titleColumn = (
 		<div className={`sui-accordion-item-title${titleColumnSize}`}>
+      {checkboxItem}
 			{titleColumnIcon}
 			{titleColumnImage}
 			{title}

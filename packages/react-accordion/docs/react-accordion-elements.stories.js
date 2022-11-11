@@ -110,6 +110,22 @@ const StorySection = ({
 	);
 };
 
+export const Checkbox = (args) => {
+	return (
+		<StorySection
+			title="Item Checkbox"
+			description='Display an checkbox at the beginning of the item header. It displays before the title and the image.'
+			code="&lt;AccordionItem checkboxInput=&quot;true&quot; checkboxId=&quot;checkbox-id&quot; /&gt;"
+			isLast={ true }>
+			<Template { ...args } />
+		</StorySection>
+	);
+};
+Checkbox.args = {
+	checkboxInput: true,
+	checkboxId:	'checkbox-id'
+};
+
 export const Icon = (args) => {
 	return (
 		<StorySection
