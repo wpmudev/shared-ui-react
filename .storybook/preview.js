@@ -1,7 +1,9 @@
 import React from 'react';
+import { addParameters } from '@storybook/react';
 import '@wpmudev/shared-ui/dist/css/shared-ui.min.css'; // Get latest SUI styles.
 import "./body-class";
 
+// List custom viewports.
 const customViewports = {
 	xl: {
 		name: 'Desktop',
@@ -45,6 +47,7 @@ const customViewports = {
 	},
 };
 
+// Edit parameters.
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   backgrounds: {
@@ -56,12 +59,22 @@ export const parameters = {
   viewport: {
 	  viewports: customViewports
   },
+  viewMode: 'canvas'
 }
+
+// Edit "preview" markup.
+const Wrapper = ({ children }) => {
+	return (
+		<div className="sui-wrap">
+			{ children }
+		</div>
+	);
+};
 
 export const decorators = [
 	( Story ) => (
-		<div className="sui-wrap">
+		<Wrapper>
 			<Story />
-		</div>
+		</Wrapper>
 	),
-]
+];

@@ -1,70 +1,69 @@
 # How to Contribute
 
-If you are looking for a bug to fix, check out [Issues List](https://github.com/wpmudev/shared-ui-react/issues) on GitHub. Otherwise please open a new issue.
+The **WPMU DEV Products Team** bases the roadmap on its planned design and development path, subject to changes based on our products' needs and our clients' feedback. Find the entire backlog of this library on our [JIRA](https://incsub.atlassian.net/browse/SUI) board.
 
-## Working on Issues.
+## Working on Issues
 
-SUI React goal is to convert [Shared UI Library](https://github.com/wpmudev/shared-ui) into React native components. If there is part of the implementation you disagree with please open a [new issue](https://github.com/wpmudev/shared-ui-react/issues/new).
+Before submitting any PR, please open a [task](https://incsub.atlassian.net/browse/SUI) first in the **Backlog** list.
 
-### Add a Feature.
+### New Feature
 
-We consider any new API to be a new feature. An API is any of the following:
+Changes done to introduce a new API are considered a new feature. These can be:
 
-- Adding a new React Component
-- Update to React Component APIs
-- Prop addition on React Component
+- Create a new package
+- Update to any package APIs
+- Add a new component to a package
+- Property addition on the component
 
-> If changes fall under these categories or you'd like to add a new package please open an [issue](https://github.com/wpmudev/shared-ui-react/issues/new) first.
+### Fixes or Improvements
 
-### Fixing Bugs.
+- If the issue is a doc change (README, documentation, and more.)
+- If it is a bug or mistake in the source code.
+- Any change to the API that does not fall into the new feature category.
 
-Go ahead and open a pull request when:
+### Commit Message Format
 
-- The issue is a small doc change (READMEs, documentation, etc.).
-- The changes you want to perform are under 10 - 20 lines of code.
-
-> Have in mind that anything larger to 20 lines of code or changes to an API will require an issue to be opened first.
-
-## Pull Request Message Format
-
-The pull request message to the @wpmudev/react-foo package, for GitHub issue 1234, should look like this:
+The final pull request commit message for a react-foo package should look like this:
 
 ```
-# For a fix to an issue
-🐛 fix(react-foo): Short description of fix.
-
 # For a new feature
-✨ new(react-foo): Short description of feature.
+new(foo): Task title or short description of the feature.
 
-# For a doc update
-📝 docs(react-foo): Short description of doc changes.
+# For a bug fix or improvement
+fix(foo): Task title or short description of fix.
 
-# For accessibility improvements
-♿️ aria(react-foo): Short description of improvement.
+# For accessibility (only) improvement.
+aria(foo): Task title or short description of fix.
+
+# For a doc update.
+docs(foo): Task title or short description of doc change.
 ```
 
-This commit message is pulled into our `CHANGELOG` when we release and is based on Angular's git commit guidelines.
+When released, this commit message is automatically pulled into our `CHANGELOG` and follows [Conventional Commits](https://conventionalcommits.org/) guidelines.
 
-## Pull Requests.
+## Pull Requests
 
-Pull requests should meet the following criteria:
+The PRs must meet the following criteria:
 
-- **PRs should be focused!** PRs should focus on fixing one issue or an additional feature. Anything extra requires another PR.
-- If there is an existing [issue(s)](https://github.com/wpmudev/shared-ui-react/issues/) please refer to it in the description of your PR.
-- Please also include notes about what your changes are trying to achieve (or anything you've learned). Brevity appreciated.
+- **PRs should be focused!** Pull requests should focus on fixing one issue at a time. Anything extra requires a new PR.
+- Every pull request must have a task open on our JIRA board.
+- Please, add notes about what the changes are trying to achieve (or what you have learned). Brevity appreciated!
 
 ### Process
 
-Before opening a PR, it should be up to date with `development` branch, which is the targeted release branch.
+Before opening a PR, it should be up to date with the targeted release branch (release/<release_number>).
 
 #### Checklist:
 
-- [ ] Lint passes.
-- [ ] Chromatic passes.
-- [ ] Descriptions about your changes.
+- [ ] All unit tests pass.
+  - [ ] Chromatic test passes.
+  - [ ] CodeQL test passes.
+  - [ ] Security/Snyk test passes.
+- [ ] Descriptions of the changes done.
+- [ ] Sign the pull request by assigning it to yourself in the "assignees" section.
 
-Once you have passed all checks, the process is as follows:
+Once all the checks pass, the process is as follows:
 
-1. One of the admins ([@iamleigh](https://github.com/iamleigh), [@a-danae](https://github.com/a-danae)) will review your changes.
-2. We will either approve, request changes, or explain why we can't accept these changes. And we'll work from there.
-3. Assuming approval, one of the admins will merge your changes and remove the branch from the PR.
+1. Move the task on the JIRA board to the "Waiting for Merge" column.
+2. Ping on the project lead ([@iamleigh](https://github.com/iamleigh)) to notify the changes are ready for review.
+3. Once the PR passes the review, the project lead will merge the changes and remove the branch from the PR.

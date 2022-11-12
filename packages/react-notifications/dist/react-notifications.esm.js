@@ -19,10 +19,13 @@ function _defineProperties(target, props) {
 function _createClass(Constructor, protoProps, staticProps) {
   if (protoProps) _defineProperties(Constructor.prototype, protoProps);
   if (staticProps) _defineProperties(Constructor, staticProps);
+  Object.defineProperty(Constructor, "prototype", {
+    writable: false
+  });
   return Constructor;
 }
 
-function _defineProperty(obj, key, value) {
+function _defineProperty$1(obj, key, value) {
   if (key in obj) {
     Object.defineProperty(obj, key, {
       value: value,
@@ -49,6 +52,9 @@ function _inherits(subClass, superClass) {
       configurable: true
     }
   });
+  Object.defineProperty(subClass, "prototype", {
+    writable: false
+  });
   if (superClass) _setPrototypeOf(subClass, superClass);
 }
 
@@ -74,7 +80,7 @@ function _isNativeReflectConstruct() {
   if (typeof Proxy === "function") return true;
 
   try {
-    Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
+    Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
     return true;
   } catch (e) {
     return false;
@@ -92,6 +98,8 @@ function _assertThisInitialized(self) {
 function _possibleConstructorReturn(self, call) {
   if (call && (typeof call === "object" || typeof call === "function")) {
     return call;
+  } else if (call !== void 0) {
+    throw new TypeError("Derived constructors may only return object or undefined");
   }
 
   return _assertThisInitialized(self);
@@ -116,7 +124,33 @@ function _createSuper(Derived) {
   };
 }
 
-function _defineProperty$1(obj, key, value) {
+function ownKeys(object, enumerableOnly) {
+  var keys = Object.keys(object);
+
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    enumerableOnly && (symbols = symbols.filter(function (sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    })), keys.push.apply(keys, symbols);
+  }
+
+  return keys;
+}
+
+function _objectSpread2(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = null != arguments[i] ? arguments[i] : {};
+    i % 2 ? ownKeys(Object(source), !0).forEach(function (key) {
+      _defineProperty(target, key, source[key]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) {
+      Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+    });
+  }
+
+  return target;
+}
+
+function _defineProperty(obj, key, value) {
   if (key in obj) {
     Object.defineProperty(obj, key, {
       value: value,
@@ -129,40 +163,6 @@ function _defineProperty$1(obj, key, value) {
   }
 
   return obj;
-}
-
-function ownKeys(object, enumerableOnly) {
-  var keys = Object.keys(object);
-
-  if (Object.getOwnPropertySymbols) {
-    var symbols = Object.getOwnPropertySymbols(object);
-    if (enumerableOnly) symbols = symbols.filter(function (sym) {
-      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    });
-    keys.push.apply(keys, symbols);
-  }
-
-  return keys;
-}
-
-function _objectSpread2(target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i] != null ? arguments[i] : {};
-
-    if (i % 2) {
-      ownKeys(Object(source), true).forEach(function (key) {
-        _defineProperty$1(target, key, source[key]);
-      });
-    } else if (Object.getOwnPropertyDescriptors) {
-      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
-    } else {
-      ownKeys(Object(source)).forEach(function (key) {
-        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-      });
-    }
-  }
-
-  return target;
 }
 
 function _objectWithoutPropertiesLoose(source, excluded) {
@@ -201,21 +201,23 @@ function _objectWithoutProperties(source, excluded) {
   return target;
 }
 
+var _excluded = ["label", "icon", "iconSize", "design", "color", "className", "loading"];
+
 var ButtonIcon = function ButtonIcon(_ref) {
   var label = _ref.label,
       icon = _ref.icon,
       iconSize = _ref.iconSize,
       _ref$design = _ref.design,
-      design = _ref$design === void 0 ? "solid" : _ref$design,
+      design = _ref$design === void 0 ? 'solid' : _ref$design,
       color = _ref.color,
       className = _ref.className,
       loading = _ref.loading,
-      props = _objectWithoutProperties(_ref, ["label", "icon", "iconSize", "design", "color", "className", "loading"]);
+      props = _objectWithoutProperties(_ref, _excluded);
 
   var loader = /*#__PURE__*/React.createElement("span", {
     className: "sui-icon-loader sui-loading",
     style: {
-      position: "relative"
+      position: 'relative'
     },
     "aria-hidden": "true"
   });
@@ -228,38 +230,38 @@ var ButtonIcon = function ButtonIcon(_ref) {
   className = "sui-button-icon ".concat(className || ''); // Set button color.
 
   switch (color) {
-    case "blue":
-    case "green":
-    case "red":
-    case "orange":
-    case "purple":
-    case "yellow":
-    case "white":
-      className += " sui-button-" + color;
+    case 'blue':
+    case 'green':
+    case 'red':
+    case 'orange':
+    case 'purple':
+    case 'yellow':
+    case 'white':
+      className += ' sui-button-' + color;
       break;
 
-    case "gray":
+    case 'gray':
     default:
-      className += "";
+      className += '';
       break;
   } // Set button style.
 
 
   switch (design) {
-    case "ghost":
-    case "outlined":
-      className += " sui-button-" + design;
+    case 'ghost':
+    case 'outlined':
+      className += ' sui-button-' + design;
       break;
 
-    case "solid":
+    case 'solid':
     default:
-      className += "";
+      className += '';
       break;
   } // Set loading class.
 
 
   if (loading) {
-    className += " sui-button-onload";
+    className += ' sui-button-onload';
   }
 
   var htmlTag = props.href ? 'a' : 'button';
@@ -281,10 +283,12 @@ var Notifications = /*#__PURE__*/function (_Component) {
 
     _this = _super.call(this, props);
 
-    _defineProperty(_assertThisInitialized(_this), "close", function () {
+    _defineProperty$1(_assertThisInitialized(_this), "close", function () {
       _this.setState({
         hide: true
       });
+
+      _this.props.cbFunction ? _this.props.cbFunction() : '';
     });
 
     _this.state = {
@@ -300,28 +304,38 @@ var Notifications = /*#__PURE__*/function (_Component) {
       var _this2 = this;
 
       var hide = this.state.hide;
-      var classMain = "sui-notice";
-      var classIcon = "sui-notice-icon sui-md";
+      var classMain = 'sui-notice';
+      var classIcon = 'sui-notice-icon sui-md';
 
       switch (this.props.type) {
-        case "info":
-        case "success":
-        case "warning":
-        case "error":
-        case "upsell":
-          classMain += " sui-notice-" + this.props.type;
-          classIcon += " sui-icon-info";
-          break;
+        case 'info':
+        case 'success':
+        case 'warning':
+        case 'error':
+        case 'upsell':
+          classMain += ' sui-notice-' + this.props.type;
 
-        case "loading":
-          classIcon += " sui-icon-loader sui-loading";
+          if (this.props.loading) {
+            classIcon += ' sui-icon-loader sui-loading';
+          } else {
+            classIcon += ' sui-icon-info';
+          }
+
           break;
 
         default:
-          classIcon += " sui-icon-info";
+          if (this.props.loading) {
+            classIcon += ' sui-icon-loader sui-loading';
+          } else {
+            classIcon += ' sui-icon-info';
+          }
+
           break;
       }
 
+      var lang = Object.assign({
+        dismiss: 'Hide Notification'
+      }, this.props.sourceLang);
       var message = /*#__PURE__*/React.createElement("div", {
         className: "sui-notice-message"
       }, /*#__PURE__*/React.createElement("span", {
@@ -332,7 +346,7 @@ var Notifications = /*#__PURE__*/function (_Component) {
         className: "sui-notice-actions"
       }, /*#__PURE__*/React.createElement(ButtonIcon, {
         icon: "check",
-        label: "Hide",
+        label: lang.dismiss,
         onClick: function onClick(e) {
           return _this2.close(e);
         }

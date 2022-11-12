@@ -1,6 +1,6 @@
 // https://github.com/davidtheclark/focus-trap/blob/master/index.js
 
-import { tabbable } from "./tabbable";
+import { tabbable } from './tabbable';
 
 var activeFocusDelay;
 
@@ -37,7 +37,7 @@ var activeFocusTraps = (function () {
 			if (trapQueue.length > 0) {
 				trapQueue[trapQueue.length - 1].unpause();
 			}
-		}
+		},
 	};
 })();
 
@@ -54,13 +54,12 @@ function getHTMLElement(doc, selector) {
 export function createFocusTrap(element, userOptions) {
 	var doc = document;
 
-	const container =
-		typeof element === "string" ? getHTMLElement(doc, element) : element;
+	const container = typeof element === 'string' ? getHTMLElement(doc, element) : element;
 
 	var config = {
 		returnFocusOnDeactivate: true,
 		escapeDeactivates: true,
-		...userOptions
+		...userOptions,
 	};
 
 	var state = {
@@ -69,14 +68,14 @@ export function createFocusTrap(element, userOptions) {
 		nodeFocusedBeforeActivation: null,
 		mostRecentlyFocusedNode: null,
 		active: false,
-		paused: false
+		paused: false,
 	};
 
 	var trap = {
 		activate,
 		deactivate,
 		pause,
-		unpause
+		unpause,
 	};
 
 	return trap;
@@ -167,22 +166,22 @@ export function createFocusTrap(element, userOptions) {
 			tryFocus(getInitialFocusNode());
 		});
 
-		doc.addEventListener("focusin", checkFocusIn, true);
-		doc.addEventListener("mousedown", checkPointerDown, {
+		doc.addEventListener('focusin', checkFocusIn, true);
+		doc.addEventListener('mousedown', checkPointerDown, {
 			capture: true,
-			passive: false
+			passive: false,
 		});
-		doc.addEventListener("touchstart", checkPointerDown, {
+		doc.addEventListener('touchstart', checkPointerDown, {
 			capture: true,
-			passive: false
+			passive: false,
 		});
-		doc.addEventListener("click", checkClick, {
+		doc.addEventListener('click', checkClick, {
 			capture: true,
-			passive: false
+			passive: false,
 		});
-		doc.addEventListener("keydown", checkKey, {
+		doc.addEventListener('keydown', checkKey, {
 			capture: true,
-			passive: false
+			passive: false,
 		});
 
 		return trap;
@@ -191,11 +190,11 @@ export function createFocusTrap(element, userOptions) {
 	function removeListeners() {
 		if (!state.active) return;
 
-		doc.removeEventListener("focusin", checkFocusIn, true);
-		doc.removeEventListener("mousedown", checkPointerDown, true);
-		doc.removeEventListener("touchstart", checkPointerDown, true);
-		doc.removeEventListener("click", checkClick, true);
-		doc.removeEventListener("keydown", checkKey, true);
+		doc.removeEventListener('focusin', checkFocusIn, true);
+		doc.removeEventListener('mousedown', checkPointerDown, true);
+		doc.removeEventListener('touchstart', checkPointerDown, true);
+		doc.removeEventListener('click', checkClick, true);
+		doc.removeEventListener('keydown', checkKey, true);
 
 		return trap;
 	}
@@ -208,19 +207,19 @@ export function createFocusTrap(element, userOptions) {
 			return null;
 		}
 
-		if (typeof optionValue === "string") {
+		if (typeof optionValue === 'string') {
 			node = doc.querySelector(optionValue);
 
 			if (!node) {
-				throw new Error("`" + optionName + "` refers to no known node");
+				throw new Error('`' + optionName + '` refers to no known node');
 			}
 		}
 
-		if (typeof optionValue === "function") {
+		if (typeof optionValue === 'function') {
 			node = optionValue();
 
 			if (!node) {
-				throw new Error("`" + optionName + "` did not return a node");
+				throw new Error('`' + optionName + '` did not return a node');
 			}
 		}
 
@@ -230,25 +229,23 @@ export function createFocusTrap(element, userOptions) {
 	function getInitialFocusNode() {
 		var node;
 
-		if (getNodeForOption("initialFocus") !== null) {
-			node = getNodeForOption("initialFocus");
+		if (getNodeForOption('initialFocus') !== null) {
+			node = getNodeForOption('initialFocus');
 		} else if (container.contains(doc.activeElement)) {
 			node = doc.activeElement;
 		} else {
-			node = state.firstTabbableNode || getNodeForOption("fallbackFocus");
+			node = state.firstTabbableNode || getNodeForOption('fallbackFocus');
 		}
 
 		if (!node) {
-			throw new Error(
-				"Your focus-trap needs to have at least one focusable element"
-			);
+			throw new Error('Your focus-trap needs to have at least one focusable element');
 		}
 
 		return node;
 	}
 
 	function getReturnFocusNode(previousActiveElement) {
-		var node = getNodeForOption("setReturnFocus");
+		var node = getNodeForOption('setReturnFocus');
 		return node ? node : previousActiveElement;
 	}
 
@@ -259,7 +256,7 @@ export function createFocusTrap(element, userOptions) {
 
 		if (config.clickOutsideDeactivates) {
 			deactivate({
-				returnFocus: !tabbable.isFocusable(e.target)
+				returnFocus: !tabbable.isFocusable(e.target),
 			});
 
 			return;
@@ -337,8 +334,7 @@ export function createFocusTrap(element, userOptions) {
 		var tabbableNodes = tabbable(container);
 
 		state.firstTabbableNode = tabbableNodes[0] || getInitialFocusNode();
-		state.lastTabbableNode =
-			tabbableNodes[tabbableNodes.length - 1] || getInitialFocusNode();
+		state.lastTabbableNode = tabbableNodes[tabbableNodes.length - 1] || getInitialFocusNode();
 	}
 
 	function tryFocus(node) {
@@ -360,18 +356,16 @@ export function createFocusTrap(element, userOptions) {
 
 function isSelectableInput(node) {
 	return (
-		node.tagName &&
-		node.tagName.toLowerCase() === "input" &&
-		typeof node.select === "function"
+		node.tagName && node.tagName.toLowerCase() === 'input' && typeof node.select === 'function'
 	);
 }
 
 function isEscapeEvent(e) {
-	return e.key === "Escape" || e.key === "Esc" || e.keyCode === 27;
+	return e.key === 'Escape' || e.key === 'Esc' || e.keyCode === 27;
 }
 
 function isTabEvent(e) {
-	return e.key === "Tab" || e.keyCode === 9;
+	return e.key === 'Tab' || e.keyCode === 9;
 }
 
 function delay(fn) {

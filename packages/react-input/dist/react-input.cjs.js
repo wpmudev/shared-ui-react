@@ -62,40 +62,73 @@ function _objectWithoutProperties(source, excluded) {
   return target;
 }
 
+var _excluded = ["id", "label", "description", "type", "errorStatus", "errorDescription", "size", "fieldSize", "suffix", "prefix"];
+
 var Input = function Input(_ref) {
   var id = _ref.id,
-      size = _ref.size,
       label = _ref.label,
       description = _ref.description,
       _ref$type = _ref.type,
       type = _ref$type === void 0 ? 'text' : _ref$type,
-      props = _objectWithoutProperties(_ref, ["id", "size", "label", "description", "type"]);
+      errorStatus = _ref.errorStatus,
+      errorDescription = _ref.errorDescription,
+      size = _ref.size,
+      fieldSize = _ref.fieldSize,
+      suffix = _ref.suffix,
+      prefix = _ref.prefix,
+      props = _objectWithoutProperties(_ref, _excluded);
 
   var uniqueId = id && '' !== id ? id : props.property;
-  var clazz = 'sui-form-control';
+  var fieldClasses = 'sui-form-field';
 
-  switch (size) {
+  switch (fieldSize) {
     case 'sm':
     case 'small':
-      clazz += ' sui-input-sm';
+      fieldClasses += ' sui-input-sm';
       break;
 
     case 'md':
     case 'medium':
-      clazz += ' sui-input-md';
+      fieldClasses += ' sui-input-md';
       break;
   }
 
-  return /*#__PURE__*/React__default['default'].createElement("div", {
-    className: "sui-form-field"
-  }, label && /*#__PURE__*/React__default['default'].createElement("label", {
+  if (errorStatus) {
+    fieldClasses += ' sui-form-field-error';
+  }
+
+  var inputClasses = 'sui-form-control';
+  suffix && (inputClasses += ' sui-field-has-suffix');
+  prefix && (inputClasses += ' sui-field-has-prefix');
+
+  switch (size) {
+    case 'sm':
+    case 'small':
+      inputClasses += ' sui-input-sm';
+      break;
+
+    case 'md':
+    case 'medium':
+      inputClasses += ' sui-input-md';
+      break;
+  }
+
+  return /*#__PURE__*/React__default["default"].createElement("div", {
+    className: fieldClasses
+  }, label && /*#__PURE__*/React__default["default"].createElement("label", {
     htmlFor: uniqueId,
     className: "sui-label"
-  }, label), /*#__PURE__*/React__default['default'].createElement("input", _extends({
+  }, label), prefix && /*#__PURE__*/React__default["default"].createElement("span", {
+    className: "sui-field-prefix"
+  }, prefix), /*#__PURE__*/React__default["default"].createElement("input", _extends({
     id: uniqueId,
     type: type,
-    className: clazz
-  }, props)), description && /*#__PURE__*/React__default['default'].createElement("p", {
+    className: inputClasses
+  }, props)), suffix && /*#__PURE__*/React__default["default"].createElement("span", {
+    className: "sui-field-suffix"
+  }, suffix), errorStatus && errorDescription && /*#__PURE__*/React__default["default"].createElement("div", {
+    className: "sui-error-message"
+  }, errorDescription), description && /*#__PURE__*/React__default["default"].createElement("p", {
     className: "sui-description"
   }, description));
 };

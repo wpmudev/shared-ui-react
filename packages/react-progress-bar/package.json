@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/react-progress-bar",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "WPMU DEV Shared UI React Progress Bar Component",
   "author": "WPMU DEV",
   "contributors": [
@@ -8,6 +8,9 @@
       "name": "Leighton Sapir",
       "email": "2328848+iamleigh@users.noreply.github.com",
       "url": "https://iamleigh.com/"
+    },
+    {
+      "name": "Pawan Kumar"
     }
   ],
   "homepage": "https://github.com/wpmudev/shared-ui-react#readme",
@@ -40,10 +43,10 @@
     "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
-    "@wpmudev/react-builder": "^0.0.0",
+    "@wpmudev/react-builder": "^1.0.1",
     "react": "^17.0.2"
   },
   "dependencies": {
-    "@wpmudev/react-button-icon": "^1.1.0"
+    "@wpmudev/react-button-icon": "^1.1.2"
   }
 }
