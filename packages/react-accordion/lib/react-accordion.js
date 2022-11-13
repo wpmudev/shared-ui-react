@@ -32,7 +32,7 @@ const Accordion = ({ children, ...props }) => {
 	);
 };
 
-const AccordionItem = ({ title, titleSize, icon, image, children, checkboxInput, checkboxId, checkboxSelected, checkboxClickHandler, ...props }) => {
+const AccordionItem = ({ title, titleSize, icon, image, children, checkboxInput, checkboxId, checkboxName, checkboxLabel, checkboxSelected, checkboxClickHandler, ...props }) => {
 	const [isOpen, setIsOpen] = useToggle();
 
 	return (
@@ -44,17 +44,19 @@ const AccordionItem = ({ title, titleSize, icon, image, children, checkboxInput,
 				icon={icon}
 				image={image}
 				onClick={setIsOpen}
-        checkboxInput={ checkboxInput }
+        		checkboxInput={ checkboxInput }
 				checkboxId={ checkboxId }
 				checkboxSelected={ checkboxSelected }
 				checkboxClickHandler={ checkboxClickHandler }
+				checkboxName={ checkboxName }
+				checkboxLabel={ checkboxLabel }
 			/>
 			<AccordionItemBody>{children}</AccordionItemBody>
 		</div>
 	);
 };
 
-const AccordionItemHeader = ({ title, titleSize, icon, image, children, checkboxInput, checkboxId, checkboxSelected, checkboxClickHandler, ...props }) => {
+const AccordionItemHeader = ({ title, titleSize, icon, image, children, checkboxInput, checkboxId, checkboxName, checkboxLabel, checkboxSelected, checkboxClickHandler, ...props }) => {
 	const [isOpen] = useState(false);
 	const countChildren = React.Children.toArray(children).length;
 
@@ -79,16 +81,17 @@ const AccordionItemHeader = ({ title, titleSize, icon, image, children, checkbox
 		<RadioCheckboxInput
 			type="checkbox"
 			id={ checkboxId }
-			name="accordion-checkbox"
+			name={ checkboxName }
 			defaultChecked={ checkboxSelected }
 			onChange={ checkboxClickHandler }
+			label={ checkboxLabel }
 		/>
 	) : '';
 		
 
 	const titleColumn = (
 		<div className={`sui-accordion-item-title${titleColumnSize}`}>
-      {checkboxItem}
+      		{checkboxItem}
 			{titleColumnIcon}
 			{titleColumnImage}
 			{title}

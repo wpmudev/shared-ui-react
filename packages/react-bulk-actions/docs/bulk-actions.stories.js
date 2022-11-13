@@ -44,6 +44,7 @@ export default {
 			{
 				id: 1,
 				title: 'Accordion Item 1',
+				accordionid: 'accordion-1',
 				children: (
 					<Box>
 						<BoxBody>
@@ -55,6 +56,7 @@ export default {
 			{
 				id: 2,
 				title: 'Accordion Item 2',
+				accordionid: 'accordion-2',
 				children: (
 					<Box>
 						<BoxBody>
@@ -66,6 +68,7 @@ export default {
 			{
 				id: 3,
 				title: 'Accordion Item 3',
+				accordionid: 'accordion-3',
 				children: (
 					<Box>
 						<BoxBody>

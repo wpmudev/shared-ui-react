@@ -4,6 +4,7 @@ import React, { useState, useRef } from "react";
 import { Button } from "@wpmudev/react-button";
 import { Accordion, AccordionItem } from "@wpmudev/react-accordion";
 import { Box } from "@wpmudev/react-box";
+import { RadioCheckboxInput } from '@wpmudev/react-radio-checkbox';
 
 export const ReactBulkActions = ({ 
     buttonLabel, 
@@ -90,13 +91,14 @@ export const BulkActions = (
     <div className="sui-bulk-actions" id="bulk-actions" style={{ display: "flex", paddingBottom: "20px" }}>
       {bulkOptions.length > 1 ? (
         <select
+          className="sui-select-sm"
           name="Bulk Actions"
           id="bulkActions"
           defaultValue="Select Action"
           style={{
             marginBottom: "0",
             marginRight: "15px",
-            maxWidth: "250px",
+            maxWidth: "150px",
           }}
           onChange={selectedOption}
           ref={optionElem}
@@ -148,10 +150,9 @@ export const SelectAll = (
     }
   }
   return (
-    <>
-      <input type="checkbox" id="selectAll" className="sui-checkbox" style={{ cursor: "pointer" }} name="Select all" aria-label="Select all" onClick={selectAllIds}/>
-      <label htmlFor="selectAll">Select all</label>
-    </>
+    <div style={{ padding: "11px 29px" }}>
+      <RadioCheckboxInput type="checkbox" id="selectAll" label="Select all" name="Select all" aria-label="Select all" onClick={selectAllIds}/>
+    </div>
   );
 };
 
@@ -165,22 +166,23 @@ export const ItemsTable = (
     <Box>
       <Accordion>
         { SelectAll(
-          "sui checkbox", 
+          "accordion-checkbox", 
           setSelectedIds, 
           listItems
         )}
         {listItems.map(( data, index ) => (
           <div key={data.id} style={{ display: "flex", alignItems: "center" }}>
-            <input
-              type="checkbox"
-              className="sui-checkbox"
-              style={{ cursor: "pointer" }}
-              onChange={(e) => updateSelectedId(e, data.id)}
-              value={data.id}
-              name="sui checkbox"
-              aria-label="Item"
+            <AccordionItem
+              checkboxInput="true" 
+              checkboxId={ data.accordionid }
+              checkboxName="accordion-checkbox"
+              checkboxLabel={ data.title }
+              checkboxClickHandler={(e) => updateSelectedId(e, data.id)}
+              style={{ width: "100%" }} 
+              key={ index }
+              { ...data }
+              title=""
             />
-            <AccordionItem style={{ width: "100%" }} key={ index } { ...data } />
           </div>
         ))}
       </Accordion>
