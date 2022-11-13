@@ -1,10 +1,31 @@
 /* eslint-disable jsx-a11y/no-onchange */
 /* eslint-disable prettier/prettier */
 import React, { useState, useRef } from "react";
+import styled from 'styled-components';
 import { Button } from "@wpmudev/react-button";
 import { Accordion, AccordionItem } from "@wpmudev/react-accordion";
 import { Box } from "@wpmudev/react-box";
 import { RadioCheckboxInput } from '@wpmudev/react-radio-checkbox';
+
+// UTILS: Default Values.
+const utils = {
+	gutter: 30,
+	gutter_md: 20,
+};
+
+const screen = {
+	mobile: 480,
+	tablet: 783,
+	laptop: 1200,
+	desktop: 1500,
+};
+
+const device = {
+	mobile: `(min-width: ${screen.mobile}px)`,
+	tablet: `(min-width: ${screen.tablet}px)`,
+	laptop: `(min-width: ${screen.laptop}px)`,
+	desktop: `(min-width: ${screen.desktop}px)`,
+};
 
 export const ReactBulkActions = ({ 
     buttonLabel, 
@@ -127,6 +148,14 @@ export const BulkActions = (
 }
 
 // select all checkbox
+const SelectAllStyle = styled.div`
+  padding: 11px 19px;
+
+  @media ${device.tablet} {
+    padding: 11px 29px;
+  }
+`;
+
 export const SelectAll = (
   elemName, 
   setSelectedIds, 
@@ -150,9 +179,9 @@ export const SelectAll = (
     }
   }
   return (
-    <div style={{ padding: "11px 29px" }}>
+    <SelectAllStyle>
       <RadioCheckboxInput type="checkbox" id="selectAll" label="Select all" name="Select all" aria-label="Select all" onClick={selectAllIds}/>
-    </div>
+    </SelectAllStyle>
   );
 };
 
