@@ -148,7 +148,7 @@ export const BulkActions = (
 }
 
 // select all checkbox
-const SelectAllStyle = styled.div`
+const SelectAllWrap = styled.div`
   padding: 11px 19px;
 
   @media ${device.tablet} {
@@ -179,9 +179,9 @@ export const SelectAll = (
     }
   }
   return (
-    <SelectAllStyle>
+    <SelectAllWrap>
       <RadioCheckboxInput type="checkbox" id="selectAll" label="Select all" name="Select all" aria-label="Select all" onClick={selectAllIds}/>
-    </SelectAllStyle>
+    </SelectAllWrap>
   );
 };
 
