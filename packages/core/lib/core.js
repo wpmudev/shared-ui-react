@@ -8,6 +8,7 @@ import { Pagination } from '@wpmudev/react-pagination';
 import { Post } from '@wpmudev/react-post';
 import { ProgressBar } from '@wpmudev/react-progress-bar';
 import { Toggle } from '@wpmudev/react-toggle';
+import { RadioCheckboxGroup, RadioCheckboxInput } from '@wpmudev/react-radio-checkbox';
 
 // Containers.
 import { Box, BoxHeader, BoxTitle, BoxBody, BoxFooter } from '@wpmudev/react-box';
@@ -38,5 +39,7 @@ export {
 	AccordionItemBody,
 	Pagination,
 	ProgressBar,
-	Toggle
+	Toggle,
+	RadioCheckboxGroup,
+	RadioCheckboxInput
 };

@@ -87,7 +87,7 @@ const AccordionItemHeader = ({ title, titleSize, icon, image, children, checkbox
 			label={ checkboxLabel }
 		/>
 	) : '';
-		
+
 
 	const titleColumn = (
 		<div className={`sui-accordion-item-title${titleColumnSize}`}>

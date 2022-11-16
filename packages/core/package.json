@@ -49,6 +49,7 @@
     "@wpmudev/react-notifications": "^1.1.1",
     "@wpmudev/react-pagination": "^1.1.2",
     "@wpmudev/react-post": "^1.1.7",
+    "@wpmudev/react-radio-checkbox": "^0.0.0",
     "@wpmudev/react-toggle": "^0.0.0"
   },
   "devDependencies": {
