@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/react-toggle",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "WPMU DEV Shared UI React Toggle Component",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com/)",
@@ -33,7 +33,7 @@
     "directory": "packages/react-toggle"
   },
   "scripts": {
-	"build": "sui-builder",
+    "build": "sui-builder",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {
