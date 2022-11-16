@@ -7,6 +7,7 @@ import { Notifications } from '@wpmudev/react-notifications';
 import { Pagination } from '@wpmudev/react-pagination';
 import { Post } from '@wpmudev/react-post';
 import { ProgressBar } from '@wpmudev/react-progress-bar';
+import { Toggle } from '@wpmudev/react-toggle';
 
 // Containers.
 import { Box, BoxHeader, BoxTitle, BoxBody, BoxFooter } from '@wpmudev/react-box';
@@ -37,4 +38,5 @@ export {
 	AccordionItemBody,
 	Pagination,
 	ProgressBar,
+	Toggle
 };

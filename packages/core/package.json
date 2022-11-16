@@ -48,7 +48,8 @@
     "@wpmudev/react-input": "^1.2.1",
     "@wpmudev/react-notifications": "^1.1.1",
     "@wpmudev/react-pagination": "^1.1.2",
-    "@wpmudev/react-post": "^1.1.7"
+    "@wpmudev/react-post": "^1.1.7",
+    "@wpmudev/react-toggle": "^0.0.0"
   },
   "devDependencies": {
     "@wpmudev/react-builder": "^1.0.1"
