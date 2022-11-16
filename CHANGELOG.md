@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
 
+## [1.9.0](https://github.com/wpmudev/shared-ui/compare/v1.8.3...v1.9.0) (2022-11-16)
+
+#### ✨ New Features
+* `react-accordion`, `react-bulk-actions`
+  * [#146](https://github.com/wpmudev/shared-ui-react/pull/146) Bulk actions. ([SUI-222](https://incsub.atlassian.net/browse/SUI-222)) ([@creador-dev](https://github.com/creador-dev))
+* `react-accordion`
+  * [#168](https://github.com/wpmudev/shared-ui-react/pull/168) Include `checkbox` element for row/item selection. ([SUI-331](https://incsub.atlassian.net/browse/SUI-331)) ([@creador-dev](https://github.com/creador-dev))
+* `react-toggles`
+  * [#153](https://github.com/wpmudev/shared-ui-react/pull/153) Create component. ([SUI-291](https://incsub.atlassian.net/browse/SUI-291)) ([@iamleigh](https://github.com/iamleigh))
+* `react-radio-checkbox`
+  * [#169](https://github.com/wpmudev/shared-ui-react/pull/169) Create components. ([SUI-332](https://incsub.atlassian.net/browse/SUI-332)) ([@creador-dev](https://github.com/creador-dev))
+
+#### 🚀 Improvements
+* `react-input`
+  * [#267](https://github.com/wpmudev/shared-ui-react/pull/267) Add "forwardref" in input component to access it's actions in other components. ([SUI-425](https://incsub.atlassian.net/browse/SUI-425)) ([@creador-dev](https://github.com/creador-dev))
+  * [#271](https://github.com/wpmudev/shared-ui-react/pull/271) Add show/hide button for password type. ([SUI-448](https://incsub.atlassian.net/browse/SUI-448)) ([@creador-dev](https://github.com/creador-dev))
+
+#### 📝 Documentation
+* `react-modal`
+  * [#275](https://github.com/wpmudev/shared-ui-react/pull/275) Re-rendering when input value changes. ([SUI-459](https://incsub.atlassian.net/browse/SUI-459)) ([@creador-dev](https://github.com/creador-dev))
+
+#### Committers: 2
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
+
 ## [1.8.3](https://github.com/wpmudev/shared-ui/compare/v1.8.2...v1.8.3) (2022-06-17)
 
 #### 🐛 Bug Fixes
