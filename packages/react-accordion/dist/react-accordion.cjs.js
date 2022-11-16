@@ -10,8 +10,8 @@ function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'defau
 var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 var styled__default = /*#__PURE__*/_interopDefaultLegacy(styled);
 
-function _extends() {
-  _extends = Object.assign || function (target) {
+function _extends$1() {
+  _extends$1 = Object.assign || function (target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i];
 
@@ -25,10 +25,10 @@ function _extends() {
     return target;
   };
 
-  return _extends.apply(this, arguments);
+  return _extends$1.apply(this, arguments);
 }
 
-function _objectWithoutPropertiesLoose$1(source, excluded) {
+function _objectWithoutPropertiesLoose$2(source, excluded) {
   if (source == null) return {};
   var target = {};
   var sourceKeys = Object.keys(source);
@@ -43,10 +43,10 @@ function _objectWithoutPropertiesLoose$1(source, excluded) {
   return target;
 }
 
-function _objectWithoutProperties$1(source, excluded) {
+function _objectWithoutProperties$2(source, excluded) {
   if (source == null) return {};
 
-  var target = _objectWithoutPropertiesLoose$1(source, excluded);
+  var target = _objectWithoutPropertiesLoose$2(source, excluded);
 
   var key, i;
 
@@ -176,7 +176,7 @@ function _defineProperty(obj, key, value) {
   return obj;
 }
 
-function _objectWithoutPropertiesLoose(source, excluded) {
+function _objectWithoutPropertiesLoose$1(source, excluded) {
   if (source == null) return {};
   var target = {};
   var sourceKeys = Object.keys(source);
@@ -191,10 +191,10 @@ function _objectWithoutPropertiesLoose(source, excluded) {
   return target;
 }
 
-function _objectWithoutProperties(source, excluded) {
+function _objectWithoutProperties$1(source, excluded) {
   if (source == null) return {};
 
-  var target = _objectWithoutPropertiesLoose(source, excluded);
+  var target = _objectWithoutPropertiesLoose$1(source, excluded);
 
   var key, i;
 
@@ -212,7 +212,7 @@ function _objectWithoutProperties(source, excluded) {
   return target;
 }
 
-var _excluded$1 = ["label", "icon", "iconSize", "design", "color", "className", "loading"];
+var _excluded$2 = ["label", "icon", "iconSize", "design", "color", "className", "loading"];
 
 var ButtonIcon = function ButtonIcon(_ref) {
   var label = _ref.label,
@@ -223,7 +223,7 @@ var ButtonIcon = function ButtonIcon(_ref) {
       color = _ref.color,
       className = _ref.className,
       loading = _ref.loading,
-      props = _objectWithoutProperties(_ref, _excluded$1);
+      props = _objectWithoutProperties$1(_ref, _excluded$2);
 
   var loader = /*#__PURE__*/React__default["default"].createElement("span", {
     className: "sui-icon-loader sui-loading",
@@ -282,9 +282,123 @@ var ButtonIcon = function ButtonIcon(_ref) {
   }, props), loading ? loader : content);
 };
 
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
+
+function _objectWithoutProperties(source, excluded) {
+  if (source == null) return {};
+
+  var target = _objectWithoutPropertiesLoose(source, excluded);
+
+  var key, i;
+
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+
+    for (i = 0; i < sourceSymbolKeys.length; i++) {
+      key = sourceSymbolKeys[i];
+      if (excluded.indexOf(key) >= 0) continue;
+      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
+      target[key] = source[key];
+    }
+  }
+
+  return target;
+}
+
+var _excluded$1 = ["type", "label", "labelId", "id", "name", "image", "defaultChecked", "disabled"];
+
+var RadioCheckboxInput = function RadioCheckboxInput(_ref) {
+  var type = _ref.type,
+      label = _ref.label,
+      labelId = _ref.labelId,
+      id = _ref.id,
+      name = _ref.name,
+      image = _ref.image,
+      defaultChecked = _ref.defaultChecked,
+      disabled = _ref.disabled,
+      props = _objectWithoutProperties(_ref, _excluded$1);
+
+  var mainClasses = ["sui-".concat(type)];
+
+  if (props.size === 'small') {
+    mainClasses.push("sui-".concat(type, "-sm"));
+  }
+
+  if (props.stacked) {
+    mainClasses.push("sui-".concat(type, "-stacked"));
+  }
+
+  return image ? /*#__PURE__*/React__default["default"].createElement("label", {
+    className: "sui-".concat(type, "-image"),
+    htmlFor: id
+  }, /*#__PURE__*/React__default["default"].createElement("img", {
+    src: image.src,
+    srcSet: image.srcset,
+    alt: image.alt
+  }), /*#__PURE__*/React__default["default"].createElement("span", {
+    className: mainClasses.join(' ')
+  }, /*#__PURE__*/React__default["default"].createElement("input", _extends({
+    id: id,
+    type: type,
+    name: name,
+    "aria-labelledby": labelId,
+    disabled: disabled,
+    defaultChecked: defaultChecked
+  }, props)), /*#__PURE__*/React__default["default"].createElement("span", {
+    "aria-hidden": "true"
+  }), label && /*#__PURE__*/React__default["default"].createElement("span", {
+    id: labelId
+  }, label))) : /*#__PURE__*/React__default["default"].createElement("label", {
+    className: mainClasses.join(' '),
+    htmlFor: id
+  }, /*#__PURE__*/React__default["default"].createElement("input", _extends({
+    id: id,
+    type: type,
+    name: name,
+    "aria-labelledby": labelId,
+    defaultChecked: defaultChecked,
+    disabled: disabled
+  }, props)), /*#__PURE__*/React__default["default"].createElement("span", {
+    "aria-hidden": "true"
+  }), label && /*#__PURE__*/React__default["default"].createElement("span", {
+    id: labelId
+  }, label));
+};
+
 var _excluded = ["children"],
-    _excluded2 = ["title", "titleSize", "icon", "image", "children"],
-    _excluded3 = ["title", "titleSize", "icon", "image", "children"],
+    _excluded2 = ["title", "titleSize", "icon", "image", "children", "checkboxInput", "checkboxId", "checkboxName", "checkboxLabel", "checkboxSelected", "checkboxClickHandler"],
+    _excluded3 = ["title", "titleSize", "icon", "image", "children", "checkboxInput", "checkboxId", "checkboxName", "checkboxLabel", "checkboxSelected", "checkboxClickHandler"],
     _excluded4 = ["children"];
 
 var _templateObject;
@@ -308,9 +422,9 @@ var useToggle = function useToggle() {
 
 var Accordion = function Accordion(_ref) {
   var children = _ref.children,
-      props = _objectWithoutProperties$1(_ref, _excluded);
+      props = _objectWithoutProperties$2(_ref, _excluded);
 
-  return /*#__PURE__*/React__default["default"].createElement("div", _extends({
+  return /*#__PURE__*/React__default["default"].createElement("div", _extends$1({
     className: "sui-accordion"
   }, props), children);
 };
@@ -321,14 +435,20 @@ var AccordionItem = function AccordionItem(_ref2) {
       icon = _ref2.icon,
       image = _ref2.image,
       children = _ref2.children,
-      props = _objectWithoutProperties$1(_ref2, _excluded2);
+      checkboxInput = _ref2.checkboxInput,
+      checkboxId = _ref2.checkboxId,
+      checkboxName = _ref2.checkboxName,
+      checkboxLabel = _ref2.checkboxLabel,
+      checkboxSelected = _ref2.checkboxSelected,
+      checkboxClickHandler = _ref2.checkboxClickHandler,
+      props = _objectWithoutProperties$2(_ref2, _excluded2);
 
   var _useToggle = useToggle(),
       _useToggle2 = _slicedToArray(_useToggle, 2),
       isOpen = _useToggle2[0],
       setIsOpen = _useToggle2[1];
 
-  return /*#__PURE__*/React__default["default"].createElement("div", _extends({
+  return /*#__PURE__*/React__default["default"].createElement("div", _extends$1({
     className: "sui-accordion-item".concat(isOpen ? ' sui-accordion-item--open' : '')
   }, props), /*#__PURE__*/React__default["default"].createElement(AccordionItemHeader, {
     state: isOpen ? 'true' : 'false',
@@ -336,7 +456,13 @@ var AccordionItem = function AccordionItem(_ref2) {
     titleSize: titleSize,
     icon: icon,
     image: image,
-    onClick: setIsOpen
+    onClick: setIsOpen,
+    checkboxInput: checkboxInput,
+    checkboxId: checkboxId,
+    checkboxSelected: checkboxSelected,
+    checkboxClickHandler: checkboxClickHandler,
+    checkboxName: checkboxName,
+    checkboxLabel: checkboxLabel
   }), /*#__PURE__*/React__default["default"].createElement(AccordionItemBody, null, children));
 };
 
@@ -346,7 +472,13 @@ var AccordionItemHeader = function AccordionItemHeader(_ref3) {
       icon = _ref3.icon,
       image = _ref3.image,
       children = _ref3.children,
-      props = _objectWithoutProperties$1(_ref3, _excluded3);
+      checkboxInput = _ref3.checkboxInput,
+      checkboxId = _ref3.checkboxId,
+      checkboxName = _ref3.checkboxName,
+      checkboxLabel = _ref3.checkboxLabel,
+      checkboxSelected = _ref3.checkboxSelected,
+      checkboxClickHandler = _ref3.checkboxClickHandler,
+      props = _objectWithoutProperties$2(_ref3, _excluded3);
 
   var _useState3 = React.useState(false),
       _useState4 = _slicedToArray(_useState3, 1),
@@ -363,9 +495,17 @@ var AccordionItemHeader = function AccordionItemHeader(_ref3) {
     }
   }) : '';
   var titleColumnSize = 'undefined' !== typeof titleSize && '' !== titleSize ? ' sui-accordion-col-' + titleSize : '';
+  var checkboxItem = checkboxInput ? /*#__PURE__*/React__default["default"].createElement(RadioCheckboxInput, {
+    type: "checkbox",
+    id: checkboxId,
+    name: checkboxName,
+    defaultChecked: checkboxSelected,
+    onChange: checkboxClickHandler,
+    label: checkboxLabel
+  }) : '';
   var titleColumn = /*#__PURE__*/React__default["default"].createElement("div", {
     className: "sui-accordion-item-title".concat(titleColumnSize)
-  }, titleColumnIcon, titleColumnImage, title);
+  }, checkboxItem, titleColumnIcon, titleColumnImage, title);
   var indicator = /*#__PURE__*/React__default["default"].createElement(ButtonIcon, {
     icon: "chevron-down",
     label: isOpen ? 'Close section' : 'Open section',
@@ -383,16 +523,16 @@ var AccordionItemHeader = function AccordionItemHeader(_ref3) {
   var actions = /*#__PURE__*/React__default["default"].createElement("div", {
     className: "sui-accordion-col-auto"
   }, indicator);
-  return /*#__PURE__*/React__default["default"].createElement("div", _extends({
+  return /*#__PURE__*/React__default["default"].createElement("div", _extends$1({
     className: "sui-accordion-item-header"
   }, props), titleColumn, countChildren > 0 ? columns : actions);
 };
 
 var AccordionItemBody = function AccordionItemBody(_ref4) {
   var children = _ref4.children,
-      props = _objectWithoutProperties$1(_ref4, _excluded4);
+      props = _objectWithoutProperties$2(_ref4, _excluded4);
 
-  return /*#__PURE__*/React__default["default"].createElement("div", _extends({
+  return /*#__PURE__*/React__default["default"].createElement("div", _extends$1({
     className: "sui-accordion-item-body"
   }, props), children);
 };

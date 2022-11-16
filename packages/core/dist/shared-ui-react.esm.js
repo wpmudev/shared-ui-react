@@ -2,7 +2,7 @@ import React, { Children, Fragment, Component, useState, useEffect, useCallback 
 import styled from 'styled-components';
 import ReactDOM from 'react-dom';
 
-function ownKeys$7(object, enumerableOnly) {
+function ownKeys$8(object, enumerableOnly) {
   var keys = Object.keys(object);
 
   if (Object.getOwnPropertySymbols) {
@@ -15,12 +15,12 @@ function ownKeys$7(object, enumerableOnly) {
   return keys;
 }
 
-function _objectSpread2$7(target) {
+function _objectSpread2$8(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$7(Object(source), !0).forEach(function (key) {
-      _defineProperty$8(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$7(Object(source)).forEach(function (key) {
+    i % 2 ? ownKeys$8(Object(source), !0).forEach(function (key) {
+      _defineProperty$9(target, key, source[key]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$8(Object(source)).forEach(function (key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -28,7 +28,7 @@ function _objectSpread2$7(target) {
   return target;
 }
 
-function _defineProperty$8(obj, key, value) {
+function _defineProperty$9(obj, key, value) {
   if (key in obj) {
     Object.defineProperty(obj, key, {
       value: value,
@@ -43,7 +43,7 @@ function _defineProperty$8(obj, key, value) {
   return obj;
 }
 
-function _objectWithoutPropertiesLoose$a(source, excluded) {
+function _objectWithoutPropertiesLoose$d(source, excluded) {
   if (source == null) return {};
   var target = {};
   var sourceKeys = Object.keys(source);
@@ -58,10 +58,10 @@ function _objectWithoutPropertiesLoose$a(source, excluded) {
   return target;
 }
 
-function _objectWithoutProperties$a(source, excluded) {
+function _objectWithoutProperties$d(source, excluded) {
   if (source == null) return {};
 
-  var target = _objectWithoutPropertiesLoose$a(source, excluded);
+  var target = _objectWithoutPropertiesLoose$d(source, excluded);
 
   var key, i;
 
@@ -79,7 +79,7 @@ function _objectWithoutProperties$a(source, excluded) {
   return target;
 }
 
-var _excluded$a = ["label", "icon", "iconRight", "design", "color", "className", "loading"];
+var _excluded$d = ["label", "icon", "iconRight", "design", "color", "className", "loading"];
 
 var Button$1 = function Button(_ref) {
   var label = _ref.label,
@@ -90,7 +90,7 @@ var Button$1 = function Button(_ref) {
       color = _ref.color,
       className = _ref.className,
       loading = _ref.loading,
-      props = _objectWithoutProperties$a(_ref, _excluded$a);
+      props = _objectWithoutProperties$d(_ref, _excluded$d);
 
   var loader = /*#__PURE__*/React.createElement("span", {
     className: "sui-icon-loader sui-loading",
@@ -151,13 +151,13 @@ var Button$1 = function Button(_ref) {
     htmlTag = 'label';
   }
 
-  return /*#__PURE__*/React.createElement(htmlTag, _objectSpread2$7({
+  return /*#__PURE__*/React.createElement(htmlTag, _objectSpread2$8({
     className: className,
     disabled: props.disabled || loading
   }, props), loading ? loader : content);
 };
 
-function ownKeys$6(object, enumerableOnly) {
+function ownKeys$7(object, enumerableOnly) {
   var keys = Object.keys(object);
 
   if (Object.getOwnPropertySymbols) {
@@ -170,12 +170,12 @@ function ownKeys$6(object, enumerableOnly) {
   return keys;
 }
 
-function _objectSpread2$6(target) {
+function _objectSpread2$7(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$6(Object(source), !0).forEach(function (key) {
-      _defineProperty$7(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$6(Object(source)).forEach(function (key) {
+    i % 2 ? ownKeys$7(Object(source), !0).forEach(function (key) {
+      _defineProperty$8(target, key, source[key]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$7(Object(source)).forEach(function (key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -183,7 +183,7 @@ function _objectSpread2$6(target) {
   return target;
 }
 
-function _defineProperty$7(obj, key, value) {
+function _defineProperty$8(obj, key, value) {
   if (key in obj) {
     Object.defineProperty(obj, key, {
       value: value,
@@ -198,7 +198,7 @@ function _defineProperty$7(obj, key, value) {
   return obj;
 }
 
-function _objectWithoutPropertiesLoose$9(source, excluded) {
+function _objectWithoutPropertiesLoose$c(source, excluded) {
   if (source == null) return {};
   var target = {};
   var sourceKeys = Object.keys(source);
@@ -213,10 +213,10 @@ function _objectWithoutPropertiesLoose$9(source, excluded) {
   return target;
 }
 
-function _objectWithoutProperties$9(source, excluded) {
+function _objectWithoutProperties$c(source, excluded) {
   if (source == null) return {};
 
-  var target = _objectWithoutPropertiesLoose$9(source, excluded);
+  var target = _objectWithoutPropertiesLoose$c(source, excluded);
 
   var key, i;
 
@@ -234,9 +234,9 @@ function _objectWithoutProperties$9(source, excluded) {
   return target;
 }
 
-var _excluded$9 = ["label", "icon", "iconSize", "design", "color", "className", "loading"];
+var _excluded$c = ["label", "icon", "iconSize", "design", "color", "className", "loading"];
 
-var ButtonIcon$4 = function ButtonIcon(_ref) {
+var ButtonIcon$5 = function ButtonIcon(_ref) {
   var label = _ref.label,
       icon = _ref.icon,
       iconSize = _ref.iconSize,
@@ -245,7 +245,7 @@ var ButtonIcon$4 = function ButtonIcon(_ref) {
       color = _ref.color,
       className = _ref.className,
       loading = _ref.loading,
-      props = _objectWithoutProperties$9(_ref, _excluded$9);
+      props = _objectWithoutProperties$c(_ref, _excluded$c);
 
   var loader = /*#__PURE__*/React.createElement("span", {
     className: "sui-icon-loader sui-loading",
@@ -298,7 +298,7 @@ var ButtonIcon$4 = function ButtonIcon(_ref) {
   }
 
   var htmlTag = props.href ? 'a' : 'button';
-  return /*#__PURE__*/React.createElement(htmlTag, _objectSpread2$6({
+  return /*#__PURE__*/React.createElement(htmlTag, _objectSpread2$7({
     className: className,
     disabled: props.disabled || loading
   }, props), loading ? loader : content);
@@ -339,8 +339,8 @@ function _createClass$3(Constructor, protoProps, staticProps) {
   return Constructor;
 }
 
-function _extends$7() {
-  _extends$7 = Object.assign || function (target) {
+function _extends$a() {
+  _extends$a = Object.assign || function (target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i];
 
@@ -354,7 +354,7 @@ function _extends$7() {
     return target;
   };
 
-  return _extends$7.apply(this, arguments);
+  return _extends$a.apply(this, arguments);
 }
 
 function _inherits$3(subClass, superClass) {
@@ -453,7 +453,7 @@ function _taggedTemplateLiteral$3(strings, raw) {
   }));
 }
 
-function ownKeys$5(object, enumerableOnly) {
+function ownKeys$6(object, enumerableOnly) {
   var keys = Object.keys(object);
 
   if (Object.getOwnPropertySymbols) {
@@ -466,12 +466,12 @@ function ownKeys$5(object, enumerableOnly) {
   return keys;
 }
 
-function _objectSpread2$5(target) {
+function _objectSpread2$6(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys$5(Object(source), !0).forEach(function (key) {
-      _defineProperty$6(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$5(Object(source)).forEach(function (key) {
+    i % 2 ? ownKeys$6(Object(source), !0).forEach(function (key) {
+      _defineProperty$7(target, key, source[key]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$6(Object(source)).forEach(function (key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
@@ -479,7 +479,7 @@ function _objectSpread2$5(target) {
   return target;
 }
 
-function _defineProperty$6(obj, key, value) {
+function _defineProperty$7(obj, key, value) {
   if (key in obj) {
     Object.defineProperty(obj, key, {
       value: value,
@@ -494,7 +494,7 @@ function _defineProperty$6(obj, key, value) {
   return obj;
 }
 
-function _objectWithoutPropertiesLoose$8(source, excluded) {
+function _objectWithoutPropertiesLoose$b(source, excluded) {
   if (source == null) return {};
   var target = {};
   var sourceKeys = Object.keys(source);
@@ -509,10 +509,10 @@ function _objectWithoutPropertiesLoose$8(source, excluded) {
   return target;
 }
 
-function _objectWithoutProperties$8(source, excluded) {
+function _objectWithoutProperties$b(source, excluded) {
   if (source == null) return {};
 
-  var target = _objectWithoutPropertiesLoose$8(source, excluded);
+  var target = _objectWithoutPropertiesLoose$b(source, excluded);
 
   var key, i;
 
@@ -530,9 +530,9 @@ function _objectWithoutProperties$8(source, excluded) {
   return target;
 }
 
-var _excluded$8 = ["label", "icon", "iconSize", "design", "color", "className", "loading"];
+var _excluded$b = ["label", "icon", "iconSize", "design", "color", "className", "loading"];
 
-var ButtonIcon$3 = function ButtonIcon(_ref) {
+var ButtonIcon$4 = function ButtonIcon(_ref) {
   var label = _ref.label,
       icon = _ref.icon,
       iconSize = _ref.iconSize,
@@ -541,7 +541,7 @@ var ButtonIcon$3 = function ButtonIcon(_ref) {
       color = _ref.color,
       className = _ref.className,
       loading = _ref.loading,
-      props = _objectWithoutProperties$8(_ref, _excluded$8);
+      props = _objectWithoutProperties$b(_ref, _excluded$b);
 
   var loader = /*#__PURE__*/React.createElement("span", {
     className: "sui-icon-loader sui-loading",
@@ -594,7 +594,7 @@ var ButtonIcon$3 = function ButtonIcon(_ref) {
   }
 
   var htmlTag = props.href ? 'a' : 'button';
-  return /*#__PURE__*/React.createElement(htmlTag, _objectSpread2$5({
+  return /*#__PURE__*/React.createElement(htmlTag, _objectSpread2$6({
     className: className,
     disabled: props.disabled || loading
   }, props), loading ? loader : content);
@@ -722,7 +722,7 @@ var Dropdown = /*#__PURE__*/function (_Component) {
         var label = /*#__PURE__*/React.createElement(Fragment, null, icon, option.props.name, tag);
 
         if (option.props.href) {
-          return /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement(Link, _extends$7({
+          return /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement(Link, _extends$a({
             href: option.props.href
           }, option.props), label));
         }
@@ -751,7 +751,7 @@ var Dropdown = /*#__PURE__*/function (_Component) {
         onClick: function onClick(e) {
           return e.stopPropagation();
         }
-      }, /*#__PURE__*/React.createElement(ButtonIcon$3, _extends$7({
+      }, /*#__PURE__*/React.createElement(ButtonIcon$4, _extends$a({
         icon: "widget-settings-config",
         label: open ? 'Open menu' : 'Close menu',
         onClick: this.toggle
@@ -768,8 +768,8 @@ var Dropdown = /*#__PURE__*/function (_Component) {
   return Dropdown;
 }(Component);
 
-function _extends$6() {
-  _extends$6 = Object.assign || function (target) {
+function _extends$9() {
+  _extends$9 = Object.assign || function (target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i];
 
@@ -783,10 +783,10 @@ function _extends$6() {
     return target;
   };
 
-  return _extends$6.apply(this, arguments);
+  return _extends$9.apply(this, arguments);
 }
 
-function _objectWithoutPropertiesLoose$7(source, excluded) {
+function _objectWithoutPropertiesLoose$1$2(source, excluded) {
   if (source == null) return {};
   var target = {};
   var sourceKeys = Object.keys(source);
@@ -801,10 +801,10 @@ function _objectWithoutPropertiesLoose$7(source, excluded) {
   return target;
 }
 
-function _objectWithoutProperties$7(source, excluded) {
+function _objectWithoutProperties$1$2(source, excluded) {
   if (source == null) return {};
 
-  var target = _objectWithoutPropertiesLoose$7(source, excluded);
+  var target = _objectWithoutPropertiesLoose$1$2(source, excluded);
 
   var key, i;
 
@@ -822,7 +822,215 @@ function _objectWithoutProperties$7(source, excluded) {
   return target;
 }
 
-var _excluded$7 = ["id", "label", "description", "type", "errorStatus", "errorDescription", "size", "fieldSize", "suffix", "prefix"];
+function _slicedToArray$4(arr, i) {
+  return _arrayWithHoles$4(arr) || _iterableToArrayLimit$4(arr, i) || _unsupportedIterableToArray$4(arr, i) || _nonIterableRest$4();
+}
+
+function _arrayWithHoles$4(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+
+function _iterableToArrayLimit$4(arr, i) {
+  var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"];
+
+  if (_i == null) return;
+  var _arr = [];
+  var _n = true;
+  var _d = false;
+
+  var _s, _e;
+
+  try {
+    for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) {
+      _arr.push(_s.value);
+
+      if (i && _arr.length === i) break;
+    }
+  } catch (err) {
+    _d = true;
+    _e = err;
+  } finally {
+    try {
+      if (!_n && _i["return"] != null) _i["return"]();
+    } finally {
+      if (_d) throw _e;
+    }
+  }
+
+  return _arr;
+}
+
+function _unsupportedIterableToArray$4(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray$4(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray$4(o, minLen);
+}
+
+function _arrayLikeToArray$4(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
+
+  return arr2;
+}
+
+function _nonIterableRest$4() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
+function ownKeys$5(object, enumerableOnly) {
+  var keys = Object.keys(object);
+
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    enumerableOnly && (symbols = symbols.filter(function (sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    })), keys.push.apply(keys, symbols);
+  }
+
+  return keys;
+}
+
+function _objectSpread2$5(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = null != arguments[i] ? arguments[i] : {};
+    i % 2 ? ownKeys$5(Object(source), !0).forEach(function (key) {
+      _defineProperty$6(target, key, source[key]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$5(Object(source)).forEach(function (key) {
+      Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+    });
+  }
+
+  return target;
+}
+
+function _defineProperty$6(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+function _objectWithoutPropertiesLoose$a(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
+
+function _objectWithoutProperties$a(source, excluded) {
+  if (source == null) return {};
+
+  var target = _objectWithoutPropertiesLoose$a(source, excluded);
+
+  var key, i;
+
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+
+    for (i = 0; i < sourceSymbolKeys.length; i++) {
+      key = sourceSymbolKeys[i];
+      if (excluded.indexOf(key) >= 0) continue;
+      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
+      target[key] = source[key];
+    }
+  }
+
+  return target;
+}
+
+var _excluded$1$2 = ["label", "icon", "iconSize", "design", "color", "className", "loading"];
+
+var ButtonIcon$3 = function ButtonIcon(_ref) {
+  var label = _ref.label,
+      icon = _ref.icon,
+      iconSize = _ref.iconSize,
+      _ref$design = _ref.design,
+      design = _ref$design === void 0 ? 'solid' : _ref$design,
+      color = _ref.color,
+      className = _ref.className,
+      loading = _ref.loading,
+      props = _objectWithoutProperties$a(_ref, _excluded$1$2);
+
+  var loader = /*#__PURE__*/React.createElement("span", {
+    className: "sui-icon-loader sui-loading",
+    style: {
+      position: 'relative'
+    },
+    "aria-hidden": "true"
+  });
+  var content = /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
+    className: "sui-icon-".concat(icon).concat(iconSize ? ' sui-' + iconSize : ''),
+    "aria-hidden": "true"
+  }), /*#__PURE__*/React.createElement("span", {
+    className: "sui-screen-reader-text"
+  }, label));
+  className = "sui-button-icon ".concat(className || ''); // Set button color.
+
+  switch (color) {
+    case 'blue':
+    case 'green':
+    case 'red':
+    case 'orange':
+    case 'purple':
+    case 'yellow':
+    case 'white':
+      className += ' sui-button-' + color;
+      break;
+
+    case 'gray':
+    default:
+      className += '';
+      break;
+  } // Set button style.
+
+
+  switch (design) {
+    case 'ghost':
+    case 'outlined':
+      className += ' sui-button-' + design;
+      break;
+
+    case 'solid':
+    default:
+      className += '';
+      break;
+  } // Set loading class.
+
+
+  if (loading) {
+    className += ' sui-button-onload';
+  }
+
+  var htmlTag = props.href ? 'a' : 'button';
+  return /*#__PURE__*/React.createElement(htmlTag, _objectSpread2$5({
+    className: className,
+    disabled: props.disabled || loading
+  }, props), loading ? loader : content);
+};
+
+var _excluded$a = ["id", "label", "description", "type", "errorStatus", "errorDescription", "size", "fieldSize", "suffix", "prefix"];
 
 var Input = function Input(_ref) {
   var id = _ref.id,
@@ -836,9 +1044,15 @@ var Input = function Input(_ref) {
       fieldSize = _ref.fieldSize,
       suffix = _ref.suffix,
       prefix = _ref.prefix,
-      props = _objectWithoutProperties$7(_ref, _excluded$7);
+      props = _objectWithoutProperties$1$2(_ref, _excluded$a);
 
   var uniqueId = id && '' !== id ? id : props.property;
+
+  var _useState = useState(true),
+      _useState2 = _slicedToArray$4(_useState, 2),
+      showIcon = _useState2[0],
+      setShowIcon = _useState2[1];
+
   var fieldClasses = 'sui-form-field';
 
   switch (fieldSize) {
@@ -880,7 +1094,19 @@ var Input = function Input(_ref) {
     className: "sui-label"
   }, label), prefix && /*#__PURE__*/React.createElement("span", {
     className: "sui-field-prefix"
-  }, prefix), /*#__PURE__*/React.createElement("input", _extends$6({
+  }, prefix), type === 'password' ? /*#__PURE__*/React.createElement("div", {
+    className: "sui-with-button sui-with-button-icon"
+  }, /*#__PURE__*/React.createElement("input", _extends$9({
+    id: uniqueId,
+    type: showIcon ? type : 'text',
+    className: inputClasses
+  }, props)), /*#__PURE__*/React.createElement(ButtonIcon$3, {
+    icon: showIcon ? "eye" : "eye-hide",
+    label: showIcon ? "Show password" : "Hide password",
+    onClick: function onClick() {
+      setShowIcon(!showIcon);
+    }
+  })) : /*#__PURE__*/React.createElement("input", _extends$9({
     id: uniqueId,
     type: type,
     className: inputClasses
@@ -1058,7 +1284,7 @@ function _defineProperty$5(obj, key, value) {
   return obj;
 }
 
-function _objectWithoutPropertiesLoose$6(source, excluded) {
+function _objectWithoutPropertiesLoose$9(source, excluded) {
   if (source == null) return {};
   var target = {};
   var sourceKeys = Object.keys(source);
@@ -1073,10 +1299,10 @@ function _objectWithoutPropertiesLoose$6(source, excluded) {
   return target;
 }
 
-function _objectWithoutProperties$6(source, excluded) {
+function _objectWithoutProperties$9(source, excluded) {
   if (source == null) return {};
 
-  var target = _objectWithoutPropertiesLoose$6(source, excluded);
+  var target = _objectWithoutPropertiesLoose$9(source, excluded);
 
   var key, i;
 
@@ -1094,7 +1320,7 @@ function _objectWithoutProperties$6(source, excluded) {
   return target;
 }
 
-var _excluded$6 = ["label", "icon", "iconSize", "design", "color", "className", "loading"];
+var _excluded$9 = ["label", "icon", "iconSize", "design", "color", "className", "loading"];
 
 var ButtonIcon$2 = function ButtonIcon(_ref) {
   var label = _ref.label,
@@ -1105,7 +1331,7 @@ var ButtonIcon$2 = function ButtonIcon(_ref) {
       color = _ref.color,
       className = _ref.className,
       loading = _ref.loading,
-      props = _objectWithoutProperties$6(_ref, _excluded$6);
+      props = _objectWithoutProperties$9(_ref, _excluded$9);
 
   var loader = /*#__PURE__*/React.createElement("span", {
     className: "sui-icon-loader sui-loading",
@@ -1337,8 +1563,8 @@ function _defineProperty$4(obj, key, value) {
   return obj;
 }
 
-function _extends$5() {
-  _extends$5 = Object.assign || function (target) {
+function _extends$8() {
+  _extends$8 = Object.assign || function (target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i];
 
@@ -1352,10 +1578,10 @@ function _extends$5() {
     return target;
   };
 
-  return _extends$5.apply(this, arguments);
+  return _extends$8.apply(this, arguments);
 }
 
-function _objectWithoutPropertiesLoose$5(source, excluded) {
+function _objectWithoutPropertiesLoose$8(source, excluded) {
   if (source == null) return {};
   var target = {};
   var sourceKeys = Object.keys(source);
@@ -1370,10 +1596,10 @@ function _objectWithoutPropertiesLoose$5(source, excluded) {
   return target;
 }
 
-function _objectWithoutProperties$5(source, excluded) {
+function _objectWithoutProperties$8(source, excluded) {
   if (source == null) return {};
 
-  var target = _objectWithoutPropertiesLoose$5(source, excluded);
+  var target = _objectWithoutPropertiesLoose$8(source, excluded);
 
   var key, i;
 
@@ -1391,19 +1617,19 @@ function _objectWithoutProperties$5(source, excluded) {
   return target;
 }
 
-function _slicedToArray$2(arr, i) {
-  return _arrayWithHoles$2(arr) || _iterableToArrayLimit$2(arr, i) || _unsupportedIterableToArray$2(arr, i) || _nonIterableRest$2();
+function _slicedToArray$3(arr, i) {
+  return _arrayWithHoles$3(arr) || _iterableToArrayLimit$3(arr, i) || _unsupportedIterableToArray$3(arr, i) || _nonIterableRest$3();
 }
 
 function _toConsumableArray(arr) {
-  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray$2(arr) || _nonIterableSpread();
+  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray$3(arr) || _nonIterableSpread();
 }
 
 function _arrayWithoutHoles(arr) {
-  if (Array.isArray(arr)) return _arrayLikeToArray$2(arr);
+  if (Array.isArray(arr)) return _arrayLikeToArray$3(arr);
 }
 
-function _arrayWithHoles$2(arr) {
+function _arrayWithHoles$3(arr) {
   if (Array.isArray(arr)) return arr;
 }
 
@@ -1411,7 +1637,7 @@ function _iterableToArray(iter) {
   if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter);
 }
 
-function _iterableToArrayLimit$2(arr, i) {
+function _iterableToArrayLimit$3(arr, i) {
   var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"];
 
   if (_i == null) return;
@@ -1441,16 +1667,16 @@ function _iterableToArrayLimit$2(arr, i) {
   return _arr;
 }
 
-function _unsupportedIterableToArray$2(o, minLen) {
+function _unsupportedIterableToArray$3(o, minLen) {
   if (!o) return;
-  if (typeof o === "string") return _arrayLikeToArray$2(o, minLen);
+  if (typeof o === "string") return _arrayLikeToArray$3(o, minLen);
   var n = Object.prototype.toString.call(o).slice(8, -1);
   if (n === "Object" && o.constructor) n = o.constructor.name;
   if (n === "Map" || n === "Set") return Array.from(o);
-  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray$2(o, minLen);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray$3(o, minLen);
 }
 
-function _arrayLikeToArray$2(arr, len) {
+function _arrayLikeToArray$3(arr, len) {
   if (len == null || len > arr.length) len = arr.length;
 
   for (var i = 0, arr2 = new Array(len); i < len; i++) {
@@ -1464,11 +1690,11 @@ function _nonIterableSpread() {
   throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
 
-function _nonIterableRest$2() {
+function _nonIterableRest$3() {
   throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
 
-var _excluded$5 = ["limit", "skip", "results", "skipToFirstLabel", "previousLabel", "nextLabel", "skipToLastLabel", "pagesToBottom"];
+var _excluded$8 = ["limit", "skip", "results", "skipToFirstLabel", "previousLabel", "nextLabel", "skipToLastLabel", "pagesToBottom"];
 
 var Pagination = function Pagination(_ref) {
   var _componentWrapper$pro, _componentWrapper$pro2, _componentWrapper$pro3;
@@ -1481,7 +1707,7 @@ var Pagination = function Pagination(_ref) {
       nextLabel = _ref.nextLabel,
       skipToLastLabel = _ref.skipToLastLabel,
       pagesToBottom = _ref.pagesToBottom,
-      args = _objectWithoutProperties$5(_ref, _excluded$5);
+      args = _objectWithoutProperties$8(_ref, _excluded$8);
 
   var componentWrapper = args.children,
       componentChildren = componentWrapper !== null && componentWrapper !== void 0 && (_componentWrapper$pro = componentWrapper.props) !== null && _componentWrapper$pro !== void 0 && _componentWrapper$pro.children ? (componentWrapper === null || componentWrapper === void 0 ? void 0 : (_componentWrapper$pro2 = componentWrapper.props) === null || _componentWrapper$pro2 === void 0 ? void 0 : (_componentWrapper$pro3 = _componentWrapper$pro2.children) === null || _componentWrapper$pro3 === void 0 ? void 0 : _componentWrapper$pro3.length) > 1 ? _toConsumableArray(componentWrapper.props.children) : [componentWrapper.props.children] : [],
@@ -1489,31 +1715,31 @@ var Pagination = function Pagination(_ref) {
       elements = childElements.length,
       pages = elements / limit > parseInt(elements / limit) ? parseInt(elements / limit) + 1 : elements / limit,
       _useState = useState([]),
-      _useState2 = _slicedToArray$2(_useState, 2),
+      _useState2 = _slicedToArray$3(_useState, 2),
       pagesArray = _useState2[0],
       setPagesArray = _useState2[1],
       _useState3 = useState('1'),
-      _useState4 = _slicedToArray$2(_useState3, 2),
+      _useState4 = _slicedToArray$3(_useState3, 2),
       selectedPage = _useState4[0],
       setSelectedPage = _useState4[1],
       _useState5 = useState(0),
-      _useState6 = _slicedToArray$2(_useState5, 2),
+      _useState6 = _slicedToArray$3(_useState5, 2),
       startIndex = _useState6[0],
       setStartIndex = _useState6[1],
       _useState7 = useState(pages >= 5 ? 5 : pages),
-      _useState8 = _slicedToArray$2(_useState7, 2),
+      _useState8 = _slicedToArray$3(_useState7, 2),
       endIndex = _useState8[0],
       setEndIndex = _useState8[1],
       _useState9 = useState(0),
-      _useState10 = _slicedToArray$2(_useState9, 2),
+      _useState10 = _slicedToArray$3(_useState9, 2),
       pageClickCounter = _useState10[0],
       setPageClickCounter = _useState10[1],
       _useState11 = useState(0),
-      _useState12 = _slicedToArray$2(_useState11, 2),
+      _useState12 = _slicedToArray$3(_useState11, 2),
       elementsStartIndex = _useState12[0],
       setElementsStartIndex = _useState12[1],
       _useState13 = useState(limit),
-      _useState14 = _slicedToArray$2(_useState13, 2),
+      _useState14 = _slicedToArray$3(_useState13, 2),
       elementsEndIndex = _useState14[0],
       setElementsEndIndex = _useState14[1];
 
@@ -1638,7 +1864,7 @@ var Pagination = function Pagination(_ref) {
 var PaginationResults = function PaginationResults(_ref3) {
   var _React$Children$map;
 
-  var properties = _extends$5({}, _ref3);
+  var properties = _extends$8({}, _ref3);
 
   var items = (_React$Children$map = React.Children.map(properties.childElements, function (data) {
     return /*#__PURE__*/React.cloneElement(data);
@@ -1651,7 +1877,7 @@ var PaginationResults = function PaginationResults(_ref3) {
 var PaginationNav = function PaginationNav(_ref4) {
   var _properties$pagesArra, _properties$pagesArra2;
 
-  var properties = _extends$5({}, _ref4);
+  var properties = _extends$8({}, _ref4);
 
   return properties.pagesArray.length > 1 && /*#__PURE__*/React.createElement("div", {
     className: "sui-pagination-wrap"
@@ -1760,8 +1986,8 @@ function _defineProperty$3(obj, key, value) {
   return obj;
 }
 
-function _extends$4() {
-  _extends$4 = Object.assign || function (target) {
+function _extends$7() {
+  _extends$7 = Object.assign || function (target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i];
 
@@ -1775,7 +2001,7 @@ function _extends$4() {
     return target;
   };
 
-  return _extends$4.apply(this, arguments);
+  return _extends$7.apply(this, arguments);
 }
 
 function _inherits$1(subClass, superClass) {
@@ -2066,7 +2292,7 @@ var Post = /*#__PURE__*/function (_Component) {
       var image = this.props.image;
 
       if (image) {
-        PostImage = /*#__PURE__*/React.createElement(FeaturedImage, _extends$4({
+        PostImage = /*#__PURE__*/React.createElement(FeaturedImage, _extends$7({
           src: image,
           alt: ""
         }, this.props, {
@@ -2093,7 +2319,7 @@ var Post = /*#__PURE__*/function (_Component) {
             className: "sui-screen-reader-text"
           }, "Image is loading"));
         } else {
-          PostImage = /*#__PURE__*/React.createElement(FeaturedImage, _extends$4({
+          PostImage = /*#__PURE__*/React.createElement(FeaturedImage, _extends$7({
             src: media
           }, this.props, {
             title: postTitle
@@ -2102,7 +2328,7 @@ var Post = /*#__PURE__*/function (_Component) {
       }
 
       if (this.props.banner) {
-        return /*#__PURE__*/React.createElement(PostWrapper, _extends$4({}, this.props, {
+        return /*#__PURE__*/React.createElement(PostWrapper, _extends$7({}, this.props, {
           title: postTitle
         }), PostImage, this.props.title && '' !== this.props.title && /*#__PURE__*/React.createElement(PostTitle, {
           banner: true,
@@ -2130,7 +2356,7 @@ var Post = /*#__PURE__*/function (_Component) {
         }), this.props.time, " ", min_read)));
       }
 
-      return /*#__PURE__*/React.createElement(PostWrapper, _extends$4({}, this.props, {
+      return /*#__PURE__*/React.createElement(PostWrapper, _extends$7({}, this.props, {
         title: postTitle
       }), /*#__PURE__*/React.createElement(PostHeader, null, PostImage, /*#__PURE__*/React.createElement("div", {
         style: {
@@ -2152,8 +2378,8 @@ var Post = /*#__PURE__*/function (_Component) {
   return Post;
 }(Component);
 
-function _extends$3() {
-  _extends$3 = Object.assign || function (target) {
+function _extends$6() {
+  _extends$6 = Object.assign || function (target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i];
 
@@ -2167,7 +2393,7 @@ function _extends$3() {
     return target;
   };
 
-  return _extends$3.apply(this, arguments);
+  return _extends$6.apply(this, arguments);
 }
 
 function _objectWithoutPropertiesLoose$1$1(source, excluded) {
@@ -2247,7 +2473,7 @@ function _defineProperty$2(obj, key, value) {
   return obj;
 }
 
-function _objectWithoutPropertiesLoose$4(source, excluded) {
+function _objectWithoutPropertiesLoose$7(source, excluded) {
   if (source == null) return {};
   var target = {};
   var sourceKeys = Object.keys(source);
@@ -2262,10 +2488,10 @@ function _objectWithoutPropertiesLoose$4(source, excluded) {
   return target;
 }
 
-function _objectWithoutProperties$4(source, excluded) {
+function _objectWithoutProperties$7(source, excluded) {
   if (source == null) return {};
 
-  var target = _objectWithoutPropertiesLoose$4(source, excluded);
+  var target = _objectWithoutPropertiesLoose$7(source, excluded);
 
   var key, i;
 
@@ -2294,7 +2520,7 @@ var ButtonIcon$1 = function ButtonIcon(_ref) {
       color = _ref.color,
       className = _ref.className,
       loading = _ref.loading,
-      props = _objectWithoutProperties$4(_ref, _excluded$1$1);
+      props = _objectWithoutProperties$7(_ref, _excluded$1$1);
 
   var loader = /*#__PURE__*/React.createElement("span", {
     className: "sui-icon-loader sui-loading",
@@ -2353,7 +2579,7 @@ var ButtonIcon$1 = function ButtonIcon(_ref) {
   }, props), loading ? loader : content);
 };
 
-var _excluded$4 = ["classes", "now", "hasLoader", "hasLabel", "hasCancel", "hasFrame", "hasLegend", "sourceLang", "cbFunction"];
+var _excluded$7 = ["classes", "now", "hasLoader", "hasLabel", "hasCancel", "hasFrame", "hasLegend", "sourceLang", "cbFunction"];
 
 var ProgressBar = function ProgressBar(_ref) {
   var classes = _ref.classes,
@@ -2371,7 +2597,7 @@ var ProgressBar = function ProgressBar(_ref) {
       sourceLang = _ref.sourceLang,
       _ref$cbFunction = _ref.cbFunction,
       cbFunction = _ref$cbFunction === void 0 ? function () {} : _ref$cbFunction,
-      props = _objectWithoutProperties$1$1(_ref, _excluded$4);
+      props = _objectWithoutProperties$1$1(_ref, _excluded$7);
 
   var extraClasses = 'undefined' !== typeof classes && '' !== classes ? ' ' + classes : '';
   var currValue = Number(now);
@@ -2395,7 +2621,7 @@ var ProgressBar = function ProgressBar(_ref) {
       width: "".concat(value, "%")
     }
   }));
-  var innerMarkup = /*#__PURE__*/React.createElement("div", _extends$3({
+  var innerMarkup = /*#__PURE__*/React.createElement("div", _extends$6({
     className: "sui-progress".concat(extraClasses)
   }, props), loaderMarkup, loaderText, loaderBar, hasCancel && /*#__PURE__*/React.createElement(ButtonIcon$1, {
     icon: "close",
@@ -2412,8 +2638,8 @@ var ProgressBar = function ProgressBar(_ref) {
   }, /*#__PURE__*/React.createElement("span", null, lang.legend))), !hasFrame && innerMarkup);
 };
 
-function _extends$2() {
-  _extends$2 = Object.assign || function (target) {
+function _extends$5() {
+  _extends$5 = Object.assign || function (target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i];
 
@@ -2427,10 +2653,10 @@ function _extends$2() {
     return target;
   };
 
-  return _extends$2.apply(this, arguments);
+  return _extends$5.apply(this, arguments);
 }
 
-function _objectWithoutPropertiesLoose$3(source, excluded) {
+function _objectWithoutPropertiesLoose$6(source, excluded) {
   if (source == null) return {};
   var target = {};
   var sourceKeys = Object.keys(source);
@@ -2445,10 +2671,367 @@ function _objectWithoutPropertiesLoose$3(source, excluded) {
   return target;
 }
 
-function _objectWithoutProperties$3(source, excluded) {
+function _objectWithoutProperties$6(source, excluded) {
   if (source == null) return {};
 
-  var target = _objectWithoutPropertiesLoose$3(source, excluded);
+  var target = _objectWithoutPropertiesLoose$6(source, excluded);
+
+  var key, i;
+
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+
+    for (i = 0; i < sourceSymbolKeys.length; i++) {
+      key = sourceSymbolKeys[i];
+      if (excluded.indexOf(key) >= 0) continue;
+      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
+      target[key] = source[key];
+    }
+  }
+
+  return target;
+}
+
+function _slicedToArray$2(arr, i) {
+  return _arrayWithHoles$2(arr) || _iterableToArrayLimit$2(arr, i) || _unsupportedIterableToArray$2(arr, i) || _nonIterableRest$2();
+}
+
+function _arrayWithHoles$2(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+
+function _iterableToArrayLimit$2(arr, i) {
+  var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"];
+
+  if (_i == null) return;
+  var _arr = [];
+  var _n = true;
+  var _d = false;
+
+  var _s, _e;
+
+  try {
+    for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) {
+      _arr.push(_s.value);
+
+      if (i && _arr.length === i) break;
+    }
+  } catch (err) {
+    _d = true;
+    _e = err;
+  } finally {
+    try {
+      if (!_n && _i["return"] != null) _i["return"]();
+    } finally {
+      if (_d) throw _e;
+    }
+  }
+
+  return _arr;
+}
+
+function _unsupportedIterableToArray$2(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray$2(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray$2(o, minLen);
+}
+
+function _arrayLikeToArray$2(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
+
+  return arr2;
+}
+
+function _nonIterableRest$2() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
+var _excluded$6 = ["id", "label", "hideLabel", "description", "hideDescription", "checked", "disabled", "children", "cbFunction"];
+
+var Toggle = function Toggle(_ref) {
+  var id = _ref.id,
+      label = _ref.label,
+      hideLabel = _ref.hideLabel,
+      description = _ref.description,
+      hideDescription = _ref.hideDescription,
+      checked = _ref.checked,
+      disabled = _ref.disabled,
+      children = _ref.children,
+      _ref$cbFunction = _ref.cbFunction,
+      cbFunction = _ref$cbFunction === void 0 ? function (e) {} : _ref$cbFunction,
+      args = _objectWithoutProperties$6(_ref, _excluded$6);
+
+  var _useState = useState(checked),
+      _useState2 = _slicedToArray$2(_useState, 2),
+      state = _useState2[0],
+      setState = _useState2[1];
+
+  var initialState = function initialState() {
+    if (!isUndefined(checked, 'boolean')) {
+      setState(checked);
+    }
+  };
+
+  var changeState = function changeState(e) {
+    setState(e.target.checked);
+    cbFunction(e);
+  }; // Set initial state.
+
+
+  useEffect(function () {
+    return initialState;
+  }, []);
+  var hasLabel = !isUndefined(label) ? true : false;
+  var hasDescription = !isUndefined(description) ? true : false;
+  var hasContent = !isUndefined(children) ? true : false;
+  return /*#__PURE__*/React.createElement(Fragment, null, /*#__PURE__*/React.createElement("label", {
+    htmlFor: id,
+    className: "sui-toggle"
+  }, /*#__PURE__*/React.createElement("input", _extends$5({
+    type: "checkbox",
+    id: id
+  }, hasLabel && {
+    'aria-labelledby': id + '--label'
+  }, hasDescription && {
+    'aria-describedby': id + '--description'
+  }, hasContent && {
+    'aria-controls': id + '--content'
+  }, true === disabled && {
+    disabled: true
+  }, {
+    defaultChecked: state,
+    onClick: function onClick(e) {
+      return changeState(e);
+    }
+  }, args)), /*#__PURE__*/React.createElement("span", {
+    className: "sui-toggle-slider",
+    "aria-hidden": "true"
+  }), hasLabel && /*#__PURE__*/React.createElement("span", {
+    id: "".concat(id, "--label"),
+    className: "sui-toggle-label".concat(!isUndefined(hideLabel) ? ' sui-screen-reader-text' : '')
+  }, label), hasDescription && /*#__PURE__*/React.createElement("span", {
+    id: "".concat(id, "--description"),
+    className: "sui-description".concat(true === hideDescription ? ' sui-screen-reader-text' : '')
+  }, description)), hasContent && state && /*#__PURE__*/React.createElement("div", {
+    tabIndex: 0,
+    id: "".concat(id, "--content"),
+    className: "sui-toggle-content"
+  }, children));
+}; // Check if element is undefined.
+
+
+var isUndefined = function isUndefined(element, type) {
+  var isValid = 'undefined' !== typeof element;
+  var isNotEmpty = '' !== element;
+
+  if (element && isValid && isNotEmpty) {
+    if (type === 'number') {
+      if (!Number.isNaN(element)) {
+        return false;
+      }
+    } else if (type === 'boolean') {
+      if ('boolean' === typeof element) {
+        return false;
+      }
+    } else {
+      return false;
+    }
+  }
+
+  return true;
+};
+
+function _extends$4() {
+  _extends$4 = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends$4.apply(this, arguments);
+}
+
+function _objectWithoutPropertiesLoose$5(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
+
+function _objectWithoutProperties$5(source, excluded) {
+  if (source == null) return {};
+
+  var target = _objectWithoutPropertiesLoose$5(source, excluded);
+
+  var key, i;
+
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+
+    for (i = 0; i < sourceSymbolKeys.length; i++) {
+      key = sourceSymbolKeys[i];
+      if (excluded.indexOf(key) >= 0) continue;
+      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
+      target[key] = source[key];
+    }
+  }
+
+  return target;
+}
+
+var _excluded$5 = ["type", "label", "labelId", "id", "name", "image", "defaultChecked", "disabled"],
+    _excluded2$2 = ["type", "options"];
+
+var RadioCheckboxInput$1 = function RadioCheckboxInput(_ref) {
+  var type = _ref.type,
+      label = _ref.label,
+      labelId = _ref.labelId,
+      id = _ref.id,
+      name = _ref.name,
+      image = _ref.image,
+      defaultChecked = _ref.defaultChecked,
+      disabled = _ref.disabled,
+      props = _objectWithoutProperties$5(_ref, _excluded$5);
+
+  var mainClasses = ["sui-".concat(type)];
+
+  if (props.size === 'small') {
+    mainClasses.push("sui-".concat(type, "-sm"));
+  }
+
+  if (props.stacked) {
+    mainClasses.push("sui-".concat(type, "-stacked"));
+  }
+
+  return image ? /*#__PURE__*/React.createElement("label", {
+    className: "sui-".concat(type, "-image"),
+    htmlFor: id
+  }, /*#__PURE__*/React.createElement("img", {
+    src: image.src,
+    srcSet: image.srcset,
+    alt: image.alt
+  }), /*#__PURE__*/React.createElement("span", {
+    className: mainClasses.join(' ')
+  }, /*#__PURE__*/React.createElement("input", _extends$4({
+    id: id,
+    type: type,
+    name: name,
+    "aria-labelledby": labelId,
+    disabled: disabled,
+    defaultChecked: defaultChecked
+  }, props)), /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true"
+  }), label && /*#__PURE__*/React.createElement("span", {
+    id: labelId
+  }, label))) : /*#__PURE__*/React.createElement("label", {
+    className: mainClasses.join(' '),
+    htmlFor: id
+  }, /*#__PURE__*/React.createElement("input", _extends$4({
+    id: id,
+    type: type,
+    name: name,
+    "aria-labelledby": labelId,
+    defaultChecked: defaultChecked,
+    disabled: disabled
+  }, props)), /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true"
+  }), label && /*#__PURE__*/React.createElement("span", {
+    id: labelId
+  }, label));
+};
+
+var RadioCheckboxGroup = function RadioCheckboxGroup(_ref2) {
+  var type = _ref2.type,
+      options = _ref2.options,
+      props = _objectWithoutProperties$5(_ref2, _excluded2$2);
+
+  return /*#__PURE__*/React.createElement("div", {
+    className: "sui-form-field",
+    role: 'radio' === type ? 'radiogroup' : 'group'
+  }, options === null || options === void 0 ? void 0 : options.map(function (option, index) {
+    return option.image ? /*#__PURE__*/React.createElement(RadioCheckboxInput$1, _extends$4({
+      key: index,
+      type: type,
+      label: option.label,
+      labelId: option.labelId,
+      id: option.id,
+      name: option.name,
+      image: option.image,
+      defaultChecked: option.defaultChecked,
+      disabled: option.disabled
+    }, props)) : /*#__PURE__*/React.createElement(RadioCheckboxInput$1, _extends$4({
+      key: index,
+      type: type,
+      label: option.label,
+      labelId: option.labelId,
+      id: option.id,
+      name: option.name,
+      defaultChecked: option.defaultChecked,
+      disabled: option.disabled
+    }, props));
+  }));
+};
+
+function _extends$3() {
+  _extends$3 = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends$3.apply(this, arguments);
+}
+
+function _objectWithoutPropertiesLoose$4(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
+
+function _objectWithoutProperties$4(source, excluded) {
+  if (source == null) return {};
+
+  var target = _objectWithoutPropertiesLoose$4(source, excluded);
 
   var key, i;
 
@@ -2480,7 +3063,7 @@ function _taggedTemplateLiteral$1(strings, raw) {
 
 var _templateObject$1, _templateObject2, _templateObject3;
 
-var _excluded$3 = ["children", "className"],
+var _excluded$4 = ["children", "className"],
     _excluded2$1 = ["icon", "tagLabel", "tagColor", "tagSize", "tagDesign", "className", "children"],
     _excluded3$1 = ["title", "titleIcon", "tagLabel", "tagColor", "tagSize", "tagDesign", "className", "children"],
     _excluded4$1 = ["className", "children"],
@@ -2505,9 +3088,9 @@ var device = {
 var Box = function Box(_ref) {
   var children = _ref.children,
       className = _ref.className,
-      props = _objectWithoutProperties$3(_ref, _excluded$3);
+      props = _objectWithoutProperties$4(_ref, _excluded$4);
 
-  return /*#__PURE__*/React.createElement("div", _extends$2({
+  return /*#__PURE__*/React.createElement("div", _extends$3({
     className: 'undefined' !== typeof className && '' !== className ? "sui-box ".concat(className) : 'sui-box'
   }, props), children);
 };
@@ -2520,7 +3103,7 @@ var BoxTitle = function BoxTitle(_ref2) {
       tagDesign = _ref2.tagDesign,
       className = _ref2.className,
       children = _ref2.children,
-      props = _objectWithoutProperties$3(_ref2, _excluded2$1);
+      props = _objectWithoutProperties$4(_ref2, _excluded2$1);
 
   var tagClass = 'sui-tag';
 
@@ -2547,7 +3130,7 @@ var BoxTitle = function BoxTitle(_ref2) {
       break;
   }
 
-  return /*#__PURE__*/React.createElement("h3", _extends$2({
+  return /*#__PURE__*/React.createElement("h3", _extends$3({
     className: 'undefined' !== typeof className && '' !== className ? "sui-box-title ".concat(className) : 'sui-box-title'
   }, props), icon && '' !== icon && /*#__PURE__*/React.createElement("span", {
     className: "sui-icon-".concat(icon, " sui-md"),
@@ -2606,7 +3189,7 @@ var BoxHeader = function BoxHeader(_ref3) {
   _ref3.className;
 
   var children = _ref3.children,
-      props = _objectWithoutProperties$3(_ref3, _excluded3$1);
+      props = _objectWithoutProperties$4(_ref3, _excluded3$1);
 
   return /*#__PURE__*/React.createElement(Header, props, title && '' !== title && /*#__PURE__*/React.createElement(BoxTitle, {
     icon: titleIcon,
@@ -2648,9 +3231,9 @@ var Body = styled.div.attrs(function (props) {
 var BoxBody = function BoxBody(_ref4) {
   var className = _ref4.className,
       children = _ref4.children,
-      props = _objectWithoutProperties$3(_ref4, _excluded4$1);
+      props = _objectWithoutProperties$4(_ref4, _excluded4$1);
 
-  return /*#__PURE__*/React.createElement(Body, _extends$2({
+  return /*#__PURE__*/React.createElement(Body, _extends$3({
     className: className
   }, props), children);
 };
@@ -2694,9 +3277,9 @@ var Footer = styled.div.attrs(function (props) {
 var BoxFooter = function BoxFooter(_ref5) {
   var className = _ref5.className,
       children = _ref5.children,
-      props = _objectWithoutProperties$3(_ref5, _excluded5);
+      props = _objectWithoutProperties$4(_ref5, _excluded5);
 
-  return /*#__PURE__*/React.createElement(Footer, _extends$2({
+  return /*#__PURE__*/React.createElement(Footer, _extends$3({
     className: className
   }, props), children);
 };
@@ -2719,7 +3302,7 @@ function _extends$1() {
   return _extends$1.apply(this, arguments);
 }
 
-function _objectWithoutPropertiesLoose$1(source, excluded) {
+function _objectWithoutPropertiesLoose$2(source, excluded) {
   if (source == null) return {};
   var target = {};
   var sourceKeys = Object.keys(source);
@@ -2734,10 +3317,10 @@ function _objectWithoutPropertiesLoose$1(source, excluded) {
   return target;
 }
 
-function _objectWithoutProperties$1(source, excluded) {
+function _objectWithoutProperties$2(source, excluded) {
   if (source == null) return {};
 
-  var target = _objectWithoutPropertiesLoose$1(source, excluded);
+  var target = _objectWithoutPropertiesLoose$2(source, excluded);
 
   var key, i;
 
@@ -2869,7 +3452,7 @@ function _defineProperty$1(obj, key, value) {
   return obj;
 }
 
-function _objectWithoutPropertiesLoose$2(source, excluded) {
+function _objectWithoutPropertiesLoose$1(source, excluded) {
   if (source == null) return {};
   var target = {};
   var sourceKeys = Object.keys(source);
@@ -2884,10 +3467,10 @@ function _objectWithoutPropertiesLoose$2(source, excluded) {
   return target;
 }
 
-function _objectWithoutProperties$2(source, excluded) {
+function _objectWithoutProperties$1(source, excluded) {
   if (source == null) return {};
 
-  var target = _objectWithoutPropertiesLoose$2(source, excluded);
+  var target = _objectWithoutPropertiesLoose$1(source, excluded);
 
   var key, i;
 
@@ -2905,7 +3488,7 @@ function _objectWithoutProperties$2(source, excluded) {
   return target;
 }
 
-var _excluded$1 = ["label", "icon", "iconSize", "design", "color", "className", "loading"];
+var _excluded$2 = ["label", "icon", "iconSize", "design", "color", "className", "loading"];
 
 var ButtonIcon = function ButtonIcon(_ref) {
   var label = _ref.label,
@@ -2916,7 +3499,7 @@ var ButtonIcon = function ButtonIcon(_ref) {
       color = _ref.color,
       className = _ref.className,
       loading = _ref.loading,
-      props = _objectWithoutProperties$2(_ref, _excluded$1);
+      props = _objectWithoutProperties$1(_ref, _excluded$2);
 
   var loader = /*#__PURE__*/React.createElement("span", {
     className: "sui-icon-loader sui-loading",
@@ -2975,9 +3558,123 @@ var ButtonIcon = function ButtonIcon(_ref) {
   }, props), loading ? loader : content);
 };
 
-var _excluded$2 = ["children"],
-    _excluded2 = ["title", "titleSize", "icon", "image", "children"],
-    _excluded3 = ["title", "titleSize", "icon", "image", "children"],
+function _extends$2() {
+  _extends$2 = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends$2.apply(this, arguments);
+}
+
+function _objectWithoutPropertiesLoose$3(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
+
+function _objectWithoutProperties$3(source, excluded) {
+  if (source == null) return {};
+
+  var target = _objectWithoutPropertiesLoose$3(source, excluded);
+
+  var key, i;
+
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+
+    for (i = 0; i < sourceSymbolKeys.length; i++) {
+      key = sourceSymbolKeys[i];
+      if (excluded.indexOf(key) >= 0) continue;
+      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
+      target[key] = source[key];
+    }
+  }
+
+  return target;
+}
+
+var _excluded$1 = ["type", "label", "labelId", "id", "name", "image", "defaultChecked", "disabled"];
+
+var RadioCheckboxInput = function RadioCheckboxInput(_ref) {
+  var type = _ref.type,
+      label = _ref.label,
+      labelId = _ref.labelId,
+      id = _ref.id,
+      name = _ref.name,
+      image = _ref.image,
+      defaultChecked = _ref.defaultChecked,
+      disabled = _ref.disabled,
+      props = _objectWithoutProperties$3(_ref, _excluded$1);
+
+  var mainClasses = ["sui-".concat(type)];
+
+  if (props.size === 'small') {
+    mainClasses.push("sui-".concat(type, "-sm"));
+  }
+
+  if (props.stacked) {
+    mainClasses.push("sui-".concat(type, "-stacked"));
+  }
+
+  return image ? /*#__PURE__*/React.createElement("label", {
+    className: "sui-".concat(type, "-image"),
+    htmlFor: id
+  }, /*#__PURE__*/React.createElement("img", {
+    src: image.src,
+    srcSet: image.srcset,
+    alt: image.alt
+  }), /*#__PURE__*/React.createElement("span", {
+    className: mainClasses.join(' ')
+  }, /*#__PURE__*/React.createElement("input", _extends$2({
+    id: id,
+    type: type,
+    name: name,
+    "aria-labelledby": labelId,
+    disabled: disabled,
+    defaultChecked: defaultChecked
+  }, props)), /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true"
+  }), label && /*#__PURE__*/React.createElement("span", {
+    id: labelId
+  }, label))) : /*#__PURE__*/React.createElement("label", {
+    className: mainClasses.join(' '),
+    htmlFor: id
+  }, /*#__PURE__*/React.createElement("input", _extends$2({
+    id: id,
+    type: type,
+    name: name,
+    "aria-labelledby": labelId,
+    defaultChecked: defaultChecked,
+    disabled: disabled
+  }, props)), /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true"
+  }), label && /*#__PURE__*/React.createElement("span", {
+    id: labelId
+  }, label));
+};
+
+var _excluded$3 = ["children"],
+    _excluded2 = ["title", "titleSize", "icon", "image", "children", "checkboxInput", "checkboxId", "checkboxName", "checkboxLabel", "checkboxSelected", "checkboxClickHandler"],
+    _excluded3 = ["title", "titleSize", "icon", "image", "children", "checkboxInput", "checkboxId", "checkboxName", "checkboxLabel", "checkboxSelected", "checkboxClickHandler"],
     _excluded4 = ["children"];
 
 var _templateObject;
@@ -3002,7 +3699,7 @@ var useToggle = function useToggle() {
 
 var Accordion = function Accordion(_ref) {
   var children = _ref.children,
-      props = _objectWithoutProperties$1(_ref, _excluded$2);
+      props = _objectWithoutProperties$2(_ref, _excluded$3);
 
   return /*#__PURE__*/React.createElement("div", _extends$1({
     className: "sui-accordion"
@@ -3015,7 +3712,13 @@ var AccordionItem = function AccordionItem(_ref2) {
       icon = _ref2.icon,
       image = _ref2.image,
       children = _ref2.children,
-      props = _objectWithoutProperties$1(_ref2, _excluded2);
+      checkboxInput = _ref2.checkboxInput,
+      checkboxId = _ref2.checkboxId,
+      checkboxName = _ref2.checkboxName,
+      checkboxLabel = _ref2.checkboxLabel,
+      checkboxSelected = _ref2.checkboxSelected,
+      checkboxClickHandler = _ref2.checkboxClickHandler,
+      props = _objectWithoutProperties$2(_ref2, _excluded2);
 
   var _useToggle = useToggle(),
       _useToggle2 = _slicedToArray$1(_useToggle, 2),
@@ -3030,7 +3733,13 @@ var AccordionItem = function AccordionItem(_ref2) {
     titleSize: titleSize,
     icon: icon,
     image: image,
-    onClick: setIsOpen
+    onClick: setIsOpen,
+    checkboxInput: checkboxInput,
+    checkboxId: checkboxId,
+    checkboxSelected: checkboxSelected,
+    checkboxClickHandler: checkboxClickHandler,
+    checkboxName: checkboxName,
+    checkboxLabel: checkboxLabel
   }), /*#__PURE__*/React.createElement(AccordionItemBody, null, children));
 };
 
@@ -3040,7 +3749,13 @@ var AccordionItemHeader = function AccordionItemHeader(_ref3) {
       icon = _ref3.icon,
       image = _ref3.image,
       children = _ref3.children,
-      props = _objectWithoutProperties$1(_ref3, _excluded3);
+      checkboxInput = _ref3.checkboxInput,
+      checkboxId = _ref3.checkboxId,
+      checkboxName = _ref3.checkboxName,
+      checkboxLabel = _ref3.checkboxLabel,
+      checkboxSelected = _ref3.checkboxSelected,
+      checkboxClickHandler = _ref3.checkboxClickHandler,
+      props = _objectWithoutProperties$2(_ref3, _excluded3);
 
   var _useState3 = useState(false),
       _useState4 = _slicedToArray$1(_useState3, 1),
@@ -3057,9 +3772,17 @@ var AccordionItemHeader = function AccordionItemHeader(_ref3) {
     }
   }) : '';
   var titleColumnSize = 'undefined' !== typeof titleSize && '' !== titleSize ? ' sui-accordion-col-' + titleSize : '';
+  var checkboxItem = checkboxInput ? /*#__PURE__*/React.createElement(RadioCheckboxInput, {
+    type: "checkbox",
+    id: checkboxId,
+    name: checkboxName,
+    defaultChecked: checkboxSelected,
+    onChange: checkboxClickHandler,
+    label: checkboxLabel
+  }) : '';
   var titleColumn = /*#__PURE__*/React.createElement("div", {
     className: "sui-accordion-item-title".concat(titleColumnSize)
-  }, titleColumnIcon, titleColumnImage, title);
+  }, checkboxItem, titleColumnIcon, titleColumnImage, title);
   var indicator = /*#__PURE__*/React.createElement(ButtonIcon, {
     icon: "chevron-down",
     label: isOpen ? 'Close section' : 'Open section',
@@ -3084,7 +3807,7 @@ var AccordionItemHeader = function AccordionItemHeader(_ref3) {
 
 var AccordionItemBody = function AccordionItemBody(_ref4) {
   var children = _ref4.children,
-      props = _objectWithoutProperties$1(_ref4, _excluded4);
+      props = _objectWithoutProperties$2(_ref4, _excluded4);
 
   return /*#__PURE__*/React.createElement("div", _extends$1({
     className: "sui-accordion-item-body"
@@ -4589,4 +5312,4 @@ var Modal = function Modal(_ref) {
   }));
 };
 
-export { Accordion, AccordionItem, AccordionItemBody, AccordionItemHeader, Box, BoxBody, BoxFooter, BoxHeader, BoxTitle, Button$1 as Button, ButtonIcon$4 as ButtonIcon, Dropdown, Input, Modal, Notifications, Pagination, Post, ProgressBar };
+export { Accordion, AccordionItem, AccordionItemBody, AccordionItemHeader, Box, BoxBody, BoxFooter, BoxHeader, BoxTitle, Button$1 as Button, ButtonIcon$5 as ButtonIcon, Dropdown, Input, Modal, Notifications, Pagination, Post, ProgressBar, RadioCheckboxGroup, RadioCheckboxInput$1 as RadioCheckboxInput, Toggle };

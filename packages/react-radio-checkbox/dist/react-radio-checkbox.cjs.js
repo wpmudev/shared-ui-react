@@ -62,96 +62,96 @@ function _objectWithoutProperties(source, excluded) {
   return target;
 }
 
+var _excluded = ["type", "label", "labelId", "id", "name", "image", "defaultChecked", "disabled"],
+    _excluded2 = ["type", "options"];
+
 var RadioCheckboxInput = function RadioCheckboxInput(_ref) {
   var type = _ref.type,
       label = _ref.label,
       labelId = _ref.labelId,
-      mainClasses = _ref.mainClasses,
       id = _ref.id,
       name = _ref.name,
       image = _ref.image,
       defaultChecked = _ref.defaultChecked,
       disabled = _ref.disabled,
-      props = _objectWithoutProperties(_ref, ["type", "label", "labelId", "mainClasses", "id", "name", "image", "defaultChecked", "disabled"]);
+      props = _objectWithoutProperties(_ref, _excluded);
 
-  return image ? /*#__PURE__*/React__default['default'].createElement("label", {
+  var mainClasses = ["sui-".concat(type)];
+
+  if (props.size === 'small') {
+    mainClasses.push("sui-".concat(type, "-sm"));
+  }
+
+  if (props.stacked) {
+    mainClasses.push("sui-".concat(type, "-stacked"));
+  }
+
+  return image ? /*#__PURE__*/React__default["default"].createElement("label", {
     className: "sui-".concat(type, "-image"),
     htmlFor: id
-  }, /*#__PURE__*/React__default['default'].createElement("img", {
+  }, /*#__PURE__*/React__default["default"].createElement("img", {
     src: image.src,
     srcSet: image.srcset,
     alt: image.alt
-  }), /*#__PURE__*/React__default['default'].createElement("span", {
-    className: mainClasses
-  }, /*#__PURE__*/React__default['default'].createElement("input", _extends({
+  }), /*#__PURE__*/React__default["default"].createElement("span", {
+    className: mainClasses.join(' ')
+  }, /*#__PURE__*/React__default["default"].createElement("input", _extends({
     id: id,
     type: type,
     name: name,
     "aria-labelledby": labelId,
     disabled: disabled,
     defaultChecked: defaultChecked
-  }, props)), /*#__PURE__*/React__default['default'].createElement("span", {
+  }, props)), /*#__PURE__*/React__default["default"].createElement("span", {
     "aria-hidden": "true"
-  }), label && /*#__PURE__*/React__default['default'].createElement("span", {
+  }), label && /*#__PURE__*/React__default["default"].createElement("span", {
     id: labelId
-  }, label))) : /*#__PURE__*/React__default['default'].createElement("label", {
-    className: mainClasses,
+  }, label))) : /*#__PURE__*/React__default["default"].createElement("label", {
+    className: mainClasses.join(' '),
     htmlFor: id
-  }, /*#__PURE__*/React__default['default'].createElement("input", _extends({
+  }, /*#__PURE__*/React__default["default"].createElement("input", _extends({
     id: id,
     type: type,
     name: name,
     "aria-labelledby": labelId,
     defaultChecked: defaultChecked,
     disabled: disabled
-  }, props)), /*#__PURE__*/React__default['default'].createElement("span", {
+  }, props)), /*#__PURE__*/React__default["default"].createElement("span", {
     "aria-hidden": "true"
-  }), label && /*#__PURE__*/React__default['default'].createElement("span", {
+  }), label && /*#__PURE__*/React__default["default"].createElement("span", {
     id: labelId
   }, label));
 };
 
 var RadioCheckboxGroup = function RadioCheckboxGroup(_ref2) {
-  var size = _ref2.size,
-      stacked = _ref2.stacked,
-      type = _ref2.type,
-      options = _ref2.options;
-  var mainClasses = ["sui-".concat(type)];
+  var type = _ref2.type,
+      options = _ref2.options,
+      props = _objectWithoutProperties(_ref2, _excluded2);
 
-  if (size === 'small') {
-    mainClasses.push("sui-".concat(type, "-sm"));
-  }
-
-  if (stacked) {
-    mainClasses.push("sui-".concat(type, "-stacked"));
-  }
-
-  return /*#__PURE__*/React__default['default'].createElement("div", {
+  return /*#__PURE__*/React__default["default"].createElement("div", {
     className: "sui-form-field",
-    role: type == 'radio' ? 'radiogroup' : 'group'
+    role: 'radio' === type ? 'radiogroup' : 'group'
   }, options === null || options === void 0 ? void 0 : options.map(function (option, index) {
-    return option.image ? /*#__PURE__*/React__default['default'].createElement(RadioCheckboxInput, {
-      index: index,
+    return option.image ? /*#__PURE__*/React__default["default"].createElement(RadioCheckboxInput, _extends({
+      key: index,
       type: type,
       label: option.label,
       labelId: option.labelId,
-      mainClasses: mainClasses.join(' '),
       id: option.id,
       name: option.name,
       image: option.image,
       defaultChecked: option.defaultChecked,
       disabled: option.disabled
-    }) : /*#__PURE__*/React__default['default'].createElement(RadioCheckboxInput, {
-      index: index,
+    }, props)) : /*#__PURE__*/React__default["default"].createElement(RadioCheckboxInput, _extends({
+      key: index,
       type: type,
       label: option.label,
       labelId: option.labelId,
-      mainClasses: mainClasses.join(' '),
       id: option.id,
       name: option.name,
       defaultChecked: option.defaultChecked,
       disabled: option.disabled
-    });
+    }, props));
   }));
 };
 
