@@ -161,7 +161,7 @@ const InputWithRef = React.forwardRef(({
 			)}
 
 			{prefix && (
-				<span class="sui-field-prefix">{prefix}</span>
+				<span className="sui-field-prefix">{prefix}</span>
 			)}
 
 			{ type === 'password' ? (
@@ -177,7 +177,7 @@ const InputWithRef = React.forwardRef(({
 			)}
 
 			{suffix && (
-				<span class="sui-field-suffix">{suffix}</span>
+				<span className="sui-field-suffix">{suffix}</span>
 			)}
 
 			{ errorStatus && errorDescription && (
