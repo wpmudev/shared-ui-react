@@ -17,10 +17,13 @@ const Template = (args) => {
 
 export const SingleAction = Template.bind({});
 SingleAction.storyName = 'Single Action';
-SingleAction.args = {};
+SingleAction.args = {
+	children: <Button label="Save Changes" color="blue" />,
+};
 SingleAction.argTypes = {
 	display: {
 		name: 'Display',
+		options: ['block', 'inline'],
 		type: {
 			name: 'string',
 			required: false,
@@ -28,14 +31,11 @@ SingleAction.argTypes = {
 		description: 'Description goes here...',
 		control: {
 			type: 'select',
-			options: {
-				block: 'block',
-				inline: 'inline',
-			},
 		},
 	},
 	alignment: {
 		name: 'Alignment',
+		options: ['left', 'center', 'right'],
 		type: {
 			name: 'string',
 			required: false,
@@ -43,11 +43,6 @@ SingleAction.argTypes = {
 		description: 'Description goes here...',
 		control: {
 			type: 'select',
-			options: {
-				default: '',
-				center: 'center',
-				right: 'right',
-			},
 		},
 	},
 	paddingTop: {
@@ -121,9 +116,6 @@ SingleAction.argTypes = {
 			type: 'text',
 		},
 	},
-	children: {
-		defaultValue: <Button label="Save Changes" color="blue" />,
-	},
 };
 SingleAction.parameters = {
 	controls: {
@@ -133,26 +125,22 @@ SingleAction.parameters = {
 
 export const DoubleAction = Template.bind({});
 DoubleAction.storyName = 'Double Action';
-DoubleAction.args = {};
-DoubleAction.argTypes = {
-	...SingleAction.argTypes,
-	children: {
-		defaultValue: (
+DoubleAction.args = {
+	children: (
 			<>
 				<Button label="Save Changes" color="blue" />
 				<Button label="Cancel" icon="close" design="ghost" />
 			</>
-		),
-	},
+	)
+};
+DoubleAction.argTypes = {
+	...SingleAction.argTypes,
 };
 
 export const JointActions = Template.bind({});
 JointActions.storyName = 'Joint Actions';
-JointActions.args = {};
-JointActions.argTypes = {
-	...SingleAction.argTypes,
-	children: {
-		defaultValue: (
+JointActions.args = {
+	children: (
 			<>
 				<p className="sui-description" style={{ marginTop: 5, marginBottom: 5 }}>
 					Save your progress
@@ -162,6 +150,8 @@ JointActions.argTypes = {
 					<Button label="Draft Changes" design="ghost" />
 				</div>
 			</>
-		),
-	},
+	),
+};
+JointActions.argTypes = {
+	...SingleAction.argTypes,
 };

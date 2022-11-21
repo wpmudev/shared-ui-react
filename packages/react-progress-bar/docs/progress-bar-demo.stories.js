@@ -31,9 +31,6 @@ demo.argTypes = {
 			type: {
 				summary: 'number',
 			},
-			defaultValue: {
-				summary: '0',
-			},
 		},
 		control: {
 			type: 'range',
@@ -48,9 +45,6 @@ demo.argTypes = {
 			type: {
 				summary: 'boolean',
 			},
-			defaultValue: {
-				summary: 'true',
-			},
 		},
 		control: {
 			type: 'boolean',
@@ -62,9 +56,6 @@ demo.argTypes = {
 			type: {
 				summary: 'boolean',
 			},
-			defaultValue: {
-				summary: 'true',
-			},
 		},
 		control: {
 			type: 'boolean',
@@ -75,9 +66,6 @@ demo.argTypes = {
 		table: {
 			type: {
 				summary: 'boolean',
-			},
-			defaultValue: {
-				summary: 'true',
 			},
 		},
 		control: {
@@ -91,9 +79,6 @@ demo.argTypes = {
 			type: {
 				summary: 'boolean',
 			},
-			defaultValue: {
-				summary: 'false',
-			},
 		},
 		control: {
 			type: 'boolean',
@@ -105,9 +90,6 @@ demo.argTypes = {
 		table: {
 			type: {
 				summary: 'boolean',
-			},
-			defaultValue: {
-				summary: 'false',
 			},
 		},
 		control: {

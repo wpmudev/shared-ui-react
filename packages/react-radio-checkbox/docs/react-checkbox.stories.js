@@ -36,15 +36,15 @@ export default {
     },
     argTypes: {
         size: {
+            options: ['default', 'small'],
             control: {
                 type: 'select',
-                options: ['default', 'small'],
             },
         },
         type: {
+            options: ['radio', 'checkbox'],
             control: {
                 type: 'select',
-                options: ['radio', 'checkbox'],
             },
         }
     },

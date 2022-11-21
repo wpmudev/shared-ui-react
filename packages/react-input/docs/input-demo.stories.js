@@ -16,6 +16,7 @@ demo.storyName = 'Demo';
 demo.args = {
 	label: 'Company Name',
 	placeholder: 'Eg. Acme Industries',
+	type: 'text',
 	description: 'Maecenas sed diam eget risus varius blandit sit amet non magna.',
 	errorDescription: 'Here is a description of the error',
 };
@@ -71,6 +72,7 @@ demo.argTypes = {
 	},
 	// Field Modifiers
 	fieldSize: {
+		options: ['none', 'small', 'medium'],
 		description: 'Modify the size of the entire container. Allowed options:',
 		table: {
 			category: 'Field Modifiers',
@@ -80,11 +82,6 @@ demo.argTypes = {
 		},
 		control: {
 			type: 'select',
-			options: {
-				none: '',
-				small: 'small',
-				medium: 'medium',
-			},
 		},
 	},
 	// Input Modifiers
@@ -96,15 +93,13 @@ demo.argTypes = {
 			type: {
 				summary: 'text | number | email | password | tel | time | url | hidden',
 			},
-			defaultValue: {
-				summary: 'text',
-			},
 		},
 		control: {
 			type: 'text',
 		},
 	},
 	size: {
+		options: ['none', 'small', 'medium'],
 		description: 'Modify the size of the input field only. Allowed options:',
 		table: {
 			category: 'Input Modifiers',
@@ -114,11 +109,6 @@ demo.argTypes = {
 		},
 		control: {
 			type: 'select',
-			options: {
-				none: '',
-				small: 'small',
-				medium: 'medium',
-			},
 		},
 	},
 	prefix: {
