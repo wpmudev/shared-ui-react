@@ -7,6 +7,7 @@ export default {
     args: {
         size: 'default',
         type: 'radio',
+        stacked: false,
         options: [
             {
                 id: 'radio1',
@@ -41,6 +42,11 @@ export default {
                 options: ['default', 'small'],
             },
         },
+        stacked: {
+            control: {
+                type: 'boolean'
+            }
+        },
         type: {
             control: {
                 type: 'select',
@@ -62,27 +68,22 @@ const Template = ({ ...props }) => {
 
 export const primary = Template.bind({});
 primary.storyName = 'Default';
-primary.args = {
-    stacked: false,
-};
 
 export const stacked = Template.bind({});
 stacked.storyName = 'Stacked';
 stacked.args = {
     stacked: true,
-}
+};
 
 export const small = Template.bind({});
 small.storyName = 'Small';
 small.args = {
     size: 'small',
-    stacked: false,
-}
+};
 
 export const disabled = Template.bind({});
 disabled.storyName = 'Disabled';
 disabled.args = {
-    stacked: false,
     options: [
         {
             id: 'radio1',
@@ -101,7 +102,7 @@ disabled.args = {
             disabled: true,
         },
     ],
-}
+};
 
 export const image = Template.bind({});
 image.storyName = 'Image';
@@ -147,4 +148,4 @@ image.args = {
             },
         }
     ],
-}
+};
