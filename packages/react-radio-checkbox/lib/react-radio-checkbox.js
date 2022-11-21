@@ -9,6 +9,7 @@ const RadioCheckboxInput = ({
     image, 
     defaultChecked, 
     disabled,
+    stacked,
     ...props
 }) => {
 
@@ -18,7 +19,7 @@ const RadioCheckboxInput = ({
         mainClasses.push(`sui-${type}-sm`);
     }
 
-    if (props.stacked) {
+    if (stacked) {
         mainClasses.push(`sui-${type}-stacked`);
     }
 
