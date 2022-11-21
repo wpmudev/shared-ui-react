@@ -114,7 +114,7 @@ export const Loader = () => {
 			]}
 			isLast={true}
 		>
-			<ProgressBar now={30} hasCancel={false} hasBar={false} hasLabel={false} />
+			<ProgressBar now={30} hasCancel={false} hasLabel={false} />
 		</Section>
 	);
 };
@@ -132,7 +132,7 @@ export const Percent = () => {
 			]}
 			isLast={true}
 		>
-			<ProgressBar hasLoader={false} hasCancel={false} hasBar={false} now={30} />
+			<ProgressBar hasLoader={false} hasCancel={false} now={30} />
 		</Section>
 	);
 };
@@ -152,7 +152,7 @@ export const Cancel = () => {
 			]}
 			isLast={true}
 		>
-			<ProgressBar now={30} hasLoader={false} hasBar={false} hasLabel={false} />
+			<ProgressBar now={30} hasLoader={false} hasLabel={false} />
 		</Section>
 	);
 };
