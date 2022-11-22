@@ -196,18 +196,14 @@ export const Advanced = () => {
 					<br />
 					<br />
 					There are 2 elements to include in your custom template:
-					<ul style={{ marginTop: 0 }}>
-						<li style={{ marginBottom: 5 }}>
-							<code style={{ fontSize: 11 }}>
-								&#123; PaginationNav(&#123; ...props &#125;) &#125;
-							</code> , to show the navigation.
-						</li>
-						<li>
-							<code style={{ fontSize: 11 }}>
-								&#123; PaginationResults(&#123; ...props &#125;) &#125;
-							</code> , to show the list of items to paginate.
-						</li>
-					</ul>
+					<br />
+					<code style={{ fontSize: 11 }}>
+						&#123; PaginationNav(&#123; ...props &#125;) &#125;
+					</code> , to show the navigation.
+					<br />
+					<code style={{ fontSize: 11 }}>
+						&#123; PaginationResults(&#123; ...props &#125;) &#125;
+					</code> , to show the list of items to paginate.
 				</>
 			}
 			code="const newTemplate = ({ ...props }) => { ... }"
