@@ -147,8 +147,9 @@ const newTemplate = ({ ...props }) => {
 					<select
 						className="sui-select-sm"
 						style={{ minWidth: 1, flex: 1, marginBottom: 0, marginRight: 10 }}
+						defaultValue=""
 					>
-						<option value="" selected disabled>
+						<option value="" disabled>
 							Bulk Actions
 						</option>
 						<option value="delete">Delete All</option>
@@ -189,28 +190,22 @@ export const Advanced = () => {
 	return (
 		<StorySection
 			title="Advanced Template"
-			description={[
-				'This method allows you to modify the default template of the component. It becomes useful when you need to display the pagination outside the main area or have a complex design to replicate. You just need to call your new template inside the ',
-				<code style={{ fontSize: 11 }}>paginationContent</code>,
-				' property.',
-				<br />,
-				<br />,
-				'There are 2 elements to include in your custom template:',
-				<ul style={{ marginTop: 0 }}>
-					<li style={{ marginBottom: 5 }}>
-						<code style={{ fontSize: 11 }}>
-							&#123; PaginationNav(&#123; ...props &#125;) &#125;
-						</code>
-						, to show the navigation.
-					</li>
-					<li>
-						<code style={{ fontSize: 11 }}>
-							&#123; PaginationResults(&#123; ...props &#125;) &#125;
-						</code>
-						, to show the list of items to paginate.
-					</li>
-				</ul>,
-			]}
+			description={
+				<>
+					This method allows you to modify the default template of the component. It becomes useful when you need to display the pagination outside the main area or have a complex design to replicate. You just need to call your new template inside the <code style={{ fontSize: 11 }}>paginationContent</code> property.
+					<br />
+					<br />
+					There are 2 elements to include in your custom template:
+					<br />
+					<code style={{ fontSize: 11 }}>
+						&#123; PaginationNav(&#123; ...props &#125;) &#125;
+					</code> , to show the navigation.
+					<br />
+					<code style={{ fontSize: 11 }}>
+						&#123; PaginationResults(&#123; ...props &#125;) &#125;
+					</code> , to show the list of items to paginate.
+				</>
+			}
 			code="const newTemplate = ({ ...props }) => { ... }"
 			code2="&lt;Pagination limit={ 5 } paginationContent={ newTemplate }&gt; ... &lt;/Pagination&gt;"
 			isLast={true}

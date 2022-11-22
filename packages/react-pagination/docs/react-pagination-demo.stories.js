@@ -4,11 +4,6 @@ import { Pagination } from '../lib/react-pagination';
 export default {
 	title: 'Components/Pagination',
 	component: Pagination,
-	parameters: {
-		actions: {
-			disable: true,
-		},
-	},
 };
 
 export const Demo = (args) => {
