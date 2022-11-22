@@ -105,13 +105,11 @@ export const Loader = () => {
 	return (
 		<Section
 			title="Loading Wheel"
-			description={[
-				'By default, the component shows the loading wheel but you can hide it by setting ',
-				<code style={{ fontSize: 11 }}>hasLoader</code>,
-				' property to ',
-				<code style={{ fontSize: 11 }}>false</code>,
-				'.',
-			]}
+			description={
+				<>
+					By default, the component shows the loading wheel but you can hide it by setting <code style={{ fontSize: 11 }}>hasLoader</code> property to <code style={{ fontSize: 11 }}>false</code>.
+				</>
+			}
 			isLast={true}
 		>
 			<ProgressBar now={30} hasCancel={false} hasLabel={false} />
@@ -123,13 +121,11 @@ export const Percent = () => {
 	return (
 		<Section
 			title="Percentage Text"
-			description={[
-				'By default, the component shows the progress value or percentage, but you can hide it by setting ',
-				<code style={{ fontSize: 11 }}>hasLabel</code>,
-				' property to ',
-				<code style={{ fontSize: 11 }}>false</code>,
-				'.',
-			]}
+			description={
+				<>
+					By default, the component shows the progress value or percentage, but you can hide it by setting <code style={{ fontSize: 11 }}>hasLabel</code> property to <code style={{ fontSize: 11 }}>false</code>.
+				</>
+			}
 			isLast={true}
 		>
 			<ProgressBar hasLoader={false} hasCancel={false} now={30} />
@@ -141,15 +137,11 @@ export const Cancel = () => {
 	return (
 		<Section
 			title="Cancel Button"
-			description={[
-				'By default, the component shows the cancel button, but you can hide it by setting ',
-				<code style={{ fontSize: 11 }}>hasCancel</code>,
-				' property to ',
-				<code style={{ fontSize: 11 }}>false</code>,
-				'. You can also pass a function when clicking on it by using the ',
-				<code style={{ fontSize: 11 }}>cbFunction</code>,
-				' property.',
-			]}
+			description={
+				<>
+					By default, the component shows the cancel button, but you can hide it by setting <code style={{ fontSize: 11 }}>hasCancel</code> property to <code style={{ fontSize: 11 }}>false</code>. You can also pass a function when clicking on it by using the <code style={{ fontSize: 11 }}>cbFunction</code> property.
+				</>
+			}
 			isLast={true}
 		>
 			<ProgressBar now={30} hasLoader={false} hasLabel={false} />
@@ -162,17 +154,11 @@ export const Legend = () => {
 		<>
 			<Section
 				title="Legend Text"
-				description={[
-					'This text appears below the progress bar and only when ',
-					<code style={{ fontSize: 11 }}>hasFrame</code>,
-					' and ',
-					<code style={{ fontSize: 11 }}>hasLegend</code>,
-					' properties are set to ',
-					<code style={{ fontSize: 11 }}>true</code>,
-					'. You can edit the text using ',
-					<code style={{ fontSize: 11 }}>sourceLang</code>,
-					' property.',
-				]}
+				description={
+					<>
+						This text appears below the progress bar and only when <code style={{ fontSize: 11 }}>hasFrame</code> and <code style={{ fontSize: 11 }}>hasLegend</code> properties are set to <code style={{ fontSize: 11 }}>true</code>. You can edit the text using <code style={{ fontSize: 11 }}>sourceLang</code> property.
+					</>
+				}
 				isLast={true}
 			>
 				<ProgressBar

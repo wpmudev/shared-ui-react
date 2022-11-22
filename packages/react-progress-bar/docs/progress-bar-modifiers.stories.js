@@ -115,11 +115,11 @@ export const Design = () => {
 
 			<Section
 				title="Boxed Simple"
-				description={[
-					'Using the ',
-					<code style={{ fontSize: 11 }}>hasFrame</code>,
-					' property, you can display a gray border with inner spacing around the progress bar and its elements.',
-				]}
+				description={
+					<>
+						Using the <code style={{ fontSize: 11 }}>hasFrame</code> property, you can display a gray border with inner spacing around the progress bar and its elements.
+					</>
+				}
 				code="&lt;ProgressBar now={ 30 } hasFrame={ true } hasLegend={ false } /&gt;"
 			>
 				<ProgressBar now={30} hasFrame={true} hasLegend={false} />
@@ -127,11 +127,11 @@ export const Design = () => {
 
 			<Section
 				title="Boxed with Legend"
-				description={[
-					'The boxed variation can come with a legend at the bottom if necessary that you can display using the ',
-					<code style={{ fontSize: 11 }}>hasLegend</code>,
-					' property.',
-				]}
+				description={
+					<>
+						The boxed variation can come with a legend at the bottom if necessary that you can display using the <code style={{ fontSize: 11 }}>hasLegend</code> property.
+					</>
+				}
 				code="&lt;ProgressBar now={ 30 } hasFrame={ true } hasLegend={ true } /&gt;"
 				isLast={true}
 			>
