@@ -36,7 +36,7 @@ const RadioCheckboxInput = ({
                         name={name}
                         aria-labelledby={labelId}
                         disabled={disabled}
-                        defaultChecked={defaultChecked}
+                        checked={defaultChecked}
                         {...props} 
                     />
                     <span aria-hidden="true"></span>
@@ -50,7 +50,7 @@ const RadioCheckboxInput = ({
                     type={type} 
                     name={name}
                     aria-labelledby={labelId}
-                    defaultChecked={defaultChecked}
+                    checked={defaultChecked}
                     disabled={disabled}
                     {...props}
                 />
@@ -76,7 +76,7 @@ const RadioCheckboxGroup = ({ type, options, ...props }) => {
                             id={option.id}
                             name={option.name}
                             image={option.image}
-                            defaultChecked={option.defaultChecked}
+                            checked={option.defaultChecked}
                             disabled={option.disabled}
                             {...props}
                         />
@@ -88,7 +88,7 @@ const RadioCheckboxGroup = ({ type, options, ...props }) => {
                             labelId={option.labelId}
                             id={option.id}
                             name={option.name}
-                            defaultChecked={option.defaultChecked}
+                            checked={option.defaultChecked}
                             disabled={option.disabled}
                             {...props}
                         />
