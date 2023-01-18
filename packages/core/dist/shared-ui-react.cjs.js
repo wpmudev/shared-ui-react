@@ -2951,7 +2951,7 @@ var RadioCheckboxInput$1 = function RadioCheckboxInput(_ref) {
     name: name,
     "aria-labelledby": labelId,
     disabled: disabled,
-    defaultChecked: defaultChecked
+    checked: defaultChecked
   }, props)), /*#__PURE__*/React__default["default"].createElement("span", {
     "aria-hidden": "true"
   }), label && /*#__PURE__*/React__default["default"].createElement("span", {
@@ -2964,7 +2964,7 @@ var RadioCheckboxInput$1 = function RadioCheckboxInput(_ref) {
     type: type,
     name: name,
     "aria-labelledby": labelId,
-    defaultChecked: defaultChecked,
+    checked: defaultChecked,
     disabled: disabled
   }, props)), /*#__PURE__*/React__default["default"].createElement("span", {
     "aria-hidden": "true"
@@ -2990,7 +2990,7 @@ var RadioCheckboxGroup = function RadioCheckboxGroup(_ref2) {
       id: option.id,
       name: option.name,
       image: option.image,
-      defaultChecked: option.defaultChecked,
+      checked: option.defaultChecked,
       disabled: option.disabled
     }, props)) : /*#__PURE__*/React__default["default"].createElement(RadioCheckboxInput$1, _extends$4({
       key: index,
@@ -2999,7 +2999,7 @@ var RadioCheckboxGroup = function RadioCheckboxGroup(_ref2) {
       labelId: option.labelId,
       id: option.id,
       name: option.name,
-      defaultChecked: option.defaultChecked,
+      checked: option.defaultChecked,
       disabled: option.disabled
     }, props));
   }));
@@ -3660,7 +3660,7 @@ var RadioCheckboxInput = function RadioCheckboxInput(_ref) {
     name: name,
     "aria-labelledby": labelId,
     disabled: disabled,
-    defaultChecked: defaultChecked
+    checked: defaultChecked
   }, props)), /*#__PURE__*/React__default["default"].createElement("span", {
     "aria-hidden": "true"
   }), label && /*#__PURE__*/React__default["default"].createElement("span", {
@@ -3673,7 +3673,7 @@ var RadioCheckboxInput = function RadioCheckboxInput(_ref) {
     type: type,
     name: name,
     "aria-labelledby": labelId,
-    defaultChecked: defaultChecked,
+    checked: defaultChecked,
     disabled: disabled
   }, props)), /*#__PURE__*/React__default["default"].createElement("span", {
     "aria-hidden": "true"

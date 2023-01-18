@@ -374,7 +374,7 @@ var RadioCheckboxInput = function RadioCheckboxInput(_ref) {
     name: name,
     "aria-labelledby": labelId,
     disabled: disabled,
-    defaultChecked: defaultChecked
+    checked: defaultChecked
   }, props)), /*#__PURE__*/React__default["default"].createElement("span", {
     "aria-hidden": "true"
   }), label && /*#__PURE__*/React__default["default"].createElement("span", {
@@ -387,7 +387,7 @@ var RadioCheckboxInput = function RadioCheckboxInput(_ref) {
     type: type,
     name: name,
     "aria-labelledby": labelId,
-    defaultChecked: defaultChecked,
+    checked: defaultChecked,
     disabled: disabled
   }, props)), /*#__PURE__*/React__default["default"].createElement("span", {
     "aria-hidden": "true"
