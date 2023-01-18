@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
 
+## [1.9.1](https://github.com/wpmudev/shared-ui/compare/v1.9.0...v1.9.1) (2023-01-18)
+
+#### 🐛 Bug Fixes
+* `react-radio-checkbox`
+  * [#293](https://github.com/wpmudev/shared-ui-react/pull/293) Default checked causing issues in bulk edit. ([SUI-166](https://incsub.atlassian.net/browse/SUI-166)) ([@creador-dev](https://github.com/creador-dev))
+
+#### Committers: 1
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
+
 ## [1.9.0](https://github.com/wpmudev/shared-ui/compare/v1.8.3...v1.9.0) (2022-11-16)
 
 #### ✨ New Features
