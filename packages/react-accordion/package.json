@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/react-accordion",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "WPMU DEV Shared UI React Accordion Component",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com/)",
@@ -48,7 +48,7 @@
   },
   "dependencies": {
     "@wpmudev/react-button-icon": "^1.1.2",
-    "@wpmudev/react-radio-checkbox": "^1.0.0",
+    "@wpmudev/react-radio-checkbox": "^1.0.1",
     "styled-components": "^5.3.0"
   }
 }
