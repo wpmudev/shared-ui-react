@@ -1,5 +1,5 @@
-import React from "react";
-import AriaModal from "./components/react-aria-modal";
+import React from 'react';
+import AriaModal from './components/react-aria-modal';
 
 export const Modal = ({ modalContent, triggerContent, ...props }) => {
 	const [isOpen, setIsOpen] = React.useState(false);
@@ -11,11 +11,11 @@ export const Modal = ({ modalContent, triggerContent, ...props }) => {
 
 	React.useEffect(() => {
 		if (!props.dialogId) {
-			throw new Error("SUI Modal instances should have a `dialogId`");
+			throw new Error('SUI Modal instances should have a `dialogId`');
 		}
 	}, [props.dialogId]);
 
-	const isSlider = "object" === typeof modalContent && null !== modalContent;
+	const isSlider = 'object' === typeof modalContent && null !== modalContent;
 
 	const openModal = () => setIsOpen(true);
 
@@ -34,18 +34,16 @@ export const Modal = ({ modalContent, triggerContent, ...props }) => {
 		}, 300);
 	};
 
-	const slideTo = (slide, direction = "left") => {
+	const slideTo = (slide, direction = 'left') => {
 		setCurrentSlide(slide);
 		setSlideDirection(direction);
 	};
 
-	const {
-		getApplicationNode = () => document.getElementsByClassName("sui-wrap")[0]
-	} = props;
+	const { getApplicationNode = () => document.getElementsByClassName('sui-wrap')[0] } = props;
 
-	let dialogClass = `sui-modal-content sui-content-${
-		isClosing ? "fade-out" : "fade-in"
-	} ${props.dialogClass || ""}`;
+	let dialogClass = `sui-modal-content sui-content-${isClosing ? 'fade-out' : 'fade-in'} ${
+		props.dialogClass || ''
+	}`;
 
 	let renderContent, modalSize, initialFocus;
 
@@ -67,11 +65,11 @@ export const Modal = ({ modalContent, triggerContent, ...props }) => {
 	}
 
 	// Use 'isOpen' as an alias of 'mounted' if not defined.
-	if ("undefined" === typeof props.mounted) {
+	if ('undefined' === typeof props.mounted) {
 		props.mounted = isOpen;
 	}
 
-	const wrapper = !props.renderToNode ? ".sui-wrap" : props.renderToNode;
+	const wrapper = !props.renderToNode ? '.sui-wrap' : props.renderToNode;
 
 	const AltModal = wrapper ? AriaModal.renderTo(wrapper) : AriaModal;
 
@@ -80,12 +78,13 @@ export const Modal = ({ modalContent, triggerContent, ...props }) => {
 			<AltModal
 				getApplicationNode={getApplicationNode}
 				dialogClass={dialogClass}
-				underlayClass={`sui-modal sui-modal-${modalSize || "md"} sui-active ${
-					props.underlayClass || ""
+				underlayClass={`sui-modal sui-modal-${modalSize || 'md'} sui-active ${
+					props.underlayClass || ''
 				}`}
 				includeDefaultStyle={false}
 				initialFocus={initialFocus}
-				{...props}>
+				{...props}
+			>
 				{renderContent({ closeModal, slideTo })}
 			</AltModal>
 			{triggerContent && triggerContent({ openModal })}

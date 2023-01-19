@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import styled from "styled-components";
+import React, { Component } from 'react';
+import styled from 'styled-components';
 
 let aria = aria || {};
 
@@ -16,35 +16,35 @@ aria.KeyCode = {
 	UP: 38,
 	RIGHT: 39,
 	DOWN: 40,
-	DELETE: 46
+	DELETE: 46,
 };
 
 const screen = {
 	mobile: 480,
 	tablet: 783,
 	laptop: 1200,
-	desktop: 1500
+	desktop: 1500,
 };
 
 const device = {
 	mobile: `(min-width: ${screen.mobile}px)`,
 	tablet: `(min-width: ${screen.tablet}px)`,
 	laptop: `(min-width: ${screen.laptop}px)`,
-	desktop: `(min-width: ${screen.desktop}px)`
+	desktop: `(min-width: ${screen.desktop}px)`,
 };
 
-const PostWrapper = styled.div.attrs(props => ({
+const PostWrapper = styled.div.attrs((props) => ({
 	tabIndex: 0,
-	props
+	props,
 }))`
-	${props => (props.banner ? "overflow: hidden;" : "")}
+	${(props) => (props.banner ? 'overflow: hidden;' : '')}
 	cursor: pointer;
-	${props => (props.banner ? "display: flex;" : "")}
-	${props => (props.banner ? "flex-flow: column nowrap;" : "")}
-	padding: ${props => (props.banner ? "20px 20px 30px" : "10px")};
+	${(props) => (props.banner ? 'display: flex;' : '')}
+	${(props) => (props.banner ? 'flex-flow: column nowrap;' : '')}
+	padding: ${(props) => (props.banner ? '20px 20px 30px' : '10px')};
 	border-radius: 4px;
 	background-color: #fff;
-	${props => (props.banner ? "box-shadow: 0 0 0 1px #E6E6E6;" : "")}
+	${(props) => (props.banner ? 'box-shadow: 0 0 0 1px #E6E6E6;' : '')}
 	transition: 0.2s ease all;
 
 	* {
@@ -53,34 +53,36 @@ const PostWrapper = styled.div.attrs(props => ({
 
 	&:hover,
 	&:focus {
-		${props =>
-			props.banner ? "transform: scale(1.02);" : "background-color: #FAFAFA;"}
+		${(props) => (props.banner ? 'transform: scale(1.02);' : 'background-color: #FAFAFA;')}
 
-		${props =>
+		${(props) =>
 			props.banner
 				? `@media ${device.tablet} {
 				transform: scale(1.05);
 			}`
-				: ""}
+				: ''}
 	}
 
-	${props =>
+	&[disabled] {
+		pointer-events: none;
+		opacity: 0.5;
+	}
+
+	${(props) =>
 		props.banner
 			? `@media ${device.tablet} {
 			box-shadow: 0 2px 7px 0 rgba(0,0,0,0.05);
 		}`
-			: ""}
+			: ''}
 
 	&:focus {
 		outline: none;
-		${props =>
-			props.banner
-				? "box-shadow: 0 2px 7px 0 rgba(0,0,0,0.05), 0 0 2px 0 #17A8E3;"
-				: ""}
+		${(props) =>
+			props.banner ? 'box-shadow: 0 2px 7px 0 rgba(0,0,0,0.05), 0 0 2px 0 #17A8E3;' : ''}
 	}
 
 	@media ${device.tablet} {
-		${props => (props.banner ? "min-height: 100%;" : "padding: 15px;")}
+		${(props) => (props.banner ? 'min-height: 100%;' : 'padding: 15px;')}
 	}
 `;
 
@@ -102,17 +104,17 @@ const PostFooter = styled.div`
 `;
 
 const FeaturedImage = styled.div.attrs(() => ({
-	tabIndex: "-1",
-	"aria-hidden": true
+	tabIndex: '-1',
+	'aria-hidden': true,
 }))`
-	${props => (props.banner ? "" : "width: 66px;")}
-	height: ${props => (props.banner ? "140px" : "54px")};
-	margin: ${props => (props.banner ? "-20px -20px 20px" : "0 10px 0 0")};
-	${props => (props.banner ? "" : "border-radius: 4px;")}
+	${(props) => (props.banner ? '' : 'width: 66px;')}
+	height: ${(props) => (props.banner ? '140px' : '54px')};
+	margin: ${(props) => (props.banner ? '-20px -20px 20px' : '0 10px 0 0')};
+	${(props) => (props.banner ? '' : 'border-radius: 4px;')}
 	display: block;
-	${props => (props.banner ? "flex: 0 0 auto;" : "")}
+	${(props) => (props.banner ? 'flex: 0 0 auto;' : '')}
 	background-color: #FFF;
-	background-image: url(${props => props.src || "none"});
+	background-image: ${(props) => (props.src ? `url(${props.src})` : 'none')};
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -122,26 +124,26 @@ const PostTitle = styled.h3`
 	overflow: hidden;
 	display: -webkit-box !important;
 	-webkit-box-orient: vertical;
-	${props => (props.banner ? "flex: 0 1 auto;" : "")}
-	margin: ${props => (props.banner ? "0 0 10px" : "0")} !important;
+	${(props) => (props.banner ? 'flex: 0 1 auto;' : '')}
+	margin: ${(props) => (props.banner ? '0 0 10px' : '0')} !important;
 	padding: 0 !important;
 	border: 0;
 	font-size: 13px !important;
 	line-height: 18px !important;
 	font-weight: 500 !important;
 	letter-spacing: -0.2px;
-	${props => (props.banner ? "" : "-webkit-line-clamp: 2;")}
+	${(props) => (props.banner ? '' : '-webkit-line-clamp: 2;')}
 
-	${props =>
+	${(props) =>
 		props.banner
 			? `@media ${device.tablet} {
 			-webkit-line-clamp: 2;
 		}`
-			: ""}
+			: ''}
 `;
 
 const PostTime = styled.p`
-	${props => (props.banner ? "flex: 0 0 auto;" : "")}
+	${(props) => (props.banner ? 'flex: 0 0 auto;' : '')}
 	margin: 0 !important;
 	padding: 0 !important;
 	border: 0;
@@ -150,17 +152,17 @@ const PostTime = styled.p`
 	line-height: 18px !important;
 	letter-spacing: -0.2px;
 
-	${props =>
+	${(props) =>
 		props.banner
 			? `* + & {
 			margin-left: 5px !important;
 		}`
-			: ""}
+			: ''}
 `;
 
 const Excerpt = styled.div`
 	display: block;
-	${props => (props.banner ? "flex: 1 1 auto;" : "")}
+	${(props) => (props.banner ? 'flex: 1 1 auto;' : '')}
 
 	p {
 		overflow: hidden;
@@ -173,14 +175,14 @@ const Excerpt = styled.div`
 		font-size: 13px !important;
 		line-height: 22px !important;
 		letter-spacing: -0.2px;
-		-webkit-line-clamp: ${props => (props.banner ? "3" : "2")};
+		-webkit-line-clamp: ${(props) => (props.banner ? '3' : '2')};
 	}
 `;
 
 const ReadMore = styled.p`
 	min-width: 1px;
 	flex: 1;
-	${props => (props.banner ? "margin-bottom: 0 !important;" : "margin: 4px 0 0;")}
+	${(props) => (props.banner ? 'margin-bottom: 0 !important;' : 'margin: 4px 0 0;')}
 	color: #17A8E3 !important;
 	font-size: 13px !important;
 	line-height: 18px !important;
@@ -195,22 +197,22 @@ export class Post extends Component {
 		this.state = {
 			media: [],
 			error: null,
-			isLoaded: false
+			isLoaded: false,
 		};
 
 		this.openLink = this.openLink.bind(this);
 		this.handleKeydown = this.handleKeydown.bind(this);
 	}
 
-	openLink = e => {
+	openLink = (e) => {
 		let ref = e.target !== null ? e.target : e.srcElement;
 
 		if (ref) {
-			window.open(ref.getAttribute("data-href"), "_blank");
+			window.open(ref.getAttribute('data-href'), '_blank');
 		}
 	};
 
-	handleKeydown = e => {
+	handleKeydown = (e) => {
 		let key = e.which || e.keyCode;
 
 		switch (key) {
@@ -221,26 +223,35 @@ export class Post extends Component {
 	};
 
 	componentDidMount() {
-		const API_URL = "https://wpmudev.com/blog/wp-json/wp/v2/media/";
+		const API_URL = 'https://wpmudev.com/blog/wp-json/wp/v2/media/';
 		const QUERY_ID = this.props.media;
 
 		// GET media using fetch.
-		fetch(API_URL + QUERY_ID)
-			.then(response => response.json())
-			.then(
-				data => {
-					this.setState({
-						isLoaded: true,
-						media: data.guid.rendered
-					});
-				},
-				error => {
-					this.setState({
-						isLoaded: true,
-						error
-					});
-				}
-			);
+		if (QUERY_ID) {
+			fetch(API_URL + QUERY_ID)
+				.then((response) => response.json())
+				.then(
+					(data) => {
+						if (data.data?.status === 404) {
+							this.setState({
+								isLoaded: true,
+								error: data.data.message,
+							});
+						} else {
+							this.setState({
+								isLoaded: true,
+								media: data.guid.rendered,
+							});
+						}
+					},
+					(error) => {
+						this.setState({
+							isLoaded: true,
+							error,
+						});
+					}
+				);
+		}
 	}
 
 	render() {
@@ -249,26 +260,31 @@ export class Post extends Component {
 		const translate = this.props.translate;
 
 		const read_article =
-			translate && translate[0].read_article
-				? translate[0].read_article
-				: "Read article";
+			translate && translate[0].read_article ? translate[0].read_article : 'Read article';
 
-		const min_read =
-			translate && translate[0].min_read ? translate[0].min_read : "min read";
+		const min_read = translate && translate[0].min_read ? translate[0].min_read : 'min read';
 
 		// replace html entities from the title with character.
-		const postTitle = this.props.title.replace(/&#(\d+);/g, function(match, dec) {return String.fromCharCode(dec);});
+		const postTitle = this.props.title.replace(/&#(\d+);/g, function (match, dec) {
+			return String.fromCharCode(dec);
+		});
 
-		let PostImage = ""; // Empty.
+		let PostImage = ''; // Empty.
+		let image = this.props.image;
 
-		if ( this.props.image ) {
-			PostImage = <FeaturedImage src={this.props.image} alt="" {...this.props} title={postTitle} />;
+		if (image) {
+			PostImage = <FeaturedImage src={image} alt="" {...this.props} title={postTitle} />;
 		} else {
 			if (error) {
 				PostImage = error.message;
+			} else if (
+				((typeof image === 'undefined' || image === null || image === '') && !this.props.media) ||
+				error
+			) {
+				PostImage = <span style={{ marginTop: '10px' }}></span>;
 			} else if (!isLoaded) {
 				PostImage = (
-					<p style={ { textAlign: 'center' } }>
+					<p style={{ textAlign: 'center' }}>
 						<span className="sui-icon-loader sui-loading" aria-hidden="true"></span>
 						<span className="sui-screen-reader-text">Image is loading</span>
 					</p>
@@ -283,20 +299,20 @@ export class Post extends Component {
 				<PostWrapper {...this.props} title={postTitle}>
 					{PostImage}
 
-					{this.props.title && "" !== this.props.title && (
+					{this.props.title && '' !== this.props.title && (
 						<PostTitle
 							banner
 							dangerouslySetInnerHTML={{
-								__html: this.props.title
+								__html: this.props.title,
 							}}
 						/>
 					)}
 
-					{this.props.excerpt && "" !== this.props.excerpt && (
+					{this.props.excerpt && '' !== this.props.excerpt && (
 						<Excerpt
 							banner
 							dangerouslySetInnerHTML={{
-								__html: this.props.excerpt
+								__html: this.props.excerpt,
 							}}
 						/>
 					)}
@@ -304,13 +320,13 @@ export class Post extends Component {
 					<PostFooter banner>
 						<ReadMore banner>{read_article}</ReadMore>
 
-						{this.props.time && "" !== this.props.time && (
+						{this.props.time && '' !== this.props.time && (
 							<PostTime banner>
 								<span
 									className="sui-icon-clock sui-sm"
 									style={{
-										verticalAlign: "middle",
-										marginRight: 5
+										verticalAlign: 'middle',
+										marginRight: 5,
 									}}
 									aria-hidden="true"
 								/>
@@ -329,17 +345,18 @@ export class Post extends Component {
 
 					<div
 						style={{
-							minWidth: "1px",
-							flex: 1
-						}}>
-						{this.props.title && "" !== this.props.title && (
+							minWidth: '1px',
+							flex: 1,
+						}}
+					>
+						{this.props.title && '' !== this.props.title && (
 							<PostTitle
 								dangerouslySetInnerHTML={{
-									__html: this.props.title
+									__html: this.props.title,
 								}}
 							/>
 						)}
-						{this.props.time && "" !== this.props.time && (
+						{this.props.time && '' !== this.props.time && (
 							<PostTime>
 								*{this.props.time} {min_read}
 							</PostTime>
@@ -347,10 +364,10 @@ export class Post extends Component {
 					</div>
 				</PostHeader>
 
-				{this.props.excerpt && "" !== this.props.excerpt && (
+				{this.props.excerpt && '' !== this.props.excerpt && (
 					<Excerpt
 						dangerouslySetInnerHTML={{
-							__html: this.props.excerpt
+							__html: this.props.excerpt,
 						}}
 					/>
 				)}

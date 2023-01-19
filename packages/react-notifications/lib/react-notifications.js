@@ -6,42 +6,54 @@ export class Notifications extends Component {
 		super(props);
 
 		this.state = {
-			hide: false
+			hide: false,
 		};
 
-		this.close = this.close.bind( this );
+		this.close = this.close.bind(this);
 	}
 
 	close = () => {
 		this.setState({
-			hide: true
+			hide: true,
 		});
-	}
+		this.props.cbFunction ? this.props.cbFunction() : '';
+	};
 
 	render() {
 		const { hide } = this.state;
-		
-		let classMain = "sui-notice";
-		let classIcon = "sui-notice-icon sui-md";
+
+		let classMain = 'sui-notice';
+		let classIcon = 'sui-notice-icon sui-md';
 
 		switch (this.props.type) {
-			case "info":
-			case "success":
-			case "warning":
-			case "error":
-			case "upsell":
-				classMain += " sui-notice-" + this.props.type;
-				classIcon += " sui-icon-info";
-				break;
-
-			case "loading":
-				classIcon += " sui-icon-loader sui-loading";
+			case 'info':
+			case 'success':
+			case 'warning':
+			case 'error':
+			case 'upsell':
+				classMain += ' sui-notice-' + this.props.type;
+				if (this.props.loading) {
+					classIcon += ' sui-icon-loader sui-loading';
+				} else {
+					classIcon += ' sui-icon-info';
+				}
 				break;
 
 			default:
-				classIcon += " sui-icon-info";
+				if (this.props.loading) {
+					classIcon += ' sui-icon-loader sui-loading';
+				} else {
+					classIcon += ' sui-icon-info';
+				}
 				break;
 		}
+
+		const lang = Object.assign(
+			{
+				dismiss: 'Hide Notification',
+			},
+			this.props.sourceLang
+		);
 
 		const message = (
 			<div className="sui-notice-message">
@@ -52,20 +64,16 @@ export class Notifications extends Component {
 
 		const actions = (
 			<div className="sui-notice-actions">
-				<ButtonIcon
-					icon="check"
-					label="Hide"
-					onClick={ e => this.close(e) }
-				/>
+				<ButtonIcon icon="check" label={lang.dismiss} onClick={(e) => this.close(e)} />
 			</div>
 		);
 
-		if ( !hide ) {
+		if (!hide) {
 			return (
 				<div className={classMain}>
 					<div className="sui-notice-content">
-						{ message }
-						{ this.props.dismiss && actions }
+						{message}
+						{this.props.dismiss && actions}
 					</div>
 				</div>
 			);
