@@ -47,7 +47,7 @@
   },
   "dependencies": {
     "@wpmudev/react-button-icon": "^1.1.2",
-    "styled-components": "^5.3.0"
+    "styled-components": "^5.3.7"
   },
   "devDependencies": {
     "@wpmudev/react-builder": "^1.0.1",
