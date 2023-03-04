@@ -49,6 +49,6 @@
   "dependencies": {
     "@wpmudev/react-button-icon": "^1.1.2",
     "@wpmudev/react-radio-checkbox": "^1.0.1",
-    "styled-components": "^5.3.0"
+    "styled-components": "^5.3.7"
   }
 }
