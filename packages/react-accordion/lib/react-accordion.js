@@ -58,7 +58,8 @@ const AccordionItem = ({ title, titleSize, icon, image, children, checkboxInput,
 
 const AccordionItemHeader = ({ title, titleSize, icon, image, children, checkboxInput, checkboxId, checkboxName, checkboxLabel, checkboxSelected, checkboxClickHandler, ...props }) => {
 	const [isOpen] = useState(false);
-	const countChildren = React.Children.toArray(children).length;
+	const childrenData = children.filter(child => typeof child !== 'boolean');
+	const countChildren = React.Children.toArray(childrenData).length;
 
 	const titleColumnIcon =
 		'undefined' !== typeof icon && '' !== icon ? (
@@ -106,7 +107,7 @@ const AccordionItemHeader = ({ title, titleSize, icon, image, children, checkbox
 		/>
 	);
 
-	const columns = React.Children.map(children, (column, index) => {
+	const columns = React.Children.map(childrenData, (column, index) => {
 		index++;
 		const columnSize = column.props.size;
 		const columnClass =
