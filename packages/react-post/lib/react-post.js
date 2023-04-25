@@ -191,6 +191,8 @@ const ReadMore = styled.p`
 `;
 
 export class Post extends Component {
+	_isMounted = false;
+
 	constructor(props) {
 		super(props);
 
@@ -223,35 +225,45 @@ export class Post extends Component {
 	};
 
 	componentDidMount() {
-		const API_URL = 'https://wpmudev.com/blog/wp-json/wp/v2/media/';
+		this._isMounted = true;
+
+		const API_URL = "https://wpmudev.com/blog/wp-json/wp/v2/media/";
 		const QUERY_ID = this.props.media;
 
 		// GET media using fetch.
 		if (QUERY_ID) {
 			fetch(API_URL + QUERY_ID)
-				.then((response) => response.json())
-				.then(
-					(data) => {
+			.then(response => response.json())
+			.then(
+				(data) => {
+					if ( this._isMounted ) {
 						if (data.data?.status === 404) {
 							this.setState({
 								isLoaded: true,
-								error: data.data.message,
+								error: data.data.message
 							});
 						} else {
 							this.setState({
 								isLoaded: true,
-								media: data.guid.rendered,
+								media: data.guid.rendered
 							});
 						}
-					},
-					(error) => {
+					}
+				},
+				(error) => {
+					if ( this._isMounted ) {
 						this.setState({
 							isLoaded: true,
-							error,
+							error
 						});
 					}
-				);
+				}
+			);
 		}
+	}
+
+	componentWillUnmount() {
+		this._isMounted = false;
 	}
 
 	render() {
