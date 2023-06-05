@@ -264,6 +264,8 @@ var Post = /*#__PURE__*/function (_Component) {
 
     _this = _super.call(this, props);
 
+    _defineProperty(_assertThisInitialized(_this), "_isMounted", false);
+
     _defineProperty(_assertThisInitialized(_this), "openLink", function (e) {
       var ref = e.target !== null ? e.target : e.srcElement;
 
@@ -298,33 +300,43 @@ var Post = /*#__PURE__*/function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      var API_URL = 'https://wpmudev.com/blog/wp-json/wp/v2/media/';
+      this._isMounted = true;
+      var API_URL = "https://wpmudev.com/blog/wp-json/wp/v2/media/";
       var QUERY_ID = this.props.media; // GET media using fetch.
 
       if (QUERY_ID) {
         fetch(API_URL + QUERY_ID).then(function (response) {
           return response.json();
         }).then(function (data) {
-          var _data$data;
+          if (_this2._isMounted) {
+            var _data$data;
 
-          if (((_data$data = data.data) === null || _data$data === void 0 ? void 0 : _data$data.status) === 404) {
-            _this2.setState({
-              isLoaded: true,
-              error: data.data.message
-            });
-          } else {
-            _this2.setState({
-              isLoaded: true,
-              media: data.guid.rendered
-            });
+            if (((_data$data = data.data) === null || _data$data === void 0 ? void 0 : _data$data.status) === 404) {
+              _this2.setState({
+                isLoaded: true,
+                error: data.data.message
+              });
+            } else {
+              _this2.setState({
+                isLoaded: true,
+                media: data.guid.rendered
+              });
+            }
           }
         }, function (error) {
-          _this2.setState({
-            isLoaded: true,
-            error: error
-          });
+          if (_this2._isMounted) {
+            _this2.setState({
+              isLoaded: true,
+              error: error
+            });
+          }
         });
       }
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      this._isMounted = false;
     }
   }, {
     key: "render",
