@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
 
+## [1.9.3](https://github.com/wpmudev/shared-ui-react/compare/release/1.9.2...release/1.9.3) (2023-06-06)
+
+#### 🚀 Improvements
+* [#304](https://github.com/wpmudev/shared-ui-react/pull/304) fix(eslint): Eslint errors fixed. ([@creador-dev](https://github.com/creador-dev))
+
+#### Committers: 1
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
+
 ## [1.9.1](https://github.com/wpmudev/shared-ui/compare/v1.9.0...v1.9.1) (2023-01-18)
 
 #### 🐛 Bug Fixes
