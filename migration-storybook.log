@@ -1,0 +1,167 @@
+🔎 checking possible migrations..
+
+🔎 found a 'new-frameworks' migration:
+╭ Automigration detected ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                                              │
+│   We've detected your project is not fully setup with the new framework format, which was introduced in Storybook 7.                                                                         │
+│                                                                                                                                                                                              │
+│   Storybook 7 introduced the concept of frameworks, which abstracts configuration for renderers (e.g. React, Vue), builders (e.g. Webpack, Vite) and defaults to make integrations easier.   │
+│                                                                                                                                                                                              │
+│   Your project should be updated to use Storybook's framework: @storybook/react-webpack5. We can attempt to do this for you automatically.                                                   │
+│                                                                                                                                                                                              │
+│   Here are the steps this migration will do to migrate your project:                                                                                                                         │
+│   - Add the following dependencies:                                                                                                                                                          │
+│         - * @storybook/react-webpack5                                                                                                                                                        │
+│   - Update or specify the framework field in .storybook/main.js with the value of "@storybook/react-webpack5".                                                                               │
+│                                                                                                                                                                                              │
+│                                                                                                                                                                                              │
+│   To learn more about the new framework format, see: https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#new-framework-api                                                       │
+│                                                                                                                                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+? Do you want to run the 'new-frameworks' migration on your project? › (Y/n)✔ Do you want to run the 'new-frameworks' migration on your project? … yes
+✅ Installing new dependencies: @storybook/react-webpack5
+
+An error occurred while installing dependencies:
+Int.default is not a function
+❌ error when running new-frameworks migration
+HandledError: TypeError: Int.default is not a function
+    at QJ.addDependencies (/Volumes/Data/Office/shared-ui-react/node_modules/@storybook/core/dist/common/index.cjs:153206:72)
+    at async Object.run (/Volumes/Data/Office/shared-ui-react/node_modules/storybook/dist/generate.cjs:358:755)
+    ... 3 lines matching cause stack trace ...
+    at async Command.<anonymous> (/Volumes/Data/Office/shared-ui-react/node_modules/storybook/dist/generate.cjs:739:2867) {
+  handled: true,
+  cause: TypeError: Int.default is not a function
+      at QJ.runAddDeps (/Volumes/Data/Office/shared-ui-react/node_modules/@storybook/core/dist/common/index.cjs:153512:20)
+      at async QJ.addDependencies (/Volumes/Data/Office/shared-ui-react/node_modules/@storybook/core/dist/common/index.cjs:153203:9)
+      at async Object.run (/Volumes/Data/Office/shared-ui-react/node_modules/storybook/dist/generate.cjs:358:755)
+      at async runFixes (/Volumes/Data/Office/shared-ui-react/node_modules/storybook/dist/generate.cjs:665:1794)
+      at async automigrate (/Volumes/Data/Office/shared-ui-react/node_modules/storybook/dist/generate.cjs:663:1620)
+      at async doAutomigrate (/Volumes/Data/Office/shared-ui-react/node_modules/storybook/dist/generate.cjs:663:636)
+      at async Command.<anonymous> (/Volumes/Data/Office/shared-ui-react/node_modules/storybook/dist/generate.cjs:739:2867)
+}
+
+Unable to find .eslintrc config file, skipping
+
+🔎 found a 'removedglobalclientapis' migration:
+╭ Manual migration detected ─────────────────────────────────────────────────────────────────────╮
+│                                                                                                │
+│   Attention: We could not automatically make this change. You'll need to do it manually.       │
+│                                                                                                │
+│   The following APIs (used in ".storybook/preview.js") have been removed from Storybook:       │
+│                                                                                                │
+│   - addParameters                                                                              │
+│                                                                                                │
+│   Please see the migration guide for more information:                                         │
+│   https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#removed-global-client-apis   │
+│                                                                                                │
+╰────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+? Select continue once you have made the required changes, or quit to exit the migration process › quit / continue✔ Select continue once you have made the required changes, or quit to exit the migration process … quit / continue
+
+🔎 found a 'remove-react-dependency' migration:
+╭ Manual migration detected ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                                        │
+│   We detected that your project has a dependency for "react" that it might not need.                                                                                                   │
+│   Nothing breaks by having it, you can safely ignore this message, if you wish.                                                                                                        │
+│                                                                                                                                                                                        │
+│   Storybook asked you to add "react" as a direct dependency in the past when upgrading from Storybook 6 to 7.                                                                          │
+│   However, since version 8.0, Storybook no longer requires you to provide "react" as a dependency.                                                                                     │
+│   Some community addons might still wrongfully list "react" and "react-dom" as required peer dependencies, but since Storybook 7.6 it should not be needed in the majority of cases.   │
+│                                                                                                                                                                                        │
+│   If you know you are not using React outside of Storybook, it should be safe to remove the "react" and "react-dom" dependencies from your project's package.json.                     │
+│   Storybook cannot do this automatically as removing it might break your project, so it should be done manually with care.                                                             │
+│                                                                                                                                                                                        │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+? Select continue once you have made the required changes, or quit to exit the migration process › quit / continue✔ Select continue once you have made the required changes, or quit to exit the migration process … quit / continue
+
+🔎 found a 'webpack5-compiler-setup' migration:
+╭ Automigration detected ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                  │
+│   Storybook's Webpack5 builder is now compiler agnostic, meaning you can choose a compiler addon that best fits your project:                                    │
+│                                                                                                                                                                  │
+│     - Babel: A vast ecosystem and is battle-tested. It's a robust choice if you have an extensive Babel setup or need specific Babel plugins for your project.   │
+│     - SWC:  Fast and easy to configure. Ideal if you want faster builds and have a straightforward configuration without the need for Babel's extensibility.     │
+│                                                                                                                                                                  │
+│   In the next step, Storybook will ask you to choose a compiler to automatically set it up for you.                                                              │
+│                                                                                                                                                                  │
+│   After the migration, you can switch Webpack5 compilers by swapping the addon in your project.                                                                  │
+│   You can find more information here: https://storybook.js.org/docs/8.0/builders/webpack#compiler-support                                                        │
+│                                                                                                                                                                  │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+? Do you want to run the 'webpack5-compiler-setup' migration on your project? › (Y/n)✔ Do you want to run the 'webpack5-compiler-setup' migration on your project? … yes
+? Which compiler would you like to use? › - Use arrow-keys. Return to submit.
+❯   Babel - Choose Babel for a vast ecosystem and battle-tested reliability.
+    SWC
+✔ Which compiler would you like to use? › Babel
+Verifying @storybook/addon-webpack5-compiler-babel
+Installing @storybook/addon-webpack5-compiler-babel@^3.0.3
+
+An error occurred while installing dependencies:
+Int.default is not a function
+❌ error when running webpack5-compiler-setup migration
+HandledError: TypeError: Int.default is not a function
+    at QJ.addDependencies (/Volumes/Data/Office/shared-ui-react/node_modules/@storybook/core/dist/common/index.cjs:153206:72)
+    at async add (/Volumes/Data/Office/shared-ui-react/node_modules/storybook/dist/generate.cjs:196:717)
+    ... 4 lines matching cause stack trace ...
+    at async Command.<anonymous> (/Volumes/Data/Office/shared-ui-react/node_modules/storybook/dist/generate.cjs:739:2867) {
+  handled: true,
+  cause: TypeError: Int.default is not a function
+      at QJ.runAddDeps (/Volumes/Data/Office/shared-ui-react/node_modules/@storybook/core/dist/common/index.cjs:153512:20)
+      at async QJ.addDependencies (/Volumes/Data/Office/shared-ui-react/node_modules/@storybook/core/dist/common/index.cjs:153203:9)
+      at async add (/Volumes/Data/Office/shared-ui-react/node_modules/storybook/dist/generate.cjs:196:717)
+      at async Object.run (/Volumes/Data/Office/shared-ui-react/node_modules/storybook/dist/generate.cjs:525:485)
+      at async runFixes (/Volumes/Data/Office/shared-ui-react/node_modules/storybook/dist/generate.cjs:665:1794)
+      at async automigrate (/Volumes/Data/Office/shared-ui-react/node_modules/storybook/dist/generate.cjs:663:1620)
+      at async doAutomigrate (/Volumes/Data/Office/shared-ui-react/node_modules/storybook/dist/generate.cjs:663:636)
+      at async Command.<anonymous> (/Volumes/Data/Office/shared-ui-react/node_modules/storybook/dist/generate.cjs:739:2867)
+}
+
+
+🔎 found a 'visual-tests-addon' migration:
+╭ Automigration detected ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                                                             │
+│   New to Storybook 8: Storybook's Visual Tests addon helps you catch unintentional changes/bugs in your stories. The addon is powered by Chromatic, a cloud-based testing tool developed by Storybook's     │
+│   core team.                                                                                                                                                                                                │
+│                                                                                                                                                                                                             │
+│   Learn more: https://storybook.js.org/docs/writing-tests/visual-testing                                                                                                                                    │
+│                                                                                                                                                                                                             │
+│   Install Visual Tests addon in your project?                                                                                                                                                               │
+│                                                                                                                                                                                                             │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+? Do you want to run the 'visual-tests-addon' migration on your project? › (Y/n)✔ Do you want to run the 'visual-tests-addon' migration on your project? … yes
+
+An error occurred while installing dependencies:
+Int.default is not a function
+❌ error when running visual-tests-addon migration
+HandledError: TypeError: Int.default is not a function
+    at QJ.addDependencies (/Volumes/Data/Office/shared-ui-react/node_modules/@storybook/core/dist/common/index.cjs:153206:72)
+    at async Object.run (/Volumes/Data/Office/shared-ui-react/node_modules/storybook/dist/generate.cjs:565:141)
+    ... 3 lines matching cause stack trace ...
+    at async Command.<anonymous> (/Volumes/Data/Office/shared-ui-react/node_modules/storybook/dist/generate.cjs:739:2867) {
+  handled: true,
+  cause: TypeError: Int.default is not a function
+      at QJ.runAddDeps (/Volumes/Data/Office/shared-ui-react/node_modules/@storybook/core/dist/common/index.cjs:153512:20)
+      at async QJ.addDependencies (/Volumes/Data/Office/shared-ui-react/node_modules/@storybook/core/dist/common/index.cjs:153203:9)
+      at async Object.run (/Volumes/Data/Office/shared-ui-react/node_modules/storybook/dist/generate.cjs:565:141)
+      at async runFixes (/Volumes/Data/Office/shared-ui-react/node_modules/storybook/dist/generate.cjs:665:1794)
+      at async automigrate (/Volumes/Data/Office/shared-ui-react/node_modules/storybook/dist/generate.cjs:663:1620)
+      at async doAutomigrate (/Volumes/Data/Office/shared-ui-react/node_modules/storybook/dist/generate.cjs:663:636)
+      at async Command.<anonymous> (/Volumes/Data/Office/shared-ui-react/node_modules/storybook/dist/generate.cjs:739:2867)
+}
+
+
+🔎 found a 'autodocs-tags' migration:
+╭ Automigration detected ───────────────────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                   │
+│   The docs.autodocs setting in .storybook/main.js is deprecated.                                                  │
+│                                                                                                                   │
+│   Learn more: https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#mainjs-docsautodocs-is-deprecated   │
+│                                                                                                                   │
+│   Remove docs.autodocs and update .storybook/preview.js?                                                          │
+│                                                                                                                   │
+╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+? Do you want to run the 'autodocs-tags' migration on your project? › (Y/n)✔ Do you want to run the 'autodocs-tags' migration on your project? … yes
+✅ Adding "autodocs" tag to .storybook/preview.js
+✅ Removing "docs.autodocs" from .storybook/main.js
+✅ ran autodocs-tags migration

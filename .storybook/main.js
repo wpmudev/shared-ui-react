@@ -1,18 +1,21 @@
+import { dirname, join } from "path";
 const path = require('path');
 
 module.exports = {
-	stories: [
-		'../packages/**/*.stories.js'
+    stories: [
+		'../packages/**/*.stories.jsx'
 	],
-	addons: [
-		"@storybook/addon-links",
-		"@storybook/addon-actions",
-		"@storybook/addon-essentials",
-		"@storybook/addon-a11y",
-		"@storybook/addon-notes/register-panel",
-		"@geometricpanda/storybook-addon-badges"
-	],
-	webpackFinal: async ( config ) => {
+
+    addons: [
+        getAbsolutePath("@storybook/addon-links"),
+        getAbsolutePath("@storybook/addon-actions"),
+        getAbsolutePath("@storybook/addon-essentials"),
+        getAbsolutePath("@storybook/addon-a11y"),
+        getAbsolutePath("@storybook/addon-webpack5-compiler-babel"),
+        getAbsolutePath("@chromatic-com/storybook")
+    ],
+
+    webpackFinal: async ( config ) => {
 		// Change the order of resolution of main fields.
 		config.resolve.mainFields = [
 			'src',
@@ -27,9 +30,44 @@ module.exports = {
 			'styled-components'
 		);
 
+		// load typescript files
+		config.module.rules.push({
+			test: /\.(js|jsx)?$/,
+			exclude: /node_modules/,
+			use: [
+				{
+					loader: "babel-loader",
+					options: {
+						sourceType: 'unambiguous',
+						babelrc: false,
+					}
+				},
+			],
+		})
+
+		// add typescript extensions
+		config.resolve.extensions.push(".jsx")
+
 		console.log(config.resolve);
 
 		// Return the altered config
 		return config;
 	},
+
+    framework: {
+        name: getAbsolutePath("@storybook/react-webpack5"),
+        options: {}
+    },
+
+    docs: {
+		autodocs: true,
+	},
+
+    typescript: {
+        reactDocgen: "react-docgen-typescript"
+    }
+}
+
+function getAbsolutePath(value) {
+    return dirname(require.resolve(join(value, "package.json")));
 }
