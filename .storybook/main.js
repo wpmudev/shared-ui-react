@@ -21,24 +21,6 @@ module.exports = {
 		// https://www.styled-components.com/docs/faqs#why-am-i-getting-a-warning-about-several-instances-of-module-on-the-page
 		config.resolve.alias['styled-components'] = path.resolve('node_modules', 'styled-components');
 
-		// load typescript files
-		config.module.rules.push({
-			test: /\.(js|jsx)?$/,
-			exclude: /node_modules/,
-			use: [
-				{
-					loader: 'babel-loader',
-					options: {
-						sourceType: 'unambiguous',
-						babelrc: false,
-					},
-				},
-			],
-		});
-
-		// add typescript extensions
-		config.resolve.extensions.push('.jsx');
-
 		console.log(config.resolve);
 
 		// Return the altered config
@@ -52,10 +34,6 @@ module.exports = {
 
 	docs: {
 		autodocs: true,
-	},
-
-	typescript: {
-		reactDocgen: 'react-docgen-typescript',
 	},
 };
 
