@@ -2,26 +2,6 @@ import React from 'react';
 import '@wpmudev/shared-ui/dist/css/shared-ui.min.css'; // Get latest SUI styles.
 import './body-class';
 
-// addParameters({
-// 	badgesConfig: {
-// 		sui: {
-// 			contrast: '#17A8E3',
-// 			color: '#FFF',
-// 			title: 'SUI 2.12.8'
-// 		},
-// 		beta: {
-// 			contrast: '#FFF',
-// 			color: '#8D00B1',
-// 			title: 'Beta'
-// 		},
-// 		deprecated: {
-// 			contrast: '#FFF',
-// 			color: '#FF6D6D',
-// 			title: 'Deprecated'
-// 		}
-// 	}
-// });
-
 // List custom viewports.
 const customViewports = {
 	xl: {
