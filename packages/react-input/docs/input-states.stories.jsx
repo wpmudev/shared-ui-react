@@ -6,13 +6,10 @@ export default {
 	component: Input,
 	parameters: {
 		actions: {
-			disabled: true,
+			disable: true,
 		},
 		controls: {
-			disabled: true,
-		},
-		notes: {
-			disabled: true,
+			disable: true,
 		},
 		previewTabs: {
 			'storybook/docs/panel': {
@@ -25,9 +22,7 @@ export default {
 const Template = ({ children }) => {
 	return (
 		<div className="sui-box">
-			<div className="sui-box-body">
-				{children}
-			</div>
+			<div className="sui-box-body">{children}</div>
 		</div>
 	);
 };
@@ -41,10 +36,8 @@ const Title = ({ children }) => {
 		lineHeight: 22 + 'px',
 	};
 
-	return (
-		<h3 style={ customStyles }>{ children }</h3>
-	);
-}
+	return <h3 style={customStyles}>{children}</h3>;
+};
 
 const Description = ({ children }) => {
 	const customStyles = {
@@ -53,11 +46,11 @@ const Description = ({ children }) => {
 	};
 
 	return (
-		<p className="sui-description" style={ customStyles }>
-			{ children }
+		<p className="sui-description" style={customStyles}>
+			{children}
 		</p>
 	);
-}
+};
 
 const Code = ({ spaceTop = 5, spaceBottom = 20, children }) => {
 	const customStyles = {
@@ -68,37 +61,44 @@ const Code = ({ spaceTop = 5, spaceBottom = 20, children }) => {
 		padding: 5 + 'px ' + 10 + 'px',
 	};
 
-	return (
-		<code style={ customStyles }>{ children }</code>
-	);
-}
+	return <code style={customStyles}>{children}</code>;
+};
 
-const Section = ({ title, description, code, code2, isDefault = false, isLast = false, children }) => {
+const Section = ({
+	title,
+	description,
+	code,
+	code2,
+	isDefault = false,
+	isLast = false,
+	children,
+}) => {
 	return (
 		<>
-			{ title && '' !== title && (
-				<Title>{ title }{ isDefault && (
-					<span
-						className="sui-tag sui-tag-sm sui-tag-yellow"
-						style={ { marginLeft: 10 + 'px' } }
-						aria-hidden="true"
-					>Default</span>
-				)}</Title>
+			{title && '' !== title && (
+				<Title>
+					{title}
+					{isDefault && (
+						<span
+							className="sui-tag sui-tag-sm sui-tag-yellow"
+							style={{ marginLeft: 10 + 'px' }}
+							aria-hidden="true"
+						>
+							Default
+						</span>
+					)}
+				</Title>
 			)}
-			{ description && '' !== description && (
-				<Description>{ description }</Description>
+			{description && '' !== description && <Description>{description}</Description>}
+			{code && '' !== code && (
+				<Code {...(code2 && '' !== code2 && { spaceBottom: 5 })}>{code}</Code>
 			)}
-			{ code && '' !== code && (
-				<Code { ... ( code2 && '' !== code2 ) && { spaceBottom: 5 } }>{ code }</Code>
-			)}
-			{ code2 && '' !== code2 && (
-				<Code>{ code2 }</Code>
-			)}
-			{ children }
-			{ !isLast && <hr /> }
+			{code2 && '' !== code2 && <Code>{code2}</Code>}
+			{children}
+			{!isLast && <hr />}
 		</>
 	);
-}
+};
 
 export const Primary = () => {
 	return (
@@ -106,9 +106,10 @@ export const Primary = () => {
 			<Section
 				title="Static"
 				description="This is the default (enabled) state of an input."
-				code="&lt;Input placeholder=&quot;Placeholder&quot; /&gt;"
-				isDefault={ true }
-				isLast={ true }>
+				code='&lt;Input placeholder="Placeholder" /&gt;'
+				isDefault={true}
+				isLast={true}
+			>
 				<Input placeholder="Username" />
 			</Section>
 		</Template>
@@ -122,12 +123,13 @@ export const Error = () => {
 			<Section
 				title="Error"
 				description="We show this variation when the input has any error."
-				code="&lt;Input errorDescription=&quot;Error message&quot; errorStatus={ true } /&gt;"
-				isLast={ true }>
+				code='&lt;Input errorDescription="Error message" errorStatus={ true } /&gt;'
+				isLast={true}
+			>
 				<Input
 					placeholder="Username"
 					errorDescription="The user doesn't exist. Please, try again with a different user name."
-					errorStatus={ true }
+					errorStatus={true}
 				/>
 			</Section>
 		</Template>
@@ -141,8 +143,9 @@ export const Disabled = () => {
 			<Section
 				title="Disabled"
 				description="Prevent user from interacting with the input field."
-				code="&lt;Input placeholder=&quot;Placeholder&quot; disabled /&gt;"
-				isLast={ true }>
+				code='&lt;Input placeholder="Placeholder" disabled /&gt;'
+				isLast={true}
+			>
 				<Input placeholder="Username" disabled />
 			</Section>
 		</Template>

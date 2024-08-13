@@ -2,75 +2,66 @@ import React from 'react';
 import { Dropdown } from '../lib/react-dropdown';
 
 export default {
-    title: 'Components/Dropdown',
+	title: 'Components/Dropdown',
 	component: Dropdown,
-	parameters: {
-		notes: {
-			disabled: true,
-		},
-	},
-}
+};
 
 const Template = ({ children, ...args }) => {
-    return (
-        <Dropdown { ...args }>
-            { children.map( ( child, key ) => (
-                <div key={ key } { ...child } />
-            ) ) }
-        </Dropdown>
-    );
+	return (
+		<Dropdown {...args}>
+			{children.map((child, key) => (
+				<div key={key} {...child} />
+			))}
+		</Dropdown>
+	);
 };
 
 export const demo = Template.bind({});
 demo.storyName = 'Demo';
 demo.args = {
-    position: 'left',
-    children: [
-        {
-            name: 'Option 1'
-        },
-        {
-            name: 'Option 2'
-        },
-        {
-            name: 'Option 3'
-        },
-    ]
+	position: 'left',
+	children: [
+		{
+			name: 'Option 1',
+		},
+		{
+			name: 'Option 2',
+		},
+		{
+			name: 'Option 3',
+		},
+	],
 };
 demo.argTypes = {
 	position: {
 		type: {
 			name: 'string',
-			required: false
+			required: false,
 		},
 		description: 'This property will determine where the dropdown menu will be placed.',
 		defaultValue: 'left',
 		control: {
 			type: 'select',
-			options: [
-				'left',
-				'center',
-				'right'
-			]
+			options: ['left', 'center', 'right'],
 		},
 		table: {
 			type: {
 				summary: 'options',
-				detail: '"left", "center", "right"'
+				detail: '"left", "center", "right"',
 			},
 			defaultValue: {
-				summary: 'left'
-			}
+				summary: 'left',
+			},
 		},
 	},
 	children: {
 		data: {
-			type: 'array'
+			type: 'array',
 		},
 		control: {
-			type: null
-		}
-	}
+			type: null,
+		},
+	},
 };
 
 // export const DropdownIcon = Template.bind({});

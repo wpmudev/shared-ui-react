@@ -1,17 +1,17 @@
 #!/usr/bin/env node
-const rollup = require( 'rollup' );
-const path = require( 'path' );
-const resolve = require( '@rollup/plugin-node-resolve' ).default;
-const babel = require( '@rollup/plugin-babel' ).default;
+const rollup = require('rollup');
+const path = require('path');
+const resolve = require('@rollup/plugin-node-resolve').default;
+const babel = require('@rollup/plugin-babel').default;
 const postcss = require('rollup-plugin-postcss');
 
 const currentWorkingPath = process.cwd();
-const { src, name } = require( path.join( currentWorkingPath, 'package.json' ) );
+const { src, name } = require(path.join(currentWorkingPath, 'package.json'));
 
-const inputPath = path.join( currentWorkingPath, src );
+const inputPath = path.join(currentWorkingPath, src);
 
 // Little workaround to get package name without scope.
-const fileName = name.replace( '@wpmudev/', '' );
+const fileName = name.replace('@wpmudev/', '');
 
 // see below for details on the options
 const inputOptions = {
@@ -28,16 +28,11 @@ const inputOptions = {
 			exclude: 'node_modules/**',
 			plugins: [
 				'@babel/plugin-proposal-class-properties',
-				'@babel/plugin-proposal-private-methods'
+				'@babel/plugin-proposal-private-methods',
 			],
 		}),
 	],
-	external: [
-		'react',
-		'react-dom',
-		'styled-components',
-		'@justfixnyc/react-aria-modal'
-	],
+	external: ['react', 'react-dom', 'styled-components', '@justfixnyc/react-aria-modal'],
 };
 
 const outputOptions = [
@@ -53,10 +48,10 @@ const outputOptions = [
 
 async function build() {
 	// Create bundle.
-	const bundle = await rollup.rollup( inputOptions );
+	const bundle = await rollup.rollup(inputOptions);
 	// Loop through the options and write individual bundles.
-	outputOptions.forEach( async ( options ) => {
-		await bundle.write( options );
+	outputOptions.forEach(async (options) => {
+		await bundle.write(options);
 	});
 }
 

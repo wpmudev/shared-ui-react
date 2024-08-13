@@ -14,14 +14,14 @@ export const ProgressBar = ({
 	...props
 }) => {
 	const extraClasses = 'undefined' !== typeof classes && '' !== classes ? ' ' + classes : '';
-	const value = 'undefined' !== typeof now && !isNaN(now) ? now : 0;
-
+	const currValue = Number(now);
+	const value = currValue && currValue > 0 ? (currValue > 100 ? 100: currValue) : 0;
 	const lang = Object.assign(
 		{
 			cancel: 'Cancel',
 			legend: 'Status...',
 		},
-		sourceLang,
+		sourceLang
 	);
 
 	const loaderMarkup = hasLoader && (
@@ -31,12 +31,12 @@ export const ProgressBar = ({
 	);
 
 	const loaderText = hasLabel && (
-		<span className="sui-progress-text">{'' === value ? 0 : value}%</span>
+		<span className="sui-progress-text">{value}%</span>
 	);
 
 	const loaderBar = (
 		<div className="sui-progress-bar">
-			<span style={{ width: `${'' === value ? 0 : value}%` }} />
+			<span style={{ width: `${value}%` }} />
 		</div>
 	);
 

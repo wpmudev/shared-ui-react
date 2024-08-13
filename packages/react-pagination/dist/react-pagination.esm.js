@@ -1,5 +1,31 @@
 import React, { useState, useEffect } from 'react';
 
+function ownKeys(object, enumerableOnly) {
+  var keys = Object.keys(object);
+
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    enumerableOnly && (symbols = symbols.filter(function (sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    })), keys.push.apply(keys, symbols);
+  }
+
+  return keys;
+}
+
+function _objectSpread2(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = null != arguments[i] ? arguments[i] : {};
+    i % 2 ? ownKeys(Object(source), !0).forEach(function (key) {
+      _defineProperty(target, key, source[key]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) {
+      Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+    });
+  }
+
+  return target;
+}
+
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
   try {
     var info = gen[key](arg);
@@ -69,40 +95,6 @@ function _extends() {
   return _extends.apply(this, arguments);
 }
 
-function ownKeys(object, enumerableOnly) {
-  var keys = Object.keys(object);
-
-  if (Object.getOwnPropertySymbols) {
-    var symbols = Object.getOwnPropertySymbols(object);
-    if (enumerableOnly) symbols = symbols.filter(function (sym) {
-      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    });
-    keys.push.apply(keys, symbols);
-  }
-
-  return keys;
-}
-
-function _objectSpread2(target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i] != null ? arguments[i] : {};
-
-    if (i % 2) {
-      ownKeys(Object(source), true).forEach(function (key) {
-        _defineProperty(target, key, source[key]);
-      });
-    } else if (Object.getOwnPropertyDescriptors) {
-      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
-    } else {
-      ownKeys(Object(source)).forEach(function (key) {
-        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-      });
-    }
-  }
-
-  return target;
-}
-
 function _objectWithoutPropertiesLoose(source, excluded) {
   if (source == null) return {};
   var target = {};
@@ -156,18 +148,21 @@ function _arrayWithHoles(arr) {
 }
 
 function _iterableToArray(iter) {
-  if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);
+  if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter);
 }
 
 function _iterableToArrayLimit(arr, i) {
-  if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
+  var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"];
+
+  if (_i == null) return;
   var _arr = [];
   var _n = true;
   var _d = false;
-  var _e = undefined;
+
+  var _s, _e;
 
   try {
-    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+    for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) {
       _arr.push(_s.value);
 
       if (i && _arr.length === i) break;
@@ -211,8 +206,9 @@ function _nonIterableRest() {
   throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
 
+var _excluded = ["limit", "skip", "results", "skipToFirstLabel", "previousLabel", "nextLabel", "skipToLastLabel", "pagesToBottom"];
 var Pagination = function Pagination(_ref) {
-  var _args$children, _properties;
+  var _componentWrapper$pro, _componentWrapper$pro2, _componentWrapper$pro3;
 
   var limit = _ref.limit,
       skip = _ref.skip,
@@ -222,17 +218,18 @@ var Pagination = function Pagination(_ref) {
       nextLabel = _ref.nextLabel,
       skipToLastLabel = _ref.skipToLastLabel,
       pagesToBottom = _ref.pagesToBottom,
-      args = _objectWithoutProperties(_ref, ["limit", "skip", "results", "skipToFirstLabel", "previousLabel", "nextLabel", "skipToLastLabel", "pagesToBottom"]);
+      args = _objectWithoutProperties(_ref, _excluded);
 
-  var componentChildren = args.children ? ((_args$children = args.children) === null || _args$children === void 0 ? void 0 : _args$children.length) > 1 ? _toConsumableArray(args.children) : [args.children] : [],
-      childElements = [].concat(componentChildren, _toConsumableArray(args.child)),
+  var componentWrapper = args.children,
+      componentChildren = componentWrapper !== null && componentWrapper !== void 0 && (_componentWrapper$pro = componentWrapper.props) !== null && _componentWrapper$pro !== void 0 && _componentWrapper$pro.children ? (componentWrapper === null || componentWrapper === void 0 ? void 0 : (_componentWrapper$pro2 = componentWrapper.props) === null || _componentWrapper$pro2 === void 0 ? void 0 : (_componentWrapper$pro3 = _componentWrapper$pro2.children) === null || _componentWrapper$pro3 === void 0 ? void 0 : _componentWrapper$pro3.length) > 1 ? _toConsumableArray(componentWrapper.props.children) : [componentWrapper.props.children] : [],
+      childElements = [].concat(componentChildren),
       elements = childElements.length,
       pages = elements / limit > parseInt(elements / limit) ? parseInt(elements / limit) + 1 : elements / limit,
       _useState = useState([]),
       _useState2 = _slicedToArray(_useState, 2),
       pagesArray = _useState2[0],
       setPagesArray = _useState2[1],
-      _useState3 = useState("1"),
+      _useState3 = useState('1'),
       _useState4 = _slicedToArray(_useState3, 2),
       selectedPage = _useState4[0],
       setSelectedPage = _useState4[1],
@@ -271,7 +268,7 @@ var Pagination = function Pagination(_ref) {
     selectedPage <= startIndex + 1 && decrementIndexes();
   }, [pageClickCounter]);
   useEffect(function () {
-    if (selectedPage !== "1") {
+    if (selectedPage !== '1') {
       setElementsStartIndex(selectedPage * limit - limit);
       setElementsEndIndex(selectedPage * limit);
     }
@@ -347,7 +344,8 @@ var Pagination = function Pagination(_ref) {
     };
   }();
 
-  var properties = (_properties = {
+  var properties = {
+    componentWrapper: componentWrapper,
     childElements: childElements,
     elementsStartIndex: elementsStartIndex,
     elementsEndIndex: elementsEndIndex,
@@ -363,23 +361,27 @@ var Pagination = function Pagination(_ref) {
     startIndex: startIndex,
     endIndex: endIndex,
     pages: pages,
-    results: results,
     skipToFirstLabel: skipToFirstLabel,
     previousLabel: previousLabel,
     nextLabel: nextLabel,
     skipToLastLabel: skipToLastLabel,
-    skip: skip
-  }, _defineProperty(_properties, "results", results), _defineProperty(_properties, "elements", elements), _properties);
-  if (args === null || args === void 0 ? void 0 : args.paginationContent) return /*#__PURE__*/React.createElement(React.Fragment, null, args === null || args === void 0 ? void 0 : args.paginationContent(_objectSpread2({}, properties)));else return /*#__PURE__*/React.createElement(React.Fragment, null, pagesToBottom && PaginationResults(_objectSpread2({}, properties)), PaginationNav(_objectSpread2({}, properties)), !pagesToBottom && PaginationResults(_objectSpread2({}, properties)));
+    skip: skip,
+    results: results,
+    elements: elements
+  };
+  if (args !== null && args !== void 0 && args.paginationContent) return /*#__PURE__*/React.createElement(React.Fragment, null, args === null || args === void 0 ? void 0 : args.paginationContent(_objectSpread2({}, properties)));else return /*#__PURE__*/React.createElement(React.Fragment, null, pagesToBottom && PaginationResults(_objectSpread2({}, properties)), PaginationNav(_objectSpread2({}, properties)), !pagesToBottom && PaginationResults(_objectSpread2({}, properties)));
 };
 var PaginationResults = function PaginationResults(_ref3) {
   var _React$Children$map;
 
   var properties = _extends({}, _ref3);
 
-  return (_React$Children$map = React.Children.map(properties.childElements, function (data) {
+  var items = (_React$Children$map = React.Children.map(properties.childElements, function (data) {
     return /*#__PURE__*/React.cloneElement(data);
   })) === null || _React$Children$map === void 0 ? void 0 : _React$Children$map.slice(properties.elementsStartIndex, properties.elementsEndIndex);
+  return React.Children.map(properties.componentWrapper, function (data) {
+    return /*#__PURE__*/React.cloneElement(data, '', items);
+  });
 };
 var PaginationNav = function PaginationNav(_ref4) {
   var _properties$pagesArra, _properties$pagesArra2;
@@ -399,9 +401,9 @@ var PaginationNav = function PaginationNav(_ref4) {
   }, /*#__PURE__*/React.createElement("span", {
     "aria-hidden": "false",
     className: "sui-screen-reader-text"
-  }, properties.skipToFirstLabel || "Go to first page"), /*#__PURE__*/React.createElement("span", {
+  }, properties.skipToFirstLabel || 'Go to first page'), /*#__PURE__*/React.createElement("span", {
     "aria-hidden": "true",
-    title: properties.skipToFirstLabel || "Go to first page",
+    title: properties.skipToFirstLabel || 'Go to first page',
     className: "sui-icon-arrow-skip-back"
   }))), /*#__PURE__*/React.createElement("li", {
     onClick: properties.handlePreviousPage
@@ -410,9 +412,9 @@ var PaginationNav = function PaginationNav(_ref4) {
   }, /*#__PURE__*/React.createElement("span", {
     "aria-hidden": "false",
     className: "sui-screen-reader-text"
-  }, properties.previousLabel || "Go to previous page"), /*#__PURE__*/React.createElement("span", {
+  }, properties.previousLabel || 'Go to previous page'), /*#__PURE__*/React.createElement("span", {
     "aria-hidden": "true",
-    title: properties.previousLabel || "Go to previous page",
+    title: properties.previousLabel || 'Go to previous page',
     className: "sui-icon-chevron-left"
   }))), properties.startIndex > 0 && /*#__PURE__*/React.createElement("li", {
     onClick: properties.handlePreviousEllipsis
@@ -424,7 +426,7 @@ var PaginationNav = function PaginationNav(_ref4) {
       key: index
     }, /*#__PURE__*/React.createElement("a", {
       "aria-selected": properties.selectedPage === data,
-      className: properties.selectedPage == data ? "sui-active" : ""
+      className: properties.selectedPage == data ? 'sui-active' : ''
     }, data));
   }), properties.endIndex < properties.pages && /*#__PURE__*/React.createElement("li", {
     onClick: properties.handleNextEllipsis
@@ -435,9 +437,9 @@ var PaginationNav = function PaginationNav(_ref4) {
   }, /*#__PURE__*/React.createElement("span", {
     "aria-hidden": "false",
     className: "sui-screen-reader-text"
-  }, properties.nextLabel || "Go to next page."), /*#__PURE__*/React.createElement("span", {
+  }, properties.nextLabel || 'Go to next page.'), /*#__PURE__*/React.createElement("span", {
     "aria-hidden": "true",
-    title: properties.nextLabel || "Go to next page.",
+    title: properties.nextLabel || 'Go to next page.',
     className: "sui-icon-chevron-right"
   }))), properties.skip && /*#__PURE__*/React.createElement("li", {
     onClick: properties.handleSkipToLastPage
@@ -446,9 +448,9 @@ var PaginationNav = function PaginationNav(_ref4) {
   }, /*#__PURE__*/React.createElement("span", {
     "aria-hidden": "false",
     className: "sui-screen-reader-text"
-  }, properties.skipToLastLabel || "Go to last page."), /*#__PURE__*/React.createElement("span", {
+  }, properties.skipToLastLabel || 'Go to last page.'), /*#__PURE__*/React.createElement("span", {
     "aria-hidden": "true",
-    title: properties.skipToLastLabel || "Go to last page",
+    title: properties.skipToLastLabel || 'Go to last page',
     className: "sui-icon-arrow-skip-forward"
   })))));
 };

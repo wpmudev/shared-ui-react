@@ -1,6 +1,6 @@
 import React from 'react';
 import '@wpmudev/shared-ui/dist/css/shared-ui.min.css'; // Get latest SUI styles.
-import "./body-class";
+import './body-class';
 
 // addParameters({
 // 	badgesConfig: {
@@ -28,41 +28,41 @@ const customViewports = {
 		name: 'Desktop',
 		styles: {
 			width: '1500px',
-			height: '938px'
+			height: '938px',
 		},
-		type: 'desktop'
+		type: 'desktop',
 	},
 	lg: {
 		name: 'Laptop',
 		styles: {
 			width: '1200px',
-			height: '750px'
+			height: '750px',
 		},
-		type: 'desktop'
+		type: 'desktop',
 	},
 	md: {
 		name: 'Tablet',
 		styles: {
 			width: '783px',
-			height: '1253px'
+			height: '1253px',
 		},
-		type: 'tablet'
+		type: 'tablet',
 	},
 	sm: {
 		name: 'Mobile',
 		styles: {
 			width: '480px',
-			height: '800px'
+			height: '800px',
 		},
-		type: 'mobile'
+		type: 'mobile',
 	},
 	xs: {
 		name: 'Smaller',
 		styles: {
 			width: '375px',
-			height: '667px'
+			height: '667px',
 		},
-		type: 'mobile'
+		type: 'mobile',
 	},
 };
 
@@ -71,31 +71,25 @@ export const parameters = {
 	actions: {},
 	backgrounds: {
 		default: 'WordPress',
-		values: [
-			{ name: 'WordPress', value: '#f1f1f1' }
-		]
+		values: [{ name: 'WordPress', value: '#f1f1f1' }],
 	},
 	viewport: {
-		viewports: customViewports
+		viewports: customViewports,
 	},
 	viewMode: 'canvas',
-	badges: [ 'sui' ],
+	badges: ['sui'],
 	docs: {
-		autodocs: true
-	}
-}
+		autodocs: true,
+	},
+};
 
 // Edit "preview" markup.
 const Wrapper = ({ children }) => {
-	return (
-		<div className="sui-wrap">
-			{ children }
-		</div>
-	);
+	return <div className="sui-wrap">{children}</div>;
 };
 
 export const decorators = [
-	( Story ) => (
+	(Story) => (
 		<Wrapper>
 			<Story />
 		</Wrapper>

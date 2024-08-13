@@ -1,21 +1,21 @@
-import React from "react";
-import { Modal } from "../lib/react-modal";
-import { BoxHeader, BoxBody, BoxFooter } from "@wpmudev/react-box";
-import { Button } from "@wpmudev/react-button";
-import { ButtonIcon } from "@wpmudev/react-button-icon";
+import React from 'react';
+import { Modal } from '../lib/react-modal';
+import { BoxHeader, BoxBody, BoxFooter } from '@wpmudev/react-box';
+import { Button } from '@wpmudev/react-button';
+import { ButtonIcon } from '@wpmudev/react-button-icon';
 
 export default {
-	title: "Containers/Modal/Default",
-	component: Modal
+	title: 'Containers/Modal/Default',
+	component: Modal,
 };
 
-const Template = args => <Modal {...args} />;
+const Template = (args) => <Modal {...args} />;
 
 const sampleOneContent = ({ closeModal }) => {
 	return (
 		<React.Fragment>
 			<div className="sui-box">
-				<BoxHeader title={"Get Started"}>
+				<BoxHeader title={'Get Started'}>
 					<Button label="Skip" design="ghost" onClick={closeModal} />
 				</BoxHeader>
 				<BoxBody>
@@ -28,7 +28,7 @@ const sampleOneContent = ({ closeModal }) => {
 					<div className="sui-border-frame">
 						<p className="sui-description">
 							{
-								"This is only a performance test. Once you know what to fix you can get started in the next steps."
+								'This is only a performance test. Once you know what to fix you can get started in the next steps.'
 							}
 						</p>
 					</div>
@@ -56,9 +56,7 @@ const sampleTwoContent = ({ closeModal }) => {
 					</h3>
 
 					<p className="sui-description">
-						{
-							"Choose the popup configuration file and hit import to import your popup."
-						}
+						{'Choose the popup configuration file and hit import to import your popup.'}
 					</p>
 				</div>
 
@@ -70,8 +68,7 @@ const sampleTwoContent = ({ closeModal }) => {
 
 						<div className="sui-upload">
 							<button className="sui-upload-button">
-								<span className="sui-icon-upload-cloud" aria-hidden="true" />{" "}
-								Upload file
+								<span className="sui-icon-upload-cloud" aria-hidden="true" /> Upload file
 							</button>
 
 							<div className="sui-upload-file">
@@ -104,21 +101,21 @@ const triggerContent = ({ openModal }) => {
 };
 
 export const sampleOne = Template.bind({});
-sampleOne.storyName = "Sample 1";
+sampleOne.storyName = 'Sample 1';
 sampleOne.args = {
-	dialogId: "sample-modal",
-	titleId: "sample-modal__title",
-	size: "lg",
+	dialogId: 'sample-modal',
+	titleId: 'sample-modal__title',
+	size: 'lg',
 	modalContent: sampleOneContent,
-	triggerContent
+	triggerContent,
 };
 
 export const sampleTwo = Template.bind({});
-sampleTwo.storyName = "Sample 2";
+sampleTwo.storyName = 'Sample 2';
 sampleTwo.args = {
-	dialogId: "sample-modal",
-	titleId: "sample-modal__title",
-	size: "sm",
+	dialogId: 'sample-modal',
+	titleId: 'sample-modal__title',
+	size: 'sm',
 	modalContent: sampleTwoContent,
-	triggerContent
+	triggerContent,
 };

@@ -6,13 +6,10 @@ export default {
 	component: Button,
 	parameters: {
 		actions: {
-			disabled: true,
+			disable: true,
 		},
 		controls: {
-			disabled: true,
-		},
-		notes: {
-			disabled: true,
+			disable: true,
 		},
 		previewTabs: {
 			'storybook/docs/panel': {
@@ -25,9 +22,7 @@ export default {
 const Template = ({ children }) => {
 	return (
 		<div className="sui-box">
-			<div className="sui-box-body">
-				{children}
-			</div>
+			<div className="sui-box-body">{children}</div>
 		</div>
 	);
 };
@@ -41,10 +36,8 @@ const Title = ({ children }) => {
 		lineHeight: 22 + 'px',
 	};
 
-	return (
-		<h3 style={ customStyles }>{ children }</h3>
-	);
-}
+	return <h3 style={customStyles}>{children}</h3>;
+};
 
 const Description = ({ children }) => {
 	const customStyles = {
@@ -53,11 +46,11 @@ const Description = ({ children }) => {
 	};
 
 	return (
-		<p className="sui-description" style={ customStyles }>
-			{ children }
+		<p className="sui-description" style={customStyles}>
+			{children}
 		</p>
 	);
-}
+};
 
 const Code = ({ spaceTop = 5, spaceBottom = 20, children }) => {
 	const customStyles = {
@@ -68,37 +61,44 @@ const Code = ({ spaceTop = 5, spaceBottom = 20, children }) => {
 		padding: 5 + 'px ' + 10 + 'px',
 	};
 
-	return (
-		<code style={ customStyles }>{ children }</code>
-	);
-}
+	return <code style={customStyles}>{children}</code>;
+};
 
-const Section = ({ title, description, code, code2, isDefault = false, isLast = false, children }) => {
+const Section = ({
+	title,
+	description,
+	code,
+	code2,
+	isDefault = false,
+	isLast = false,
+	children,
+}) => {
 	return (
 		<>
-			{ title && '' !== title && (
-				<Title>{ title }{ isDefault && (
-					<span
-						className="sui-tag sui-tag-sm sui-tag-yellow"
-						style={ { marginLeft: 10 + 'px' } }
-						aria-hidden="true"
-					>Default</span>
-				)}</Title>
+			{title && '' !== title && (
+				<Title>
+					{title}
+					{isDefault && (
+						<span
+							className="sui-tag sui-tag-sm sui-tag-yellow"
+							style={{ marginLeft: 10 + 'px' }}
+							aria-hidden="true"
+						>
+							Default
+						</span>
+					)}
+				</Title>
 			)}
-			{ description && '' !== description && (
-				<Description>{ description }</Description>
+			{description && '' !== description && <Description>{description}</Description>}
+			{code && '' !== code && (
+				<Code {...(code2 && '' !== code2 && { spaceBottom: 5 })}>{code}</Code>
 			)}
-			{ code && '' !== code && (
-				<Code { ... ( code2 && '' !== code2 ) && { spaceBottom: 5 } }>{ code }</Code>
-			)}
-			{ code2 && '' !== code2 && (
-				<Code>{ code2 }</Code>
-			)}
-			{ children }
-			{ !isLast && <hr /> }
+			{code2 && '' !== code2 && <Code>{code2}</Code>}
+			{children}
+			{!isLast && <hr />}
 		</>
 	);
-}
+};
 
 export const primary = () => {
 	return (
@@ -106,9 +106,10 @@ export const primary = () => {
 			<Section
 				title="Enabled Button"
 				description="This is the default state of a button. It is enabled and user can interact with it."
-				code="&lt;Button label=&quot;Button Label&quot; /&gt;"
-				isDefault={ true }
-				isLast={ true }>
+				code='&lt;Button label="Button Label" /&gt;'
+				isDefault={true}
+				isLast={true}
+			>
 				<Button label="Button Label" />
 			</Section>
 		</Template>
@@ -122,8 +123,9 @@ export const loading = () => {
 			<Section
 				title="Loading Button"
 				description="When user performs an action like save, this button state will indicate that something is going on in the background and must wait for it to complete."
-				code="&lt;Button label=&quot;Button Label&quot; loading /&gt;"
-				isLast={ true }>
+				code='&lt;Button label="Button Label" loading /&gt;'
+				isLast={true}
+			>
 				<Button label="Button Label" loading />
 			</Section>
 		</Template>
@@ -137,8 +139,9 @@ export const disabled = () => {
 			<Section
 				title="Disabled Button"
 				description="This state indicates user that cannot interact with the button."
-				code="&lt;Button label=&quot;Button Label&quot; disabled /&gt;"
-				isLast={ true }>
+				code='&lt;Button label="Button Label" disabled /&gt;'
+				isLast={true}
+			>
 				<Button label="Button Label" disabled />
 			</Section>
 		</Template>

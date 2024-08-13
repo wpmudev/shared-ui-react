@@ -1,7 +1,7 @@
 // https://github.com/davidtheclark/react-displace/blob/master/src/displace.js
 
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 export function displace(WrappedComponent, optionalOptions) {
 	const options = optionalOptions || {};
@@ -12,10 +12,10 @@ export function displace(WrappedComponent, optionalOptions) {
 				const { renderTo } = options;
 
 				if (!renderTo) {
-					var result = document.createElement("div");
+					var result = document.createElement('div');
 					document.body.appendChild(result);
 					return result;
-				} else if (typeof renderTo === "string") {
+				} else if (typeof renderTo === 'string') {
 					const el = document.querySelector(renderTo);
 					if (!el) {
 						throw new Error(`No element matches "${renderTo}"!`);
@@ -40,11 +40,7 @@ export function displace(WrappedComponent, optionalOptions) {
 
 			if (this.container) {
 				return ReactDOM.createPortal(
-					React.createElement(
-						WrappedComponent,
-						this.props,
-						this.props.children
-					),
+					React.createElement(WrappedComponent, this.props, this.props.children),
 					this.container
 				);
 			}

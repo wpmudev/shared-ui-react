@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
 const ButtonIcon = ({
 	label,
 	icon,
 	iconSize,
-	design = "solid",
+	design = 'solid',
 	color,
 	className,
 	loading,
@@ -13,14 +13,17 @@ const ButtonIcon = ({
 	const loader = (
 		<span
 			className="sui-icon-loader sui-loading"
-			style={{ position: "relative" }}
+			style={{ position: 'relative' }}
 			aria-hidden="true"
 		/>
 	);
 
 	let content = (
 		<React.Fragment>
-			<span className={ `sui-icon-${icon}${iconSize ? ' sui-' + iconSize : '' }` } aria-hidden="true" />
+			<span
+				className={`sui-icon-${icon}${iconSize ? ' sui-' + iconSize : ''}`}
+				aria-hidden="true"
+			/>
 			<span className="sui-screen-reader-text">{label}</span>
 		</React.Fragment>
 	);
@@ -29,38 +32,38 @@ const ButtonIcon = ({
 
 	// Set button color.
 	switch (color) {
-		case "blue":
-		case "green":
-		case "red":
-		case "orange":
-		case "purple":
-		case "yellow":
-		case "white":
-			className += " sui-button-" + color;
+		case 'blue':
+		case 'green':
+		case 'red':
+		case 'orange':
+		case 'purple':
+		case 'yellow':
+		case 'white':
+			className += ' sui-button-' + color;
 			break;
 
-		case "gray":
+		case 'gray':
 		default:
-			className += "";
+			className += '';
 			break;
 	}
 
 	// Set button style.
 	switch (design) {
-		case "ghost":
-		case "outlined":
-			className += " sui-button-" + design;
+		case 'ghost':
+		case 'outlined':
+			className += ' sui-button-' + design;
 			break;
 
-		case "solid":
+		case 'solid':
 		default:
-			className += "";
+			className += '';
 			break;
 	}
 
 	// Set loading class.
-	if ( loading ) {
-		className += " sui-button-onload";
+	if (loading) {
+		className += ' sui-button-onload';
 	}
 
 	const htmlTag = props.href ? 'a' : 'button';
@@ -70,7 +73,7 @@ const ButtonIcon = ({
 		{
 			className,
 			disabled: props.disabled || loading,
-			...props
+			...props,
 		},
 		loading ? loader : content
 	);

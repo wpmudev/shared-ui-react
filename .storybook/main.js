@@ -1,34 +1,25 @@
-import { dirname, join } from "path";
+import { dirname, join } from 'path';
 const path = require('path');
 
 module.exports = {
-    stories: [
-		'../packages/**/*.stories.jsx'
+	stories: ['../packages/**/*.stories.jsx'],
+
+	addons: [
+		getAbsolutePath('@storybook/addon-links'),
+		getAbsolutePath('@storybook/addon-actions'),
+		getAbsolutePath('@storybook/addon-essentials'),
+		getAbsolutePath('@storybook/addon-a11y'),
+		getAbsolutePath('@storybook/addon-webpack5-compiler-babel'),
+		getAbsolutePath('@chromatic-com/storybook'),
 	],
 
-    addons: [
-        getAbsolutePath("@storybook/addon-links"),
-        getAbsolutePath("@storybook/addon-actions"),
-        getAbsolutePath("@storybook/addon-essentials"),
-        getAbsolutePath("@storybook/addon-a11y"),
-        getAbsolutePath("@storybook/addon-webpack5-compiler-babel"),
-        getAbsolutePath("@chromatic-com/storybook")
-    ],
-
-    webpackFinal: async ( config ) => {
+	webpackFinal: async (config) => {
 		// Change the order of resolution of main fields.
-		config.resolve.mainFields = [
-			'src',
-			'module',
-			'main'
-		];
+		config.resolve.mainFields = ['src', 'module', 'main'];
 
 		// Resolve `styled-components` to a single version for Storybook, as recommended by the docs.
 		// https://www.styled-components.com/docs/faqs#why-am-i-getting-a-warning-about-several-instances-of-module-on-the-page
-		config.resolve.alias['styled-components'] = path.resolve(
-			'node_modules',
-			'styled-components'
-		);
+		config.resolve.alias['styled-components'] = path.resolve('node_modules', 'styled-components');
 
 		// load typescript files
 		config.module.rules.push({
@@ -36,17 +27,17 @@ module.exports = {
 			exclude: /node_modules/,
 			use: [
 				{
-					loader: "babel-loader",
+					loader: 'babel-loader',
 					options: {
 						sourceType: 'unambiguous',
 						babelrc: false,
-					}
+					},
 				},
 			],
-		})
+		});
 
 		// add typescript extensions
-		config.resolve.extensions.push(".jsx")
+		config.resolve.extensions.push('.jsx');
 
 		console.log(config.resolve);
 
@@ -54,20 +45,20 @@ module.exports = {
 		return config;
 	},
 
-    framework: {
-        name: getAbsolutePath("@storybook/react-webpack5"),
-        options: {}
-    },
+	framework: {
+		name: getAbsolutePath('@storybook/react-webpack5'),
+		options: {},
+	},
 
-    docs: {
+	docs: {
 		autodocs: true,
 	},
 
-    typescript: {
-        reactDocgen: "react-docgen-typescript"
-    }
-}
+	typescript: {
+		reactDocgen: 'react-docgen-typescript',
+	},
+};
 
 function getAbsolutePath(value) {
-    return dirname(require.resolve(join(value, "package.json")));
+	return dirname(require.resolve(join(value, 'package.json')));
 }

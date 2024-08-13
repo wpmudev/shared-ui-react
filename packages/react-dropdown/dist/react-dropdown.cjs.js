@@ -29,6 +29,9 @@ function _defineProperties(target, props) {
 function _createClass(Constructor, protoProps, staticProps) {
   if (protoProps) _defineProperties(Constructor.prototype, protoProps);
   if (staticProps) _defineProperties(Constructor, staticProps);
+  Object.defineProperty(Constructor, "prototype", {
+    writable: false
+  });
   return Constructor;
 }
 
@@ -62,6 +65,9 @@ function _inherits(subClass, superClass) {
       configurable: true
     }
   });
+  Object.defineProperty(subClass, "prototype", {
+    writable: false
+  });
   if (superClass) _setPrototypeOf(subClass, superClass);
 }
 
@@ -87,7 +93,7 @@ function _isNativeReflectConstruct() {
   if (typeof Proxy === "function") return true;
 
   try {
-    Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
+    Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
     return true;
   } catch (e) {
     return false;
@@ -105,6 +111,8 @@ function _assertThisInitialized(self) {
 function _possibleConstructorReturn(self, call) {
   if (call && (typeof call === "object" || typeof call === "function")) {
     return call;
+  } else if (call !== void 0) {
+    throw new TypeError("Derived constructors may only return object or undefined");
   }
 
   return _assertThisInitialized(self);
@@ -141,6 +149,32 @@ function _taggedTemplateLiteral(strings, raw) {
   }));
 }
 
+function ownKeys(object, enumerableOnly) {
+  var keys = Object.keys(object);
+
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    enumerableOnly && (symbols = symbols.filter(function (sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    })), keys.push.apply(keys, symbols);
+  }
+
+  return keys;
+}
+
+function _objectSpread2(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = null != arguments[i] ? arguments[i] : {};
+    i % 2 ? ownKeys(Object(source), !0).forEach(function (key) {
+      _defineProperty(target, key, source[key]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) {
+      Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+    });
+  }
+
+  return target;
+}
+
 function _defineProperty(obj, key, value) {
   if (key in obj) {
     Object.defineProperty(obj, key, {
@@ -154,40 +188,6 @@ function _defineProperty(obj, key, value) {
   }
 
   return obj;
-}
-
-function ownKeys(object, enumerableOnly) {
-  var keys = Object.keys(object);
-
-  if (Object.getOwnPropertySymbols) {
-    var symbols = Object.getOwnPropertySymbols(object);
-    if (enumerableOnly) symbols = symbols.filter(function (sym) {
-      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    });
-    keys.push.apply(keys, symbols);
-  }
-
-  return keys;
-}
-
-function _objectSpread2(target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i] != null ? arguments[i] : {};
-
-    if (i % 2) {
-      ownKeys(Object(source), true).forEach(function (key) {
-        _defineProperty(target, key, source[key]);
-      });
-    } else if (Object.getOwnPropertyDescriptors) {
-      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
-    } else {
-      ownKeys(Object(source)).forEach(function (key) {
-        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-      });
-    }
-  }
-
-  return target;
 }
 
 function _objectWithoutPropertiesLoose(source, excluded) {
@@ -226,94 +226,78 @@ function _objectWithoutProperties(source, excluded) {
   return target;
 }
 
+var _excluded = ["label", "icon", "iconSize", "design", "color", "className", "loading"];
+
 var ButtonIcon = function ButtonIcon(_ref) {
   var label = _ref.label,
       icon = _ref.icon,
       iconSize = _ref.iconSize,
       _ref$design = _ref.design,
-      design = _ref$design === void 0 ? "solid" : _ref$design,
+      design = _ref$design === void 0 ? 'solid' : _ref$design,
       color = _ref.color,
       className = _ref.className,
       loading = _ref.loading,
-      props = _objectWithoutProperties(_ref, ["label", "icon", "iconSize", "design", "color", "className", "loading"]);
+      props = _objectWithoutProperties(_ref, _excluded);
 
-  var loader = /*#__PURE__*/React__default['default'].createElement("span", {
+  var loader = /*#__PURE__*/React__default["default"].createElement("span", {
     className: "sui-icon-loader sui-loading",
     style: {
-      position: "relative"
+      position: 'relative'
     },
     "aria-hidden": "true"
   });
-  var content = /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, /*#__PURE__*/React__default['default'].createElement("span", {
+  var content = /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement("span", {
     className: "sui-icon-".concat(icon).concat(iconSize ? ' sui-' + iconSize : ''),
     "aria-hidden": "true"
-  }), /*#__PURE__*/React__default['default'].createElement("span", {
+  }), /*#__PURE__*/React__default["default"].createElement("span", {
     className: "sui-screen-reader-text"
   }, label));
   className = "sui-button-icon ".concat(className || ''); // Set button color.
 
   switch (color) {
-    case "blue":
-    case "green":
-    case "red":
-    case "orange":
-    case "purple":
-    case "yellow":
-    case "white":
-      className += " sui-button-" + color;
+    case 'blue':
+    case 'green':
+    case 'red':
+    case 'orange':
+    case 'purple':
+    case 'yellow':
+    case 'white':
+      className += ' sui-button-' + color;
       break;
 
-    case "gray":
+    case 'gray':
     default:
-      className += "";
+      className += '';
       break;
   } // Set button style.
 
 
   switch (design) {
-    case "ghost":
-    case "outlined":
-      className += " sui-button-" + design;
+    case 'ghost':
+    case 'outlined':
+      className += ' sui-button-' + design;
       break;
 
-    case "solid":
+    case 'solid':
     default:
-      className += "";
+      className += '';
       break;
   } // Set loading class.
 
 
   if (loading) {
-    className += " sui-button-onload";
+    className += ' sui-button-onload';
   }
 
   var htmlTag = props.href ? 'a' : 'button';
-  return /*#__PURE__*/React__default['default'].createElement(htmlTag, _objectSpread2({
+  return /*#__PURE__*/React__default["default"].createElement(htmlTag, _objectSpread2({
     className: className,
     disabled: props.disabled || loading
   }, props), loading ? loader : content);
 };
 
-function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n.sui-wrap && {\n    ", "\n    ", "\n    ", "\n    ", "\n    ", "\n\n    [class*=\"sui-icon-\"]:before {\n        color: inherit !important;\n    }\n\n    &:hover,\n    &:focus {\n        ", "\n        ", "\n        ", "\n        ", "\n        ", "\n    }\n}\n"]);
-
-  _templateObject2 = function _templateObject2() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n.sui-wrap && {\n    ", "\n    ", "\n    ", "\n    ", "\n    ", "\n\n    [class*=\"sui-icon-\"]:before {\n        color: inherit !important;\n    }\n\n    &:hover,\n    &:focus {\n        ", "\n        ", "\n        ", "\n        ", "\n        ", "\n    }\n}\n"]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-var Link = styled__default['default'].a(_templateObject(), function (props) {
+var _templateObject, _templateObject2;
+var Link = styled__default["default"].a(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n\t.sui-wrap && {\n\t\t", "\n\t\t", "\n\t\t", "\n\t\t", "\n\t\t", "\n\n\t\t[class*=\"sui-icon-\"]:before {\n\t\t\tcolor: inherit !important;\n\t\t}\n\n\t\t&:hover,\n\t\t&:focus {\n\t\t\t", "\n\t\t\t", "\n\t\t\t", "\n\t\t\t", "\n\t\t\t", "\n\t\t}\n\t}\n"])), function (props) {
   return 'blue' === props.color ? 'color: #17A8E3 !important;' : '';
 }, function (props) {
   return 'green' === props.color ? 'color: #1ABC9C !important;' : '';
@@ -334,7 +318,7 @@ var Link = styled__default['default'].a(_templateObject(), function (props) {
 }, function (props) {
   return 'purple' === props.color ? 'background-color: #F9E1FF !important;' : '';
 });
-var Button = styled__default['default'].button(_templateObject2(), function (props) {
+var Button = styled__default["default"].button(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n\t.sui-wrap && {\n\t\t", "\n\t\t", "\n\t\t", "\n\t\t", "\n\t\t", "\n\n\t\t[class*=\"sui-icon-\"]:before {\n\t\t\tcolor: inherit !important;\n\t\t}\n\n\t\t&:hover,\n\t\t&:focus {\n\t\t\t", "\n\t\t\t", "\n\t\t\t", "\n\t\t\t", "\n\t\t\t", "\n\t\t}\n\n\t\t&[disabled] {\n\t\t\topacity: 0.5;\n\t\t\tpointer-events: none;\n\t\t}\n\t}\n"])), function (props) {
   return 'blue' === props.color ? 'color: #17A8E3 !important;' : '';
 }, function (props) {
   return 'green' === props.color ? 'color: #1ABC9C !important;' : '';
@@ -370,7 +354,7 @@ var Dropdown = /*#__PURE__*/function (_Component) {
       open: false
     };
     _this.toggle = _this.toggle.bind(_assertThisInitialized(_this));
-    _this.wrapperRef = /*#__PURE__*/React__default['default'].createRef();
+    _this.wrapperRef = /*#__PURE__*/React__default["default"].createRef();
     _this.setWrapperRef = _this.setWrapperRef.bind(_assertThisInitialized(_this));
     _this.handleClickOutside = _this.handleClickOutside.bind(_assertThisInitialized(_this));
     return _this;
@@ -379,8 +363,10 @@ var Dropdown = /*#__PURE__*/function (_Component) {
   _createClass(Dropdown, [{
     key: "toggle",
     value: function toggle() {
-      this.setState({
-        open: !this.state.open
+      this.setState(function (state) {
+        return {
+          open: !state.open
+        };
       });
     }
   }, {
@@ -414,11 +400,11 @@ var Dropdown = /*#__PURE__*/function (_Component) {
 
       var open = this.state.open;
       var options = React.Children.map(this.props.children, function (option) {
-        var icon = option.props.icon && '' !== option.props.icon && /*#__PURE__*/React__default['default'].createElement("span", {
+        var icon = option.props.icon && '' !== option.props.icon && /*#__PURE__*/React__default["default"].createElement("span", {
           className: "sui-icon-".concat(option.props.icon),
           "aria-hidden": "true"
         });
-        var tag = option.props.tag && '' !== option.props.tag && /*#__PURE__*/React__default['default'].createElement("span", {
+        var tag = option.props.tag && '' !== option.props.tag && /*#__PURE__*/React__default["default"].createElement("span", {
           className: "sui-tag sui-tag-beta",
           style: {
             pointerEvents: 'none',
@@ -427,23 +413,19 @@ var Dropdown = /*#__PURE__*/function (_Component) {
             lineHeight: 1
           }
         }, option.props.tag);
-        var label = /*#__PURE__*/React__default['default'].createElement(React.Fragment, null, icon, option.props.name, tag);
+        var label = /*#__PURE__*/React__default["default"].createElement(React.Fragment, null, icon, option.props.name, tag);
 
         if (option.props.href) {
-          return /*#__PURE__*/React__default['default'].createElement("li", null, /*#__PURE__*/React__default['default'].createElement(Link, _extends({
+          return /*#__PURE__*/React__default["default"].createElement("li", null, /*#__PURE__*/React__default["default"].createElement(Link, _extends({
             href: option.props.href
           }, option.props), label));
         }
 
-        return /*#__PURE__*/React__default['default'].createElement("li", null, /*#__PURE__*/React__default['default'].createElement(Button, option.props, label));
+        return /*#__PURE__*/React__default["default"].createElement("li", null, /*#__PURE__*/React__default["default"].createElement(Button, option.props, label));
       });
       var clazz = !open ? 'sui-dropdown' : 'sui-dropdown open';
 
       switch (this.props.position) {
-        case 'left':
-          clazz += ' sui-dropdown-right';
-          break;
-
         case 'center':
           clazz += ' sui-dropdown-center';
           break;
@@ -457,17 +439,17 @@ var Dropdown = /*#__PURE__*/function (_Component) {
           break;
       }
 
-      return /*#__PURE__*/React__default['default'].createElement("div", {
+      return /*#__PURE__*/React__default["default"].createElement("div", {
         className: clazz,
         ref: this.setWrapperRef,
         onClick: function onClick(e) {
           return e.stopPropagation();
         }
-      }, /*#__PURE__*/React__default['default'].createElement(ButtonIcon, {
+      }, /*#__PURE__*/React__default["default"].createElement(ButtonIcon, _extends({
         icon: "widget-settings-config",
         label: open ? 'Open menu' : 'Close menu',
         onClick: this.toggle
-      }), open && /*#__PURE__*/React__default['default'].createElement("ul", {
+      }, this.props)), open && /*#__PURE__*/React__default["default"].createElement("ul", {
         onClick: function onClick() {
           return _this2.setState({
             open: false
