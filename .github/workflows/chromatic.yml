@@ -12,10 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - run: yarn
+      - run: npm
       - name: build examples
         run: |
-          yarn run build-storybook
+          npm run build-storybook
       - name: upload storybook to chromatic
         uses: chromaui/action@v1
         with:
