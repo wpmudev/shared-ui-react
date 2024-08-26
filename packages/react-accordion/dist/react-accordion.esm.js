@@ -475,7 +475,10 @@ var AccordionItemHeader = function AccordionItemHeader(_ref3) {
       _useState4 = _slicedToArray(_useState3, 1),
       isOpen = _useState4[0];
 
-  var countChildren = React.Children.toArray(children).length;
+  var childrenData = Array.isArray(children) ? children.filter(function (child) {
+    return 'boolean' !== typeof child && null != child && '' !== child;
+  }) : 'boolean' === typeof children || '' === children ? [] : children;
+  var countChildren = React.Children.toArray(childrenData).length;
   var titleColumnIcon = 'undefined' !== typeof icon && '' !== icon ? /*#__PURE__*/React.createElement("span", {
     className: "sui-icon-".concat(icon),
     "aria-hidden": "true"
@@ -502,7 +505,7 @@ var AccordionItemHeader = function AccordionItemHeader(_ref3) {
     label: isOpen ? 'Close section' : 'Open section',
     className: "sui-button-icon sui-accordion-open-indicator"
   });
-  var columns = React.Children.map(children, function (column, index) {
+  var columns = React.Children.map(childrenData, function (column, index) {
     index++;
     var columnSize = column.props.size;
     var columnClass = 'undefined' !== typeof columnSize && '' !== columnSize ? 'sui-accordion-col-' + columnSize : 'sui-accordion-col-auto';
