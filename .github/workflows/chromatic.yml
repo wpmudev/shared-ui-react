@@ -11,15 +11,10 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - name: Use Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18.x'
-      - run: npm i
+      - run: yarn
       - name: build examples
         run: |
-          NODE_OPTIONS="--openssl-legacy-provider" npm run build-storybook
+          export NODE_OPTIONS=--openssl-legacy-provider && yarn run build-storybook
       - name: upload storybook to chromatic
         uses: chromaui/action@v1
         with:
