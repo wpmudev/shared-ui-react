@@ -1,4 +1,4 @@
-name: "Chromatic"
+name: "Chromatic Test"
 on:
   pull_request_target:
     branches:
