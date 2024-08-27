@@ -1,4 +1,4 @@
-name: "Chromatic Test"
+name: "Chromatic"
 on:
   pull_request_target:
     branches:
@@ -11,10 +11,15 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - run: yarn
+      - uses: actions/checkout@v1
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'
+      - run: npm i
       - name: build examples
         run: |
-          export NODE_OPTIONS=--openssl-legacy-provider && yarn run build-storybook
+          export NODE_OPTIONS=--openssl-legacy-provider && npm run build-storybook
       - name: upload storybook to chromatic
         uses: chromaui/action@v1
         with:
