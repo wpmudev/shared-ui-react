@@ -12,10 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - run: npm
+      - run: yarn
       - name: build examples
         run: |
-          NODE_OPTIONS="--openssl-legacy-provider" npm run build-storybook
+          NODE_OPTIONS="--openssl-legacy-provider" yarn run build-storybook
       - name: upload storybook to chromatic
         uses: chromaui/action@v1
         with:
