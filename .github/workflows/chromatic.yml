@@ -19,7 +19,7 @@ jobs:
       - run: npm i
       - name: build examples test
         run: |
-          export NODE_OPTIONS=--openssl-legacy-provider && npm run build-storybook
+          npm run build-storybook
       - name: upload storybook to chromatic
         uses: chromaui/action@v1
         with:
