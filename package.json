@@ -12,8 +12,7 @@
     "react-dom": "^18.3.1",
     "regenerator-runtime": "^0.14.1",
     "rollup-plugin-postcss": "4.0.2",
-    "typescript": "^5.5.3",
-    "webpack": "^5.93.0"
+    "typescript": "^5.5.3"
   },
   "devDependencies": {
     "@babel/core": "^7.24.9",
@@ -52,7 +51,8 @@
     "react-is": "^18.3.1",
     "react-test-renderer": "^18.3.1",
     "sass-loader": "^14.2.1",
-    "style-loader": "^4.0.0"
+    "style-loader": "^4.0.0",
+    "webpack": "^5.93.0"
   },
   "resolutions": {
     "nth-check": "^2.0.1",
@@ -85,5 +85,6 @@
       "internal": "🏠 Internal"
     },
     "cacheDir": ".changelog"
-  }
+  },
+  "packageManager": "pnpm@9.1.0+sha512.67f5879916a9293e5cf059c23853d571beaf4f753c707f40cb22bed5fb1578c6aad3b6c4107ccb3ba0b35be003eb621a16471ac836c87beb53f9d54bb4612724"
 }
