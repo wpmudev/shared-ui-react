@@ -24,6 +24,7 @@ module.exports = {
 		// https://www.styled-components.com/docs/faqs#why-am-i-getting-a-warning-about-several-instances-of-module-on-the-page
 		config.resolve.alias['styled-components'] = path.resolve('node_modules', 'styled-components');
 
+		// Return the altered config
 		return config;
 	},
 
