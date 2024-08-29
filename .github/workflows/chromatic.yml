@@ -11,11 +11,18 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - run: yarn
-      - name: build examples
+      - uses: actions/checkout@v2
+        with:
+            fetch-depth: 0
+            ref: ${{ github.head_ref }}
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'
+      - run: npm i
+      - name: build examples test
         run: |
-          yarn run build-storybook
+          npm run build-storybook
       - name: upload storybook to chromatic
         uses: chromaui/action@v1
         with:
