@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
 
+## [1.9.4](https://github.com/wpmudev/shared-ui-react/compare/release/1.9.3...release/1.9.4) (2024-08-29)
+
+#### 📝 Documentation
+  * [#308](https://github.com/wpmudev/shared-ui-react/pull/308) 💥 breaking: updated storybook to v8 and packages ([SUI-595](https://incsub.atlassian.net/browse/SUI-595)) ([@creador-dev](https://github.com/creador-dev))
+
+#### Committers: 1
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
+
+
 ## [1.9.3](https://github.com/wpmudev/shared-ui-react/compare/release/1.9.2...release/1.9.3) (2023-06-06)
 
 #### 🚀 Improvements
