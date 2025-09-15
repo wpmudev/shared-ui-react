@@ -1,6 +1,6 @@
 import React from 'react';
 import { ProgressBar } from '../lib/react-progress-bar';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 export default {
 	title: 'Components/Progress Bar',
