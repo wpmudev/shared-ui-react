@@ -1,0 +1,293 @@
+[09:21:32.830] [INFO] Storybook Upgrade - v9.1.5
+[09:21:32.839] [INFO] detect-projects-spinner-start: Detecting projects...
+[09:21:32.841] [DEBUG] Finding Storybook projects...
+[09:21:32.924] [DEBUG] Found 1 Storybook projects
+[09:21:32.924] [INFO] detect-projects-spinner: Detecting projects: 1 projects
+[09:21:32.924] [DEBUG] Getting Storybook data...
+[09:21:32.924] [DEBUG] Getting Storybook info...
+[09:21:32.925] [DEBUG] Loading main config...
+[09:21:32.959] [DEBUG] Getting stories paths...
+[09:21:32.967] [DEBUG] Getting package manager...
+[09:21:33.274] [DEBUG] Getting Storybook version...
+[09:21:33.275] [DEBUG] /.storybook - Validating before version... 8.6.14
+[09:21:33.275] [DEBUG] /.storybook - Validating upgrade compatibility...
+[09:21:33.275] [DEBUG] /.storybook - Fetching NPM version information...
+[09:21:33.275] [DEBUG] Getting CLI versions from NPM for storybook...
+[09:21:33.276] [DEBUG] Getting CLI versions from NPM for storybook@next...
+[09:21:36.981] [DEBUG] /.storybook - Evaluating blockers...
+[09:21:36.982] [DEBUG] Getting installed version for @storybook/experimental-addon-test...
+[09:21:37.923] [INFO] detect-projects-spinner-stop: 1 project detected
+[09:21:37.923] [DEBUG] Found 1 valid projects and 0 error projects
+[09:21:37.923] [INFO] Upgrading from 8.6.14 to 9.1.5
+[09:21:37.929] [INFO] upgrade-dependencies-task-start: Fetching versions to update package.json files..
+[09:21:37.929] [DEBUG] Updating dependencies in /.storybook...
+[09:21:37.936] [INFO] upgrade-dependencies-task: /package.json
+/packages/react-radio-checkbox/package.json
+/packages/react-progress-bar/package.json
+/packages/react-post/package.json
+/packages/react-pagination/package.json
+/packages/react-notifications/package.json
+/packages/react-modal/package.json
+/packages/react-input/package.json
+/packages/react-dropdown/package.json
+/packages/react-button-icon/package.json
+/packages/react-button/package.json
+/packages/react-bulk-actions/package.json
+/packages/react-box/package.json
+/packages/react-accordion/package.json
+[09:21:37.936] [DEBUG] Getting CLI versions from NPM for @chromatic-com/storybook...
+[09:21:37.937] [DEBUG] Getting CLI versions from NPM for @storybook/addon-webpack5-compiler-babel...
+[09:21:40.850] [DEBUG] {
+  "upgradedDependencies": []
+}
+[09:21:40.850] [DEBUG] {
+  "upgradedDevDependencies": [
+    "@storybook/addon-a11y@^9.1.5",
+    "@storybook/addon-links@^9.1.5",
+    "@storybook/react@^9.1.5",
+    "@storybook/react-webpack5@^9.1.5",
+    "@chromatic-com/storybook@^4.1.1",
+    "@storybook/addon-webpack5-compiler-babel@^3.0.6"
+  ]
+}
+[09:21:40.850] [DEBUG] {
+  "upgradedPeerDependencies": []
+}
+[09:21:40.851] [DEBUG] Getting CLI versions from NPM for @storybook/addon-a11y...
+[09:21:45.178] [DEBUG] Getting CLI versions from NPM for @storybook/addon-links...
+[09:21:47.693] [DEBUG] Getting CLI versions from NPM for @storybook/react...
+[09:21:50.599] [DEBUG] Getting CLI versions from NPM for @storybook/react-webpack5...
+[09:21:53.447] [DEBUG] Using cached version for @chromatic-com/storybook...
+[09:21:53.447] [DEBUG] Using cached version for @storybook/addon-webpack5-compiler-babel...
+[09:21:53.447] [DEBUG] {
+  "upgradedDependencies": []
+}
+[09:21:53.447] [DEBUG] {
+  "upgradedDevDependencies": []
+}
+[09:21:53.447] [DEBUG] {
+  "upgradedPeerDependencies": []
+}
+[09:21:53.447] [DEBUG] {
+  "upgradedDependencies": []
+}
+[09:21:53.447] [DEBUG] {
+  "upgradedDevDependencies": []
+}
+[09:21:53.447] [DEBUG] {
+  "upgradedPeerDependencies": []
+}
+[09:21:53.448] [DEBUG] {
+  "upgradedDependencies": []
+}
+[09:21:53.448] [DEBUG] {
+  "upgradedDevDependencies": []
+}
+[09:21:53.448] [DEBUG] {
+  "upgradedPeerDependencies": []
+}
+[09:21:53.448] [DEBUG] {
+  "upgradedDependencies": []
+}
+[09:21:53.448] [DEBUG] {
+  "upgradedDevDependencies": []
+}
+[09:21:53.448] [DEBUG] {
+  "upgradedPeerDependencies": []
+}
+[09:21:53.448] [DEBUG] {
+  "upgradedDependencies": []
+}
+[09:21:53.448] [DEBUG] {
+  "upgradedDevDependencies": []
+}
+[09:21:53.448] [DEBUG] {
+  "upgradedPeerDependencies": []
+}
+[09:21:53.449] [DEBUG] {
+  "upgradedDependencies": []
+}
+[09:21:53.449] [DEBUG] {
+  "upgradedDevDependencies": []
+}
+[09:21:53.449] [DEBUG] {
+  "upgradedPeerDependencies": []
+}
+[09:21:53.449] [DEBUG] {
+  "upgradedDependencies": []
+}
+[09:21:53.449] [DEBUG] {
+  "upgradedDevDependencies": []
+}
+[09:21:53.449] [DEBUG] {
+  "upgradedPeerDependencies": []
+}
+[09:21:53.449] [DEBUG] {
+  "upgradedDependencies": []
+}
+[09:21:53.449] [DEBUG] {
+  "upgradedDevDependencies": []
+}
+[09:21:53.449] [DEBUG] {
+  "upgradedPeerDependencies": []
+}
+[09:21:53.450] [DEBUG] {
+  "upgradedDependencies": []
+}
+[09:21:53.450] [DEBUG] {
+  "upgradedDevDependencies": []
+}
+[09:21:53.450] [DEBUG] {
+  "upgradedPeerDependencies": []
+}
+[09:21:53.450] [DEBUG] {
+  "upgradedDependencies": []
+}
+[09:21:53.450] [DEBUG] {
+  "upgradedDevDependencies": []
+}
+[09:21:53.450] [DEBUG] {
+  "upgradedPeerDependencies": []
+}
+[09:21:53.450] [DEBUG] {
+  "upgradedDependencies": []
+}
+[09:21:53.450] [DEBUG] {
+  "upgradedDevDependencies": []
+}
+[09:21:53.450] [DEBUG] {
+  "upgradedPeerDependencies": []
+}
+[09:21:53.450] [DEBUG] {
+  "upgradedDependencies": []
+}
+[09:21:53.450] [DEBUG] {
+  "upgradedDevDependencies": []
+}
+[09:21:53.450] [DEBUG] {
+  "upgradedPeerDependencies": []
+}
+[09:21:53.450] [DEBUG] {
+  "upgradedDependencies": []
+}
+[09:21:53.450] [DEBUG] {
+  "upgradedDevDependencies": []
+}
+[09:21:53.450] [DEBUG] {
+  "upgradedPeerDependencies": []
+}
+[09:21:53.451] [INFO] upgrade-dependencies-task-success: Updated package versions in package.json files
+[09:21:53.451] [INFO] detect-automigrations-task-start: Detecting automigrations...
+[09:21:53.451] [DEBUG] Starting automigration collection across 1 projects and 15 fixes...
+[09:21:53.457] [INFO] detect-automigrations-task: Checking automigrations for /.storybook...
+[09:21:53.457] [DEBUG] Processing project: /.storybook
+[09:21:53.457] [DEBUG] Checking fix eslintPlugin for project /.storybook...
+[09:21:53.459] [DEBUG] Checking fix addon-mdx-gfm-remove for project /.storybook...
+[09:21:53.460] [DEBUG] Checking fix addon-storysource-code-panel for project /.storybook...
+[09:21:53.460] [DEBUG] Checking fix upgrade-storybook-related-dependencies for project /.storybook...
+[09:21:53.460] [DEBUG] Checking for incompatible storybook packages...
+[09:21:53.462] [DEBUG] Getting installed version for @storybook/addon-actions...
+[09:21:53.462] [DEBUG] Getting installed version for @storybook/addon-essentials...
+[09:21:53.463] [DEBUG] Getting installed version for @storybook/theming...
+[09:21:54.521] [DEBUG] An issue occurred while trying to find dependencies metadata using npm.
+[09:21:54.521] [DEBUG] Getting CLI versions from NPM for @storybook/theming...
+[09:21:54.522] [DEBUG] An issue occurred while trying to find dependencies metadata using npm.
+[09:21:54.522] [DEBUG] Getting CLI versions from NPM for @storybook/addon-actions...
+[09:21:54.522] [DEBUG] An issue occurred while trying to find dependencies metadata using npm.
+[09:21:54.522] [DEBUG] Getting CLI versions from NPM for @storybook/addon-essentials...
+[09:21:59.340] [DEBUG] Checking fix initial-globals for project /.storybook...
+[09:21:59.351] [DEBUG] Checking fix addon-a11y-addon-test for project /.storybook...
+[09:21:59.351] [DEBUG] Checking fix consolidated-imports for project /.storybook...
+[09:21:59.352] [DEBUG] Checking fix addon-experimental-test for project /.storybook...
+[09:21:59.352] [DEBUG] Using cached installed version for @storybook/experimental-addon-test...
+[09:21:59.352] [DEBUG] Checking fix rnstorybook-config for project /.storybook...
+[09:21:59.352] [DEBUG] Checking fix remove-addon-interactions for project /.storybook...
+[09:21:59.353] [DEBUG] Checking fix renderer-to-framework for project /.storybook...
+[09:21:59.353] [DEBUG] Checking fix remove-essential-addons for project /.storybook...
+[09:21:59.354] [DEBUG] Checking fix addon-a11y-parameters for project /.storybook...
+[09:21:59.354] [DEBUG] Checking fix remove-docs-autodocs for project /.storybook...
+[09:21:59.357] [DEBUG] Checking fix wrap-require for project /.storybook...
+[09:21:59.366] [INFO] detect-automigrations-task: 
+Automigrations detected:
+[09:21:59.372] [INFO] detect-automigrations-task: ✔ eslintPlugin
+[09:21:59.379] [INFO] detect-automigrations-task: ✔ consolidated-imports
+[09:21:59.385] [INFO] detect-automigrations-task: ✔ renderer-to-framework
+[09:21:59.391] [INFO] detect-automigrations-task: ✔ remove-essential-addons
+[09:21:59.396] [INFO] detect-automigrations-task: ✔ remove-docs-autodocs
+[09:21:59.396] [INFO] detect-automigrations-task-success: 5 automigration(s) detected
+[09:22:12.088] [PROMPT] Select automigrations to run {"choice":["eslintPlugin","consolidated-imports","renderer-to-framework","remove-essential-addons","remove-docs-autodocs"]}
+[09:22:12.089] [INFO] automigrate-/.storybook-task-start: Running automigrations for /.storybook
+[09:22:12.089] [DEBUG] Adding dependencies: eslint-plugin-storybook@9.1.5
+[09:22:12.089] [DEBUG] Getting CLI versions from NPM for eslint-plugin-storybook...
+[09:22:13.735] [DEBUG] Detected JSON config at /Volumes/Data/Office/shared-ui-react/.eslintrc.json
+[09:22:13.745] [INFO] automigrate-/.storybook-task: ✔ eslintPlugin
+[09:22:13.760] [INFO] automigrate-/.storybook-task: ✔ consolidated-imports
+[09:22:13.760] [DEBUG] 
+Migrating @storybook/react to @storybook/react-webpack5
+[09:22:13.762] [DEBUG] Updating package.json files...
+[09:22:13.769] [INFO] automigrate-/.storybook-task: ✔ renderer-to-framework
+[09:22:13.771] [DEBUG] Uninstalling @storybook/addon-essentials
+[09:22:13.772] [DEBUG] Removing '@storybook/addon-essentials' from main.js addons field.
+[09:22:13.777] [DEBUG] Uninstalling @storybook/addon-actions
+[09:22:13.777] [DEBUG] Removing '@storybook/addon-actions' from main.js addons field.
+[09:22:13.780] [DEBUG] Getting Storybook info...
+[09:22:13.780] [DEBUG] Loading main config...
+[09:22:13.784] [DEBUG] Getting stories paths...
+[09:22:13.784] [DEBUG] Getting package manager...
+[09:22:13.788] [DEBUG] Getting Storybook version...
+[09:22:13.795] [INFO] automigrate-/.storybook-task: Verifying @storybook/addon-docs
+[09:22:13.800] [INFO] automigrate-/.storybook-task: Installing @storybook/addon-docs@9.1.5
+[09:22:13.800] [DEBUG] Getting CLI versions from NPM for @storybook/addon-docs...
+[09:22:16.738] [INFO] automigrate-/.storybook-task: Adding '@storybook/addon-docs' to the "addons" field in
+/Volumes/Data/Office/shared-ui-react/.storybook/main.js
+[09:22:16.749] [INFO] automigrate-/.storybook-task: ✔ remove-essential-addons
+[09:22:16.755] [INFO] automigrate-/.storybook-task: 🔄 Updating docs parameter in main config file...
+[09:22:16.763] [INFO] automigrate-/.storybook-task: 🔄 Updating tags parameter in preview config file...
+[09:22:16.772] [INFO] automigrate-/.storybook-task: ✔ remove-docs-autodocs
+[09:22:16.772] [INFO] automigrate-/.storybook-task-success: Completed automigrations for /.storybook
+[09:22:16.772] [INFO] Installing dependencies...
+[09:22:16.772] [INFO] install-dependencies-task-start: Installing dependencies...
+[09:23:35.462] [INFO] added 89 packages, removed 67 packages, and changed 7 packages in 1m
+[09:23:35.472] [INFO] install-dependencies-task: added 89 packages, removed 67 packages, and changed 7 packages in 1m
+[09:23:35.472] [INFO] 262 packages are looking for funding
+  run `npm fund` for details
+[09:23:35.480] [INFO] install-dependencies-task: 262 packages are looking for funding
+run `npm fund` for details
+[09:23:35.480] [INFO] Dependencies installed
+[09:23:35.480] [INFO] install-dependencies-task-success: Dependencies installed
+[09:23:35.481] [WARN] Since you are in a monorepo, we advise you to deduplicate your dependencies. We can do this for you but it might take some time.
+[09:23:39.911] [PROMPT] Execute npm run dedupe? {"choice":true}
+[09:23:39.911] [INFO] Deduplicating dependencies...
+[09:23:39.912] [INFO] dedupe-dependencies-task-start: Deduplicating dependencies...
+[09:27:00.633] [INFO] added 51 packages, removed 69 packages, and changed 8 packages in 3m
+[09:27:00.641] [INFO] dedupe-dependencies-task: added 51 packages, removed 69 packages, and changed 8 packages in 3m
+[09:27:00.641] [INFO] 262 packages are looking for funding
+  run `npm fund` for details
+[09:27:00.647] [INFO] dedupe-dependencies-task: 262 packages are looking for funding
+run `npm fund` for details
+[09:27:00.653] [INFO] Dependencies deduplicated
+[09:27:00.653] [INFO] dedupe-dependencies-task-success: Dependencies deduplicated
+[09:27:00.653] [INFO] Checking the health of your project(s)..
+[09:27:01.183] [WARN] /.storybook: 1 issue found
+[09:27:01.188] [INFO] The "storybook" package was not found in your package.json.
+Installing "storybook" as a direct dev dependency in your package.json is required.
+[09:27:01.188] [INFO] Missing Storybook Dependency
+[09:27:01.193] [INFO] The "storybook" package was not found in your package.json.
+Installing "storybook" as a direct dev dependency in your package.json is required.
+[09:27:01.198] [INFO] Storybook doctor is complete!
+[09:27:01.202] [INFO] You can always recheck the health of your project(s) by running:
+npx storybook doctor
+[09:27:01.208] [INFO] The upgrade is complete!
+[09:27:01.212] [INFO] Your project(s) have been upgraded successfully, but some issues were found which need your attention, please check Storybook doctor logs above.
+[09:27:01.240] [INFO] If you want to learn more about the automigrations that executed in your project(s), please check the following links:
+
+• eslintPlugin
+• consolidated-imports
+• renderer-to-framework
+• remove-essential-addons
+• remove-docs-autodocs
+[09:27:01.245] [INFO] For a full list of changes, please check our migration guide: https://storybook.js.org/docs/migration-guide?ref=upgrade
+[09:27:01.250] [INFO] Attention: Storybook now collects completely anonymous telemetry regarding usage. This information is used to shape Storybook's roadmap and prioritize features.
+[09:27:01.256] [INFO] You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+[09:27:01.262] [INFO] https://storybook.js.org/telemetry
+[09:27:01.267] [INFO] 

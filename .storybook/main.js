@@ -2,18 +2,17 @@ import { dirname, join } from 'path';
 const path = require('path');
 
 module.exports = {
-	stories: ['../packages/**/*.stories.jsx'],
+    stories: ['../packages/**/*.stories.jsx'],
 
-	addons: [
-		getAbsolutePath('@storybook/addon-links'),
-		getAbsolutePath('@storybook/addon-actions'),
-		getAbsolutePath('@storybook/addon-essentials'),
-		getAbsolutePath('@storybook/addon-a11y'),
-		getAbsolutePath('@storybook/addon-webpack5-compiler-babel'),
-		getAbsolutePath('@chromatic-com/storybook'),
-	],
+    addons: [
+        getAbsolutePath('@storybook/addon-links'),
+        getAbsolutePath('@storybook/addon-a11y'),
+        getAbsolutePath('@storybook/addon-webpack5-compiler-babel'),
+        getAbsolutePath('@chromatic-com/storybook'),
+        getAbsolutePath("@storybook/addon-docs")
+    ],
 
-	webpackFinal: async (config) => {
+    webpackFinal: async (config) => {
 		// Change the order of resolution of main fields.
 		config.resolve.mainFields = ['src', 'module', 'main'];
 
@@ -25,14 +24,10 @@ module.exports = {
 		return config;
 	},
 
-	framework: {
+    framework: {
 		name: getAbsolutePath('@storybook/react-webpack5'),
 		options: {},
-	},
-
-	docs: {
-		autodocs: true,
-	},
+	}
 };
 
 function getAbsolutePath(value) {
